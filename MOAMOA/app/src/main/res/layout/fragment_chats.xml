@@ -18,12 +18,15 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:orientation="horizontal"
-        android:weightSum="1">
-        <EditText
+        android:weightSum="1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/Edittext_chat"
-            android:layout_weight="1"/>
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1"
+            />
         <Button
             android:layout_width="75dp"
             android:layout_height="match_parent"
