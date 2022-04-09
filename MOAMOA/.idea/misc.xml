@@ -23,6 +23,16 @@
         <entry key="..\:/Users/tasty/AndroidStudioProjects/grad1/MOAMOA/app/src/main/res/layout/listview.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/tasty/AndroidStudioProjects/grad1/MOAMOA/app/src/main/res/layout/row_chat.xml" value="0.25" />
         <entry key="..\:/Users/tasty/AndroidStudioProjects/grad1/MOAMOA/app/src/main/res/layout/row_chat1.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/edge.xml" value="0.1835" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/activity_main.xml" value="0.175" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_chats.xml" value="0.175" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_dashboard.xml" value="0.175" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_formcreate.xml" value="0.175" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_formdetail.xml" value="0.33" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_home.xml" value="0.175" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_my_page.xml" value="0.3390625" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_notifications.xml" value="0.175" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/row_chat.xml" value="0.3390625" />
       </map>
     </option>
   </component>
