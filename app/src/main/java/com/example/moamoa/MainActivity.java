@@ -1,6 +1,7 @@
 package com.example.moamoa;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -34,4 +35,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+    public void buttonClick(View view) {
+    }
 }
