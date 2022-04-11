@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MOAMOA</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_chats">chats</string>
+    <string name="title_my_page">my_page</string>
+</resources>
