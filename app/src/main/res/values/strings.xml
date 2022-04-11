@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">MOAMOA</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">홈</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_chats">chats</string>
-    <string name="title_my_page">my_page</string>
+    <string name="title_notifications">알람</string>
+    <string name="title_chats">채팅</string>
+    <string name="title_my_page">마이페이지</string>
+    <string name="title_formcreate">폼 생성</string>
 </resources>
