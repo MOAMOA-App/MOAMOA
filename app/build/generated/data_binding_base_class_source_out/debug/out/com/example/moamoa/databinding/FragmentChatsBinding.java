@@ -5,37 +5,48 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
+import com.google.android.material.textfield.TextInputEditText;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
 public final class FragmentChatsBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
   public final Button ButtonSend;
 
   @NonNull
+  public final TextInputEditText EditTextChat;
+
+  @NonNull
+  public final ImageView backpage;
+
+  @NonNull
   public final RecyclerView myRecyclerView;
 
-  private FragmentChatsBinding(@NonNull LinearLayout rootView, @NonNull Button ButtonSend,
+  private FragmentChatsBinding(@NonNull ConstraintLayout rootView, @NonNull Button ButtonSend,
+      @NonNull TextInputEditText EditTextChat, @NonNull ImageView backpage,
       @NonNull RecyclerView myRecyclerView) {
     this.rootView = rootView;
     this.ButtonSend = ButtonSend;
+    this.EditTextChat = EditTextChat;
+    this.backpage = backpage;
     this.myRecyclerView = myRecyclerView;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -66,13 +77,26 @@ public final class FragmentChatsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.EditText_chat;
+      TextInputEditText EditTextChat = ViewBindings.findChildViewById(rootView, id);
+      if (EditTextChat == null) {
+        break missingId;
+      }
+
+      id = R.id.backpage;
+      ImageView backpage = ViewBindings.findChildViewById(rootView, id);
+      if (backpage == null) {
+        break missingId;
+      }
+
       id = R.id.my_recycler_view;
       RecyclerView myRecyclerView = ViewBindings.findChildViewById(rootView, id);
       if (myRecyclerView == null) {
         break missingId;
       }
 
-      return new FragmentChatsBinding((LinearLayout) rootView, ButtonSend, myRecyclerView);
+      return new FragmentChatsBinding((ConstraintLayout) rootView, ButtonSend, EditTextChat,
+          backpage, myRecyclerView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

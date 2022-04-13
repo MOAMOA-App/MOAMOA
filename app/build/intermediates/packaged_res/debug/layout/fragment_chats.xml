@@ -1,37 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.chats.ChatsFragment">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1"
     >
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:id="@+id/my_recycler_view"
-        android:scrollbars="vertical"
-        android:layout_weight="1" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:orientation="horizontal"
+        android:background="@color/purple_500">
+        <ImageView
+            android:id="@+id/backpage"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:src="@drawable/ic_outline_arrow_back_ios_24"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:clickable="true"
+            />
+        <!--채팅방 제목--><!--클릭하면 참가자리스트 나오게끔-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@+id/title"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:stateListAnimator="@null"
+            android:paddingLeft="16dp"
+            android:gravity=""
+            android:clickable="true"/>
+    </LinearLayout>
+
+    <!-- 위의코드 문제시 다시 버튼 집어넣기(ㅠㅠ)
+    <Button
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="20"
+        android:text="BACK"
+        android:onClick="buttonClick"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="TITLE"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:stateListAnimator="@null"
+            android:paddingLeft="16dp"
+            android:gravity=""
+        -->
+
+    //메시지 전송
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical"></androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
         android:weightSum="1"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        >
+        //입력 창
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/EditText_chat"
             android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="16dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
             android:layout_weight="1"
             />
+        //SEND버튼
         <Button
+            android:id="@+id/Button_send"
             android:layout_width="75dp"
             android:layout_height="match_parent"
-            android:id="@+id/Button_send"
-            android:text="SEND"/>
+            android:layout_marginBottom="10dp"
+            android:text="SEND"
+            />
     </LinearLayout>
 
 </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

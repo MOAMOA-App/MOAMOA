@@ -8,32 +8,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
-
-        <TableLayout
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <TableRow>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#F44336"
-                    android:gravity="center"
-                    android:text=""
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
+            android:layout_height="56dp"
+            android:weightSum="2"
+            android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#9C27B0"
-                    android:gravity="center"
-                    android:text="B"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
-            </TableRow>
-        </TableLayout>
-
+            <TextView
+                android:id="@+id/list_attend"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="참가한 글"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/list_create"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="내가 쓴 글"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/black"/>
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

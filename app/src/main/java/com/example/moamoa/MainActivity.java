@@ -1,41 +1,69 @@
 package com.example.moamoa;
 
 import android.os.Bundle;
-import android.view.View;
+import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.moamoa.databinding.ActivityMainBinding;
+import com.example.moamoa.databinding.FragmentHomeBinding;
+import com.example.moamoa.ui.chats.ChatsFragment;
+import com.example.moamoa.ui.home.HomeFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
-
-    private ActivityMainBinding binding;
+    private ActivityMainBinding binding;    //Activity_main + binding
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater()); // 1. inflate 호출하여 인스턴스 생성
-        View view = binding.getRoot();                              // 2. getRoot()
-        setContentView(view);                                       // 3. 화면상의 활성 뷰로 만든다.
+        BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
 
-
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host);
+        //AppBarConfiguration -> 앱바에 라벨과 홈제외 뒤로가기 버튼 출력
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+        //앱바에 객체 적용
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        //navController activitymain의 navView에 적용
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        Toast.makeText(getApplicationContext(),"home",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.navigation_chats:
+                        Toast.makeText(getApplicationContext(),"chat",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.navigation_formcreate:
+                        Toast.makeText(getApplicationContext(),"formcreate",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.navigation_my_page:
+                        Toast.makeText(getApplicationContext(),"mypage",Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        Toast.makeText(getApplicationContext(),"NO PAGE",Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return false;
+            }
+        });
+
     }
 
-    public void buttonClick(View view) {
-    }
 }

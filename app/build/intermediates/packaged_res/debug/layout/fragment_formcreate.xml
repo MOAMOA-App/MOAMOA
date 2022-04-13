@@ -67,7 +67,7 @@
         <!--        android:padding="10dp"-->
         <Spinner
             android:id="@+id/spinner"
-            android:layout_width="152dp"
+            android:layout_width="171dp"
             android:layout_height="60dp"
 
             android:entries="@array/test">
@@ -76,7 +76,7 @@
 
         <TextView
             android:id="@+id/tv_result"
-            android:layout_width="74dp"
+            android:layout_width="83dp"
             android:layout_height="wrap_content"
             android:text="      ">
 
@@ -143,48 +143,6 @@
 
             android:text="내용"
             android:textSize="30sp"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             android:background="@drawable/edge"
             android:layout_margin="10dp">
 

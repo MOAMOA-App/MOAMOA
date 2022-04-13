@@ -20,6 +20,9 @@ public final class FragmentFormdetailBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final TextView category;
+
+  @NonNull
   public final TextView local;
 
   @NonNull
@@ -28,9 +31,10 @@ public final class FragmentFormdetailBinding implements ViewBinding {
   @NonNull
   public final TextView title;
 
-  private FragmentFormdetailBinding(@NonNull ConstraintLayout rootView, @NonNull TextView local,
-      @NonNull TextView nickname, @NonNull TextView title) {
+  private FragmentFormdetailBinding(@NonNull ConstraintLayout rootView, @NonNull TextView category,
+      @NonNull TextView local, @NonNull TextView nickname, @NonNull TextView title) {
     this.rootView = rootView;
+    this.category = category;
     this.local = local;
     this.nickname = nickname;
     this.title = title;
@@ -63,6 +67,12 @@ public final class FragmentFormdetailBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.category;
+      TextView category = ViewBindings.findChildViewById(rootView, id);
+      if (category == null) {
+        break missingId;
+      }
+
       id = R.id.local;
       TextView local = ViewBindings.findChildViewById(rootView, id);
       if (local == null) {
@@ -81,7 +91,8 @@ public final class FragmentFormdetailBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentFormdetailBinding((ConstraintLayout) rootView, local, nickname, title);
+      return new FragmentFormdetailBinding((ConstraintLayout) rootView, category, local, nickname,
+          title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
