@@ -1,14 +1,14 @@
-#Tue Apr 12 21:01:20 KST 2022
+#Wed Apr 13 16:56:44 KST 2022
 path.4=9/classes.dex
 path.3=1/classes.dex
 path.2=14/classes.dex
 path.1=0/classes.dex
 path.0=classes.dex
-base.4=C\:\\Users\\user\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
-base.3=C\:\\Users\\user\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-base.2=C\:\\Users\\user\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
-base.1=C\:\\Users\\user\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.0=C\:\\Users\\user\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.4=C\:\\Users\\lgrin\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
+base.3=C\:\\Users\\lgrin\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.2=C\:\\Users\\lgrin\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
+base.1=C\:\\Users\\lgrin\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.0=C\:\\Users\\lgrin\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex

@@ -2657,7 +2657,6 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
-id back_btn
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -2675,6 +2674,7 @@ id cache_measures
 id callMeasure
 id cancel_button
 id carryVelocity
+id category
 id center
 id center_horizontal
 id center_vertical
