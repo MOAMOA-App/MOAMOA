@@ -1,5 +1,7 @@
 package com.example.moamoa.ui.dashboard;
 
+import java.util.ArrayList;
+
 public class DashboardData {
     String formname;
     String recentmessage;
@@ -31,5 +33,14 @@ public class DashboardData {
 
     public void setResourceId(int resourceId) {
         this.resourceId = resourceId;
+    }
+
+    public static ArrayList<DashboardData> createContactsList(int numContacts) {
+        ArrayList<DashboardData> contacts = new ArrayList<DashboardData>();
+
+        for (int i = 1; i <= numContacts; i++) {
+            contacts.add(new DashboardData(123, "FORMNAME","RECENTMESSAGE"));
+        }
+        return contacts;
     }
 }

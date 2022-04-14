@@ -53,6 +53,7 @@ id mypage_btn
 id nav_host
 id nav_view
 id navigation_chats
+id navigation_dashboard
 id navigation_formcreate
 id navigation_home
 id navigation_my_page
@@ -79,8 +80,8 @@ layout fragment_login
 layout fragment_my_page
 layout fragment_notifications
 layout listview
-layout row_chat
-layout row_chatlist
+layout recyclerview_chat
+layout recyclerview_dashboard
 menu bottom_nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round

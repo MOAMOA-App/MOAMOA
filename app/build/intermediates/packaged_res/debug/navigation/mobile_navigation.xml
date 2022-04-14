@@ -18,10 +18,10 @@
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
-        android:id="@+id/navigation_chats"
-        android:name="com.example.moamoa.ui.home.HomeFragment"
-        android:label="@string/title_chats"
-        tools:layout="@layout/fragment_chats" />
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.moamoa.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_my_page"
