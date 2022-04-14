@@ -4,10 +4,12 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ScrollView;
+import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
@@ -17,20 +19,58 @@ import java.lang.String;
 
 public final class FragmentDashboardBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final ScrollView rootView;
 
   @NonNull
-  public final TextView textDashboard;
+  public final Button alarmBtn;
 
-  private FragmentDashboardBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView textDashboard) {
+  @NonNull
+  public final Button chatBtn;
+
+  @NonNull
+  public final EditText content;
+
+  @NonNull
+  public final Button homeBtn;
+
+  @NonNull
+  public final Button mypageBtn;
+
+  @NonNull
+  public final Spinner spinner;
+
+  @NonNull
+  public final Spinner spinner2;
+
+  @NonNull
+  public final Spinner spinner3;
+
+  @NonNull
+  public final EditText tvResult;
+
+  @NonNull
+  public final EditText won;
+
+  private FragmentDashboardBinding(@NonNull ScrollView rootView, @NonNull Button alarmBtn,
+      @NonNull Button chatBtn, @NonNull EditText content, @NonNull Button homeBtn,
+      @NonNull Button mypageBtn, @NonNull Spinner spinner, @NonNull Spinner spinner2,
+      @NonNull Spinner spinner3, @NonNull EditText tvResult, @NonNull EditText won) {
     this.rootView = rootView;
-    this.textDashboard = textDashboard;
+    this.alarmBtn = alarmBtn;
+    this.chatBtn = chatBtn;
+    this.content = content;
+    this.homeBtn = homeBtn;
+    this.mypageBtn = mypageBtn;
+    this.spinner = spinner;
+    this.spinner2 = spinner2;
+    this.spinner3 = spinner3;
+    this.tvResult = tvResult;
+    this.won = won;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public ScrollView getRoot() {
     return rootView;
   }
 
@@ -55,13 +95,68 @@ public final class FragmentDashboardBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.text_dashboard;
-      TextView textDashboard = ViewBindings.findChildViewById(rootView, id);
-      if (textDashboard == null) {
+      id = R.id.alarm_btn;
+      Button alarmBtn = ViewBindings.findChildViewById(rootView, id);
+      if (alarmBtn == null) {
         break missingId;
       }
 
-      return new FragmentDashboardBinding((ConstraintLayout) rootView, textDashboard);
+      id = R.id.chat_btn;
+      Button chatBtn = ViewBindings.findChildViewById(rootView, id);
+      if (chatBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.content;
+      EditText content = ViewBindings.findChildViewById(rootView, id);
+      if (content == null) {
+        break missingId;
+      }
+
+      id = R.id.home_btn;
+      Button homeBtn = ViewBindings.findChildViewById(rootView, id);
+      if (homeBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.mypage_btn;
+      Button mypageBtn = ViewBindings.findChildViewById(rootView, id);
+      if (mypageBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.spinner;
+      Spinner spinner = ViewBindings.findChildViewById(rootView, id);
+      if (spinner == null) {
+        break missingId;
+      }
+
+      id = R.id.spinner2;
+      Spinner spinner2 = ViewBindings.findChildViewById(rootView, id);
+      if (spinner2 == null) {
+        break missingId;
+      }
+
+      id = R.id.spinner3;
+      Spinner spinner3 = ViewBindings.findChildViewById(rootView, id);
+      if (spinner3 == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_result;
+      EditText tvResult = ViewBindings.findChildViewById(rootView, id);
+      if (tvResult == null) {
+        break missingId;
+      }
+
+      id = R.id.won;
+      EditText won = ViewBindings.findChildViewById(rootView, id);
+      if (won == null) {
+        break missingId;
+      }
+
+      return new FragmentDashboardBinding((ScrollView) rootView, alarmBtn, chatBtn, content,
+          homeBtn, mypageBtn, spinner, spinner2, spinner3, tvResult, won);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

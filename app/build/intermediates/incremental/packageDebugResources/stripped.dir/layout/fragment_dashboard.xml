@@ -8,23 +8,23 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:weightSum="100">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="38dp">
-
-    <EditText
-        android:layout_width="284dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:layout_weight="85"
-        android:background="@drawable/edge"
-        android:text="제목입니다"
-        android:textSize="30sp">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="38dp">
 
-    </EditText>
+        <EditText
+            android:layout_width="284dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="85"
+            android:background="@drawable/edge"
+            android:text="제목입니다"
+            android:textSize="30sp">
+
+        </EditText>
 
         <Button
             android:layout_width="20dp"
@@ -51,16 +51,16 @@
 
         </EditText>
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="149dp"
-        android:layout_height="61dp"
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="149dp"
+            android:layout_height="61dp"
 
-        android:entries="@array/test2">
+            android:entries="@array/test2">
 
-    </Spinner>
+        </Spinner>
 
-    <EditText
+        <EditText
             android:id="@+id/content"
             android:layout_width="180dp"
             android:layout_height="40dp"
