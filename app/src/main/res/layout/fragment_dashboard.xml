@@ -8,7 +8,7 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:weightSum="100">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -16,13 +16,15 @@
         tools:layout_editor_absoluteY="38dp">
 
         <EditText
+            android:id="@+id/title"
             android:layout_width="284dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="85"
             android:background="@drawable/edge"
             android:text="제목입니다"
-            android:textSize="30sp">
+            android:textSize="30sp"
+            android:layout_alignParentTop="true">
 
         </EditText>
 
@@ -31,15 +33,19 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="15"
-            android:text="+">
+            android:text="+"
+            android:layout_toRightOf="@id/title">
 
         </Button>
+
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="171dp"
             android:layout_height="60dp"
 
-            android:entries="@array/test">
+            android:entries="@array/test"
+            android:layout_below="@id/title"
+        >
 
         </Spinner>
 
@@ -47,7 +53,8 @@
             android:id="@+id/tv_result"
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:text="      ">
+            android:text="      "
+            android:layout_toRightOf="@id/spinner">
 
         </EditText>
 
@@ -56,7 +63,9 @@
             android:layout_width="149dp"
             android:layout_height="61dp"
 
-            android:entries="@array/test2">
+            android:entries="@array/test2"
+            android:layout_below="@id/tv_result"
+            >
 
         </Spinner>
 
@@ -131,48 +140,15 @@
             android:layout_height="match_parent"
             android:layout_weight="20"
             android:text="save"
+            android:layout_alignParentBottom="true"
             >
 
         </Button>
 
 
-        <Button android:onClick="buttonClick"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="25"
-            android:text="home"
-            android:textSize="20sp"
-            android:id="@+id/home_btn"
-            />
-
-        <Button android:onClick="buttonClick"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="25"
-            android:text="chat"
-            android:textSize="20sp"
-            android:id="@+id/chat_btn" />
-
-        <Button android:onClick="buttonClick"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="25"
-            android:text="alarm"
-            android:textSize="20sp"
-            android:id="@+id/alarm_btn"
-            />
-
-        <Button android:onClick="buttonClick"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="25"
-            android:text="my"
-            android:textSize="20sp"
-            android:id="@+id/mypage_btn"
-            />
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 
