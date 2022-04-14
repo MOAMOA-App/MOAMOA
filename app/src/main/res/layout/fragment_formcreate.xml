@@ -242,7 +242,7 @@
             android:text="alarm"
             android:textSize="20sp"
             android:id="@+id/alarm_btn"
-            />
+            tools:ignore="OnClick" />
 
         <Button android:onClick="buttonClick"
             android:layout_width="0dp"
