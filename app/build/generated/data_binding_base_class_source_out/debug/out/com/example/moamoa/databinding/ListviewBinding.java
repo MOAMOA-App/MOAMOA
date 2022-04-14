@@ -21,9 +21,6 @@ public final class ListviewBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final TextView body1;
-
-  @NonNull
   public final TextView charge;
 
   @NonNull
@@ -33,16 +30,19 @@ public final class ListviewBinding implements ViewBinding {
   public final ImageView mainImage;
 
   @NonNull
+  public final TextView name;
+
+  @NonNull
   public final TextView title;
 
-  private ListviewBinding(@NonNull LinearLayout rootView, @NonNull TextView body1,
-      @NonNull TextView charge, @NonNull TextView deadline, @NonNull ImageView mainImage,
+  private ListviewBinding(@NonNull LinearLayout rootView, @NonNull TextView charge,
+      @NonNull TextView deadline, @NonNull ImageView mainImage, @NonNull TextView name,
       @NonNull TextView title) {
     this.rootView = rootView;
-    this.body1 = body1;
     this.charge = charge;
     this.deadline = deadline;
     this.mainImage = mainImage;
+    this.name = name;
     this.title = title;
   }
 
@@ -73,12 +73,6 @@ public final class ListviewBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.body_1;
-      TextView body1 = ViewBindings.findChildViewById(rootView, id);
-      if (body1 == null) {
-        break missingId;
-      }
-
       id = R.id.charge;
       TextView charge = ViewBindings.findChildViewById(rootView, id);
       if (charge == null) {
@@ -97,14 +91,19 @@ public final class ListviewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.name;
+      TextView name = ViewBindings.findChildViewById(rootView, id);
+      if (name == null) {
+        break missingId;
+      }
+
       id = R.id.title;
       TextView title = ViewBindings.findChildViewById(rootView, id);
       if (title == null) {
         break missingId;
       }
 
-      return new ListviewBinding((LinearLayout) rootView, body1, charge, deadline, mainImage,
-          title);
+      return new ListviewBinding((LinearLayout) rootView, charge, deadline, mainImage, name, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

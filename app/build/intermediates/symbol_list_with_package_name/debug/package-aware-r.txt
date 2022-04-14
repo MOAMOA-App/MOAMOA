@@ -2488,6 +2488,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable border
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -2501,7 +2502,6 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
-drawable edge
 drawable ic_access_alarm_24
 drawable ic_account_circle_24
 drawable ic_chat_24
@@ -2667,7 +2667,6 @@ id beginOnFirstDraw
 id beginning
 id bestChoice
 id blocking
-id body_1
 id bottom
 id bounce
 id bounceBoth
@@ -2823,6 +2822,7 @@ id listMode
 id list_attend
 id list_create
 id list_item
+id listview
 id local
 id locale
 id login
@@ -2887,6 +2887,7 @@ id mtrl_view_tag_bottom_padding
 id multiply
 id my_recycler_view
 id mypage_btn
+id name
 id nav_controller_view_tag
 id nav_host
 id nav_host_fragment_container

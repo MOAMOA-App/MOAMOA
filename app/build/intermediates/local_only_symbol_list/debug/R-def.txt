@@ -12,7 +12,7 @@ color teal_700
 color white
 dimen activity_horizontal_margin
 dimen activity_vertical_margin
-drawable edge
+drawable border
 drawable ic_access_alarm_24
 drawable ic_account_circle_24
 drawable ic_chat_24
@@ -30,7 +30,6 @@ id TextView_nickname
 id alarm_btn
 id back_btn
 id backpage
-id body_1
 id btn_login
 id category
 id charge
@@ -44,12 +43,14 @@ id home_btn
 id iv_profile
 id list_attend
 id list_create
+id listview
 id local
 id login
 id mainImage
 id mobile_navigation
 id my_recycler_view
 id mypage_btn
+id name
 id nav_host
 id nav_view
 id navigation_chats
