@@ -9,15 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.moamoa.databinding.FragmentHomeBinding;
+import com.example.moamoa.databinding.FragmentChatsBinding;
 
 public class ChatsFragment extends Fragment {
-    private FragmentHomeBinding binding;
+    private FragmentChatsBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentChatsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         return root;

@@ -4,6 +4,7 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -22,7 +23,19 @@ public final class FragmentFormcreateBinding implements ViewBinding {
   private final ScrollView rootView;
 
   @NonNull
+  public final Button alarmBtn;
+
+  @NonNull
+  public final Button chatBtn;
+
+  @NonNull
   public final EditText content;
+
+  @NonNull
+  public final Button homeBtn;
+
+  @NonNull
+  public final Button mypageBtn;
 
   @NonNull
   public final Spinner spinner;
@@ -39,11 +52,16 @@ public final class FragmentFormcreateBinding implements ViewBinding {
   @NonNull
   public final TextView won;
 
-  private FragmentFormcreateBinding(@NonNull ScrollView rootView, @NonNull EditText content,
-      @NonNull Spinner spinner, @NonNull Spinner spinner2, @NonNull Spinner spinner3,
-      @NonNull EditText tvResult, @NonNull TextView won) {
+  private FragmentFormcreateBinding(@NonNull ScrollView rootView, @NonNull Button alarmBtn,
+      @NonNull Button chatBtn, @NonNull EditText content, @NonNull Button homeBtn,
+      @NonNull Button mypageBtn, @NonNull Spinner spinner, @NonNull Spinner spinner2,
+      @NonNull Spinner spinner3, @NonNull EditText tvResult, @NonNull TextView won) {
     this.rootView = rootView;
+    this.alarmBtn = alarmBtn;
+    this.chatBtn = chatBtn;
     this.content = content;
+    this.homeBtn = homeBtn;
+    this.mypageBtn = mypageBtn;
     this.spinner = spinner;
     this.spinner2 = spinner2;
     this.spinner3 = spinner3;
@@ -78,9 +96,33 @@ public final class FragmentFormcreateBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.alarm_btn;
+      Button alarmBtn = ViewBindings.findChildViewById(rootView, id);
+      if (alarmBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.chat_btn;
+      Button chatBtn = ViewBindings.findChildViewById(rootView, id);
+      if (chatBtn == null) {
+        break missingId;
+      }
+
       id = R.id.content;
       EditText content = ViewBindings.findChildViewById(rootView, id);
       if (content == null) {
+        break missingId;
+      }
+
+      id = R.id.home_btn;
+      Button homeBtn = ViewBindings.findChildViewById(rootView, id);
+      if (homeBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.mypage_btn;
+      Button mypageBtn = ViewBindings.findChildViewById(rootView, id);
+      if (mypageBtn == null) {
         break missingId;
       }
 
@@ -114,8 +156,8 @@ public final class FragmentFormcreateBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentFormcreateBinding((ScrollView) rootView, content, spinner, spinner2,
-          spinner3, tvResult, won);
+      return new FragmentFormcreateBinding((ScrollView) rootView, alarmBtn, chatBtn, content,
+          homeBtn, mypageBtn, spinner, spinner2, spinner3, tvResult, won);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

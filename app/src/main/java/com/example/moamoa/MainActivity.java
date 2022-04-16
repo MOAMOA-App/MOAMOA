@@ -2,6 +2,7 @@ package com.example.moamoa;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -39,31 +40,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         //navController activitymain의 navView에 적용
         NavigationUI.setupWithNavController(binding.navView, navController);
-
-        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.navigation_home:
-                        Toast.makeText(getApplicationContext(),"home",Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.navigation_chats:
-                        Toast.makeText(getApplicationContext(),"chat",Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.navigation_formcreate:
-                        Toast.makeText(getApplicationContext(),"formcreate",Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.navigation_my_page:
-                        Toast.makeText(getApplicationContext(),"mypage",Toast.LENGTH_SHORT).show();
-                        break;
-                    default:
-                        Toast.makeText(getApplicationContext(),"NO PAGE",Toast.LENGTH_SHORT).show();
-                        break;
-                }
-                return false;
-            }
-        });
-
     }
 
+    public void buttonClick(View view) {
+    }
 }
