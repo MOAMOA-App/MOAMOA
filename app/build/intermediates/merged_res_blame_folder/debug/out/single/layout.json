@@ -4,12 +4,12 @@
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_chats.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\activity_main.xml"
-    },
-    {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_login.xml",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_home.xml",

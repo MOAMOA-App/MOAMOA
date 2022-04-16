@@ -2641,7 +2641,6 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id alarm_btn
 id alertTitle
 id aligned
 id all
@@ -2686,7 +2685,6 @@ id chain
 id chain2
 id chains
 id charge
-id chat_btn
 id chat_formname
 id chat_recent
 id checkbox
@@ -2783,11 +2781,11 @@ id group_divider
 id grouping
 id groups
 id guideline
+id guideline2
 id header_title
 id hideable
 id home
 id homeAsUp
-id home_btn
 id honorRequest
 id horizontal_only
 id icon
@@ -2796,6 +2794,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id immediateStop
 id included
 id info
@@ -2819,6 +2818,7 @@ id line1
 id line3
 id linear
 id listMode
+id listView
 id list_attend
 id list_create
 id list_item
@@ -2885,7 +2885,6 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id my_recycler_view
-id mypage_btn
 id nav_controller_view_tag
 id nav_host
 id nav_host_fragment_container
@@ -3038,11 +3037,17 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id text_dashboard
+id textView
+id textView2
+id textView3
+id textView4
+id textView5
+id textView6
 id text_home
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
+id text_mypage
 id text_notifications
 id textinput_counter
 id textinput_error

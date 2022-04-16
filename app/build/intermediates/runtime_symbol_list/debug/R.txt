@@ -2640,7 +2640,6 @@ int id action_text 0x7f090047
 int id actions 0x7f090048
 int id activity_chooser_view_content 0x7f090049
 int id add 0x7f09004a
-int id alarm_btn 0x7f09004b
 int id alertTitle 0x7f09004c
 int id aligned 0x7f09004d
 int id all 0x7f09004e
@@ -2685,7 +2684,6 @@ int id chain 0x7f090074
 int id chain2 0x7f090075
 int id chains 0x7f090076
 int id charge 0x7f090077
-int id chat_btn 0x7f090078
 int id chat_formname 0x7f090079
 int id chat_recent 0x7f09007a
 int id checkbox 0x7f09007b
@@ -2782,11 +2780,11 @@ int id group_divider 0x7f0900d5
 int id grouping 0x7f0900d6
 int id groups 0x7f0900d7
 int id guideline 0x7f0900d8
+int id guideline2 0x7f09020c
 int id header_title 0x7f0900d9
 int id hideable 0x7f0900da
 int id home 0x7f0900db
 int id homeAsUp 0x7f0900dc
-int id home_btn 0x7f0900dd
 int id honorRequest 0x7f0900de
 int id horizontal_only 0x7f0900df
 int id icon 0x7f0900e0
@@ -2795,6 +2793,7 @@ int id ifRoom 0x7f0900e2
 int id ignore 0x7f0900e3
 int id ignoreRequest 0x7f0900e4
 int id image 0x7f0900e5
+int id imageView 0x7f09020d
 int id immediateStop 0x7f0900e6
 int id included 0x7f0900e7
 int id info 0x7f0900e8
@@ -2818,6 +2817,7 @@ int id line1 0x7f0900f9
 int id line3 0x7f0900fa
 int id linear 0x7f0900fb
 int id listMode 0x7f0900fc
+int id listView 0x7f09020e
 int id list_attend 0x7f0900fd
 int id list_create 0x7f0900fe
 int id list_item 0x7f0900ff
@@ -2884,7 +2884,6 @@ int id mtrl_picker_title_text 0x7f09013b
 int id mtrl_view_tag_bottom_padding 0x7f09013c
 int id multiply 0x7f09013d
 int id my_recycler_view 0x7f09013e
-int id mypage_btn 0x7f09013f
 int id nav_controller_view_tag 0x7f090140
 int id nav_host 0x7f090141
 int id nav_host_fragment_container 0x7f090142
@@ -3037,11 +3036,17 @@ int id textSpacerNoButtons 0x7f0901d4
 int id textSpacerNoTitle 0x7f0901d5
 int id textStart 0x7f0901d6
 int id textTop 0x7f0901d7
-int id text_dashboard 0x7f0901d8
+int id textView 0x7f09020f
+int id textView2 0x7f090210
+int id textView3 0x7f090211
+int id textView4 0x7f090212
+int id textView5 0x7f090213
+int id textView6 0x7f090214
 int id text_home 0x7f0901d9
 int id text_input_end_icon 0x7f0901da
 int id text_input_error_icon 0x7f0901db
 int id text_input_start_icon 0x7f0901dc
+int id text_mypage 0x7f090215
 int id text_notifications 0x7f0901dd
 int id textinput_counter 0x7f0901de
 int id textinput_error 0x7f0901df

@@ -4,10 +4,13 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.Guideline;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
@@ -20,12 +23,51 @@ public final class FragmentMyPageBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final ListView textDashboard;
+  public final Guideline guideline2;
 
-  private FragmentMyPageBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ListView textDashboard) {
+  @NonNull
+  public final ImageView imageView;
+
+  @NonNull
+  public final ListView listView;
+
+  @NonNull
+  public final ConstraintLayout textMypage;
+
+  @NonNull
+  public final TextView textView;
+
+  @NonNull
+  public final TextView textView2;
+
+  @NonNull
+  public final TextView textView3;
+
+  @NonNull
+  public final TextView textView4;
+
+  @NonNull
+  public final TextView textView5;
+
+  @NonNull
+  public final TextView textView6;
+
+  private FragmentMyPageBinding(@NonNull ConstraintLayout rootView, @NonNull Guideline guideline2,
+      @NonNull ImageView imageView, @NonNull ListView listView,
+      @NonNull ConstraintLayout textMypage, @NonNull TextView textView, @NonNull TextView textView2,
+      @NonNull TextView textView3, @NonNull TextView textView4, @NonNull TextView textView5,
+      @NonNull TextView textView6) {
     this.rootView = rootView;
-    this.textDashboard = textDashboard;
+    this.guideline2 = guideline2;
+    this.imageView = imageView;
+    this.listView = listView;
+    this.textMypage = textMypage;
+    this.textView = textView;
+    this.textView2 = textView2;
+    this.textView3 = textView3;
+    this.textView4 = textView4;
+    this.textView5 = textView5;
+    this.textView6 = textView6;
   }
 
   @Override
@@ -55,13 +97,64 @@ public final class FragmentMyPageBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.text_dashboard;
-      ListView textDashboard = ViewBindings.findChildViewById(rootView, id);
-      if (textDashboard == null) {
+      id = R.id.guideline2;
+      Guideline guideline2 = ViewBindings.findChildViewById(rootView, id);
+      if (guideline2 == null) {
         break missingId;
       }
 
-      return new FragmentMyPageBinding((ConstraintLayout) rootView, textDashboard);
+      id = R.id.imageView;
+      ImageView imageView = ViewBindings.findChildViewById(rootView, id);
+      if (imageView == null) {
+        break missingId;
+      }
+
+      id = R.id.listView;
+      ListView listView = ViewBindings.findChildViewById(rootView, id);
+      if (listView == null) {
+        break missingId;
+      }
+
+      ConstraintLayout textMypage = (ConstraintLayout) rootView;
+
+      id = R.id.textView;
+      TextView textView = ViewBindings.findChildViewById(rootView, id);
+      if (textView == null) {
+        break missingId;
+      }
+
+      id = R.id.textView2;
+      TextView textView2 = ViewBindings.findChildViewById(rootView, id);
+      if (textView2 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView3;
+      TextView textView3 = ViewBindings.findChildViewById(rootView, id);
+      if (textView3 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView4;
+      TextView textView4 = ViewBindings.findChildViewById(rootView, id);
+      if (textView4 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView5;
+      TextView textView5 = ViewBindings.findChildViewById(rootView, id);
+      if (textView5 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView6;
+      TextView textView6 = ViewBindings.findChildViewById(rootView, id);
+      if (textView6 == null) {
+        break missingId;
+      }
+
+      return new FragmentMyPageBinding((ConstraintLayout) rootView, guideline2, imageView, listView,
+          textMypage, textView, textView2, textView3, textView4, textView5, textView6);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
