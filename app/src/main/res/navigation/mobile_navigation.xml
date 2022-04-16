@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.moamoa.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.moamoa.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
@@ -19,19 +25,19 @@
 
     <fragment
         android:id="@+id/navigation_chats"
-        android:name="com.example.moamoa.ui.home.HomeFragment"
+        android:name="com.example.moamoa.ui.chats.ChatsFragment"
         android:label="@string/title_chats"
         tools:layout="@layout/fragment_chats" />
 
     <fragment
         android:id="@+id/navigation_my_page"
-        android:name="com.example.moamoa.ui.home.HomeFragment"
+        android:name="com.example.moamoa.ui.my_page.MypageFragment"
         android:label="@string/title_my_page"
         tools:layout="@layout/fragment_my_page" />
 
     <fragment
         android:id="@+id/navigation_formcreate"
-        android:name="com.example.moamoa.ui.home.HomeFragment"
+        android:name="com.example.moamoa.ui.formcreate.FormcreateFragment"
         android:label="@string/title_formcreate"
         tools:layout="@layout/fragment_formcreate" />
 </navigation>

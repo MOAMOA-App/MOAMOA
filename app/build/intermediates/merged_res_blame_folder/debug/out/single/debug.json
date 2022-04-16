@@ -36,6 +36,10 @@
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_home.xml"
     },
     {
+        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_recyclerview_dashboard.xml.flat",
+        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\recyclerview_dashboard.xml"
+    },
+    {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_my_page.xml.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_my_page.xml"
     },
@@ -112,10 +116,6 @@
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_dashboard_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_row_chatlist.xml.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\row_chatlist.xml"
-    },
-    {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_outline_arrow_back_ios_24.xml.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_outline_arrow_back_ios_24.xml"
     },
@@ -124,16 +124,16 @@
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\border.xml"
     },
     {
+        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_recyclerview_chat.xml.flat",
+        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\recyclerview_chat.xml"
+    },
+    {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_formlist.xml.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_formlist.xml"
     },
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_login.xml.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_login.xml"
-    },
-    {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_row_chat.xml.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\row_chat.xml"
     },
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.webp.flat",

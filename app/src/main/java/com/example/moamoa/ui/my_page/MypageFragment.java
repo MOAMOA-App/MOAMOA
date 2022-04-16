@@ -1,4 +1,4 @@
-package com.example.moamoa.ui.chats;
+package com.example.moamoa.ui.my_page;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,15 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.moamoa.databinding.FragmentChatsBinding;
+import com.example.moamoa.databinding.FragmentHomeBinding;
+import com.example.moamoa.databinding.FragmentMyPageBinding;
 
-public class ChatsFragment extends Fragment {
-    private FragmentChatsBinding binding;
+public class MypageFragment extends Fragment {
+    private FragmentMyPageBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentChatsBinding.inflate(inflater, container, false);
+        binding = FragmentMyPageBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         return root;
