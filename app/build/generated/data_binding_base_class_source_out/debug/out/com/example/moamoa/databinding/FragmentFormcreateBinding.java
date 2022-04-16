@@ -5,11 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
@@ -19,7 +19,7 @@ import java.lang.String;
 
 public final class FragmentFormcreateBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
   public final Button alarmBtn;
@@ -54,7 +54,7 @@ public final class FragmentFormcreateBinding implements ViewBinding {
   @NonNull
   public final TextView won;
 
-  private FragmentFormcreateBinding(@NonNull LinearLayout rootView, @NonNull Button alarmBtn,
+  private FragmentFormcreateBinding(@NonNull ConstraintLayout rootView, @NonNull Button alarmBtn,
       @NonNull Button backBtn, @NonNull Button chatBtn, @NonNull TextView content,
       @NonNull Button homeBtn, @NonNull Button mypageBtn, @NonNull Spinner spinner,
       @NonNull Spinner spinner2, @NonNull Spinner spinner3, @NonNull TextView tvResult,
@@ -75,7 +75,7 @@ public final class FragmentFormcreateBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -166,7 +166,7 @@ public final class FragmentFormcreateBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentFormcreateBinding((LinearLayout) rootView, alarmBtn, backBtn, chatBtn,
+      return new FragmentFormcreateBinding((ConstraintLayout) rootView, alarmBtn, backBtn, chatBtn,
           content, homeBtn, mypageBtn, spinner, spinner2, spinner3, tvResult, won);
     }
     String missingId = rootView.getResources().getResourceName(id);
