@@ -23,12 +23,15 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1005" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1005" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1005" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/edit_myinfo.xml" value="0.26927083333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_chats.xml" value="0.2006340579710145" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_dashboard.xml" value="0.10740740740740741" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_formdetail.xml" value="0.17" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_home.xml" value="0.20471014492753623" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_my_page.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_notifications.xml" value="0.1268920282542886" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/listview.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/row_chat.xml" value="0.26927083333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18611111111111112" />
       </map>
     </option>
