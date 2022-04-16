@@ -27,12 +27,6 @@ public class ChatsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        /*
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        return root;
-        */
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_chats, container, false);
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_chat);
@@ -45,11 +39,5 @@ public class ChatsFragment extends Fragment {
 
         return rootView;
 
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
     }
 }
