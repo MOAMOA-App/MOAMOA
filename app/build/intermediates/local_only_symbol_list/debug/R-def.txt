@@ -51,7 +51,6 @@ id local
 id login
 id mainImage
 id mobile_navigation
-id my_recycler_view
 id mypage_btn
 id nav_host
 id nav_view
@@ -62,6 +61,7 @@ id navigation_my_page
 id navigation_notifications
 id nickname
 id notification_list
+id recycler_chat
 id spinner
 id spinner2
 id spinner3
@@ -82,7 +82,7 @@ layout fragment_login
 layout fragment_my_page
 layout fragment_notifications
 layout listview
-layout recyclerview_chat
+layout recyclerview_chats
 layout recyclerview_dashboard
 layout recyclerview_notifications
 menu bottom_nav_menu

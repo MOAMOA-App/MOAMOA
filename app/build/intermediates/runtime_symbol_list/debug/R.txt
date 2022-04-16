@@ -2896,7 +2896,6 @@ int id mtrl_picker_text_input_range_start 0x7f09013b
 int id mtrl_picker_title_text 0x7f09013c
 int id mtrl_view_tag_bottom_padding 0x7f09013d
 int id multiply 0x7f09013e
-int id my_recycler_view 0x7f09013f
 int id mypage_btn 0x7f090140
 int id nav_controller_view_tag 0x7f090141
 int id nav_host 0x7f090142
@@ -2952,6 +2951,7 @@ int id progress_horizontal 0x7f090173
 int id radio 0x7f090174
 int id ratio 0x7f090175
 int id rectangles 0x7f090176
+int id recycler_chat 0x7f090218
 int id reverseSawtooth 0x7f090177
 int id right 0x7f090178
 int id rightToLeft 0x7f090179
@@ -3278,7 +3278,7 @@ int layout notification_template_media 0x7f0c0088
 int layout notification_template_media_custom 0x7f0c0089
 int layout notification_template_part_chronometer 0x7f0c006a
 int layout notification_template_part_time 0x7f0c006b
-int layout recyclerview_chat 0x7f0c006c
+int layout recyclerview_chats 0x7f0c008b
 int layout recyclerview_dashboard 0x7f0c006d
 int layout recyclerview_notifications 0x7f0c008a
 int layout select_dialog_item_material 0x7f0c006e

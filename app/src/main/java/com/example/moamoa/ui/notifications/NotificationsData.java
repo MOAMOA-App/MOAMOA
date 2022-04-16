@@ -14,6 +14,7 @@ public class NotificationsData {
     public String getName() {
         return alarmmessage;
     }
+
     public void setName(String alarmmessage) {
         this.alarmmessage = alarmmessage;
     }
@@ -21,6 +22,7 @@ public class NotificationsData {
     public String getMessage() {
         return formname;
     }
+
     public void setMessage(String recentmessage) { this.formname = formname; }
 
     public static ArrayList<NotificationsData> createContactsList(int numContacts) {

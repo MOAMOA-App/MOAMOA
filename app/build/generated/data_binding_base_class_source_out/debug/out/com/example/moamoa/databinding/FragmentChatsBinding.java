@@ -32,16 +32,16 @@ public final class FragmentChatsBinding implements ViewBinding {
   public final ImageView backpage;
 
   @NonNull
-  public final RecyclerView myRecyclerView;
+  public final RecyclerView recyclerChat;
 
   private FragmentChatsBinding(@NonNull ConstraintLayout rootView, @NonNull Button ButtonSend,
       @NonNull TextInputEditText EditTextChat, @NonNull ImageView backpage,
-      @NonNull RecyclerView myRecyclerView) {
+      @NonNull RecyclerView recyclerChat) {
     this.rootView = rootView;
     this.ButtonSend = ButtonSend;
     this.EditTextChat = EditTextChat;
     this.backpage = backpage;
-    this.myRecyclerView = myRecyclerView;
+    this.recyclerChat = recyclerChat;
   }
 
   @Override
@@ -89,14 +89,14 @@ public final class FragmentChatsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.my_recycler_view;
-      RecyclerView myRecyclerView = ViewBindings.findChildViewById(rootView, id);
-      if (myRecyclerView == null) {
+      id = R.id.recycler_chat;
+      RecyclerView recyclerChat = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerChat == null) {
         break missingId;
       }
 
       return new FragmentChatsBinding((ConstraintLayout) rootView, ButtonSend, EditTextChat,
-          backpage, myRecyclerView);
+          backpage, recyclerChat);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

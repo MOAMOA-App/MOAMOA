@@ -2897,7 +2897,6 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
-id my_recycler_view
 id mypage_btn
 id nav_controller_view_tag
 id nav_host
@@ -2953,6 +2952,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recycler_chat
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3279,7 +3279,7 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
-layout recyclerview_chat
+layout recyclerview_chats
 layout recyclerview_dashboard
 layout recyclerview_notifications
 layout select_dialog_item_material

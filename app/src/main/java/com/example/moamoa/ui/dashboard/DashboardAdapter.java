@@ -36,7 +36,6 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Hold
         int itemposition = position;
         holder.formName.setText(list.get(itemposition).formname);
         holder.recentMessage.setText(list.get(itemposition).recentmessage);
-        Log.e("StudyApp", "onBindViewHolder" + itemposition);
     }
 
     // 몇개의 데이터를 리스트로 뿌려줘야하는지 반드시 정의해줘야한다
