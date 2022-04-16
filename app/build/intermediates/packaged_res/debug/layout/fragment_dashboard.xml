@@ -5,14 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dashboard.DashboardFragment">
+    tools:context=".ui.dashboard.DashboardFragment"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatting_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
+        android:overScrollMode="never"
         >
+        <!--overScrollMode: 땡겼을때 파란색으로 동그랗게(?) 안나옴-->
     </androidx.recyclerview.widget.RecyclerView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

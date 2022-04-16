@@ -13,6 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
+        android:overScrollMode="never"
         >
+        <!--overScrollMode: 땡겼을때 파란색으로 동그랗게(?) 안나옴-->
     </androidx.recyclerview.widget.RecyclerView>
 </androidx.constraintlayout.widget.ConstraintLayout>
