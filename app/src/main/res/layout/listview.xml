@@ -31,7 +31,7 @@
                 android:textSize="15sp"></TextView>
 
             <TextView
-                android:id="@+id/body_1"
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="작성자 [지역]"
