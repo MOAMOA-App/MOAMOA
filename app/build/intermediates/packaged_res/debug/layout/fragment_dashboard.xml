@@ -9,8 +9,7 @@
     android:orientation="vertical"
     >
 
-
-        <Tablelow
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -23,9 +22,9 @@
                 android:text="제목입니다"
                 android:textSize="30sp"></EditText>
 
-        </Tablelow>
+        </TableRow>
 
-        <Tablelow
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -49,9 +48,9 @@
 
             </Button>
 
-        </Tablelow>
+        </TableRow>
 
-        <Tablelow
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="10"
@@ -84,10 +83,10 @@
 
             </Spinner>
 
-        </Tablelow>
+        </TableRow>
 
 
-        <Tablelow
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="10"
@@ -122,8 +121,8 @@
             </Spinner>
             <!--        android:padding="10dp"-->
 
-        </Tablelow>
-        <Tablelow
+        </TableRow>
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="22"
@@ -141,8 +140,8 @@
 
             </EditText>
 
-        </Tablelow>
-        <Tablelow
+        </TableRow>
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="10"
@@ -160,10 +159,10 @@
 
             </EditText>
 
-        </Tablelow>
+        </TableRow>
 
 
-        <Tablelow
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="10"
@@ -182,9 +181,9 @@
 
             <!--        android:padding="10dp"-->
 
-        </Tablelow>
+        </TableRow>
 
-        <Tablelow
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="8"
@@ -200,7 +199,7 @@
                 >
 
             </Button>
-        </Tablelow>
+        </TableRow>
 
 
 

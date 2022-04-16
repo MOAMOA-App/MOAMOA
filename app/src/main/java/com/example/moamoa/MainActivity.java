@@ -1,26 +1,16 @@
 package com.example.moamoa;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.moamoa.databinding.ActivityMainBinding;
-import com.example.moamoa.databinding.FragmentHomeBinding;
-import com.example.moamoa.ui.chats.ChatsFragment;
-import com.example.moamoa.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;    //Activity_main + binding

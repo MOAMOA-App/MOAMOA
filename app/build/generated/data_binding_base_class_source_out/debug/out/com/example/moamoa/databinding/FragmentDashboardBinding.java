@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
@@ -19,7 +19,7 @@ import java.lang.String;
 
 public final class FragmentDashboardBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final TableLayout rootView;
 
   @NonNull
   public final EditText content;
@@ -39,7 +39,7 @@ public final class FragmentDashboardBinding implements ViewBinding {
   @NonNull
   public final TextView won;
 
-  private FragmentDashboardBinding(@NonNull ConstraintLayout rootView, @NonNull EditText content,
+  private FragmentDashboardBinding(@NonNull TableLayout rootView, @NonNull EditText content,
       @NonNull Spinner spinner, @NonNull Spinner spinner2, @NonNull Spinner spinner3,
       @NonNull EditText tvResult, @NonNull TextView won) {
     this.rootView = rootView;
@@ -53,7 +53,7 @@ public final class FragmentDashboardBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public TableLayout getRoot() {
     return rootView;
   }
 
@@ -114,7 +114,7 @@ public final class FragmentDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentDashboardBinding((ConstraintLayout) rootView, content, spinner, spinner2,
+      return new FragmentDashboardBinding((TableLayout) rootView, content, spinner, spinner2,
           spinner3, tvResult, won);
     }
     String missingId = rootView.getResources().getResourceName(id);

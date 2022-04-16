@@ -1,31 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.formcreate.FormcreateFragment">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
->
-<TableLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-<TableRow
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:weightSum="100">
 
-
-</TableRow>
-
-    <TableRow
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="vertical"
+        android:background="@color/purple_500"
+        android:weightSum="100">
+
+        <Button
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:onClick="buttonClick"
+            android:text="back"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <!--        android:padding="10dp"-->
 
         <TextView
             android:layout_width="10dp"
             android:layout_height="match_parent"
             android:layout_weight="85"
-            android:background="@drawable/edge"
+            android:background="@drawable/border"
             android:text="제목입니다"
             android:textSize="30sp"
             android:layout_margin="10dp">
@@ -40,10 +60,8 @@
             android:text="+">
 
         </Button>
-
-    </TableRow>
-
-    <TableRow
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
@@ -59,13 +77,13 @@
 
         </Spinner>
 
-        <EditText
+        <TextView
             android:id="@+id/tv_result"
             android:layout_width="83dp"
             android:layout_height="wrap_content"
             android:text="      ">
 
-        </EditText>
+        </TextView>
 
         <Spinner
             android:id="@+id/spinner2"
@@ -76,24 +94,24 @@
 
         </Spinner>
 
-    </TableRow>
+    </LinearLayout>
 
 
-    <TableRow
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
         android:orientation="horizontal">
 
-        <EditText
+        <TextView
             android:id="@+id/content"
             android:layout_width="180dp"
             android:layout_height="40dp"
             android:text="가격"
             android:textSize="20dp"
-            android:background="@drawable/edge"
+            android:background="@drawable/border"
             android:layout_margin="10dp">
-        </EditText>
+        </TextView>
 
         <TextView
             android:id="@+id/won"
@@ -114,70 +132,69 @@
         </Spinner>
         <!--        android:padding="10dp"-->
 
-    </TableRow>
-    <TableRow
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="22"
         android:orientation="vertical">
 
         <!--        android:padding="10dp"-->
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="134dp"
 
             android:text="내용"
             android:textSize="30sp"
-            android:background="@drawable/edge"
+            android:background="@drawable/border"
             android:layout_margin="10dp">
 
-        </EditText>
+        </TextView>
 
-    </TableRow>
-    <TableRow
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
         android:orientation="vertical">
 
         <!--        android:padding="10dp"-->
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
             android:text="거래장소"
             android:textSize="30sp"
-            android:background="@drawable/edge"
+            android:background="@drawable/border"
             android:layout_margin="10dp">
 
-        </EditText>
+        </TextView>
 
-    </TableRow>
+    </LinearLayout>
 
 
-    <TableRow
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
         android:orientation="vertical">
 
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
             android:text="기간"
             android:textSize="30sp"
-            android:background="@drawable/edge"
-            android:layout_margin="10dp"
-            android:inputType="date"
-            android:ems="10" ></EditText>
+            android:background="@drawable/border"
+            android:layout_margin="10dp">
 
+        </TextView>
 
         <!--        android:padding="10dp"-->
 
-    </TableRow>
+    </LinearLayout>
 
-    <TableRow
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8"
@@ -193,7 +210,8 @@
             >
 
         </Button>
-    </TableRow>
+    </LinearLayout>
+
 
 
     <LinearLayout
@@ -237,9 +255,12 @@
             android:textSize="20sp"
             android:id="@+id/mypage_btn"
             />
+
+
     </LinearLayout>
-</TableLayout>
 
 
-</ScrollView>
 
+</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
