@@ -1,22 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dashboard.DashboardFragment">
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    >
 
-    <TextView
-        android:id="@+id/text_dashboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Tablelow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="85"
+                android:background="@drawable/edge"
+                android:text="제목입니다"
+                android:textSize="30sp"></EditText>
+
+        </Tablelow>
+
+        <Tablelow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="85"
+                android:background="@drawable/edge"
+                android:text="제목입니다"
+                android:textSize="30sp"
+                android:layout_margin="10dp">
+
+            </TextView>
+
+            <Button
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="15"
+                android:text="+">
+
+            </Button>
+
+        </Tablelow>
+
+        <Tablelow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:orientation="horizontal">
+
+            <!--        android:padding="10dp"-->
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="171dp"
+                android:layout_height="60dp"
+
+                android:entries="@array/test">
+
+            </Spinner>
+
+            <EditText
+                android:id="@+id/tv_result"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:text="      ">
+
+            </EditText>
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="149dp"
+                android:layout_height="61dp"
+
+                android:entries="@array/test2">
+
+            </Spinner>
+
+        </Tablelow>
+
+
+        <Tablelow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/content"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:text="가격"
+                android:textSize="20dp"
+                android:background="@drawable/edge"
+                android:layout_margin="10dp">
+            </EditText>
+
+            <TextView
+                android:id="@+id/won"
+                android:layout_width="50dp"
+                android:layout_height="39dp"
+                android:text=" 원"
+                android:textSize="20dp">
+
+            </TextView>
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+
+                android:entries="@array/test3">
+
+            </Spinner>
+            <!--        android:padding="10dp"-->
+
+        </Tablelow>
+        <Tablelow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="22"
+            android:orientation="vertical">
+
+            <!--        android:padding="10dp"-->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="134dp"
+
+                android:text="내용"
+                android:textSize="30sp"
+                android:background="@drawable/edge"
+                android:layout_margin="10dp">
+
+            </EditText>
+
+        </Tablelow>
+        <Tablelow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:orientation="vertical">
+
+            <!--        android:padding="10dp"-->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:text="거래장소"
+                android:textSize="30sp"
+                android:background="@drawable/edge"
+                android:layout_margin="10dp">
+
+            </EditText>
+
+        </Tablelow>
+
+
+        <Tablelow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:text="기간"
+                android:textSize="30sp"
+                android:background="@drawable/edge"
+                android:layout_margin="10dp">
+
+            </EditText>
+
+            <!--        android:padding="10dp"-->
+
+        </Tablelow>
+
+        <Tablelow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:orientation="vertical"
+            android:gravity="center_vertical|right">
+
+            <!--        android:padding="10dp"-->
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:text="save"
+                >
+
+            </Button>
+        </Tablelow>
+
+
+
+
+
+</TableLayout>
+
+
+
+

@@ -2640,7 +2640,6 @@ int id action_text 0x7f090047
 int id actions 0x7f090048
 int id activity_chooser_view_content 0x7f090049
 int id add 0x7f09004a
-int id alarm_btn 0x7f09004b
 int id alertTitle 0x7f09004c
 int id aligned 0x7f09004d
 int id all 0x7f09004e
@@ -2658,7 +2657,6 @@ int id auto 0x7f090059
 int id autoComplete 0x7f09005a
 int id autoCompleteToEnd 0x7f09005b
 int id autoCompleteToStart 0x7f09005c
-int id back_btn 0x7f09005d
 int id backpage 0x7f09005e
 int id barrier 0x7f09005f
 int id baseline 0x7f090060
@@ -2686,7 +2684,6 @@ int id chain 0x7f090075
 int id chain2 0x7f090076
 int id chains 0x7f090077
 int id charge 0x7f090078
-int id chat_btn 0x7f090079
 int id chat_formname 0x7f09007a
 int id chat_recent 0x7f09007b
 int id checkbox 0x7f09007c
@@ -2787,7 +2784,6 @@ int id header_title 0x7f0900da
 int id hideable 0x7f0900db
 int id home 0x7f0900dc
 int id homeAsUp 0x7f0900dd
-int id home_btn 0x7f0900de
 int id honorRequest 0x7f0900df
 int id horizontal_only 0x7f0900e0
 int id icon 0x7f0900e1
@@ -2885,7 +2881,6 @@ int id mtrl_picker_title_text 0x7f09013c
 int id mtrl_view_tag_bottom_padding 0x7f09013d
 int id multiply 0x7f09013e
 int id my_recycler_view 0x7f09013f
-int id mypage_btn 0x7f090140
 int id nav_controller_view_tag 0x7f090141
 int id nav_host 0x7f090142
 int id nav_host_fragment_container 0x7f090143
@@ -3256,8 +3251,8 @@ int layout notification_template_custom_big 0x7f0c0068
 int layout notification_template_icon_group 0x7f0c0069
 int layout notification_template_part_chronometer 0x7f0c006a
 int layout notification_template_part_time 0x7f0c006b
-int layout row_chat 0x7f0c006c
-int layout row_chatlist 0x7f0c006d
+int layout recyclerview_chat 0x7f0c006c
+int layout recyclerview_dashboard 0x7f0c006d
 int layout select_dialog_item_material 0x7f0c006e
 int layout select_dialog_multichoice_material 0x7f0c006f
 int layout select_dialog_singlechoice_material 0x7f0c0070

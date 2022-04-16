@@ -2641,7 +2641,6 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id alarm_btn
 id alertTitle
 id aligned
 id all
@@ -2659,7 +2658,6 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
-id back_btn
 id backpage
 id barrier
 id baseline
@@ -2687,7 +2685,6 @@ id chain
 id chain2
 id chains
 id charge
-id chat_btn
 id chat_formname
 id chat_recent
 id checkbox
@@ -2788,7 +2785,6 @@ id header_title
 id hideable
 id home
 id homeAsUp
-id home_btn
 id honorRequest
 id horizontal_only
 id icon
@@ -2886,7 +2882,6 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id my_recycler_view
-id mypage_btn
 id nav_controller_view_tag
 id nav_host
 id nav_host_fragment_container
@@ -3257,8 +3252,8 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
-layout row_chat
-layout row_chatlist
+layout recyclerview_chat
+layout recyclerview_dashboard
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
