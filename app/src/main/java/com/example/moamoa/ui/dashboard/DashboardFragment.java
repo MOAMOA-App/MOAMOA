@@ -21,37 +21,30 @@ import java.util.ArrayList;
 public class DashboardFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private MainViewAdapter adapter;
+    private DashboardAdapter adapter;
     private ArrayList<DashboardData> list = new ArrayList<>();
 
     private FragmentDashboardBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        //이거는... 뭔코드인지 모르는데 혹시해서 냄겨둠
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        /*
-        ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_dashboard, container, false);
+        //화면 연결
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.chatting_list);
 
-        list = DashboardData.createContactsList(5);
+        list = DashboardData.createContactsList(5); //나오는 갯수는 폼 등록된 갯수만큼 해주면될듯
         recyclerView.setHasFixedSize(true);
-        adapter = new MainViewAdapter(getActivity(), list);
+        adapter = new DashboardAdapter(getActivity(), list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
 
-        Log.e("Frag", "MainFragment");
         return rootView;
-        */
-
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        // return root
     }
 
     @Override
