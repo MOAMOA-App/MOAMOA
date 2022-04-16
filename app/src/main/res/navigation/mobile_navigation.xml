@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/navigation_my_page"
-        android:name="com.example.moamoa.ui.my_page.MypageFragment"
+        android:name="com.example.moamoa.ui.mypage.MypageFragment"
         android:label="@string/title_my_page"
         tools:layout="@layout/fragment_my_page" />
 
@@ -39,5 +39,5 @@
         android:id="@+id/navigation_formcreate"
         android:name="com.example.moamoa.ui.formcreate.FormcreateFragment"
         android:label="@string/title_formcreate"
-        tools:layout="@layout/fragment_formcreate" />
+        tools:layout="@layout/fragment_formcreate"/>
 </navigation>

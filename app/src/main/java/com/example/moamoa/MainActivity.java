@@ -20,17 +20,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
 
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_chats, R.id.navigation_formcreate, R.id.navigation_my_page)
-                .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host);
+        //AppBarConfiguration -> 앱바에 라벨과 홈제외 뒤로가기 버튼 출력
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+        //앱바에 객체 적용
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        //navController activitymain의 navView에 적용
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
