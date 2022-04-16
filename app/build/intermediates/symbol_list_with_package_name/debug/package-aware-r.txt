@@ -2908,6 +2908,8 @@ id navigation_bar_item_icon_view
 id navigation_bar_item_labels_group
 id navigation_bar_item_large_label_view
 id navigation_bar_item_small_label_view
+id navigation_chatlist
+id navigation_chats
 id navigation_dashboard
 id navigation_formcreate
 id navigation_header_container
@@ -3208,6 +3210,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_chatlist
 layout fragment_chats
 layout fragment_dashboard
 layout fragment_formcreate
@@ -3279,8 +3282,8 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout recyclerview_chatlist
 layout recyclerview_chats
-layout recyclerview_dashboard
 layout recyclerview_notifications
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
@@ -3443,6 +3446,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
+string title_chatlist
 string title_chats
 string title_dashboard
 string title_formcreate

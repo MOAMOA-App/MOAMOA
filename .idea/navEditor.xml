@@ -8,13 +8,13 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="navigation_chats">
+                  <entry key="navigation_chatlist">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="368" />
+                            <option name="x" value="6" />
+                            <option name="y" value="371" />
                           </Point>
                         </option>
                       </LayoutPositions>

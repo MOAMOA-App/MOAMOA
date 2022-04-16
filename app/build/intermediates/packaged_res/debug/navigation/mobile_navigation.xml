@@ -34,4 +34,10 @@
         android:name="com.example.moamoa.ui.home.HomeFragment"
         android:label="@string/title_formcreate"
         tools:layout="@layout/fragment_formcreate" />
+
+    <fragment
+        android:id="@+id/navigation_chatlist"
+        android:name="com.example.moamoa.ui.chatlist.ChatListFragment"
+        android:label='@string/title_chatlist'
+        tools:layout="@layout/fragment_chatlist" />
 </navigation>

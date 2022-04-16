@@ -2907,6 +2907,8 @@ int id navigation_bar_item_icon_view 0x7f090147
 int id navigation_bar_item_labels_group 0x7f090148
 int id navigation_bar_item_large_label_view 0x7f090149
 int id navigation_bar_item_small_label_view 0x7f09014a
+int id navigation_chatlist 0x7f090219
+int id navigation_chats 0x7f09014b
 int id navigation_dashboard 0x7f09014c
 int id navigation_formcreate 0x7f09014d
 int id navigation_header_container 0x7f09014e
@@ -3207,6 +3209,7 @@ int layout design_navigation_menu 0x7f0c002a
 int layout design_navigation_menu_item 0x7f0c002b
 int layout design_text_input_end_icon 0x7f0c002c
 int layout design_text_input_start_icon 0x7f0c002d
+int layout fragment_chatlist 0x7f0c008c
 int layout fragment_chats 0x7f0c002e
 int layout fragment_dashboard 0x7f0c002f
 int layout fragment_formcreate 0x7f0c0030
@@ -3278,8 +3281,8 @@ int layout notification_template_media 0x7f0c0088
 int layout notification_template_media_custom 0x7f0c0089
 int layout notification_template_part_chronometer 0x7f0c006a
 int layout notification_template_part_time 0x7f0c006b
+int layout recyclerview_chatlist 0x7f0c008d
 int layout recyclerview_chats 0x7f0c008b
-int layout recyclerview_dashboard 0x7f0c006d
 int layout recyclerview_notifications 0x7f0c008a
 int layout select_dialog_item_material 0x7f0c006e
 int layout select_dialog_multichoice_material 0x7f0c006f
@@ -3442,6 +3445,7 @@ int string path_password_eye_mask_visible 0x7f110082
 int string path_password_strike_through 0x7f110083
 int string search_menu_title 0x7f110084
 int string status_bar_notification_info_overflow 0x7f110085
+int string title_chatlist 0x7f11008d
 int string title_chats 0x7f110086
 int string title_dashboard 0x7f110087
 int string title_formcreate 0x7f110088

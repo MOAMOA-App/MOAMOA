@@ -54,6 +54,8 @@ id mobile_navigation
 id mypage_btn
 id nav_host
 id nav_view
+id navigation_chatlist
+id navigation_chats
 id navigation_dashboard
 id navigation_formcreate
 id navigation_home
@@ -72,6 +74,7 @@ id tv_result
 id won
 layout activity_login
 layout activity_main
+layout fragment_chatlist
 layout fragment_chats
 layout fragment_dashboard
 layout fragment_formcreate
@@ -82,8 +85,8 @@ layout fragment_login
 layout fragment_my_page
 layout fragment_notifications
 layout listview
+layout recyclerview_chatlist
 layout recyclerview_chats
-layout recyclerview_dashboard
 layout recyclerview_notifications
 menu bottom_nav_menu
 mipmap ic_launcher
@@ -91,6 +94,7 @@ mipmap ic_launcher_round
 navigation mobile_navigation
 string app_name
 string hello_blank_fragment
+string title_chatlist
 string title_chats
 string title_dashboard
 string title_formcreate

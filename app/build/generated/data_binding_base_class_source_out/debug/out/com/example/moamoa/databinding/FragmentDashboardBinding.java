@@ -4,10 +4,11 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ScrollView;
+import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
@@ -17,20 +18,45 @@ import java.lang.String;
 
 public final class FragmentDashboardBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final ScrollView rootView;
 
   @NonNull
-  public final RecyclerView chattingList;
+  public final EditText content;
 
-  private FragmentDashboardBinding(@NonNull ConstraintLayout rootView,
-      @NonNull RecyclerView chattingList) {
+  @NonNull
+  public final Spinner spinner;
+
+  @NonNull
+  public final Spinner spinner2;
+
+  @NonNull
+  public final Spinner spinner3;
+
+  @NonNull
+  public final EditText title;
+
+  @NonNull
+  public final EditText tvResult;
+
+  @NonNull
+  public final EditText won;
+
+  private FragmentDashboardBinding(@NonNull ScrollView rootView, @NonNull EditText content,
+      @NonNull Spinner spinner, @NonNull Spinner spinner2, @NonNull Spinner spinner3,
+      @NonNull EditText title, @NonNull EditText tvResult, @NonNull EditText won) {
     this.rootView = rootView;
-    this.chattingList = chattingList;
+    this.content = content;
+    this.spinner = spinner;
+    this.spinner2 = spinner2;
+    this.spinner3 = spinner3;
+    this.title = title;
+    this.tvResult = tvResult;
+    this.won = won;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public ScrollView getRoot() {
     return rootView;
   }
 
@@ -55,13 +81,50 @@ public final class FragmentDashboardBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.chatting_list;
-      RecyclerView chattingList = ViewBindings.findChildViewById(rootView, id);
-      if (chattingList == null) {
+      id = R.id.content;
+      EditText content = ViewBindings.findChildViewById(rootView, id);
+      if (content == null) {
         break missingId;
       }
 
-      return new FragmentDashboardBinding((ConstraintLayout) rootView, chattingList);
+      id = R.id.spinner;
+      Spinner spinner = ViewBindings.findChildViewById(rootView, id);
+      if (spinner == null) {
+        break missingId;
+      }
+
+      id = R.id.spinner2;
+      Spinner spinner2 = ViewBindings.findChildViewById(rootView, id);
+      if (spinner2 == null) {
+        break missingId;
+      }
+
+      id = R.id.spinner3;
+      Spinner spinner3 = ViewBindings.findChildViewById(rootView, id);
+      if (spinner3 == null) {
+        break missingId;
+      }
+
+      id = R.id.title;
+      EditText title = ViewBindings.findChildViewById(rootView, id);
+      if (title == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_result;
+      EditText tvResult = ViewBindings.findChildViewById(rootView, id);
+      if (tvResult == null) {
+        break missingId;
+      }
+
+      id = R.id.won;
+      EditText won = ViewBindings.findChildViewById(rootView, id);
+      if (won == null) {
+        break missingId;
+      }
+
+      return new FragmentDashboardBinding((ScrollView) rootView, content, spinner, spinner2,
+          spinner3, title, tvResult, won);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

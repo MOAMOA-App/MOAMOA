@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentHomeBinding;
-import com.example.moamoa.ui.dashboard.DashboardAdapter;
-import com.example.moamoa.ui.dashboard.DashboardData;
 
 import java.util.ArrayList;
 

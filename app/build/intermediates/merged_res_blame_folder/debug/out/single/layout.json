@@ -40,6 +40,10 @@
         "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\src\\main\\res\\layout\\recyclerview_chats.xml"
     },
     {
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_chatlist.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\src\\main\\res\\layout\\fragment_chatlist.xml"
+    },
+    {
         "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\listview.xml",
         "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\src\\main\\res\\layout\\listview.xml"
     },
@@ -54,6 +58,10 @@
     {
         "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
         "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\recyclerview_chatlist.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\src\\main\\res\\layout\\recyclerview_chatlist.xml"
     },
     {
         "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\recyclerview_dashboard.xml",

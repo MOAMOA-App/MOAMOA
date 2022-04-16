@@ -44,8 +44,8 @@
         "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\build\\intermediates\\merged_res\\debug\\layout_recyclerview_dashboard.xml.flat",
-        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\src\\main\\res\\layout\\recyclerview_dashboard.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_chatlist.xml.flat",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\src\\main\\res\\layout\\fragment_chatlist.xml"
     },
     {
         "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.webp.flat",
@@ -126,6 +126,10 @@
     {
         "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_create_24.xml.flat",
         "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\src\\main\\res\\drawable\\ic_create_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\build\\intermediates\\merged_res\\debug\\layout_recyclerview_chatlist.xml.flat",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\src\\main\\res\\layout\\recyclerview_chatlist.xml"
     },
     {
         "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA6\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.webp.flat",

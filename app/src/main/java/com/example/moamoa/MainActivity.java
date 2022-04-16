@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.navigation_home:
                         Toast.makeText(getApplicationContext(),"home",Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.navigation_dashboard: //dashboard(채팅리스트)로 연결되도록 변경
+                    case R.id.navigation_chats:
                         Toast.makeText(getApplicationContext(),"chat",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.navigation_formcreate:
