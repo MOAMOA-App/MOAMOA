@@ -4,10 +4,10 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
@@ -20,12 +20,12 @@ public final class FragmentNotificationsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TextView textNotifications;
+  public final RecyclerView notificationList;
 
   private FragmentNotificationsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView textNotifications) {
+      @NonNull RecyclerView notificationList) {
     this.rootView = rootView;
-    this.textNotifications = textNotifications;
+    this.notificationList = notificationList;
   }
 
   @Override
@@ -55,13 +55,13 @@ public final class FragmentNotificationsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.text_notifications;
-      TextView textNotifications = ViewBindings.findChildViewById(rootView, id);
-      if (textNotifications == null) {
+      id = R.id.notification_list;
+      RecyclerView notificationList = ViewBindings.findChildViewById(rootView, id);
+      if (notificationList == null) {
         break missingId;
       }
 
-      return new FragmentNotificationsBinding((ConstraintLayout) rootView, textNotifications);
+      return new FragmentNotificationsBinding((ConstraintLayout) rootView, notificationList);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
