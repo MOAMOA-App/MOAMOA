@@ -18,6 +18,10 @@
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/row_chat.xml" value="0.29010416666666666" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/row_chatlist.xml" value="0.29010416666666666" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/lgrin/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_dashboard(1).xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/lgrin/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_dashboard.xml" value="0.15260416666666668" />
+        <entry key="..\:/Users/lgrin/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_formcreate.xml" value="0.15260416666666668" />
+        <entry key="..\:/Users/lgrin/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_my_page.xml" value="0.1" />
         <entry key="..\:/Users/tasty/AndroidStudioProjects/MOAMOA2/app/src/main/res/drawable/ic_outline_arrow_back_ios_24.xml" value="0.1775" />
         <entry key="..\:/Users/tasty/AndroidStudioProjects/MOAMOA2/app/src/main/res/layout/row_chatlist.xml" value="0.14221014492753623" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_my_page.xml" value="0.1606962663975782" />
@@ -49,7 +53,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
