@@ -1,5 +1,6 @@
 package com.example.moamoa.ui.mypage;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -9,11 +10,10 @@ public class MypageViewModel extends ViewModel {
 
     public MypageViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("비어있습니다.");
 
     }
 
-   // public LiveData<String> getText() { return mText;}
-//주석
+    public LiveData<String> getText() { return mText;}
 
 }

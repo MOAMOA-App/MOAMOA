@@ -32,7 +32,7 @@ public final class FragmentMyPageBinding implements ViewBinding {
   public final ListView listView;
 
   @NonNull
-  public final ConstraintLayout textMypage;
+  public final ConstraintLayout myPage;
 
   @NonNull
   public final TextView textView;
@@ -53,15 +53,14 @@ public final class FragmentMyPageBinding implements ViewBinding {
   public final TextView textView6;
 
   private FragmentMyPageBinding(@NonNull ConstraintLayout rootView, @NonNull Guideline guideline2,
-      @NonNull ImageView imageView, @NonNull ListView listView,
-      @NonNull ConstraintLayout textMypage, @NonNull TextView textView, @NonNull TextView textView2,
-      @NonNull TextView textView3, @NonNull TextView textView4, @NonNull TextView textView5,
-      @NonNull TextView textView6) {
+      @NonNull ImageView imageView, @NonNull ListView listView, @NonNull ConstraintLayout myPage,
+      @NonNull TextView textView, @NonNull TextView textView2, @NonNull TextView textView3,
+      @NonNull TextView textView4, @NonNull TextView textView5, @NonNull TextView textView6) {
     this.rootView = rootView;
     this.guideline2 = guideline2;
     this.imageView = imageView;
     this.listView = listView;
-    this.textMypage = textMypage;
+    this.myPage = myPage;
     this.textView = textView;
     this.textView2 = textView2;
     this.textView3 = textView3;
@@ -115,7 +114,7 @@ public final class FragmentMyPageBinding implements ViewBinding {
         break missingId;
       }
 
-      ConstraintLayout textMypage = (ConstraintLayout) rootView;
+      ConstraintLayout myPage = (ConstraintLayout) rootView;
 
       id = R.id.textView;
       TextView textView = ViewBindings.findChildViewById(rootView, id);
@@ -154,7 +153,7 @@ public final class FragmentMyPageBinding implements ViewBinding {
       }
 
       return new FragmentMyPageBinding((ConstraintLayout) rootView, guideline2, imageView, listView,
-          textMypage, textView, textView2, textView3, textView4, textView5, textView6);
+          myPage, textView, textView2, textView3, textView4, textView5, textView6);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

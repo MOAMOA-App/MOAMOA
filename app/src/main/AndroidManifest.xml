@@ -19,6 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        //마이페이지 내 정보 이동
+        <activity android:name=".ui.mypage.EditMyinfo"></activity>
+
     </application>
 
 </manifest>
