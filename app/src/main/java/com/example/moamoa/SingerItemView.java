@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.example.moamoa.R;
+
 public class SingerItemView extends LinearLayout {
 
     //어디서든 사용할 수 있게하려면
