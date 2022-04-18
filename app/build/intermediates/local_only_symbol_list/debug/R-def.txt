@@ -27,20 +27,16 @@ id Button_send
 id EditText_chat
 id TextView_message
 id TextView_nickname
-id alarm_btn
-id back_btn
 id backpage
 id btn_login
 id category
 id charge
-id chat_btn
 id chat_formname
 id chat_recent
 id container
 id content
 id deadline
 id guideline2
-id home_btn
 id imageView
 id iv_profile
 id listView
@@ -52,7 +48,6 @@ id login
 id mainImage
 id mobile_navigation
 id my_recycler_view
-id mypage_btn
 id name
 id nav_host
 id nav_view
@@ -72,8 +67,6 @@ id textView3
 id textView4
 id textView5
 id textView6
-id text_dashboard
-id text_home
 id text_mypage
 id text_notifications
 id title

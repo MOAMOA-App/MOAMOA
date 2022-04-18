@@ -5,14 +5,14 @@
     android:id="@+id/text_mypage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.mypage.MypageFragment">
+    tools:context=".ui.my_page.MypageFragment">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="127dp"
         android:layout_height="35dp"
         android:text="프로필 정보"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
