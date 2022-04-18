@@ -26,7 +26,6 @@
             android:layout_width="10dp"
             android:layout_height="match_parent"
             android:layout_weight="85"
-            android:background="@drawable/edge"
             android:text="제목입니다"
             android:textSize="30sp"
             android:layout_margin="10dp">
@@ -92,7 +91,6 @@
             android:layout_height="40dp"
             android:text="가격"
             android:textSize="20dp"
-            android:background="@drawable/edge"
             android:layout_margin="10dp">
         </EditText>
 
@@ -129,7 +127,6 @@
 
             android:text="내용"
             android:textSize="30sp"
-            android:background="@drawable/edge"
             android:layout_margin="10dp">
 
         </EditText>
@@ -148,7 +145,6 @@
 
             android:text="거래장소"
             android:textSize="30sp"
-            android:background="@drawable/edge"
             android:layout_margin="10dp">
 
         </EditText>
@@ -168,7 +164,6 @@
 
             android:text="기간"
             android:textSize="30sp"
-            android:background="@drawable/edge"
             android:layout_margin="10dp"
             android:inputType="date"
             android:ems="10" ></EditText>
