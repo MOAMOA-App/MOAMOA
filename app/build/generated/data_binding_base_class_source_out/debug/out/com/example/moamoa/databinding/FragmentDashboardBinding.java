@@ -4,10 +4,12 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
@@ -17,20 +19,54 @@ import java.lang.String;
 
 public final class FragmentDashboardBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final LinearLayout rootView;
 
   @NonNull
-  public final TextView textDashboard;
+  public final EditText content;
 
-  private FragmentDashboardBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView textDashboard) {
+  @NonNull
+  public final EditText editTextDate;
+
+  @NonNull
+  public final EditText editTextDate2;
+
+  @NonNull
+  public final Spinner spinner;
+
+  @NonNull
+  public final Spinner spinner2;
+
+  @NonNull
+  public final Spinner spinner3;
+
+  @NonNull
+  public final TextView tvResult;
+
+  @NonNull
+  public final TextView won;
+
+  @NonNull
+  public final TextView won2;
+
+  private FragmentDashboardBinding(@NonNull LinearLayout rootView, @NonNull EditText content,
+      @NonNull EditText editTextDate, @NonNull EditText editTextDate2, @NonNull Spinner spinner,
+      @NonNull Spinner spinner2, @NonNull Spinner spinner3, @NonNull TextView tvResult,
+      @NonNull TextView won, @NonNull TextView won2) {
     this.rootView = rootView;
-    this.textDashboard = textDashboard;
+    this.content = content;
+    this.editTextDate = editTextDate;
+    this.editTextDate2 = editTextDate2;
+    this.spinner = spinner;
+    this.spinner2 = spinner2;
+    this.spinner3 = spinner3;
+    this.tvResult = tvResult;
+    this.won = won;
+    this.won2 = won2;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -55,13 +91,62 @@ public final class FragmentDashboardBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.text_dashboard;
-      TextView textDashboard = ViewBindings.findChildViewById(rootView, id);
-      if (textDashboard == null) {
+      id = R.id.content;
+      EditText content = ViewBindings.findChildViewById(rootView, id);
+      if (content == null) {
         break missingId;
       }
 
-      return new FragmentDashboardBinding((ConstraintLayout) rootView, textDashboard);
+      id = R.id.editTextDate;
+      EditText editTextDate = ViewBindings.findChildViewById(rootView, id);
+      if (editTextDate == null) {
+        break missingId;
+      }
+
+      id = R.id.editTextDate2;
+      EditText editTextDate2 = ViewBindings.findChildViewById(rootView, id);
+      if (editTextDate2 == null) {
+        break missingId;
+      }
+
+      id = R.id.spinner;
+      Spinner spinner = ViewBindings.findChildViewById(rootView, id);
+      if (spinner == null) {
+        break missingId;
+      }
+
+      id = R.id.spinner2;
+      Spinner spinner2 = ViewBindings.findChildViewById(rootView, id);
+      if (spinner2 == null) {
+        break missingId;
+      }
+
+      id = R.id.spinner3;
+      Spinner spinner3 = ViewBindings.findChildViewById(rootView, id);
+      if (spinner3 == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_result;
+      TextView tvResult = ViewBindings.findChildViewById(rootView, id);
+      if (tvResult == null) {
+        break missingId;
+      }
+
+      id = R.id.won;
+      TextView won = ViewBindings.findChildViewById(rootView, id);
+      if (won == null) {
+        break missingId;
+      }
+
+      id = R.id.won2;
+      TextView won2 = ViewBindings.findChildViewById(rootView, id);
+      if (won2 == null) {
+        break missingId;
+      }
+
+      return new FragmentDashboardBinding((LinearLayout) rootView, content, editTextDate,
+          editTextDate2, spinner, spinner2, spinner3, tvResult, won, won2);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -2521,6 +2521,10 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_notifications_black_24dp
 drawable ic_outline_arrow_back_ios_24
+drawable icon01
+drawable icon02
+drawable icon03
+drawable icon04
 drawable m3_appbar_background
 drawable m3_popupmenu_background_overlay
 drawable m3_radiobutton_ripple
@@ -2642,6 +2646,7 @@ id actions
 id activity_chooser_view_content
 id add
 id alarm_btn
+id alarm_message
 id alertTitle
 id aligned
 id all
@@ -2689,6 +2694,9 @@ id charge
 id chat_btn
 id chat_formname
 id chat_recent
+id chatlist_Image
+id chats_recyclerview
+id chatting_list
 id checkbox
 id checked
 id chip
@@ -2753,6 +2761,8 @@ id easeIn
 id easeInOut
 id easeOut
 id east
+id editTextDate
+id editTextDate2
 id edit_query
 id elastic
 id end
@@ -2809,7 +2819,6 @@ id item2
 id item3
 id item4
 id item_touch_helper_previous_elevation
-id iv_profile
 id jumpToEnd
 id jumpToStart
 id labeled
@@ -2888,7 +2897,6 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
-id my_recycler_view
 id mypage_btn
 id name
 id nav_controller_view_tag
@@ -2901,6 +2909,7 @@ id navigation_bar_item_icon_view
 id navigation_bar_item_labels_group
 id navigation_bar_item_large_label_view
 id navigation_bar_item_small_label_view
+id navigation_chatlist
 id navigation_chats
 id navigation_dashboard
 id navigation_formcreate
@@ -2918,6 +2927,7 @@ id none
 id normal
 id north
 id notification_background
+id notification_list
 id notification_main_column
 id notification_main_column_container
 id off
@@ -3050,13 +3060,11 @@ id textView3
 id textView4
 id textView5
 id textView6
-id text_dashboard
 id text_home
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
 id text_mypage
-id text_notifications
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -3097,6 +3105,7 @@ id west
 id withText
 id withinBounds
 id won
+id won2
 id wrap
 id wrap_content
 id wrap_content_constrained
@@ -3207,6 +3216,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_chatlist
 layout fragment_chats
 layout fragment_dashboard
 layout fragment_formcreate
@@ -3269,8 +3279,9 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
-layout recyclerview_chat
-layout recyclerview_dashboard
+layout recyclerview_chatlist
+layout recyclerview_chats
+layout recyclerview_notifications
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -3431,6 +3442,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
+string title_chatlist
 string title_chats
 string title_dashboard
 string title_formcreate
