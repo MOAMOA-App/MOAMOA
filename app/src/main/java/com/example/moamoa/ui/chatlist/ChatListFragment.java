@@ -23,9 +23,9 @@ public class ChatListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_chats, container, false);
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_chatlist, container, false);
 
-        recyclerView = (RecyclerView) root.findViewById(R.id.chats_recyclerview);
+        recyclerView = (RecyclerView) root.findViewById(R.id.chatting_list);
 
         list = ChatListData.createContactsList(10);
         recyclerView.setHasFixedSize(true);

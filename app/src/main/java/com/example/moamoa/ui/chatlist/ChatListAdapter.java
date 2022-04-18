@@ -46,14 +46,11 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.Holder
     public class Holder extends RecyclerView.ViewHolder{
         public TextView formName;
         public TextView recentMessage;
-        public TextView item_Eliment;
 
         public Holder(View view){
             super(view);
             formName = (TextView) view.findViewById(R.id.chat_formname);
             recentMessage = (TextView) view.findViewById(R.id.chat_recent);
-
-            item_Eliment = itemView.findViewById(R.id.chats_recyclerview);
         }
     }
 }
