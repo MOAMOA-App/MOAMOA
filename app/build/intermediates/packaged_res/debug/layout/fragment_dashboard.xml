@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,20 +9,9 @@
     android:orientation="vertical"
     >
 
-        <TableRow
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="85"
-                android:text="제목입니다"
-                android:textSize="30sp"></EditText>
-
-        </TableRow>
-
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -32,7 +21,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="85"
                 android:text="제목입니다"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:layout_margin="10dp">
 
             </TextView>
@@ -66,7 +55,7 @@
 
             <EditText
                 android:id="@+id/tv_result"
-                android:layout_width="83dp"
+                android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 android:text="      ">
 
@@ -128,10 +117,10 @@
             <!--        android:padding="10dp"-->
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="134dp"
-
+                android:layout_height="wrap_content"
+                android:minHeight="300dp"
                 android:text="내용"
-                android:textSize="30sp"
+                android:textSize="15sp"
                 android:layout_margin="10dp">
 
             </EditText>
@@ -148,7 +137,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="거래장소"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:layout_margin="10dp">
 
             </EditText>
@@ -167,7 +156,7 @@
                 android:layout_height="match_parent"
 
                 android:text="기간"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:layout_margin="10dp">
 
             </EditText>
@@ -196,9 +185,9 @@
 
 
 
+        </TableLayout>
 
-
-</TableLayout>
+</ScrollView>
 
 
 

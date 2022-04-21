@@ -40,11 +40,11 @@ id category
 id charge
 id chat_formname
 id chat_recent
+id chatlist_Image
 id chats_recyclerview
 id chatting_list
 id container
 id content
-id deadline
 id editTextPhone
 id editTextTextEmailAddress
 id editTextTextPassword2
@@ -53,7 +53,6 @@ id editTextTextPassword5
 id edit_myinfo
 id guideline2
 id imageView
-id iv_profile
 id listView
 id listView2
 id list_attend
@@ -62,6 +61,7 @@ id listview
 id local
 id login
 id mainImage
+id mans
 id mobile_navigation
 id my_page
 id name

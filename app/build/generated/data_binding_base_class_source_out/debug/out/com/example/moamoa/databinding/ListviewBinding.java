@@ -24,10 +24,10 @@ public final class ListviewBinding implements ViewBinding {
   public final TextView charge;
 
   @NonNull
-  public final TextView deadline;
+  public final ImageView mainImage;
 
   @NonNull
-  public final ImageView mainImage;
+  public final TextView mans;
 
   @NonNull
   public final TextView name;
@@ -36,12 +36,12 @@ public final class ListviewBinding implements ViewBinding {
   public final TextView title;
 
   private ListviewBinding(@NonNull LinearLayout rootView, @NonNull TextView charge,
-      @NonNull TextView deadline, @NonNull ImageView mainImage, @NonNull TextView name,
+      @NonNull ImageView mainImage, @NonNull TextView mans, @NonNull TextView name,
       @NonNull TextView title) {
     this.rootView = rootView;
     this.charge = charge;
-    this.deadline = deadline;
     this.mainImage = mainImage;
+    this.mans = mans;
     this.name = name;
     this.title = title;
   }
@@ -79,15 +79,15 @@ public final class ListviewBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.deadline;
-      TextView deadline = ViewBindings.findChildViewById(rootView, id);
-      if (deadline == null) {
-        break missingId;
-      }
-
       id = R.id.mainImage;
       ImageView mainImage = ViewBindings.findChildViewById(rootView, id);
       if (mainImage == null) {
+        break missingId;
+      }
+
+      id = R.id.mans;
+      TextView mans = ViewBindings.findChildViewById(rootView, id);
+      if (mans == null) {
         break missingId;
       }
 
@@ -103,7 +103,7 @@ public final class ListviewBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ListviewBinding((LinearLayout) rootView, charge, deadline, mainImage, name, title);
+      return new ListviewBinding((LinearLayout) rootView, charge, mainImage, mans, name, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

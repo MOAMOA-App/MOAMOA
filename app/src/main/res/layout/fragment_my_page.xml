@@ -5,7 +5,8 @@
     android:id="@+id/my_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.my_page.MypageFragment">
+    tools:context=".ui.my_page.MypageFragment"
+    android:paddingTop="30dp">
 
     <TextView
         android:id="@+id/textView"
@@ -17,6 +18,18 @@
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="196dp"
+        android:text="닉네임"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.09" />
 
     <TextView
         android:id="@+id/textView3"
@@ -44,16 +57,17 @@
         app:layout_constraintVertical_bias="0.146" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="196dp"
-        android:text="닉네임"
-        android:textSize="20sp"
+        android:text="지역"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintVertical_bias="0.189" />
 
     <TextView
         android:id="@+id/textView6"
@@ -66,19 +80,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.192" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="지역"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.189" />
 
     <ImageView
         android:id="@+id/imageView"

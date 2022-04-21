@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.Spinner;
-import android.widget.TableLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.lang.String;
 
 public final class FragmentDashboardBinding implements ViewBinding {
   @NonNull
-  private final TableLayout rootView;
+  private final ScrollView rootView;
 
   @NonNull
   public final EditText content;
@@ -39,7 +39,7 @@ public final class FragmentDashboardBinding implements ViewBinding {
   @NonNull
   public final TextView won;
 
-  private FragmentDashboardBinding(@NonNull TableLayout rootView, @NonNull EditText content,
+  private FragmentDashboardBinding(@NonNull ScrollView rootView, @NonNull EditText content,
       @NonNull Spinner spinner, @NonNull Spinner spinner2, @NonNull Spinner spinner3,
       @NonNull EditText tvResult, @NonNull TextView won) {
     this.rootView = rootView;
@@ -53,7 +53,7 @@ public final class FragmentDashboardBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public TableLayout getRoot() {
+  public ScrollView getRoot() {
     return rootView;
   }
 
@@ -114,7 +114,7 @@ public final class FragmentDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentDashboardBinding((TableLayout) rootView, content, spinner, spinner2,
+      return new FragmentDashboardBinding((ScrollView) rootView, content, spinner, spinner2,
           spinner3, tvResult, won);
     }
     String missingId = rootView.getResources().getResourceName(id);

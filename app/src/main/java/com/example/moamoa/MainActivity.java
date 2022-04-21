@@ -11,13 +11,15 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.moamoa.databinding.ActivityMainBinding;
+import com.example.moamoa.ui.home.formlist_adapter;
+import com.example.moamoa.ui.home.formlist_data;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;    //Activity_main + binding
-    ArrayList<formlist_data> formlist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,20 +37,6 @@ public class MainActivity extends AppCompatActivity {
         //navController activitymain의 navView에 적용
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        //========================리스트 뷰=====================================
-        this.InitializeFormData();
-
-        ListView listView = (ListView) findViewById(R.id.listview);
-        final formlist_adapter formlistAdapter = new formlist_adapter(this,formlist);
-        listView.setAdapter(formlistAdapter);
-    }
-    public void InitializeFormData()
-    {
-        formlist = new ArrayList<formlist_data>();
-
-        formlist.add(new formlist_data(1, "30,000","제목1","이름1","22-03-12"));
-        formlist.add(new formlist_data(1, "30,000","제목2","이름1","22-03-12"));
-        formlist.add(new formlist_data(1, "30,000","제목3","이름1","22-03-12"));
     }
     public void buttonClick(View view) {
     }

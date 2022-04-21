@@ -1,18 +1,18 @@
-package com.example.moamoa;
+package com.example.moamoa.ui.home;
 
 public class formlist_data {
     private int mainImage;
     private String charge;
     private String title;
     private String name;
-    private String deadline;
+    private String mans;
 
-    public formlist_data(int mainImage, String money, String title, String name, String deadline){
+    public formlist_data(int mainImage, String money, String title, String name, String mans){
         this.mainImage  = mainImage;
         this.charge     = money;
         this.title      = title;
         this.name       = name;
-        this.deadline   = deadline;
+        this.mans   = mans;
     }
     public int getMainImage(){
         return this.mainImage;
@@ -30,7 +30,7 @@ public class formlist_data {
         return this.name;
     }
 
-    public String getDeadline(){
-        return this.deadline;
+    public String getMans(){
+        return this.mans;
     }
 }
