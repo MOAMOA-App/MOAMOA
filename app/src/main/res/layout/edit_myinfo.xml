@@ -9,8 +9,6 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/main_green"
-        app:titleTextColor="@color/white"
         app:title="내 정보 수정"
         tools:ignore="MissingConstraints">
 

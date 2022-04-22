@@ -4,20 +4,37 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class FragmentFormcreateBinding implements ViewBinding {
   @NonNull
   private final LinearLayout rootView;
 
-  private FragmentFormcreateBinding(@NonNull LinearLayout rootView) {
+  @NonNull
+  public final EditText cost;
+
+  @NonNull
+  public final Spinner spinner;
+
+  @NonNull
+  public final Spinner spinner2;
+
+  private FragmentFormcreateBinding(@NonNull LinearLayout rootView, @NonNull EditText cost,
+      @NonNull Spinner spinner, @NonNull Spinner spinner2) {
     this.rootView = rootView;
+    this.cost = cost;
+    this.spinner = spinner;
+    this.spinner2 = spinner2;
   }
 
   @Override
@@ -43,10 +60,31 @@ public final class FragmentFormcreateBinding implements ViewBinding {
 
   @NonNull
   public static FragmentFormcreateBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.cost;
+      EditText cost = ViewBindings.findChildViewById(rootView, id);
+      if (cost == null) {
+        break missingId;
+      }
 
-    return new FragmentFormcreateBinding((LinearLayout) rootView);
+      id = R.id.spinner;
+      Spinner spinner = ViewBindings.findChildViewById(rootView, id);
+      if (spinner == null) {
+        break missingId;
+      }
+
+      id = R.id.spinner2;
+      Spinner spinner2 = ViewBindings.findChildViewById(rootView, id);
+      if (spinner2 == null) {
+        break missingId;
+      }
+
+      return new FragmentFormcreateBinding((LinearLayout) rootView, cost, spinner, spinner2);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

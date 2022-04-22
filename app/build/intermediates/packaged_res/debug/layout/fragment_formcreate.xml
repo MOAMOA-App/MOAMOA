@@ -4,49 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical"
-    android:padding="15dp"
->
-    <TableLayout
+    tools:context=".ui.dashboard.DashboardFragment"
+    android:orientation="vertical">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TableRow
-            android:layout_height="30dp">
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="100"
-                android:hint="제목"
-                android:layout_margin="10dp"/>
-        </TableRow>
-        <TableRow>
-        </TableRow>
-        <TableRow
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:drawableTop="@drawable/ic_baseline_photo"
+            android:text="0/10"
+            android:textAlignment="center" />
+        <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="100"
-                android:hint="가격"
-                />
-        </TableRow>
-        <TableRow
-            android:layout_height="50dp">
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:drawableTop="@drawable/ic_baseline_photo"
-                android:text="0/10"
-                android:textAlignment="center" />
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:hint="제목" />
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:entries="@array/test"/>
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:entries="@array/test2">
+        </Spinner>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:text=" 이미지 추가"/>
-        </TableRow>
-
-    </TableLayout>
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:textSize="25sp"
+                android:text="₩"
+                android:gravity="center"
+                android:layout_marginStart="10dp"/>
+            <EditText
+                android:id="@+id/cost"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:hint="가격"
+                android:inputType="number" />
+        </LinearLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="top"
+            android:hint="내용"
+            android:minHeight="200dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:hint="인원" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="거래 장소"
+            android:layout_margin="10dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:hint="기간" />
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:background="@color/main_orange"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="글 올리기">
+        </Button>
+    </LinearLayout>
 </LinearLayout>
+
+
 
