@@ -2503,6 +2503,7 @@ int drawable design_password_eye 0x7f080064
 int drawable design_snackbar_background 0x7f080065
 int drawable ic_access_alarm_24 0x7f080066
 int drawable ic_account_circle_24 0x7f080067
+int drawable ic_baseline_photo 0x7f0800ac
 int drawable ic_chat_24 0x7f080068
 int drawable ic_clock_black_24dp 0x7f080069
 int drawable ic_create_24 0x7f08006a
@@ -2722,6 +2723,7 @@ int id contiguous 0x7f090093
 int id continuousVelocity 0x7f090094
 int id coordinator 0x7f090095
 int id cos 0x7f090096
+int id cost 0x7f090227
 int id counterclockwise 0x7f090097
 int id currentState 0x7f090098
 int id custom 0x7f090099
@@ -3011,7 +3013,6 @@ int id spacer 0x7f0901b4
 int id special_effects_controller_view_tag 0x7f0901b5
 int id spinner 0x7f0901b6
 int id spinner2 0x7f0901b7
-int id spinner3 0x7f0901b8
 int id spline 0x7f0901b9
 int id split_action_bar 0x7f0901ba
 int id spread 0x7f0901bb
@@ -3098,7 +3099,6 @@ int id transition_position 0x7f09020b
 int id transition_scene_layoutid_cache 0x7f09020c
 int id transition_transform 0x7f09020d
 int id triangle 0x7f09020e
-int id tv_result 0x7f09020f
 int id unchecked 0x7f090210
 int id uniform 0x7f090211
 int id unlabeled 0x7f090212
@@ -3115,7 +3115,6 @@ int id visible_removing_fragment_view_tag 0x7f09021c
 int id west 0x7f09021d
 int id withText 0x7f09021e
 int id withinBounds 0x7f09021f
-int id won 0x7f090220
 int id wrap 0x7f090221
 int id wrap_content 0x7f090222
 int id wrap_content_constrained 0x7f090223

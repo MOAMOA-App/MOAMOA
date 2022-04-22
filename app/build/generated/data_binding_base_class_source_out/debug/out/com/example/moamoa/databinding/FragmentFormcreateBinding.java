@@ -4,56 +4,25 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ScrollView;
-import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
-import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
-import java.lang.String;
 
 public final class FragmentFormcreateBinding implements ViewBinding {
   @NonNull
-  private final ScrollView rootView;
+  private final LinearLayout rootView;
 
-  @NonNull
-  public final EditText content;
-
-  @NonNull
-  public final Spinner spinner;
-
-  @NonNull
-  public final Spinner spinner2;
-
-  @NonNull
-  public final Spinner spinner3;
-
-  @NonNull
-  public final EditText tvResult;
-
-  @NonNull
-  public final TextView won;
-
-  private FragmentFormcreateBinding(@NonNull ScrollView rootView, @NonNull EditText content,
-      @NonNull Spinner spinner, @NonNull Spinner spinner2, @NonNull Spinner spinner3,
-      @NonNull EditText tvResult, @NonNull TextView won) {
+  private FragmentFormcreateBinding(@NonNull LinearLayout rootView) {
     this.rootView = rootView;
-    this.content = content;
-    this.spinner = spinner;
-    this.spinner2 = spinner2;
-    this.spinner3 = spinner3;
-    this.tvResult = tvResult;
-    this.won = won;
   }
 
   @Override
   @NonNull
-  public ScrollView getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -74,50 +43,10 @@ public final class FragmentFormcreateBinding implements ViewBinding {
 
   @NonNull
   public static FragmentFormcreateBinding bind(@NonNull View rootView) {
-    // The body of this method is generated in a way you would not otherwise write.
-    // This is done to optimize the compiled bytecode for size and performance.
-    int id;
-    missingId: {
-      id = R.id.content;
-      EditText content = ViewBindings.findChildViewById(rootView, id);
-      if (content == null) {
-        break missingId;
-      }
-
-      id = R.id.spinner;
-      Spinner spinner = ViewBindings.findChildViewById(rootView, id);
-      if (spinner == null) {
-        break missingId;
-      }
-
-      id = R.id.spinner2;
-      Spinner spinner2 = ViewBindings.findChildViewById(rootView, id);
-      if (spinner2 == null) {
-        break missingId;
-      }
-
-      id = R.id.spinner3;
-      Spinner spinner3 = ViewBindings.findChildViewById(rootView, id);
-      if (spinner3 == null) {
-        break missingId;
-      }
-
-      id = R.id.tv_result;
-      EditText tvResult = ViewBindings.findChildViewById(rootView, id);
-      if (tvResult == null) {
-        break missingId;
-      }
-
-      id = R.id.won;
-      TextView won = ViewBindings.findChildViewById(rootView, id);
-      if (won == null) {
-        break missingId;
-      }
-
-      return new FragmentFormcreateBinding((ScrollView) rootView, content, spinner, spinner2,
-          spinner3, tvResult, won);
+    if (rootView == null) {
+      throw new NullPointerException("rootView");
     }
-    String missingId = rootView.getResources().getResourceName(id);
-    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
+
+    return new FragmentFormcreateBinding((LinearLayout) rootView);
   }
 }

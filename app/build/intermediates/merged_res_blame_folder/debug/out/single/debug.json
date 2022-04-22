@@ -8,16 +8,16 @@
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_chat_24.xml.flat",
+        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_chat_24.xml"
     },
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_formcreate.xml.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_formcreate.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_chat_24.xml.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_chat_24.xml"
+        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.webp.flat",
@@ -190,6 +190,10 @@
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_main.png.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_main.png"
+    },
+    {
+        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_photo.xml.flat",
+        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_photo.xml"
     },
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_setting.xml.flat",

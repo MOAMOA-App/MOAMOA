@@ -2504,6 +2504,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_access_alarm_24
 drawable ic_account_circle_24
+drawable ic_baseline_photo
 drawable ic_chat_24
 drawable ic_clock_black_24dp
 drawable ic_create_24
@@ -2723,6 +2724,7 @@ id contiguous
 id continuousVelocity
 id coordinator
 id cos
+id cost
 id counterclockwise
 id currentState
 id custom
@@ -3012,7 +3014,6 @@ id spacer
 id special_effects_controller_view_tag
 id spinner
 id spinner2
-id spinner3
 id spline
 id split_action_bar
 id spread
@@ -3099,7 +3100,6 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-id tv_result
 id unchecked
 id uniform
 id unlabeled
@@ -3116,7 +3116,6 @@ id visible_removing_fragment_view_tag
 id west
 id withText
 id withinBounds
-id won
 id wrap
 id wrap_content
 id wrap_content_constrained

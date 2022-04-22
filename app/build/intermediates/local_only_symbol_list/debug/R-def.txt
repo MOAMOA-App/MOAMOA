@@ -15,6 +15,7 @@ dimen activity_vertical_margin
 drawable border
 drawable ic_access_alarm_24
 drawable ic_account_circle_24
+drawable ic_baseline_photo
 drawable ic_chat_24
 drawable ic_create_24
 drawable ic_dashboard_black_24dp
@@ -46,7 +47,7 @@ id chatlist_Image
 id chats_recyclerview
 id chatting_list
 id container
-id content
+id cost
 id detail
 id editTextPhone
 id editTextTextEmailAddress
@@ -80,7 +81,6 @@ id navigation_notifications
 id notification_list
 id spinner
 id spinner2
-id spinner3
 id textView
 id textView10
 id textView11
@@ -97,8 +97,6 @@ id textView8
 id textView9
 id text_dashboard2
 id title
-id tv_result
-id won
 layout activity_formdetail
 layout activity_loading
 layout activity_login
