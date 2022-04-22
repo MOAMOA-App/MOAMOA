@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:orientation="horizontal"
-            android:background="@color/purple_500">
+            android:background="@color/main_green">
             <!--뒤로가기-->
             <ImageView
                 android:id="@+id/backpage"

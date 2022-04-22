@@ -1,19 +1,20 @@
 package com.example.moamoa.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moamoa.databinding.FragmentHomeBinding;
 import com.example.moamoa.R;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import com.example.moamoa.ui.formdetail.show_detail;
+
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
@@ -32,8 +33,17 @@ public class HomeFragment extends Fragment {
         ListView listView = (ListView) root.findViewById(R.id.listview);
         final formlist_adapter formlistAdapter = new formlist_adapter(getActivity(),formlist);
         listView.setAdapter(formlistAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Intent intent = new Intent(getActivity(), show_detail.class);
+                //startActivity(intent);
+            }
+        });
         return root;
+
     }
+
     public void InitializeFormData()
     {
         formlist = new ArrayList<formlist_data>();

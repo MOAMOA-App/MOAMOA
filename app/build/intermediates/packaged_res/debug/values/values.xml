@@ -20,9 +20,9 @@
         <item>5</item>
     </string-array>
     <color name="black">#FF000000</color>
+    <color name="main_green">#274E13</color>
+    <color name="main_orange">#F1A94E</color>
     <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
@@ -31,15 +31,15 @@
     <string name="app_name">MOAMOA</string>
     <string name="title_chatlist">채팅리스트</string>
     <string name="title_chats">채팅</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_dashboard">폼 생성</string>
     <string name="title_formcreate">폼 생성</string>
     <string name="title_home">홈</string>
     <string name="title_my_page">마이페이지</string>
     <string name="title_notifications">알람</string>
-    <style name="Theme.MOAMOA" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.MOAMOA" parent="Theme.AppCompat.Light">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/main_orange</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -48,5 +48,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/black</item>
     </style>
 </resources>

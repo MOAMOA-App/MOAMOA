@@ -4,9 +4,9 @@ array test
 array test2
 array test3
 color black
+color main_green
+color main_orange
 color purple_200
-color purple_500
-color purple_700
 color teal_200
 color teal_700
 color white
@@ -21,12 +21,14 @@ drawable ic_dashboard_black_24dp
 drawable ic_home_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_main_background
 drawable ic_notifications_black_24dp
 drawable ic_outline_arrow_back_ios_24
 drawable icon01
 drawable icon02
 drawable icon03
 drawable icon04
+drawable nav_selector_color
 id Button_send
 id EditText_chat
 id TextView_message
@@ -45,6 +47,7 @@ id chats_recyclerview
 id chatting_list
 id container
 id content
+id detail
 id editTextPhone
 id editTextTextEmailAddress
 id editTextTextPassword2
@@ -74,7 +77,6 @@ id navigation_formcreate
 id navigation_home
 id navigation_my_page
 id navigation_notifications
-id nickname
 id notification_list
 id spinner
 id spinner2
@@ -97,6 +99,8 @@ id text_dashboard2
 id title
 id tv_result
 id won
+layout activity_formdetail
+layout activity_loading
 layout activity_login
 layout activity_main
 layout created_forms
@@ -105,7 +109,6 @@ layout fragment_chatlist
 layout fragment_chats
 layout fragment_dashboard
 layout fragment_formcreate
-layout fragment_formdetail
 layout fragment_formlist
 layout fragment_home
 layout fragment_login
@@ -119,6 +122,9 @@ layout setting
 menu bottom_nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
+mipmap ic_main
+mipmap ic_main_foreground
+mipmap ic_main_round
 navigation mobile_navigation
 string app_name
 string title_chatlist

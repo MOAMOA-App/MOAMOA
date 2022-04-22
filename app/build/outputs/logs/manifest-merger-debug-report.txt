@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-29:12
 MERGED from [androidx.databinding:viewbinding:7.1.3] C:\Users\Owner\.gradle\caches\transforms-3\79bbba38c0333ceac137369ab8f72784\transformed\viewbinding-7.1.3\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-ui:2.4.1] C:\Users\Owner\.gradle\caches\transforms-3\5f4f4b399d71c021cae5d06a46e08966\transformed\navigation-ui-2.4.1\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.5.0] C:\Users\Owner\.gradle\caches\transforms-3\f4644d49845b47ba06b9572c54ce16a0\transformed\material-1.5.0\AndroidManifest.xml:17:1-24:12
@@ -58,25 +58,25 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Owner\.gradle\ca
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\23bc2eaa3d335b525ba2ecfef837b657\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\58d3fb1b78397bc15eea1568e0b97297\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Owner\.gradle\caches\transforms-3\75868ec7d8db0714374451122b3b1963\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-29:12
 	package
 		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:3:5-33
 		INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-29:12
 		INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-29:12
 		INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:5:5-26:19
+ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:5:5-27:19
 MERGED from [com.google.android.material:material:1.5.0] C:\Users\Owner\.gradle\caches\transforms-3\f4644d49845b47ba06b9572c54ce16a0\transformed\material-1.5.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.5.0] C:\Users\Owner\.gradle\caches\transforms-3\f4644d49845b47ba06b9572c54ce16a0\transformed\material-1.5.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] C:\Users\Owner\.gradle\caches\transforms-3\aa44eb9e8d37a3439d636831a2be5455\transformed\constraintlayout-2.1.3\AndroidManifest.xml:9:5-20
@@ -102,7 +102,7 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\Owner\.gradle\cach
 	android:roundIcon
 		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:9:9-54
 	android:icon
-		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:7:9-39
 	android:allowBackup
 		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
@@ -125,10 +125,20 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:19:17-77
 	android:name
 		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:19:27-74
-activity#com.example.moamoa.ui.mypage.EditMyinfo
-ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:24:9-67
+activity#com.example.moamoa.LoadingActivity
+ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:22:9-23:83
+	android:theme
+		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:23:13-71
 	android:name
-		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:24:19-55
+		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:22:19-49
+activity#com.example.moamoa.ui.mypage.EditMyinfo
+ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:25:9-67
+	android:name
+		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:25:19-55
+uses-permission#android.permission.INTERACT
+ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:28:5-83
+	android:name
+		ADDED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:28:22-64
 uses-sdk
 INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml

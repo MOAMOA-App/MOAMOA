@@ -34,20 +34,16 @@ public final class FragmentDashboardBinding implements ViewBinding {
   public final Spinner spinner3;
 
   @NonNull
-  public final EditText tvResult;
-
-  @NonNull
   public final TextView won;
 
   private FragmentDashboardBinding(@NonNull ScrollView rootView, @NonNull EditText content,
       @NonNull Spinner spinner, @NonNull Spinner spinner2, @NonNull Spinner spinner3,
-      @NonNull EditText tvResult, @NonNull TextView won) {
+      @NonNull TextView won) {
     this.rootView = rootView;
     this.content = content;
     this.spinner = spinner;
     this.spinner2 = spinner2;
     this.spinner3 = spinner3;
-    this.tvResult = tvResult;
     this.won = won;
   }
 
@@ -102,12 +98,6 @@ public final class FragmentDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tv_result;
-      EditText tvResult = ViewBindings.findChildViewById(rootView, id);
-      if (tvResult == null) {
-        break missingId;
-      }
-
       id = R.id.won;
       TextView won = ViewBindings.findChildViewById(rootView, id);
       if (won == null) {
@@ -115,7 +105,7 @@ public final class FragmentDashboardBinding implements ViewBinding {
       }
 
       return new FragmentDashboardBinding((ScrollView) rootView, content, spinner, spinner2,
-          spinner3, tvResult, won);
+          spinner3, won);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

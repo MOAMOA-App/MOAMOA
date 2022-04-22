@@ -26,7 +26,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="참가한 글"
-                android:background="@color/purple_500"
+                android:background="@color/main_green"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="24sp" />

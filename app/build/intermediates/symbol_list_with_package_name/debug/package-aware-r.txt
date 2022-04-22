@@ -1636,6 +1636,8 @@ color m3_timepicker_display_text_color
 color m3_timepicker_secondary_text_button_ripple_color
 color m3_timepicker_secondary_text_button_text_color
 color m3_tonal_button_ripple_color_selector
+color main_green
+color main_orange
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1798,8 +1800,6 @@ color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
 color purple_200
-color purple_500
-color purple_700
 color radiobutton_themeable_attribute_color
 color ripple_material_dark
 color ripple_material_light
@@ -2515,6 +2515,7 @@ drawable ic_launcher_foreground
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
+drawable ic_main_background
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
@@ -2553,6 +2554,7 @@ drawable mtrl_navigation_bar_item_background
 drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_overlay
 drawable mtrl_tabs_default_indicator
+drawable nav_selector_color
 drawable navigation_empty_icon
 drawable notification_action_background
 drawable notification_bg
@@ -2738,6 +2740,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detail
 id dialog_button
 id dimensions
 id direct
@@ -2923,7 +2926,6 @@ id navigation_notifications
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
-id nickname
 id noScroll
 id noState
 id none
@@ -3207,6 +3209,8 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_formdetail
+layout activity_loading
 layout activity_login
 layout activity_main
 layout created_forms
@@ -3231,7 +3235,6 @@ layout fragment_chatlist
 layout fragment_chats
 layout fragment_dashboard
 layout fragment_formcreate
-layout fragment_formdetail
 layout fragment_formlist
 layout fragment_home
 layout fragment_login
@@ -3318,6 +3321,9 @@ menu example_menu
 menu example_menu2
 mipmap ic_launcher
 mipmap ic_launcher_round
+mipmap ic_main
+mipmap ic_main_foreground
+mipmap ic_main_round
 navigation mobile_navigation
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description

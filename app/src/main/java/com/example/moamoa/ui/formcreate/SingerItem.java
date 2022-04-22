@@ -1,4 +1,4 @@
-package com.example.moamoa;
+package com.example.moamoa.ui.formcreate;
 
 public class SingerItem {
     String name;
