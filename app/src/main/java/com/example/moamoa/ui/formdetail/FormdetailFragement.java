@@ -10,14 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.moamoa.R;
+import com.example.moamoa.databinding.ActivityFormdetailBinding;
 import com.example.moamoa.databinding.FragmentFormdetailBinding;
 
 public class FormdetailFragement extends Fragment {
-    private FragmentFormdetailBinding binding;
+    private ActivityFormdetailBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = FragmentFormdetailBinding.inflate(inflater, container, false);
+        binding = ActivityFormdetailBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         return root;
     }

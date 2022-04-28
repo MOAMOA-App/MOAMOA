@@ -36,6 +36,7 @@ id FID
 id TextView_message
 id TextView_nickname
 id alarm_message
+id appbar
 id backpage
 id btn_login
 id button
