@@ -29,10 +29,18 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <string name="app_name">MOAMOA</string>
+    <string name="default_web_client_id" translatable="false">494828439730-j2bsa54utfqo5hsgkauc02ol6t4kc1pj.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">494828439730</string>
+    <string name="google_api_key" translatable="false">AIzaSyBUIA_E9ItsRai-J27svRA79Q_UlyhQIcQ</string>
+    <string name="google_app_id" translatable="false">1:494828439730:android:098e0875b39c860f82a1ab</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBUIA_E9ItsRai-J27svRA79Q_UlyhQIcQ</string>
+    <string name="google_storage_bucket" translatable="false">moamoa-75927.appspot.com</string>
+    <string name="project_id" translatable="false">moamoa-75927</string>
     <string name="title_chatlist">채팅리스트</string>
     <string name="title_chats">채팅</string>
     <string name="title_dashboard">폼 생성</string>
     <string name="title_formcreate">폼 생성</string>
+    <string name="title_formdetail">폼 상세</string>
     <string name="title_home">홈</string>
     <string name="title_my_page">마이페이지</string>
     <string name="title_notifications">알람</string>

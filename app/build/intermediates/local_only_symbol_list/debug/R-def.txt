@@ -32,6 +32,7 @@ drawable icon04
 drawable nav_selector_color
 id Button_send
 id EditText_chat
+id FID
 id TextView_message
 id TextView_nickname
 id alarm_message
@@ -48,7 +49,6 @@ id chats_recyclerview
 id chatting_list
 id container
 id cost
-id detail
 id editTextPhone
 id editTextTextEmailAddress
 id editTextTextPassword2
@@ -75,6 +75,7 @@ id navigation_chatlist
 id navigation_chats
 id navigation_dashboard
 id navigation_formcreate
+id navigation_formdetail
 id navigation_home
 id navigation_my_page
 id navigation_notifications
@@ -107,6 +108,7 @@ layout fragment_chatlist
 layout fragment_chats
 layout fragment_dashboard
 layout fragment_formcreate
+layout fragment_formdetail
 layout fragment_formlist
 layout fragment_home
 layout fragment_login
@@ -125,10 +127,18 @@ mipmap ic_main_foreground
 mipmap ic_main_round
 navigation mobile_navigation
 string app_name
+string default_web_client_id
+string gcm_defaultSenderId
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
+string google_storage_bucket
+string project_id
 string title_chatlist
 string title_chats
 string title_dashboard
 string title_formcreate
+string title_formdetail
 string title_home
 string title_my_page
 string title_notifications

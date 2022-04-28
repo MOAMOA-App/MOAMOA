@@ -6,13 +6,15 @@ public class formlist_data {
     private String title;
     private String name;
     private String mans;
+    private String FID;
 
-    public formlist_data(int mainImage, String money, String title, String name, String mans){
+    public formlist_data(int mainImage, String money, String title, String name, String mans, String FID){
         this.mainImage  = mainImage;
         this.charge     = money;
         this.title      = title;
         this.name       = name;
         this.mans   = mans;
+        this.FID = FID;
     }
     public int getMainImage(){
         return this.mainImage;
@@ -33,4 +35,6 @@ public class formlist_data {
     public String getMans(){
         return this.mans;
     }
+
+    public String getFID() {return this.FID;}
 }

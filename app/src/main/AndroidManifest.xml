@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.moamoa">
 
     <application
@@ -8,7 +9,8 @@
         android:label="모아모아"
         android:roundIcon="@mipmap/ic_main"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MOAMOA">
+        android:theme="@style/Theme.MOAMOA"
+        tools:ignore="ExtraText">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -19,11 +21,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="LoadingActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
+        //로딩페이지
+        <activity
+            android:name="LoadingActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+        <activity android:name=".ui.formdetail.show_detail"/>
         //마이페이지 내 정보 이동
-        <activity android:name=".ui.mypage.EditMyinfo"></activity>
+        <activity android:name=".ui.mypage.EditMyinfo" />
 
     </application>
-    <uses-permission android:name="android.permission.INTERACT"></uses-permission>
+    <uses-permission android:name="android.permission.INTERACT"
+        tools:ignore="ManifestOrder" />
 </manifest>

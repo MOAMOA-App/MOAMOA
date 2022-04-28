@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentActivity;
 import com.example.moamoa.R;
 
 import java.util.ArrayList;
+import java.util.Timer;
 
 public class formlist_adapter extends BaseAdapter {
     Context mContext = null;
@@ -48,13 +49,14 @@ public class formlist_adapter extends BaseAdapter {
         TextView name = (TextView) view1.findViewById(R.id.name);
         TextView charge = (TextView) view1.findViewById(R.id.charge);
         TextView mans = (TextView) view1.findViewById(R.id.mans);
+        TextView FID = (TextView) view1.findViewById(R.id.FID);
 
         //imageView.setImageResource(R.drawable.ic_launcher_background);
         title.setText(arrayList.get(i).getTitle());
         name.setText(arrayList.get(i).getName());
         charge.setText(arrayList.get(i).getCharge());
         mans.setText(arrayList.get(i).getMans());
-
+        FID.setText(arrayList.get(i).getFID());
         return view1;
     }
 }

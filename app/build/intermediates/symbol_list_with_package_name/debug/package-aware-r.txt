@@ -2579,6 +2579,7 @@ id BOTTOM_START
 id Button_send
 id CTRL
 id EditText_chat
+id FID
 id FUNCTION
 id META
 id NO_DEBUG
@@ -2742,7 +2743,6 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
-id detail
 id dialog_button
 id dimensions
 id direct
@@ -2921,6 +2921,7 @@ id navigation_chatlist
 id navigation_chats
 id navigation_dashboard
 id navigation_formcreate
+id navigation_formdetail
 id navigation_header_container
 id navigation_home
 id navigation_my_page
@@ -3131,6 +3132,7 @@ integer config_navAnimTime
 integer config_tooltipAnimTime
 integer design_snackbar_text_max_lines
 integer design_tab_indicator_anim_duration_ms
+integer google_play_services_version
 integer hide_password_duration
 integer m3_btn_anim_delay_ms
 integer m3_btn_anim_duration_ms
@@ -3234,6 +3236,7 @@ layout fragment_chatlist
 layout fragment_chats
 layout fragment_dashboard
 layout fragment_formcreate
+layout fragment_formdetail
 layout fragment_formlist
 layout fragment_home
 layout fragment_login
@@ -3362,10 +3365,17 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
+string common_google_play_services_unknown_issue
+string default_web_client_id
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string gcm_defaultSenderId
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
+string google_storage_bucket
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
@@ -3457,12 +3467,14 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string project_id
 string search_menu_title
 string status_bar_notification_info_overflow
 string title_chatlist
 string title_chats
 string title_dashboard
 string title_formcreate
+string title_formdetail
 string title_home
 string title_my_page
 string title_notifications

@@ -11,91 +11,181 @@
 9-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERACT" />
-11-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:28:5-83
-11-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:28:22-64
-12
-13    <application
-13-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:5:5-27:19
-14        android:allowBackup="true"
-14-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:6:9-35
-15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-15-->[androidx.core:core:1.7.0] C:\Users\Owner\.gradle\caches\transforms-3\b9e4376e452ce4f1a2bbb1fc4b534124\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
-16        android:debuggable="true"
-17        android:icon="@mipmap/ic_main"
-17-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:7:9-39
-18        android:label="모아모아"
-18-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:8:9-29
-19        android:roundIcon="@mipmap/ic_main"
-19-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:9:9-44
-20        android:supportsRtl="true"
-20-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:10:9-35
-21        android:testOnly="true"
-22        android:theme="@style/Theme.MOAMOA" >
-22-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:11:9-44
-23        <activity
-23-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:12:9-21:20
-24            android:name="com.example.moamoa.MainActivity"
-24-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:13:13-41
-25            android:exported="true"
-25-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:14:13-36
-26            android:label="@string/app_name" >
-26-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:15:13-45
-27            <intent-filter>
-27-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:16:13-20:29
-28                <action android:name="android.intent.action.MAIN" />
-28-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:17:17-69
-28-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:17:25-66
-29
-30                <category android:name="android.intent.category.LAUNCHER" />
-30-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:19:17-77
-30-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:19:27-74
-31            </intent-filter>
-32        </activity>
-33        <activity
-33-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:22:9-23:83
-34            android:name="com.example.moamoa.LoadingActivity"
-34-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:22:19-49
-35            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-35-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:23:13-71
-36        //마이페이지 내 정보 이동
-37        <activity android:name="com.example.moamoa.ui.mypage.EditMyinfo" />
-37-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:25:9-67
-37-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:25:19-55
-38
-39        <provider
-39-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\2c96a293c0a835e94af1ddc4d74ff22d\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
-40            android:name="androidx.startup.InitializationProvider"
-40-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\2c96a293c0a835e94af1ddc4d74ff22d\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
-41            android:authorities="com.example.moamoa.androidx-startup"
-41-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\2c96a293c0a835e94af1ddc4d74ff22d\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
-42            android:exported="false" >
-42-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\2c96a293c0a835e94af1ddc4d74ff22d\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
-43            <meta-data
-43-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\2c96a293c0a835e94af1ddc4d74ff22d\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
-44                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-44-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\2c96a293c0a835e94af1ddc4d74ff22d\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
-45                android:value="androidx.startup" />
-45-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\2c96a293c0a835e94af1ddc4d74ff22d\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
-46            <meta-data
-46-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Owner\.gradle\caches\transforms-3\bdba8a1b7f77d959878d5a52670cf96f\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
-47                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-47-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Owner\.gradle\caches\transforms-3\bdba8a1b7f77d959878d5a52670cf96f\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
-48                android:value="androidx.startup" />
-48-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Owner\.gradle\caches\transforms-3\bdba8a1b7f77d959878d5a52670cf96f\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
-49        </provider>
-50
-51        <uses-library
-51-->[androidx.window:window:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\194105470fda0354aaff7bde4c998be5\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
-52            android:name="androidx.window.extensions"
-52-->[androidx.window:window:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\194105470fda0354aaff7bde4c998be5\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
-53            android:required="false" />
-53-->[androidx.window:window:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\194105470fda0354aaff7bde4c998be5\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
-54        <uses-library
-54-->[androidx.window:window:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\194105470fda0354aaff7bde4c998be5\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
-55            android:name="androidx.window.sidecar"
-55-->[androidx.window:window:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\194105470fda0354aaff7bde4c998be5\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
-56            android:required="false" />
-56-->[androidx.window:window:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\194105470fda0354aaff7bde4c998be5\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
-57    </application>
-58
-59</manifest>
+11-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:34:5-35:40
+11-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:34:22-64
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:22:5-67
+12-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:22:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:23:5-79
+13-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:23:22-76
+14    <uses-permission android:name="android.permission.WAKE_LOCK" />
+14-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:24:5-68
+14-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:24:22-65
+15    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+15-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:25:5-79
+15-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:25:22-76
+16    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+16-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:26:5-110
+16-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:26:22-107
+17
+18    <application
+18-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:6:5-33:19
+19        android:allowBackup="true"
+19-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:7:9-35
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.7.0] C:\Users\Owner\.gradle\caches\transforms-3\3d85e7e932ace6301d0325dd2777afdc\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+21        android:debuggable="true"
+22        android:icon="@mipmap/ic_main"
+22-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:8:9-39
+23        android:label="모아모아"
+23-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:9:9-29
+24        android:roundIcon="@mipmap/ic_main"
+24-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:10:9-44
+25        android:supportsRtl="true"
+25-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:11:9-35
+26        android:testOnly="true"
+27        android:theme="@style/Theme.MOAMOA" >
+27-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:12:9-44
+28        <activity
+28-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:14:9-23:20
+29            android:name="com.example.moamoa.MainActivity"
+29-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:15:13-41
+30            android:exported="true"
+30-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:16:13-36
+31            android:label="@string/app_name" >
+31-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:17:13-45
+32            <intent-filter>
+32-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:18:13-22:29
+33                <action android:name="android.intent.action.MAIN" />
+33-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:19:17-69
+33-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:19:25-66
+34
+35                <category android:name="android.intent.category.LAUNCHER" />
+35-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:21:17-77
+35-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:21:27-74
+36            </intent-filter>
+37        </activity>
+38        //로딩페이지
+39        <activity
+39-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:25:9-27:74
+40            android:name="com.example.moamoa.LoadingActivity"
+40-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:26:13-43
+41            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+41-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:27:13-71
+42        <activity android:name="com.example.moamoa.ui.formdetail.show_detail" />
+42-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:29:9-62
+42-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:29:19-60
+43        //마이페이지 내 정보 이동
+44        <activity android:name="com.example.moamoa.ui.mypage.EditMyinfo" />
+44-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:31:9-58
+44-->C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:31:19-55
+45
+46        <service
+46-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:28:9-34:19
+47            android:name="com.google.firebase.components.ComponentDiscoveryService"
+47-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:29:13-84
+48            android:directBootAware="true"
+48-->[com.google.firebase:firebase-common:20.1.0] C:\Users\Owner\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:35:13-43
+49            android:exported="false" >
+49-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:30:13-37
+50            <meta-data
+50-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:31:13-33:85
+51                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+51-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:32:17-139
+52                android:value="com.google.firebase.components.ComponentRegistrar" />
+52-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:33:17-82
+53            <meta-data
+53-->[com.google.firebase:firebase-installations:17.0.1] C:\Users\Owner\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:18:13-20:85
+54                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+54-->[com.google.firebase:firebase-installations:17.0.1] C:\Users\Owner\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:19:17-127
+55                android:value="com.google.firebase.components.ComponentRegistrar" />
+55-->[com.google.firebase:firebase-installations:17.0.1] C:\Users\Owner\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:20:17-82
+56        </service>
+57
+58        <provider
+58-->[com.google.firebase:firebase-common:20.1.0] C:\Users\Owner\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:26:9-31:39
+59            android:name="com.google.firebase.provider.FirebaseInitProvider"
+59-->[com.google.firebase:firebase-common:20.1.0] C:\Users\Owner\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:27:13-77
+60            android:authorities="com.example.moamoa.firebaseinitprovider"
+60-->[com.google.firebase:firebase-common:20.1.0] C:\Users\Owner\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:28:13-72
+61            android:directBootAware="true"
+61-->[com.google.firebase:firebase-common:20.1.0] C:\Users\Owner\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:29:13-43
+62            android:exported="false"
+62-->[com.google.firebase:firebase-common:20.1.0] C:\Users\Owner\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:30:13-37
+63            android:initOrder="100" />
+63-->[com.google.firebase:firebase-common:20.1.0] C:\Users\Owner\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:31:13-36
+64
+65        <receiver
+65-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:29:9-33:20
+66            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+66-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:30:13-85
+67            android:enabled="true"
+67-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:31:13-35
+68            android:exported="false" >
+68-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:32:13-37
+69        </receiver>
+70
+71        <service
+71-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:35:9-38:40
+72            android:name="com.google.android.gms.measurement.AppMeasurementService"
+72-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:36:13-84
+73            android:enabled="true"
+73-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:37:13-35
+74            android:exported="false" />
+74-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:38:13-37
+75        <service
+75-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:39:9-43:72
+76            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+76-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:40:13-87
+77            android:enabled="true"
+77-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:41:13-35
+78            android:exported="false"
+78-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:42:13-37
+79            android:permission="android.permission.BIND_JOB_SERVICE" />
+79-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\Owner\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:43:13-69
+80
+81        <meta-data
+81-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\Owner\.gradle\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
+82            android:name="com.google.android.gms.version"
+82-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\Owner\.gradle\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:22:13-58
+83            android:value="@integer/google_play_services_version" />
+83-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\Owner\.gradle\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
+84
+85        <provider
+85-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+86            android:name="androidx.startup.InitializationProvider"
+86-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+87            android:authorities="com.example.moamoa.androidx-startup"
+87-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+88            android:exported="false" >
+88-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
+89            <meta-data
+89-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+90                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+90-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
+91                android:value="androidx.startup" />
+91-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+92            <meta-data
+92-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Owner\.gradle\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+93                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+93-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Owner\.gradle\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+94                android:value="androidx.startup" />
+94-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Owner\.gradle\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+95        </provider>
+96
+97        <uses-library
+97-->[androidx.window:window:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+98            android:name="androidx.window.extensions"
+98-->[androidx.window:window:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+99            android:required="false" />
+99-->[androidx.window:window:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+100        <uses-library
+100-->[androidx.window:window:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+101            android:name="androidx.window.sidecar"
+101-->[androidx.window:window:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+102            android:required="false" />
+102-->[androidx.window:window:1.0.0] C:\Users\Owner\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+103    </application>
+104
+105</manifest>

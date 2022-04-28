@@ -14,7 +14,7 @@
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/ic_main_background.xml" value="0.2335" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.362" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/nav_selector_color.xml" value="0.2565" />
-        <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/activity_formdetail.xml" value="0.11043566362715299" />
+        <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/activity_formdetail.xml" value="0.22" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/activity_loading.xml" value="0.184375" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/activity_main.xml" value="0.12635869565217392" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/created_forms.xml" value="0.17135416666666667" />
@@ -79,7 +79,7 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -21,6 +21,9 @@ public final class ListviewBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final TextView FID;
+
+  @NonNull
   public final TextView charge;
 
   @NonNull
@@ -35,10 +38,11 @@ public final class ListviewBinding implements ViewBinding {
   @NonNull
   public final TextView title;
 
-  private ListviewBinding(@NonNull LinearLayout rootView, @NonNull TextView charge,
-      @NonNull ImageView mainImage, @NonNull TextView mans, @NonNull TextView name,
-      @NonNull TextView title) {
+  private ListviewBinding(@NonNull LinearLayout rootView, @NonNull TextView FID,
+      @NonNull TextView charge, @NonNull ImageView mainImage, @NonNull TextView mans,
+      @NonNull TextView name, @NonNull TextView title) {
     this.rootView = rootView;
+    this.FID = FID;
     this.charge = charge;
     this.mainImage = mainImage;
     this.mans = mans;
@@ -73,6 +77,12 @@ public final class ListviewBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.FID;
+      TextView FID = ViewBindings.findChildViewById(rootView, id);
+      if (FID == null) {
+        break missingId;
+      }
+
       id = R.id.charge;
       TextView charge = ViewBindings.findChildViewById(rootView, id);
       if (charge == null) {
@@ -103,7 +113,8 @@ public final class ListviewBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ListviewBinding((LinearLayout) rootView, charge, mainImage, mans, name, title);
+      return new ListviewBinding((LinearLayout) rootView, FID, charge, mainImage, mans, name,
+          title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
