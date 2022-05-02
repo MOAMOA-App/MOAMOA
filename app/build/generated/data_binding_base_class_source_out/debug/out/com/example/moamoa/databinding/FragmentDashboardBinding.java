@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -29,12 +30,21 @@ public final class FragmentDashboardBinding implements ViewBinding {
   @NonNull
   public final Spinner spinner2;
 
+  @NonNull
+  public final TextView textDashboardend;
+
+  @NonNull
+  public final TextView textDashboardstart;
+
   private FragmentDashboardBinding(@NonNull ScrollView rootView, @NonNull EditText cost,
-      @NonNull Spinner spinner, @NonNull Spinner spinner2) {
+      @NonNull Spinner spinner, @NonNull Spinner spinner2, @NonNull TextView textDashboardend,
+      @NonNull TextView textDashboardstart) {
     this.rootView = rootView;
     this.cost = cost;
     this.spinner = spinner;
     this.spinner2 = spinner2;
+    this.textDashboardend = textDashboardend;
+    this.textDashboardstart = textDashboardstart;
   }
 
   @Override
@@ -82,7 +92,20 @@ public final class FragmentDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentDashboardBinding((ScrollView) rootView, cost, spinner, spinner2);
+      id = R.id.text_dashboardend;
+      TextView textDashboardend = ViewBindings.findChildViewById(rootView, id);
+      if (textDashboardend == null) {
+        break missingId;
+      }
+
+      id = R.id.text_dashboardstart;
+      TextView textDashboardstart = ViewBindings.findChildViewById(rootView, id);
+      if (textDashboardstart == null) {
+        break missingId;
+      }
+
+      return new FragmentDashboardBinding((ScrollView) rootView, cost, spinner, spinner2,
+          textDashboardend, textDashboardstart);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
