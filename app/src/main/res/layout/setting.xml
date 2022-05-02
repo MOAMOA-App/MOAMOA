@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#F4F3F1">
 
     <ListView
         android:id="@+id/set_listView"
-        android:layout_width="370dp"
-        android:layout_height="694dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="193dp"
+        android:background="#FFFFFF"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteX="-4dp"
+        tools:layout_editor_absoluteY="-1dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

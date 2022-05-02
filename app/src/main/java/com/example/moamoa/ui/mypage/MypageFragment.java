@@ -34,7 +34,17 @@ public class MypageFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_my_page, null) ;
 
-        ArrayAdapter adapter1 = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, LIST_MENU1) ;
+        ArrayAdapter adapter1 = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, LIST_MENU1){
+        //리스트뷰 글씨색 바꾸기
+         @Override
+                    public View getView(int position, View convertView, ViewGroup parent)
+                    {
+                        View view = super.getView(position, convertView, parent);
+                        TextView tv = (TextView) view.findViewById(android.R.id.text1);
+                        tv.setTextColor(Color.WHITE);
+                        return view;
+                    }
+        };
         ArrayAdapter adapter2 = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, LIST_MENU2) ;
 
         ListView listview1 = (ListView) view.findViewById(R.id.listView1) ;
@@ -48,8 +58,11 @@ public class MypageFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(view.getContext(), "메세지", Toast.LENGTH_SHORT).show();
                 if(position == 0){
-                    Intent intent = new Intent(getActivity(), EditMyinfo.class);
-                    startActivity(intent);
+                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    CreatedForms fragment2 = new CreatedForms();
+                    transaction.add(R.id.my_page, fragment2);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
                 }
                 if(position == 1){
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
@@ -77,8 +90,8 @@ public class MypageFragment extends Fragment {
                 }
                 if(position == 1){
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    Setting fragment3 = new Setting();
-                    transaction.replace(R.id.my_page, fragment3);
+                    Setting fragment2 = new Setting();
+                    transaction.replace(R.id.my_page, fragment2);
                     transaction.addToBackStack(null).commit();
                 }
             }
@@ -89,13 +102,4 @@ public class MypageFragment extends Fragment {
 
 }
 
-//리스트뷰 글씨색 바꾸기
-// @Override
-//            public View getView(int position, View convertView, ViewGroup parent)
-//            {
-//                View view = super.getView(position, convertView, parent);
-//                TextView tv = (TextView) view.findViewById(android.R.id.text1);
-//                tv.setTextColor(Color.rgb(250,143,57));
-//                return view;
-//            }
 

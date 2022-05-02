@@ -26,7 +26,7 @@ public class Setting extends Fragment {
 
         ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, LIST_MENU);
 
-        ListView listview = (ListView) view.findViewById(R.id.listView2);
+        ListView listview = (ListView) view.findViewById(R.id.set_listView);
         listview.setAdapter(adapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

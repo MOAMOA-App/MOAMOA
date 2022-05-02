@@ -29,6 +29,8 @@
         <activity android:name=".ui.formdetail.show_detail"/>
         //마이페이지 내 정보 이동
         <activity android:name=".ui.mypage.EditMyinfo" />
+        //마이페이지 설정 이동
+<!--        <activity android:name=".ui.mypage.Setting" />-->
 
     </application>
     <uses-permission android:name="android.permission.INTERACT"
