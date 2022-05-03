@@ -26,8 +26,8 @@ import com.example.moamoa.databinding.FragmentMyPageBinding;
 
 public class MypageFragment extends Fragment {
 
-    static final String[] LIST_MENU1 = {"✏️  만든 폼 관리", "✔   참여한 폼 관리", "\uD83E\uDDE1   관심 목록"} ;
-    static final String[] LIST_MENU2 = {"    내 정보 수정", "⚙️  환경설정"} ;
+    static final String[] LIST_MENU1 = {"✎  만든 폼 관리", "✔  참여한 폼 관리", "♡  관심 목록"} ;
+    static final String[] LIST_MENU2 = {"\uD83D\uDC64  내 정보 수정", "⚙  환경설정"} ;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -58,24 +58,16 @@ public class MypageFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(view.getContext(), "메세지", Toast.LENGTH_SHORT).show();
                 if(position == 0){
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    CreatedForms fragment2 = new CreatedForms();
-                    transaction.add(R.id.my_page, fragment2);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
+                    Intent intent = new Intent(getActivity(), CreatedForms.class);
+                    startActivity(intent);
                 }
                 if(position == 1){
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    CreatedForms fragment2 = new CreatedForms();
-                    transaction.add(R.id.my_page, fragment2);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
+                    Intent intent = new Intent(getActivity(), EditMyinfo.class);
+                    startActivity(intent);
                 }
                 if(position == 2) {
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    CreatedForms fragment2 = new CreatedForms();
-                    transaction.replace(R.id.my_page, fragment2);
-                    transaction.addToBackStack(null).commit();
+                    Intent intent = new Intent(getActivity(), EditMyinfo.class);
+                    startActivity(intent);
                 }
             }
         });
