@@ -8,4 +8,6 @@
     <string name="title_formcreate">폼 생성</string>
     <string name="title_chatlist">채팅리스트</string>
     <string name="title_formdetail">폼 상세</string>
+    <string name="tab_text_1">진행 중</string>
+    <string name="tab_text_2">거래 완료</string>
 </resources>
