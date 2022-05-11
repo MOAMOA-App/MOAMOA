@@ -1,5 +1,7 @@
 package com.example.moamoa.ui.mypage;
 
+import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,42 +9,43 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.viewpager.widget.ViewPager;
 
+import com.example.moamoa.R;
+import com.example.moamoa.databinding.ActivityMainBinding;
 import com.example.moamoa.databinding.CreatedFormsBinding;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
 
-public class CreatedForms extends Fragment {
+public class CreatedForms extends AppCompatActivity {
 
     private CreatedFormsBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-
-        MypageViewModel mypageViewModel =
-                new ViewModelProvider(this).get(MypageViewModel.class);
-
-        binding = CreatedFormsBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        final TextView textView = binding.textDashboard2;
-        mypageViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
-        //뒤로가기가 home으로 돌아감
-        //FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-
-        //transaction.remove(this);
-        //getActivity().getSupportFragmentManager().popBackStack();
-        //transaction.commit();
-        //
-
-        return root;
-    }
-
-
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        binding = CreatedFormsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        ViewPager viewPager = binding.viewPager;
+        viewPager.setAdapter(sectionsPagerAdapter);
+        TabLayout tabs = binding.tabs;
+        tabs.setupWithViewPager(viewPager);
+        tabs.setTabTextColors(Color.rgb(0,0,0),Color.rgb(47,157,39));
+        FloatingActionButton fab = binding.fab;
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
     }
 }

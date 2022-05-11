@@ -39,20 +39,19 @@ public class Setting extends Fragment {
                 }
                 if (position == 1) {
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    CreatedForms fragment2 = new CreatedForms();
-                    transaction.add(R.id.my_page, fragment2);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
+                    Setting fragment2 = new Setting();
+                    transaction.replace(R.id.my_page, fragment2);
+                    transaction.addToBackStack(null).commit();
                 }
                 if (position == 2) {
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    CreatedForms fragment2 = new CreatedForms();
+                    Setting fragment2 = new Setting();
                     transaction.replace(R.id.my_page, fragment2);
                     transaction.addToBackStack(null).commit();
                 }
                 if (position == 3) {
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    CreatedForms fragment2 = new CreatedForms();
+                    Setting fragment2 = new Setting();
                     transaction.replace(R.id.my_page, fragment2);
                     transaction.addToBackStack(null).commit();
                 }

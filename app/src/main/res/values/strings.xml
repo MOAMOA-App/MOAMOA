@@ -8,6 +8,7 @@
     <string name="title_formcreate">폼 생성</string>
     <string name="title_chatlist">채팅리스트</string>
     <string name="title_formdetail">폼 상세</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_text_1">참가 중</string>
+    <string name="tab_text_2">공구 진행 중</string>
+    <string name="tab_text_3">거래 완료</string>
 </resources>
