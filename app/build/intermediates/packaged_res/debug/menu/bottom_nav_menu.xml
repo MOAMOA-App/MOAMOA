@@ -7,15 +7,18 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_chatlist"
+        android:id="@+id/navigation_category"
         android:icon="@drawable/ic_chat_24"
-        android:title="@string/title_chatlist" />
+        android:title="@string/title_category" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_formcreate"
         android:icon="@drawable/ic_create_24"
         android:title="@string/title_formcreate" />
-
+    <item
+        android:id="@+id/navigation_formlist"
+        android:icon="@drawable/ic_chat_24"
+        android:title="@string/title_formlist" />
     <item
         android:id="@+id/navigation_my_page"
         android:icon="@drawable/ic_account_circle_24"
