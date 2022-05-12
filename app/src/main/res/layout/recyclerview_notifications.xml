@@ -6,37 +6,47 @@
     android:orientation="vertical"
     >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="horizontal">
+        android:layout_height="70dp">
+
+        <ImageView
+            android:id="@+id/delete_notification"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_baseline_clear_24"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:layout_alignParentEnd="true"
+            android:clickable="true"
+            android:focusable="true" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:orientation="vertical">
             <!--폼 제목 따오기-->
             <TextView
                 android:id="@+id/alarm_message"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:text="참여한 폼에 변동 사항이 있습니다."
 
                 android:textSize="19sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
             <!--채팅내용 일부-->
             <TextView
                 android:id="@+id/chat_formname"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:text="폼 이름"
 
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
     <!--구분선-->
     <View

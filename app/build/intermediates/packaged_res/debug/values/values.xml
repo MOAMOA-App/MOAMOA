@@ -36,6 +36,9 @@
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBUIA_E9ItsRai-J27svRA79Q_UlyhQIcQ</string>
     <string name="google_storage_bucket" translatable="false">moamoa-75927.appspot.com</string>
     <string name="project_id" translatable="false">moamoa-75927</string>
+    <string name="tab_text_1">참가 중</string>
+    <string name="tab_text_2">공구 진행 중</string>
+    <string name="tab_text_3">거래 완료</string>
     <string name="title_chatlist">채팅리스트</string>
     <string name="title_chats">채팅</string>
     <string name="title_dashboard">폼 생성</string>
@@ -56,6 +59,14 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
         <item name="android:textColor">@color/black</item>
+
     </style>
+    <style name="Theme.MOAMOA.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.MOAMOA.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.MOAMOA.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 </resources>

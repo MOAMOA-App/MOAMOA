@@ -22,25 +22,19 @@ public class ChatsFragment extends Fragment {
     private FragmentChatsBinding binding;
 
     private RecyclerView recyclerView;
-    private ChatListAdapter adapter;
-    private ArrayList<ChatListData> list = new ArrayList<>();
+    private ChatsAdapter adapter;
+    private ArrayList<ChatsData> list = new ArrayList<>();
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        /*
-        binding = FragmentChatsBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        return root;
-        */
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_chats, container, false);
 
         recyclerView = (RecyclerView) root.findViewById(R.id.chats_recyclerview);
 
-        list = ChatListData.createContactsList(10);
+        list = ChatsData.createContactsList(10);
         recyclerView.setHasFixedSize(true);
-        adapter = new ChatListAdapter(getActivity(), list);
+        adapter = new ChatsAdapter(getActivity(), list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
 
