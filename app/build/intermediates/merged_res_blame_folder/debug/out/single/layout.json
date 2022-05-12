@@ -1,86 +1,94 @@
 [
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\setting.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\setting.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_notifications.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\fragment_notifications.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\created_forms.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\created_forms.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\listview.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\listview.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_chats.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_chats.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_formcreate.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\fragment_formcreate.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\recyclerview_chatlist.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\recyclerview_chatlist.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_login.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_login.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\fragment_home.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_home.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_home.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_main.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\fragment_main.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\recyclerview_notifications.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\recyclerview_notifications.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_dashboard.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\fragment_dashboard.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_formdetail.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\activity_formdetail.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_formdetail.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_formdetail.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\created_forms.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\created_forms.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_loading.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\activity_loading.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\empty_forms.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\empty_forms.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_formcreate.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_formcreate.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_chats.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\fragment_chats.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\recyclerview_chats.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\recyclerview_chats.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_dashboard.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_dashboard.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\recyclerview_chats.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\recyclerview_chats.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_chatlist.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_chatlist.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_formdetail.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\fragment_formdetail.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\listview.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\listview.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_my_page.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\fragment_my_page.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\edit_myinfo.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\edit_myinfo.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\edit_myinfo.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\edit_myinfo.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_formlist.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_formlist.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_loading.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\activity_loading.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_notifications.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_notifications.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_login.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\fragment_login.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\recyclerview_chatlist.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\recyclerview_chatlist.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_formlist.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\fragment_formlist.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\activity_login.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_formdetail.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\activity_formdetail.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_my_page.xml",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_my_page.xml"
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_chatlist.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\fragment_chatlist.xml"
+    },
+    {
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\recyclerview_notifications.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\recyclerview_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\setting.xml",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA1\\app\\src\\main\\res\\layout\\setting.xml"
     }
 ]

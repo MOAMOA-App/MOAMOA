@@ -12,14 +12,16 @@
         android:orientation="vertical"
         android:weightSum="1"
         >
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:orientation="horizontal"
             android:background="@color/main_green">
+
             <!--뒤로가기-->
             <ImageView
-                android:id="@+id/backpage"
+                android:id="@+id/button_backpage"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@null"
@@ -29,39 +31,33 @@
                 android:paddingRight="20dp"
                 android:clickable="true"
                 android:focusable="true" />
+
             <!--채팅방 제목--><!--클릭하면 참가자리스트 나오게끔-->
+            <!--maxLines, ellipsize: 글자수 초과시 말줄임 표시-->
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="280dp"
                 android:layout_height="match_parent"
                 android:text="채팅방 제목"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
-                android:stateListAnimator="@null"
-                android:gravity=""
-                android:clickable="true"
-                android:focusable="true" />
-        </LinearLayout>
+                android:maxLines="1"
+                android:ellipsize="end"
 
-        <!-- 위의코드 문제시 다시 버튼 집어넣기(ㅠㅠ)
-        <Button
-            android:id="@+id/back_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="20"
-            android:text="BACK"
-            android:onClick="buttonClick"/>
-        <TextView
+                android:stateListAnimator="@null"
+                android:gravity=""/>
+
+            <ImageView
+                android:id="@+id/button_chatssetting"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="TITLE"
-                android:textColor="#ffffff"
-                android:textSize="20dp"
-                android:stateListAnimator="@null"
-                android:paddingLeft="16dp"
-                android:gravity=""
-            -->
+                android:src="@drawable/ic_outline_dehaze_24"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
 
-        <!--메시지 전송-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/chats_recyclerview"
             android:layout_width="match_parent"
@@ -91,11 +87,13 @@
                 />
             <!--SEND-->
             <Button
-                android:id="@+id/Button_send"
+                android:id="@+id/button_sendmsg"
                 android:layout_width="75dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
                 android:text="SEND"
+                android:background="@color/main_green"
+                android:textColor="@color/white"
                 />
         </LinearLayout>
 

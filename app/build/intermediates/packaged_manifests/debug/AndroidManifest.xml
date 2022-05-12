@@ -44,8 +44,8 @@
         <activity android:name="com.example.moamoa.ui.formdetail.show_detail" />
         //마이페이지 내 정보 이동
         <activity android:name="com.example.moamoa.ui.mypage.EditMyinfo" />
-        //마이페이지 설정 이동
-        <!-- <activity android:name=".ui.mypage.Setting" /> -->
+        //마이페이지 만든 폼 이동
+        <activity android:name="com.example.moamoa.ui.mypage.CreatedForms" />
 
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"

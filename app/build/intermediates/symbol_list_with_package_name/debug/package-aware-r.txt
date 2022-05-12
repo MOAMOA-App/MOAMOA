@@ -2505,6 +2505,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable balloon_chat
 drawable border
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -2538,10 +2539,12 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable edit_border
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_access_alarm_24
 drawable ic_account_circle_24
+drawable ic_baseline_clear_24
 drawable ic_baseline_photo
 drawable ic_chat_24
 drawable ic_clock_black_24dp
@@ -2561,10 +2564,12 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_notifications_black_24dp
 drawable ic_outline_arrow_back_ios_24
+drawable ic_outline_dehaze_24
 drawable icon01
 drawable icon02
 drawable icon03
 drawable icon04
+drawable korea
 drawable m3_appbar_background
 drawable m3_popupmenu_background_overlay
 drawable m3_radiobutton_ripple
@@ -2593,6 +2598,9 @@ drawable mtrl_navigation_bar_item_background
 drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_overlay
 drawable mtrl_tabs_default_indicator
+drawable mypage_bottom_border
+drawable mypage_right_border
+drawable mypage_top_border
 drawable nav_selector_color
 drawable navigation_empty_icon
 drawable notification_action_background
@@ -2614,7 +2622,6 @@ drawable tooltip_frame_light
 id ALT
 id BOTTOM_END
 id BOTTOM_START
-id Button_send
 id CTRL
 id EditText_chat
 id FID
@@ -2628,8 +2635,10 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
-id TextView_message
-id TextView_nickname
+id TextView_message_left
+id TextView_message_right
+id TextView_nickname_left
+id TextView_nickname_right
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2724,6 +2733,9 @@ id btn_login
 id button
 id button2
 id buttonPanel
+id button_backpage
+id button_chatssetting
+id button_sendmsg
 id cache_measures
 id callMeasure
 id cancel_button
@@ -2759,6 +2771,11 @@ id collapseActionView
 id compress
 id confirm_button
 id constraint
+id constraintLayout
+id constraintLayout2
+id constraintLayout3
+id constraintLayout4
+id constraintLayout5
 id container
 id content
 id contentPanel
@@ -2778,6 +2795,7 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id delete_notification
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -2821,6 +2839,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab
 id fade
 id fill
 id fill_horizontal
@@ -2842,7 +2861,6 @@ id group_divider
 id grouping
 id groups
 id guideline
-id guideline2
 id header_title
 id hideable
 id home
@@ -2880,7 +2898,7 @@ id line1
 id line3
 id linear
 id listMode
-id listView
+id listView1
 id listView2
 id list_attend
 id list_create
@@ -2951,6 +2969,8 @@ id mtrl_view_tag_bottom_padding
 id multiply
 id my_page
 id name
+id nationality_left
+id nationality_right
 id nav_controller_view_tag
 id nav_host
 id nav_host_fragment_container
@@ -3002,6 +3022,8 @@ id percent
 id pin
 id position
 id postLayout
+id profile_image_left
+id profile_image_right
 id progress_circular
 id progress_horizontal
 id radio
@@ -3035,9 +3057,11 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id section_label
 id select_dialog_listview
 id selected
 id selection_type
+id set_listView
 id sharedValueSet
 id sharedValueUnset
 id shortcut
@@ -3081,6 +3105,7 @@ id submenuarrow
 id submit_area
 id supportScrollUp
 id tabMode
+id tabs
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -3111,6 +3136,8 @@ id textView11
 id textView12
 id textView13
 id textView14
+id textView15
+id textView16
 id textView2
 id textView3
 id textView4
@@ -3134,6 +3161,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toolbar
 id top
 id topPanel
 id touch_outside
@@ -3152,6 +3180,7 @@ id up
 id useLogo
 id vertical_only
 id view_offset_helper
+id view_pager
 id view_transition
 id view_tree_lifecycle_owner
 id view_tree_saved_state_registry_owner
@@ -3277,6 +3306,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout edit_myinfo
+layout empty_forms
 layout fragment_chatlist
 layout fragment_chats
 layout fragment_dashboard
@@ -3285,6 +3315,7 @@ layout fragment_formdetail
 layout fragment_formlist
 layout fragment_home
 layout fragment_login
+layout fragment_main
 layout fragment_my_page
 layout fragment_notifications
 layout listview
@@ -3532,6 +3563,9 @@ string path_password_strike_through
 string project_id
 string search_menu_title
 string status_bar_notification_info_overflow
+string tab_text_1
+string tab_text_2
+string tab_text_3
 string title_chatlist
 string title_chats
 string title_dashboard
@@ -4041,6 +4075,9 @@ style Theme_Design_Light_BottomSheetDialog
 style Theme_Design_Light_NoActionBar
 style Theme_Design_NoActionBar
 style Theme_MOAMOA
+style Theme_MOAMOA_AppBarOverlay
+style Theme_MOAMOA_NoActionBar
+style Theme_MOAMOA_PopupOverlay
 style Theme_Material3_Dark
 style Theme_Material3_Dark_BottomSheetDialog
 style Theme_Material3_Dark_Dialog
