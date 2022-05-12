@@ -83,11 +83,15 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-
+<TextView
+        android:layout_width="72dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="시작일자" />
 
         <TextView
             android:id="@+id/text_dashboardstart"
-            android:layout_width="280dp"
+            android:layout_width="188dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="시작일자"
@@ -109,13 +113,19 @@
             android:orientation="horizontal"
             >
 
-        <TextView
-            android:id="@+id/text_dashboardend"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:inputType="date"
-            android:hint="마감일자" />
+            <TextView
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="마감일자" />
+
+            <TextView
+                android:id="@+id/text_dashboardend"
+                android:layout_width="188dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="마감일자"
+                android:inputType="date" />
 
             <Button
 

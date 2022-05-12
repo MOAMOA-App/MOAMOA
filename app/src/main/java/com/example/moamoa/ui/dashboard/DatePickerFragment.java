@@ -1,4 +1,4 @@
-package android.scroll.pickertest;
+/*package android.scroll.D;
 
 
 import android.app.DatePickerDialog;
@@ -21,7 +21,7 @@ import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
- */
+
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 
@@ -39,6 +39,7 @@ public class DatePickerFragment extends DialogFragment
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
         MainActivity activity = (MainActivity)getActivity();
-        activity.processDatePickerResult(year,month,day);
+        //activity.processDatePickerResult(year,month,day);
     }
 }
+*/
