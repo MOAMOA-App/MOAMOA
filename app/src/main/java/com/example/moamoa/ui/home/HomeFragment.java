@@ -29,7 +29,7 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
         this.InitializeFormData();
-
+        getActivity().startActivity(new Intent(getActivity(), ListupActivity.class));
         ListView listView = (ListView) root.findViewById(R.id.listview);
         final formlist_adapter formlistAdapter = new formlist_adapter(getActivity(),formlist);
         listView.setAdapter(formlistAdapter);

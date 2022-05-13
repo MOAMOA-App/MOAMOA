@@ -23,5 +23,6 @@
     </style>
 
     <style name="Theme.MOAMOA.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="Theme.MOAMOA.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
