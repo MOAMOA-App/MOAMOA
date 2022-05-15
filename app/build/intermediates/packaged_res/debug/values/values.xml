@@ -36,9 +36,18 @@
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBUIA_E9ItsRai-J27svRA79Q_UlyhQIcQ</string>
     <string name="google_storage_bucket" translatable="false">moamoa-75927.appspot.com</string>
     <string name="project_id" translatable="false">moamoa-75927</string>
+    <string name="tab_text1_1">전체</string>
+    <string name="tab_text1_2">관심</string>
+    <string name="tab_text1_3">식품</string>
+    <string name="tab_text1_4">의류</string>
+    <string name="tab_text1_5">가전</string>
+    <string name="tab_text1_6">생활용품</string>
+    <string name="tab_text1_7">기타</string>
     <string name="tab_text_1">참가 중</string>
     <string name="tab_text_2">공구 진행 중</string>
     <string name="tab_text_3">거래 완료</string>
+    <string name="title_activity_listup">ListupActivity</string>
+    <string name="title_category">카테고리</string>
     <string name="title_chatlist">채팅리스트</string>
     <string name="title_chats">채팅</string>
     <string name="title_dashboard">폼 생성</string>

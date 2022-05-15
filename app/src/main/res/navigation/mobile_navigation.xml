@@ -52,4 +52,10 @@
         android:name="com.example.moamoa.ui.formdetail.FormdetailFragement"
         android:label='@string/title_formdetail'
         tools:layout="@layout/fragment_formdetail"/>
+
+    <fragment
+        android:id="@+id/navigation_category"
+        android:name="com.example.moamoa.ui.category.CategoryFragment"
+        android:label='@string/title_category'
+        tools:layout="@layout/fragment_category"/>
 </navigation>

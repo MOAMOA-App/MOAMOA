@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentNotificationsBinding;
+import com.example.moamoa.ui.chats.ChatsData;
 
 import java.util.ArrayList;
 
@@ -26,21 +27,15 @@ public class NotificationsFragment extends Fragment {
     private FragmentNotificationsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
-        /*
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
-        */
-       // binding = FragmentNotificationsBinding.inflate(inflater, container, false);
-        //View root = binding.getRoot();
 
-        //final TextView textView = binding.textNotifications;
-        //notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        //return root;
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_notifications, container, false);
+        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        this.FormData();
+        //ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_notifications, container, false);
 
         recyclerView = (RecyclerView) root.findViewById(R.id.notification_list);
 
-        list = NotificationsData.createContactsList(5); //이것도 폼 등록된 갯수만큼 해주면될듯
         recyclerView.setHasFixedSize(true);
         adapter = new NotificationsAdapter(getActivity(), list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -48,5 +43,19 @@ public class NotificationsFragment extends Fragment {
 
         return root;
 
+    }
+
+    public void FormData()
+    {
+        list = new ArrayList<NotificationsData>();
+        list.add(new NotificationsData("참여한 폼에 변동 사항이 있습니다.", "폼이름1"));
+        list.add(new NotificationsData("참여한 폼에 변동 사항이 있습니다.", "폼이름2"));
+        list.add(new NotificationsData("참여한 폼에 변동 사항이 있습니다.", "폼이름3"));
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

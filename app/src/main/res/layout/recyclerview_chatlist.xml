@@ -8,6 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:orientation="horizontal">
 
         <!--폼에 올려진 사진 따오면 되지않을까 이건좀아닌가 개설한사람 계정프사?-->

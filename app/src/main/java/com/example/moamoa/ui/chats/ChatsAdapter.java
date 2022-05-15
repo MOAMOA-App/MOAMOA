@@ -15,6 +15,7 @@ import java.util.List;
 
 public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
     private Context context;
+    private LayoutInflater mLayoutInflater;
     private List<ChatsData> list = new ArrayList<>();
 
     public ChatsAdapter(Context context, List<ChatsData> list){
@@ -33,8 +34,10 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
     public void onBindViewHolder(Holder holder, int position) {
         // 각 위치에 문자열 세팅
         int itemposition = position;
-        holder.nickName.setText(list.get(itemposition).nickname);
-        holder.Message.setText(list.get(itemposition).message);
+        holder.leftNickName.setText(list.get(itemposition).leftnickname);
+        holder.leftMessage.setText(list.get(itemposition).leftmessage);
+        holder.rightNickName.setText(list.get(itemposition).rightnickname);
+        holder.rightMessage.setText(list.get(itemposition).rightmessage);
     }
 
     // 몇개의 데이터를 리스트로 뿌려줘야하는지 반드시 정의해줘야한다
@@ -44,13 +47,17 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
     }   // RecyclerView의 size return
 
     public class Holder extends RecyclerView.ViewHolder{
-        public TextView nickName;
-        public TextView Message;
+        public TextView leftNickName;
+        public TextView leftMessage;
+        public TextView rightNickName;
+        public TextView rightMessage;
 
         public Holder(View view){
             super(view);
-            nickName = (TextView) view.findViewById(R.id.TextView_nickname);
-            Message = (TextView) view.findViewById(R.id.TextView_message);
+            leftNickName = (TextView) view.findViewById(R.id.TextView_nickname_left);
+            leftMessage = (TextView) view.findViewById(R.id.TextView_message_left);
+            rightNickName = (TextView) view.findViewById(R.id.TextView_nickname_right);
+            rightMessage = (TextView) view.findViewById(R.id.TextView_message_right);
         }
     }
 }
