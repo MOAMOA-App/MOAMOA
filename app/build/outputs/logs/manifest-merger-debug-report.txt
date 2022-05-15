@@ -1,377 +1,377 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-38:12
-MERGED from [androidx.databinding:viewbinding:7.1.3] C:\Users\tasty\.gradle\caches\transforms-3\47896e2e41b7db42be78fe47ce30929e\transformed\viewbinding-7.1.3\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-ui:2.4.2] C:\Users\tasty\.gradle\caches\transforms-3\e52011228abc250ceb6073ba624a93f4\transformed\navigation-ui-2.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.material:material:1.5.0] C:\Users\tasty\.gradle\caches\transforms-3\b148acd554d201006bfa5f46a25cfea6\transformed\material-1.5.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] C:\Users\tasty\.gradle\caches\transforms-3\5d88a285ad7641d14f53b6f648a20aa5\transformed\constraintlayout-2.1.3\AndroidManifest.xml:2:1-11:12
-MERGED from [androidx.appcompat:appcompat:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\9eb9f6049f0319e6af6a6a629fa992bf\transformed\appcompat-1.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\f6dfa73e07d971457406d73c4f2a0a5e\transformed\lifecycle-livedata-ktx-2.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-fragment:2.4.2] C:\Users\tasty\.gradle\caches\transforms-3\2185c20aacc4f6e3b0e487e5fbbd1437\transformed\navigation-fragment-2.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.fragment:fragment-ktx:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\0aa0b3986902ebd78d9cd90ab676602e\transformed\fragment-ktx-1.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-runtime:2.4.2] C:\Users\tasty\.gradle\caches\transforms-3\0da4c5269730f462146f83d92d6b0278\transformed\navigation-runtime-2.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.activity:activity-ktx:1.2.3] C:\Users\tasty\.gradle\caches\transforms-3\b3fddd6f617ee360b2ef54549740f535\transformed\activity-ktx-1.2.3\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-common:2.4.2] C:\Users\tasty\.gradle\caches\transforms-3\16318cae12f522c50d17ab714a724e29\transformed\navigation-common-2.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\1493e50bc37783fe4ccfe9a926945ab5\transformed\lifecycle-viewmodel-ktx-2.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.firebase:firebase-core:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\cc018359c8c7ca85cb7dae20316f3f20\transformed\firebase-core-20.1.2\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:15:1-38:12
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\.gradle\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:15:1-39:12
-MERGED from [com.google.firebase:firebase-analytics:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\b737fc74ad018fc026bfd75ec5e97274\transformed\firebase-analytics-20.1.2\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] C:\Users\tasty\.gradle\caches\transforms-3\300157f2ac9a425c94a059cd0fd69c55\transformed\firebase-appcheck-interop-16.0.0-beta02\AndroidManifest.xml:15:1-26:12
-MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] C:\Users\tasty\.gradle\caches\transforms-3\3c64158f994d06014cca2501b8adbacc\transformed\firebase-auth-interop-19.0.2\AndroidManifest.xml:2:1-10:12
-MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:17:1-37:12
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:2:1-24:12
-MERGED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:15:1-40:12
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\5395589749d4fa38f5dfb32346dc68e0\transformed\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\e11acfaf2d00ce45feb9e590456f84ac\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:16:1-24:12
-MERGED from [com.google.firebase:firebase-installations-interop:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\d058b4bb1481c81a0686d3f07058c002\transformed\firebase-installations-interop-17.0.1\AndroidManifest.xml:15:1-23:12
-MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\58cdb5f3bda49b171bb5da215b078bd2\transformed\play-services-tasks-18.0.1\AndroidManifest.xml:2:1-6:12
-MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:17:1-46:12
-MERGED from [com.google.android.gms:play-services-measurement-sdk:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\a07838928b6667a5cdfa498eb46a9f2f\transformed\play-services-measurement-sdk-20.1.2\AndroidManifest.xml:17:1-25:12
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:17:1-32:12
-MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\98bd06fb471eff2e3f6640aeb8a3487d\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:17:1-27:12
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:17:1-28:12
-MERGED from [com.google.android.gms:play-services-measurement-base:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\608f3f72055eca2b53b88d7e96330661\transformed\play-services-measurement-base-20.1.2\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tasty\.gradle\caches\transforms-3\c5feb4deb9d3707ba0b683563dca02fe\transformed\play-services-stats-17.0.2\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tasty\.gradle\caches\transforms-3\037aa12530af976d24b4c89420b86675\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:17:1-25:12
-MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:16:1-26:12
-MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\2fc41a71865342533a25d79617d6a8b6\transformed\fragment-1.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.activity:activity:1.2.4] C:\Users\tasty\.gradle\caches\transforms-3\e87852331e5f22e72f4499a1c6a7dc80\transformed\activity-1.2.4\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.appcompat:appcompat-resources:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\6b9e5cc607549a9a079ad8c8b039f4d5\transformed\appcompat-resources-1.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\eab68531fe8c5857d2cc0d87f2e91b35\transformed\emoji2-views-helper-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:17:1-37:12
-MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\tasty\.gradle\caches\transforms-3\1201a2bc94df96e627a6c2ac8a33f58c\transformed\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\9878a88f73d16b0c8879b68c258abc80\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\15be504ce2d3d5d82a689470f2f2f551\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\83033c90805b79981fed334cdb9a6d66\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\ca9698ac855aebe69b579a471e46be65\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\tasty\.gradle\caches\transforms-3\8956ecf2e343d8c90e5d560987cc1aed\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\54431c18046a6d12f9f857a355342cb6\transformed\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\fd8a73de975747a631318b71a5b29aeb\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.customview:customview:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\c192979d566286e9d435a6575ef7a3e8\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\01a0b582226a5addefcf040c9d0e765a\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\tasty\.gradle\caches\transforms-3\b6cc76fcc8644c837e666652b362bd7e\transformed\core-ktx-1.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [androidx.transition:transition:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\7b0661f27ad59470e90b1ab80aa50739\transformed\transition-1.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.window:window:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:17:1-33:12
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c70cc9db164ab37ff797d12bd597d034\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.7.0] C:\Users\tasty\.gradle\caches\transforms-3\3d85e7e932ace6301d0325dd2777afdc\transformed\core-1.7.0\AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\b22187b6a5359f3e38e56358923043d1\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\tasty\.gradle\caches\transforms-3\b2b4a01a79e6b699ecd2ab41a93952dc\transformed\lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\47492633bfc51e9e55b6e68b50d55490\transformed\savedstate-ktx-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\3e812e43a8464e59bda225b060b7dc74\transformed\savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\e6c08e6e532bd62ffe522a63e14a6ac5\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\3fda7860978d63ce03ab4d79fc2c9f95\transformed\lifecycle-viewmodel-2.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\tasty\.gradle\caches\transforms-3\05ce1cb41dd3e278bca2505ffd6c8068\transformed\firebase-components-17.0.0\AndroidManifest.xml:15:1-23:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tasty\.gradle\caches\transforms-3\aef10d1dbfd5cb3208f69fb58056b0ca\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\.gradle\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:17:1-37:12
-MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\5a5d78168d39cf0be4fb0af1483aa8d0\transformed\startup-runtime-1.0.0\AndroidManifest.xml:17:1-33:12
-MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\4b7e4bbdf45d6c7afe7c0c581acad13b\transformed\tracing-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\eac4590d0f839fd0de0464095dd581ad\transformed\lifecycle-livedata-2.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\294ae4ec04d96a559c4887109325ad28\transformed\lifecycle-livedata-core-ktx-2.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\11ab8474a58f7d6da201c2a3f7a045b5\transformed\lifecycle-livedata-core-2.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\tasty\.gradle\caches\transforms-3\7191883bf9988c83842bc49abe1a8640\transformed\lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] C:\Users\tasty\.gradle\caches\transforms-3\1e2287c96a22b25286e5969e36fb83d9\transformed\lifecycle-runtime-2.4.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\tasty\.gradle\caches\transforms-3\cb8528451df9f2dfb12d2f4888f9b447\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\5f9c96e9d90e8ba936bc50f1578aa64e\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\fe2c2c278bb0b8ba62e0245ae5936528\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\3c3000185a98b5bc93eea67caae45c27\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.print:print:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\8e30d658a7f38344ee4526a38ada1962\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\dd7e97341eb4da1f302078e78ba53b2e\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-38:12
+ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-36:12
+MERGED from [androidx.databinding:viewbinding:7.1.3] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\47896e2e41b7db42be78fe47ce30929e\transformed\viewbinding-7.1.3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui:2.4.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\e52011228abc250ceb6073ba624a93f4\transformed\navigation-ui-2.4.2\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.material:material:1.5.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b148acd554d201006bfa5f46a25cfea6\transformed\material-1.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5d88a285ad7641d14f53b6f648a20aa5\transformed\constraintlayout-2.1.3\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9eb9f6049f0319e6af6a6a629fa992bf\transformed\appcompat-1.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\f6dfa73e07d971457406d73c4f2a0a5e\transformed\lifecycle-livedata-ktx-2.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-fragment:2.4.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\2185c20aacc4f6e3b0e487e5fbbd1437\transformed\navigation-fragment-2.4.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment-ktx:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0aa0b3986902ebd78d9cd90ab676602e\transformed\fragment-ktx-1.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime:2.4.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0da4c5269730f462146f83d92d6b0278\transformed\navigation-runtime-2.4.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity-ktx:1.2.3] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b3fddd6f617ee360b2ef54549740f535\transformed\activity-ktx-1.2.3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common:2.4.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\16318cae12f522c50d17ab714a724e29\transformed\navigation-common-2.4.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1493e50bc37783fe4ccfe9a926945ab5\transformed\lifecycle-viewmodel-ktx-2.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-core:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\cc018359c8c7ca85cb7dae20316f3f20\transformed\firebase-core-20.1.2\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:15:1-39:12
+MERGED from [com.google.firebase:firebase-analytics:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b737fc74ad018fc026bfd75ec5e97274\transformed\firebase-analytics-20.1.2\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\300157f2ac9a425c94a059cd0fd69c55\transformed\firebase-appcheck-interop-16.0.0-beta02\AndroidManifest.xml:15:1-26:12
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3c64158f994d06014cca2501b8adbacc\transformed\firebase-auth-interop-19.0.2\AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:17:1-37:12
+MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:2:1-24:12
+MERGED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:15:1-40:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5395589749d4fa38f5dfb32346dc68e0\transformed\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\e11acfaf2d00ce45feb9e590456f84ac\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.firebase:firebase-installations-interop:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\d058b4bb1481c81a0686d3f07058c002\transformed\firebase-installations-interop-17.0.1\AndroidManifest.xml:15:1-23:12
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\58cdb5f3bda49b171bb5da215b078bd2\transformed\play-services-tasks-18.0.1\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:17:1-46:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\a07838928b6667a5cdfa498eb46a9f2f\transformed\play-services-measurement-sdk-20.1.2\AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:17:1-32:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\98bd06fb471eff2e3f6640aeb8a3487d\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-measurement-base:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\608f3f72055eca2b53b88d7e96330661\transformed\play-services-measurement-base-20.1.2\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c5feb4deb9d3707ba0b683563dca02fe\transformed\play-services-stats-17.0.2\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\037aa12530af976d24b4c89420b86675\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\2fc41a71865342533a25d79617d6a8b6\transformed\fragment-1.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.2.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\e87852331e5f22e72f4499a1c6a7dc80\transformed\activity-1.2.4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6b9e5cc607549a9a079ad8c8b039f4d5\transformed\appcompat-resources-1.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\eab68531fe8c5857d2cc0d87f2e91b35\transformed\emoji2-views-helper-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1201a2bc94df96e627a6c2ac8a33f58c\transformed\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9878a88f73d16b0c8879b68c258abc80\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\15be504ce2d3d5d82a689470f2f2f551\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\83033c90805b79981fed334cdb9a6d66\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\ca9698ac855aebe69b579a471e46be65\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\8956ecf2e343d8c90e5d560987cc1aed\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\54431c18046a6d12f9f857a355342cb6\transformed\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\fd8a73de975747a631318b71a5b29aeb\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c192979d566286e9d435a6575ef7a3e8\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\01a0b582226a5addefcf040c9d0e765a\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b6cc76fcc8644c837e666652b362bd7e\transformed\core-ktx-1.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.transition:transition:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\7b0661f27ad59470e90b1ab80aa50739\transformed\transition-1.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c70cc9db164ab37ff797d12bd597d034\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.7.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3d85e7e932ace6301d0325dd2777afdc\transformed\core-1.7.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b22187b6a5359f3e38e56358923043d1\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b2b4a01a79e6b699ecd2ab41a93952dc\transformed\lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\47492633bfc51e9e55b6e68b50d55490\transformed\savedstate-ktx-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3e812e43a8464e59bda225b060b7dc74\transformed\savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\e6c08e6e532bd62ffe522a63e14a6ac5\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3fda7860978d63ce03ab4d79fc2c9f95\transformed\lifecycle-viewmodel-2.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\05ce1cb41dd3e278bca2505ffd6c8068\transformed\firebase-components-17.0.0\AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\aef10d1dbfd5cb3208f69fb58056b0ca\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5a5d78168d39cf0be4fb0af1483aa8d0\transformed\startup-runtime-1.0.0\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\4b7e4bbdf45d6c7afe7c0c581acad13b\transformed\tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\eac4590d0f839fd0de0464095dd581ad\transformed\lifecycle-livedata-2.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\294ae4ec04d96a559c4887109325ad28\transformed\lifecycle-livedata-core-ktx-2.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\11ab8474a58f7d6da201c2a3f7a045b5\transformed\lifecycle-livedata-core-2.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\7191883bf9988c83842bc49abe1a8640\transformed\lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1e2287c96a22b25286e5969e36fb83d9\transformed\lifecycle-runtime-2.4.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\cb8528451df9f2dfb12d2f4888f9b447\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5f9c96e9d90e8ba936bc50f1578aa64e\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\fe2c2c278bb0b8ba62e0245ae5936528\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3c3000185a98b5bc93eea67caae45c27\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\8e30d658a7f38344ee4526a38ada1962\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\dd7e97341eb4da1f302078e78ba53b2e\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
+INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-36:12
 	package
 		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:4:5-33
 		INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-38:12
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-38:12
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:2:11-69
-application
-ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:6:5-35:19
-MERGED from [com.google.android.material:material:1.5.0] C:\Users\tasty\.gradle\caches\transforms-3\b148acd554d201006bfa5f46a25cfea6\transformed\material-1.5.0\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.material:material:1.5.0] C:\Users\tasty\.gradle\caches\transforms-3\b148acd554d201006bfa5f46a25cfea6\transformed\material-1.5.0\AndroidManifest.xml:22:5-20
-MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] C:\Users\tasty\.gradle\caches\transforms-3\5d88a285ad7641d14f53b6f648a20aa5\transformed\constraintlayout-2.1.3\AndroidManifest.xml:9:5-20
-MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] C:\Users\tasty\.gradle\caches\transforms-3\5d88a285ad7641d14f53b6f648a20aa5\transformed\constraintlayout-2.1.3\AndroidManifest.xml:9:5-20
-MERGED from [com.google.firebase:firebase-core:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\cc018359c8c7ca85cb7dae20316f3f20\transformed\firebase-core-20.1.2\AndroidManifest.xml:7:5-20
-MERGED from [com.google.firebase:firebase-core:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\cc018359c8c7ca85cb7dae20316f3f20\transformed\firebase-core-20.1.2\AndroidManifest.xml:7:5-20
-MERGED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:28:5-36:19
-MERGED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:28:5-36:19
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\.gradle\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:29:5-37:19
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\.gradle\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:29:5-37:19
-MERGED from [com.google.firebase:firebase-analytics:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\b737fc74ad018fc026bfd75ec5e97274\transformed\firebase-analytics-20.1.2\AndroidManifest.xml:7:5-20
-MERGED from [com.google.firebase:firebase-analytics:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\b737fc74ad018fc026bfd75ec5e97274\transformed\firebase-analytics-20.1.2\AndroidManifest.xml:7:5-20
-MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] C:\Users\tasty\.gradle\caches\transforms-3\300157f2ac9a425c94a059cd0fd69c55\transformed\firebase-appcheck-interop-16.0.0-beta02\AndroidManifest.xml:24:5-20
-MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] C:\Users\tasty\.gradle\caches\transforms-3\300157f2ac9a425c94a059cd0fd69c55\transformed\firebase-appcheck-interop-16.0.0-beta02\AndroidManifest.xml:24:5-20
-MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] C:\Users\tasty\.gradle\caches\transforms-3\3c64158f994d06014cca2501b8adbacc\transformed\firebase-auth-interop-19.0.2\AndroidManifest.xml:7:5-8:19
-MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] C:\Users\tasty\.gradle\caches\transforms-3\3c64158f994d06014cca2501b8adbacc\transformed\firebase-auth-interop-19.0.2\AndroidManifest.xml:7:5-8:19
-MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:27:5-35:19
-MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:27:5-35:19
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:14:5-22:19
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:14:5-22:19
-MERGED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:25:5-38:19
-MERGED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:25:5-38:19
-MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
-MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
-MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\58cdb5f3bda49b171bb5da215b078bd2\transformed\play-services-tasks-18.0.1\AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\58cdb5f3bda49b171bb5da215b078bd2\transformed\play-services-tasks-18.0.1\AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:28:5-44:19
-MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:28:5-44:19
-MERGED from [com.google.android.gms:play-services-measurement-sdk:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\a07838928b6667a5cdfa498eb46a9f2f\transformed\play-services-measurement-sdk-20.1.2\AndroidManifest.xml:22:5-23:19
-MERGED from [com.google.android.gms:play-services-measurement-sdk:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\a07838928b6667a5cdfa498eb46a9f2f\transformed\play-services-measurement-sdk-20.1.2\AndroidManifest.xml:22:5-23:19
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:29:5-30:19
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:29:5-30:19
-MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\98bd06fb471eff2e3f6640aeb8a3487d\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:25:5-20
-MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\98bd06fb471eff2e3f6640aeb8a3487d\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:25:5-20
-MERGED from [com.google.android.gms:play-services-measurement-base:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\608f3f72055eca2b53b88d7e96330661\transformed\play-services-measurement-base-20.1.2\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-measurement-base:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\608f3f72055eca2b53b88d7e96330661\transformed\play-services-measurement-base-20.1.2\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tasty\.gradle\caches\transforms-3\c5feb4deb9d3707ba0b683563dca02fe\transformed\play-services-stats-17.0.2\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tasty\.gradle\caches\transforms-3\c5feb4deb9d3707ba0b683563dca02fe\transformed\play-services-stats-17.0.2\AndroidManifest.xml:7:5-20
-MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tasty\.gradle\caches\transforms-3\037aa12530af976d24b4c89420b86675\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:22:5-23:19
-MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tasty\.gradle\caches\transforms-3\037aa12530af976d24b4c89420b86675\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:22:5-23:19
-MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:20:5-24:19
-MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:20:5-24:19
-MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
-MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
-MERGED from [androidx.window:window:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:24:5-31:19
-MERGED from [androidx.window:window:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:24:5-31:19
-MERGED from [androidx.core:core:1.7.0] C:\Users\tasty\.gradle\caches\transforms-3\3d85e7e932ace6301d0325dd2777afdc\transformed\core-1.7.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.7.0] C:\Users\tasty\.gradle\caches\transforms-3\3d85e7e932ace6301d0325dd2777afdc\transformed\core-1.7.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tasty\.gradle\caches\transforms-3\aef10d1dbfd5cb3208f69fb58056b0ca\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tasty\.gradle\caches\transforms-3\aef10d1dbfd5cb3208f69fb58056b0ca\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\.gradle\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:25:5-35:19
-MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\.gradle\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:25:5-35:19
-MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\5a5d78168d39cf0be4fb0af1483aa8d0\transformed\startup-runtime-1.0.0\AndroidManifest.xml:25:5-31:19
-MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\5a5d78168d39cf0be4fb0af1483aa8d0\transformed\startup-runtime-1.0.0\AndroidManifest.xml:25:5-31:19
-	android:appComponentFactory
-		ADDED from [androidx.core:core:1.7.0] C:\Users\tasty\.gradle\caches\transforms-3\3d85e7e932ace6301d0325dd2777afdc\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
-	android:supportsRtl
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:11:9-35
-	android:label
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:9:9-29
+uses-permission#android.permission.INTERACT
+ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:6:5-8:40
 	tools:ignore
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:13:9-33
-	android:roundIcon
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:10:9-44
-	android:icon
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:8:9-39
-	android:allowBackup
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:7:9-35
-	android:theme
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:12:9-44
-activity#com.example.moamoa.MainActivity
-ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:14:9-23:20
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:8:9-37
+	android:name
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:7:9-51
+application
+ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:10:5-34:19
+MERGED from [com.google.android.material:material:1.5.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b148acd554d201006bfa5f46a25cfea6\transformed\material-1.5.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.5.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b148acd554d201006bfa5f46a25cfea6\transformed\material-1.5.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5d88a285ad7641d14f53b6f648a20aa5\transformed\constraintlayout-2.1.3\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5d88a285ad7641d14f53b6f648a20aa5\transformed\constraintlayout-2.1.3\AndroidManifest.xml:9:5-20
+MERGED from [com.google.firebase:firebase-core:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\cc018359c8c7ca85cb7dae20316f3f20\transformed\firebase-core-20.1.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-core:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\cc018359c8c7ca85cb7dae20316f3f20\transformed\firebase-core-20.1.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:29:5-37:19
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:29:5-37:19
+MERGED from [com.google.firebase:firebase-analytics:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b737fc74ad018fc026bfd75ec5e97274\transformed\firebase-analytics-20.1.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-analytics:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b737fc74ad018fc026bfd75ec5e97274\transformed\firebase-analytics-20.1.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\300157f2ac9a425c94a059cd0fd69c55\transformed\firebase-appcheck-interop-16.0.0-beta02\AndroidManifest.xml:24:5-20
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\300157f2ac9a425c94a059cd0fd69c55\transformed\firebase-appcheck-interop-16.0.0-beta02\AndroidManifest.xml:24:5-20
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3c64158f994d06014cca2501b8adbacc\transformed\firebase-auth-interop-19.0.2\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3c64158f994d06014cca2501b8adbacc\transformed\firebase-auth-interop-19.0.2\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:27:5-35:19
+MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:27:5-35:19
+MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:14:5-22:19
+MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:14:5-22:19
+MERGED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:25:5-38:19
+MERGED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:25:5-38:19
+MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\58cdb5f3bda49b171bb5da215b078bd2\transformed\play-services-tasks-18.0.1\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\58cdb5f3bda49b171bb5da215b078bd2\transformed\play-services-tasks-18.0.1\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:28:5-44:19
+MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:28:5-44:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\a07838928b6667a5cdfa498eb46a9f2f\transformed\play-services-measurement-sdk-20.1.2\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\a07838928b6667a5cdfa498eb46a9f2f\transformed\play-services-measurement-sdk-20.1.2\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:29:5-30:19
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:29:5-30:19
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\98bd06fb471eff2e3f6640aeb8a3487d\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\98bd06fb471eff2e3f6640aeb8a3487d\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\608f3f72055eca2b53b88d7e96330661\transformed\play-services-measurement-base-20.1.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\608f3f72055eca2b53b88d7e96330661\transformed\play-services-measurement-base-20.1.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c5feb4deb9d3707ba0b683563dca02fe\transformed\play-services-stats-17.0.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c5feb4deb9d3707ba0b683563dca02fe\transformed\play-services-stats-17.0.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\037aa12530af976d24b4c89420b86675\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\037aa12530af976d24b4c89420b86675\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.window:window:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.core:core:1.7.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3d85e7e932ace6301d0325dd2777afdc\transformed\core-1.7.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.7.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3d85e7e932ace6301d0325dd2777afdc\transformed\core-1.7.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\aef10d1dbfd5cb3208f69fb58056b0ca\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\aef10d1dbfd5cb3208f69fb58056b0ca\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5a5d78168d39cf0be4fb0af1483aa8d0\transformed\startup-runtime-1.0.0\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5a5d78168d39cf0be4fb0af1483aa8d0\transformed\startup-runtime-1.0.0\AndroidManifest.xml:25:5-31:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.7.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3d85e7e932ace6301d0325dd2777afdc\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:15:9-35
 	android:label
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:17:13-45
-	android:exported
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:16:13-36
-	android:name
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:15:13-41
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:18:13-22:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:19:17-69
-	android:name
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:19:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:21:17-77
-	android:name
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:21:27-74
-activity#com.example.moamoa.LoadingActivity
-ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:25:9-27:74
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:13:9-29
+	tools:ignore
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:17:9-33
+	android:roundIcon
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:14:9-44
+	android:icon
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:12:9-39
+	android:allowBackup
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:27:13-71
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:16:9-44
+activity#com.example.moamoa.MainActivity
+ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:18:9-27:20
+	android:label
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:21:13-45
+	android:exported
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:20:13-36
 	android:name
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:26:13-43
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:19:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:22:13-26:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:23:17-69
+	android:name
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:23:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:25:17-77
+	android:name
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:25:27-74
+activity#com.example.moamoa.LoadingActivity
+ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:28:9-30:74
+	android:theme
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:30:13-71
+	android:name
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:29:13-44
 activity#com.example.moamoa.ui.formdetail.show_detail
-ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:29:9-62
+ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:31:9-63
 	android:name
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:29:19-60
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:31:19-60
 activity#com.example.moamoa.ui.mypage.EditMyinfo
-ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:31:9-58
+ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:32:9-58
 	android:name
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:31:19-55
+		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:32:19-55
 activity#com.example.moamoa.ui.mypage.CreatedForms
 ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:33:9-60
 	android:name
 		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:33:19-57
-uses-permission#android.permission.INTERACT
-ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:36:5-37:40
-	tools:ignore
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:37:9-37
-	android:name
-		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml:36:22-64
 uses-sdk
 INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml
-MERGED from [androidx.databinding:viewbinding:7.1.3] C:\Users\tasty\.gradle\caches\transforms-3\47896e2e41b7db42be78fe47ce30929e\transformed\viewbinding-7.1.3\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.databinding:viewbinding:7.1.3] C:\Users\tasty\.gradle\caches\transforms-3\47896e2e41b7db42be78fe47ce30929e\transformed\viewbinding-7.1.3\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui:2.4.2] C:\Users\tasty\.gradle\caches\transforms-3\e52011228abc250ceb6073ba624a93f4\transformed\navigation-ui-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui:2.4.2] C:\Users\tasty\.gradle\caches\transforms-3\e52011228abc250ceb6073ba624a93f4\transformed\navigation-ui-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.material:material:1.5.0] C:\Users\tasty\.gradle\caches\transforms-3\b148acd554d201006bfa5f46a25cfea6\transformed\material-1.5.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.material:material:1.5.0] C:\Users\tasty\.gradle\caches\transforms-3\b148acd554d201006bfa5f46a25cfea6\transformed\material-1.5.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] C:\Users\tasty\.gradle\caches\transforms-3\5d88a285ad7641d14f53b6f648a20aa5\transformed\constraintlayout-2.1.3\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] C:\Users\tasty\.gradle\caches\transforms-3\5d88a285ad7641d14f53b6f648a20aa5\transformed\constraintlayout-2.1.3\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.appcompat:appcompat:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\9eb9f6049f0319e6af6a6a629fa992bf\transformed\appcompat-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\9eb9f6049f0319e6af6a6a629fa992bf\transformed\appcompat-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\f6dfa73e07d971457406d73c4f2a0a5e\transformed\lifecycle-livedata-ktx-2.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\f6dfa73e07d971457406d73c4f2a0a5e\transformed\lifecycle-livedata-ktx-2.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-fragment:2.4.2] C:\Users\tasty\.gradle\caches\transforms-3\2185c20aacc4f6e3b0e487e5fbbd1437\transformed\navigation-fragment-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-fragment:2.4.2] C:\Users\tasty\.gradle\caches\transforms-3\2185c20aacc4f6e3b0e487e5fbbd1437\transformed\navigation-fragment-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment-ktx:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\0aa0b3986902ebd78d9cd90ab676602e\transformed\fragment-ktx-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment-ktx:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\0aa0b3986902ebd78d9cd90ab676602e\transformed\fragment-ktx-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-runtime:2.4.2] C:\Users\tasty\.gradle\caches\transforms-3\0da4c5269730f462146f83d92d6b0278\transformed\navigation-runtime-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-runtime:2.4.2] C:\Users\tasty\.gradle\caches\transforms-3\0da4c5269730f462146f83d92d6b0278\transformed\navigation-runtime-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity-ktx:1.2.3] C:\Users\tasty\.gradle\caches\transforms-3\b3fddd6f617ee360b2ef54549740f535\transformed\activity-ktx-1.2.3\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity-ktx:1.2.3] C:\Users\tasty\.gradle\caches\transforms-3\b3fddd6f617ee360b2ef54549740f535\transformed\activity-ktx-1.2.3\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-common:2.4.2] C:\Users\tasty\.gradle\caches\transforms-3\16318cae12f522c50d17ab714a724e29\transformed\navigation-common-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-common:2.4.2] C:\Users\tasty\.gradle\caches\transforms-3\16318cae12f522c50d17ab714a724e29\transformed\navigation-common-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\1493e50bc37783fe4ccfe9a926945ab5\transformed\lifecycle-viewmodel-ktx-2.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\1493e50bc37783fe4ccfe9a926945ab5\transformed\lifecycle-viewmodel-ktx-2.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.firebase:firebase-core:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\cc018359c8c7ca85cb7dae20316f3f20\transformed\firebase-core-20.1.2\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-core:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\cc018359c8c7ca85cb7dae20316f3f20\transformed\firebase-core-20.1.2\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\.gradle\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\.gradle\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.firebase:firebase-analytics:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\b737fc74ad018fc026bfd75ec5e97274\transformed\firebase-analytics-20.1.2\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-analytics:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\b737fc74ad018fc026bfd75ec5e97274\transformed\firebase-analytics-20.1.2\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] C:\Users\tasty\.gradle\caches\transforms-3\300157f2ac9a425c94a059cd0fd69c55\transformed\firebase-appcheck-interop-16.0.0-beta02\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] C:\Users\tasty\.gradle\caches\transforms-3\300157f2ac9a425c94a059cd0fd69c55\transformed\firebase-appcheck-interop-16.0.0-beta02\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] C:\Users\tasty\.gradle\caches\transforms-3\3c64158f994d06014cca2501b8adbacc\transformed\firebase-auth-interop-19.0.2\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] C:\Users\tasty\.gradle\caches\transforms-3\3c64158f994d06014cca2501b8adbacc\transformed\firebase-auth-interop-19.0.2\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:6:5-8:41
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:6:5-8:41
-MERGED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\5395589749d4fa38f5dfb32346dc68e0\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\5395589749d4fa38f5dfb32346dc68e0\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\e11acfaf2d00ce45feb9e590456f84ac\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\e11acfaf2d00ce45feb9e590456f84ac\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:18:5-43
-MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:18:5-43
-MERGED from [com.google.firebase:firebase-installations-interop:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\d058b4bb1481c81a0686d3f07058c002\transformed\firebase-installations-interop-17.0.1\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-installations-interop:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\d058b4bb1481c81a0686d3f07058c002\transformed\firebase-installations-interop-17.0.1\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\58cdb5f3bda49b171bb5da215b078bd2\transformed\play-services-tasks-18.0.1\AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\58cdb5f3bda49b171bb5da215b078bd2\transformed\play-services-tasks-18.0.1\AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-measurement-sdk:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\a07838928b6667a5cdfa498eb46a9f2f\transformed\play-services-measurement-sdk-20.1.2\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-measurement-sdk:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\a07838928b6667a5cdfa498eb46a9f2f\transformed\play-services-measurement-sdk-20.1.2\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\98bd06fb471eff2e3f6640aeb8a3487d\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\98bd06fb471eff2e3f6640aeb8a3487d\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-measurement-base:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\608f3f72055eca2b53b88d7e96330661\transformed\play-services-measurement-base-20.1.2\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-measurement-base:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\608f3f72055eca2b53b88d7e96330661\transformed\play-services-measurement-base-20.1.2\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tasty\.gradle\caches\transforms-3\c5feb4deb9d3707ba0b683563dca02fe\transformed\play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tasty\.gradle\caches\transforms-3\c5feb4deb9d3707ba0b683563dca02fe\transformed\play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tasty\.gradle\caches\transforms-3\037aa12530af976d24b4c89420b86675\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tasty\.gradle\caches\transforms-3\037aa12530af976d24b4c89420b86675\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:18:5-43
-MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:18:5-43
-MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\2fc41a71865342533a25d79617d6a8b6\transformed\fragment-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\2fc41a71865342533a25d79617d6a8b6\transformed\fragment-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.2.4] C:\Users\tasty\.gradle\caches\transforms-3\e87852331e5f22e72f4499a1c6a7dc80\transformed\activity-1.2.4\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.2.4] C:\Users\tasty\.gradle\caches\transforms-3\e87852331e5f22e72f4499a1c6a7dc80\transformed\activity-1.2.4\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\6b9e5cc607549a9a079ad8c8b039f4d5\transformed\appcompat-resources-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\6b9e5cc607549a9a079ad8c8b039f4d5\transformed\appcompat-resources-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\eab68531fe8c5857d2cc0d87f2e91b35\transformed\emoji2-views-helper-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\eab68531fe8c5857d2cc0d87f2e91b35\transformed\emoji2-views-helper-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\tasty\.gradle\caches\transforms-3\1201a2bc94df96e627a6c2ac8a33f58c\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\tasty\.gradle\caches\transforms-3\1201a2bc94df96e627a6c2ac8a33f58c\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\9878a88f73d16b0c8879b68c258abc80\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\9878a88f73d16b0c8879b68c258abc80\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\15be504ce2d3d5d82a689470f2f2f551\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\15be504ce2d3d5d82a689470f2f2f551\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\83033c90805b79981fed334cdb9a6d66\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\83033c90805b79981fed334cdb9a6d66\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\ca9698ac855aebe69b579a471e46be65\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\ca9698ac855aebe69b579a471e46be65\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\tasty\.gradle\caches\transforms-3\8956ecf2e343d8c90e5d560987cc1aed\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\tasty\.gradle\caches\transforms-3\8956ecf2e343d8c90e5d560987cc1aed\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\54431c18046a6d12f9f857a355342cb6\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\54431c18046a6d12f9f857a355342cb6\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\fd8a73de975747a631318b71a5b29aeb\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\fd8a73de975747a631318b71a5b29aeb\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\c192979d566286e9d435a6575ef7a3e8\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.customview:customview:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\c192979d566286e9d435a6575ef7a3e8\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\01a0b582226a5addefcf040c9d0e765a\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\01a0b582226a5addefcf040c9d0e765a\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\tasty\.gradle\caches\transforms-3\b6cc76fcc8644c837e666652b362bd7e\transformed\core-ktx-1.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\tasty\.gradle\caches\transforms-3\b6cc76fcc8644c837e666652b362bd7e\transformed\core-ktx-1.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.transition:transition:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\7b0661f27ad59470e90b1ab80aa50739\transformed\transition-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.transition:transition:1.4.1] C:\Users\tasty\.gradle\caches\transforms-3\7b0661f27ad59470e90b1ab80aa50739\transformed\transition-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.window:window:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.window:window:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c70cc9db164ab37ff797d12bd597d034\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c70cc9db164ab37ff797d12bd597d034\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.7.0] C:\Users\tasty\.gradle\caches\transforms-3\3d85e7e932ace6301d0325dd2777afdc\transformed\core-1.7.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.7.0] C:\Users\tasty\.gradle\caches\transforms-3\3d85e7e932ace6301d0325dd2777afdc\transformed\core-1.7.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\b22187b6a5359f3e38e56358923043d1\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\b22187b6a5359f3e38e56358923043d1\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\tasty\.gradle\caches\transforms-3\b2b4a01a79e6b699ecd2ab41a93952dc\transformed\lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\tasty\.gradle\caches\transforms-3\b2b4a01a79e6b699ecd2ab41a93952dc\transformed\lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\47492633bfc51e9e55b6e68b50d55490\transformed\savedstate-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\47492633bfc51e9e55b6e68b50d55490\transformed\savedstate-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\3e812e43a8464e59bda225b060b7dc74\transformed\savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\3e812e43a8464e59bda225b060b7dc74\transformed\savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\e6c08e6e532bd62ffe522a63e14a6ac5\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\e6c08e6e532bd62ffe522a63e14a6ac5\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\3fda7860978d63ce03ab4d79fc2c9f95\transformed\lifecycle-viewmodel-2.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\3fda7860978d63ce03ab4d79fc2c9f95\transformed\lifecycle-viewmodel-2.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\tasty\.gradle\caches\transforms-3\05ce1cb41dd3e278bca2505ffd6c8068\transformed\firebase-components-17.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\tasty\.gradle\caches\transforms-3\05ce1cb41dd3e278bca2505ffd6c8068\transformed\firebase-components-17.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tasty\.gradle\caches\transforms-3\aef10d1dbfd5cb3208f69fb58056b0ca\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tasty\.gradle\caches\transforms-3\aef10d1dbfd5cb3208f69fb58056b0ca\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\.gradle\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\.gradle\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\5a5d78168d39cf0be4fb0af1483aa8d0\transformed\startup-runtime-1.0.0\AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\5a5d78168d39cf0be4fb0af1483aa8d0\transformed\startup-runtime-1.0.0\AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\4b7e4bbdf45d6c7afe7c0c581acad13b\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\4b7e4bbdf45d6c7afe7c0c581acad13b\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\eac4590d0f839fd0de0464095dd581ad\transformed\lifecycle-livedata-2.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\eac4590d0f839fd0de0464095dd581ad\transformed\lifecycle-livedata-2.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\294ae4ec04d96a559c4887109325ad28\transformed\lifecycle-livedata-core-ktx-2.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\294ae4ec04d96a559c4887109325ad28\transformed\lifecycle-livedata-core-ktx-2.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\11ab8474a58f7d6da201c2a3f7a045b5\transformed\lifecycle-livedata-core-2.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.4.1] C:\Users\tasty\.gradle\caches\transforms-3\11ab8474a58f7d6da201c2a3f7a045b5\transformed\lifecycle-livedata-core-2.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\tasty\.gradle\caches\transforms-3\7191883bf9988c83842bc49abe1a8640\transformed\lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\tasty\.gradle\caches\transforms-3\7191883bf9988c83842bc49abe1a8640\transformed\lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] C:\Users\tasty\.gradle\caches\transforms-3\1e2287c96a22b25286e5969e36fb83d9\transformed\lifecycle-runtime-2.4.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] C:\Users\tasty\.gradle\caches\transforms-3\1e2287c96a22b25286e5969e36fb83d9\transformed\lifecycle-runtime-2.4.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\tasty\.gradle\caches\transforms-3\cb8528451df9f2dfb12d2f4888f9b447\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\tasty\.gradle\caches\transforms-3\cb8528451df9f2dfb12d2f4888f9b447\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\5f9c96e9d90e8ba936bc50f1578aa64e\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\5f9c96e9d90e8ba936bc50f1578aa64e\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\fe2c2c278bb0b8ba62e0245ae5936528\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\fe2c2c278bb0b8ba62e0245ae5936528\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\3c3000185a98b5bc93eea67caae45c27\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\3c3000185a98b5bc93eea67caae45c27\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\8e30d658a7f38344ee4526a38ada1962\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\8e30d658a7f38344ee4526a38ada1962\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\dd7e97341eb4da1f302078e78ba53b2e\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\tasty\.gradle\caches\transforms-3\dd7e97341eb4da1f302078e78ba53b2e\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.databinding:viewbinding:7.1.3] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\47896e2e41b7db42be78fe47ce30929e\transformed\viewbinding-7.1.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.databinding:viewbinding:7.1.3] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\47896e2e41b7db42be78fe47ce30929e\transformed\viewbinding-7.1.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.4.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\e52011228abc250ceb6073ba624a93f4\transformed\navigation-ui-2.4.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.4.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\e52011228abc250ceb6073ba624a93f4\transformed\navigation-ui-2.4.2\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.5.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b148acd554d201006bfa5f46a25cfea6\transformed\material-1.5.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.5.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b148acd554d201006bfa5f46a25cfea6\transformed\material-1.5.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5d88a285ad7641d14f53b6f648a20aa5\transformed\constraintlayout-2.1.3\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5d88a285ad7641d14f53b6f648a20aa5\transformed\constraintlayout-2.1.3\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9eb9f6049f0319e6af6a6a629fa992bf\transformed\appcompat-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9eb9f6049f0319e6af6a6a629fa992bf\transformed\appcompat-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\f6dfa73e07d971457406d73c4f2a0a5e\transformed\lifecycle-livedata-ktx-2.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\f6dfa73e07d971457406d73c4f2a0a5e\transformed\lifecycle-livedata-ktx-2.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.4.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\2185c20aacc4f6e3b0e487e5fbbd1437\transformed\navigation-fragment-2.4.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.4.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\2185c20aacc4f6e3b0e487e5fbbd1437\transformed\navigation-fragment-2.4.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0aa0b3986902ebd78d9cd90ab676602e\transformed\fragment-ktx-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0aa0b3986902ebd78d9cd90ab676602e\transformed\fragment-ktx-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.4.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0da4c5269730f462146f83d92d6b0278\transformed\navigation-runtime-2.4.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.4.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0da4c5269730f462146f83d92d6b0278\transformed\navigation-runtime-2.4.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.2.3] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b3fddd6f617ee360b2ef54549740f535\transformed\activity-ktx-1.2.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.2.3] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b3fddd6f617ee360b2ef54549740f535\transformed\activity-ktx-1.2.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.4.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\16318cae12f522c50d17ab714a724e29\transformed\navigation-common-2.4.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.4.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\16318cae12f522c50d17ab714a724e29\transformed\navigation-common-2.4.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1493e50bc37783fe4ccfe9a926945ab5\transformed\lifecycle-viewmodel-ktx-2.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1493e50bc37783fe4ccfe9a926945ab5\transformed\lifecycle-viewmodel-ktx-2.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-core:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\cc018359c8c7ca85cb7dae20316f3f20\transformed\firebase-core-20.1.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-core:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\cc018359c8c7ca85cb7dae20316f3f20\transformed\firebase-core-20.1.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-analytics:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b737fc74ad018fc026bfd75ec5e97274\transformed\firebase-analytics-20.1.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b737fc74ad018fc026bfd75ec5e97274\transformed\firebase-analytics-20.1.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\300157f2ac9a425c94a059cd0fd69c55\transformed\firebase-appcheck-interop-16.0.0-beta02\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\300157f2ac9a425c94a059cd0fd69c55\transformed\firebase-appcheck-interop-16.0.0-beta02\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3c64158f994d06014cca2501b8adbacc\transformed\firebase-auth-interop-19.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3c64158f994d06014cca2501b8adbacc\transformed\firebase-auth-interop-19.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5395589749d4fa38f5dfb32346dc68e0\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5395589749d4fa38f5dfb32346dc68e0\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\e11acfaf2d00ce45feb9e590456f84ac\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\e11acfaf2d00ce45feb9e590456f84ac\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:firebase-installations-interop:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\d058b4bb1481c81a0686d3f07058c002\transformed\firebase-installations-interop-17.0.1\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-installations-interop:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\d058b4bb1481c81a0686d3f07058c002\transformed\firebase-installations-interop-17.0.1\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\58cdb5f3bda49b171bb5da215b078bd2\transformed\play-services-tasks-18.0.1\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\58cdb5f3bda49b171bb5da215b078bd2\transformed\play-services-tasks-18.0.1\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\a07838928b6667a5cdfa498eb46a9f2f\transformed\play-services-measurement-sdk-20.1.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\a07838928b6667a5cdfa498eb46a9f2f\transformed\play-services-measurement-sdk-20.1.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\98bd06fb471eff2e3f6640aeb8a3487d\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\98bd06fb471eff2e3f6640aeb8a3487d\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\608f3f72055eca2b53b88d7e96330661\transformed\play-services-measurement-base-20.1.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\608f3f72055eca2b53b88d7e96330661\transformed\play-services-measurement-base-20.1.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c5feb4deb9d3707ba0b683563dca02fe\transformed\play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c5feb4deb9d3707ba0b683563dca02fe\transformed\play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\037aa12530af976d24b4c89420b86675\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\037aa12530af976d24b4c89420b86675\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:18:5-43
+MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\2fc41a71865342533a25d79617d6a8b6\transformed\fragment-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\2fc41a71865342533a25d79617d6a8b6\transformed\fragment-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\e87852331e5f22e72f4499a1c6a7dc80\transformed\activity-1.2.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\e87852331e5f22e72f4499a1c6a7dc80\transformed\activity-1.2.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6b9e5cc607549a9a079ad8c8b039f4d5\transformed\appcompat-resources-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6b9e5cc607549a9a079ad8c8b039f4d5\transformed\appcompat-resources-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\eab68531fe8c5857d2cc0d87f2e91b35\transformed\emoji2-views-helper-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\eab68531fe8c5857d2cc0d87f2e91b35\transformed\emoji2-views-helper-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1201a2bc94df96e627a6c2ac8a33f58c\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1201a2bc94df96e627a6c2ac8a33f58c\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9878a88f73d16b0c8879b68c258abc80\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9878a88f73d16b0c8879b68c258abc80\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\15be504ce2d3d5d82a689470f2f2f551\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\15be504ce2d3d5d82a689470f2f2f551\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\83033c90805b79981fed334cdb9a6d66\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\83033c90805b79981fed334cdb9a6d66\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\ca9698ac855aebe69b579a471e46be65\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\ca9698ac855aebe69b579a471e46be65\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\8956ecf2e343d8c90e5d560987cc1aed\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\8956ecf2e343d8c90e5d560987cc1aed\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\54431c18046a6d12f9f857a355342cb6\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\54431c18046a6d12f9f857a355342cb6\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\fd8a73de975747a631318b71a5b29aeb\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\fd8a73de975747a631318b71a5b29aeb\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c192979d566286e9d435a6575ef7a3e8\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c192979d566286e9d435a6575ef7a3e8\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\01a0b582226a5addefcf040c9d0e765a\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\01a0b582226a5addefcf040c9d0e765a\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b6cc76fcc8644c837e666652b362bd7e\transformed\core-ktx-1.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b6cc76fcc8644c837e666652b362bd7e\transformed\core-ktx-1.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.transition:transition:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\7b0661f27ad59470e90b1ab80aa50739\transformed\transition-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\7b0661f27ad59470e90b1ab80aa50739\transformed\transition-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c70cc9db164ab37ff797d12bd597d034\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c70cc9db164ab37ff797d12bd597d034\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.7.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3d85e7e932ace6301d0325dd2777afdc\transformed\core-1.7.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.7.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3d85e7e932ace6301d0325dd2777afdc\transformed\core-1.7.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b22187b6a5359f3e38e56358923043d1\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b22187b6a5359f3e38e56358923043d1\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b2b4a01a79e6b699ecd2ab41a93952dc\transformed\lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\b2b4a01a79e6b699ecd2ab41a93952dc\transformed\lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\47492633bfc51e9e55b6e68b50d55490\transformed\savedstate-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\47492633bfc51e9e55b6e68b50d55490\transformed\savedstate-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3e812e43a8464e59bda225b060b7dc74\transformed\savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3e812e43a8464e59bda225b060b7dc74\transformed\savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\e6c08e6e532bd62ffe522a63e14a6ac5\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\e6c08e6e532bd62ffe522a63e14a6ac5\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3fda7860978d63ce03ab4d79fc2c9f95\transformed\lifecycle-viewmodel-2.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3fda7860978d63ce03ab4d79fc2c9f95\transformed\lifecycle-viewmodel-2.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\05ce1cb41dd3e278bca2505ffd6c8068\transformed\firebase-components-17.0.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\05ce1cb41dd3e278bca2505ffd6c8068\transformed\firebase-components-17.0.0\AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\aef10d1dbfd5cb3208f69fb58056b0ca\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\aef10d1dbfd5cb3208f69fb58056b0ca\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5a5d78168d39cf0be4fb0af1483aa8d0\transformed\startup-runtime-1.0.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5a5d78168d39cf0be4fb0af1483aa8d0\transformed\startup-runtime-1.0.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\4b7e4bbdf45d6c7afe7c0c581acad13b\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\4b7e4bbdf45d6c7afe7c0c581acad13b\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\eac4590d0f839fd0de0464095dd581ad\transformed\lifecycle-livedata-2.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\eac4590d0f839fd0de0464095dd581ad\transformed\lifecycle-livedata-2.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\294ae4ec04d96a559c4887109325ad28\transformed\lifecycle-livedata-core-ktx-2.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\294ae4ec04d96a559c4887109325ad28\transformed\lifecycle-livedata-core-ktx-2.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\11ab8474a58f7d6da201c2a3f7a045b5\transformed\lifecycle-livedata-core-2.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.4.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\11ab8474a58f7d6da201c2a3f7a045b5\transformed\lifecycle-livedata-core-2.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\7191883bf9988c83842bc49abe1a8640\transformed\lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\7191883bf9988c83842bc49abe1a8640\transformed\lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1e2287c96a22b25286e5969e36fb83d9\transformed\lifecycle-runtime-2.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1e2287c96a22b25286e5969e36fb83d9\transformed\lifecycle-runtime-2.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\cb8528451df9f2dfb12d2f4888f9b447\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\cb8528451df9f2dfb12d2f4888f9b447\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5f9c96e9d90e8ba936bc50f1578aa64e\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5f9c96e9d90e8ba936bc50f1578aa64e\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\fe2c2c278bb0b8ba62e0245ae5936528\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\fe2c2c278bb0b8ba62e0245ae5936528\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3c3000185a98b5bc93eea67caae45c27\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3c3000185a98b5bc93eea67caae45c27\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\8e30d658a7f38344ee4526a38ada1962\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\8e30d658a7f38344ee4526a38ada1962\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\dd7e97341eb4da1f302078e78ba53b2e\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\dd7e97341eb4da1f302078e78ba53b2e\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
 INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
@@ -383,192 +383,192 @@ INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidM
 		ADDED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\tasty\AndroidStudioProjects\MOAMOA3\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:25:5-79
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\.gradle\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:26:5-79
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\.gradle\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:26:5-79
-MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:23:5-79
-MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:10:5-79
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:10:5-79
-MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:24:5-79
+ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:25:5-79
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:26:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:10:5-79
+MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:24:5-79
 	android:name
-		ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:25:22-76
+		ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:25:22-76
 uses-permission#android.permission.INTERNET
-ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:26:5-67
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\.gradle\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:27:5-67
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\.gradle\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:27:5-67
-MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:22:5-67
-MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:22:5-67
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:11:5-67
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:11:5-67
-MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:23:5-67
+ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:27:5-67
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:27:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:11:5-67
+MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:26:22-64
+		ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:26:22-64
 service#com.google.firebase.components.ComponentDiscoveryService
-ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:29:9-35:19
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\.gradle\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:30:9-36:19
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\.gradle\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:30:9-36:19
-MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:28:9-34:19
-MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:28:9-34:19
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:15:9-21:19
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:15:9-21:19
-MERGED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:33:9-37:35
-MERGED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:33:9-37:35
+ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:30:9-36:19
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:30:9-36:19
+MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:28:9-34:19
+MERGED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:28:9-34:19
+MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:15:9-21:19
+MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:15:9-21:19
+MERGED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:33:9-37:35
+MERGED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:33:9-37:35
 	android:exported
-		ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:31:13-37
+		ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:31:13-37
 	tools:targetApi
-		ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:37:13-32
+		ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:37:13-32
 	android:directBootAware
-		ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:35:13-43
+		ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:35:13-43
 	android:name
-		ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:30:13-84
+		ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:30:13-84
 meta-data#com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar
-ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:32:13-34:85
+ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:32:13-34:85
 	android:value
-		ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:34:17-82
+		ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:34:17-82
 	android:name
-		ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\.gradle\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:33:17-109
+		ADDED from [com.google.firebase:firebase-database:20.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c19e3a4e66ee92b0b60f8dc6b4c77eb9\transformed\firebase-database-20.0.4\AndroidManifest.xml:33:17-109
 meta-data#com.google.firebase.components:com.google.firebase.storage.StorageRegistrar
-ADDED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\.gradle\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:33:13-35:85
+ADDED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:33:13-35:85
 	android:value
-		ADDED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\.gradle\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:35:17-82
+		ADDED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:35:17-82
 	android:name
-		ADDED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\.gradle\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:34:17-107
+		ADDED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\963021419baf181cae6cafb3aeac6ef6\transformed\firebase-storage-20.0.1\AndroidManifest.xml:34:17-107
 uses-permission#android.permission.WAKE_LOCK
-ADDED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:24:5-68
-MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:25:5-68
-MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:25:5-68
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:25:5-68
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:25:5-68
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:25:5-68
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:25:5-68
+ADDED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:24:5-68
+MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:25:5-68
 	android:name
-		ADDED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:24:22-65
+		ADDED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:24:22-65
 uses-permission#com.google.android.gms.permission.AD_ID
-ADDED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:25:5-79
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:27:5-79
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:27:5-79
-MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\98bd06fb471eff2e3f6640aeb8a3487d\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:23:5-79
-MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\98bd06fb471eff2e3f6640aeb8a3487d\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:23:5-79
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:26:5-79
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:26:5-79
+ADDED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:27:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:27:5-79
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\98bd06fb471eff2e3f6640aeb8a3487d\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\98bd06fb471eff2e3f6640aeb8a3487d\transformed\play-services-ads-identifier-18.0.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:26:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\94a8047b48758e0c2ef5b44c99b04091\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:26:5-79
 	android:name
-		ADDED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:25:22-76
+		ADDED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:25:22-76
 meta-data#com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar
-ADDED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:31:13-33:85
+ADDED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:31:13-33:85
 	android:value
-		ADDED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:33:17-82
+		ADDED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:33:17-82
 	android:name
-		ADDED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:32:17-139
+		ADDED from [com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3057680b74950b6db6e6d3d4f7b55ffe\transformed\play-services-measurement-api-20.1.2\AndroidManifest.xml:32:17-139
 meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar
-ADDED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:18:13-20:85
+ADDED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:18:13-20:85
 	android:value
-		ADDED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:20:17-82
+		ADDED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:20:17-82
 	android:name
-		ADDED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\.gradle\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:19:17-127
+		ADDED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\04dce8511b0c0c73d523fad32b27a9de\transformed\firebase-installations-17.0.1\AndroidManifest.xml:19:17-127
 provider#com.google.firebase.provider.FirebaseInitProvider
-ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:26:9-31:39
+ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:26:9-31:39
 	android:authorities
-		ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:28:13-72
+		ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:28:13-72
 	android:exported
-		ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:30:13-37
+		ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:30:13-37
 	android:directBootAware
-		ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:29:13-43
+		ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:29:13-43
 	android:initOrder
-		ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:31:13-36
+		ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:31:13-36
 	android:name
-		ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\.gradle\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:27:13-77
+		ADDED from [com.google.firebase:firebase-common:20.1.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\638345671f569e7dc98a6439dd05d768\transformed\firebase-common-20.1.0\AndroidManifest.xml:27:13-77
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:22:19-43
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:21:19-78
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\.gradle\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\9cea301921fded782d7ec08ead3606f7\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:19-85
 uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
-ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:26:5-110
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:26:5-110
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:26:5-110
+ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:26:5-110
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:26:5-110
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1287bdf1e0a374d319cf02e3c914a6ca\transformed\play-services-measurement-impl-20.1.2\AndroidManifest.xml:26:5-110
 	android:name
-		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:26:22-107
+		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:26:22-107
 receiver#com.google.android.gms.measurement.AppMeasurementReceiver
-ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:29:9-33:20
+ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:29:9-33:20
 	android:enabled
-		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:31:13-35
+		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:31:13-35
 	android:exported
-		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:32:13-37
+		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:32:13-37
 	android:name
-		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:30:13-85
+		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:30:13-85
 service#com.google.android.gms.measurement.AppMeasurementService
-ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:35:9-38:40
+ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:35:9-38:40
 	android:enabled
-		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:37:13-35
+		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:37:13-35
 	android:exported
-		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:38:13-37
+		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:38:13-37
 	android:name
-		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:36:13-84
+		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:36:13-84
 service#com.google.android.gms.measurement.AppMeasurementJobService
-ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:39:9-43:72
+ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:39:9-43:72
 	android:enabled
-		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:41:13-35
+		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:41:13-35
 	android:exported
-		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:42:13-37
+		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:42:13-37
 	android:permission
-		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:43:13-69
+		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:43:13-69
 	android:name
-		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\.gradle\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:40:13-87
+		ADDED from [com.google.android.gms:play-services-measurement:20.1.2] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\6fb738742c270784c39306850f0fac65\transformed\play-services-measurement-20.1.2\AndroidManifest.xml:40:13-87
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
+ADDED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
+		ADDED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\.gradle\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:22:13-58
+		ADDED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\31a03f372738a55d336ffecd1a3c79ac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:22:13-58
 provider#androidx.startup.InitializationProvider
-ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
-MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\.gradle\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:26:9-34:20
-MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\.gradle\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:26:9-34:20
-MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\5a5d78168d39cf0be4fb0af1483aa8d0\transformed\startup-runtime-1.0.0\AndroidManifest.xml:26:9-30:34
-MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\5a5d78168d39cf0be4fb0af1483aa8d0\transformed\startup-runtime-1.0.0\AndroidManifest.xml:26:9-30:34
+ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5a5d78168d39cf0be4fb0af1483aa8d0\transformed\startup-runtime-1.0.0\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\5a5d78168d39cf0be4fb0af1483aa8d0\transformed\startup-runtime-1.0.0\AndroidManifest.xml:26:9-30:34
 	tools:node
-		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:30:13-31
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:30:13-31
 	android:authorities
-		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
 	android:exported
-		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
 	android:name
-		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
 meta-data#androidx.emoji2.text.EmojiCompatInitializer
-ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
 	android:value
-		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
 	android:name
-		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c6cde189bff2f7f57dd56205dc9ef24c\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
 uses-library#androidx.window.extensions
-ADDED from [androidx.window:window:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+ADDED from [androidx.window:window:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
 	android:required
-		ADDED from [androidx.window:window:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+		ADDED from [androidx.window:window:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
 	android:name
-		ADDED from [androidx.window:window:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+		ADDED from [androidx.window:window:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
 uses-library#androidx.window.sidecar
-ADDED from [androidx.window:window:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+ADDED from [androidx.window:window:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
 	android:required
-		ADDED from [androidx.window:window:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+		ADDED from [androidx.window:window:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
 	android:name
-		ADDED from [androidx.window:window:1.0.0] C:\Users\tasty\.gradle\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+		ADDED from [androidx.window:window:1.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\0daa8b3e3480f2fbec96de23c4e29288\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
 meta-data#androidx.lifecycle.ProcessLifecycleInitializer
-ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\.gradle\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
 	android:value
-		ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\.gradle\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
 	android:name
-		ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\.gradle\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\c8e11fb54a3f7e13e021fc477bbb2eb0\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78

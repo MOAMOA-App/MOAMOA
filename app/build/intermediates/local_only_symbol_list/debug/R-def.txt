@@ -63,6 +63,8 @@ id charge
 id chat_formname
 id chat_recent
 id chatlist_Image
+id chatlistnum
+id chatlistunit
 id chats_recyclerview
 id chatting_list
 id clothes_group
@@ -148,6 +150,7 @@ id title
 id toolbar
 id username
 id view_pager
+layout activity_chats
 layout activity_formdetail
 layout activity_loading
 layout activity_login

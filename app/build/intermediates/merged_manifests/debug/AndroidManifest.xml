@@ -9,6 +9,7 @@
         android:targetSdkVersion="31" />
 
     <uses-permission android:name="android.permission.INTERACT" />
+
     <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
     <!-- <uses-sdk android:minSdkVersion="14"/> -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -37,14 +38,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        //로딩페이지
         <activity
             android:name="com.example.moamoa.LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name="com.example.moamoa.ui.formdetail.show_detail" />
-        //마이페이지 내 정보 이동
         <activity android:name="com.example.moamoa.ui.mypage.EditMyinfo" />
-        //마이페이지 만든 폼 이동
         <activity android:name="com.example.moamoa.ui.mypage.CreatedForms" />
 
         <service

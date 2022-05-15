@@ -1,10 +1,13 @@
 package com.example.moamoa.ui.chatlist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentChatlistBinding;
+import com.example.moamoa.ui.chats.ChatsActivity;
 
 import java.util.ArrayList;
 
@@ -30,9 +34,8 @@ public class ChatListFragment extends Fragment {
         binding = FragmentChatlistBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        //ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_chatlist, container, false);
-
         this.FormData();
+
 
         recyclerView = (RecyclerView) root.findViewById(R.id.chatting_list);
 
@@ -41,6 +44,26 @@ public class ChatListFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
 
+        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                if (e.getAction()==MotionEvent.ACTION_DOWN){
+                    Intent intent = new Intent(getActivity(), ChatsActivity.class);
+                    startActivity(intent);
+                }
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
         return root;
     }
 

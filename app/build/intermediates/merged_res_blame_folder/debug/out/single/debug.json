@@ -8,12 +8,12 @@
         "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\drawable\\border.xml"
     },
     {
-        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_formdetail.xml.flat",
-        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\layout\\activity_formdetail.xml"
-    },
-    {
         "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\build\\intermediates\\merged_res\\debug\\menu_bottom_nav_menu.xml.flat",
         "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_formdetail.xml.flat",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\layout\\activity_formdetail.xml"
     },
     {
         "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_main_round.png.flat",
@@ -104,12 +104,12 @@
         "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.webp"
-    },
-    {
         "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\build\\intermediates\\merged_res\\debug\\drawable_korea.png.flat",
         "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\drawable\\korea.png"
+    },
+    {
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
         "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.webp.flat",
@@ -232,6 +232,10 @@
         "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\drawable\\ic_access_alarm_24.xml"
     },
     {
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_chats.xml.flat",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\layout\\activity_chats.xml"
+    },
+    {
         "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_chevron_right_24.xml.flat",
         "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\drawable\\ic_baseline_chevron_right_24.xml"
     },
@@ -300,12 +304,12 @@
         "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\drawable\\ic_chat_24.xml"
     },
     {
-        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_formcreate.xml.flat",
-        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\layout\\fragment_formcreate.xml"
-    },
-    {
         "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\build\\intermediates\\merged_res\\debug\\layout_edit_myinfo.xml.flat",
         "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\layout\\edit_myinfo.xml"
+    },
+    {
+        "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_formcreate.xml.flat",
+        "source": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\src\\main\\res\\layout\\fragment_formcreate.xml"
     },
     {
         "merged": "C:\\Users\\tasty\\AndroidStudioProjects\\MOAMOA3\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_main.xml.flat",
