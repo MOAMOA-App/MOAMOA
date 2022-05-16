@@ -12,7 +12,7 @@
         android:title="@string/title_category" />
 
     <item
-        android:id="@+id/navigation_formcreate"
+        android:id="@+id/navigation_dashboard"
         android:icon="@drawable/ic_create_24"
         android:title="@string/title_formcreate" />
     <item

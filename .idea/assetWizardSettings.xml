@@ -67,6 +67,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
+                                                <entry key="color" value="000000" />
                                                 <entry key="imagePath" value="C:\Users\Owner\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
@@ -79,7 +80,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\Owner\AndroidStudioProjects\MOAMOA\icon.PNG" />
+                                                <entry key="imagePath" value="C:\Users\Owner\AndroidStudioProjects\MOAMOA\app\src\main\btn_google_signin_light_focus_hdpi.9.png" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -111,7 +112,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="outputName" value="ic_main" />
+                                      <entry key="outputName" value="ic_google_login" />
                                     </map>
                                   </option>
                                 </PersistentState>

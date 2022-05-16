@@ -10,21 +10,12 @@
         android:name="com.example.moamoa.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/navigation_category"
-        android:name="com.example.moamoa.ui.home.HomeFragment"
-        android:label="@string/title_category"
-        tools:layout="@layout/fragment_category" />
+
     <fragment
         android:id="@+id/navigation_formlist"
         android:name="com.example.moamoa.ui.home.HomeFragment"
         android:label="@string/title_formlist"
         tools:layout="@layout/activity_formlist" />
-    <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.moamoa.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -45,10 +36,10 @@
         tools:layout="@layout/fragment_my_page" />
 
     <fragment
-        android:id="@+id/navigation_formcreate"
+        android:id="@+id/navigation_dashboard"
         android:name="com.example.moamoa.ui.formcreate.FormcreateFragment"
         android:label="@string/title_formcreate"
-        tools:layout="@layout/fragment_formcreate"/>
+        tools:layout="@layout/fragment_dashboard"/>
 
     <fragment
         android:id="@+id/navigation_chatlist"
