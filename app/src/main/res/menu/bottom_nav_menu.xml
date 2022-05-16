@@ -8,7 +8,7 @@
 
     <item
         android:id="@+id/navigation_category"
-        android:icon="@drawable/ic_chat_24"
+        android:icon="@drawable/ic_baseline_apps_24"
         android:title="@string/title_category" />
 
     <item

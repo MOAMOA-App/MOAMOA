@@ -8,7 +8,7 @@
 
     <item
         android:id="@+id/navigation_category"
-        android:icon="@drawable/ic_chat_24"
+        android:icon="@drawable/ic_baseline_apps_24"
         android:title="@string/title_category" />
 
     <item
@@ -16,9 +16,9 @@
         android:icon="@drawable/ic_create_24"
         android:title="@string/title_formcreate" />
     <item
-        android:id="@+id/navigation_formlist"
+        android:id="@+id/navigation_chatlist"
         android:icon="@drawable/ic_chat_24"
-        android:title="@string/title_formlist" />
+        android:title="@string/title_chatlist" />
     <item
         android:id="@+id/navigation_my_page"
         android:icon="@drawable/ic_account_circle_24"
