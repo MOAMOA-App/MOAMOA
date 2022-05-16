@@ -4,24 +4,12 @@
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_account_circle_24.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.webp"
-    },
-    {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_formcreate.xml.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_formcreate.xml"
     },
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_chat_24.xml.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_chat_24.xml"
-    },
-    {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_main_round.png.flat",
@@ -72,24 +60,12 @@
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_clear_24.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.webp"
-    },
-    {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_apps_24.xml.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_apps_24.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.webp"
-    },
-    {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_listview.xml.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\listview.xml"
-    },
-    {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_recyclerview_chats.xml.flat",
@@ -148,10 +124,6 @@
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_login.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.webp"
-    },
-    {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_login.xml.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
@@ -160,12 +132,12 @@
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\menu\\bottom_nav_menu.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_main_round.png.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_main_round.png"
-    },
-    {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_notifications.xml.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_main_round.png.flat",
+        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_main_round.png"
     },
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_chats.xml.flat",
@@ -176,16 +148,12 @@
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_chats.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_home.xml"
     },
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_main_round.png.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_main_round.png"
-    },
-    {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_home.xml.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_home.xml"
     },
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\navigation_mobile_navigation.xml.flat",
@@ -202,10 +170,6 @@
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_create_24.xml.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_create_24.xml"
-    },
-    {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_main_background.xml.flat",
@@ -260,16 +224,12 @@
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\mypage_right_border.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_main_foreground.png.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-mdpi\\ic_main_foreground.png"
-    },
-    {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_balloon_chat.9.png.flat",
         "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\balloon_chat.9.png"
     },
     {
-        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_main_foreground.png.flat",
+        "source": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-mdpi\\ic_main_foreground.png"
     },
     {
         "merged": "C:\\Users\\Owner\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_dashboard_black_24dp.xml.flat",

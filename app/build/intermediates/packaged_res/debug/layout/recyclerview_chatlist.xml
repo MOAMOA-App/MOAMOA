@@ -23,7 +23,6 @@
             android:id="@+id/chatlist_Image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher_round"
             android:layout_gravity="center"/>
 
         <LinearLayout

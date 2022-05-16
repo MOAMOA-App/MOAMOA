@@ -3473,8 +3473,6 @@ layout text_view_without_line_height
 menu bottom_nav_menu
 menu example_menu
 menu example_menu2
-mipmap ic_launcher
-mipmap ic_launcher_round
 mipmap ic_main
 mipmap ic_main_foreground
 mipmap ic_main_round

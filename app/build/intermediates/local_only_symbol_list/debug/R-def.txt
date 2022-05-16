@@ -186,8 +186,6 @@ layout recyclerview_chats
 layout recyclerview_notifications
 layout setting
 menu bottom_nav_menu
-mipmap ic_launcher
-mipmap ic_launcher_round
 mipmap ic_main
 mipmap ic_main_foreground
 mipmap ic_main_round
