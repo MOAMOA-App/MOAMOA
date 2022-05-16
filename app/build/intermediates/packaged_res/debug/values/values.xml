@@ -20,6 +20,7 @@
         <item>5</item>
     </string-array>
     <color name="black">#000000</color>
+    <color name="gray">#8c8c8c</color>
     <color name="main_green">#274E13</color>
     <color name="main_orange">#F1A94E</color>
     <color name="white">#FFFFFF</color>

@@ -1335,6 +1335,7 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color gray
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color m3_appbar_overlay_color
@@ -2749,7 +2750,6 @@ id btn_edit
 id btn_login
 id button
 id button2
-id button3
 id buttonPanel
 id button_sendmsg
 id cache_measures
@@ -2858,6 +2858,7 @@ id edit_query
 id edittext_dropdown_editable
 id edittext_dropdown_noneditable
 id elastic
+id emailEt
 id end
 id endToStart
 id enterAlways
@@ -2939,6 +2940,7 @@ id listView2
 id list_attend
 id list_create
 id list_item
+id listbtn5
 id listview
 id listview1
 id listview2
@@ -2948,9 +2950,7 @@ id listview5
 id loading
 id local
 id locale
-id login
-id login2
-id login3
+id loginbtn
 id ltr
 id mainImage
 id mans
@@ -3017,6 +3017,7 @@ id my_category
 id my_group
 id my_page
 id name
+id nameEt
 id nationality_left
 id nationality_right
 id nav_controller_view_tag
@@ -3064,7 +3065,9 @@ id parentPanel
 id parentRelative
 id parent_matrix
 id password
+id passwordEdt
 id password_toggle
+id passwordcheckEdt
 id path
 id pathRelative
 id peekHeight
@@ -3080,6 +3083,8 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id register_log
+id register_reg
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3358,6 +3363,7 @@ layout activity_formlist
 layout activity_loading
 layout activity_login
 layout activity_main
+layout activity_register
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout created_forms

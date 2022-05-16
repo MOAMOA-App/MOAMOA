@@ -4,6 +4,7 @@ array test
 array test2
 array test3
 color black
+color gray
 color main_green
 color main_orange
 color white
@@ -49,7 +50,6 @@ id btn_edit
 id btn_login
 id button
 id button2
-id button3
 id button_sendmsg
 id category
 id charge
@@ -76,6 +76,7 @@ id editTextTextPassword2
 id editTextTextPassword4
 id editTextTextPassword5
 id edit_myinfo
+id emailEt
 id etc_group
 id fab
 id food_group
@@ -87,6 +88,7 @@ id listView1
 id listView2
 id list_attend
 id list_create
+id listbtn5
 id listview
 id listview1
 id listview2
@@ -95,9 +97,7 @@ id listview4
 id listview5
 id loading
 id local
-id login
-id login2
-id login3
+id loginbtn
 id mainImage
 id mans
 id mobile_navigation
@@ -106,6 +106,7 @@ id my_category
 id my_group
 id my_page
 id name
+id nameEt
 id nationality_left
 id nationality_right
 id nav_host
@@ -121,9 +122,13 @@ id navigation_my_page
 id navigation_notifications
 id notification_list
 id password
+id passwordEdt
+id passwordcheckEdt
 id pets_group
 id profile_image_left
 id profile_image_right
+id register_log
+id register_reg
 id section_label
 id set_listView
 id spinner
@@ -165,6 +170,7 @@ layout activity_formlist
 layout activity_loading
 layout activity_login
 layout activity_main
+layout activity_register
 layout created_forms
 layout edit_myinfo
 layout empty_forms

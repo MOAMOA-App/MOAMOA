@@ -29,17 +29,18 @@
             android:name="com.example.moamoa.MainActivity"
             android:exported="true"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.moamoa.LoginActivity"
+            android:exported="true"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.example.moamoa.LoginActivity"
-            android:exported="true"
-            android:label="@string/app_name" >
-        </activity>
+        <activity android:name="com.example.moamoa.RegisterActivity" />
         <activity
             android:name="com.example.moamoa.LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />

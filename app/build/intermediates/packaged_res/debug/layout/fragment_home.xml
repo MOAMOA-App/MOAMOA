@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment"
+    android:background="@color/white">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,11 +27,13 @@
                     android:layout_height="wrap_content"
                     android:text="마감임박"
                     android:textSize="16dp"
+                    android:textStyle="bold"
                     android:layout_alignParentStart="true"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_home_allview"
+                    android:textColor="@color/gray"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
@@ -57,11 +60,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="인기별"
+                    android:textStyle="bold"
                     android:textSize="16dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_home_allview"
+                    android:textColor="@color/gray"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
@@ -88,11 +93,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="나의 관심 카테고리"
+                    android:textStyle="bold"
                     android:textSize="16dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_home_allview"
+                    android:textColor="@color/gray"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
@@ -119,11 +126,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="최근 본 게시글"
+                    android:textStyle="bold"
                     android:textSize="16dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_home_allview"
+                    android:textColor="@color/gray"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
@@ -151,11 +160,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="신규"
+                    android:textStyle="bold"
                     android:textSize="16dp"/>
                 <TextView
+                    android:id="@+id/listbtn5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_home_allview"
+                    android:textColor="@color/gray"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>

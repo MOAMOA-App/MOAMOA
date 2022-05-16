@@ -1,6 +1,5 @@
 package com.example.moamoa.ui.home;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,15 +10,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-
 import com.example.moamoa.R;
+
+import java.util.ArrayList;
 
 public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.ViewHolder> {
 
+    public interface OnItemClickListener {
+        void onItemClick(View v, int position) ;
+    }
+    // 리스너 객체 참조를 저장하는 변수
+    private OnItemClickListener mListener = null ;
+    // OnItemClickListener 리스너 객체 참조를 어댑터에 전달하는 메서드
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.mListener = listener ;
+    }
 
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView img_main;
         TextView txt_title;
         TextView txt_name;
@@ -35,7 +42,21 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
             txt_name = (TextView) view.findViewById(R.id.name);
             txt_mans = (TextView) view.findViewById(R.id.mans);
             txt_FID = (TextView) view.findViewById(R.id.FID);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int pos = getAdapterPosition() ;
+                    if (pos != RecyclerView.NO_POSITION) {
+                        // 리스너 객체의 메서드 호출.
+                        if (mListener != null) {
+                            mListener.onItemClick(view, pos) ;
+                        }
+                    }
+                }
+            });
         }
+
     }
     ArrayList<homelist_data> arrayList = null;
     public homelist_adapter(ArrayList<homelist_data> arrayList) {
@@ -50,6 +71,8 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
                 .inflate(R.layout.homelistview, parent,false);
         return new ViewHolder(view);
     }
+
+
 
     // Replace the contents of a view (invoked by the layout manager)
     // position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -23,9 +24,6 @@ public final class ActivityLoginBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button button3;
-
-  @NonNull
   public final ConstraintLayout container;
 
   @NonNull
@@ -35,33 +33,28 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final ProgressBar loading;
 
   @NonNull
-  public final Button login;
-
-  @NonNull
-  public final Button login2;
-
-  @NonNull
-  public final Button login3;
+  public final Button loginbtn;
 
   @NonNull
   public final EditText password;
 
   @NonNull
+  public final TextView registerLog;
+
+  @NonNull
   public final EditText username;
 
-  private ActivityLoginBinding(@NonNull ConstraintLayout rootView, @NonNull Button button3,
+  private ActivityLoginBinding(@NonNull ConstraintLayout rootView,
       @NonNull ConstraintLayout container, @NonNull SignInButton googleLogin,
-      @NonNull ProgressBar loading, @NonNull Button login, @NonNull Button login2,
-      @NonNull Button login3, @NonNull EditText password, @NonNull EditText username) {
+      @NonNull ProgressBar loading, @NonNull Button loginbtn, @NonNull EditText password,
+      @NonNull TextView registerLog, @NonNull EditText username) {
     this.rootView = rootView;
-    this.button3 = button3;
     this.container = container;
     this.googleLogin = googleLogin;
     this.loading = loading;
-    this.login = login;
-    this.login2 = login2;
-    this.login3 = login3;
+    this.loginbtn = loginbtn;
     this.password = password;
+    this.registerLog = registerLog;
     this.username = username;
   }
 
@@ -92,12 +85,6 @@ public final class ActivityLoginBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.button3;
-      Button button3 = ViewBindings.findChildViewById(rootView, id);
-      if (button3 == null) {
-        break missingId;
-      }
-
       ConstraintLayout container = (ConstraintLayout) rootView;
 
       id = R.id.google_login;
@@ -112,21 +99,9 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.login;
-      Button login = ViewBindings.findChildViewById(rootView, id);
-      if (login == null) {
-        break missingId;
-      }
-
-      id = R.id.login2;
-      Button login2 = ViewBindings.findChildViewById(rootView, id);
-      if (login2 == null) {
-        break missingId;
-      }
-
-      id = R.id.login3;
-      Button login3 = ViewBindings.findChildViewById(rootView, id);
-      if (login3 == null) {
+      id = R.id.loginbtn;
+      Button loginbtn = ViewBindings.findChildViewById(rootView, id);
+      if (loginbtn == null) {
         break missingId;
       }
 
@@ -136,14 +111,20 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.register_log;
+      TextView registerLog = ViewBindings.findChildViewById(rootView, id);
+      if (registerLog == null) {
+        break missingId;
+      }
+
       id = R.id.username;
       EditText username = ViewBindings.findChildViewById(rootView, id);
       if (username == null) {
         break missingId;
       }
 
-      return new ActivityLoginBinding((ConstraintLayout) rootView, button3, container, googleLogin,
-          loading, login, login2, login3, password, username);
+      return new ActivityLoginBinding((ConstraintLayout) rootView, container, googleLogin, loading,
+          loginbtn, password, registerLog, username);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
