@@ -4,10 +4,11 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
@@ -17,19 +18,59 @@ import java.lang.String;
 
 public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final ScrollView rootView;
 
   @NonNull
-  public final ListView listview;
+  public final RecyclerView listview1;
 
-  private FragmentHomeBinding(@NonNull ConstraintLayout rootView, @NonNull ListView listview) {
+  @NonNull
+  public final RecyclerView listview2;
+
+  @NonNull
+  public final RecyclerView listview3;
+
+  @NonNull
+  public final RecyclerView listview4;
+
+  @NonNull
+  public final RecyclerView listview5;
+
+  @NonNull
+  public final TextView textHome1;
+
+  @NonNull
+  public final TextView textHome2;
+
+  @NonNull
+  public final TextView textHome3;
+
+  @NonNull
+  public final TextView textHome4;
+
+  @NonNull
+  public final TextView textHome5;
+
+  private FragmentHomeBinding(@NonNull ScrollView rootView, @NonNull RecyclerView listview1,
+      @NonNull RecyclerView listview2, @NonNull RecyclerView listview3,
+      @NonNull RecyclerView listview4, @NonNull RecyclerView listview5, @NonNull TextView textHome1,
+      @NonNull TextView textHome2, @NonNull TextView textHome3, @NonNull TextView textHome4,
+      @NonNull TextView textHome5) {
     this.rootView = rootView;
-    this.listview = listview;
+    this.listview1 = listview1;
+    this.listview2 = listview2;
+    this.listview3 = listview3;
+    this.listview4 = listview4;
+    this.listview5 = listview5;
+    this.textHome1 = textHome1;
+    this.textHome2 = textHome2;
+    this.textHome3 = textHome3;
+    this.textHome4 = textHome4;
+    this.textHome5 = textHome5;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public ScrollView getRoot() {
     return rootView;
   }
 
@@ -54,13 +95,68 @@ public final class FragmentHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.listview;
-      ListView listview = ViewBindings.findChildViewById(rootView, id);
-      if (listview == null) {
+      id = R.id.listview1;
+      RecyclerView listview1 = ViewBindings.findChildViewById(rootView, id);
+      if (listview1 == null) {
         break missingId;
       }
 
-      return new FragmentHomeBinding((ConstraintLayout) rootView, listview);
+      id = R.id.listview2;
+      RecyclerView listview2 = ViewBindings.findChildViewById(rootView, id);
+      if (listview2 == null) {
+        break missingId;
+      }
+
+      id = R.id.listview3;
+      RecyclerView listview3 = ViewBindings.findChildViewById(rootView, id);
+      if (listview3 == null) {
+        break missingId;
+      }
+
+      id = R.id.listview4;
+      RecyclerView listview4 = ViewBindings.findChildViewById(rootView, id);
+      if (listview4 == null) {
+        break missingId;
+      }
+
+      id = R.id.listview5;
+      RecyclerView listview5 = ViewBindings.findChildViewById(rootView, id);
+      if (listview5 == null) {
+        break missingId;
+      }
+
+      id = R.id.text_home1;
+      TextView textHome1 = ViewBindings.findChildViewById(rootView, id);
+      if (textHome1 == null) {
+        break missingId;
+      }
+
+      id = R.id.text_home2;
+      TextView textHome2 = ViewBindings.findChildViewById(rootView, id);
+      if (textHome2 == null) {
+        break missingId;
+      }
+
+      id = R.id.text_home3;
+      TextView textHome3 = ViewBindings.findChildViewById(rootView, id);
+      if (textHome3 == null) {
+        break missingId;
+      }
+
+      id = R.id.text_home4;
+      TextView textHome4 = ViewBindings.findChildViewById(rootView, id);
+      if (textHome4 == null) {
+        break missingId;
+      }
+
+      id = R.id.text_home5;
+      TextView textHome5 = ViewBindings.findChildViewById(rootView, id);
+      if (textHome5 == null) {
+        break missingId;
+      }
+
+      return new FragmentHomeBinding((ScrollView) rootView, listview1, listview2, listview3,
+          listview4, listview5, textHome1, textHome2, textHome3, textHome4, textHome5);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
