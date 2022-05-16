@@ -28,9 +28,6 @@ public class ChatListData {
     public static ArrayList<ChatListData> createContactsList(int numContacts) {
         ArrayList<ChatListData> contacts = new ArrayList<ChatListData>();
 
-        for (int i = 1; i <= numContacts; i++) {
-            contacts.add(new ChatListData("FORMNAME","RECENTMESSAGE"));
-        }
         return contacts;
     }
 }

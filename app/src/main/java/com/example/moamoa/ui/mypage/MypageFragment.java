@@ -82,8 +82,9 @@ public class MypageFragment extends Fragment {
                 }
                 if(position == 1){
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    Setting fragment2 = new Setting();
-                    transaction.replace(R.id.my_page, fragment2);
+                    Setting setting = new Setting();
+//                    transaction.replace(R.id.my_page, setting);
+                    transaction.add(R.id.my_page, setting);
                     transaction.addToBackStack(null).commit();
                 }
             }

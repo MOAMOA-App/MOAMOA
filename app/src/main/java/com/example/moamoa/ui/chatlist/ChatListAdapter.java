@@ -1,9 +1,11 @@
 package com.example.moamoa.ui.chatlist;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,7 +39,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.Holder
         holder.recentMessage.setText(list.get(itemposition).recentmessage);
     }
 
-    // 몇개의 데이터를 리스트로 뿌려줘야하는지 반드시 정의해줘야한다
+    // 몇개의 데이터를 리스트로 뿌려줘야하는지 정의
     @Override
     public int getItemCount() {
         return list.size();

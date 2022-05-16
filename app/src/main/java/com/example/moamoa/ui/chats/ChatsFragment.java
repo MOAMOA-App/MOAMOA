@@ -28,17 +28,26 @@ public class ChatsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_chats, container, false);
+
+        binding = FragmentChatsBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        this.FormData();
 
         recyclerView = (RecyclerView) root.findViewById(R.id.chats_recyclerview);
 
-        list = ChatsData.createContactsList(10);
         recyclerView.setHasFixedSize(true);
         adapter = new ChatsAdapter(getActivity(), list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
 
         return root;
+    }
+
+    public void FormData()
+    {
+        list = new ArrayList<ChatsData>();
+        list.add(new ChatsData("NAME1", "안녕하세요", "NAME2", "안녕하세요"));
     }
 
     @Override

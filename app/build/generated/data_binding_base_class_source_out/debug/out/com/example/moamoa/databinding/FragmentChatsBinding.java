@@ -26,7 +26,7 @@ public final class FragmentChatsBinding implements ViewBinding {
   public final TextInputEditText EditTextChat;
 
   @NonNull
-  public final ImageView buttonBackpage;
+  public final ImageView btnBackpage;
 
   @NonNull
   public final ImageView buttonChatssetting;
@@ -38,12 +38,12 @@ public final class FragmentChatsBinding implements ViewBinding {
   public final RecyclerView chatsRecyclerview;
 
   private FragmentChatsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextInputEditText EditTextChat, @NonNull ImageView buttonBackpage,
+      @NonNull TextInputEditText EditTextChat, @NonNull ImageView btnBackpage,
       @NonNull ImageView buttonChatssetting, @NonNull Button buttonSendmsg,
       @NonNull RecyclerView chatsRecyclerview) {
     this.rootView = rootView;
     this.EditTextChat = EditTextChat;
-    this.buttonBackpage = buttonBackpage;
+    this.btnBackpage = btnBackpage;
     this.buttonChatssetting = buttonChatssetting;
     this.buttonSendmsg = buttonSendmsg;
     this.chatsRecyclerview = chatsRecyclerview;
@@ -82,9 +82,9 @@ public final class FragmentChatsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.button_backpage;
-      ImageView buttonBackpage = ViewBindings.findChildViewById(rootView, id);
-      if (buttonBackpage == null) {
+      id = R.id.btn_backpage;
+      ImageView btnBackpage = ViewBindings.findChildViewById(rootView, id);
+      if (btnBackpage == null) {
         break missingId;
       }
 
@@ -106,7 +106,7 @@ public final class FragmentChatsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentChatsBinding((ConstraintLayout) rootView, EditTextChat, buttonBackpage,
+      return new FragmentChatsBinding((ConstraintLayout) rootView, EditTextChat, btnBackpage,
           buttonChatssetting, buttonSendmsg, chatsRecyclerview);
     }
     String missingId = rootView.getResources().getResourceName(id);

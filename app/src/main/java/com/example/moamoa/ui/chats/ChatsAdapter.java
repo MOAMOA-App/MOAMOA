@@ -36,6 +36,8 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
         int itemposition = position;
         holder.leftNickName.setText(list.get(itemposition).leftnickname);
         holder.leftMessage.setText(list.get(itemposition).leftmessage);
+        holder.rightNickName.setText(list.get(itemposition).rightnickname);
+        holder.rightMessage.setText(list.get(itemposition).rightmessage);
     }
 
     // 몇개의 데이터를 리스트로 뿌려줘야하는지 반드시 정의해줘야한다
@@ -47,11 +49,15 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
     public class Holder extends RecyclerView.ViewHolder{
         public TextView leftNickName;
         public TextView leftMessage;
+        public TextView rightNickName;
+        public TextView rightMessage;
 
         public Holder(View view){
             super(view);
             leftNickName = (TextView) view.findViewById(R.id.TextView_nickname_left);
             leftMessage = (TextView) view.findViewById(R.id.TextView_message_left);
+            rightNickName = (TextView) view.findViewById(R.id.TextView_nickname_right);
+            rightMessage = (TextView) view.findViewById(R.id.TextView_message_right);
         }
     }
 }

@@ -23,16 +23,11 @@ public class NotificationsData {
         return formname;
     }
 
-    public void setMessage(String recentmessage) { this.formname = formname; }
+    public void setMessage(String formname) { this.formname = formname; }
 
     public static ArrayList<NotificationsData> createContactsList(int numContacts) {
         ArrayList<NotificationsData> contacts = new ArrayList<NotificationsData>();
 
-        for (int i = 1; i <= numContacts; i++) {
-            contacts.add(new NotificationsData(
-                    "참여한 폼에 변동 사항이 있습니다.",
-                    "FORMNAME"));
-        }
         return contacts;
     }
 }

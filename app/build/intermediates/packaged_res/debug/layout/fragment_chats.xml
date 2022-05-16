@@ -21,7 +21,7 @@
 
             <!--뒤로가기-->
             <ImageView
-                android:id="@+id/button_backpage"
+                android:id="@+id/btn_backpage"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@null"
