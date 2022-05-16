@@ -26,6 +26,12 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:label="@string/app_name" >
+
+        </activity>
+        <activity
             android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name=".ui.formdetail.show_detail" />

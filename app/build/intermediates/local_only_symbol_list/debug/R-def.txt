@@ -21,6 +21,7 @@ drawable ic_baseline_photo
 drawable ic_chat_24
 drawable ic_create_24
 drawable ic_dashboard_black_24dp
+drawable ic_google_login_background
 drawable ic_home_black_24dp
 drawable ic_launcher_background
 drawable ic_main_background
@@ -80,6 +81,7 @@ id fab
 id food_group
 id game_group
 id goods_group
+id google_login
 id imageView
 id listView1
 id listView2
@@ -94,6 +96,8 @@ id listview5
 id loading
 id local
 id login
+id login2
+id login3
 id mainImage
 id mans
 id mobile_navigation
@@ -185,6 +189,9 @@ layout recyclerview_chats
 layout recyclerview_notifications
 layout setting
 menu bottom_nav_menu
+mipmap ic_google_login
+mipmap ic_google_login_foreground
+mipmap ic_google_login_round
 mipmap ic_main
 mipmap ic_main_foreground
 mipmap ic_main_round

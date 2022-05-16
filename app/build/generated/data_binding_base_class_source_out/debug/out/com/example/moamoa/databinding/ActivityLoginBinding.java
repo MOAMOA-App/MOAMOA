@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
+import com.google.android.gms.common.SignInButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -28,10 +29,19 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final ConstraintLayout container;
 
   @NonNull
+  public final SignInButton googleLogin;
+
+  @NonNull
   public final ProgressBar loading;
 
   @NonNull
   public final Button login;
+
+  @NonNull
+  public final Button login2;
+
+  @NonNull
+  public final Button login3;
 
   @NonNull
   public final EditText password;
@@ -40,13 +50,17 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final EditText username;
 
   private ActivityLoginBinding(@NonNull ConstraintLayout rootView, @NonNull Button button3,
-      @NonNull ConstraintLayout container, @NonNull ProgressBar loading, @NonNull Button login,
-      @NonNull EditText password, @NonNull EditText username) {
+      @NonNull ConstraintLayout container, @NonNull SignInButton googleLogin,
+      @NonNull ProgressBar loading, @NonNull Button login, @NonNull Button login2,
+      @NonNull Button login3, @NonNull EditText password, @NonNull EditText username) {
     this.rootView = rootView;
     this.button3 = button3;
     this.container = container;
+    this.googleLogin = googleLogin;
     this.loading = loading;
     this.login = login;
+    this.login2 = login2;
+    this.login3 = login3;
     this.password = password;
     this.username = username;
   }
@@ -86,6 +100,12 @@ public final class ActivityLoginBinding implements ViewBinding {
 
       ConstraintLayout container = (ConstraintLayout) rootView;
 
+      id = R.id.google_login;
+      SignInButton googleLogin = ViewBindings.findChildViewById(rootView, id);
+      if (googleLogin == null) {
+        break missingId;
+      }
+
       id = R.id.loading;
       ProgressBar loading = ViewBindings.findChildViewById(rootView, id);
       if (loading == null) {
@@ -95,6 +115,18 @@ public final class ActivityLoginBinding implements ViewBinding {
       id = R.id.login;
       Button login = ViewBindings.findChildViewById(rootView, id);
       if (login == null) {
+        break missingId;
+      }
+
+      id = R.id.login2;
+      Button login2 = ViewBindings.findChildViewById(rootView, id);
+      if (login2 == null) {
+        break missingId;
+      }
+
+      id = R.id.login3;
+      Button login3 = ViewBindings.findChildViewById(rootView, id);
+      if (login3 == null) {
         break missingId;
       }
 
@@ -110,8 +142,8 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityLoginBinding((ConstraintLayout) rootView, button3, container, loading,
-          login, password, username);
+      return new ActivityLoginBinding((ConstraintLayout) rootView, button3, container, googleLogin,
+          loading, login, login2, login3, password, username);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

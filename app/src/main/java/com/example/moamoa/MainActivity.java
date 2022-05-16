@@ -3,7 +3,6 @@ package com.example.moamoa;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -12,11 +11,9 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.moamoa.databinding.ActivityMainBinding;
-import com.example.moamoa.ui.home.formlist_adapter;
-import com.example.moamoa.ui.home.formlist_data;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.ArrayList;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;    //Activity_main + binding
@@ -26,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = new Intent(this, LoadingActivity.class);
         startActivity(intent);
+
+        FirebaseUser a = FirebaseAuth.getInstance().getCurrentUser();
+        if(a ==null){
+            intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 

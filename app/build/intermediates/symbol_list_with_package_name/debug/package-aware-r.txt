@@ -2562,6 +2562,7 @@ drawable ic_chat_24
 drawable ic_clock_black_24dp
 drawable ic_create_24
 drawable ic_dashboard_black_24dp
+drawable ic_google_login_background
 drawable ic_home_black_24dp
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
@@ -2889,6 +2890,7 @@ id ghost_view
 id ghost_view_holder
 id gone
 id goods_group
+id google_login
 id graph
 id graph_wrap
 id group_divider
@@ -2947,6 +2949,8 @@ id loading
 id local
 id locale
 id login
+id login2
+id login3
 id ltr
 id mainImage
 id mans
@@ -3472,6 +3476,9 @@ layout text_view_without_line_height
 menu bottom_nav_menu
 menu example_menu
 menu example_menu2
+mipmap ic_google_login
+mipmap ic_google_login_foreground
+mipmap ic_google_login_round
 mipmap ic_main
 mipmap ic_main_foreground
 mipmap ic_main_round
