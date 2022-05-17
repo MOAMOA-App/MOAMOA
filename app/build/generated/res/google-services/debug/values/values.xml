@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="default_web_client_id" translatable="false">494828439730-j2bsa54utfqo5hsgkauc02ol6t4kc1pj.apps.googleusercontent.com</string>
-    <string name="gcm_defaultSenderId" translatable="false">494828439730</string>
-    <string name="google_api_key" translatable="false">AIzaSyBUIA_E9ItsRai-J27svRA79Q_UlyhQIcQ</string>
-    <string name="google_app_id" translatable="false">1:494828439730:android:098e0875b39c860f82a1ab</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBUIA_E9ItsRai-J27svRA79Q_UlyhQIcQ</string>
-    <string name="google_storage_bucket" translatable="false">moamoa-75927.appspot.com</string>
-    <string name="project_id" translatable="false">moamoa-75927</string>
+    <string name="default_web_client_id" translatable="false">170210186260-4ge1o7dh207etiubbhubk002h10mpats.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">170210186260</string>
+    <string name="google_api_key" translatable="false">AIzaSyAOjSDUz0GD58SJbjPox9Xyx1PFARrPXao</string>
+    <string name="google_app_id" translatable="false">1:170210186260:android:ae060a2f11659134404301</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAOjSDUz0GD58SJbjPox9Xyx1PFARrPXao</string>
+    <string name="google_storage_bucket" translatable="false">moamoa-e391d.appspot.com</string>
+    <string name="project_id" translatable="false">moamoa-e391d</string>
 </resources>
