@@ -4,6 +4,7 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -11,7 +12,6 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import androidx.viewpager.widget.ViewPager;
 import com.example.moamoa.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -22,7 +22,7 @@ public final class CreatedFormsBinding implements ViewBinding {
   private final CoordinatorLayout rootView;
 
   @NonNull
-  public final FloatingActionButton fab;
+  public final ListView listview;
 
   @NonNull
   public final TabLayout tabs;
@@ -30,10 +30,10 @@ public final class CreatedFormsBinding implements ViewBinding {
   @NonNull
   public final ViewPager viewPager;
 
-  private CreatedFormsBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull FloatingActionButton fab, @NonNull TabLayout tabs, @NonNull ViewPager viewPager) {
+  private CreatedFormsBinding(@NonNull CoordinatorLayout rootView, @NonNull ListView listview,
+      @NonNull TabLayout tabs, @NonNull ViewPager viewPager) {
     this.rootView = rootView;
-    this.fab = fab;
+    this.listview = listview;
     this.tabs = tabs;
     this.viewPager = viewPager;
   }
@@ -65,9 +65,9 @@ public final class CreatedFormsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.fab;
-      FloatingActionButton fab = ViewBindings.findChildViewById(rootView, id);
-      if (fab == null) {
+      id = R.id.listview;
+      ListView listview = ViewBindings.findChildViewById(rootView, id);
+      if (listview == null) {
         break missingId;
       }
 
@@ -83,7 +83,7 @@ public final class CreatedFormsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new CreatedFormsBinding((CoordinatorLayout) rootView, fab, tabs, viewPager);
+      return new CreatedFormsBinding((CoordinatorLayout) rootView, listview, tabs, viewPager);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

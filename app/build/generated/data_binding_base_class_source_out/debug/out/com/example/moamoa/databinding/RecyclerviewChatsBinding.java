@@ -33,10 +33,10 @@ public final class RecyclerviewChatsBinding implements ViewBinding {
   public final TextView TextViewNicknameRight;
 
   @NonNull
-  public final ImageView nationalityLeft;
+  public final TextView nationalityLeft;
 
   @NonNull
-  public final ImageView nationalityRight;
+  public final TextView nationalityRight;
 
   @NonNull
   public final ImageView profileImageLeft;
@@ -47,7 +47,7 @@ public final class RecyclerviewChatsBinding implements ViewBinding {
   private RecyclerviewChatsBinding(@NonNull LinearLayout rootView,
       @NonNull TextView TextViewMessageLeft, @NonNull TextView TextViewMessageRight,
       @NonNull TextView TextViewNicknameLeft, @NonNull TextView TextViewNicknameRight,
-      @NonNull ImageView nationalityLeft, @NonNull ImageView nationalityRight,
+      @NonNull TextView nationalityLeft, @NonNull TextView nationalityRight,
       @NonNull ImageView profileImageLeft, @NonNull ImageView profileImageRight) {
     this.rootView = rootView;
     this.TextViewMessageLeft = TextViewMessageLeft;
@@ -112,13 +112,13 @@ public final class RecyclerviewChatsBinding implements ViewBinding {
       }
 
       id = R.id.nationality_left;
-      ImageView nationalityLeft = ViewBindings.findChildViewById(rootView, id);
+      TextView nationalityLeft = ViewBindings.findChildViewById(rootView, id);
       if (nationalityLeft == null) {
         break missingId;
       }
 
       id = R.id.nationality_right;
-      ImageView nationalityRight = ViewBindings.findChildViewById(rootView, id);
+      TextView nationalityRight = ViewBindings.findChildViewById(rootView, id);
       if (nationalityRight == null) {
         break missingId;
       }

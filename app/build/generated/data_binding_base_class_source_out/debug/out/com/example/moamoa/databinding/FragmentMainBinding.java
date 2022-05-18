@@ -4,10 +4,11 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
@@ -17,24 +18,37 @@ import java.lang.String;
 
 public final class FragmentMainBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final LinearLayout rootView;
 
   @NonNull
-  public final ConstraintLayout constraintLayout;
+  public final TextView body1;
 
   @NonNull
-  public final TextView sectionLabel;
+  public final TextView body2;
 
-  private FragmentMainBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout constraintLayout, @NonNull TextView sectionLabel) {
+  @NonNull
+  public final ImageView mainImage;
+
+  @NonNull
+  public final ImageView star;
+
+  @NonNull
+  public final TextView title;
+
+  private FragmentMainBinding(@NonNull LinearLayout rootView, @NonNull TextView body1,
+      @NonNull TextView body2, @NonNull ImageView mainImage, @NonNull ImageView star,
+      @NonNull TextView title) {
     this.rootView = rootView;
-    this.constraintLayout = constraintLayout;
-    this.sectionLabel = sectionLabel;
+    this.body1 = body1;
+    this.body2 = body2;
+    this.mainImage = mainImage;
+    this.star = star;
+    this.title = title;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -59,15 +73,37 @@ public final class FragmentMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      ConstraintLayout constraintLayout = (ConstraintLayout) rootView;
-
-      id = R.id.section_label;
-      TextView sectionLabel = ViewBindings.findChildViewById(rootView, id);
-      if (sectionLabel == null) {
+      id = R.id.body_1;
+      TextView body1 = ViewBindings.findChildViewById(rootView, id);
+      if (body1 == null) {
         break missingId;
       }
 
-      return new FragmentMainBinding((ConstraintLayout) rootView, constraintLayout, sectionLabel);
+      id = R.id.body_2;
+      TextView body2 = ViewBindings.findChildViewById(rootView, id);
+      if (body2 == null) {
+        break missingId;
+      }
+
+      id = R.id.mainImage;
+      ImageView mainImage = ViewBindings.findChildViewById(rootView, id);
+      if (mainImage == null) {
+        break missingId;
+      }
+
+      id = R.id.star;
+      ImageView star = ViewBindings.findChildViewById(rootView, id);
+      if (star == null) {
+        break missingId;
+      }
+
+      id = R.id.title;
+      TextView title = ViewBindings.findChildViewById(rootView, id);
+      if (title == null) {
+        break missingId;
+      }
+
+      return new FragmentMainBinding((LinearLayout) rootView, body1, body2, mainImage, star, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

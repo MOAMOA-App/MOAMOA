@@ -8,33 +8,14 @@
     tools:context=".ui.notifications.NotificationsFragment"
     android:orientation="vertical"
     >
-    <LinearLayout
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_chat"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/main_green"
-        >
-        <ImageView
-            android:id="@+id/backpage"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@null"
-            android:src="@drawable/ic_outline_arrow_back_ios_24"
-            android:layout_gravity="center"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:clickable="true"
-            android:focusable="true" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="알림"
-            android:textColor="#ffffff"
-            android:textSize="20sp"
-            android:stateListAnimator="@null"
-            android:gravity=""
-            android:clickable="true"
-            android:focusable="true" />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:background="#F5B565"
+        app:title="알림"
+        app:titleTextColor="#FFFFFF" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notification_list"

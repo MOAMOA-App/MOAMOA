@@ -23,7 +23,8 @@
             android:id="@+id/chatlist_Image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+            android:src="@mipmap/ic_main_round"
+            android:layout_gravity="center" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,8 +39,9 @@
                 android:paddingLeft="6dp"
                 android:text="폼 제목"
 
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textSize="12sp"
+                android:textStyle="bold"
+                />
             <!--채팅내용 일부-->
             <TextView
                 android:id="@+id/chat_recent"
@@ -48,7 +50,8 @@
                 android:paddingLeft="6dp"
                 android:text="채팅내용일부"
 
-                android:textSize="12sp" />
+                android:textSize="17sp"
+                />
         </LinearLayout>
     </LinearLayout>
 

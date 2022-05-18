@@ -45,7 +45,8 @@ id all_category
 id all_group
 id appbar
 id appliance_group
-id backpage
+id body_1
+id body_2
 id btn_edit
 id btn_login
 id button
@@ -129,11 +130,11 @@ id profile_image_left
 id profile_image_right
 id register_log
 id register_reg
-id section_label
 id set_listView
 id spinner
 id spinner2
 id sports_group
+id star
 id tabs
 id textView
 id textView10
@@ -190,6 +191,7 @@ layout fragment_notifications
 layout homelistview
 layout listup
 layout listview
+layout participated_forms
 layout recyclerview_chatlist
 layout recyclerview_chats
 layout recyclerview_notifications

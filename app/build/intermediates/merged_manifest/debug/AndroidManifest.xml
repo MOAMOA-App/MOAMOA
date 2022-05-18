@@ -47,6 +47,8 @@
         <activity android:name="com.example.moamoa.ui.formdetail.show_detail" />
         <activity android:name="com.example.moamoa.ui.mypage.EditMyinfo" />
         <activity android:name="com.example.moamoa.ui.mypage.CreatedForms" />
+        <activity android:name="com.example.moamoa.ui.mypage.ParticipatedForms" />
+        <activity android:name="com.example.moamoa.ui.mypage.Setting" />
 
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"

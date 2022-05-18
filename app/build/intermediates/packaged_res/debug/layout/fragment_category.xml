@@ -17,14 +17,15 @@
             android:id="@+id/my_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
 
             android:text="관심 카테고리"
-            android:textSize="30sp" />
+            android:textSize="16sp" />
 
         <ImageView
             android:id="@+id/moveto_mygroup"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
             android:layout_toRightOf="@+id/my_category"
             android:background="@color/white"
             android:clickable="true"
@@ -64,10 +65,10 @@
             android:id="@+id/all_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:layout_centerVertical="true"
 
             android:text="전체 카테고리"
-            android:textSize="30sp" />
+            android:textSize="16sp" />
 
     </RelativeLayout>
 
@@ -80,92 +81,81 @@
         android:useDefaultMargins="true">
         <Button
             android:id="@+id/all_group"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
 
-            android:text="전체"
-            android:textSize="20sp"/>
+            android:text="전체" />
 
         <Button
             android:id="@+id/my_group"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
 
-            android:text="관심"
-            android:textSize="20sp" />
+            android:text="관심" />
 
         <Button
             android:id="@+id/food_group"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
 
-            android:text="식품"
-            android:textSize="20sp" />
+            android:text="식품" />
 
         <Button
             android:id="@+id/dailyitems_group"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
 
             android:text="생활"
-            android:textSize="20sp"
             />
 
         <Button
             android:id="@+id/clothes_group"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
 
-            android:text="의류"
-            android:textSize="20sp" />
+            android:text="의류" />
 
         <Button
             android:id="@+id/appliance_group"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
 
-            android:text="가전"
-            android:textSize="20sp" />
+            android:text="가전" />
 
         <Button
             android:id="@+id/game_group"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
 
-            android:text="취미"
-            android:textSize="20sp" />
+            android:text="취미" />
 
         <Button
             android:id="@+id/sports_group"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
 
-            android:text="운동"
-            android:textSize="20sp" />
+            android:text="운동" />
 
         <Button
             android:id="@+id/goods_group"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
 
-            android:text="굿즈"
-            android:textSize="20sp" />
+            android:text="굿즈" />
 
         <Button
             android:id="@+id/pets_group"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
 
-            android:text="동물"
-            android:textSize="20sp" />
+            android:text="동물" />
 
         <Button
             android:id="@+id/etc_group"
-            android:layout_width="wrap_content"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
 
-            android:text="기타"
-            android:textSize="20sp" />
+            android:text="기타" />
 
     </GridLayout>
 
