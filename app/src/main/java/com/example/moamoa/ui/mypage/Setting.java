@@ -1,5 +1,6 @@
 package com.example.moamoa.ui.mypage;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,18 +16,17 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.moamoa.R;
 
-public class Setting extends Fragment {
+public class Setting extends Activity {
 
     static final String[] LIST_MENU = {"알림 설정", "앱 정보", "로그아웃", "회원 탈퇴"};
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.setting);
 
-        View view = inflater.inflate(R.layout.setting, null);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, LIST_MENU);
 
-        ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, LIST_MENU);
-
-        ListView listview = (ListView) view.findViewById(R.id.set_listView);
+        ListView listview = (ListView) findViewById(R.id.set_listView);
         listview.setAdapter(adapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -34,30 +34,23 @@ public class Setting extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(view.getContext(), "메세지", Toast.LENGTH_SHORT).show();
                 if (position == 0) {
-                    Intent intent = new Intent(getActivity(), EditMyinfo.class);
+                    //string 부분 틀림
+                    Intent intent = new Intent(String.valueOf(EditMyinfo.class));
                     startActivity(intent);
                 }
                 if (position == 1) {
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    Setting fragment2 = new Setting();
-                    transaction.replace(R.id.my_page, fragment2);
-                    transaction.addToBackStack(null).commit();
+                    Intent intent = new Intent(String.valueOf(EditMyinfo.class));
+                    startActivity(intent);
                 }
                 if (position == 2) {
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    Setting fragment2 = new Setting();
-                    transaction.replace(R.id.my_page, fragment2);
-                    transaction.addToBackStack(null).commit();
+                    Intent intent = new Intent(String.valueOf(EditMyinfo.class));
+                    startActivity(intent);
                 }
                 if (position == 3) {
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    Setting fragment2 = new Setting();
-                    transaction.replace(R.id.my_page, fragment2);
-                    transaction.addToBackStack(null).commit();
+                    Intent intent = new Intent(String.valueOf(EditMyinfo.class));
+                    startActivity(intent);
                 }
             }
         });
-
-        return view;
     }
 }

@@ -62,7 +62,7 @@ public class MypageFragment extends Fragment {
                     startActivity(intent);
                 }
                 if(position == 1){
-                    Intent intent = new Intent(getActivity(), EditMyinfo.class);
+                    Intent intent = new Intent(getActivity(), ParticipatedForms.class);
                     startActivity(intent);
                 }
                 if(position == 2) {
@@ -81,11 +81,13 @@ public class MypageFragment extends Fragment {
                     startActivity(intent);
                 }
                 if(position == 1){
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    Setting setting = new Setting();
+                    Intent intent = new Intent(getActivity(), Setting.class);
+                    startActivity(intent);
+//                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+//                    Setting setting = new Setting();
 //                    transaction.replace(R.id.my_page, setting);
-                    transaction.add(R.id.my_page, setting);
-                    transaction.addToBackStack(null).commit();
+//                    transaction.add(R.id.my_page, setting);
+//                    transaction.addToBackStack(null).commit();
                 }
             }
         });

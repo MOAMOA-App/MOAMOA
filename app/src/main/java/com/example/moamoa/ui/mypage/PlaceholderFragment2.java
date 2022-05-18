@@ -8,34 +8,31 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.CreatedFormsBinding;
-import com.example.moamoa.databinding.FragmentMainBinding;
+import com.example.moamoa.databinding.ParticipatedFormsBinding;
 
 import java.util.ArrayList;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment extends Fragment {
+public class PlaceholderFragment2 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
 //    private CreatedFormsBinding binding;
-    private CreatedFormsBinding binding;
+    private ParticipatedFormsBinding binding;
 
 
-    public static PlaceholderFragment newInstance(int index) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
+    public static PlaceholderFragment2 newInstance(int index) {
+        PlaceholderFragment2 fragment = new PlaceholderFragment2();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -59,7 +56,7 @@ public class PlaceholderFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
-        binding = CreatedFormsBinding.inflate(inflater, container, false);
+        binding = ParticipatedFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         //추가

@@ -35,6 +35,8 @@
         <activity android:name=".ui.formdetail.show_detail" />
         <activity android:name=".ui.mypage.EditMyinfo" />
         <activity android:name=".ui.mypage.CreatedForms" />
+        <activity android:name=".ui.mypage.ParticipatedForms" />
+        <activity android:name=".ui.mypage.Setting" />
     </application>
 
 </manifest>
