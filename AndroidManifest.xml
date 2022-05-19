@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.moamoa" >
+
+    <uses-permission
+        android:name="android.permission.INTERACT"
+        tools:ignore="ManifestOrder" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_main"
+        android:label="모아모아"
+        android:roundIcon="@mipmap/ic_main"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MOAMOA"
+        tools:ignore="ExtraText" >
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name" >
+        </activity>
+        <activity android:name=".LoginActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".LoadingActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name=".ui.category.CategoryActivity"/>
+        <activity
+            android:name=".ui.category.ListupActivity"/>
+
+        <activity android:name=".ui.formdetail.show_detail" />
+        <activity android:name=".ui.mypage.EditMyinfo" />
+        <activity android:name=".ui.mypage.CreatedForms" />
+        <activity android:name=".ui.mypage.ParticipatedForms" />
+        <activity android:name=".ui.mypage.Setting" />
+    </application>
+
+</manifest>
