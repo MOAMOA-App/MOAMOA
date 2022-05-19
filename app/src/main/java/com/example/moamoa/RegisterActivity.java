@@ -55,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
         registerBtn = findViewById(R.id.register_reg);
         NameText = findViewById(R.id.nameEt);
 
+
         //파이어베이스 user 로 접글
         //가입버튼 클릭리스너   -->  firebase에 데이터를 저장한다.
         registerBtn.setOnClickListener(new View.OnClickListener(){
@@ -67,17 +68,26 @@ public class RegisterActivity extends AppCompatActivity {
                 final String email = EmailText.getText().toString().trim();
                 String pwd = PasswordText.getText().toString().trim();
                 String pwdcheck = PasswordcheckText.getText().toString().trim();
+
+                boolean eb = email.contains("@") && email.contains(".");
+
                 if(name.equals("")){
                     alerting.setMessage("아이디를 입력해주세요");
                     alerting.show();
                 }else if(email.equals("")){
                     alerting.setMessage("이메일를 입력해주세요");
                     alerting.show();
+                }else if(!eb){
+                    alerting.setMessage("이메일 형식이 맞지 않아요");
+                    alerting.show();
                 }else if(pwd.equals("")){
                     alerting.setMessage("비밀번호를 입력해주세요");
                     alerting.show();
                 }else if(pwdcheck.equals("")){
                     alerting.setMessage("비밀번호 확인을 입력해주세요");
+                    alerting.show();
+                }else if(pwd.length()<10){
+                    alerting.setMessage("비밀번호가 너무 짧아요");
                     alerting.show();
                 }else if(pwd.equals(pwdcheck)) {
                     Log.d(TAG, "등록 버튼 " + email + " , " + pwd);
@@ -111,16 +121,22 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                                 //가입이 이루어져을시 가입 화면을 빠져나감.
-                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 finish();
 
                             }else {
                                 // If sign in fails, display a message to the user.
                                 mDialog.dismiss();
-                                Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                alerting.setMessage(task.getException()+"");
-                                alerting.show();
+                                String temp = task.getException().toString();
+                                int numb = temp.indexOf(":");
+                                temp = temp.substring(numb+2);
+                                Log.w(TAG, "createUserWithEmail:failure"+temp);
+                                if(temp.equals("The email address is already in use by another account.")){
+                                    alerting.setMessage("이미 가입된 이메일입니다.");
+                                    alerting.show();
+                                }
+
                                 return;
                             }
 
