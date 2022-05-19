@@ -19,6 +19,7 @@ import com.example.moamoa.ui.chatlist.ChatListData;
 import java.util.ArrayList;
 
 public class ChatsFragment extends Fragment {
+
     private FragmentChatsBinding binding;
 
     private RecyclerView recyclerView;

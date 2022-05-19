@@ -2,6 +2,7 @@ package com.example.moamoa.ui.chats;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.moamoa.R;

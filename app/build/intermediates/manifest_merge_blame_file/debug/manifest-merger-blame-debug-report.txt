@@ -6,13 +6,13 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml
+8-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="31" />
-9-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml
+9-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERACT" />
-11-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:6:5-8:40
-11-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:7:9-51
+11-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:6:5-8:40
+11-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:7:9-51
 12    <uses-permission android:name="android.permission.INTERNET" />
 12-->[com.google.firebase:firebase-auth:21.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\135f6211773a4827fb17ce76c5eb0d3d\transformed\firebase-auth-21.0.4\AndroidManifest.xml:23:5-67
 12-->[com.google.firebase:firebase-auth:21.0.4] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\135f6211773a4827fb17ce76c5eb0d3d\transformed\firebase-auth-21.0.4\AndroidManifest.xml:23:22-64
@@ -30,75 +30,75 @@
 16-->[com.google.android.gms:play-services-measurement:21.0.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\3eb061c81fe1b20ca4281e2c64bf3e1b\transformed\play-services-measurement-21.0.0\AndroidManifest.xml:26:22-107
 17
 18    <application
-18-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:10:5-40:19
+18-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:10:5-40:19
 19        android:allowBackup="true"
-19-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:11:9-35
+19-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:11:9-35
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 20-->[androidx.core:core:1.7.0] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\1a7e475cf572491318e59c28f6e1eca6\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 21        android:debuggable="true"
 22        android:icon="@mipmap/ic_main"
-22-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:12:9-39
+22-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:12:9-39
 23        android:label="모아모아"
-23-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:13:9-29
+23-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:13:9-29
 24        android:roundIcon="@mipmap/ic_main"
-24-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:14:9-44
+24-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:14:9-44
 25        android:supportsRtl="true"
-25-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:15:9-35
+25-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:15:9-35
 26        android:testOnly="true"
 27        android:theme="@style/Theme.MOAMOA" >
-27-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:16:9-44
+27-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:16:9-44
 28        <activity
-28-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:18:9-22:20
+28-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:18:9-22:20
 29            android:name="com.example.moamoa.MainActivity"
-29-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:19:13-41
+29-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:19:13-41
 30            android:exported="true"
-30-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:20:13-36
+30-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:20:13-36
 31            android:label="@string/app_name" >
-31-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:21:13-45
+31-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:21:13-45
 32        </activity>
 33        <activity
-33-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:23:9-30:20
+33-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:23:9-30:20
 34            android:name="com.example.moamoa.LoginActivity"
-34-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:23:19-48
+34-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:23:19-48
 35            android:exported="true"
-35-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:24:13-36
+35-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:24:13-36
 36            android:label="@string/app_name" >
-36-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:25:13-45
+36-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:25:13-45
 37            <intent-filter>
-37-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:26:13-29:29
+37-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:26:13-29:29
 38                <action android:name="android.intent.action.MAIN" />
-38-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:27:17-69
-38-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:27:25-66
+38-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:27:17-69
+38-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:27:25-66
 39
 40                <category android:name="android.intent.category.LAUNCHER" />
-40-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:28:17-77
-40-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:28:27-74
+40-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:28:17-77
+40-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:28:27-74
 41            </intent-filter>
 42        </activity>
 43        <activity android:name="com.example.moamoa.RegisterActivity" />
-43-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:31:9-54
-43-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:31:19-51
+43-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:31:9-54
+43-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:31:19-51
 44        <activity
-44-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:32:9-34:74
+44-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:32:9-34:74
 45            android:name="com.example.moamoa.LoadingActivity"
-45-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:33:13-44
+45-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:33:13-44
 46            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-46-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:34:13-71
+46-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:34:13-71
 47        <activity android:name="com.example.moamoa.ui.formdetail.show_detail" />
-47-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:35:9-63
-47-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:35:19-60
+47-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:35:9-63
+47-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:35:19-60
 48        <activity android:name="com.example.moamoa.ui.mypage.EditMyinfo" />
-48-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:36:9-58
-48-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:36:19-55
+48-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:36:9-58
+48-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:36:19-55
 49        <activity android:name="com.example.moamoa.ui.mypage.CreatedForms" />
-49-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:37:9-60
-49-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:37:19-57
+49-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:37:9-60
+49-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:37:19-57
 50        <activity android:name="com.example.moamoa.ui.mypage.ParticipatedForms" />
-50-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:38:9-65
-50-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:38:19-62
+50-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:38:9-65
+50-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:38:19-62
 51        <activity android:name="com.example.moamoa.ui.mypage.Setting" />
-51-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:39:9-55
-51-->C:\Users\tasty\AndroidStudioProjects\MOAMOA6\app\src\main\AndroidManifest.xml:39:19-52
+51-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:39:9-55
+51-->C:\Users\tasty\AndroidStudioProjects\MOAMOA8\app\src\main\AndroidManifest.xml:39:19-52
 52
 53        <service
 53-->[com.google.firebase:firebase-auth-ktx:21.0.3] C:\Users\tasty\jdk-17.0.2\caches\transforms-3\2455d1e899f2b1008e5730f018f2f41a\transformed\firebase-auth-ktx-21.0.3\AndroidManifest.xml:8:9-14:19

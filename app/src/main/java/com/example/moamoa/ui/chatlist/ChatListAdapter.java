@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moamoa.R;
+import com.example.moamoa.ui.chats.ChatsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,15 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.Holder
         return list.size();
     }   // RecyclerView의 size return
 
+    public Object getItem(int i) {
+        return list.get(i);
+    }
+
+    @Override
+    public long getItemId(int i) {
+        return i;
+    }
+
     public class Holder extends RecyclerView.ViewHolder{
         public TextView formName;
         public TextView recentMessage;
@@ -53,6 +63,18 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.Holder
             super(view);
             formName = (TextView) view.findViewById(R.id.chat_formname);
             recentMessage = (TextView) view.findViewById(R.id.chat_recent);
+
+            itemView.setClickable(true);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        Intent intent = new Intent(context, ChatsActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
     }
 }
