@@ -3672,7 +3672,6 @@ int string title_category1 0x7f1200a3
 int string title_chatlist 0x7f1200a4
 int string title_chats 0x7f1200a5
 int string title_dashboard 0x7f1200a6
-int string title_formcreate 0x7f1200a7
 int string title_formdetail 0x7f1200a8
 int string title_formlist 0x7f1200a9
 int string title_home 0x7f1200aa

@@ -50,8 +50,7 @@
     <string name="title_category1">카테고리</string>
     <string name="title_chatlist">채팅리스트</string>
     <string name="title_chats">채팅</string>
-    <string name="title_dashboard">머드라</string>
-    <string name="title_formcreate">글쓰기</string>
+    <string name="title_dashboard">글쓰기</string>
     <string name="title_formdetail">폼 상세</string>
     <string name="title_formlist">폼</string>
     <string name="title_home">홈</string>
