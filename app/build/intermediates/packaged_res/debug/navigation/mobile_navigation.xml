@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.moamoa.ui.formcreate.FormcreateFragment"
+        android:name="com.example.moamoa.ui.dashboard.DashboardFragment"
     android:label="@string/title_dashboard"
     tools:layout="@layout/fragment_dashboard"/>
 
