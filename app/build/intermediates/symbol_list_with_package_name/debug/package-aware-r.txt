@@ -2885,6 +2885,7 @@ id floating
 id food_group
 id forever
 id fragment_container_view_tag
+id frame_layout
 id frost
 id fullscreen_header
 id game_group
@@ -3032,6 +3033,7 @@ id navigation_bar_item_labels_group
 id navigation_bar_item_large_label_view
 id navigation_bar_item_small_label_view
 id navigation_category
+id navigation_category1
 id navigation_chatlist
 id navigation_chats
 id navigation_dashboard
@@ -3162,7 +3164,11 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
+id tab
 id tabMode
+id tab_Item1
+id tab_Item2
+id tab_Item3
 id tabs
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -3252,6 +3258,7 @@ id view_transition
 id view_tree_lifecycle_owner
 id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
+id viewpager
 id visible
 id visible_removing_fragment_view_tag
 id west
@@ -3358,9 +3365,11 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_category
 layout activity_chats
 layout activity_formdetail
 layout activity_formlist
+layout activity_listup
 layout activity_loading
 layout activity_login
 layout activity_main
@@ -3386,6 +3395,9 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout edit_myinfo
 layout empty_forms
+layout fragment_1
+layout fragment_2
+layout fragment_3
 layout fragment_category
 layout fragment_chatlist
 layout fragment_chats
@@ -3395,6 +3407,7 @@ layout fragment_formcreate
 layout fragment_formdetail
 layout fragment_formlist
 layout fragment_home
+layout fragment_listup
 layout fragment_login
 layout fragment_main
 layout fragment_my_page
@@ -3656,6 +3669,7 @@ string tab_text_3
 string text_home_allview
 string title_activity_listup
 string title_category
+string title_category1
 string title_chatlist
 string title_chats
 string title_dashboard

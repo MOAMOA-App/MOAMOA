@@ -47,6 +47,7 @@
     <string name="text_home_allview">전체보기</string>
     <string name="title_activity_listup">ListupActivity</string>
     <string name="title_category">카테고리</string>
+    <string name="title_category1">카테고리</string>
     <string name="title_chatlist">채팅리스트</string>
     <string name="title_chats">채팅</string>
     <string name="title_dashboard">머드라</string>
@@ -57,17 +58,17 @@
     <string name="title_my_page">마이페이지</string>
     <string name="title_notifications">알람</string>
     <style name="Theme.MOAMOA" parent="Theme.AppCompat.Light">
-        <!-- Primary brand color. -->
+        
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryVariant">@color/main_orange</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
+        
         <item name="colorSecondary">@color/white</item>
         <item name="colorSecondaryVariant">@color/white</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
+        
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        
 
         <item name="android:textColor">@color/black</item>
 

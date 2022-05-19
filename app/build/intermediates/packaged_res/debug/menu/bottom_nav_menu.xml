@@ -7,9 +7,9 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_category"
+        android:id="@+id/navigation_category1"
         android:icon="@drawable/ic_baseline_apps_24"
-        android:title="@string/title_category" />
+        android:title="@string/title_category1" />
 
     <item
         android:id="@+id/navigation_dashboard"
@@ -23,5 +23,8 @@
         android:id="@+id/navigation_my_page"
         android:icon="@drawable/ic_account_circle_24"
         android:title="@string/title_my_page" />
+
+
+
 
 </menu>

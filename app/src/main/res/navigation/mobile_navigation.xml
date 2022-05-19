@@ -58,4 +58,11 @@
         android:name="com.example.moamoa.ui.category.CategoryFragment"
         android:label='@string/title_category'
         tools:layout="@layout/fragment_category"/>
+    <activity
+        android:id="@+id/navigation_category1"
+        android:name="com.example.moamoa.ui.category.CategoryActivity"
+        android:label='@string/title_category1'
+        tools:layout="@layout/activity_category"/>
+
+
 </navigation>

@@ -91,6 +91,7 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/fragment_my_page.xml" value="0.1606962663975782" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/recyclerview_chat.xml" value="0.1" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/setting.xml" value="0.1606962663975782" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA/app/src/main/res/mipmap-anydpi-v26/ic_main.xml" value="0.213" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA1/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.34" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MOAMOA1/app/src/main/res/drawable/edge.xml" value="0.34" />
@@ -120,7 +121,7 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

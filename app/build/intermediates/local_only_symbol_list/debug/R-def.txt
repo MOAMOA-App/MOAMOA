@@ -81,6 +81,7 @@ id emailEt
 id etc_group
 id fab
 id food_group
+id frame_layout
 id game_group
 id goods_group
 id google_login
@@ -113,6 +114,7 @@ id nationality_right
 id nav_host
 id nav_view
 id navigation_category
+id navigation_category1
 id navigation_chatlist
 id navigation_chats
 id navigation_dashboard
@@ -135,6 +137,10 @@ id spinner
 id spinner2
 id sports_group
 id star
+id tab
+id tab_Item1
+id tab_Item2
+id tab_Item3
 id tabs
 id textView
 id textView10
@@ -165,9 +171,12 @@ id toolbar
 id toolbar_chat
 id username
 id view_pager
+id viewpager
+layout activity_category
 layout activity_chats
 layout activity_formdetail
 layout activity_formlist
+layout activity_listup
 layout activity_loading
 layout activity_login
 layout activity_main
@@ -175,6 +184,9 @@ layout activity_register
 layout created_forms
 layout edit_myinfo
 layout empty_forms
+layout fragment_1
+layout fragment_2
+layout fragment_3
 layout fragment_category
 layout fragment_chatlist
 layout fragment_chats
@@ -184,6 +196,7 @@ layout fragment_formcreate
 layout fragment_formdetail
 layout fragment_formlist
 layout fragment_home
+layout fragment_listup
 layout fragment_login
 layout fragment_main
 layout fragment_my_page
@@ -225,6 +238,7 @@ string tab_text_3
 string text_home_allview
 string title_activity_listup
 string title_category
+string title_category1
 string title_chatlist
 string title_chats
 string title_dashboard

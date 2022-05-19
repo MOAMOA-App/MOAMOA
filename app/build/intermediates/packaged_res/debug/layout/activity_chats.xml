@@ -4,7 +4,8 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.moamoa.ui.chats.ChatsActivity">
+    tools:context="com.example.moamoa.ui.chats.ChatsActivity"
+    android:orientation="vertical">
     <fragment
         android:name="com.example.moamoa.ui.chats.ChatsFragment"
         android:layout_width="match_parent"
