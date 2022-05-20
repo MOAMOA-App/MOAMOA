@@ -26,10 +26,12 @@
         android:testOnly="true"
         android:theme="@style/Theme.MOAMOA" >
         <activity
+            android:name="com.example.moamoa.ui.chats.ChatsActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.moamoa.MainActivity"
             android:exported="true"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name" />
         <activity
             android:name="com.example.moamoa.LoginActivity"
             android:configChanges="orientation|screenSize"

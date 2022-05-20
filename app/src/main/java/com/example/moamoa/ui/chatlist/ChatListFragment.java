@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentChatlistBinding;
-import com.example.moamoa.ui.chats.ChatsActivity;
 
 import java.util.ArrayList;
 
@@ -35,7 +34,6 @@ public class ChatListFragment extends Fragment {
         View root = binding.getRoot();
 
         this.FormData();
-
 
         recyclerView = (RecyclerView) root.findViewById(R.id.chatting_list);
 

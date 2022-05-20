@@ -2631,6 +2631,7 @@ drawable tooltip_frame_light
 id ALT
 id BOTTOM_END
 id BOTTOM_START
+id Button_send
 id CTRL
 id EditText_chat
 id FID
@@ -2752,7 +2753,6 @@ id btn_login
 id button
 id button2
 id buttonPanel
-id button_sendmsg
 id cache_measures
 id callMeasure
 id cancel_button
@@ -2885,6 +2885,7 @@ id floating
 id food_group
 id forever
 id fragment_container_view_tag
+id frameLayout
 id frame_layout
 id frost
 id fullscreen_header
@@ -3495,6 +3496,7 @@ layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
 menu bottom_nav_menu
+menu chatdrawer
 menu example_menu
 menu example_menu2
 mipmap ic_google_login

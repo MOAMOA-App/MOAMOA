@@ -40,7 +40,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.Holder
         holder.recentMessage.setText(list.get(itemposition).recentmessage);
     }
 
-    // 몇개의 데이터를 리스트로 뿌려줘야하는지 정의
+    // 몇개의 데이터를 리스트로 뿌려줘야하는지 반드시 정의해줘야한다
     @Override
     public int getItemCount() {
         return list.size();
@@ -58,6 +58,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.Holder
     public class Holder extends RecyclerView.ViewHolder{
         public TextView formName;
         public TextView recentMessage;
+
 
         public Holder(View view){
             super(view);

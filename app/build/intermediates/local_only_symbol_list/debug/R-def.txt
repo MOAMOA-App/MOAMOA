@@ -34,6 +34,7 @@ drawable mypage_bottom_border
 drawable mypage_right_border
 drawable mypage_top_border
 drawable nav_selector_color
+id Button_send
 id EditText_chat
 id FID
 id TextView_message_left
@@ -51,7 +52,6 @@ id btn_edit
 id btn_login
 id button
 id button2
-id button_sendmsg
 id category
 id charge
 id chat_formname
@@ -81,6 +81,7 @@ id emailEt
 id etc_group
 id fab
 id food_group
+id frameLayout
 id frame_layout
 id game_group
 id goods_group
@@ -210,6 +211,7 @@ layout recyclerview_chats
 layout recyclerview_notifications
 layout setting
 menu bottom_nav_menu
+menu chatdrawer
 mipmap ic_google_login
 mipmap ic_google_login_foreground
 mipmap ic_google_login_round

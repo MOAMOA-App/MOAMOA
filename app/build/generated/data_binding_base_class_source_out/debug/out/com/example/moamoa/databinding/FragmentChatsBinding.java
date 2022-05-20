@@ -23,24 +23,28 @@ public final class FragmentChatsBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final TextInputEditText EditTextChat;
+  public final Button ButtonSend;
 
   @NonNull
-  public final Button buttonSendmsg;
+  public final TextInputEditText EditTextChat;
 
   @NonNull
   public final RecyclerView chatsRecyclerview;
 
   @NonNull
+  public final LinearLayout frameLayout;
+
+  @NonNull
   public final Toolbar toolbarChat;
 
-  private FragmentChatsBinding(@NonNull LinearLayout rootView,
-      @NonNull TextInputEditText EditTextChat, @NonNull Button buttonSendmsg,
-      @NonNull RecyclerView chatsRecyclerview, @NonNull Toolbar toolbarChat) {
+  private FragmentChatsBinding(@NonNull LinearLayout rootView, @NonNull Button ButtonSend,
+      @NonNull TextInputEditText EditTextChat, @NonNull RecyclerView chatsRecyclerview,
+      @NonNull LinearLayout frameLayout, @NonNull Toolbar toolbarChat) {
     this.rootView = rootView;
+    this.ButtonSend = ButtonSend;
     this.EditTextChat = EditTextChat;
-    this.buttonSendmsg = buttonSendmsg;
     this.chatsRecyclerview = chatsRecyclerview;
+    this.frameLayout = frameLayout;
     this.toolbarChat = toolbarChat;
   }
 
@@ -71,15 +75,15 @@ public final class FragmentChatsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.EditText_chat;
-      TextInputEditText EditTextChat = ViewBindings.findChildViewById(rootView, id);
-      if (EditTextChat == null) {
+      id = R.id.Button_send;
+      Button ButtonSend = ViewBindings.findChildViewById(rootView, id);
+      if (ButtonSend == null) {
         break missingId;
       }
 
-      id = R.id.button_sendmsg;
-      Button buttonSendmsg = ViewBindings.findChildViewById(rootView, id);
-      if (buttonSendmsg == null) {
+      id = R.id.EditText_chat;
+      TextInputEditText EditTextChat = ViewBindings.findChildViewById(rootView, id);
+      if (EditTextChat == null) {
         break missingId;
       }
 
@@ -89,14 +93,16 @@ public final class FragmentChatsBinding implements ViewBinding {
         break missingId;
       }
 
+      LinearLayout frameLayout = (LinearLayout) rootView;
+
       id = R.id.toolbar_chat;
       Toolbar toolbarChat = ViewBindings.findChildViewById(rootView, id);
       if (toolbarChat == null) {
         break missingId;
       }
 
-      return new FragmentChatsBinding((LinearLayout) rootView, EditTextChat, buttonSendmsg,
-          chatsRecyclerview, toolbarChat);
+      return new FragmentChatsBinding((LinearLayout) rootView, ButtonSend, EditTextChat,
+          chatsRecyclerview, frameLayout, toolbarChat);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
