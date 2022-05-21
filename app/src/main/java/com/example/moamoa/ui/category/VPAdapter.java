@@ -18,10 +18,19 @@ public class VPAdapter extends FragmentPagerAdapter {
         items.add(new Fragment1());
         items.add(new Fragment2());
         items.add(new Fragment3());
+        items.add(new Fragment3());
+        items.add(new Fragment3());
+        items.add(new Fragment3());
+        items.add(new Fragment3());
 
-        itext.add("1번");
-        itext.add("2번");
-        itext.add("3번");
+        itext.add("전체");
+        itext.add("관심");
+        itext.add("식품");
+        itext.add("생활");
+        itext.add("의류");
+        itext.add("가전");
+        itext.add("기타");
+
 
     }
 
