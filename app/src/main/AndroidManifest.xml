@@ -41,9 +41,12 @@
         <activity android:name=".ui.category.ListupActivity" />
         <activity android:name=".ui.formdetail.show_detail" />
         <activity android:name=".ui.mypage.EditMyinfo" />
-        <activity android:name=".ui.mypage.CreatedForms" />
-        <activity android:name=".ui.mypage.ParticipatedForms" />
-        <activity android:name=".ui.mypage.Setting" />
+        <activity android:name=".ui.mypage.CreatedForms"
+            android:label="만든 폼 관리" />
+        <activity android:name=".ui.mypage.ParticipatedForms"
+            android:label="참여한 폼 관리"/>
+        <activity android:name=".ui.mypage.Setting"
+            android:label="환경설정"/>
     </application>
 
 </manifest>

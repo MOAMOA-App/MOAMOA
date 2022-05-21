@@ -26,7 +26,7 @@ public class ParticipatedForms extends AppCompatActivity {
         SectionsPagerAdapter2 sectionsPagerAdapter = new SectionsPagerAdapter2(this, getSupportFragmentManager());
         ViewPager viewPager = binding.viewPager;
         viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = binding.tabs;
+        TabLayout tabs = binding.tabs2;
         tabs.setupWithViewPager(viewPager);
         tabs.setTabTextColors(Color.rgb(0,0,0),Color.rgb(47,157,39));
 

@@ -18,7 +18,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.CreatedFormsBinding;
-import com.example.moamoa.databinding.FragmentMainBinding;
 
 import java.util.ArrayList;
 
@@ -30,7 +29,6 @@ public class PlaceholderFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
-//    private CreatedFormsBinding binding;
     private CreatedFormsBinding binding;
 
 
@@ -59,6 +57,7 @@ public class PlaceholderFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
+//        binding = FragmentMainBinding.inflate(inflater, container, false);
         binding = CreatedFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
