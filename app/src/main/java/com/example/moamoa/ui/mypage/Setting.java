@@ -11,12 +11,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.moamoa.LoginActivity;
+import com.example.moamoa.MainActivity;
 import com.example.moamoa.R;
+import com.google.firebase.auth.FirebaseAuth;
 
-public class Setting extends Activity {
+public class Setting extends AppCompatActivity {
 
     static final String[] LIST_MENU = {"알림 설정", "앱 정보", "로그아웃", "회원 탈퇴"};
 
@@ -35,15 +39,19 @@ public class Setting extends Activity {
                 //Toast.makeText(view.getContext(), "메세지", Toast.LENGTH_SHORT).show();
                 if (position == 0) {
                     //string 부분 틀림
-                    Intent intent = new Intent(String.valueOf(EditMyinfo.class));
-                    startActivity(intent);
+//                    Intent intent = new Intent((EditMyinfo.class));
+//                    startActivity(intent);
                 }
                 if (position == 1) {
-                    Intent intent = new Intent(String.valueOf(EditMyinfo.class));
-                    startActivity(intent);
+//                    Intent intent = new Intent(String.valueOf(EditMyinfo.class));
+//                    startActivity(intent);
                 }
                 if (position == 2) {
-                    Intent intent = new Intent(String.valueOf(EditMyinfo.class));
+                    FirebaseAuth auth = FirebaseAuth.getInstance();
+
+                    auth.signOut();
+
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
                 }
                 if (position == 3) {

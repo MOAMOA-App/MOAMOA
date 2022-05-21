@@ -95,7 +95,7 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="아이디"
+                android:text="닉네임"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/textView10"
                 app:layout_constraintEnd_toEndOf="@+id/textView8"
@@ -164,12 +164,12 @@
                 app:layout_constraintStart_toStartOf="@+id/editTextTextPassword5"
                 app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword5" />
 
-            <TextView
+            <EditText
                 android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textSize="18sp"
+                android:layout_width="156dp"
+                android:layout_height="26dp"
+                android:ems="10"
+                android:background="@drawable/edit_border"
                 app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
                 app:layout_constraintStart_toStartOf="@+id/textView16"
                 app:layout_constraintTop_toBottomOf="@+id/textView16" />
