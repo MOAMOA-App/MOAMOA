@@ -8,28 +8,6 @@
     android:id="@+id/frameLayout"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_chat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#F5B565"
-            app:title="폼 이름"
-            app:titleTextColor="#FFFFFF" />
-
-        <ImageButton
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_alignParentRight="true"
-            android:backgroundTint="#00ff0000"
-            android:src="@drawable/ic_outline_dehaze_24"
-            android:clickable="true"
-            android:focusable="true" />
-    </RelativeLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chats_recyclerview"
         android:layout_width="match_parent"
@@ -62,9 +40,7 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="10dp"
             android:backgroundTint="#F1A94E"
-
             android:text="SEND"
-            android:textColor="@color/white"
             />
     </LinearLayout>
 

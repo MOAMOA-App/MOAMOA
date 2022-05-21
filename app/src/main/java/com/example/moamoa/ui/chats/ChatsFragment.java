@@ -1,5 +1,6 @@
 package com.example.moamoa.ui.chats;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -34,7 +35,7 @@ public class ChatsFragment extends Fragment {
         binding = FragmentChatsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        this.FormData();
+        this.AddData();
 
         recyclerView = (RecyclerView) root.findViewById(R.id.chats_recyclerview);
 
@@ -46,7 +47,7 @@ public class ChatsFragment extends Fragment {
         return root;
     }
 
-    public void FormData()
+    public void AddData()
     {
         list = new ArrayList<ChatsData>();
         list.add(new ChatsData("NAME1", "안녕하세요", "NAME2", "안녕하세요"));

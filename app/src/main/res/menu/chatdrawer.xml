@@ -3,4 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view"
     >
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_baseline_loop_24"
+        android:title="@string/selectlanguage" />
+    <item
+        android:id="@+id/participants"
+        android:icon="@drawable/ic_baseline_supervisor_account_24"
+        android:title="@string/participants" />
+    <item
+        android:id="@+id/getout"
+        android:icon="@drawable/ic_baseline_clear_24"
+        android:title="@string/getout" />
 </menu>

@@ -22,4 +22,7 @@
     <string name="tab_text1_6">생활용품</string>
     <string name="tab_text1_7">기타</string>
     <string name="text_home_allview">전체보기</string>
+    <string name="selectlanguage">언어 선택</string>
+    <string name="participants">참여자</string>
+    <string name="getout">나가기</string>
 </resources>

@@ -5,8 +5,14 @@ import java.util.ArrayList;
 public class ChatsData {
     String leftname;
     String leftmessage;
+    String leftnational;
+    int leftpfimage;
+
     String rightname;
     String rightmessage;
+    String rightnational;
+    int rightpfimage;
+
 
     public ChatsData(String leftname, String leftmessage, String rightname, String rightmessage) {
         this.leftname = leftname;
