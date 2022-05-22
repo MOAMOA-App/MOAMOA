@@ -51,9 +51,15 @@
         <activity android:name="com.example.moamoa.ui.category.ListupActivity" />
         <activity android:name="com.example.moamoa.ui.formdetail.show_detail" />
         <activity android:name="com.example.moamoa.ui.mypage.EditMyinfo" />
-        <activity android:name="com.example.moamoa.ui.mypage.CreatedForms" />
-        <activity android:name="com.example.moamoa.ui.mypage.ParticipatedForms" />
-        <activity android:name="com.example.moamoa.ui.mypage.Setting" />
+        <activity
+            android:name="com.example.moamoa.ui.mypage.CreatedForms"
+            android:label="만든 폼 관리" />
+        <activity
+            android:name="com.example.moamoa.ui.mypage.ParticipatedForms"
+            android:label="참여한 폼 관리" />
+        <activity
+            android:name="com.example.moamoa.ui.mypage.Setting"
+            android:label="환경설정" />
 
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"

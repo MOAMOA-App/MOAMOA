@@ -4,10 +4,10 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import androidx.viewpager.widget.ViewPager;
@@ -19,7 +19,7 @@ import java.lang.String;
 
 public final class CreatedFormsBinding implements ViewBinding {
   @NonNull
-  private final CoordinatorLayout rootView;
+  private final LinearLayout rootView;
 
   @NonNull
   public final ListView listview;
@@ -30,7 +30,7 @@ public final class CreatedFormsBinding implements ViewBinding {
   @NonNull
   public final ViewPager viewPager;
 
-  private CreatedFormsBinding(@NonNull CoordinatorLayout rootView, @NonNull ListView listview,
+  private CreatedFormsBinding(@NonNull LinearLayout rootView, @NonNull ListView listview,
       @NonNull TabLayout tabs, @NonNull ViewPager viewPager) {
     this.rootView = rootView;
     this.listview = listview;
@@ -40,7 +40,7 @@ public final class CreatedFormsBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public CoordinatorLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -83,7 +83,7 @@ public final class CreatedFormsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new CreatedFormsBinding((CoordinatorLayout) rootView, listview, tabs, viewPager);
+      return new CreatedFormsBinding((LinearLayout) rootView, listview, tabs, viewPager);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

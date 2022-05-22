@@ -71,7 +71,7 @@ public final class EditMyinfoBinding implements ViewBinding {
   public final TextView textView14;
 
   @NonNull
-  public final TextView textView15;
+  public final EditText textView15;
 
   @NonNull
   public final TextView textView16;
@@ -95,7 +95,7 @@ public final class EditMyinfoBinding implements ViewBinding {
       @NonNull EditText editTextTextEmailAddress, @NonNull EditText editTextTextPassword2,
       @NonNull EditText editTextTextPassword4, @NonNull EditText editTextTextPassword5,
       @NonNull TextView textView10, @NonNull TextView textView11, @NonNull TextView textView12,
-      @NonNull TextView textView13, @NonNull TextView textView14, @NonNull TextView textView15,
+      @NonNull TextView textView13, @NonNull TextView textView14, @NonNull EditText textView15,
       @NonNull TextView textView16, @NonNull TextView textView7, @NonNull TextView textView8,
       @NonNull TextView textView9, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
@@ -243,7 +243,7 @@ public final class EditMyinfoBinding implements ViewBinding {
       }
 
       id = R.id.textView15;
-      TextView textView15 = ViewBindings.findChildViewById(rootView, id);
+      EditText textView15 = ViewBindings.findChildViewById(rootView, id);
       if (textView15 == null) {
         break missingId;
       }

@@ -32,33 +32,39 @@ public class CategoryActivity extends AppCompatActivity {
     public void fragmentChange(int index){
         if(index == 1){
             Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
+            intent.putExtra("tabIdx", 0);
             startActivity(intent);
         }
         else if(index == 2){
             Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
-
+            intent.putExtra("tabIdx", 1);
             startActivity(intent);
         }
 
         else if (index ==3){
             Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
+            intent.putExtra("tabIdx", 2);
             startActivity(intent);
         }
 
         else if (index ==4){
             Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
+            intent.putExtra("tabIdx", 3);
             startActivity(intent);
         }
         else if (index ==5){
             Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
+            intent.putExtra("tabIdx", 4);
             startActivity(intent);
         }
         else if (index ==6){
             Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
+            intent.putExtra("tabIdx", 5);
             startActivity(intent);
         }
         else if (index ==7){
             Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
+            intent.putExtra("tabIdx", 6);
             startActivity(intent);
         }
     }
