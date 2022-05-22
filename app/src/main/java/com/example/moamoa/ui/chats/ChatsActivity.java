@@ -20,6 +20,7 @@ public class ChatsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chats);
 
+        // 채팅창 메뉴
         findViewById(R.id.drawer_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,6 +32,7 @@ public class ChatsActivity extends AppCompatActivity {
             }
         });
 
+        // 기본 툴바 숨김
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
     }
