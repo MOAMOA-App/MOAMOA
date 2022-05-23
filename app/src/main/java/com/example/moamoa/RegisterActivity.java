@@ -109,17 +109,16 @@ public class RegisterActivity extends AppCompatActivity {
                                 String name = NameText.getText().toString().trim();
 
                                 //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
-                                HashMap<Object,String> hashMap = new HashMap<>();
+                                HashMap<String, Object> childUpdates = new HashMap<>();
+                                HashMap<Object,String> postValues = new HashMap<>();
 
-                                hashMap.put("uid",uid);
-                                hashMap.put("email",email);
-                                hashMap.put("name",name);
+                                postValues.put("name",name);
+                                postValues.put("nick","무지개곰돌이");
 
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                                 DatabaseReference reference = database.getReference("Users");
-                                reference.child(uid).setValue(hashMap);
-
-
+                                childUpdates.put(uid, postValues);
+                                reference.updateChildren(childUpdates);
                                 //가입이 이루어져을시 가입 화면을 빠져나감.
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 startActivity(intent);

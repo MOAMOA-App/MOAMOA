@@ -2,8 +2,8 @@ package com.example.moamoa.ui.category;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,19 +37,6 @@ public class CategoryFragment extends Fragment {
 
     CategoryActivity categoryActivity;
 
-    // 메인 액티비티 위에 올린다.
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        categoryActivity = (CategoryActivity) getActivity();
-    }
-
-    // 메인 액티비티에서 내려온다.
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        categoryActivity = null;
-    }
 
     @Nullable
     @Override
@@ -68,45 +55,52 @@ public class CategoryFragment extends Fragment {
         // 프래그먼트 1에서 프래그먼트 2를 띄운다.
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                categoryActivity.fragmentChange(1);
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),ListupActivity.class);
+                startActivity(intent);
             }
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                categoryActivity.fragmentChange(2);
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),ListupActivity.class);
+                startActivity(intent);
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                categoryActivity.fragmentChange(3);
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),ListupActivity.class);
+                startActivity(intent);
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                categoryActivity.fragmentChange(4);
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),ListupActivity.class);
+                startActivity(intent);
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                categoryActivity.fragmentChange(5);
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),ListupActivity.class);
+                startActivity(intent);
             }
         });
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                categoryActivity.fragmentChange(6);
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),ListupActivity.class);
+                startActivity(intent);
             }
         });
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                categoryActivity.fragmentChange(7);
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),ListupActivity.class);
+                startActivity(intent);
             }
         });
 

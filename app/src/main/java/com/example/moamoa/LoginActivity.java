@@ -86,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -97,6 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
+
                 Toast.makeText(getApplicationContext(), "Google sign in Successed", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
@@ -121,10 +123,10 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
-                            Toast.makeText(getApplicationContext(), "Complete", Toast.LENGTH_LONG).show();
+                            Log.d(TAG, "signInWithCredential:success : ");
+
+                            //Toast.makeText(getApplicationContext(), user.getUid(), Toast.LENGTH_LONG).show();
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -137,7 +139,6 @@ public class LoginActivity extends AppCompatActivity {
 
                         // [START_EXCLUDE]
                         // hideProgressDialog();
-                        // [END_EXCLUDE]
                     }
                 });
     }

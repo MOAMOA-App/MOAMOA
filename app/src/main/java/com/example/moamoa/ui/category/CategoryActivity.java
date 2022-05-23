@@ -36,7 +36,6 @@ public class CategoryActivity extends AppCompatActivity {
         }
         else if(index == 2){
             Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
-
             startActivity(intent);
         }
 
