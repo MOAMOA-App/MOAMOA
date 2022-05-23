@@ -86,7 +86,7 @@ id emailEt
 id etc_group
 id fab
 id food_group
-id fragment_chats
+id fragment_chats_view
 id frameLayout
 id frame_layout
 id game_group

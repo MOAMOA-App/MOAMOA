@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentContainerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
@@ -36,7 +37,7 @@ public final class ActivityChatsBinding implements ViewBinding {
   public final DrawerLayout drawerLayout;
 
   @NonNull
-  public final FragmentChatsBinding fragmentChats;
+  public final FragmentContainerView fragmentChatsView;
 
   @NonNull
   public final NavigationView navView;
@@ -47,14 +48,14 @@ public final class ActivityChatsBinding implements ViewBinding {
   private ActivityChatsBinding(@NonNull ConstraintLayout rootView,
       @NonNull AppBarLayout chatstoolbar, @NonNull ConstraintLayout container,
       @NonNull FrameLayout drawerButton, @NonNull DrawerLayout drawerLayout,
-      @NonNull FragmentChatsBinding fragmentChats, @NonNull NavigationView navView,
+      @NonNull FragmentContainerView fragmentChatsView, @NonNull NavigationView navView,
       @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.chatstoolbar = chatstoolbar;
     this.container = container;
     this.drawerButton = drawerButton;
     this.drawerLayout = drawerLayout;
-    this.fragmentChats = fragmentChats;
+    this.fragmentChatsView = fragmentChatsView;
     this.navView = navView;
     this.toolbar = toolbar;
   }
@@ -106,12 +107,11 @@ public final class ActivityChatsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.fragment_chats;
-      View fragmentChats = ViewBindings.findChildViewById(rootView, id);
-      if (fragmentChats == null) {
+      id = R.id.fragment_chats_view;
+      FragmentContainerView fragmentChatsView = ViewBindings.findChildViewById(rootView, id);
+      if (fragmentChatsView == null) {
         break missingId;
       }
-      FragmentChatsBinding binding_fragmentChats = FragmentChatsBinding.bind(fragmentChats);
 
       id = R.id.nav_view;
       NavigationView navView = ViewBindings.findChildViewById(rootView, id);
@@ -126,7 +126,7 @@ public final class ActivityChatsBinding implements ViewBinding {
       }
 
       return new ActivityChatsBinding((ConstraintLayout) rootView, chatstoolbar, container,
-          drawerButton, drawerLayout, binding_fragmentChats, navView, toolbar);
+          drawerButton, drawerLayout, fragmentChatsView, navView, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

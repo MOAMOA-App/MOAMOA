@@ -57,6 +57,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(),ListupActivity.class);
+                intent.putExtra("tabIdx", 0);
                 startActivity(intent);
             }
         });
@@ -65,6 +66,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(),ListupActivity.class);
+                intent.putExtra("tabIdx", 1);
                 startActivity(intent);
             }
         });
@@ -72,6 +74,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(),ListupActivity.class);
+                intent.putExtra("tabIdx", 2);
                 startActivity(intent);
             }
         });
@@ -79,6 +82,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(),ListupActivity.class);
+                intent.putExtra("tabIdx", 3);
                 startActivity(intent);
             }
         });
@@ -86,6 +90,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(),ListupActivity.class);
+                intent.putExtra("tabIdx", 4);
                 startActivity(intent);
             }
         });
@@ -93,6 +98,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(),ListupActivity.class);
+                intent.putExtra("tabIdx", 5);
                 startActivity(intent);
             }
         });
@@ -100,6 +106,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(),ListupActivity.class);
+                intent.putExtra("tabIdx", 6);
                 startActivity(intent);
             }
         });

@@ -30,7 +30,7 @@
 16-->[com.google.android.gms:play-services-measurement:21.0.0] C:\Users\user\.gradle\caches\transforms-3\696e1090e87eeee4dba6335eb361ec3a\transformed\play-services-measurement-21.0.0\AndroidManifest.xml:26:22-107
 17
 18    <application
-18-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:10:5-50:19
+18-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:10:5-53:19
 19        android:allowBackup="true"
 19-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:11:9-35
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -54,7 +54,7 @@
 30            android:exported="false" />
 30-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:20:13-37
 31        <activity
-31-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:21:9-24:57
+31-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:21:9-24:48
 32            android:name="com.example.moamoa.MainActivity"
 32-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:22:13-41
 33            android:exported="true"
@@ -104,23 +104,23 @@
 53-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:43:9-58
 53-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:43:19-55
 54        <activity
-54-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:44:9-45:39
+54-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:44:9-46:39
 55            android:name="com.example.moamoa.ui.mypage.CreatedForms"
-55-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:44:19-57
+55-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:45:13-51
 56            android:label="만든 폼 관리" />
-56-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:45:13-36
+56-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:46:13-36
 57        <activity
-57-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:46:9-47:39
+57-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:47:9-49:40
 58            android:name="com.example.moamoa.ui.mypage.ParticipatedForms"
-58-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:46:19-62
+58-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:48:13-56
 59            android:label="참여한 폼 관리" />
-59-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:47:13-37
+59-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:49:13-37
 60        <activity
-60-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:48:9-49:35
+60-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:50:9-52:36
 61            android:name="com.example.moamoa.ui.mypage.Setting"
-61-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:48:19-52
+61-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:51:13-46
 62            android:label="환경설정" />
-62-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:49:13-33
+62-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:52:13-33
 63
 64        <service
 64-->[com.google.firebase:firebase-auth-ktx:21.0.3] C:\Users\user\.gradle\caches\transforms-3\130769d0c45c1b05bbc45a4af5751634\transformed\firebase-auth-ktx-21.0.3\AndroidManifest.xml:8:9-14:19

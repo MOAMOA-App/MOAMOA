@@ -1,4 +1,4 @@
-/*package android.scroll.D;
+package com.example.moamoa.ui.dashboard;
 
 
 import android.app.DatePickerDialog;
@@ -9,11 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.DatePicker;
-import android.widget.TextView;
 
 import com.example.moamoa.MainActivity;
 
@@ -21,7 +17,7 @@ import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
-
+ */
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 
@@ -36,10 +32,10 @@ public class DatePickerFragment extends DialogFragment
         return new DatePickerDialog(getActivity(),this,year,month,day);
     }
 
+
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
         MainActivity activity = (MainActivity)getActivity();
-        //activity.processDatePickerResult(year,month,day);
+        activity.processDatePickerResult(year,month,day);
     }
 }
-*/

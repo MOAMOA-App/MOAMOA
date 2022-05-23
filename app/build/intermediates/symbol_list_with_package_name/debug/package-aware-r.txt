@@ -2889,7 +2889,7 @@ id flip
 id floating
 id food_group
 id forever
-id fragment_chats
+id fragment_chats_view
 id fragment_container_view_tag
 id frameLayout
 id frame_layout

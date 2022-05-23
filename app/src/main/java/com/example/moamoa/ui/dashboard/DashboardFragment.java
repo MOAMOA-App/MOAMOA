@@ -14,9 +14,21 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentDashboardBinding;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class DashboardFragment extends Fragment {
     private FragmentDashboardBinding binding;
+    long mNow;
+    Date mDate;
+    SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd");
 
+    private String getTime(){
+        mNow = System.currentTimeMillis();
+        mDate = new Date(mNow);
+
+        return mFormat.format(mDate);
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel =
@@ -24,8 +36,9 @@ public class DashboardFragment extends Fragment {
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
+        TextView mTextView = (TextView) root.findViewById(R.id.text_dashboardstart);
         EditText e = (EditText) root.findViewById(R.id.cost);
+        mTextView.setText(getTime());
         e.addTextChangedListener(new CustomTextWatcher(e));
       //  final TextView textView = binding.textDashboard;
       //  dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);

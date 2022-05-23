@@ -29,36 +29,5 @@ public class CategoryActivity extends AppCompatActivity {
     }
 
     // 인덱스를 통해 해당되는 프래그먼트를 띄운다.
-    public void fragmentChange(int index){
-        if(index == 1){
-            Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
-            startActivity(intent);
-        }
-        else if(index == 2){
-            Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
-            startActivity(intent);
-        }
 
-        else if (index ==3){
-            Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
-            startActivity(intent);
-        }
-
-        else if (index ==4){
-            Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
-            startActivity(intent);
-        }
-        else if (index ==5){
-            Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
-            startActivity(intent);
-        }
-        else if (index ==6){
-            Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
-            startActivity(intent);
-        }
-        else if (index ==7){
-            Intent intent=new Intent(getApplicationContext(),ListupActivity.class);
-            startActivity(intent);
-        }
-    }
 }
