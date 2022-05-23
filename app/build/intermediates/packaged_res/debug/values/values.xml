@@ -29,11 +29,14 @@
     <string name="app_name">MOAMOA</string>
     <string name="default_web_client_id" translatable="false">170210186260-4ge1o7dh207etiubbhubk002h10mpats.apps.googleusercontent.com</string>
     <string name="gcm_defaultSenderId" translatable="false">170210186260</string>
+    <string name="getout">나가기</string>
     <string name="google_api_key" translatable="false">AIzaSyAOjSDUz0GD58SJbjPox9Xyx1PFARrPXao</string>
     <string name="google_app_id" translatable="false">1:170210186260:android:ae060a2f11659134404301</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAOjSDUz0GD58SJbjPox9Xyx1PFARrPXao</string>
     <string name="google_storage_bucket" translatable="false">moamoa-e391d.appspot.com</string>
+    <string name="participants">참여자</string>
     <string name="project_id" translatable="false">moamoa-e391d</string>
+    <string name="selectlanguage">언어 선택</string>
     <string name="tab_text1_1">전체</string>
     <string name="tab_text1_2">관심</string>
     <string name="tab_text1_3">식품</string>

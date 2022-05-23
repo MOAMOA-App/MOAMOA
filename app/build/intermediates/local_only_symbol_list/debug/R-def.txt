@@ -18,7 +18,9 @@ drawable ic_account_circle_24
 drawable ic_baseline_apps_24
 drawable ic_baseline_chevron_right_24
 drawable ic_baseline_clear_24
+drawable ic_baseline_loop_24
 drawable ic_baseline_photo
+drawable ic_baseline_supervisor_account_24
 drawable ic_chat_24
 drawable ic_create_24
 drawable ic_dashboard_black_24dp
@@ -60,6 +62,7 @@ id chatlist_Image
 id chatlistnum
 id chatlistunit
 id chats_recyclerview
+id chatstoolbar
 id chatting_list
 id clothes_group
 id constraintLayout
@@ -71,6 +74,8 @@ id container
 id cost
 id dailyitems_group
 id delete_notification
+id drawer_button
+id drawer_layout
 id editTextPhone
 id editTextTextEmailAddress
 id editTextTextPassword2
@@ -81,9 +86,11 @@ id emailEt
 id etc_group
 id fab
 id food_group
+id fragment_chats
 id frameLayout
 id frame_layout
 id game_group
+id getout
 id goods_group
 id google_login
 id imageView
@@ -112,6 +119,7 @@ id name
 id nameEt
 id nationality_left
 id nationality_right
+id nav_home
 id nav_host
 id nav_view
 id navigation_category
@@ -125,6 +133,7 @@ id navigation_home
 id navigation_my_page
 id navigation_notifications
 id notification_list
+id participants
 id password
 id passwordEdt
 id passwordcheckEdt
@@ -143,6 +152,7 @@ id tab_Item1
 id tab_Item2
 id tab_Item3
 id tabs
+id tabs2
 id textView
 id textView10
 id textView11
@@ -222,11 +232,14 @@ navigation mobile_navigation
 string app_name
 string default_web_client_id
 string gcm_defaultSenderId
+string getout
 string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
+string participants
 string project_id
+string selectlanguage
 string tab_text1_1
 string tab_text1_2
 string tab_text1_3

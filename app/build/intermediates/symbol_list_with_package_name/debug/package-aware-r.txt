@@ -2558,7 +2558,9 @@ drawable ic_account_circle_24
 drawable ic_baseline_apps_24
 drawable ic_baseline_chevron_right_24
 drawable ic_baseline_clear_24
+drawable ic_baseline_loop_24
 drawable ic_baseline_photo
+drawable ic_baseline_supervisor_account_24
 drawable ic_chat_24
 drawable ic_clock_black_24dp
 drawable ic_create_24
@@ -2773,6 +2775,7 @@ id chatlist_Image
 id chatlistnum
 id chatlistunit
 id chats_recyclerview
+id chatstoolbar
 id chatting_list
 id checkbox
 id checked
@@ -2842,6 +2845,8 @@ id dragLeft
 id dragRight
 id dragStart
 id dragUp
+id drawer_button
+id drawer_layout
 id dropdown_editable
 id dropdown_menu
 id dropdown_noneditable
@@ -2884,12 +2889,14 @@ id flip
 id floating
 id food_group
 id forever
+id fragment_chats
 id fragment_container_view_tag
 id frameLayout
 id frame_layout
 id frost
 id fullscreen_header
 id game_group
+id getout
 id ghost_view
 id ghost_view_holder
 id gone
@@ -3024,6 +3031,7 @@ id nameEt
 id nationality_left
 id nationality_right
 id nav_controller_view_tag
+id nav_home
 id nav_host
 id nav_host_fragment_container
 id nav_view
@@ -3068,6 +3076,7 @@ id parent
 id parentPanel
 id parentRelative
 id parent_matrix
+id participants
 id password
 id passwordEdt
 id password_toggle
@@ -3171,6 +3180,7 @@ id tab_Item1
 id tab_Item2
 id tab_Item3
 id tabs
+id tabs2
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -3569,6 +3579,7 @@ string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string gcm_defaultSenderId
+string getout
 string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
@@ -3650,6 +3661,7 @@ string mtrl_picker_toggle_to_year_selection
 string mtrl_timepicker_confirm
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
+string participants
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -3657,6 +3669,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string project_id
 string search_menu_title
+string selectlanguage
 string status_bar_notification_info_overflow
 string tab_text1_1
 string tab_text1_2

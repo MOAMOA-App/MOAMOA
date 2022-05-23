@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -34,18 +33,14 @@ public final class FragmentChatsBinding implements ViewBinding {
   @NonNull
   public final LinearLayout frameLayout;
 
-  @NonNull
-  public final Toolbar toolbarChat;
-
   private FragmentChatsBinding(@NonNull LinearLayout rootView, @NonNull Button ButtonSend,
       @NonNull TextInputEditText EditTextChat, @NonNull RecyclerView chatsRecyclerview,
-      @NonNull LinearLayout frameLayout, @NonNull Toolbar toolbarChat) {
+      @NonNull LinearLayout frameLayout) {
     this.rootView = rootView;
     this.ButtonSend = ButtonSend;
     this.EditTextChat = EditTextChat;
     this.chatsRecyclerview = chatsRecyclerview;
     this.frameLayout = frameLayout;
-    this.toolbarChat = toolbarChat;
   }
 
   @Override
@@ -95,14 +90,8 @@ public final class FragmentChatsBinding implements ViewBinding {
 
       LinearLayout frameLayout = (LinearLayout) rootView;
 
-      id = R.id.toolbar_chat;
-      Toolbar toolbarChat = ViewBindings.findChildViewById(rootView, id);
-      if (toolbarChat == null) {
-        break missingId;
-      }
-
       return new FragmentChatsBinding((LinearLayout) rootView, ButtonSend, EditTextChat,
-          chatsRecyclerview, frameLayout, toolbarChat);
+          chatsRecyclerview, frameLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

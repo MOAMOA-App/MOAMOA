@@ -7,26 +7,61 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.navigation.NavigationView;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class ActivityChatsBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
-  public final FrameLayout container;
+  public final AppBarLayout chatstoolbar;
 
-  private ActivityChatsBinding(@NonNull FrameLayout rootView, @NonNull FrameLayout container) {
+  @NonNull
+  public final ConstraintLayout container;
+
+  @NonNull
+  public final FrameLayout drawerButton;
+
+  @NonNull
+  public final DrawerLayout drawerLayout;
+
+  @NonNull
+  public final FragmentChatsBinding fragmentChats;
+
+  @NonNull
+  public final NavigationView navView;
+
+  @NonNull
+  public final Toolbar toolbar;
+
+  private ActivityChatsBinding(@NonNull ConstraintLayout rootView,
+      @NonNull AppBarLayout chatstoolbar, @NonNull ConstraintLayout container,
+      @NonNull FrameLayout drawerButton, @NonNull DrawerLayout drawerLayout,
+      @NonNull FragmentChatsBinding fragmentChats, @NonNull NavigationView navView,
+      @NonNull Toolbar toolbar) {
     this.rootView = rootView;
+    this.chatstoolbar = chatstoolbar;
     this.container = container;
+    this.drawerButton = drawerButton;
+    this.drawerLayout = drawerLayout;
+    this.fragmentChats = fragmentChats;
+    this.navView = navView;
+    this.toolbar = toolbar;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -47,12 +82,53 @@ public final class ActivityChatsBinding implements ViewBinding {
 
   @NonNull
   public static ActivityChatsBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.chatstoolbar;
+      AppBarLayout chatstoolbar = ViewBindings.findChildViewById(rootView, id);
+      if (chatstoolbar == null) {
+        break missingId;
+      }
+
+      ConstraintLayout container = (ConstraintLayout) rootView;
+
+      id = R.id.drawer_button;
+      FrameLayout drawerButton = ViewBindings.findChildViewById(rootView, id);
+      if (drawerButton == null) {
+        break missingId;
+      }
+
+      id = R.id.drawer_layout;
+      DrawerLayout drawerLayout = ViewBindings.findChildViewById(rootView, id);
+      if (drawerLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.fragment_chats;
+      View fragmentChats = ViewBindings.findChildViewById(rootView, id);
+      if (fragmentChats == null) {
+        break missingId;
+      }
+      FragmentChatsBinding binding_fragmentChats = FragmentChatsBinding.bind(fragmentChats);
+
+      id = R.id.nav_view;
+      NavigationView navView = ViewBindings.findChildViewById(rootView, id);
+      if (navView == null) {
+        break missingId;
+      }
+
+      id = R.id.toolbar;
+      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+
+      return new ActivityChatsBinding((ConstraintLayout) rootView, chatstoolbar, container,
+          drawerButton, drawerLayout, binding_fragmentChats, navView, toolbar);
     }
-
-    FrameLayout container = (FrameLayout) rootView;
-
-    return new ActivityChatsBinding((FrameLayout) rootView, container);
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

@@ -55,9 +55,9 @@
         app:layout_constraintTop_toBottomOf="@id/chatstoolbar"
         tools:openDrawer="end">
 
-        <include
-            android:id="@+id/fragment_chats"
-            layout="@layout/fragment_chats"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_chats_view"
+            android:name="com.example.moamoa.ui.chats.ChatsFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

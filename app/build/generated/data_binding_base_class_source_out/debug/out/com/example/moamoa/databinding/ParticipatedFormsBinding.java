@@ -25,16 +25,16 @@ public final class ParticipatedFormsBinding implements ViewBinding {
   public final ListView listview;
 
   @NonNull
-  public final TabLayout tabs;
+  public final TabLayout tabs2;
 
   @NonNull
   public final ViewPager viewPager;
 
   private ParticipatedFormsBinding(@NonNull CoordinatorLayout rootView, @NonNull ListView listview,
-      @NonNull TabLayout tabs, @NonNull ViewPager viewPager) {
+      @NonNull TabLayout tabs2, @NonNull ViewPager viewPager) {
     this.rootView = rootView;
     this.listview = listview;
-    this.tabs = tabs;
+    this.tabs2 = tabs2;
     this.viewPager = viewPager;
   }
 
@@ -71,9 +71,9 @@ public final class ParticipatedFormsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tabs;
-      TabLayout tabs = ViewBindings.findChildViewById(rootView, id);
-      if (tabs == null) {
+      id = R.id.tabs2;
+      TabLayout tabs2 = ViewBindings.findChildViewById(rootView, id);
+      if (tabs2 == null) {
         break missingId;
       }
 
@@ -83,7 +83,7 @@ public final class ParticipatedFormsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ParticipatedFormsBinding((CoordinatorLayout) rootView, listview, tabs, viewPager);
+      return new ParticipatedFormsBinding((CoordinatorLayout) rootView, listview, tabs2, viewPager);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
