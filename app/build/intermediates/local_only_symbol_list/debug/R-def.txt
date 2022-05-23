@@ -46,8 +46,10 @@ id TextView_nickname_right
 id alarm_message
 id all_category
 id all_group
+id all_group1
 id appbar
 id appliance_group
+id appliance_group1
 id body_1
 id body_2
 id btn_edit
@@ -65,6 +67,7 @@ id chats_recyclerview
 id chatstoolbar
 id chatting_list
 id clothes_group
+id clothes_group1
 id constraintLayout
 id constraintLayout2
 id constraintLayout3
@@ -73,6 +76,7 @@ id constraintLayout5
 id container
 id cost
 id dailyitems_group
+id dailyitems_group1
 id delete_notification
 id drawer_button
 id drawer_layout
@@ -84,14 +88,18 @@ id editTextTextPassword5
 id edit_myinfo
 id emailEt
 id etc_group
+id etc_group1
 id fab
 id food_group
+id food_group1
 id fragment_chats_view
 id frameLayout
 id frame_layout
 id game_group
+id game_group1
 id getout
 id goods_group
+id goods_group1
 id google_login
 id imageView
 id listView1
@@ -114,6 +122,7 @@ id mobile_navigation
 id moveto_mygroup
 id my_category
 id my_group
+id my_group1
 id my_page
 id name
 id nameEt
@@ -138,6 +147,7 @@ id password
 id passwordEdt
 id passwordcheckEdt
 id pets_group
+id pets_group1
 id profile_image_left
 id profile_image_right
 id register_log
@@ -146,6 +156,7 @@ id set_listView
 id spinner
 id spinner2
 id sports_group
+id sports_group1
 id star
 id tab
 id tab_Item1

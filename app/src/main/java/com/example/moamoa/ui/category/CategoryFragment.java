@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,7 +44,7 @@ public class CategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_category, container, false);
 
-        btn_edit =rootView.findViewById(R.id.btn_edit);
+        btn_edit = rootView.findViewById(R.id.btn_edit);
         button1 = rootView.findViewById(R.id.all_group);
         button2 = rootView.findViewById(R.id.my_group);
         button3 = rootView.findViewById(R.id.food_group);
@@ -56,7 +57,7 @@ public class CategoryFragment extends Fragment {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),ListupActivity.class);
+                Intent intent = new Intent(getActivity(), ListupActivity.class);
                 intent.putExtra("tabIdx", 0);
                 startActivity(intent);
             }
@@ -65,7 +66,7 @@ public class CategoryFragment extends Fragment {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),ListupActivity.class);
+                Intent intent = new Intent(getActivity(), ListupActivity.class);
                 intent.putExtra("tabIdx", 1);
                 startActivity(intent);
             }
@@ -73,7 +74,7 @@ public class CategoryFragment extends Fragment {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),ListupActivity.class);
+                Intent intent = new Intent(getActivity(), ListupActivity.class);
                 intent.putExtra("tabIdx", 2);
                 startActivity(intent);
             }
@@ -81,7 +82,7 @@ public class CategoryFragment extends Fragment {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),ListupActivity.class);
+                Intent intent = new Intent(getActivity(), ListupActivity.class);
                 intent.putExtra("tabIdx", 3);
                 startActivity(intent);
             }
@@ -89,7 +90,7 @@ public class CategoryFragment extends Fragment {
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),ListupActivity.class);
+                Intent intent = new Intent(getActivity(), ListupActivity.class);
                 intent.putExtra("tabIdx", 4);
                 startActivity(intent);
             }
@@ -97,7 +98,7 @@ public class CategoryFragment extends Fragment {
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),ListupActivity.class);
+                Intent intent = new Intent(getActivity(), ListupActivity.class);
                 intent.putExtra("tabIdx", 5);
                 startActivity(intent);
             }
@@ -105,7 +106,7 @@ public class CategoryFragment extends Fragment {
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),ListupActivity.class);
+                Intent intent = new Intent(getActivity(), ListupActivity.class);
                 intent.putExtra("tabIdx", 6);
                 startActivity(intent);
             }
@@ -127,7 +128,7 @@ public class CategoryFragment extends Fragment {
 
     public static class MyAlertDialogFragment extends DialogFragment {
 
-        public static MyAlertDialogFragment newInstance(String title){
+        public static MyAlertDialogFragment newInstance(String title) {
             MyAlertDialogFragment frag = new MyAlertDialogFragment();
             Bundle args = new Bundle();
             args.putString("title", title);
@@ -162,34 +163,71 @@ public class CategoryFragment extends Fragment {
                             new DialogInterface.OnMultiChoiceClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i, boolean b) {
+
                                     if (b) {
                                         // 체크 됐으면 리스트에 추가
                                         choices.add(i);
+                                        //checkedItems[i] = true;
+
                                     } else if (choices.contains(i)) {
                                         // 체크 된거면 리스트에서 제거
                                         choices.remove(Integer.valueOf(i));
                                     }
                                 }
                             })
-                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Log.i("MyLog", "확인 버튼이 눌림");
-                        }
-                    })
-                    .setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Log.i("MyLog", "취소 버튼이 눌림");
-                        }
-                    })
-                    .create();
+                    .setPositiveButton("완료",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int i) {
+                                    if (choices.size() > 0) {
+                                        String cities = "";
+
+                                        for (int j = 0; j < choices.size(); j++) {
+                                            int position = (int) choices.get(j);
+                                            cities = cities + " " + list.get(position);
+
+
+                                            if (position == 0) {
+                                                getActivity().findViewById(R.id.food_group1).setVisibility(View.VISIBLE);
+                                            }
+                                            else if (position == 1) {
+                                                getActivity().findViewById(R.id.dailyitems_group1).setVisibility(View.VISIBLE);
+                                            }
+                                            else if (position == 2) {
+                                                getActivity().findViewById(R.id.clothes_group1).setVisibility(View.VISIBLE);
+                                            }
+                                            else if (position == 3) {
+                                                getActivity().findViewById(R.id.appliance_group1).setVisibility(View.VISIBLE);
+                                            }
+                                            else if (position == 4) {
+                                                getActivity().findViewById(R.id.game_group1).setVisibility(View.VISIBLE);
+                                            }
+                                            else if (position == 5) {
+                                                getActivity().findViewById(R.id.sports_group1).setVisibility(View.VISIBLE);
+                                            }
+                                            else if (position == 6) {
+                                                getActivity().findViewById(R.id.etc_group).setVisibility(View.VISIBLE);
+                                            }
+                                        }
+                                        Toast.makeText(getActivity(),
+                                                cities + "\n이상 " + choices.size() + " 카테고리 선택됨", Toast.LENGTH_LONG)
+                                                .show();
+                                    }
+                                }
+                            })
+                    .setNegativeButton("취소",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int i) {
+
+                                }
+                            })
+                    .show();
+        }
+
+        @Override
+        public void onDestroyView() {
+            super.onDestroyView();
+            //     binding = null;
         }
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        //     binding = null;
-    }
 }

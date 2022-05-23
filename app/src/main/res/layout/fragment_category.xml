@@ -43,16 +43,91 @@
     </RelativeLayout>
 
     <GridLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="40dp">
-        <LinearLayout
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"/>
+        android:orientation="horizontal"
+        android:columnCount="4"
+
+
+        android:useDefaultMargins="true">
+        <Button
+            android:id="@+id/all_group1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="gone"
+            android:text="전체" />
 
         <Button
-            android:layout_width="70dp"
-            android:layout_height="70dp" />
+            android:id="@+id/my_group1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="gone"
+            android:text="관심" />
+
+        <Button
+            android:id="@+id/food_group1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="gone"
+            android:text="식품" />
+
+        <Button
+            android:id="@+id/dailyitems_group1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="gone"
+            android:text="생활"
+            />
+
+        <Button
+            android:id="@+id/clothes_group1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="gone"
+            android:text="의류" />
+
+        <Button
+            android:id="@+id/appliance_group1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="gone"
+            android:text="가전" />
+
+        <Button
+            android:id="@+id/game_group1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="gone"
+            android:text="취미" />
+
+        <Button
+            android:id="@+id/sports_group1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="gone"
+            android:text="운동" />
+
+        <Button
+            android:id="@+id/goods_group1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="gone"
+            android:text="굿즈" />
+
+        <Button
+            android:id="@+id/pets_group1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="gone"
+            android:text="동물" />
+
+        <Button
+            android:id="@+id/etc_group1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="gone"
+            android:text="기타" />
+
     </GridLayout>
 
     <RelativeLayout

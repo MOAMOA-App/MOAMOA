@@ -2716,6 +2716,7 @@ int id all 0x7f090053
 int id allStates 0x7f090054
 int id all_category 0x7f090055
 int id all_group 0x7f090056
+int id all_group1 0x7f09028d
 int id always 0x7f090057
 int id androidx_window_activity_scope 0x7f090058
 int id animateToEnd 0x7f090059
@@ -2724,6 +2725,7 @@ int id antiClockwise 0x7f09005b
 int id anticipate 0x7f09005c
 int id appbar 0x7f09005d
 int id appliance_group 0x7f09005e
+int id appliance_group1 0x7f09028e
 int id arc 0x7f09005f
 int id asConfigured 0x7f090060
 int id async 0x7f090061
@@ -2791,6 +2793,7 @@ int id clip_vertical 0x7f09009e
 int id clockwise 0x7f09009f
 int id closest 0x7f0900a0
 int id clothes_group 0x7f0900a1
+int id clothes_group1 0x7f09028f
 int id collapseActionView 0x7f0900a2
 int id compress 0x7f0900a3
 int id confirm_button 0x7f0900a4
@@ -2814,6 +2817,7 @@ int id custom 0x7f0900b5
 int id customPanel 0x7f0900b6
 int id cut 0x7f0900b7
 int id dailyitems_group 0x7f0900b8
+int id dailyitems_group1 0x7f090290
 int id dark 0x7f0900b9
 int id date_picker_actions 0x7f0900ba
 int id decelerate 0x7f0900bb
@@ -2869,6 +2873,7 @@ int id endToStart 0x7f0900ec
 int id enterAlways 0x7f0900ed
 int id enterAlwaysCollapsed 0x7f0900ee
 int id etc_group 0x7f0900ef
+int id etc_group1 0x7f090291
 int id exitUntilCollapsed 0x7f0900f0
 int id expand_activities_button 0x7f0900f1
 int id expanded_menu 0x7f0900f2
@@ -2887,6 +2892,7 @@ int id fixed 0x7f0900fe
 int id flip 0x7f0900ff
 int id floating 0x7f090100
 int id food_group 0x7f090101
+int id food_group1 0x7f090292
 int id forever 0x7f090102
 int id fragment_chats_view 0x7f090103
 int id fragment_container_view_tag 0x7f090104
@@ -2895,11 +2901,13 @@ int id frame_layout 0x7f090106
 int id frost 0x7f090107
 int id fullscreen_header 0x7f090108
 int id game_group 0x7f090109
+int id game_group1 0x7f090293
 int id getout 0x7f09010a
 int id ghost_view 0x7f09010b
 int id ghost_view_holder 0x7f09010c
 int id gone 0x7f09010d
 int id goods_group 0x7f09010e
+int id goods_group1 0x7f090294
 int id google_login 0x7f09010f
 int id graph 0x7f090110
 int id graph_wrap 0x7f090111
@@ -3024,6 +3032,7 @@ int id mtrl_view_tag_bottom_padding 0x7f090187
 int id multiply 0x7f090188
 int id my_category 0x7f090189
 int id my_group 0x7f09018a
+int id my_group1 0x7f090295
 int id my_page 0x7f09018b
 int id name 0x7f09018c
 int id nameEt 0x7f09018d
@@ -3085,6 +3094,7 @@ int id pathRelative 0x7f0901c4
 int id peekHeight 0x7f0901c5
 int id percent 0x7f0901c6
 int id pets_group 0x7f0901c7
+int id pets_group1 0x7f090296
 int id pin 0x7f0901c8
 int id position 0x7f0901c9
 int id postLayout 0x7f0901ca
@@ -3153,6 +3163,7 @@ int id spinner2 0x7f090208
 int id spline 0x7f090209
 int id split_action_bar 0x7f09020a
 int id sports_group 0x7f09020b
+int id sports_group1 0x7f090297
 int id spread 0x7f09020c
 int id spread_inside 0x7f09020d
 int id spring 0x7f09020e

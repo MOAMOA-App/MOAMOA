@@ -28,7 +28,13 @@ public final class FragmentCategoryBinding implements ViewBinding {
   public final Button allGroup;
 
   @NonNull
+  public final Button allGroup1;
+
+  @NonNull
   public final Button applianceGroup;
+
+  @NonNull
+  public final Button applianceGroup1;
 
   @NonNull
   public final Button btnEdit;
@@ -37,19 +43,37 @@ public final class FragmentCategoryBinding implements ViewBinding {
   public final Button clothesGroup;
 
   @NonNull
+  public final Button clothesGroup1;
+
+  @NonNull
   public final Button dailyitemsGroup;
+
+  @NonNull
+  public final Button dailyitemsGroup1;
 
   @NonNull
   public final Button etcGroup;
 
   @NonNull
+  public final Button etcGroup1;
+
+  @NonNull
   public final Button foodGroup;
+
+  @NonNull
+  public final Button foodGroup1;
 
   @NonNull
   public final Button gameGroup;
 
   @NonNull
+  public final Button gameGroup1;
+
+  @NonNull
   public final Button goodsGroup;
+
+  @NonNull
+  public final Button goodsGroup1;
 
   @NonNull
   public final ImageView movetoMygroup;
@@ -61,33 +85,57 @@ public final class FragmentCategoryBinding implements ViewBinding {
   public final Button myGroup;
 
   @NonNull
+  public final Button myGroup1;
+
+  @NonNull
   public final Button petsGroup;
+
+  @NonNull
+  public final Button petsGroup1;
 
   @NonNull
   public final Button sportsGroup;
 
+  @NonNull
+  public final Button sportsGroup1;
+
   private FragmentCategoryBinding(@NonNull LinearLayout rootView, @NonNull TextView allCategory,
-      @NonNull Button allGroup, @NonNull Button applianceGroup, @NonNull Button btnEdit,
-      @NonNull Button clothesGroup, @NonNull Button dailyitemsGroup, @NonNull Button etcGroup,
-      @NonNull Button foodGroup, @NonNull Button gameGroup, @NonNull Button goodsGroup,
+      @NonNull Button allGroup, @NonNull Button allGroup1, @NonNull Button applianceGroup,
+      @NonNull Button applianceGroup1, @NonNull Button btnEdit, @NonNull Button clothesGroup,
+      @NonNull Button clothesGroup1, @NonNull Button dailyitemsGroup,
+      @NonNull Button dailyitemsGroup1, @NonNull Button etcGroup, @NonNull Button etcGroup1,
+      @NonNull Button foodGroup, @NonNull Button foodGroup1, @NonNull Button gameGroup,
+      @NonNull Button gameGroup1, @NonNull Button goodsGroup, @NonNull Button goodsGroup1,
       @NonNull ImageView movetoMygroup, @NonNull TextView myCategory, @NonNull Button myGroup,
-      @NonNull Button petsGroup, @NonNull Button sportsGroup) {
+      @NonNull Button myGroup1, @NonNull Button petsGroup, @NonNull Button petsGroup1,
+      @NonNull Button sportsGroup, @NonNull Button sportsGroup1) {
     this.rootView = rootView;
     this.allCategory = allCategory;
     this.allGroup = allGroup;
+    this.allGroup1 = allGroup1;
     this.applianceGroup = applianceGroup;
+    this.applianceGroup1 = applianceGroup1;
     this.btnEdit = btnEdit;
     this.clothesGroup = clothesGroup;
+    this.clothesGroup1 = clothesGroup1;
     this.dailyitemsGroup = dailyitemsGroup;
+    this.dailyitemsGroup1 = dailyitemsGroup1;
     this.etcGroup = etcGroup;
+    this.etcGroup1 = etcGroup1;
     this.foodGroup = foodGroup;
+    this.foodGroup1 = foodGroup1;
     this.gameGroup = gameGroup;
+    this.gameGroup1 = gameGroup1;
     this.goodsGroup = goodsGroup;
+    this.goodsGroup1 = goodsGroup1;
     this.movetoMygroup = movetoMygroup;
     this.myCategory = myCategory;
     this.myGroup = myGroup;
+    this.myGroup1 = myGroup1;
     this.petsGroup = petsGroup;
+    this.petsGroup1 = petsGroup1;
     this.sportsGroup = sportsGroup;
+    this.sportsGroup1 = sportsGroup1;
   }
 
   @Override
@@ -129,9 +177,21 @@ public final class FragmentCategoryBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.all_group1;
+      Button allGroup1 = ViewBindings.findChildViewById(rootView, id);
+      if (allGroup1 == null) {
+        break missingId;
+      }
+
       id = R.id.appliance_group;
       Button applianceGroup = ViewBindings.findChildViewById(rootView, id);
       if (applianceGroup == null) {
+        break missingId;
+      }
+
+      id = R.id.appliance_group1;
+      Button applianceGroup1 = ViewBindings.findChildViewById(rootView, id);
+      if (applianceGroup1 == null) {
         break missingId;
       }
 
@@ -147,9 +207,21 @@ public final class FragmentCategoryBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.clothes_group1;
+      Button clothesGroup1 = ViewBindings.findChildViewById(rootView, id);
+      if (clothesGroup1 == null) {
+        break missingId;
+      }
+
       id = R.id.dailyitems_group;
       Button dailyitemsGroup = ViewBindings.findChildViewById(rootView, id);
       if (dailyitemsGroup == null) {
+        break missingId;
+      }
+
+      id = R.id.dailyitems_group1;
+      Button dailyitemsGroup1 = ViewBindings.findChildViewById(rootView, id);
+      if (dailyitemsGroup1 == null) {
         break missingId;
       }
 
@@ -159,9 +231,21 @@ public final class FragmentCategoryBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.etc_group1;
+      Button etcGroup1 = ViewBindings.findChildViewById(rootView, id);
+      if (etcGroup1 == null) {
+        break missingId;
+      }
+
       id = R.id.food_group;
       Button foodGroup = ViewBindings.findChildViewById(rootView, id);
       if (foodGroup == null) {
+        break missingId;
+      }
+
+      id = R.id.food_group1;
+      Button foodGroup1 = ViewBindings.findChildViewById(rootView, id);
+      if (foodGroup1 == null) {
         break missingId;
       }
 
@@ -171,9 +255,21 @@ public final class FragmentCategoryBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.game_group1;
+      Button gameGroup1 = ViewBindings.findChildViewById(rootView, id);
+      if (gameGroup1 == null) {
+        break missingId;
+      }
+
       id = R.id.goods_group;
       Button goodsGroup = ViewBindings.findChildViewById(rootView, id);
       if (goodsGroup == null) {
+        break missingId;
+      }
+
+      id = R.id.goods_group1;
+      Button goodsGroup1 = ViewBindings.findChildViewById(rootView, id);
+      if (goodsGroup1 == null) {
         break missingId;
       }
 
@@ -195,9 +291,21 @@ public final class FragmentCategoryBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.my_group1;
+      Button myGroup1 = ViewBindings.findChildViewById(rootView, id);
+      if (myGroup1 == null) {
+        break missingId;
+      }
+
       id = R.id.pets_group;
       Button petsGroup = ViewBindings.findChildViewById(rootView, id);
       if (petsGroup == null) {
+        break missingId;
+      }
+
+      id = R.id.pets_group1;
+      Button petsGroup1 = ViewBindings.findChildViewById(rootView, id);
+      if (petsGroup1 == null) {
         break missingId;
       }
 
@@ -207,9 +315,17 @@ public final class FragmentCategoryBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentCategoryBinding((LinearLayout) rootView, allCategory, allGroup,
-          applianceGroup, btnEdit, clothesGroup, dailyitemsGroup, etcGroup, foodGroup, gameGroup,
-          goodsGroup, movetoMygroup, myCategory, myGroup, petsGroup, sportsGroup);
+      id = R.id.sports_group1;
+      Button sportsGroup1 = ViewBindings.findChildViewById(rootView, id);
+      if (sportsGroup1 == null) {
+        break missingId;
+      }
+
+      return new FragmentCategoryBinding((LinearLayout) rootView, allCategory, allGroup, allGroup1,
+          applianceGroup, applianceGroup1, btnEdit, clothesGroup, clothesGroup1, dailyitemsGroup,
+          dailyitemsGroup1, etcGroup, etcGroup1, foodGroup, foodGroup1, gameGroup, gameGroup1,
+          goodsGroup, goodsGroup1, movetoMygroup, myCategory, myGroup, myGroup1, petsGroup,
+          petsGroup1, sportsGroup, sportsGroup1);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
