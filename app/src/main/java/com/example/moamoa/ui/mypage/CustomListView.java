@@ -1,12 +1,15 @@
 package com.example.moamoa.ui.mypage;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.example.moamoa.R;
 
@@ -49,13 +52,25 @@ public class CustomListView extends BaseAdapter {
         ImageView mainImage = convertView.findViewById(R.id.mainImage);
 
         TextView title = convertView.findViewById(R.id.title);
-        TextView body_1 = convertView.findViewById(R.id.body_1);
-        TextView body_2 = convertView.findViewById(R.id.body_2);
+        TextView name = convertView.findViewById(R.id.name);
+        TextView charge = convertView.findViewById(R.id.charge);
+        TextView mans = convertView.findViewById(R.id.mans);
 
         mainImage.setImageResource(listViewData.get(position).mainImage);
         title.setText(listViewData.get(position).title);
-        body_1.setText(listViewData.get(position).body_1);
-        body_2.setText(listViewData.get(position).body_2);
+        name.setText(listViewData.get(position).name);
+        charge.setText(listViewData.get(position).charge);
+        mans.setText(listViewData.get(position).mans);
+
+        //listview와 버튼 클릭 다르게 주기
+        ToggleButton button = convertView.findViewById(R.id.heart);
+
+        button.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                String clickName = listViewData.get(position).title;
+                Log.d("확인","message : "+clickName);
+            }
+        });
 
         return convertView;
     }

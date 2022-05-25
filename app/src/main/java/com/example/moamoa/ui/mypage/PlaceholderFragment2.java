@@ -8,14 +8,18 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.CreatedFormsBinding;
-import com.example.moamoa.databinding.ParticipatedFormsBinding;
+import com.example.moamoa.databinding.EmptyFormsBinding;
 
 import java.util.ArrayList;
 
@@ -27,8 +31,7 @@ public class PlaceholderFragment2 extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
-//    private CreatedFormsBinding binding;
-    private ParticipatedFormsBinding binding;
+    private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
 
 
     public static PlaceholderFragment2 newInstance(int index) {
@@ -56,7 +59,7 @@ public class PlaceholderFragment2 extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
-        binding = ParticipatedFormsBinding.inflate(inflater, container, false);
+        binding = EmptyFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         //추가
@@ -66,14 +69,17 @@ public class PlaceholderFragment2 extends Fragment {
         for (int i=0; i<30; ++i) {
             ListData listData = new ListData();
             listData.mainImage = R.drawable.ic_launcher_background;
-            listData.star = R.drawable.ic_launcher_background;
-            listData.title = " 테스트"+i;
-            listData.body_1 = " / 리뷰51+ / 사장님댓글13+ / 410m";
-            listData.body_2 = "배달료 3000원 / 배달시간 30~35";
+            listData.title = "테스트"+i;
+            listData.name = "화성";
+            listData.charge = i+"원";
+            listData.mans = i + "/" + (i+2);
             listViewData.add(listData);
         }
+
+        //viewpager에 리스트 띄워줌
         ListAdapter oAdapter = new CustomListView(listViewData);
         listView.setAdapter(oAdapter);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
