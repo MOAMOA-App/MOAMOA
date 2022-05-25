@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -18,6 +19,8 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.example.moamoa.R;
+import com.example.moamoa.ui.mypage.EditMyinfo;
+import com.example.moamoa.ui.mypage.ParticipatedForms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,16 +60,18 @@ public class CategoryFragment extends Fragment {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ListupActivity.class);
-                intent.putExtra("tabIdx", 0);
+                Intent intent = new Intent(getActivity(), com.example.moamoa.ui.mypage.CreatedForms.class);
                 startActivity(intent);
             }
+
+
+
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ListupActivity.class);
+                Intent intent = new Intent(getActivity(), CategoryActivity.class);
                 intent.putExtra("tabIdx", 1);
                 startActivity(intent);
             }
@@ -74,7 +79,7 @@ public class CategoryFragment extends Fragment {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ListupActivity.class);
+                Intent intent = new Intent(getActivity(),CategoryActivity.class);
                 intent.putExtra("tabIdx", 2);
                 startActivity(intent);
             }
@@ -82,7 +87,7 @@ public class CategoryFragment extends Fragment {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ListupActivity.class);
+                Intent intent = new Intent(getActivity(), CategoryActivity.class);
                 intent.putExtra("tabIdx", 3);
                 startActivity(intent);
             }
@@ -90,7 +95,7 @@ public class CategoryFragment extends Fragment {
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ListupActivity.class);
+                Intent intent = new Intent(getActivity(), CategoryActivity.class);
                 intent.putExtra("tabIdx", 4);
                 startActivity(intent);
             }
@@ -98,7 +103,7 @@ public class CategoryFragment extends Fragment {
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ListupActivity.class);
+                Intent intent = new Intent(getActivity(), CategoryActivity.class);
                 intent.putExtra("tabIdx", 5);
                 startActivity(intent);
             }
@@ -106,7 +111,7 @@ public class CategoryFragment extends Fragment {
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ListupActivity.class);
+                Intent intent = new Intent(getActivity(), CategoryActivity.class);
                 intent.putExtra("tabIdx", 6);
                 startActivity(intent);
             }
@@ -154,7 +159,7 @@ public class CategoryFragment extends Fragment {
 
             final CharSequence[] items = list.toArray(new String[list.size()]);
             final List choices = new ArrayList();
-
+            final boolean[] checkedItems = new boolean[]{ false, false, false, false, false, false, false};
 
             String title = getArguments().getString("title");
             return new AlertDialog.Builder(getActivity())
@@ -166,12 +171,14 @@ public class CategoryFragment extends Fragment {
 
                                     if (b) {
                                         // 체크 됐으면 리스트에 추가
-                                        choices.add(i);
-                                        //checkedItems[i] = true;
-
+                                        Log.d("확인","name : "+checkedItems[i]);
+                           //             choices.add(i);
+                          //              checkedItems[i] = true;
+                         //               Log.d("확인","name : "+checkedItems[i]);
                                     } else if (choices.contains(i)) {
                                         // 체크 된거면 리스트에서 제거
                                         choices.remove(Integer.valueOf(i));
+
                                     }
                                 }
                             })

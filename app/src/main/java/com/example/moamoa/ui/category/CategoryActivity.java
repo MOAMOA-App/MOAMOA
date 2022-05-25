@@ -1,33 +1,39 @@
 package com.example.moamoa.ui.category;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
-import com.example.moamoa.R;
+import com.example.moamoa.databinding.ActivityCategoryBinding;
+import com.google.android.material.tabs.TabLayout;
 
 public class CategoryActivity extends AppCompatActivity {
 
-  //  Button button1, button2;
-    CategoryFragment frameLayout1;
-   // ListFragment frameLayout2;
+    private ActivityCategoryBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Intent i = getIntent();
+        int tabIdx = i.getIntExtra("tabIdx",0);
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category);
 
+        binding = ActivityCategoryBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        frameLayout1 = new CategoryFragment();
-     //   frameLayout2 = new ListFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frame_layout, frameLayout1).commit();
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
 
+        ViewPager viewPager = binding.viewPager;
+        viewPager.setAdapter(sectionsPagerAdapter);
+        viewPager .setCurrentItem(tabIdx, false);
+        TabLayout tabs = binding.tabs;
+        tabs.setupWithViewPager(viewPager);
+        tabs.setTabTextColors(Color.rgb(0,0,0),Color.rgb(47,157,39));
 
 
     }
-
-    // 인덱스를 통해 해당되는 프래그먼트를 띄운다.
-
 }

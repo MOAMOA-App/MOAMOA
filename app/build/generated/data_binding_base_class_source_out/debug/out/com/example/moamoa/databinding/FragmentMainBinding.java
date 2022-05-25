@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -21,28 +22,36 @@ public final class FragmentMainBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final TextView body1;
+  public final TextView FID;
 
   @NonNull
-  public final TextView body2;
+  public final TextView charge;
+
+  @NonNull
+  public final ToggleButton heart;
 
   @NonNull
   public final ImageView mainImage;
 
   @NonNull
-  public final ImageView star;
+  public final TextView mans;
+
+  @NonNull
+  public final TextView name;
 
   @NonNull
   public final TextView title;
 
-  private FragmentMainBinding(@NonNull LinearLayout rootView, @NonNull TextView body1,
-      @NonNull TextView body2, @NonNull ImageView mainImage, @NonNull ImageView star,
-      @NonNull TextView title) {
+  private FragmentMainBinding(@NonNull LinearLayout rootView, @NonNull TextView FID,
+      @NonNull TextView charge, @NonNull ToggleButton heart, @NonNull ImageView mainImage,
+      @NonNull TextView mans, @NonNull TextView name, @NonNull TextView title) {
     this.rootView = rootView;
-    this.body1 = body1;
-    this.body2 = body2;
+    this.FID = FID;
+    this.charge = charge;
+    this.heart = heart;
     this.mainImage = mainImage;
-    this.star = star;
+    this.mans = mans;
+    this.name = name;
     this.title = title;
   }
 
@@ -73,15 +82,21 @@ public final class FragmentMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.body_1;
-      TextView body1 = ViewBindings.findChildViewById(rootView, id);
-      if (body1 == null) {
+      id = R.id.FID;
+      TextView FID = ViewBindings.findChildViewById(rootView, id);
+      if (FID == null) {
         break missingId;
       }
 
-      id = R.id.body_2;
-      TextView body2 = ViewBindings.findChildViewById(rootView, id);
-      if (body2 == null) {
+      id = R.id.charge;
+      TextView charge = ViewBindings.findChildViewById(rootView, id);
+      if (charge == null) {
+        break missingId;
+      }
+
+      id = R.id.heart;
+      ToggleButton heart = ViewBindings.findChildViewById(rootView, id);
+      if (heart == null) {
         break missingId;
       }
 
@@ -91,9 +106,15 @@ public final class FragmentMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.star;
-      ImageView star = ViewBindings.findChildViewById(rootView, id);
-      if (star == null) {
+      id = R.id.mans;
+      TextView mans = ViewBindings.findChildViewById(rootView, id);
+      if (mans == null) {
+        break missingId;
+      }
+
+      id = R.id.name;
+      TextView name = ViewBindings.findChildViewById(rootView, id);
+      if (name == null) {
         break missingId;
       }
 
@@ -103,7 +124,8 @@ public final class FragmentMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentMainBinding((LinearLayout) rootView, body1, body2, mainImage, star, title);
+      return new FragmentMainBinding((LinearLayout) rootView, FID, charge, heart, mainImage, mans,
+          name, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

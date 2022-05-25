@@ -48,7 +48,6 @@
             android:name="com.example.moamoa.LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name="com.example.moamoa.ui.category.CategoryActivity" />
-        <activity android:name="com.example.moamoa.ui.category.ListupActivity" />
         <activity android:name="com.example.moamoa.ui.formdetail.show_detail" />
         <activity android:name="com.example.moamoa.ui.mypage.EditMyinfo" />
         <activity

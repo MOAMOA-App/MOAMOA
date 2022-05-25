@@ -1,15 +1,15 @@
 [
     {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_border.xml.flat",
-        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\border.xml"
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_category.xml.flat",
+        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\activity_category.xml"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_edit_myinfo.xml.flat",
         "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\edit_myinfo.xml"
     },
     {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_category.xml.flat",
-        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\activity_category.xml"
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_border.xml.flat",
+        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\border.xml"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\menu_chatdrawer.xml.flat",
@@ -18,10 +18,6 @@
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_google_login_foreground.png.flat",
         "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-xhdpi\\ic_google_login_foreground.png"
-    },
-    {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_3.xml.flat",
-        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_3.xml"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_category.xml.flat",
@@ -80,16 +76,16 @@
         "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\activity_listup.xml"
     },
     {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_google_login_round.png.flat",
-        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_google_login_round.png"
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_google_login.png.flat",
+        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-xhdpi\\ic_google_login.png"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_supervisor_account_24.xml.flat",
         "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_supervisor_account_24.xml"
     },
     {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_google_login.png.flat",
-        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-xhdpi\\ic_google_login.png"
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_google_login_round.png.flat",
+        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_google_login_round.png"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_google_login.png.flat",
@@ -114,10 +110,6 @@
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_google_login_foreground.png.flat",
         "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_google_login_foreground.png"
-    },
-    {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_1.xml.flat",
-        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_1.xml"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_main_round.png.flat",
@@ -146,6 +138,10 @@
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_main.png.flat",
         "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_main.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_full_heart.xml.flat",
+        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\full_heart.xml"
     },
     {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_clear_24.xml.flat",
@@ -328,6 +324,10 @@
         "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\activity_formlist.xml"
     },
     {
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_empty_heart.xml.flat",
+        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\empty_heart.xml"
+    },
+    {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\menu_bottom_nav_menu.xml.flat",
         "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\menu\\bottom_nav_menu.xml"
     },
@@ -396,7 +396,7 @@
         "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_google_login.xml"
     },
     {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_2.xml.flat",
-        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_2.xml"
+        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_heart.xml.flat",
+        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\drawable\\heart.xml"
     }
 ]

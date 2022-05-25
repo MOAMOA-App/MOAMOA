@@ -38,7 +38,6 @@
             android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name=".ui.category.CategoryActivity" />
-        <activity android:name=".ui.category.ListupActivity" />
         <activity android:name=".ui.formdetail.show_detail" />
         <activity android:name=".ui.mypage.EditMyinfo" />
         <activity

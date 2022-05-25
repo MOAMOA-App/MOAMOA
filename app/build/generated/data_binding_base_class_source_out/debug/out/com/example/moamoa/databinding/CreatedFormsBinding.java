@@ -4,10 +4,9 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import androidx.viewpager.widget.ViewPager;
@@ -19,10 +18,7 @@ import java.lang.String;
 
 public final class CreatedFormsBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
-
-  @NonNull
-  public final ListView listview;
+  private final CoordinatorLayout rootView;
 
   @NonNull
   public final TabLayout tabs;
@@ -30,17 +26,16 @@ public final class CreatedFormsBinding implements ViewBinding {
   @NonNull
   public final ViewPager viewPager;
 
-  private CreatedFormsBinding(@NonNull LinearLayout rootView, @NonNull ListView listview,
-      @NonNull TabLayout tabs, @NonNull ViewPager viewPager) {
+  private CreatedFormsBinding(@NonNull CoordinatorLayout rootView, @NonNull TabLayout tabs,
+      @NonNull ViewPager viewPager) {
     this.rootView = rootView;
-    this.listview = listview;
     this.tabs = tabs;
     this.viewPager = viewPager;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public CoordinatorLayout getRoot() {
     return rootView;
   }
 
@@ -65,12 +60,6 @@ public final class CreatedFormsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.listview;
-      ListView listview = ViewBindings.findChildViewById(rootView, id);
-      if (listview == null) {
-        break missingId;
-      }
-
       id = R.id.tabs;
       TabLayout tabs = ViewBindings.findChildViewById(rootView, id);
       if (tabs == null) {
@@ -83,7 +72,7 @@ public final class CreatedFormsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new CreatedFormsBinding((LinearLayout) rootView, listview, tabs, viewPager);
+      return new CreatedFormsBinding((CoordinatorLayout) rootView, tabs, viewPager);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

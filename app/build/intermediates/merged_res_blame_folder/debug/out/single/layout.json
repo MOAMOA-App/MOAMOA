@@ -52,10 +52,6 @@
         "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\created_forms.xml"
     },
     {
-        "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_caleander.xml",
-        "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\activity_caleander.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_date_picker.xml",
         "source": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_date_picker.xml"
     },

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,6 +26,9 @@ public final class FragmentDashboardBinding implements ViewBinding {
   public final EditText cost;
 
   @NonNull
+  public final ImageView imageView2;
+
+  @NonNull
   public final Spinner spinner;
 
   @NonNull
@@ -37,10 +41,11 @@ public final class FragmentDashboardBinding implements ViewBinding {
   public final TextView textDashboardstart;
 
   private FragmentDashboardBinding(@NonNull ScrollView rootView, @NonNull EditText cost,
-      @NonNull Spinner spinner, @NonNull Spinner spinner2, @NonNull TextView textDashboardend,
-      @NonNull TextView textDashboardstart) {
+      @NonNull ImageView imageView2, @NonNull Spinner spinner, @NonNull Spinner spinner2,
+      @NonNull TextView textDashboardend, @NonNull TextView textDashboardstart) {
     this.rootView = rootView;
     this.cost = cost;
+    this.imageView2 = imageView2;
     this.spinner = spinner;
     this.spinner2 = spinner2;
     this.textDashboardend = textDashboardend;
@@ -80,6 +85,12 @@ public final class FragmentDashboardBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.imageView2;
+      ImageView imageView2 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView2 == null) {
+        break missingId;
+      }
+
       id = R.id.spinner;
       Spinner spinner = ViewBindings.findChildViewById(rootView, id);
       if (spinner == null) {
@@ -104,8 +115,8 @@ public final class FragmentDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentDashboardBinding((ScrollView) rootView, cost, spinner, spinner2,
-          textDashboardend, textDashboardstart);
+      return new FragmentDashboardBinding((ScrollView) rootView, cost, imageView2, spinner,
+          spinner2, textDashboardend, textDashboardstart);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

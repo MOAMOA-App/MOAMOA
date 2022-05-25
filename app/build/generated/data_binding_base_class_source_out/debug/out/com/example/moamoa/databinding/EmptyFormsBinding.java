@@ -4,7 +4,7 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -20,11 +20,11 @@ public final class EmptyFormsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TextView textDashboard2;
+  public final ListView listview;
 
-  private EmptyFormsBinding(@NonNull ConstraintLayout rootView, @NonNull TextView textDashboard2) {
+  private EmptyFormsBinding(@NonNull ConstraintLayout rootView, @NonNull ListView listview) {
     this.rootView = rootView;
-    this.textDashboard2 = textDashboard2;
+    this.listview = listview;
   }
 
   @Override
@@ -54,13 +54,13 @@ public final class EmptyFormsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.text_dashboard2;
-      TextView textDashboard2 = ViewBindings.findChildViewById(rootView, id);
-      if (textDashboard2 == null) {
+      id = R.id.listview;
+      ListView listview = ViewBindings.findChildViewById(rootView, id);
+      if (listview == null) {
         break missingId;
       }
 
-      return new EmptyFormsBinding((ConstraintLayout) rootView, textDashboard2);
+      return new EmptyFormsBinding((ConstraintLayout) rootView, listview);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
