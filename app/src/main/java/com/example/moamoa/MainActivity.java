@@ -1,5 +1,6 @@
 package com.example.moamoa;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -15,13 +16,17 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.moamoa.databinding.ActivityMainBinding;
 import com.example.moamoa.ui.dashboard.DatePickerFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;    //Activity_main + binding
-
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = new Intent(this, LoadingActivity.class);
+        startActivity(intent);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -36,6 +41,16 @@ public class MainActivity extends AppCompatActivity {
         //navController activitymain의 navView에 적용
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+    }
+    // [END auth_with_google]
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if(currentUser==null){
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
 //캘린더
 

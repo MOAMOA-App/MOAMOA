@@ -3,6 +3,7 @@ package com.example.moamoa;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -120,9 +121,18 @@ public class RegisterActivity extends AppCompatActivity {
                                 childUpdates.put(uid, postValues);
                                 reference.updateChildren(childUpdates);
                                 //가입이 이루어져을시 가입 화면을 빠져나감.
+                                user.sendEmailVerification();
+
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                                finish();
+                                alerting.setMessage("입력하신 이메일의 인증 메일이 발송되었습니다")
+                                        .setNeutralButton("확인",new DialogInterface.OnClickListener(){
+                                            public void onClick(DialogInterface dialog, int which){
+                                                startActivity(intent);
+                                                finish();
+                                            } }).create().show();
+
+
+
 
                             }else {
                                 // If sign in fails, display a message to the user.
