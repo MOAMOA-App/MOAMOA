@@ -42,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = new Intent(this, LoadingActivity.class);
+        startActivity(intent);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -144,17 +146,14 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("login","login");
-        /*
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        mAuth.signOut();
+        //mAuth.signOut();
         if(currentUser != null){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
-
-         */
     }
+
     private long backKeyPressedTime = 0;
     // 첫 번째 뒤로 가기 버튼을 누를 때 표시
     private Toast toast;

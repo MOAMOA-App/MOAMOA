@@ -17,7 +17,6 @@ import com.example.moamoa.databinding.ActivityMainBinding;
 import com.example.moamoa.ui.dashboard.DatePickerFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;    //Activity_main + binding
@@ -46,11 +45,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        /*
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if(currentUser==null){
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
+
+         */
     }
 //캘린더
 
