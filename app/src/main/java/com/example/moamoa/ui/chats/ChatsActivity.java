@@ -6,6 +6,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -28,6 +29,11 @@ public class ChatsActivity extends AppCompatActivity {
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                 if (!drawer.isDrawerOpen(Gravity.RIGHT)) {
                     drawer.openDrawer(Gravity.RIGHT) ;
+                    Log.d(this.getClass().getName(), "서랍 열기");
+                }
+                else{
+                    drawer.closeDrawer(Gravity.RIGHT);
+                    Log.d(this.getClass().getName(), "서랍 닫기");
                 }
             }
         });

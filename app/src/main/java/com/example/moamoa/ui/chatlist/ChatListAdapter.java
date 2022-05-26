@@ -65,6 +65,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.Holder
             formName = (TextView) view.findViewById(R.id.chat_formname);
             recentMessage = (TextView) view.findViewById(R.id.chat_recent);
 
+            // recyclerview 클릭 이벤트 - ChatsActivity와 연결
             itemView.setClickable(true);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

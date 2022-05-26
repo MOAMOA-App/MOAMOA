@@ -11,9 +11,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentChatsBinding;
@@ -27,6 +29,8 @@ public class ChatsFragment extends Fragment {
     private RecyclerView recyclerView;
     private ChatsAdapter adapter;
     private ArrayList<ChatsData> list = new ArrayList<>();
+
+    private Button sendbtn;
 
     @Nullable
     @Override
@@ -43,6 +47,15 @@ public class ChatsFragment extends Fragment {
         adapter = new ChatsAdapter(getActivity(), list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
+
+        sendbtn = (Button) root.findViewById(R.id.Button_send);
+        sendbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // send message
+                Log.d(this.getClass().getName(), "메세지 보냄");
+            }
+        });
 
         return root;
     }
