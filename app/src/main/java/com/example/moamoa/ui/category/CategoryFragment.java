@@ -60,7 +60,8 @@ public class CategoryFragment extends Fragment {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), com.example.moamoa.ui.mypage.CreatedForms.class);
+                Intent intent = new Intent(getActivity(), CategoryActivity.class);
+                intent.putExtra("tabIdx", 0);
                 startActivity(intent);
             }
 
@@ -171,9 +172,10 @@ public class CategoryFragment extends Fragment {
 
                                     if (b) {
                                         // 체크 됐으면 리스트에 추가
-                                        Log.d("확인","name : "+checkedItems[i]);
-                           //             choices.add(i);
-                          //              checkedItems[i] = true;
+                             //           Log.d("확인","name : "+checkedItems[i]);
+                                      choices.add(i);
+
+                                        //       checkedItems[i] = true;
                          //               Log.d("확인","name : "+checkedItems[i]);
                                     } else if (choices.contains(i)) {
                                         // 체크 된거면 리스트에서 제거
