@@ -1,18 +1,28 @@
 package com.example.moamoa.ui.dashboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentDashboardBinding;
+import com.example.moamoa.ui.category.CategoryActivity;
+import com.example.moamoa.ui.category.SectionsPagerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,7 +31,8 @@ public class DashboardFragment extends Fragment {
     private FragmentDashboardBinding binding;
     long mNow;
     Date mDate;
-    SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd");
+    SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMdd");
+    private FirebaseAuth firebaseAuth;
 
     private String getTime(){
         mNow = System.currentTimeMillis();
@@ -33,15 +44,53 @@ public class DashboardFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel =
                 new ViewModelProvider(this).get(DashboardViewModel.class);
-
+        firebaseAuth =  FirebaseAuth.getInstance();
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        TextView mTextView = (TextView) root.findViewById(R.id.text_dashboardstart);
-        EditText e = (EditText) root.findViewById(R.id.cost);
-        mTextView.setText(getTime());
-        e.addTextChangedListener(new CustomTextWatcher(e));
-      //  final TextView textView = binding.textDashboard;
+        TextView today = (TextView) root.findViewById(R.id.text_dashboardstart);
+        EditText subject = (EditText) root.findViewById(R.id.subject);
+        EditText text = (EditText) root.findViewById(R.id.text);
+        EditText address = (EditText) root.findViewById(R.id.address);
+        EditText cost = (EditText) root.findViewById(R.id.cost);
+        EditText max_count = (EditText) root.findViewById(R.id.max_count);
+        Spinner category_text= (Spinner)root.findViewById(R.id.spinner);
+        Button button = (Button) root.findViewById(R.id.button_dashboard);
+        TextView deadline = (TextView) root.findViewById(R.id.text_dashboardend);
+        today.setText(getTime());
+        cost.addTextChangedListener(new CustomTextWatcher(cost));
+
+
+        //  final TextView textView = binding.textDashboard;
       //  dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+                /*if(subject.equals("")){
+                    Toast.makeText( this,"제목 입력하세요",Toast.LENGTH_SHORT).show();
+
+                }else if(text.equals("")){
+
+                }else if(address.equals("")){
+
+                }else if(cost.equals("")){
+
+                }else if(max_count.equals("")){
+
+                }else if(deadline.equals("")){
+
+                }*/
+//if (!(subject.equals("") && text.equals("") &&address.equals("")&&cost.equals("")&&max_count.equals("")&&deadline.equals(""))) {
+
+    Form form = new Form(subject.getText().toString(), text.getText().toString(), address.getText().toString(), category_text.getSelectedItem().toString(), Integer.parseInt(cost.getText().toString()), Integer.parseInt(max_count.getText().toString()), Integer.parseInt(deadline.getText().toString()), Integer.parseInt(today.getText().toString()));
+    database.child("form").push().setValue(form);
+
+
+            }
+        });
+
+
         return root;
     }
 
@@ -50,4 +99,6 @@ public class DashboardFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+
 }

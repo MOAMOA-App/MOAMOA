@@ -65,7 +65,14 @@ public class MainActivity extends AppCompatActivity {
         String month_string = Integer.toString(month+1);
         String day_string = Integer.toString(day);
         String year_string = Integer.toString(year);
-        String dateMessage = (month_string + "/" + day_string + "/" + year_string);
+        if (day<10){
+           day_string = "0" + Integer.toString(day);
+        }
+        if (month<10){
+            month_string = "0" + Integer.toString(month+1);
+        }
+
+        String dateMessage = (year_string  +month_string + day_string  );
         TextView tv = findViewById(R.id.text_dashboardend);
         tv.setText(dateMessage);
 

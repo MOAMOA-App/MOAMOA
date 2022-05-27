@@ -1,33 +1,33 @@
 package com.example.moamoa;
 
 public class Form {
-    String FID;
+   // String FID;
     String subject;
     String text;
     //String photo;
     String address;
-    int category;
+    String category_text;
     int cost;
     int max_count;
     int deadline;
     int today;
 
     public Form(){ };
-    public Form(    String FID, String subject, String text, String photo, String address, category, int cost, int max_count, int deadline, int today){
-        this.FID = FID;
+    public Form(   String subject, String text, String address,String category_text, int cost, int max_count,int deadline, int today){
+        //this.FID = FID;
         this.subject = subject;
         this.text = text;
         this.address = address;
-        this.category = category;
+        this.category_text = category_text;
         this.cost = cost;
         this.max_count = max_count;
         this.deadline = deadline;
         this.today = today;
 
     }
-    public void setUID(String FID){
-        this.FID = FID;
-    }
+ //   public void setUID(String FID){
+  //      this.FID = FID;
+ //   }
     public String getSubject(){
         return subject;
     }
@@ -49,8 +49,8 @@ public class Form {
     public int getCost(){ return cost; }
     public void setCost(int cost) {this.cost = cost;
     }
-    public int getCategory(){ return category; }
-    public void setCategory(int category) {this.category = category;
+    public String getCategory_text(){ return category_text; }
+    public void setCategory_text(String category_text) {this.category_text = category_text;
     }
     public int getMax_count(){ return max_count; }
     public void setMax_count(int max_count) {this.max_count = max_count;
