@@ -68,7 +68,14 @@
             android:layout_height="match_parent"
             android:layout_gravity="end"
             android:fitsSystemWindows="true"
-            app:menu="@menu/chatdrawer" />
+            android:background="@color/white"
+
+            app:menu="@menu/chatdrawer"
+            app:headerLayout="@layout/nav_header_chats"
+            >
+                       
+
+        </com.google.android.material.navigation.NavigationView>
     </androidx.drawerlayout.widget.DrawerLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

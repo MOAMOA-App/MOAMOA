@@ -24,5 +24,5 @@
     <string name="text_home_allview">전체보기</string>
     <string name="selectlanguage">언어 선택</string>
     <string name="participants">참여자</string>
-    <string name="getout">나가기</string>
+    <string name="exitchats">채팅방 나가기</string>
 </resources>

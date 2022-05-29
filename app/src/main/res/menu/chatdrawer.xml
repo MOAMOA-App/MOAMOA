@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view"
     >
     <item
-        android:id="@+id/nav_home"
-        android:icon="@drawable/ic_baseline_loop_24"
-        android:title="@string/selectlanguage" />
+        android:id="@+id/chatsparticipants"
+        android:title="대화 참여자"
+        >
+        <menu>
+            <item
+
+                />
+        </menu>
+    </item>
     <item
-        android:id="@+id/participants"
-        android:icon="@drawable/ic_baseline_supervisor_account_24"
-        android:title="@string/participants" />
-    <item
-        android:id="@+id/getout"
-        android:icon="@drawable/ic_baseline_clear_24"
-        android:title="@string/getout" />
+        android:id="@+id/chatssetting"
+        android:title="설정">
+        <menu>
+            <item
+                android:id="@+id/select_language"
+                android:icon="@drawable/ic_baseline_loop_24"
+                android:title="@string/selectlanguage" />
+            <item
+                android:id="@+id/exitchats"
+                android:icon="@drawable/ic_baseline_clear_24"
+                android:title="@string/exitchats" />
+        </menu>
+
+    </item>
+
 </menu>

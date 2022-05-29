@@ -14,9 +14,13 @@ public class ChatsData {
     int rightpfimage;
 
 
-    public ChatsData(String leftname, String leftmessage, String rightname, String rightmessage) {
+    public ChatsData(String leftnational, String leftname, String leftmessage,
+                     String rightnational, String rightname, String rightmessage) {
+        this.leftnational = leftnational;
         this.leftname = leftname;
         this.leftmessage= leftmessage;
+
+        this.rightnational = rightnational;
         this.rightname = rightname;
         this.rightmessage= rightmessage;
     }

@@ -63,7 +63,8 @@ public class ChatsFragment extends Fragment {
     public void AddData()
     {
         list = new ArrayList<ChatsData>();
-        list.add(new ChatsData("NAME1", "안녕하세요", "NAME2", "안녕하세요"));
+        list.add(new ChatsData("KOR", "NAME1", "안녕하세요",
+                "KOR", "NAME2", "안녕하세요"));
     }
 
 }

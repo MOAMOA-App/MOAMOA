@@ -19,12 +19,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
         android:weightSum="1"
 
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
 
         >
         <!--입력 창-->
@@ -38,11 +38,12 @@
         <!--SEND-->
         <Button
             android:id="@+id/Button_send"
-            android:layout_width="75dp"
-            android:layout_height="match_parent"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="#F1A94E"
-            android:text="SEND"
+            android:background="@drawable/ic_baseline_textsms_24"
+
             android:textColor="@color/white"
             />
     </LinearLayout>

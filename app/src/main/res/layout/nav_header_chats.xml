@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+
+    android:layout_marginTop="15dp"
     >
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
+        android:layout_marginBottom="6dp">
 
         <ImageView
             android:id="@+id/profile_image_left"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:contentDescription="profileImage"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
+
+            android:contentDescription="profileImage"
             android:src="@drawable/ic_launcher_background" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/profile_image_left">
+            android:layout_toEndOf="@+id/profile_image_left"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/nationality_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="KOR"
+                android:text="나"
                 android:textColor="@color/gray"
                 android:textSize="11sp" />
 
@@ -41,56 +45,39 @@
                 android:id="@+id/TextView_nickname_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/nationality_left"
-                android:layout_marginStart="6dp"
 
                 android:text="닉네임"
                 android:textColor="@color/black"
-                android:textSize="11sp" />
-
-            <TextView
-                android:id="@+id/TextView_message_left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TextView_nickname_left"
-                android:paddingEnd="21dp"
-
-                android:text="채팅내용1"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-        </RelativeLayout>
-
+                android:textSize="15sp"/>
+        </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/profile_image_right"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignParentEnd="true"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
+
             android:contentDescription="profileImage"
             android:src="@drawable/ic_launcher_background" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@+id/profile_image_right">
-
+            android:orientation="vertical"
+            android:layout_toEndOf="@+id/profile_image_right"
+            android:layout_centerVertical="true">
             <TextView
                 android:id="@+id/nationality_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
 
-                android:text="KOR"
+                android:text="상대"
                 android:textSize="11sp"
                 android:textColor="@color/gray"/>
 
@@ -98,25 +85,12 @@
                 android:id="@+id/TextView_nickname_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toStartOf="@+id/nationality_right"
-                android:layout_marginEnd="6dp"
+                android:paddingRight="6dp"
 
                 android:text="닉네임"
                 android:textColor="@color/black"
-                android:textSize="11sp" />
+                android:textSize="15sp"/>
 
-            <TextView
-                android:id="@+id/TextView_message_right"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TextView_nickname_right"
-                android:layout_alignParentEnd="true"
-                android:paddingLeft="21dp"
-                android:text="채팅내용2"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-        </RelativeLayout>
-
+        </LinearLayout>
     </RelativeLayout>
-
 </LinearLayout>
