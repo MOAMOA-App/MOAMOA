@@ -9,13 +9,16 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -39,7 +42,8 @@ public class ChatsActivity extends AppCompatActivity {
         binding = ActivityChatsBinding.inflate(getLayoutInflater());
         View root = binding.getRoot();
 
-        //Menu menu = (Menu) findViewById(R.id.chatdrawer);
+        MenuItem select_language = root.findViewById(R.id.select_language);
+        MenuItem exitchats = root.findViewById(R.id.exitchats);
 
         // 채팅창 메뉴
         findViewById(R.id.drawer_button).setOnClickListener(new View.OnClickListener() {
@@ -50,14 +54,56 @@ public class ChatsActivity extends AppCompatActivity {
                 if (!drawer.isDrawerOpen(Gravity.RIGHT)) {
                     drawer.openDrawer(Gravity.RIGHT) ;
                     Log.d(this.getClass().getName(), "서랍 열기");
+
+                    /*
+                    MenuItem select_language = root.findViewById(R.id.select_language);
+                    MenuItem exitchats = root.findViewById(R.id.exitchats);
+                    */
+
                     /*
 
-                    onOptionsItemSelected(Menu menu){
-                        switch (menu.getItemId()){
-                            case R.id.select_language:
-                                break;
-                            case R.id.exitchats:
-                                break;
+                    int id = root.getId();
+
+                    if (id == R.id.select_language) {
+                        Log.d("TAG", "언어 선택");
+                    } else if (id == R.id.exitchats) {
+                        Log.d("TAG", "채팅방 나가기");
+                    }
+
+                     */
+
+                    /*
+                    select_language.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            Log.d("TAG", "언어 선택");
+
+                            return false;
+                        }
+                    });
+                    exitchats.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            Log.d("TAG", "채팅방 나가기");
+
+                            return false;
+                        }
+                    });
+
+                     */
+
+
+                    /*
+                    onOptionsItemSelected(MenuItem item){
+                        Toast toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
+
+                        int id = root.getId();
+                        if (id == R.id.select_language) {
+                            toast.setText("언어 선택");
+                            Log.d("TAG", "언어 선택");
+                        } else if (id == R.id.exitchats) {
+                            toast.setText("채팅방 나가기");
+                            Log.d("TAG", "채팅방 나가기");
                         }
                     }
 
@@ -71,7 +117,6 @@ public class ChatsActivity extends AppCompatActivity {
             }
         });
         /*
-        public boolean on
 
 
         AlertDialog.Builder exitchats = new AlertDialog.Builder(
@@ -104,5 +149,47 @@ public class ChatsActivity extends AppCompatActivity {
         actionBar.hide();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.chatdrawer, menu);
 
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item) {
+
+        binding = ActivityChatsBinding.inflate(getLayoutInflater());
+        View root = binding.getRoot();
+        Toast toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
+
+        int id = root.getId();
+        if (id == R.id.select_language) {
+            toast.setText("언어 선택");
+            Log.d("TAG", "언어 선택");
+        } else if (id == R.id.exitchats) {
+            toast.setText("채팅방 나가기");
+            Log.d("TAG", "채팅방 나가기");
+        }
+
+
+        /*
+        switch (item.getItemId()) {
+            case R.id.select_language:
+                toast.setText("언어 선택");
+                Log.d("TAG", "언어 선택");
+                return true;
+            case R.id.exitchats:
+                toast.setText("채팅방 나가기");
+                Log.d("TAG", "채팅방 나가기");
+                return true;
+        }
+        toast.show();
+         */
+        return super.onOptionsItemSelected(item);
+
+    }
 }

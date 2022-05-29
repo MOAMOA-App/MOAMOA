@@ -5,16 +5,6 @@
     tools:showIn="navigation_view"
     >
     <item
-        android:id="@+id/chatsparticipants"
-        android:title="대화 참여자"
-        >
-        <menu>
-            <item
-
-                />
-        </menu>
-    </item>
-    <item
         android:id="@+id/chatssetting"
         android:title="설정">
         <menu>
