@@ -122,7 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 reference.updateChildren(childUpdates);
                                 //가입이 이루어져을시 가입 화면을 빠져나감.
                                 user.sendEmailVerification();
-
+                                firebaseAuth.signOut();
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 alerting.setMessage("입력하신 이메일의 인증 메일이 발송되었습니다")
                                         .setNeutralButton("확인",new DialogInterface.OnClickListener(){
