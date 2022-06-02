@@ -44,7 +44,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -55,28 +55,27 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/ID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="38dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:text="닉네임12"
             android:textSize="13sp"
             app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/nickname" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="26dp"
             android:text="화성시 봉담읍"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintStart_toStartOf="@+id/ID"
+            app:layout_constraintTop_toBottomOf="@+id/ID" />
 
         <TextView
             android:id="@+id/textView5"
@@ -97,10 +96,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="10dp"
-            android:text="ID"
+            android:text="E-mail"
             android:textSize="13sp"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/nickname" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
