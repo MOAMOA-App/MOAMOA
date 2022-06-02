@@ -16,10 +16,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.moamoa.Form;
+import com.example.moamoa.MainActivity;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentDashboardBinding;
-import com.example.moamoa.ui.category.CategoryActivity;
-import com.example.moamoa.ui.category.SectionsPagerAdapter;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -66,10 +67,7 @@ public class DashboardFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-              //  if (!(subject.equals("") && text.equals("") && address.equals("") && cost.equals("") && max_count.equals("") && deadline.equals(""))) {
-                    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+                DatabaseReference database = FirebaseDatabase.getInstance().getReference();
                 /*if(subject.equals("")){
                     Toast.makeText( this,"제목 입력하세요",Toast.LENGTH_SHORT).show();
 
@@ -86,21 +84,35 @@ public class DashboardFragment extends Fragment {
                 }*/
 //if (!(subject.equals("") && text.equals("") &&address.equals("")&&cost.equals("")&&max_count.equals("")&&deadline.equals(""))) {
 
-//    Form form = new Form(subject.getText().toString(), text.getText().toString(), address.getText().toString(), category_text.getSelectedItem().toString(), Integer.parseInt(cost.getText().toString()), Integer.parseInt(max_count.getText().toString()), Integer.parseInt(deadline.getText().toString()), Integer.parseInt(today.getText().toString()));
-                    Form form = new Form(subject.getText().toString(), text.getText().toString(), address.getText().toString(), category_text.getSelectedItem().toString(), cost.getText().toString(),max_count.getText().toString(), deadline.getText().toString(), today.getText().toString());
+            Form form = new Form(subject.getText().toString(),
+                    text.getText().toString(),
+                    address.getText().toString(),
+                    category_text.getSelectedItem().toString(),
+                    Integer.parseInt(cost.getText().toString()),
+                    Integer.parseInt(max_count.getText().toString()),
+                    Integer.parseInt(deadline.getText().toString()),
+                    Integer.parseInt(today.getText().toString())
+                );
 
-                    database.child("form").push().setValue(form);
+                database.child("Forms").push().setValue(form)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(getContext(), "글쓰기 성공", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getActivity(), MainActivity.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getContext(), "글쓰기 실패", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
-                    Intent intent = new Intent(getActivity(), CategoryActivity.class);
-                    intent.putExtra("tabIdx", 0);
-                    startActivity(intent);
 
-                }
-
-            //}
+            }
         });
-
-
         return root;
     }
 
