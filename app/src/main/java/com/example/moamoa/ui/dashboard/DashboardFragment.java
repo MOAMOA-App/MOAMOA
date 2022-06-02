@@ -19,6 +19,7 @@ import com.example.moamoa.Form;
 import com.example.moamoa.MainActivity;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentDashboardBinding;
+import com.example.moamoa.ui.category.CategoryActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -88,18 +89,18 @@ public class DashboardFragment extends Fragment {
                     text.getText().toString(),
                     address.getText().toString(),
                     category_text.getSelectedItem().toString(),
-                    Integer.parseInt(cost.getText().toString()),
-                    Integer.parseInt(max_count.getText().toString()),
-                    Integer.parseInt(deadline.getText().toString()),
-                    Integer.parseInt(today.getText().toString())
+                    cost.getText().toString(),
+                    max_count.getText().toString(),
+                    deadline.getText().toString(),
+                    today.getText().toString()
                 );
 
-                database.child("Forms").push().setValue(form)
+                database.child("form").push().setValue(form)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Toast.makeText(getContext(), "글쓰기 성공", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getActivity(), MainActivity.class);
+                                Intent intent = new Intent(getActivity(), CategoryActivity.class);
                                 startActivity(intent);
                             }
                         })
