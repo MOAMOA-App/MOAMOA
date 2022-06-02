@@ -66,7 +66,10 @@ public class DashboardFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+
+
+              //  if (!(subject.equals("") && text.equals("") && address.equals("") && cost.equals("") && max_count.equals("") && deadline.equals(""))) {
+                    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
                 /*if(subject.equals("")){
                     Toast.makeText( this,"제목 입력하세요",Toast.LENGTH_SHORT).show();
 
@@ -83,11 +86,18 @@ public class DashboardFragment extends Fragment {
                 }*/
 //if (!(subject.equals("") && text.equals("") &&address.equals("")&&cost.equals("")&&max_count.equals("")&&deadline.equals(""))) {
 
-    Form form = new Form(subject.getText().toString(), text.getText().toString(), address.getText().toString(), category_text.getSelectedItem().toString(), Integer.parseInt(cost.getText().toString()), Integer.parseInt(max_count.getText().toString()), Integer.parseInt(deadline.getText().toString()), Integer.parseInt(today.getText().toString()));
-    database.child("form").push().setValue(form);
+//    Form form = new Form(subject.getText().toString(), text.getText().toString(), address.getText().toString(), category_text.getSelectedItem().toString(), Integer.parseInt(cost.getText().toString()), Integer.parseInt(max_count.getText().toString()), Integer.parseInt(deadline.getText().toString()), Integer.parseInt(today.getText().toString()));
+                    Form form = new Form(subject.getText().toString(), text.getText().toString(), address.getText().toString(), category_text.getSelectedItem().toString(), cost.getText().toString(),max_count.getText().toString(), deadline.getText().toString(), today.getText().toString());
 
+                    database.child("form").push().setValue(form);
 
-            }
+                    Intent intent = new Intent(getActivity(), CategoryActivity.class);
+                    intent.putExtra("tabIdx", 0);
+                    startActivity(intent);
+
+                }
+
+            //}
         });
 
 
