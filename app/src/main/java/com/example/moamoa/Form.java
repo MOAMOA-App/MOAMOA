@@ -2,19 +2,21 @@ package com.example.moamoa;
 
 public class Form {
    // String FID;
-    String subject;
-    String text;
-    //String photo;
-    String address;
-    String category_text;
-    int cost;
-    int max_count;
-    int deadline;
-    int today;
+   public String subject;
+   public  String text;
+    public int photo;
+    public  String address;
+    public String category_text;
+    public String cost;
+    public String max_count;
+    public String deadline;
+    public String today;
+    //public String UID_dash;
 
     public Form(){ };
-    public Form(   String subject, String text, String address,String category_text, int cost, int max_count,int deadline, int today){
+    public Form(   String subject, String text, String address,String category_text, String cost, String max_count,String deadline, String today){
         //this.FID = FID;
+        //this.UID_dash=UID_dash;
         this.subject = subject;
         this.text = text;
         this.address = address;
@@ -46,19 +48,19 @@ public class Form {
     public void setAddress(String address){
         this.address = address;
     }
-    public int getCost(){ return cost; }
-    public void setCost(int cost) {this.cost = cost;
+    public String getCost(){ return cost; }
+    public void setCost(String cost) {this.cost = cost;
     }
     public String getCategory_text(){ return category_text; }
     public void setCategory_text(String category_text) {this.category_text = category_text;
     }
-    public int getMax_count(){ return max_count; }
-    public void setMax_count(int max_count) {this.max_count = max_count;
+    public String getMax_count(){ return max_count; }
+    public void setMax_count(String max_count) {this.max_count = max_count;
     }
-    public int getDeadline(){ return deadline; }
-    public void setDeadline(int deadline) {this.deadline = deadline;
+    public String getDeadline(){ return deadline; }
+    public void setDeadline(String deadline) {this.deadline = deadline;
     }
-    public int getToday(){ return today; }
-    public void setToday(int today) {this.today = today;
+    public String getToday(){ return today; }
+    public void setToday(String today) {this.today = today;
     }
 }
