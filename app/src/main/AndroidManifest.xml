@@ -25,7 +25,6 @@
             android:configChanges="orientation|screenSize"
             >
         </activity>
-
         <activity
             android:name=".LoginActivity"
             android:exported="true"
@@ -43,7 +42,7 @@
             android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name=".ui.category.CategoryActivity" />
-        <activity android:name=".ui.formdetail.show_detail" />
+        <activity android:name=".ui.formdetail.FormdetailActivity" />
         <activity android:name=".ui.mypage.EditMyinfo" />
         <activity
             android:name=".ui.mypage.CreatedForms"

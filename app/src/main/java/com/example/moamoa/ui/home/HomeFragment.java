@@ -1,11 +1,10 @@
 package com.example.moamoa.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -14,11 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentHomeBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -35,35 +35,45 @@ public class HomeFragment extends Fragment {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         homelist = new ArrayList<>();
-
-        mDatabase.child("Forms").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
-                }
-                else {
-                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                }
-            }
-        });
-        InitializeFormData("", "제목1","이름1","9/10","0");
-        InitializeFormData("", "제목2","이름2","2/4","1");
-        InitializeFormData("", "제목3","이름3","13/15","2");
-        InitializeFormData("", "제목4","이름4","13/15","2");
-        InitializeFormData("", "제목5","이름5","13/15","2");
-
         homelistAdapter = new homelist_adapter(homelist);
 
         recyclerView = (RecyclerView) root.findViewById(R.id.listview1);
-        recyclerView.setAdapter(homelistAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL, false));
+
+        mDatabase.child("Forms").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
+                //데이터가 쌓이기 때문에  clear()
+                int x=0;
+                for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
+                    String Key = fileSnapshot.getKey();
+                    String subjecttext = dataSnapshot.child("subject").getValue(String.class);
+                    String maxtext = dataSnapshot.child("max_count").getValue(String.class);
+                    InitializeFormData("",subjecttext,Key,maxtext,Key);
+                    x++;
+                    if(x>10){ break;}
+                }
+                recyclerView.setAdapter(homelistAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL, false));
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
 
         homelistAdapter.setOnItemClickListener(new homelist_adapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
-                String name = homelist.get (position).getFID ();
-                Toast.makeText (getContext(), "이름 : "+name, Toast.LENGTH_SHORT).show ();
+                String FID = homelist.get (position).getFID();
+                //인텐트 선언 및 정의
+                Intent intent = new Intent(getContext(), FormdetailActivity.class);
+                //입력한 input값을 intent로 전달한다.
+                intent.putExtra("FID", FID);
+                //액티비티 이동
+                startActivity(intent);
+                //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
             }
         });
         return root;
