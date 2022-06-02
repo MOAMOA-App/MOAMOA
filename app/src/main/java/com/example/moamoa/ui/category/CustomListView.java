@@ -1,5 +1,7 @@
 package com.example.moamoa.ui.category;
 
+import static androidx.fragment.app.FragmentManager.TAG;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -49,7 +51,7 @@ public class CustomListView extends BaseAdapter {
             }
             convertView = layoutInflater.inflate(R.layout.fragment_main, parent, false);
         }
-
+        Log.d("FbDatabase", String.valueOf(position));
         ImageView mainImage = convertView.findViewById(R.id.mainImage);
 
         TextView title = convertView.findViewById(R.id.title);

@@ -11,12 +11,12 @@ public class Form {
     public String max_count;
     public String deadline;
     public String today;
-    //public String UID_dash;
+    public String UID_dash;
 
     public Form(){ };
-    public Form(   String subject, String text, String address,String category_text, String cost, String max_count,String deadline, String today){
+    public Form(  String UID_dash, String subject, String text, String address,String category_text, String cost, String max_count,String deadline, String today){
         //this.FID = FID;
-        //this.UID_dash=UID_dash;
+        this.UID_dash=UID_dash;
         this.subject = subject;
         this.text = text;
         this.address = address;

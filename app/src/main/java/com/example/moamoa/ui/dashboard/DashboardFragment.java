@@ -23,6 +23,7 @@ import com.example.moamoa.ui.category.CategoryActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,13 +35,22 @@ public class DashboardFragment extends Fragment {
     long mNow;
     Date mDate;
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMdd");
-    private FirebaseAuth firebaseAuth;
+    SimpleDateFormat mFormat1 = new SimpleDateFormat("yyyyMMddhhmmss");
 
+    private FirebaseAuth firebaseAuth;
+    int i = 1;
+    String FID;
     private String getTime(){
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
 
         return mFormat.format(mDate);
+    }
+    private String getTime1(){
+        mNow = System.currentTimeMillis();
+        mDate = new Date(mNow);
+
+        return mFormat1.format(mDate);
     }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -69,32 +79,22 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-                /*if(subject.equals("")){
-                    Toast.makeText( this,"제목 입력하세요",Toast.LENGTH_SHORT).show();
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                }else if(text.equals("")){
-
-                }else if(address.equals("")){
-
-                }else if(cost.equals("")){
-
-                }else if(max_count.equals("")){
-
-                }else if(deadline.equals("")){
-
-                }*/
 //if (!(subject.equals("") && text.equals("") &&address.equals("")&&cost.equals("")&&max_count.equals("")&&deadline.equals(""))) {
 
-            Form form = new Form(subject.getText().toString(),
+            Form form = new Form(
+                    user.getUid(),
+                    subject.getText().toString(),
                     text.getText().toString(),
                     address.getText().toString(),
                     category_text.getSelectedItem().toString(),
                     cost.getText().toString(),
                     max_count.getText().toString(),
                     deadline.getText().toString(),
-                    today.getText().toString()
+                    getTime1()
                 );
-
+                FID=Integer.toString(i++);
                 database.child("form").push().setValue(form)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
