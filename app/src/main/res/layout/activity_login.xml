@@ -20,7 +20,7 @@
             android:layout_width="263dp"
             android:layout_height="45dp"
             android:layout_marginTop="104dp"
-            android:hint="ID"
+            android:hint="E-MAIL"
             android:inputType="textEmailAddress" />
 
 
