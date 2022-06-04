@@ -26,7 +26,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ChatsFragment extends Fragment {
 
@@ -73,7 +75,14 @@ public class ChatsFragment extends Fragment {
                     ChatsData chats = new ChatsData();
                     chats.setLeftname(nick);
                     chats.setLeftmessage(msg);
+
+                    long mNow = System.currentTimeMillis();
+                    Date mReDate = new Date(mNow);
+                    SimpleDateFormat mFormat = new SimpleDateFormat("MM.dd HH:mm");
+                    chats.sendedtime = mFormat.format(mReDate);
+
                     myRef.push().setValue(chats);
+                    EditText_chat.setText(null);    // edittext 안 내용 삭제
                     Log.d(this.getClass().getName(), "메세지 보냄");
                 }
 
@@ -112,5 +121,14 @@ public class ChatsFragment extends Fragment {
         });
 
         return root;
+    }
+
+    private String ChatTime(){
+        long mNow = System.currentTimeMillis();
+        Date mReDate = new Date(mNow);
+        SimpleDateFormat mFormat = new SimpleDateFormat("MM.dd HH:mm");
+        String formatDate = mFormat.format(mReDate);
+
+        return formatDate;
     }
 }

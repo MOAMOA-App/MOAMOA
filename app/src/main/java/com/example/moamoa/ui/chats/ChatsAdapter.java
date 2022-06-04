@@ -39,6 +39,7 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
         // 각 위치에 문자열 세팅
 
         ChatsData chats = list.get(position);
+
         holder.nickName.setText(chats.nickname);
         holder.Message.setText(chats.chatmsg);
         holder.sendedTime.setText(chats.sendedtime);
@@ -83,14 +84,14 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
         public TextView nickName, Message, sendedTime;
         ImageView profile_image;
         public View rootView;
-        //CardView cv;
+        CardView cv;
 
         public Holder(View view){
             super(view);
             nickName = (TextView) view.findViewById(R.id.chat_nickname);
             Message = (TextView) view.findViewById(R.id.chat_msg);
             sendedTime = (TextView) view.findViewById(R.id.sended_time);
-            //cv = (CardView) view.findViewById(R.id.chat_cardview);
+            cv = (CardView) view.findViewById(R.id.chat_cardview);
 
             profile_image = (ImageView) view.findViewById(R.id.profile_image);
 
