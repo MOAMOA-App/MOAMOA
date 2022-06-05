@@ -3,39 +3,41 @@ package com.example.moamoa.ui.chats;
 import java.util.ArrayList;
 
 public class ChatsData {
-    String leftname;
-    String leftmessage;
-    String leftnational;
+    String nickname;
+    String chatmsg;
+    String sendedtime;
     int leftpfimage;
 
-    String rightname;
-    String rightmessage;
-    String rightnational;
-    int rightpfimage;
+    public ChatsData(){}
 
-
-    public ChatsData(String leftnational, String leftname, String leftmessage,
-                     String rightnational, String rightname, String rightmessage) {
-        this.leftnational = leftnational;
-        this.leftname = leftname;
-        this.leftmessage= leftmessage;
-
-        this.rightnational = rightnational;
-        this.rightname = rightname;
-        this.rightmessage= rightmessage;
+    public ChatsData(String nickname, String chatmsg) {
+        this.nickname = nickname;
+        this.chatmsg= chatmsg;
     }
 
-    public String getLeftName() { return leftname; }
-    public void setLeftName(String leftnickname) { this.leftname = leftnickname; }
+    public String getLeftname() {
+        return nickname;
+    }
 
-    public String getLeftMessage() { return leftmessage; }
-    public void setLeftMessage(String leftmessage) { this.leftmessage = leftmessage; }
+    public void setLeftname(String nickname) {
+        this.nickname = nickname;
+    }
 
-    public String getRightName() { return rightname; }
-    public void setRightName(String rightnickname) { this.rightname = rightnickname; }
+    public String getLeftmessage() {
+        return chatmsg;
+    }
 
-    public String getRightMessage() { return rightmessage; }
-    public void setRightMessage(String rightmessage) { this.rightmessage = rightmessage; }
+    public void setLeftmessage(String chatmsg) {
+        this.chatmsg = chatmsg;
+    }
+
+    public int getLeftpfimage() {
+        return leftpfimage;
+    }
+
+    public void setLeftpfimage(int leftpfimage) {
+        this.leftpfimage = leftpfimage;
+    }
 
     public static ArrayList<ChatsData> createContactsList(int numContacts) {
         ArrayList<ChatsData> contacts = new ArrayList<ChatsData>();
