@@ -30,6 +30,7 @@
                     android:textStyle="bold"
                     android:layout_alignParentStart="true"/>
                 <TextView
+                    android:id="@+id/btn_ctgy0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_home_allview"
@@ -63,6 +64,7 @@
                     android:textStyle="bold"
                     android:textSize="16dp"/>
                 <TextView
+                    android:id="@+id/btn_ctgy1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_home_allview"
@@ -96,6 +98,7 @@
                     android:textStyle="bold"
                     android:textSize="16dp"/>
                 <TextView
+                    android:id="@+id/btn_ctgy2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_home_allview"
@@ -129,6 +132,7 @@
                     android:textStyle="bold"
                     android:textSize="16dp"/>
                 <TextView
+                    android:id="@+id/btn_ctgy3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_home_allview"
@@ -163,7 +167,7 @@
                     android:textStyle="bold"
                     android:textSize="16dp"/>
                 <TextView
-                    android:id="@+id/listbtn5"
+                    android:id="@+id/btn_ctgy4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_home_allview"
