@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private ArrayList<homelist_data> homelist;
     private homelist_adapter homelistAdapter;
-    private RecyclerView recyclerView;
+    private RecyclerView[] recyclerView = new RecyclerView[5];
     private DatabaseReference mDatabase;
     private TextView[] btn_c = new TextView[5];
 
@@ -42,12 +42,17 @@ public class HomeFragment extends Fragment {
         homelist = new ArrayList<>();
         homelistAdapter = new homelist_adapter(homelist);
 
-        recyclerView = (RecyclerView) root.findViewById(R.id.listview1);
+        recyclerView[0] = (RecyclerView) root.findViewById(R.id.listview0);
+        recyclerView[1] = (RecyclerView) root.findViewById(R.id.listview1);
+        recyclerView[2] = (RecyclerView) root.findViewById(R.id.listview2);
+        recyclerView[3] = (RecyclerView) root.findViewById(R.id.listview3);
+        recyclerView[4] = (RecyclerView) root.findViewById(R.id.listview4);
+
+
         mDatabase.child("form").limitToFirst(10).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
                 //데이터가 쌓이기 때문에  clear()
-
                 int x=0;
                 for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
                     String Key = fileSnapshot.getKey();
@@ -58,15 +63,18 @@ public class HomeFragment extends Fragment {
                     x++;
                     if(x>10){ break;}
                 }
-                Log.w("count", String.valueOf(x));
-                recyclerView.setAdapter(homelistAdapter);
-                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL, false));
+                for(int i=0;i<5;i++){
+                    recyclerView[i].setAdapter(homelistAdapter);
+                    recyclerView[i].setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL, false));
+                }
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
+
 
 
 

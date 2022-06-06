@@ -4,25 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"
-    android:background="@color/white">
+    tools:context=".ui.home.HomeFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="20dp">
+        android:paddingTop="20dp"
+        android:paddingBottom="50dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="50dp">
+            android:layout_marginBottom="50dp"
+            android:background="@color/white">
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp">
                 <TextView
-                    android:id="@+id/text_home1"
+                    android:id="@+id/text_home0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="마감임박"
@@ -39,12 +40,12 @@
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listview1"
+                android:id="@+id/listview0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:paddingTop="5dp"/>
+                android:paddingTop="5dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,7 +58,7 @@
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp">
                 <TextView
-                    android:id="@+id/text_home2"
+                    android:id="@+id/text_home1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="인기별"
@@ -73,7 +74,7 @@
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listview2"
+                android:id="@+id/listview1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="horizontal"
@@ -91,7 +92,7 @@
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp">
                 <TextView
-                    android:id="@+id/text_home3"
+                    android:id="@+id/text_home2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="나의 관심 카테고리"
@@ -107,7 +108,7 @@
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listview3"
+                android:id="@+id/listview2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="horizontal"
@@ -125,7 +126,7 @@
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp">
                 <TextView
-                    android:id="@+id/text_home4"
+                    android:id="@+id/text_home3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="최근 본 게시글"
@@ -141,7 +142,7 @@
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listview4"
+                android:id="@+id/listview3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="horizontal"
@@ -160,7 +161,7 @@
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp">
                 <TextView
-                    android:id="@+id/text_home5"
+                    android:id="@+id/text_home4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="신규"
@@ -176,7 +177,7 @@
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listview5"
+                android:id="@+id/listview4"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:scrollbars="horizontal"

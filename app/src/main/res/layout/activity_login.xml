@@ -45,9 +45,8 @@
             android:id="@+id/google_login"
             android:layout_width="263dp"
             android:layout_height="50sp"
-            android:layout_marginBottom="32dp">
+            android:layout_marginBottom="5dp">
         </com.google.android.gms.common.SignInButton>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

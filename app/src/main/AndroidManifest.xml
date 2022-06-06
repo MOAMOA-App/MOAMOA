@@ -37,13 +37,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".ui.acount.RegisterActivity" />
         <activity
             android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name=".ui.category.CategoryActivity" />
         <activity android:name=".ui.formdetail.FormdetailActivity" />
         <activity android:name=".ui.mypage.EditMyinfo" />
+        <activity
+            android:name=".ui.acount.PhoneActivity"
+            android:label="휴대폰 인증" />
         <activity
             android:name=".ui.mypage.CreatedForms"
             android:label="만든 폼 관리" />
