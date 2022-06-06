@@ -1,6 +1,7 @@
 package com.example.moamoa.ui.category;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -23,6 +24,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
+        Log.d("확인","두번째 : "+fm);
+        Log.d("확인","두번째 : "+context);
     }
 
     @Override
@@ -35,6 +38,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
+
         return mContext.getResources().getString(TAB_TITLES[position]);
     }
 

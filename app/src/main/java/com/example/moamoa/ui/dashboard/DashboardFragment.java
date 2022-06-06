@@ -94,7 +94,7 @@ public class DashboardFragment extends Fragment {
                     deadline.getText().toString(),
                     getTime1()
                 );
-                FID=Integer.toString(i++);
+
                 database.child("form").push().setValue(form)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override

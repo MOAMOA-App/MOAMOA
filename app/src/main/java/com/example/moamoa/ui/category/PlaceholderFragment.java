@@ -35,6 +35,7 @@ import java.util.ArrayList;
 public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
+    private int index = 1;
 
     private PageViewModel pageViewModel;
     private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
@@ -44,7 +45,9 @@ public class PlaceholderFragment extends Fragment {
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
+        Log.d("확인","첫번째 : "+fragment);
         fragment.setArguments(bundle);
+        Log.d("확인","두번째 : "+bundle);
         return fragment;
     }
 
@@ -52,10 +55,13 @@ public class PlaceholderFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pageViewModel = new ViewModelProvider(this).get(PageViewModel.class);
-        int index = 1;
+        //int index = 1;
         if (getArguments() != null) {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
+
+
         }
+
         pageViewModel.setIndex(index);
 
     }
@@ -64,11 +70,20 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-
+        //Log.d("FbDatabase인덱스", String.valueOf(index));
 //        binding = FragmentMainBinding.inflate(inflater, container, false);
+        int pos = getArguments().getInt(ARG_SECTION_NUMBER);
+
+
         binding = EmptyFormsBinding.inflate(inflater, container, false);
+
         View root = binding.getRoot();
+        //index = bundle.getInt("grade", 0);
         //DatabaseReference database = firebaseDatabase.getInstance().getReference();
+        Log.d("확인","컨텐 : "+container);
+        Log.d("확인","바인당 : "+binding);
+        Log.d("확인","루트 : "+pos);
+
         ListView listView;
         listView = root.findViewById(R.id.listview);
         ArrayList<Form> listViewData = new ArrayList<>();
@@ -77,21 +92,44 @@ public class PlaceholderFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Form listData = snapshot.getValue(Form.class);
-                    Log.i(TAG, "onDataChange: "+listData);
-                        //listData.subject =listData.subject;
-                    Log.d("FbDatabase", snapshot.toString());
 
-                    //listData.subject =listData.subject;
-                        //listData.subject = listData.getSubject();
-                    //listData.photo = R.drawable.ic_launcher_background;
-                    listViewData.add(listData);
+                    Form listData = snapshot.getValue(Form.class);
+
+                    //Log.d("확인","message : "+listData.category_text);
+
+                    if ( pos==1){
+
+                        listViewData.add(listData);
+                    }
+
+                    if (listData.category_text.equals("식품") && pos==3){
+
+                        listViewData.add(listData);
+                    }
+                    if (listData.category_text.equals("의류") && pos==4){
+
+                        listViewData.add(listData);
+                    }
+                    if (listData.category_text.equals("생활용품") && pos==5){
+
+                        listViewData.add(listData);
+                    }
+                    if (listData.category_text.equals("취미") && pos==6){
+
+                        listViewData.add(listData);
+                    }
+                    if (listData.category_text.equals("기타") && pos==7){
+
+                        listViewData.add(listData);
+                    }
+
+
                     ListAdapter oAdapter = new CustomListView(listViewData);
                     listView.setAdapter(oAdapter);
-                    //Log.d("MainActivity", "ValueEventListener : " + listData.subject );
-                    //Log.d("MainActivity", "ValueEventListener : " + snapshot.getValue(Form.class));
-                }
 
+
+                }
+                index=1;
             }
 
             @Override
@@ -100,16 +138,7 @@ public class PlaceholderFragment extends Fragment {
             });
         //추가
 
-        /*for (int i=0; i<30; ++i) {
-            Form listData = new Form();
-            listData.photo = R.drawable.ic_launcher_background;
-            listData.subject = "테스트"+i;
-            listData.text = "화성";
-            listData.cost = String.valueOf(i);
-            listData.deadline= String.valueOf(i+2);
-            listViewData.add(listData);
-        }
-*/
+
         //viewpager에 리스트 띄워줌
 
 

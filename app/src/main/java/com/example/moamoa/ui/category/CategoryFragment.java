@@ -148,19 +148,17 @@ public class CategoryFragment extends Fragment {
             //return super.onCreateDialog(savedInstanceState);
 
             List<String> list = new ArrayList<>();
+
             list.add("식품");
-            list.add("생활");
             list.add("의류");
-            list.add("가전");
-            list.add("게임/취미");
-            list.add("스포츠");
-            list.add("굿즈");
-            list.add("반려동물");
-            list.add("기타 잡화");
+            list.add("생활용품");
+            list.add("취미");
+            list.add("기타");
+
 
             final CharSequence[] items = list.toArray(new String[list.size()]);
             final List choices = new ArrayList();
-            final boolean[] checkedItems = new boolean[]{ false, false, false, false, false, false, false};
+            final boolean[] checkedItems = new boolean[]{ false, false, false, false, false};
 
             String title = getArguments().getString("title");
             return new AlertDialog.Builder(getActivity())

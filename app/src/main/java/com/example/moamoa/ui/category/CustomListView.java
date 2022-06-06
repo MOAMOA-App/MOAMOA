@@ -51,20 +51,19 @@ public class CustomListView extends BaseAdapter {
             }
             convertView = layoutInflater.inflate(R.layout.fragment_main, parent, false);
         }
-        Log.d("FbDatabase", String.valueOf(position));
-        ImageView mainImage = convertView.findViewById(R.id.mainImage);
 
-        TextView title = convertView.findViewById(R.id.title);
-        TextView name = convertView.findViewById(R.id.name);
-        TextView charge = convertView.findViewById(R.id.charge);
-        TextView mans = convertView.findViewById(R.id.mans);
+            ImageView mainImage = convertView.findViewById(R.id.mainImage);
 
-        mainImage.setImageResource(listViewData.get(position).photo);
-        title.setText(listViewData.get(position).subject);
-        name.setText(listViewData.get(position).address);
-        charge.setText(listViewData.get(position).cost);
-        mans.setText(listViewData.get(position).deadline);
+            TextView title = convertView.findViewById(R.id.title);
+            TextView name = convertView.findViewById(R.id.name);
+            TextView charge = convertView.findViewById(R.id.charge);
+            TextView mans = convertView.findViewById(R.id.mans);
 
+            mainImage.setImageResource(listViewData.get(position).photo);
+            title.setText(listViewData.get(position).subject);
+            name.setText(listViewData.get(position).address);
+            charge.setText(listViewData.get(position).cost);
+            mans.setText(listViewData.get(position).deadline);
         //listview와 버튼 클릭 다르게 주기
         ToggleButton button = convertView.findViewById(R.id.heart);
 

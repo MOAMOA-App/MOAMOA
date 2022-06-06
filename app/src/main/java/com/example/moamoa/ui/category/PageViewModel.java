@@ -1,5 +1,7 @@
 package com.example.moamoa.ui.category;
 
+import android.util.Log;
+
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -17,10 +19,13 @@ public class PageViewModel extends ViewModel {
     });
 
     public void setIndex(int index) {
+
         mIndex.setValue(index);
     }
 
     public LiveData<String> getText() {
+
+
         return mText;
     }
 }
