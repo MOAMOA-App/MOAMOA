@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     >
 
     <LinearLayout
+        android:id="@+id/chatting_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -42,7 +43,7 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/chat_cardview"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 app:cardCornerRadius="5dp"
@@ -64,7 +65,7 @@
                         android:layout_marginStart="3dp"
                         android:layout_marginEnd="3dp"
 
-                        android:text="채팅내용1"
+                        android:text="aaaaaaaaaaaaaaaaaaaaaa"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -84,12 +85,9 @@
                 />
         </LinearLayout>
 
-
     </LinearLayout>
 
-
-
-</RelativeLayout>
+</LinearLayout>
 
 
 <!-- 전 수정본

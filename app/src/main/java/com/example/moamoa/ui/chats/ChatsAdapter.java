@@ -1,16 +1,24 @@
 package com.example.moamoa.ui.chats;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.moamoa.ChatModel;
 import com.example.moamoa.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +27,33 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
     private Context context;
     private List<ChatsData> list = new ArrayList<>();
     private String leftname;
+
+    //private List<ChatModel.Comment> comments;
+
+    /*
+    public ChatsAdapter(){
+        comments = new ArrayList<>();
+        FirebaseDatabase.getInstance().getReference().child("chatrooms").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                comments.clear();   // 데이터 쌓이지 말라고 넣어줌
+                // 근데 우리는... 거래앱이니까 쌓여야 맞는거같기도
+
+                for (DataSnapshot item : snapshot.getChildren()){
+                    comments.add(item.getValue(ChatModel.Comment.class));
+                }
+                notifyDataSetChanged(); // 리스트 새로 갱신
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+     */
+
 
     public ChatsAdapter(Context context, List<ChatsData> list, String leftname){
         this.context = context;
@@ -30,8 +65,8 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recyclerview_chats, parent, false);
-        Holder holder = new Holder(view);
-        return holder;
+
+        return new Holder(view);
     }
 
     @Override
@@ -48,14 +83,22 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
             // 내가 보낸 메시지일시 오른쪽에서 출력:왼쪽 이미지
             holder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
             holder.Message.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
-            holder.sendedTime.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+            holder.sendedTime.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             holder.profile_image.setVisibility(View.INVISIBLE); //프사 안보이게
+            holder.sendedTime.setText(list.get(position).sendedtime);
+
+            holder.chatLayout.setGravity(Gravity.END);
         }
         else{
             // 남이 보낸 메시지일시 왼쪽에서 출력
             holder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+            holder.nickName.setGravity(Gravity.START);
             holder.Message.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
-            holder.sendedTime.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+            holder.sendedTime.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+            holder.sendedTime.setText(list.get(position).sendedtime);
+
+            holder.chatLayout.setGravity(Gravity.START);
+
         }
 
     }
@@ -67,6 +110,7 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
         //return list.size();  //RecyclerView의 size return
         //삼항 연산자
         return list == null ? 0 :  list.size();
+        //return comments.size();
     }
 
     public ChatsData getChat(int position) {
@@ -83,8 +127,11 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
     public class Holder extends RecyclerView.ViewHolder{
         public TextView nickName, Message, sendedTime;
         ImageView profile_image;
-        public View rootView;
         CardView cv;
+
+        LinearLayout chatLayout;
+
+        public View rootView;
 
         public Holder(View view){
             super(view);
@@ -92,12 +139,11 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
             Message = (TextView) view.findViewById(R.id.chat_msg);
             sendedTime = (TextView) view.findViewById(R.id.sended_time);
             cv = (CardView) view.findViewById(R.id.chat_cardview);
-
             profile_image = (ImageView) view.findViewById(R.id.profile_image);
 
+            chatLayout = (LinearLayout) view.findViewById(R.id.chatting_layout);
+
             rootView = view;
-
-
         }
     }
 }
