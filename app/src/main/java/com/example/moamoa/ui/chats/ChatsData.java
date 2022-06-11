@@ -1,6 +1,10 @@
 package com.example.moamoa.ui.chats;
 
+import com.example.moamoa.ChatModel;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ChatsData {
     String nickname;

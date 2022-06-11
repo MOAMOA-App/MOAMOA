@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical"><!--타이틀바-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#F1A94E"
+            android:gravity="center"
+            android:text="닉네임 변경"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <!--//end타이틀바-->
+
+    <!--Notice-->
+
+    <!--Notice-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editnick"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/edit_border"
+                android:gravity="center"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#66bdbdbd" />
+
+    <!--닫기버튼-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:gravity="center"
+            android:onClick="mOnClose"
+            android:text="취소"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/close"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:text="확인"
+            android:textColor="#F1A94E" />
+    </LinearLayout>
+    <!--//닫기버튼-->
+</LinearLayout>

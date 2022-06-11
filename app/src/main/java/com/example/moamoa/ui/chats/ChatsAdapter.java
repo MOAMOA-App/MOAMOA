@@ -28,33 +28,6 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
     private List<ChatsData> list = new ArrayList<>();
     private String leftname;
 
-    //private List<ChatModel.Comment> comments;
-
-    /*
-    public ChatsAdapter(){
-        comments = new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference().child("chatrooms").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                comments.clear();   // 데이터 쌓이지 말라고 넣어줌
-                // 근데 우리는... 거래앱이니까 쌓여야 맞는거같기도
-
-                for (DataSnapshot item : snapshot.getChildren()){
-                    comments.add(item.getValue(ChatModel.Comment.class));
-                }
-                notifyDataSetChanged(); // 리스트 새로 갱신
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
-
-     */
-
-
     public ChatsAdapter(Context context, List<ChatsData> list, String leftname){
         this.context = context;
         this.list = list;
@@ -82,10 +55,11 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
         if (list.get(position).getLeftname().equals(this.leftname)){
             // 내가 보낸 메시지일시 오른쪽에서 출력:왼쪽 이미지
             holder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
-            holder.Message.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+            holder.Message.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             holder.sendedTime.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             holder.profile_image.setVisibility(View.INVISIBLE); //프사 안보이게
             holder.sendedTime.setText(list.get(position).sendedtime);
+
 
             holder.chatLayout.setGravity(Gravity.END);
         }
