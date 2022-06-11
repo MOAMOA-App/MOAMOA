@@ -9,16 +9,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.moamoa.ChatModel;
 import com.example.moamoa.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,10 +50,7 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
             // 내가 보낸 메시지일시 오른쪽에서 출력:왼쪽 이미지
             holder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
             holder.Message.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
-            holder.sendedTime.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             holder.profile_image.setVisibility(View.INVISIBLE); //프사 안보이게
-            holder.sendedTime.setText(list.get(position).sendedtime);
-
 
             holder.chatLayout.setGravity(Gravity.END);
         }
@@ -68,11 +59,8 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
             holder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             holder.nickName.setGravity(Gravity.START);
             holder.Message.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
-            holder.sendedTime.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
-            holder.sendedTime.setText(list.get(position).sendedtime);
 
             holder.chatLayout.setGravity(Gravity.START);
-
         }
 
     }
