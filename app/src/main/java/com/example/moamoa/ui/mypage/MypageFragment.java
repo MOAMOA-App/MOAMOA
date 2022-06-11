@@ -2,10 +2,14 @@ package com.example.moamoa.ui.mypage;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -16,8 +20,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.moamoa.LoginActivity;
 import com.example.moamoa.R;
+//import com.example.moamoa.User;
 import com.example.moamoa.ui.acount.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,11 +34,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class MypageFragment extends Fragment {
 
     static final String[] LIST_MENU1 = {"✎  만든 폼 관리", "✔  참여한 폼 관리", "♡  관심 목록"} ;
     static final String[] LIST_MENU2 = {"\uD83D\uDC64  내 정보 수정", "⚙  환경설정"} ;
     private DatabaseReference mDatabase;
+    private CustomDialog customDialog;
+    private Nickname nickn;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -40,14 +52,15 @@ public class MypageFragment extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        ImageView mainImage = view.findViewById(R.id.profile_image);
+        TextView nickname = view.findViewById(R.id.nickname);
+        TextView id = view.findViewById(R.id.ID);
+        TextView area = view.findViewById(R.id.area);
+
         if (user != null) {
             // User is signed in
             // Name, email address, and profile photo Url
             //프로필 정보
-            ImageView mainImage = view.findViewById(R.id.mainImage);
-            TextView nickname = view.findViewById(R.id.nickname);
-            TextView id = view.findViewById(R.id.ID);
-            TextView area = view.findViewById(R.id.area);
 
             //nikname은 auth(계정 정보)에 들어가지 않으므로 database getReference()를 이용
             //닉네임 뜨는데 딜레이가 있음
@@ -80,21 +93,40 @@ public class MypageFragment extends Fragment {
 
         } else {
             // No user is signed in
+            Intent intent = new Intent(getActivity(), LoginActivity.class);
+            startActivity(intent);
         }
 
+        //닉네임 수정 popup
+        nickname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TextView 클릭될 시 할 코드작성
+                nickn = new Nickname(getContext(),"다이어로그에 들어갈 내용입니다.");
+                nickn.show();
+            }
+        });
 
+//        마이페이지 프로필 이미지 수정 popup
+        mainImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                customDialog = new CustomDialog(getContext(),"다이어로그에 들어갈 내용입니다.");
+                customDialog.show();
+            }
+        });
 
         //게시글 관리 리스트
         ArrayAdapter adapter1 = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, LIST_MENU1){
-        //리스트뷰 글씨색 바꾸기
-         @Override
-                    public View getView(int position, View convertView, ViewGroup parent)
-                    {
-                        View view = super.getView(position, convertView, parent);
-                        TextView tv = (TextView) view.findViewById(android.R.id.text1);
-                        tv.setTextColor(Color.WHITE);
-                        return view;
-                    }
+            //리스트뷰 글씨색 바꾸기
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent)
+            {
+                View view = super.getView(position, convertView, parent);
+                TextView tv = (TextView) view.findViewById(android.R.id.text1);
+                tv.setTextColor(Color.WHITE);
+                return view;
+            }
         };
 
         //내 정보 설정
@@ -136,11 +168,6 @@ public class MypageFragment extends Fragment {
                 if(position == 1){
                     Intent intent = new Intent(getActivity(), Setting.class);
                     startActivity(intent);
-//                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                    Setting setting = new Setting();
-//                    transaction.replace(R.id.my_page, setting);
-//                    transaction.add(R.id.my_page, setting);
-//                    transaction.addToBackStack(null).commit();
                 }
             }
         });
