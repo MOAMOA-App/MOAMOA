@@ -18,7 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.moamoa.LoginActivity;
 import com.example.moamoa.R;
-import com.example.moamoa.User;
+//import com.example.moamoa.User;
+import com.example.moamoa.ui.acount.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;

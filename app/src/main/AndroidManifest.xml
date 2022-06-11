@@ -47,7 +47,8 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name=".ui.category.CategoryActivity" />
         <activity android:name=".ui.formdetail.FormdetailActivity" />
-        <activity android:name=".ui.mypage.EditMyinfo" />
+        <activity android:name=".ui.mypage.EditMyinfo"
+            android:label="계정 정보 수정"/>
         <activity
             android:name=".ui.acount.PhoneActivity"
             android:label="휴대폰 인증" />

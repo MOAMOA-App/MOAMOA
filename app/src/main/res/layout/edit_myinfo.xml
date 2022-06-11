@@ -82,7 +82,7 @@
 
         <EditText
             android:id="@+id/presentpassword"
-            android:layout_width="wrap_content"
+            android:layout_width="190dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
@@ -95,7 +95,7 @@
 
         <EditText
             android:id="@+id/newpassword"
-            android:layout_width="wrap_content"
+            android:layout_width="190dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/edit_border"
@@ -107,7 +107,7 @@
 
         <EditText
             android:id="@+id/passwordchk"
-            android:layout_width="wrap_content"
+            android:layout_width="190dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/edit_border"
@@ -137,7 +137,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="*비밀번호가 다릅니다."
+            android:text=""
             app:layout_constraintStart_toStartOf="@+id/passwordchk"
             app:layout_constraintTop_toBottomOf="@+id/passwordchk" />
 
@@ -197,14 +197,14 @@
 
         <EditText
             android:id="@+id/editTextTextEmailAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="190dp"
+            android:layout_height="22dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/edit_border"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:textSize="16sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/textView30"
             app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
@@ -264,7 +264,7 @@
 
         <EditText
             android:id="@+id/editTextPhone2"
-            android:layout_width="wrap_content"
+            android:layout_width="190dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
