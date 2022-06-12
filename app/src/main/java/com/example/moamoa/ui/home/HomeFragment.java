@@ -2,12 +2,10 @@ package com.example.moamoa.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -33,7 +31,6 @@ public class HomeFragment extends Fragment {
     private RecyclerView[] recyclerView = new RecyclerView[5];
     private DatabaseReference mDatabase;
     private TextView[] btn_c = new TextView[5];
-
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -58,10 +55,12 @@ public class HomeFragment extends Fragment {
                     String Key = fileSnapshot.getKey();
                     String subject = fileSnapshot.child("subject").getValue().toString();
                     String max_count = fileSnapshot.child("max_count").getValue().toString();
-                    Log.w("", String.valueOf(fileSnapshot.child("subject")));
-                    InitializeFormData("",subject,"name","0/"+max_count,Key);
+                    String UID = fileSnapshot.child("UID_dash").getValue().toString();
+
+                    InitializeFormData("profile/0_4.png",subject,UID,"0/"+max_count,Key);
                     x++;
                     if(x>10){ break;}
+
                 }
                 for(int i=0;i<5;i++){
                     recyclerView[i].setAdapter(homelistAdapter);
@@ -87,10 +86,9 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getContext(), FormdetailActivity.class);
                 //입력한 input값을 intent로 전달한다.
                 intent.putExtra("FID", FID);
-                intent.putExtra("subject",title);
                 //액티비티 이동
                 startActivity(intent);
-                Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
+                //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
             }
         });
 
@@ -111,16 +109,19 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-    public void InitializeFormData(String img, String title, String name, String mans, String FID)
+    public void InitializeFormData(String img, String title, String UID, String mans, String FID)
     {
         homelist_data tmp = new homelist_data();
         tmp.setImgName(img);
         tmp.setTitle(title);
-        tmp.setName(name);
+        tmp.setNick(UID);
         tmp.setMans(mans);
         tmp.setFID(FID);
         homelist.add(tmp);
+
     }
+
+
 
     @Override
     public void onDestroyView() {

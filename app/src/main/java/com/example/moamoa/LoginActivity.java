@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.moamoa.databinding.ActivityLoginBinding;
+import com.example.moamoa.ui.acount.Random_nick;
 import com.example.moamoa.ui.acount.RegisterActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -30,6 +31,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -40,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
     private int RC_SIGN_IN=123;
+    Random_nick random_nicks;
     EditText IDText,PasswordText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,13 +122,12 @@ public class LoginActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
 
-                Toast.makeText(getApplicationContext(), "Google sign in Successed", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
                 Toast.makeText(getApplicationContext(), "Google sign in Failed", Toast.LENGTH_LONG).show();
+            }finally{
+
             }
         }
     }
@@ -133,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
         //showProgressDialog();
         // [END_EXCLUDE]
 
-        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(),null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -141,9 +146,21 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
+                            HashMap<String,Object> childUpdates = new HashMap<>();
+                            HashMap<Object,String> postValues = new HashMap<>();
+                            postValues.put("type","email");
+                            postValues.put("name",user.getDisplayName());
+                            random_nicks = new Random_nick();
+                            postValues.put("nick",random_nicks.getNickname());
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference reference = database.getReference("Users");
+                            childUpdates.put(user.getUid(), postValues);
+                            reference.updateChildren(childUpdates);
+                            Toast.makeText(getApplicationContext(), user.getUid(), Toast.LENGTH_LONG).show();
+                            clear();
                             Log.d(TAG, "signInWithCredential:success : ");
 
-                            //Toast.makeText(getApplicationContext(), user.getUid(), Toast.LENGTH_LONG).show();
+                            //
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -158,6 +175,10 @@ public class LoginActivity extends AppCompatActivity {
                         // hideProgressDialog();
                     }
                 });
+    }
+    public void clear(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
     // [END auth_with_google]
     @Override

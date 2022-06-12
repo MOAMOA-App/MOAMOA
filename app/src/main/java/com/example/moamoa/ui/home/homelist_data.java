@@ -3,7 +3,7 @@ package com.example.moamoa.ui.home;
 public class homelist_data {
     private String mainImage;
     private String title;
-    private String name;
+    private String nick;
     private String mans;
     private String FID;
     /*
@@ -23,7 +23,7 @@ public class homelist_data {
         return this.title;
     }
 
-    public String getName(){ return this.name; }
+    public String getNick(){ return this.nick; }
 
     public String getMans(){ return this.mans; }
 
@@ -33,7 +33,7 @@ public class homelist_data {
 
     public void setTitle(String title){this.title = title; }
 
-    public void setName(String name){this.name = name; }
+    public void setNick(String nick){this.nick = nick; }
 
     public void setMans(String mans){this.mans = mans; }
 

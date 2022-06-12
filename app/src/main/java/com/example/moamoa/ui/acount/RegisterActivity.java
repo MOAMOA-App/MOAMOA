@@ -29,7 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
-
+    Random_nick random_nicks;
     private static final String TAG = "RegisterActivity";
     EditText ConfirmText, PasswordText, PasswordcheckText, NameText;
     Button registerBtn;
@@ -54,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
         firebaseAuth =  FirebaseAuth.getInstance();
         //firebaseDatabase = FirebaseDatabase.getInstance().getReference();
 
+
         ConfirmText = findViewById(R.id.confirmEdt);
         PasswordText = findViewById(R.id.passwordEdt);
         PasswordcheckText = findViewById(R.id.passwordcheckEdt);
@@ -73,7 +74,6 @@ public class RegisterActivity extends AppCompatActivity {
                 final String comfirm = ConfirmText.getText().toString().trim();
                 String pwd = PasswordText.getText().toString().trim();
                 String pwdcheck = PasswordcheckText.getText().toString().trim();
-
                 boolean eb = comfirm.contains("@") && comfirm.contains(".");
                 if(name.equals("")){
                     alerting.setMessage("아이디를 입력해주세요");
@@ -113,12 +113,14 @@ public class RegisterActivity extends AppCompatActivity {
                                     String name = NameText.getText().toString().trim();
 
                                     //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
-                                    HashMap<String, Object> childUpdates = new HashMap<>();
+                                    HashMap<String,Object> childUpdates = new HashMap<>();
                                     HashMap<Object,String> postValues = new HashMap<>();
-
+                                    postValues.put("type","email");
                                     postValues.put("name",name);
-                                    postValues.put("nick","무지개곰돌이");
-
+                                    random_nicks = new Random_nick();
+                                    random_nicks.setNickname();
+                                    postValues.put("nick",random_nicks.getNickname());
+                                    postValues.put("image","profile/"+random_nicks.getImage()+".png");
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                                     DatabaseReference reference = database.getReference("Users");
                                     childUpdates.put(uid, postValues);

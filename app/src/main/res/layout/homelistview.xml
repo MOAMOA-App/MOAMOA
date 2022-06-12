@@ -26,6 +26,8 @@
         android:layout_height="wrap_content"
         android:paddingLeft="5dp"
         android:text="제목"
+        android:textSize="15sp"
+        android:textStyle="bold"
         android:textColor="@color/black" />
     <TextView
         android:id="@+id/mans"

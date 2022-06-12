@@ -31,6 +31,7 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/detail_profile"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/ic_launcher_background" />
@@ -41,7 +42,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/name"
+                    android:id="@+id/detail_nick"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:padding="3dp"
@@ -49,7 +50,7 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/local"
+                    android:id="@+id/detail_local"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="3dp"
@@ -65,7 +66,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/detail_subject"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -75,7 +76,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/category"
+                android:id="@+id/detail_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
@@ -83,6 +84,7 @@
                 android:textSize="11sp" />
 
             <TextView
+                android:id="@+id/detail_textarea"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="3dp"
@@ -96,12 +98,13 @@
             android:layout_height="40dp">
 
             <TextView
+                android:id="@+id/detail_cost_view1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
                 android:gravity="bottom"
                 android:padding="3dp"
-                android:text="총 금액 100,000 / n명"
+                android:text="금         액"
                 android:textSize="15sp" />
 
             <LinearLayout
@@ -116,6 +119,7 @@
                     android:text="인 당"
                     android:textSize="15sp" />
                 <TextView
+                    android:id="@+id/detail_cost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="3dp"
@@ -133,8 +137,8 @@
                 android:layout_width="65dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
-                android:padding="3dp"
                 android:gravity="bottom"
+                android:padding="3dp"
                 android:text="참여 기간"
                 android:textSize="15sp" />
 

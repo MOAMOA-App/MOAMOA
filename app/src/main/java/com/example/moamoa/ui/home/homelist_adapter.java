@@ -1,5 +1,6 @@
 package com.example.moamoa.ui.home;
 
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -79,10 +89,36 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         homelist_data item = arrayList.get(position);
+        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+        StorageReference pathReference = firebaseStorage.getReference(item.getImgName());
+        pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(viewHolder.img_main.getContext())
+                        .load(uri)
+                        .into(viewHolder.img_main);
+            }
+        });
 
-        viewHolder.img_main.setImageResource(R.drawable.ic_main_background);
+        //viewHolder.img_main.setImageResource();
+        DatabaseReference mDatabase;
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+        mDatabase.child(item.getNick()).child("nick").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                viewHolder.txt_name.setText((dataSnapshot.getValue().toString()));
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("", "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+
+        });
         viewHolder.txt_title.setText(item.getTitle());
-        viewHolder.txt_name.setText(item.getName());
+        //viewHolder.txt_name.setText(item.getNick());
         viewHolder.txt_mans.setText(item.getMans());
         viewHolder.txt_FID.setText(item.getFID());
     }
