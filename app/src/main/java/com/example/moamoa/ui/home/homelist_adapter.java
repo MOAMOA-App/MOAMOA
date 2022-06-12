@@ -102,7 +102,7 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
 
         //viewHolder.img_main.setImageResource();
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
         mDatabase.child(item.getNick()).child("nick").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
