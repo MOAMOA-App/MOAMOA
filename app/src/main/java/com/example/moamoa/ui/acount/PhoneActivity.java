@@ -1,5 +1,6 @@
 package com.example.moamoa.ui.acount;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -34,7 +36,6 @@ public class PhoneActivity extends Activity {
     private String mVerificationId;
     private PhoneAuthProvider.ForceResendingToken mResendToken;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,50 +53,62 @@ public class PhoneActivity extends Activity {
         // [END initialize_auth]
 
 
-        Button authbtn = (Button) findViewById(R.id.phone_auth_btn_auth);
-        Button consentbtn = (Button) findViewById(R.id.phone_auth_btn_consent);
+        Button authbtn = (Button) findViewById(R.id.phone_auth_btn_auth);//인증하기 버튼
+        Button auth_checkbtn = (Button) findViewById(R.id.phone_auth_check_btn);//인증확인 버튼
+        Button consentbtn = (Button) findViewById(R.id.phone_auth_btn_consent);//회원가입 버튼
         // Initialize phone auth callbacks
+        PhoneAuthOptions options = PhoneAuthOptions.newBuilder(mAuth)
+                .setPhoneNumber(phoneNumber)       // Phone number to verify
+                .setTimeout(90L, TimeUnit.SECONDS) // Timeout and unit
+                .setActivity(PhoneActivity.this)                 // Activity (for callback binding)
+                .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                    // 전화번호는 확인 되었으나 인증코드를 입력해야 하는 상태
+                    @Override
+                    public void onCodeSent(String verificationId,
+                                           PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                        // 인증 ID를 어딘가에 저장
+                        // ...
+                        //Log.w("인증 아이디",mResendToken.toString());
+                        mVerificationId = verificationId;
+                        mResendToken = forceResendingToken;
+                        // 위의 해당 화이트리스트 코드를 사용하여 로그인을 완료해야 합니다
+                        PhoneActivity.this.enableUserManuallyInputCode();
+
+                        TextView text_60s = (TextView) findViewById(R.id.phone_auth_alert);
+                        text_60s.setVisibility(View.VISIBLE);
+                        auth_checkbtn.setVisibility(View.VISIBLE);
+                    }
+                    // 번호인증 혹은 기타 다른 인증(구글로그인, 이메일로그인 등) 끝난 상태
+                    @SuppressLint("ResourceAsColor")
+                    @Override
+                    public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
+                        // credential으로 로그인
+                        consentbtn.setBackgroundColor(R.color.main_green);
+                        consentbtn.setEnabled(true);
+                    }
+
+                    // 번호인증 실패 상태
+                    @Override
+                    public void onVerificationFailed(FirebaseException e) {
+                        // ...
+                        Toast.makeText(getApplicationContext(),"인증 실패", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .build();
+
         // [START phone_auth_callbacks]
         authbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // 전화번호 인증코드 요청
-                PhoneAuthOptions options = PhoneAuthOptions.newBuilder(mAuth)
-                        .setPhoneNumber(phoneNumber)       // Phone number to verify
-                        .setTimeout(90L, TimeUnit.SECONDS) // Timeout and unit
-                        .setActivity(PhoneActivity.this)                 // Activity (for callback binding)
-                        .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                            @Override
-                            public void onCodeSent(String verificationId,
-                                                   PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                                // Save the verification id somewhere
-                                // ...
-
-                                // The corresponding whitelisted code above should be used to complete sign-in.
-                                PhoneActivity.this.enableUserManuallyInputCode();
-                            }
-
-                            @Override
-                            public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-                                // Sign in with the credential
-                                // ...
-                            }
-
-                            @Override
-                            public void onVerificationFailed(FirebaseException e) {
-                                // ...
-                            }
-                        })
-                        .build();
-
                 PhoneAuthProvider.verifyPhoneNumber(options);
             }
         });
-        consentbtn.setOnClickListener(new View.OnClickListener() {
+        auth_checkbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TextView codetxt = (TextView) findViewById(R.id.phone_auth_et_auth_num);
-                verifyPhoneNumberWithCode(phoneNumber,codetxt.getText().toString());
+                verifyPhoneNumberWithCode(mVerificationId,codetxt.getText().toString());
             }
         });
     }
@@ -104,10 +117,11 @@ public class PhoneActivity extends Activity {
         // No-op
     }
 
-    //코드가 있는 전화번호 확인
+
     private void verifyPhoneNumberWithCode(String verificationId, String code) {
         // [START verify_with_code]
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
+        signInWithPhoneAuthCredential(credential);
         // [END verify_with_code]
     }
 

@@ -16,7 +16,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/phone_auth_tv_phone_auth_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -28,7 +28,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="0dp"
-        android:paddingTop="32dp"/>
+        android:paddingTop="32dp"
+        tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/phone_auth_tv_phone_num"
@@ -95,6 +96,30 @@
             app:layout_constraintEnd_toStartOf="@id/phone_auth_btn_auth"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/phone_auth_tv_auth_num" />
+        <Button
+            android:id="@+id/phone_auth_check_btn"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/main_green"
+            android:text="인증확인"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/phone_auth_et_auth_num"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/phone_auth_et_auth_num" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/phone_auth_alert"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:hint="90초 이내에 인증번호를 입력해주세요"
+            android:inputType="text"
+            android:textSize="13dp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone_auth_et_auth_num" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/phone_auth_btn_consent"
@@ -103,10 +128,11 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="22dp"
-            android:background="@color/main_green"
-            android:text="인증완료"
+            android:background="@color/gray"
+            android:text="회원가입"
             android:textColor="@color/white"
             android:textSize="16dp"
+            android:enabled="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

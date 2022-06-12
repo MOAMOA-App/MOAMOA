@@ -122,7 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     postValues.put("nick",random_nicks.getNickname());
                                     postValues.put("image","profile/"+random_nicks.getImage()+".png");
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                    DatabaseReference reference = database.getReference("Users");
+                                    DatabaseReference reference = database.getReference("users");
                                     childUpdates.put(uid, postValues);
                                     reference.updateChildren(childUpdates);
                                     //가입이 이루어져을시 가입 화면을 빠져나감.
