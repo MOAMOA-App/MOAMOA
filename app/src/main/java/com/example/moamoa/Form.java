@@ -4,7 +4,7 @@ public class Form {
    // String FID;
    public String subject;
    public  String text;
-    public int photo;
+    public String imageUrl;
     public  String address;
     public String category_text;
     public String cost;
@@ -14,8 +14,9 @@ public class Form {
     public String UID_dash;
 
     public Form(){ };
-    public Form(  String UID_dash, String subject, String text, String address,String category_text, String cost, String max_count,String deadline, String today){
+    public Form( String imageUrl, String UID_dash, String subject, String text, String address,String category_text, String cost, String max_count,String deadline, String today){
         //this.FID = FID;
+        this.imageurl=imageUrl;
         this.UID_dash=UID_dash;
         this.subject = subject;
         this.text = text;
@@ -30,6 +31,7 @@ public class Form {
  //   public void setUID(String FID){
   //      this.FID = FID;
  //   }
+
     public String getSubject(){
         return subject;
     }

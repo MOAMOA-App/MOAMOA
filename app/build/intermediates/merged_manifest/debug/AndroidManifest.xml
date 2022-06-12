@@ -9,6 +9,8 @@
         android:targetSdkVersion="31" />
 
     <uses-permission android:name="android.permission.INTERACT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -45,13 +47,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.moamoa.RegisterActivity" />
+        <activity android:name="com.example.moamoa.ui.acount.RegisterActivity" />
         <activity
             android:name="com.example.moamoa.LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name="com.example.moamoa.ui.category.CategoryActivity" />
         <activity android:name="com.example.moamoa.ui.formdetail.FormdetailActivity" />
-        <activity android:name="com.example.moamoa.ui.mypage.EditMyinfo" />
+        <activity
+            android:name="com.example.moamoa.ui.mypage.EditMyinfo"
+            android:label="계정 정보 수정" />
+        <activity
+            android:name="com.example.moamoa.ui.acount.PhoneActivity"
+            android:label="휴대폰 인증" />
         <activity
             android:name="com.example.moamoa.ui.mypage.CreatedForms"
             android:label="만든 폼 관리" />

@@ -1,10 +1,6 @@
 package com.example.moamoa.ui.chats;
 
-import com.example.moamoa.ChatModel;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ChatsData {
     String nickname;
@@ -42,6 +38,15 @@ public class ChatsData {
     public void setLeftpfimage(int leftpfimage) {
         this.leftpfimage = leftpfimage;
     }
+
+    public String getSendedtime() {
+        return sendedtime;
+    }
+
+    public void setSendedtime(String sendedtime) {
+        this.sendedtime = sendedtime;
+    }
+
 
     public static ArrayList<ChatsData> createContactsList(int numContacts) {
         ArrayList<ChatsData> contacts = new ArrayList<ChatsData>();

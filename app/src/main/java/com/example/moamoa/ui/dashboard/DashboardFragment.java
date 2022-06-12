@@ -1,12 +1,17 @@
 package com.example.moamoa.ui.dashboard;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +31,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -36,7 +45,11 @@ public class DashboardFragment extends Fragment {
     Date mDate;
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMdd");
     SimpleDateFormat mFormat1 = new SimpleDateFormat("yyyyMMddhhmmss");
-
+    ImageView photo;
+    String imageUrl;
+    Button button_img;
+    private FirebaseStorage storage;
+    private final int GALLERY_CODE = 10;
     private FirebaseAuth firebaseAuth;
     int i = 1;
     String FID;
@@ -56,7 +69,7 @@ public class DashboardFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel =
                 new ViewModelProvider(this).get(DashboardViewModel.class);
-        firebaseAuth =  FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         TextView today = (TextView) root.findViewById(R.id.text_dashboardstart);
@@ -65,16 +78,15 @@ public class DashboardFragment extends Fragment {
         EditText address = (EditText) root.findViewById(R.id.address);
         EditText cost = (EditText) root.findViewById(R.id.cost);
         EditText max_count = (EditText) root.findViewById(R.id.max_count);
-        Spinner category_text= (Spinner)root.findViewById(R.id.spinner);
+        Spinner category_text = (Spinner) root.findViewById(R.id.spinner);
         Button button = (Button) root.findViewById(R.id.button_dashboard);
+        Button button_img = (Button) root.findViewById(R.id.button_img);
+        root.findViewById(R.id.button_img).setOnClickListener(onClickListener);
         TextView deadline = (TextView) root.findViewById(R.id.text_dashboardend);
         today.setText(getTime());
         cost.addTextChangedListener(new CustomTextWatcher(cost));
-
-
-        //  final TextView textView = binding.textDashboard;
-      //  dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
+        photo = (ImageView) root.findViewById(R.id.imageView);
+        storage = FirebaseStorage.getInstance();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,16 +95,17 @@ public class DashboardFragment extends Fragment {
 
 //if (!(subject.equals("") && text.equals("") &&address.equals("")&&cost.equals("")&&max_count.equals("")&&deadline.equals(""))) {
 
-            Form form = new Form(
-                    user.getUid(),
-                    subject.getText().toString(),
-                    text.getText().toString(),
-                    address.getText().toString(),
-                    category_text.getSelectedItem().toString(),
-                    cost.getText().toString(),
-                    max_count.getText().toString(),
-                    deadline.getText().toString(),
-                    getTime1()
+                Form form = new Form(
+                        imageUrl,
+                        user.getUid(),
+                        subject.getText().toString(),
+                        text.getText().toString(),
+                        address.getText().toString(),
+                        category_text.getSelectedItem().toString(),
+                        cost.getText().toString(),
+                        max_count.getText().toString(),
+                        deadline.getText().toString(),
+                        getTime1()
                 );
 
                 database.child("form").push().setValue(form)
@@ -122,6 +135,60 @@ public class DashboardFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+
+        //  final TextView textView = binding.textDashboard;
+      //  dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        View.OnClickListener onClickListener = new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.button_img:
+                        loadAlbum();
+                        break;
+                }
+            }
+        };
+
+        private void loadAlbum(){
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+            startActivityForResult(intent,GALLERY_CODE);
+        }
+        @Override
+        public void onActivityResult(int requestCode, final int resultCode, final Intent data){
+            super.onActivityResult(requestCode, resultCode, data);
+            if(requestCode==GALLERY_CODE){
+                Uri file = data.getData();
+                StorageReference storageRef = storage.getReference();
+                StorageReference riversRef = storageRef.child("photo/1.png");
+                UploadTask uploadTask = riversRef.putFile(file);
+
+                try{
+                    InputStream in = getContext().getContentResolver().openInputStream(data.getData());
+                    Bitmap img = BitmapFactory.decodeStream(in);
+                    in.close();
+                    photo.setImageBitmap(img);
+                    getActivity().findViewById(R.id.imageView).setVisibility(View.VISIBLE);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                uploadTask.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        //Toast.makeText(getContext().getApplicationContext().this,"정상 업로드 안됨",Toast.LENGTH_SHORT);
+                    }
+
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        //Toast.makeText(DashboardActivity.this,"업로드",Toast.LENGTH_SHORT);
+                    }
+                });
+            }
+        }
+
 
 
 }

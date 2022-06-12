@@ -45,6 +45,7 @@
                 android:textSize="11sp"/>
 
             <LinearLayout
+                android:id="@+id/Linear_chatmsg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -87,18 +88,20 @@
             <TextView
                 android:id="@+id/sended_time"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:layout_marginStart="4dp"
                 android:layout_weight="1"
                 android:gravity="end"
 
                 android:text="sendedtime"
-                android:textColor="@color/gray"
+                android:textColor="@color/black"
                 android:textSize="11sp" />
 
         </LinearLayout>
 
+
     </LinearLayout>
+
 
 </LinearLayout>
