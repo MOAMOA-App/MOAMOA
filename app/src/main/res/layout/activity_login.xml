@@ -51,7 +51,6 @@
             android:layout_width="253dp"
             android:layout_height="40dp"
             android:padding="5dp"
-            //android:background="@drawable/naver_login_btn"
             android:layout_marginBottom="5dp" />
         <Button
             android:id="@+id/kakao_login"
