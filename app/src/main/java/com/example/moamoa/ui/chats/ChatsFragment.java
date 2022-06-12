@@ -1,10 +1,12 @@
 package com.example.moamoa.ui.chats;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,12 +17,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentChatsBinding;
-import com.example.moamoa.ui.acount.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -32,6 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class ChatsFragment extends Fragment {
@@ -103,15 +106,7 @@ public class ChatsFragment extends Fragment {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         myRef = database.getReference("message");
-
-
-
-
         EditText_chat = root.findViewById(R.id.EditText_chat);
-
-        long mNow = System.currentTimeMillis();
-        Date mReDate = new Date(mNow);
-        SimpleDateFormat mFormat = new SimpleDateFormat("MM.dd HH:mm");
 
         sendbtn = (Button) root.findViewById(R.id.Button_send);
         sendbtn.setOnClickListener(new View.OnClickListener() {
@@ -127,15 +122,11 @@ public class ChatsFragment extends Fragment {
                     EditText_chat.setText(""); // 입력창 초기화
 
                      */
-
                     ChatsData chats = new ChatsData();
+
                     chats.setLeftname(nick);
                     chats.setLeftmessage(message);
-
-                    long mNow = System.currentTimeMillis();
-                    Date mReDate = new Date(mNow);
-                    SimpleDateFormat mFormat = new SimpleDateFormat("MM.dd HH:mm");
-                    chats.sendedtime = mFormat.format(mReDate);
+                    chats.setSendedtime(ChatTime());
 
                     myRef.push().setValue(chats);
                     EditText_chat.setText(null);    // edittext 안 내용 삭제
@@ -184,13 +175,13 @@ public class ChatsFragment extends Fragment {
         return root;
     }
 
-    private String ChatTime(){
-        long mNow = System.currentTimeMillis();
-        Date mReDate = new Date(mNow);
-        SimpleDateFormat mFormat = new SimpleDateFormat("MM.dd HH:mm");
-        String formatDate = mFormat.format(mReDate);
+    private String ChatTime() {
+        Calendar calendar = Calendar.getInstance();
+        @SuppressLint("DefaultLocale")
+        String TIME = String.format("%d/%d %d:%d", calendar.get(Calendar.MONTH)+1, calendar.get(Calendar.DAY_OF_MONTH),
+                calendar.get(Calendar.HOUR_OF_DAY)-3, calendar.get(Calendar.MINUTE));
 
-        return formatDate;
+        return TIME;
     }
 
 }

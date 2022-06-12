@@ -1,5 +1,6 @@
 package com.example.moamoa.ui.chats;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,8 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moamoa.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
     private Context context;
@@ -53,6 +59,7 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
             holder.profile_image.setVisibility(View.INVISIBLE); //프사 안보이게
 
             holder.chatLayout.setGravity(Gravity.END);
+            holder.LinearChatMsg.setGravity(Gravity.END);
         }
         else{
             // 남이 보낸 메시지일시 왼쪽에서 출력
@@ -91,19 +98,20 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
         ImageView profile_image;
         CardView cv;
 
-        LinearLayout chatLayout;
+        LinearLayout chatLayout, LinearChatMsg;
 
         public View rootView;
 
         public Holder(View view){
             super(view);
+            profile_image = (ImageView) view.findViewById(R.id.profile_image);
             nickName = (TextView) view.findViewById(R.id.chat_nickname);
             Message = (TextView) view.findViewById(R.id.chat_msg);
-            sendedTime = (TextView) view.findViewById(R.id.sended_time);
             cv = (CardView) view.findViewById(R.id.chat_cardview);
-            profile_image = (ImageView) view.findViewById(R.id.profile_image);
+            sendedTime = (TextView) view.findViewById(R.id.sended_time);
 
             chatLayout = (LinearLayout) view.findViewById(R.id.chatting_layout);
+            LinearChatMsg = (LinearLayout) view.findViewById(R.id.Linear_chatmsg);
 
             rootView = view;
         }

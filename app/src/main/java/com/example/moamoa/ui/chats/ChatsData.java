@@ -39,6 +39,15 @@ public class ChatsData {
         this.leftpfimage = leftpfimage;
     }
 
+    public String getSendedtime() {
+        return sendedtime;
+    }
+
+    public void setSendedtime(String sendedtime) {
+        this.sendedtime = sendedtime;
+    }
+
+
     public static ArrayList<ChatsData> createContactsList(int numContacts) {
         ArrayList<ChatsData> contacts = new ArrayList<ChatsData>();
 
