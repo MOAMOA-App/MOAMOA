@@ -96,7 +96,6 @@ public class DashboardFragment extends Fragment {
 //if (!(subject.equals("") && text.equals("") &&address.equals("")&&cost.equals("")&&max_count.equals("")&&deadline.equals(""))) {
 
                 Form form = new Form(
-                        imageUrl,
                         user.getUid(),
                         subject.getText().toString(),
                         text.getText().toString(),

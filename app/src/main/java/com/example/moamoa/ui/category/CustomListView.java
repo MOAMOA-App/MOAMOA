@@ -1,5 +1,7 @@
 package com.example.moamoa.ui.category;
 
+import static androidx.fragment.app.FragmentManager.TAG;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -57,7 +59,7 @@ public class CustomListView extends BaseAdapter {
             TextView charge = convertView.findViewById(R.id.charge);
             TextView mans = convertView.findViewById(R.id.mans);
 
-            mainImage.setImageResource(Integer.parseInt(listViewData.get(position).imageUrl));
+            //mainImage.listViewData.get(position).photo);
             title.setText(listViewData.get(position).subject);
             name.setText(listViewData.get(position).address);
             charge.setText(listViewData.get(position).cost);
