@@ -49,13 +49,14 @@ public class FormdetailActivity extends Activity {
         return;
     }
     private void UserFind(String UID){
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
         mDatabase.child(UID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 TextView name_text = (TextView) findViewById(R.id.detail_nick);
                 ImageView profil_text = (ImageView) findViewById(R.id.detail_profile);
-                name_text.setText(dataSnapshot.child("image").getValue().toString());
+                //name_text.setText(dataSnapshot.child("image").getValue().toString());
+                name_text.setText(dataSnapshot.child("name").getValue().toString());
                 /*
                 DatabaseReference mDatabase;
                 mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");

@@ -57,6 +57,8 @@ public class LoginActivity extends AppCompatActivity {
 
         Register = (TextView) findViewById(R.id.register_log);
         Google_Login = findViewById(R.id.google_login);
+        TextView Google_Login = (TextView) binding.googleLogin.getChildAt(0);
+        Google_Login.setText("버튼 이미지 통일해 이 망할 놈들아");
         Loginbtn = findViewById(R.id.loginbtn);
         // [START config_signin]
         // Configure Google Sign In
@@ -153,7 +155,7 @@ public class LoginActivity extends AppCompatActivity {
                             random_nicks = new Random_nick();
                             postValues.put("nick",random_nicks.getNickname());
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
-                            DatabaseReference reference = database.getReference("Users");
+                            DatabaseReference reference = database.getReference("users");
                             childUpdates.put(user.getUid(), postValues);
                             reference.updateChildren(childUpdates);
                             Toast.makeText(getApplicationContext(), user.getUid(), Toast.LENGTH_LONG).show();
