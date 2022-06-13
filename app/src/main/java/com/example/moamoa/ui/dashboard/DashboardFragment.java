@@ -1,17 +1,20 @@
 package com.example.moamoa.ui.dashboard;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,19 +27,25 @@ import com.example.moamoa.Form;
 import com.example.moamoa.MainActivity;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentDashboardBinding;
+import com.example.moamoa.ui.acount.User;
 import com.example.moamoa.ui.category.CategoryActivity;
+import com.example.moamoa.ui.category.CustomListView;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class DashboardFragment extends Fragment {
@@ -45,6 +54,13 @@ public class DashboardFragment extends Fragment {
     Date mDate;
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMdd");
     SimpleDateFormat mFormat1 = new SimpleDateFormat("yyyyMMddhhmmss");
+    StorageReference storageRef;
+    StorageReference riversRef;
+    FirebaseDatabase firebaseDatabase;
+    UploadTask uploadTask;
+    Uri file;
+    String FID;
+    int num_a;
     ImageView photo;
     String imageUrl;
     Button button_img;
@@ -52,7 +68,7 @@ public class DashboardFragment extends Fragment {
     private final int GALLERY_CODE = 10;
     private FirebaseAuth firebaseAuth;
     int i = 1;
-    String FID;
+
     private String getTime(){
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
@@ -87,15 +103,30 @@ public class DashboardFragment extends Fragment {
         cost.addTextChangedListener(new CustomTextWatcher(cost));
         photo = (ImageView) root.findViewById(R.id.imageView);
         storage = FirebaseStorage.getInstance();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                User user1= snapshot.getValue(User.class);
+                num_a=user1.getnum()+1;
+                Log.d("확인","message : "+num_a);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
+                FID=user.getUid()+num_a;
 //if (!(subject.equals("") && text.equals("") &&address.equals("")&&cost.equals("")&&max_count.equals("")&&deadline.equals(""))) {
 
                 Form form = new Form(
+                        FID,
                         user.getUid(),
                         subject.getText().toString(),
                         text.getText().toString(),
@@ -107,7 +138,26 @@ public class DashboardFragment extends Fragment {
                         getTime1()
                 );
 
-                database.child("form").push().setValue(form)
+
+                Log.i("num",num_a+"");
+                FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child("num").setValue(num_a);
+                storageRef = storage.getReference();
+                riversRef = storageRef.child("photo/"+user.getUid() +num_a +".png");
+                uploadTask = riversRef.putFile(file);
+                uploadTask.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        //Toast.makeText(getContext().getApplicationContext().this,"정상 업로드 안됨",Toast.LENGTH_SHORT);
+                    }
+
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        //Toast.makeText(DashboardActivity.this,"업로드",Toast.LENGTH_SHORT);
+                    }
+                });
+
+                FirebaseDatabase.getInstance().getReference("form").child(FID).setValue(form)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
@@ -159,10 +209,7 @@ public class DashboardFragment extends Fragment {
         public void onActivityResult(int requestCode, final int resultCode, final Intent data){
             super.onActivityResult(requestCode, resultCode, data);
             if(requestCode==GALLERY_CODE){
-                Uri file = data.getData();
-                StorageReference storageRef = storage.getReference();
-                StorageReference riversRef = storageRef.child("photo/1.png");
-                UploadTask uploadTask = riversRef.putFile(file);
+                file = data.getData();
 
                 try{
                     InputStream in = getContext().getContentResolver().openInputStream(data.getData());
@@ -173,18 +220,7 @@ public class DashboardFragment extends Fragment {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                uploadTask.addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        //Toast.makeText(getContext().getApplicationContext().this,"정상 업로드 안됨",Toast.LENGTH_SHORT);
-                    }
 
-                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        //Toast.makeText(DashboardActivity.this,"업로드",Toast.LENGTH_SHORT);
-                    }
-                });
             }
         }
 

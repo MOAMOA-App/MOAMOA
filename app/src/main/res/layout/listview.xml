@@ -16,21 +16,49 @@
             android:layout_height="70dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/FIDD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:visibility="gone"
+            />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="68dp"
             android:orientation="vertical">
-            <TextView
-                android:id="@+id/title"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="3dp"
-                android:text="제목"
-                android:textColor="#000000"
-                android:textSize="15sp" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="115dp"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:text="제목"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/heart_num"
+                    android:layout_width="153dp"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:text="관심"
+
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="33dp">
 
                 <TextView
                     android:id="@+id/name"
@@ -63,10 +91,13 @@
                     android:textColor="#000000"
                     android:textSize="15sp" />
             </RelativeLayout>
+
             <TextView
                 android:id="@+id/FID"
                 android:layout_width="0dp"
-                android:layout_height="0dp"/>
+                android:layout_height="0dp" />
+
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

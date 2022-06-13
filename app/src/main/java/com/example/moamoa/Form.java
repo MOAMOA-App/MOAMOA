@@ -1,7 +1,7 @@
 package com.example.moamoa;
 
 public class Form {
-   // String FID;
+   public String FID;
    public String subject;
    public  String text;
     //public String imageUri;
@@ -12,10 +12,16 @@ public class Form {
     public String deadline;
     public String today;
     public String UID_dash;
+    public int heart_num;
+    public int parti_num;
+    public int state;
+
+
+
 
     public Form(){ };
-    public Form(  String UID_dash, String subject, String text, String address,String category_text, String cost, String max_count,String deadline, String today){
-        //this.FID = FID;
+    public Form( String FID, String UID_dash, String subject, String text, String address,String category_text, String cost, String max_count,String deadline, String today){
+        this.FID = FID;
 
         this.UID_dash=UID_dash;
         this.subject = subject;
@@ -65,4 +71,16 @@ public class Form {
     public String getToday(){ return today; }
     public void setToday(String today) {this.today = today;
     }
+    public int getheart_num(){ return heart_num; }
+    public void setheart_num(int heart_num) {this.heart_num = heart_num;
+    }
+    public int getparti_num(){ return parti_num; }
+    public void setparti_num(int parti_num) {this.parti_num = parti_num;
+    }
+    public int getstate(){ return state; }
+    public void setstate(int state) {this.state = state;
+    }
+
+
+
 }
