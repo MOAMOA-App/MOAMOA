@@ -16,10 +16,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/white">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="15dp"
             android:orientation="vertical">
             <ImageView
                 android:layout_width="match_parent"
@@ -29,30 +31,33 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-                <ImageView
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/formdetail_profile_bottomline"
+                android:gravity="center">
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/detail_profile"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:layout_width="41dp"
+                    android:layout_height="41dp"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_launcher_background"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
                     <TextView
                         android:id="@+id/detail_nick"
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:padding="3dp"
+                        android:layout_height="wrap_content"
                         android:text="작성자"
                         android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/detail_local"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:text="지역"
                         android:textSize="11sp" />
@@ -68,9 +73,10 @@
                     android:id="@+id/detail_subject"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:padding="3dp"
                     android:text="제목"
+                    android:textStyle="bold"
                     android:textColor="#000000"
                     android:textSize="20sp" />
 
@@ -171,21 +177,35 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_alignParentStart="true"
-            android:layout_marginRight="5dp"
-            android:background="@color/main_orange"></LinearLayout>
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:background="@drawable/formdetail_heart_layer">
+            <ImageButton
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/ic_baseline_favorite_border_24"/>
+        </LinearLayout>
         <Button
             android:id="@+id/detail_party_btn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:text="참여하기"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:background="@drawable/formdetail_button_style"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/heart_layout"/>
         <Button
             android:id="@+id/detail_chat_btn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:text="채팅하기"
-
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:background="@drawable/formdetail_button_style"
+            android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>
