@@ -5,8 +5,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
@@ -28,7 +32,9 @@ public class FormdetailActivity extends Activity {
 
         Intent intent = getIntent();
         String temp = intent.getStringExtra("FID");
-
+        Button chat_btn = (Button)findViewById(R.id.detail_chat_btn);   //채팅하기 버튼
+        Button party_btn = (Button)findViewById(R.id.detail_party_btn); //참여하기 버튼
+        ImageButton heart_btn = (ImageButton) findViewById(R.id.detail_heart_btn);
         mDatabase = FirebaseDatabase.getInstance().getReference().child("form");
         mDatabase.child(temp).addValueEventListener(new ValueEventListener() {
             @Override
@@ -51,11 +57,29 @@ public class FormdetailActivity extends Activity {
                 // ...
             }
         });
+
+        chat_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "채팅하기 클릭", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        party_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "참여하기 클릭", Toast.LENGTH_SHORT).show();
+            }
+        });
+        heart_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "찜버튼 클릭", Toast.LENGTH_SHORT).show();
+            }
+        });
         return;
     }
     private void UserFind(String UID){
-
-
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
         mDatabase.child(UID).addValueEventListener(new ValueEventListener() {
             @Override
@@ -86,8 +110,8 @@ public class FormdetailActivity extends Activity {
                 // ...
             }
         });
-
     }
+
     private void Initializeform(String subject,String category,String text,String cost,String max_count) {
         TextView subject_text = (TextView) findViewById(R.id.detail_subject);
         TextView category_text = (TextView) findViewById(R.id.detail_category);

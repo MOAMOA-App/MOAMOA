@@ -181,8 +181,9 @@
             android:gravity="center"
             android:background="@drawable/formdetail_heart_layer">
             <ImageButton
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:id="@+id/detail_heart_btn"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:background="@drawable/ic_baseline_favorite_border_24"/>
         </LinearLayout>
         <Button
