@@ -8,6 +8,7 @@ public class User {
     String local;
     String host;
     String parti;
+    String heart_user;
     int num;
 
 
@@ -62,7 +63,11 @@ public class User {
     public String getparti(){
         return parti;
     }
-    public void setparti(String parti){
-        this.parti = parti;
+    public void setparti(String parti){ this.parti = parti; }
+    public String getheart_user(){
+        return heart_user;
+    }
+    public void setheart_user(String heart_user){
+        this.heart_user = heart_user;
     }
 }

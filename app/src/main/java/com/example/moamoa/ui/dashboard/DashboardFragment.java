@@ -27,6 +27,7 @@ import com.example.moamoa.Form;
 import com.example.moamoa.MainActivity;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentDashboardBinding;
+import com.example.moamoa.ui.acount.Random_nick;
 import com.example.moamoa.ui.acount.User;
 import com.example.moamoa.ui.category.CategoryActivity;
 import com.example.moamoa.ui.category.CustomListView;
@@ -47,6 +48,7 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class DashboardFragment extends Fragment {
     private FragmentDashboardBinding binding;
@@ -141,8 +143,21 @@ public class DashboardFragment extends Fragment {
 
                 Log.i("num",num_a+"");
                 FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child("num").setValue(num_a);
+                FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(FID).setValue("host");
+                //HashMap<String,Object> childUpdates = new HashMap<>();
+                //HashMap<Object,String> postValues = new HashMap<>();
+                //postValues.put("host",FID);
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference reference = database.getReference("users");
+
+
+               // childUpdates.put(user.getUid(), postValues);
+               // reference.updateChildren(childUpdates);
+
                 storageRef = storage.getReference();
                 riversRef = storageRef.child("photo/"+user.getUid() +num_a +".png");
+
                 uploadTask = riversRef.putFile(file);
                 uploadTask.addOnFailureListener(new OnFailureListener() {
                     @Override

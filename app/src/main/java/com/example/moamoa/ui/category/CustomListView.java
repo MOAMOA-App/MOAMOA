@@ -74,6 +74,7 @@ public class CustomListView extends BaseAdapter {
             //mainImage.listViewData.get(position).photo);
             title.setText(listViewData.get(position).subject);
             name.setText(listViewData.get(position).address);
+
             charge.setText(listViewData.get(position).cost);
             mans.setText(listViewData.get(position).deadline);
 
