@@ -46,10 +46,10 @@ public class ChatsFragment extends Fragment {
     private ArrayList<ChatsData> list = new ArrayList<>();
     private RecyclerView.LayoutManager mLayoutManager;
 
-    private String nick = "닉네임1";
 
-    private String USERNAME, THEIRNAME;
-    private String ChattingRoomID;
+    static private String USERNAME, USERID;
+    private String destinationNAME, destinationUID;
+    private String CHATROOM_NAME, CHATROOM_FID;
     ChatModel chatModel;
 
     private EditText EditText_chat;
@@ -59,7 +59,8 @@ public class ChatsFragment extends Fragment {
     private DatabaseReference myRef;
 
     private Toolbar chattoolbar;
-    private String CHATROOM_NAME;
+
+    private String nick = "닉네임1";
 
     @Nullable
     @Override
@@ -68,15 +69,15 @@ public class ChatsFragment extends Fragment {
         binding = FragmentChatsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        // 현재 user 정보 불러오기
+        Bundle bundle = new Bundle();
+        USERID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        destinationUID = bundle.getString("destinationUID");
+        Log.d("NOTE", "destinationUID = "+destinationUID);
+
+        // 현재 user 닉네임 불러오기
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             USERNAME = user.getDisplayName();
-
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getIdToken() instead.
-            String UID = user.getUid();
         }
 
 
@@ -92,10 +93,10 @@ public class ChatsFragment extends Fragment {
         chattoolbar = (Toolbar) root.findViewById(R.id.toolbar);
         Bundle extra = getArguments();
         if(extra != null){
-            CHATROOM_NAME = extra.getString("Subject");
-        }
-        if (CHATROOM_NAME != null){
-            chattoolbar.setTitle(CHATROOM_NAME);
+            CHATROOM_NAME = extra.getString("FormNAME");
+            if (CHATROOM_NAME != null){
+                chattoolbar.setTitle(CHATROOM_NAME);
+            }
         }
 
 
@@ -116,17 +117,23 @@ public class ChatsFragment extends Fragment {
                 String message = EditText_chat.getText().toString();
 
                 if (message != null) {
-                    /*
-                    ChatsData chats = new ChatsData(USERNAME, EditText_chat.getText().toString()); // 데이터 묶음
-                    myRef.child("message").child(ChattingRoomID).push().setValue(chats); // 데이터 푸쉬
-                    EditText_chat.setText(""); // 입력창 초기화
-
-                     */
                     ChatsData chats = new ChatsData();
 
                     chats.setLeftname(nick);
                     chats.setLeftmessage(message);
                     chats.setSendedtime(ChatTime());
+
+                    ChatModel chatModel = new ChatModel();
+                    chatModel.users.put(USERID.toString(),true);
+                    //chatModel.users.put(destinationUID.toString(), true);
+
+                    ChatModel.Comment comments = new ChatModel.Comment();
+                    comments.UID = USERID;
+                    comments.message = message;
+
+                    Log.d("NOTE","USERID ="+USERID+"destinationUID ="+destinationUID);
+
+                    FirebaseDatabase.getInstance().getReference().child("chatrooms").push().setValue(chatModel);
 
                     myRef.push().setValue(chats);
                     EditText_chat.setText(null);    // edittext 안 내용 삭제
@@ -184,4 +191,23 @@ public class ChatsFragment extends Fragment {
         return TIME;
     }
 
+    void checkChatRoom(){
+        FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID).equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot item : snapshot.getChildren()){
+                    ChatModel chatModel = item.getValue(ChatModel.class);
+                    // 방 id 가져오기
+                    if (chatModel.users.containsKey(destinationUID)){
+                        CHATROOM_FID = item.getKey();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 }

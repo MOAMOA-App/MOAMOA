@@ -38,6 +38,25 @@ public class Form {
   //      this.FID = FID;
  //   }
 
+    /*
+    public String getFID() {
+        return FID;
+    }
+
+    public void setFID(String FID) {
+        this.FID = FID;
+    }
+
+    public String getUID_dash() {
+        return UID_dash;
+    }
+
+    public void setUID_dash(String UID_dash) {
+        this.UID_dash = UID_dash;
+    }
+
+     */
+
     public String getSubject(){
         return subject;
     }
