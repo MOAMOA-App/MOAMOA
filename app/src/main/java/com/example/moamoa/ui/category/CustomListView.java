@@ -102,28 +102,29 @@ public class CustomListView extends BaseAdapter {
         button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                FirebaseDatabase.getInstance().getReference("form").child( listViewData.get(position).FID).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        Form form = snapshot.getValue(Form.class);
+                        num_a = form.getheart_num() ;
+
+                        Log.d("확인", "if : " + num_a);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+
+                });
                 if (isChecked){
 
-                    FID = listViewData.get(position).FID;
-
+                   // FID = listViewData.get(position).FID;
+                    FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a+1);
                     //
                     Log.d("확인", "message : " + FID);
-                    FirebaseDatabase.getInstance().getReference("form").child(FID).addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                            Form form = snapshot.getValue(Form.class);
-                            num_a = form.getheart_num() + 1;
-
-                            Log.d("확인", "if : " + num_a);
-
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                        }
-
-                    });
 
                     Log.d("확인", "if : " + num_a);
 
@@ -131,26 +132,11 @@ public class CustomListView extends BaseAdapter {
 
 
                 else{
-                    FID = listViewData.get(position).FID;
+                    //FID = listViewData.get(position).FID;
 
-                    //FirebaseDatabase.getInstance().getReference("form").child(FID).child("heart_num").setValue(num_a);
+                    FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a-1);
                     Log.d("확인", "message : " + FID);
-                    FirebaseDatabase.getInstance().getReference("form").child(FID).addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                            Form form = snapshot.getValue(Form.class);
-                            num_a = form.getheart_num() - 1;
-                            Log.d("확인", "else : " + num_a);
-
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                        }
-
-
-                    });
 
                     Log.d("확인", "else : " + num_a);
                 }

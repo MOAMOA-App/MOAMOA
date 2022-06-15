@@ -93,6 +93,7 @@ public class PlaceholderFragment extends Fragment {
             @SuppressLint("RestrictedApi")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                listViewData.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
                     Form listData = snapshot.getValue(Form.class);

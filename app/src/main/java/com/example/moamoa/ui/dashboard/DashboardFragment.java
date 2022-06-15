@@ -130,6 +130,7 @@ public class DashboardFragment extends Fragment {
                 Form form = new Form(
                         FID,
                         user.getUid(),
+                        "photo/"+FID+".png",
                         subject.getText().toString(),
                         text.getText().toString(),
                         address.getText().toString(),

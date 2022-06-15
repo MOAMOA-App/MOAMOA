@@ -20,11 +20,12 @@ public class Form {
 
 
     public Form(){ };
-    public Form( String FID, String UID_dash, String subject, String text, String address,String category_text, String cost, String max_count,String deadline, String today){
+    public Form( String FID, String UID_dash,String image, String subject, String text, String address,String category_text, String cost, String max_count,String deadline, String today){
         this.FID = FID;
 
         this.UID_dash=UID_dash;
         this.subject = subject;
+        this.image=image;
         this.text = text;
         this.address = address;
         this.category_text = category_text;

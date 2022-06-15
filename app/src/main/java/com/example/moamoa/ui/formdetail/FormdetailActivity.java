@@ -66,14 +66,21 @@ public class FormdetailActivity extends Activity {
                 UserFind(UID);
                 Initializeform(subject,"category",text,cost,max_count);
                 StorageReference pathReference = firebaseStorage.getReference(image);
+
+                FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
+                if (activity.isFinishing())
+                    return;
+
                 pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
                         Glide.with(mainImage.getContext())
                                 .load(uri)
                                 .into(mainImage);
+
                     }
                 });
+
             }
 
             @Override
@@ -174,6 +181,10 @@ public class FormdetailActivity extends Activity {
                 name_tv.setText(name);
                 FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
                 StorageReference pathReference = firebaseStorage.getReference(profil_text);
+
+                FormdetailActivity activity1 = (FormdetailActivity) profile.getContext() ;
+                if (activity1.isFinishing())
+                    return;
                 pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
