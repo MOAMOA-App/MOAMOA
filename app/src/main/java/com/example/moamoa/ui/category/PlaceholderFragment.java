@@ -3,6 +3,7 @@ package com.example.moamoa.ui.category;
 import static androidx.fragment.app.FragmentManager.TAG;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.EmptyFormsBinding;
+import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -95,7 +97,7 @@ public class PlaceholderFragment extends Fragment {
 
                     Form listData = snapshot.getValue(Form.class);
 
-                    //Log.d("확인","message : "+listData.category_text);
+                    //v
 
                     if ( pos==1){
 
@@ -145,11 +147,36 @@ public class PlaceholderFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String clickName = listViewData.get(position).subject;
-                Log.d("확인","name : "+clickName);
+                Log.d("확인","message : "+"");
+                String FID = listViewData.get(position).FID;
+                String title = listViewData.get(position).subject;
+                Log.d("확인","message : "+FID);
+                Log.d("확인","message : "+title);
+                //인텐트 선언 및 정의
+
+
+                Intent intent = new Intent(getContext(), FormdetailActivity.class);
+                //입력한 input값을 intent로 전달한다.
+                intent.putExtra("FID", FID);
+                //액티비티 이동
+                startActivity(intent);
+              //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
             }
         });
-//
+//        homelistAdapter.setOnItemClickListener(new homelist_adapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(View v, int position) {
+//                String FID = homelist.get(position).getFID();
+//                String title = homelist.get(position).getTitle();
+//                //인텐트 선언 및 정의
+//                Intent intent = new Intent(getContext(), FormdetailActivity.class);
+//                //입력한 input값을 intent로 전달한다.
+//                intent.putExtra("FID", FID);
+//                //액티비티 이동
+//                startActivity(intent);
+//                //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
+//            }
+//        });
 
         return root;
     }

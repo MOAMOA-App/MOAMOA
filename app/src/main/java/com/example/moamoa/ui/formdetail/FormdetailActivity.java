@@ -36,7 +36,7 @@ public class FormdetailActivity extends Activity {
     private DatabaseReference mDatabase;
     int num_b;
     String num_k;
-
+    String image;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formdetail);
@@ -44,6 +44,9 @@ public class FormdetailActivity extends Activity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         Intent intent = getIntent();
         String temp = intent.getStringExtra("FID");
+        ImageView mainImage = (ImageView) findViewById(R.id.mainImage);
+        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+
         Button chat_btn = (Button)findViewById(R.id.detail_chat_btn);   //채팅하기 버튼
         Button party_btn = (Button)findViewById(R.id.detail_party_btn); //참여하기 버튼
         ImageButton heart_btn = (ImageButton) findViewById(R.id.detail_heart_btn);
@@ -57,10 +60,20 @@ public class FormdetailActivity extends Activity {
                 String cost = dataSnapshot.child("cost").getValue().toString();
                 String max_count = dataSnapshot.child("max_count").getValue().toString();
                 num_k= dataSnapshot.child("parti_num").getValue().toString() ;
+                image=dataSnapshot.child("image").getValue().toString() ;
+                Log.d("확인","message : "+image);
                 String UID = dataSnapshot.child("UID_dash").getValue().toString();
                 UserFind(UID);
                 Initializeform(subject,"category",text,cost,max_count);
-
+                StorageReference pathReference = firebaseStorage.getReference(image);
+                pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Glide.with(mainImage.getContext())
+                                .load(uri)
+                                .into(mainImage);
+                    }
+                });
             }
 
             @Override
@@ -70,6 +83,8 @@ public class FormdetailActivity extends Activity {
                 // ...
             }
         });
+
+
         FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
