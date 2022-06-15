@@ -57,7 +57,8 @@ public class HomeFragment extends Fragment {
                     String max_count = fileSnapshot.child("max_count").getValue().toString();
                     String UID = fileSnapshot.child("UID_dash").getValue().toString();
                     String parti_num = fileSnapshot.child("parti_num").getValue().toString();
-                    InitializeFormData("profile/0_4.png",subject,UID,parti_num+"/"+max_count,Key);
+                    String image =  fileSnapshot.child("image").getValue().toString();
+                    InitializeFormData(image,subject,UID,parti_num+"/"+max_count,Key);
                     x++;
                     if(x>10){ break;}
 

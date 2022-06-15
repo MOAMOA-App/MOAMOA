@@ -4,7 +4,7 @@ public class Form {
    public String FID;
    public String subject;
    public  String text;
-    //public String imageUri;
+    public String image;
     public  String address;
     public String category_text;
     public String cost;

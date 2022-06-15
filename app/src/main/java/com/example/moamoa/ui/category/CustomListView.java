@@ -3,6 +3,7 @@ package com.example.moamoa.ui.category;
 import static androidx.fragment.app.FragmentManager.TAG;
 
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,14 +17,18 @@ import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 
+import com.bumptech.glide.Glide;
 import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.example.moamoa.ui.acount.User;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -63,8 +68,20 @@ public class CustomListView extends BaseAdapter {
             }
             convertView = layoutInflater.inflate(R.layout.fragment_main, parent, false);
         }
+        ImageView mainImage = convertView.findViewById(R.id.mainImage);
+        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+        StorageReference pathReference = firebaseStorage.getReference(listViewData.get(position).image);
+        pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(mainImage.getContext())
+                        .load(uri)
+                        .into(mainImage);
+            }
+        });
 
-            ImageView mainImage = convertView.findViewById(R.id.mainImage);
+
+
 
             TextView title = convertView.findViewById(R.id.title);
             TextView name = convertView.findViewById(R.id.name);
