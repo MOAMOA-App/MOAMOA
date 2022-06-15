@@ -144,9 +144,7 @@ public class DashboardFragment extends Fragment {
                 Log.i("num",num_a+"");
                 FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child("num").setValue(num_a);
                 FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(FID).setValue("host");
-                //HashMap<String,Object> childUpdates = new HashMap<>();
-                //HashMap<Object,String> postValues = new HashMap<>();
-                //postValues.put("host",FID);
+
 
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference reference = database.getReference("users");

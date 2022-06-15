@@ -102,23 +102,23 @@ public class PlaceholderFragment extends Fragment {
                         listViewData.add(listData);
                     }
 
-                    if (listData.category_text.equals("식품") && pos==3){
+                    if (listData.category_text.equals("식품") && pos==3 && listData.getstate()==0){
 
                         listViewData.add(listData);
                     }
-                    if (listData.category_text.equals("의류") && pos==4){
+                    if (listData.category_text.equals("의류") && pos==4 && listData.getstate()==0){
 
                         listViewData.add(listData);
                     }
-                    if (listData.category_text.equals("생활용품") && pos==5){
+                    if (listData.category_text.equals("생활용품") && pos==5 && listData.getstate()==0){
 
                         listViewData.add(listData);
                     }
-                    if (listData.category_text.equals("취미") && pos==6){
+                    if (listData.category_text.equals("취미") && pos==6 && listData.getstate()==0){
 
                         listViewData.add(listData);
                     }
-                    if (listData.category_text.equals("기타") && pos==7){
+                    if (listData.category_text.equals("기타") && pos==7 && listData.getstate()==0){
 
                         listViewData.add(listData);
                     }
