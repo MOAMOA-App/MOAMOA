@@ -13,10 +13,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.example.moamoa.ui.acount.User;
+import com.example.moamoa.ui.chats.ChatsActivity;
+import com.example.moamoa.ui.chats.ChatsFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -84,6 +88,32 @@ public class FormdetailActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "채팅하기 클릭", Toast.LENGTH_SHORT).show();
+
+                mDatabase.child("form").child(temp).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Form tochat = snapshot.getValue(Form.class);
+                        //String UID = tochat.getUID_dash
+                        //String FORMID = tochat.getFID();
+                        //String FORMNAME = tochat.getSubject();
+
+                        // ChatsFragment에 FID와 UID 넘겨줌
+                        Fragment chats = new ChatsFragment();
+                        Bundle bundle = new Bundle();
+                        //bundle.putString("FormID", FORMID);
+                        //bundle.putString("FormNAME", FORMNAME);
+                        //bundle.putString("destinationUID", UID);
+                        chats.setArguments(bundle);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                Intent intent = new Intent(FormdetailActivity.this, ChatsActivity.class);
+                startActivity(intent);
             }
         });
 
