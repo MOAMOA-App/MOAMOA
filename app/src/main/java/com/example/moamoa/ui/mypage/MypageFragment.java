@@ -64,7 +64,7 @@ public class MypageFragment extends Fragment {
 
             //nikname은 auth(계정 정보)에 들어가지 않으므로 database getReference()를 이용
             //닉네임 뜨는데 딜레이가 있음
-            mDatabase.child("Users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+            mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     User User = snapshot.getValue(User.class);

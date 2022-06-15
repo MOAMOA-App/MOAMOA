@@ -34,7 +34,9 @@ import com.google.firebase.storage.StorageReference;
 
 public class FormdetailActivity extends Activity {
     private DatabaseReference mDatabase;
-    String bb;
+    int num_b;
+    String num_k;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formdetail);
@@ -54,10 +56,11 @@ public class FormdetailActivity extends Activity {
                 String text = dataSnapshot.child("text").getValue().toString();
                 String cost = dataSnapshot.child("cost").getValue().toString();
                 String max_count = dataSnapshot.child("max_count").getValue().toString();
-
+                num_k= dataSnapshot.child("parti_num").getValue().toString() ;
                 String UID = dataSnapshot.child("UID_dash").getValue().toString();
                 UserFind(UID);
                 Initializeform(subject,"category",text,cost,max_count);
+
             }
 
             @Override
@@ -127,7 +130,9 @@ public class FormdetailActivity extends Activity {
                     Toast.makeText(getApplicationContext(), "호스트입니다", Toast.LENGTH_SHORT).show();
                 }
                 else{
+                    num_b= 1 + Integer.parseInt(num_k);
                     FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(temp).setValue("parti");
+                    FirebaseDatabase.getInstance().getReference("form").child(temp).child("parti_num").setValue(num_b);
 
                 }
             }
