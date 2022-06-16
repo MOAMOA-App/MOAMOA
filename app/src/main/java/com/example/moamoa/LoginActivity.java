@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private static final String TAG = "GoogleActivity";
-    private static final int RC_SIGN_IN = 9001;
+    private static final int RC_SIGN_IN = 10;
     Random_nick random_nicks;
     EditText IDText,PasswordText;
     Date mDate;
