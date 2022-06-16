@@ -1,12 +1,10 @@
 package com.example.moamoa.ui.chats;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,8 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.moamoa.R;
@@ -32,10 +28,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 public class ChatsFragment extends Fragment {
 
@@ -46,9 +40,9 @@ public class ChatsFragment extends Fragment {
     private ArrayList<ChatsData> list = new ArrayList<>();
     private RecyclerView.LayoutManager mLayoutManager;
 
-
+    static String NICKNAME; // 각 유저 닉네임 임시저장용?
     static private String USERNAME, USERID;
-    private String destinationNAME, destinationUID;
+    static private String destinationNAME, destinationUID;
     private String CHATROOM_NAME, CHATROOM_FID;
     ChatModel chatModel;
 
@@ -69,16 +63,17 @@ public class ChatsFragment extends Fragment {
         binding = FragmentChatsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        Bundle bundle = new Bundle();
-        USERID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        destinationUID = bundle.getString("destinationUID");
-        Log.d("NOTE", "destinationUID = "+destinationUID);
 
-        // 현재 user 닉네임 불러오기
+        // 현재 user의 ID랑 닉네임 불러오기 아이고뫃르겟다 그냥닉네임안보이게하자 만사해결 만사해결
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            USERNAME = user.getDisplayName();
-        }
+        USERID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        Log.d("TEST", "USERID: "+USERID);
+
+        Bundle bundle = this.getArguments();
+        //destinationUID = bundle.getString("destinationUID", "0");
+        //Log.d("NOTE", "destinationUID = "+destinationUID);
+
 
 
         recyclerView = (RecyclerView) root.findViewById(R.id.chats_recyclerview);
@@ -131,7 +126,7 @@ public class ChatsFragment extends Fragment {
                     comments.UID = USERID;
                     comments.message = message;
 
-                    Log.d("NOTE","USERID ="+USERID+"destinationUID ="+destinationUID);
+                    //Log.d("NOTE","USERID ="+USERID+"destinationUID ="+destinationUID);
 
                     FirebaseDatabase.getInstance().getReference().child("chatrooms").push().setValue(chatModel);
 
@@ -180,6 +175,24 @@ public class ChatsFragment extends Fragment {
 
 
         return root;
+    }
+
+    private void FINDUserName(String UID){
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("users");
+        databaseReference.child(UID).child("nick").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                NICKNAME= value;
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("", "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        });
     }
 
     private String ChatTime() {

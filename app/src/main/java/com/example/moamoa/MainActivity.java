@@ -1,11 +1,15 @@
 package com.example.moamoa;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 import androidx.navigation.NavController;
@@ -14,13 +18,33 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.moamoa.databinding.ActivityMainBinding;
+import com.example.moamoa.ui.category.CustomListView;
 import com.example.moamoa.ui.dashboard.DatePickerFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;    //Activity_main + binding
     private FirebaseAuth mAuth;
+    long mNow;
+    Date mDate;
+    SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMdd");
+    private String getTime(){
+        mNow = System.currentTimeMillis();
+        mDate = new Date(mNow);
+
+        return mFormat.format(mDate);
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         //navController activitymain의 navView에 적용
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+        //추가
     }
     // [END auth_with_google]
     @Override
@@ -53,6 +78,41 @@ public class MainActivity extends AppCompatActivity {
         }
 
          */
+
+        int today= Integer.parseInt(getTime());
+        FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
+            @SuppressLint("RestrictedApi")
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                    Form listData = snapshot.getValue(Form.class);
+                    Log.d("확인","message : "+today);
+                    Log.d("확인","message : "+Integer.parseInt(listData.deadline.substring(0,8)));
+
+                    if (Integer.parseInt(listData.deadline.substring(0,8)) < today){
+                        FirebaseDatabase.getInstance().getReference("form").child(listData.FID).child("state").setValue(2);
+                    }
+                    else if (Integer.parseInt(listData.getMax_count())-listData.getparti_num()<=2 && Integer.parseInt(listData.deadline) == today){
+                        FirebaseDatabase.getInstance().getReference("form").child(listData.FID).child("state").setValue(1);
+                    }
+                    else if(Integer.parseInt(listData.getMax_count())-listData.getparti_num()==0){
+                        FirebaseDatabase.getInstance().getReference("form").child(listData.FID).child("state").setValue(1);
+                    }
+                    else if (Integer.parseInt(listData.getMax_count())-listData.getparti_num()>2 && Integer.parseInt(listData.deadline) >= today)
+                    {
+                        FirebaseDatabase.getInstance().getReference("form").child(listData.FID).child("state").setValue(0);
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
     }
 //캘린더
 

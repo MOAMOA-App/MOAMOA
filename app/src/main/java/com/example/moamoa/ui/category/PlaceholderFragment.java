@@ -10,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.CompoundButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,9 +49,7 @@ public class PlaceholderFragment extends Fragment {
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
-        Log.d("확인","첫번째 : "+fragment);
         fragment.setArguments(bundle);
-        Log.d("확인","두번째 : "+bundle);
         return fragment;
     }
 
@@ -57,13 +57,10 @@ public class PlaceholderFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pageViewModel = new ViewModelProvider(this).get(PageViewModel.class);
-        //int index = 1;
+        int index = 1;
         if (getArguments() != null) {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
-
-
         }
-
         pageViewModel.setIndex(index);
 
     }
@@ -100,7 +97,7 @@ public class PlaceholderFragment extends Fragment {
 
                     //v
 
-                    if ( pos==1){
+                    if ( pos==1 && listData.getstate()==0){
 
                         listViewData.add(listData);
                     }
@@ -164,20 +161,7 @@ public class PlaceholderFragment extends Fragment {
               //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
             }
         });
-//        homelistAdapter.setOnItemClickListener(new homelist_adapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(View v, int position) {
-//                String FID = homelist.get(position).getFID();
-//                String title = homelist.get(position).getTitle();
-//                //인텐트 선언 및 정의
-//                Intent intent = new Intent(getContext(), FormdetailActivity.class);
-//                //입력한 input값을 intent로 전달한다.
-//                intent.putExtra("FID", FID);
-//                //액티비티 이동
-//                startActivity(intent);
-//                //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
-//            }
-//        });
+
 
         return root;
     }
