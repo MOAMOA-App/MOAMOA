@@ -26,6 +26,8 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -121,6 +123,10 @@ public class RegisterActivity extends AppCompatActivity {
                                     random_nicks.setNickname();
                                     postValues.put("nick",random_nicks.getNickname());
                                     postValues.put("image","profile/"+random_nicks.getImage()+".png");
+                                    long mNow = System.currentTimeMillis();
+                                    Date mDate = new Date(mNow);
+                                    SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                                    postValues.put("joinDate",mFormat.format(mDate));
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                                     DatabaseReference reference = database.getReference("users");
                                     childUpdates.put(uid, postValues);

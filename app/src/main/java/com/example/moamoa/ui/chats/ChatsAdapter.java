@@ -54,7 +54,7 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
 
         if (list.get(position).getLeftname().equals(this.leftname)){
             // 내가 보낸 메시지일시 오른쪽에서 출력:왼쪽 이미지
-            holder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+            holder.nickName.setVisibility(View.INVISIBLE);
             holder.Message.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             holder.profile_image.setVisibility(View.INVISIBLE); //프사 안보이게
 
