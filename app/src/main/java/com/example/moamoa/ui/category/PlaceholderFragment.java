@@ -84,7 +84,6 @@ public class PlaceholderFragment extends Fragment {
         Log.d("확인","루트 : "+pos);
 
         ListView listView;
-        ToggleButton button = root.findViewById(R.id.heart);
         listView = root.findViewById(R.id.listview);
         ArrayList<Form> listViewData = new ArrayList<>();
         FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
@@ -162,23 +161,6 @@ public class PlaceholderFragment extends Fragment {
               //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
             }
         });
-//        homelistAdapter.setOnItemClickListener(new homelist_adapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(View v, int position) {
-//                String FID = homelist.get(position).getFID();
-//                String title = homelist.get(position).getTitle();
-//                //인텐트 선언 및 정의
-//                Intent intent = new Intent(getContext(), FormdetailActivity.class);
-//                //입력한 input값을 intent로 전달한다.
-//                intent.putExtra("FID", FID);
-//                //액티비티 이동
-//                startActivity(intent);
-//                //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
-//            }
-//        });
-
-
-
 
 
         return root;

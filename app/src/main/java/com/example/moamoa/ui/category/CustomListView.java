@@ -78,17 +78,17 @@ public class CustomListView extends BaseAdapter {
         }
         ImageView mainImage = convertView.findViewById(R.id.mainImage);
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-     //   StorageReference pathReference = firebaseStorage.getReference(listViewData.get(position).image);
+        StorageReference pathReference = firebaseStorage.getReference(listViewData.get(position).image);
 
 
-     //   pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-     //       @Override
-     //       public void onSuccess(Uri uri) {
-     //           Glide.with(mainImage.getContext())
-     //                   .load(uri)
-     //                   .into(mainImage);
-     //       }
-     //   });
+        pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(mainImage.getContext())
+                        .load(uri)
+                        .into(mainImage);
+            }
+        });
 
 
 
@@ -110,67 +110,61 @@ public class CustomListView extends BaseAdapter {
         ToggleButton button = convertView.findViewById(R.id.heart);
         FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).addValueEventListener(new ValueEventListener() {
             @Override
-            public void  onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-                Log.d("MainActivity", "ValueEventListener1 : " + dataSnapshot.getKey());
-
-                //  bb="true";
-
-                Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getValue());
-                //              boolean k= (boolean) dataSnapshot.getValue();
                 if (dataSnapshot.getValue() != null) {
                     k=dataSnapshot.getKey();
-                    v= String.valueOf(dataSnapshot.getValue());
-                    if (listViewData.get(position).FID.equals(dataSnapshot.getKey()) & dataSnapshot.getValue().equals("true")) {
+
+                    if (dataSnapshot.getValue().equals("true")) {
 
                         button.setBackgroundResource(R.drawable.full_heart);
 
-                    } else if (listViewData.get(position).FID.equals(dataSnapshot.getKey()) & dataSnapshot.getValue().equals("false")) {
+                    } else {
                         button.setBackgroundResource(R.drawable.empty_heart);
 
                     }
                 }
+
+                    Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getKey());
+
+                    Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getValue());
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError)
             {    }
         });
+
         //FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a+1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseDatabase.getInstance().getReference("form").child( listViewData.get(position).FID).addValueEventListener(new ValueEventListener() {
+                FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                        Form form = snapshot.getValue(Form.class);
-                        num_a = form.getheart_num() ;
-
-                        Log.d("확인", "버튼 form fid : " + listViewData.get(position).FID);
-
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        v= String.valueOf(dataSnapshot.getValue());
                     }
 
                     @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                    }
-
+                    public void onCancelled(DatabaseError databaseError)
+                    {    }
                 });
 
 
+                Log.d("MainActivity", "vv: " + v);
 
-                {
-                    Log.d("확인", "fid : " +button.isChecked());
-                    button.setBackgroundResource(R.drawable.empty_heart);
-                    FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a-1);
-                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("false");
-                }
+                if (button.isChecked()) {
 
-                if (v.equals("false")) {
-
-                    button.setBackgroundResource(R.drawable.full_heart);
+                    //button.setBackgroundResource(R.drawable.full_heart);
                     FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("true");
                 }
+                else if( !button.isChecked())
+                {
 
+                   // button.setBackgroundResource(R.drawable.empty_heart);
+                    //FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a-1);
+                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("false");
+                }
                 //{
                 //    button.setBackgroundResource(R.drawable.full_heart);
                 //    FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a+1);
