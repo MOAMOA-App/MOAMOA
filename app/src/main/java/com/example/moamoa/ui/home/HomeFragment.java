@@ -52,14 +52,16 @@ public class HomeFragment extends Fragment {
                 //데이터가 쌓이기 때문에  clear()
                 int x=0;
                 for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
-                    String Key = fileSnapshot.getKey();
+
+                    if (Integer.parseInt(fileSnapshot.child("state").getValue().toString())==0)
+                    { String Key = fileSnapshot.getKey();
                     String subject = fileSnapshot.child("subject").getValue().toString();
                     String max_count = fileSnapshot.child("max_count").getValue().toString();
                     String UID = fileSnapshot.child("UID_dash").getValue().toString();
                     String parti_num = fileSnapshot.child("parti_num").getValue().toString();
                     String image =  fileSnapshot.child("image").getValue().toString();
                     InitializeFormData(image,subject,UID,parti_num+"/"+max_count,Key);
-                    x++;
+                    x++;}
                     if(x>10){ break;}
 
                 }

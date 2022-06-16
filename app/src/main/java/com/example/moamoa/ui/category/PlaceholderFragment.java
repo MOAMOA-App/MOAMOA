@@ -97,7 +97,7 @@ public class PlaceholderFragment extends Fragment {
 
                     //v
 
-                    if ( pos==1){
+                    if ( pos==1 && listData.getstate()==0){
 
                         listViewData.add(listData);
                     }

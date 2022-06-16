@@ -163,7 +163,9 @@ public class FormdetailActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "찜버튼 클릭", Toast.LENGTH_SHORT).show();
-                FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).setValue("true");            }
+                FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).setValue("true");
+
+            }
         });
         return;
     }
