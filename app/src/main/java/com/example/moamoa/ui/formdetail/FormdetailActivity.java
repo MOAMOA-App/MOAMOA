@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.Form;
@@ -31,6 +32,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
+import java.util.Objects;
 
 public class FormdetailActivity extends Activity {
     private DatabaseReference mDatabase;
@@ -109,31 +112,45 @@ public class FormdetailActivity extends Activity {
             public void onCancelled(DatabaseError databaseError)
             {    }
         });
+
         chat_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "채팅하기 클릭", Toast.LENGTH_SHORT).show();
 
-                mDatabase.child("form").child(temp).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Form tochat = snapshot.getValue(Form.class);
-                        //String UID = tochat.getUID_dash
-                        //String FORMID = tochat.getFID();
-                        //String FORMNAME = tochat.getSubject();
 
-                        // ChatsFragment에 FID와 UID 넘겨줌
-                        Fragment chats = new ChatsFragment();
-                        Bundle bundle = new Bundle();
-                        //bundle.putString("FormID", FORMID);
-                        //bundle.putString("FormNAME", FORMNAME);
-                        //bundle.putString("destinationUID", UID);
-                        chats.setArguments(bundle);
+                ChatsFragment chatsFragment = new ChatsFragment();
+                Bundle bundle = new Bundle();
+                DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("form");
+                database.child(temp).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        // FORM 정보 불러옴(ChatFragment에서 CHATROOM_NAME과 CHATROOM_FID로 사용)
+                        String FORMNAME = dataSnapshot.child("subject").getValue().toString();
+                        String FID = temp;
+
+                        // USER 정보 불러옴 (ChatsFragment에서 destinationUID로 사용)
+                        String UID = dataSnapshot.child("UID_dash").getValue().toString();
+
+                        // 값 잘 불러왔는지 테스트
+                        Log.d("TEST", "subject: "+FORMNAME);
+                        Log.d("TEST", "FID: "+FID);
+                        Log.d("TEST", "UID: "+UID);
+
+                        // ChatsFragment에 subject, FID, UID 넘겨줌
+                        // Bundle로 값 저장
+                        bundle.putString("CHATROOM_NAME", FORMNAME);
+                        bundle.putString("CHATROOM_FID", FID);
+                        bundle.putString("destinationUID", UID);
+                        chatsFragment.setArguments(bundle);
                     }
 
                     @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
+                    public void onCancelled(DatabaseError databaseError) {
+                        // Getting Post failed, log a message
+                        Log.w("", "loadPost:onCancelled", databaseError.toException());
+                        // ...
                     }
                 });
 
