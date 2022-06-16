@@ -178,6 +178,8 @@ public class LoginActivity extends AppCompatActivity {
                             DatabaseReference reference = database.getReference("users");
                             childUpdates.put(user.getUid(), postValues);
                             reference.updateChildren(childUpdates);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
