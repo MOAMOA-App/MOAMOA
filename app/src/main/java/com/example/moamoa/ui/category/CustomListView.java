@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -19,9 +20,13 @@ import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.Form;
+import com.example.moamoa.Heart;
 import com.example.moamoa.R;
 import com.example.moamoa.ui.acount.User;
+import com.example.moamoa.ui.home.homelist_adapter;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +43,9 @@ public class CustomListView extends BaseAdapter {
     private int count = 0;
     String FID;
     int heart_num;
+    String k="";
+    String v="";
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     public CustomListView(ArrayList<Form> listData) {
         listViewData = listData;
         count = listViewData.size();
@@ -70,15 +78,17 @@ public class CustomListView extends BaseAdapter {
         }
         ImageView mainImage = convertView.findViewById(R.id.mainImage);
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-        StorageReference pathReference = firebaseStorage.getReference(listViewData.get(position).image);
-        pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Glide.with(mainImage.getContext())
-                        .load(uri)
-                        .into(mainImage);
-            }
-        });
+     //   StorageReference pathReference = firebaseStorage.getReference(listViewData.get(position).image);
+
+
+     //   pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+     //       @Override
+     //       public void onSuccess(Uri uri) {
+     //           Glide.with(mainImage.getContext())
+     //                   .load(uri)
+     //                   .into(mainImage);
+     //       }
+     //   });
 
 
 
@@ -98,10 +108,37 @@ public class CustomListView extends BaseAdapter {
         //listview와 버튼 클릭 다르게 주기
 
         ToggleButton button = convertView.findViewById(R.id.heart);
-
-        button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void  onDataChange(DataSnapshot dataSnapshot) {
+
+                Log.d("MainActivity", "ValueEventListener1 : " + dataSnapshot.getKey());
+
+                //  bb="true";
+
+                Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getValue());
+                //              boolean k= (boolean) dataSnapshot.getValue();
+                if (dataSnapshot.getValue() != null) {
+                    k=dataSnapshot.getKey();
+                    v= String.valueOf(dataSnapshot.getValue());
+                    if (listViewData.get(position).FID.equals(dataSnapshot.getKey()) & dataSnapshot.getValue().equals("true")) {
+
+                        button.setBackgroundResource(R.drawable.full_heart);
+
+                    } else if (listViewData.get(position).FID.equals(dataSnapshot.getKey()) & dataSnapshot.getValue().equals("false")) {
+                        button.setBackgroundResource(R.drawable.empty_heart);
+
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError)
+            {    }
+        });
+        //FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a+1);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 FirebaseDatabase.getInstance().getReference("form").child( listViewData.get(position).FID).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -109,7 +146,7 @@ public class CustomListView extends BaseAdapter {
                         Form form = snapshot.getValue(Form.class);
                         num_a = form.getheart_num() ;
 
-                        Log.d("확인", "if : " + num_a);
+                        Log.d("확인", "버튼 form fid : " + listViewData.get(position).FID);
 
                     }
 
@@ -118,28 +155,32 @@ public class CustomListView extends BaseAdapter {
                     }
 
                 });
-                if (isChecked){
-
-                   // FID = listViewData.get(position).FID;
-                    FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a+1);
-                    //
-                    Log.d("확인", "message : " + FID);
 
 
-                    Log.d("확인", "if : " + num_a);
 
-                }
-
-
-                else{
-                    //FID = listViewData.get(position).FID;
-
+                {
+                    Log.d("확인", "fid : " +button.isChecked());
+                    button.setBackgroundResource(R.drawable.empty_heart);
                     FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a-1);
-                    Log.d("확인", "message : " + FID);
-
-
-                    Log.d("확인", "else : " + num_a);
+                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("false");
                 }
+
+                if (v.equals("false")) {
+
+                    button.setBackgroundResource(R.drawable.full_heart);
+                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("true");
+                }
+
+                //{
+                //    button.setBackgroundResource(R.drawable.full_heart);
+                //    FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a+1);
+                //    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("true");
+
+                //}
+                //if (isChecked ){
+
+
+
 
 
                 }

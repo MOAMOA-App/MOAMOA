@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.moamoa.databinding.ParticipatedFormsBinding;
-import com.example.moamoa.ui.mypage.SectionsPagerAdapter2;
+import com.example.moamoa.ui.category.SectionsPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class ParticipatedForms extends AppCompatActivity {
@@ -20,7 +20,7 @@ public class ParticipatedForms extends AppCompatActivity {
         binding = ParticipatedFormsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        SectionsPagerAdapter2 sectionsPagerAdapter = new SectionsPagerAdapter2(this, getSupportFragmentManager());
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = binding.viewPager;
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = binding.tabs2;

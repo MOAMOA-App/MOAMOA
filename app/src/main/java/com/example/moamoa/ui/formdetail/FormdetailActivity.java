@@ -61,7 +61,7 @@ public class FormdetailActivity extends Activity {
                 String max_count = dataSnapshot.child("max_count").getValue().toString();
                 num_k= dataSnapshot.child("parti_num").getValue().toString() ;
                 image=dataSnapshot.child("image").getValue().toString() ;
-                Log.d("확인","message : "+image);
+                Log.d("확인","message상세 이미지 : "+image);
                 String UID = dataSnapshot.child("UID_dash").getValue().toString();
                 UserFind(UID);
                 Initializeform(subject,"category",text,cost,max_count);
@@ -163,7 +163,7 @@ public class FormdetailActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "찜버튼 클릭", Toast.LENGTH_SHORT).show();
-                FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).setValue("True");            }
+                FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).setValue("true");            }
         });
         return;
     }

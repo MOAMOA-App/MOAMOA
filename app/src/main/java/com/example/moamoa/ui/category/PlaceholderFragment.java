@@ -10,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.CompoundButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,9 +49,7 @@ public class PlaceholderFragment extends Fragment {
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
-        Log.d("확인","첫번째 : "+fragment);
         fragment.setArguments(bundle);
-        Log.d("확인","두번째 : "+bundle);
         return fragment;
     }
 
@@ -57,13 +57,10 @@ public class PlaceholderFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pageViewModel = new ViewModelProvider(this).get(PageViewModel.class);
-        //int index = 1;
+        int index = 1;
         if (getArguments() != null) {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
-
-
         }
-
         pageViewModel.setIndex(index);
 
     }
@@ -87,6 +84,7 @@ public class PlaceholderFragment extends Fragment {
         Log.d("확인","루트 : "+pos);
 
         ListView listView;
+        ToggleButton button = root.findViewById(R.id.heart);
         listView = root.findViewById(R.id.listview);
         ArrayList<Form> listViewData = new ArrayList<>();
         FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
@@ -178,6 +176,10 @@ public class PlaceholderFragment extends Fragment {
 //                //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
 //            }
 //        });
+
+
+
+
 
         return root;
     }
