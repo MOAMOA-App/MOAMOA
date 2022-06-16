@@ -155,7 +155,7 @@ public class FormdetailActivity extends Activity {
                     num_b= 1 + Integer.parseInt(num_k);
                     FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(temp).setValue("parti");
                     FirebaseDatabase.getInstance().getReference("form").child(temp).child("parti_num").setValue(num_b);
-
+                    //파티 하면 숫자 안늘게 하기
                 }
             }
         });
