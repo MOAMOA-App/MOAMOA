@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -11,10 +12,13 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,6 +26,7 @@ import android.view.SubMenu;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -39,8 +44,34 @@ public class ChatsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chats);
 
+        // FormdetailActivity에서 값 받음
+        Intent getIntent = getIntent();
+        String Chatroomname = getIntent.getStringExtra("CHATROOM_NAME");
+        String Chatroomfid = getIntent.getStringExtra("CHATROOM_FID");
+        String destinationuid = getIntent.getStringExtra("destinationUID");
+
+        Log.e("TEST", "Chatroomname "+Chatroomname);
+        Log.e("TEST", "Chatroomfid "+Chatroomfid);
+        Log.e("TEST", "destinationuid "+destinationuid);
+
+        // 받은 값 ChatsFragment에 넘겨줌
+        // 하...왜일을두번하지 나도일을두번하기싫었는데 고치기엔이미숨을안쉬는코드임
+        // ㅁㅊ 일을두번해도숨을안쉬는데요
+
+        Bundle bundle = new Bundle();
+
+        bundle.putString("CHATROOM_NAME", Chatroomname);
+        bundle.putString("CHATROOM_FID", Chatroomfid);
+        bundle.putString("destinationUID", destinationuid);
+        //FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        ChatsFragment chatsFragment = new ChatsFragment();
+        chatsFragment.setArguments(bundle);
+        //ahfahefawfawfㅁㅇㄴㄻㅇㄴㄹㄴㅇㅁㄹ하.......또왜안되는데
+
         binding = ActivityChatsBinding.inflate(getLayoutInflater());
         View root = binding.getRoot();
+
+        //
 
         MenuItem select_language = root.findViewById(R.id.select_language);
         MenuItem exitchats = root.findViewById(R.id.exitchats);
