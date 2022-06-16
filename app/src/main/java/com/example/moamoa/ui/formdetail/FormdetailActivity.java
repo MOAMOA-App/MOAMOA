@@ -119,12 +119,14 @@ public class FormdetailActivity extends Activity {
                 Toast.makeText(getApplicationContext(), "채팅하기 클릭", Toast.LENGTH_SHORT).show();
 
 
-                ChatsFragment chatsFragment = new ChatsFragment();
-                Bundle bundle = new Bundle();
+
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("form");
                 database.child(temp).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        // ChatActivity로 데이터 넘김
+                        Intent intent = new Intent(FormdetailActivity.this, ChatsActivity.class);
 
                         // FORM 정보 불러옴(ChatFragment에서 CHATROOM_NAME과 CHATROOM_FID로 사용)
                         String FORMNAME = dataSnapshot.child("subject").getValue().toString();
@@ -138,12 +140,12 @@ public class FormdetailActivity extends Activity {
                         Log.d("TEST", "FID: "+FID);
                         Log.d("TEST", "UID: "+UID);
 
-                        // ChatsFragment에 subject, FID, UID 넘겨줌
-                        // Bundle로 값 저장
-                        bundle.putString("CHATROOM_NAME", FORMNAME);
-                        bundle.putString("CHATROOM_FID", FID);
-                        bundle.putString("destinationUID", UID);
-                        chatsFragment.setArguments(bundle);
+                        // ChatsActivity에 subject, FID, UID 넘겨줌
+                        intent.putExtra("CHATROOM_NAME", FORMNAME);
+                        intent.putExtra("CHATROOM_FID", FID);
+                        intent.putExtra("destinationUID", UID);
+
+                        startActivity(intent);
                     }
 
                     @Override
@@ -154,8 +156,6 @@ public class FormdetailActivity extends Activity {
                     }
                 });
 
-                Intent intent = new Intent(FormdetailActivity.this, ChatsActivity.class);
-                startActivity(intent);
             }
         });
 

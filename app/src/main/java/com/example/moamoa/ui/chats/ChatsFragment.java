@@ -19,6 +19,8 @@ import android.widget.Toolbar;
 
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentChatsBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -40,9 +42,9 @@ public class ChatsFragment extends Fragment {
     private ArrayList<ChatsData> list = new ArrayList<>();
     private RecyclerView.LayoutManager mLayoutManager;
 
-    static String NICKNAME; // 각 유저 닉네임 임시저장용?
-    static private String USERNAME, USERID;
-    static private String destinationNAME, destinationUID;
+    private String USERNAME, USERID;
+    private String destinationNAME, destinationUID;
+    private String FORMID;
     private String CHATROOM_NAME, CHATROOM_FID;
     ChatModel chatModel;
 
@@ -68,11 +70,14 @@ public class ChatsFragment extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         USERID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        Log.d("TEST", "USERID: "+USERID);
+        Log.e("TEST", "USERID: "+USERID);
 
-        Bundle bundle = this.getArguments();
-        //destinationUID = bundle.getString("destinationUID", "0");
-        //Log.d("NOTE", "destinationUID = "+destinationUID);
+        Bundle bundle = getArguments();
+        destinationUID = bundle.getString("destinationUID");
+        Log.e("TEST", "destinationUID = "+destinationUID);
+        //CHATROOM_FID = bundle.getString("CHATROOM_FID");
+        //CHATROOM_NAME = bundle.getString("CHATROOM_NAME");
+
 
 
 
@@ -122,13 +127,19 @@ public class ChatsFragment extends Fragment {
                     chatModel.users.put(USERID.toString(),true);
                     //chatModel.users.put(destinationUID.toString(), true);
 
-                    ChatModel.Comment comments = new ChatModel.Comment();
-                    comments.UID = USERID;
-                    comments.message = message;
+                    if (CHATROOM_FID == null){
+                        FirebaseDatabase.getInstance().getReference().child("chatrooms").push().setValue(chatModel);
+                    } else{
+                        ChatModel.Comment comments = new ChatModel.Comment();
+                        comments.UID = USERID;
+                        comments.message = message;
 
-                    //Log.d("NOTE","USERID ="+USERID+"destinationUID ="+destinationUID);
+                        Log.e("TEST","comments.uid: "+comments.UID);
+                        Log.e("TEST", "comments.message: "+comments.message);
 
-                    FirebaseDatabase.getInstance().getReference().child("chatrooms").push().setValue(chatModel);
+                        FirebaseDatabase.getInstance().getReference().child("chatrooms").child(CHATROOM_FID)
+                                .child("comments").push().setValue(comments);
+                    }
 
                     myRef.push().setValue(chats);
                     EditText_chat.setText(null);    // edittext 안 내용 삭제
@@ -183,7 +194,7 @@ public class ChatsFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
-                NICKNAME= value;
+                //NICKNAME= value;
             }
 
             @Override
@@ -205,7 +216,8 @@ public class ChatsFragment extends Fragment {
     }
 
     void checkChatRoom(){
-        FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID).equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID)
+                .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot item : snapshot.getChildren()){

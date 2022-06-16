@@ -10,16 +10,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ChatModel {
-    public Map<String,Boolean> users = new HashMap<>(); // 채팅방 유저들
+    public String form_ID;
+    public Map<String, Boolean> users = new HashMap<>(); // 채팅방 유저들
     public Map<String, Comment> comments = new HashMap<>();
-    String Chatting_room_id;
-    String last_message;
-    String last_message_id;
-
-    ChatModel(){
-        this.last_message = null;
-        this.last_message_id = null;
-    }
 
     public static class Comment{
         String UID;
