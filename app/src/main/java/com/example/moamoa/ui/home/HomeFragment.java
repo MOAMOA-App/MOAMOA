@@ -51,6 +51,7 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
                 //데이터가 쌓이기 때문에  clear()
                 int x=0;
+                homelist.clear();
                 for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
 
                     if (Integer.parseInt(fileSnapshot.child("state").getValue().toString())==0)

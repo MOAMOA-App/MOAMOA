@@ -25,4 +25,6 @@
     <string name="selectlanguage">언어 선택</string>
     <string name="participants">참여자</string>
     <string name="exitchats">채팅방 나가기</string>
-</resources>
+    <string name="title_activity_address_api">AddressApiActivity</string>
+    <!-- Strings used for fragments for navigation -->
+   </resources>
