@@ -16,15 +16,16 @@
         android:gravity="center|top"
         android:orientation="vertical">
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/idtext"
             android:layout_width="263dp"
             android:layout_height="45dp"
             android:layout_marginTop="104dp"
-            android:hint="ID"
+            android:hint="E-MAIL"
             android:inputType="textEmailAddress" />
 
+
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/pwtext"
             android:layout_width="263dp"
             android:layout_height="41dp"
             android:layout_marginTop="20dp"
@@ -35,19 +36,56 @@
         <Button
             android:id="@+id/loginbtn"
             android:layout_width="263dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/login_btn_style"
+            android:backgroundTint="@color/main_orange"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="32dp"
             android:text="로그인" />
-
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/google_login"
-            android:layout_width="263dp"
-            android:layout_height="50sp"
-            android:layout_marginBottom="32dp">
-        </com.google.android.gms.common.SignInButton>
+        <Button
+            android:id="@+id/google_login_btn"
+            android:layout_width="253dp"
+            android:layout_height="40dp"
+            android:background="@drawable/login_btn_style"
+            android:backgroundTint="@color/white"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"
+            android:textColor="@color/black"
+            android:text="구글 아이디로 로그인하기"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+        <Button
+            android:id="@+id/naver_login_btn"
+            android:layout_width="253dp"
+            android:layout_height="40dp"
+            android:background="@drawable/login_btn_style"
+            android:backgroundTint="@color/naver"
+            android:paddingLeft="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="네이버 아이디로 로그인하기"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+        <Button
+            android:id="@+id/kakao_login_btn"
+            android:layout_width="253dp"
+            android:layout_height="40dp"
+            android:background="@drawable/login_btn_style"
+            android:backgroundTint="@color/kakao"
+            android:paddingLeft="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="카카오 아이디로 로그인하기"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 
         <TextView
+            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="아직 회원이 아니신가요?"/>

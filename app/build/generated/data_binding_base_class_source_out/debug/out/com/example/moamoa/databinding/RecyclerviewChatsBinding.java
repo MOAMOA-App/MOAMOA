@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
@@ -21,43 +22,43 @@ public final class RecyclerviewChatsBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final TextView TextViewMessageLeft;
+  public final LinearLayout LinearChatmsg;
 
   @NonNull
-  public final TextView TextViewMessageRight;
+  public final CardView chatCardview;
 
   @NonNull
-  public final TextView TextViewNicknameLeft;
+  public final TextView chatMsg;
 
   @NonNull
-  public final TextView TextViewNicknameRight;
+  public final TextView chatNickname;
 
   @NonNull
-  public final TextView nationalityLeft;
+  public final LinearLayout chattingLayout;
 
   @NonNull
-  public final TextView nationalityRight;
+  public final LinearLayout messageLine;
 
   @NonNull
-  public final ImageView profileImageLeft;
+  public final ImageView profileImage;
 
   @NonNull
-  public final ImageView profileImageRight;
+  public final TextView sendedTime;
 
   private RecyclerviewChatsBinding(@NonNull LinearLayout rootView,
-      @NonNull TextView TextViewMessageLeft, @NonNull TextView TextViewMessageRight,
-      @NonNull TextView TextViewNicknameLeft, @NonNull TextView TextViewNicknameRight,
-      @NonNull TextView nationalityLeft, @NonNull TextView nationalityRight,
-      @NonNull ImageView profileImageLeft, @NonNull ImageView profileImageRight) {
+      @NonNull LinearLayout LinearChatmsg, @NonNull CardView chatCardview,
+      @NonNull TextView chatMsg, @NonNull TextView chatNickname,
+      @NonNull LinearLayout chattingLayout, @NonNull LinearLayout messageLine,
+      @NonNull ImageView profileImage, @NonNull TextView sendedTime) {
     this.rootView = rootView;
-    this.TextViewMessageLeft = TextViewMessageLeft;
-    this.TextViewMessageRight = TextViewMessageRight;
-    this.TextViewNicknameLeft = TextViewNicknameLeft;
-    this.TextViewNicknameRight = TextViewNicknameRight;
-    this.nationalityLeft = nationalityLeft;
-    this.nationalityRight = nationalityRight;
-    this.profileImageLeft = profileImageLeft;
-    this.profileImageRight = profileImageRight;
+    this.LinearChatmsg = LinearChatmsg;
+    this.chatCardview = chatCardview;
+    this.chatMsg = chatMsg;
+    this.chatNickname = chatNickname;
+    this.chattingLayout = chattingLayout;
+    this.messageLine = messageLine;
+    this.profileImage = profileImage;
+    this.sendedTime = sendedTime;
   }
 
   @Override
@@ -87,57 +88,52 @@ public final class RecyclerviewChatsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.TextView_message_left;
-      TextView TextViewMessageLeft = ViewBindings.findChildViewById(rootView, id);
-      if (TextViewMessageLeft == null) {
+      id = R.id.Linear_chatmsg;
+      LinearLayout LinearChatmsg = ViewBindings.findChildViewById(rootView, id);
+      if (LinearChatmsg == null) {
         break missingId;
       }
 
-      id = R.id.TextView_message_right;
-      TextView TextViewMessageRight = ViewBindings.findChildViewById(rootView, id);
-      if (TextViewMessageRight == null) {
+      id = R.id.chat_cardview;
+      CardView chatCardview = ViewBindings.findChildViewById(rootView, id);
+      if (chatCardview == null) {
         break missingId;
       }
 
-      id = R.id.TextView_nickname_left;
-      TextView TextViewNicknameLeft = ViewBindings.findChildViewById(rootView, id);
-      if (TextViewNicknameLeft == null) {
+      id = R.id.chat_msg;
+      TextView chatMsg = ViewBindings.findChildViewById(rootView, id);
+      if (chatMsg == null) {
         break missingId;
       }
 
-      id = R.id.TextView_nickname_right;
-      TextView TextViewNicknameRight = ViewBindings.findChildViewById(rootView, id);
-      if (TextViewNicknameRight == null) {
+      id = R.id.chat_nickname;
+      TextView chatNickname = ViewBindings.findChildViewById(rootView, id);
+      if (chatNickname == null) {
         break missingId;
       }
 
-      id = R.id.nationality_left;
-      TextView nationalityLeft = ViewBindings.findChildViewById(rootView, id);
-      if (nationalityLeft == null) {
+      LinearLayout chattingLayout = (LinearLayout) rootView;
+
+      id = R.id.message_line;
+      LinearLayout messageLine = ViewBindings.findChildViewById(rootView, id);
+      if (messageLine == null) {
         break missingId;
       }
 
-      id = R.id.nationality_right;
-      TextView nationalityRight = ViewBindings.findChildViewById(rootView, id);
-      if (nationalityRight == null) {
+      id = R.id.profile_image;
+      ImageView profileImage = ViewBindings.findChildViewById(rootView, id);
+      if (profileImage == null) {
         break missingId;
       }
 
-      id = R.id.profile_image_left;
-      ImageView profileImageLeft = ViewBindings.findChildViewById(rootView, id);
-      if (profileImageLeft == null) {
+      id = R.id.sended_time;
+      TextView sendedTime = ViewBindings.findChildViewById(rootView, id);
+      if (sendedTime == null) {
         break missingId;
       }
 
-      id = R.id.profile_image_right;
-      ImageView profileImageRight = ViewBindings.findChildViewById(rootView, id);
-      if (profileImageRight == null) {
-        break missingId;
-      }
-
-      return new RecyclerviewChatsBinding((LinearLayout) rootView, TextViewMessageLeft,
-          TextViewMessageRight, TextViewNicknameLeft, TextViewNicknameRight, nationalityLeft,
-          nationalityRight, profileImageLeft, profileImageRight);
+      return new RecyclerviewChatsBinding((LinearLayout) rootView, LinearChatmsg, chatCardview,
+          chatMsg, chatNickname, chattingLayout, messageLine, profileImage, sendedTime);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

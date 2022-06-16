@@ -24,7 +24,13 @@ public final class ListviewBinding implements ViewBinding {
   public final TextView FID;
 
   @NonNull
+  public final TextView FIDD;
+
+  @NonNull
   public final TextView charge;
+
+  @NonNull
+  public final TextView heartNum;
 
   @NonNull
   public final ImageView mainImage;
@@ -39,11 +45,14 @@ public final class ListviewBinding implements ViewBinding {
   public final TextView title;
 
   private ListviewBinding(@NonNull LinearLayout rootView, @NonNull TextView FID,
-      @NonNull TextView charge, @NonNull ImageView mainImage, @NonNull TextView mans,
-      @NonNull TextView name, @NonNull TextView title) {
+      @NonNull TextView FIDD, @NonNull TextView charge, @NonNull TextView heartNum,
+      @NonNull ImageView mainImage, @NonNull TextView mans, @NonNull TextView name,
+      @NonNull TextView title) {
     this.rootView = rootView;
     this.FID = FID;
+    this.FIDD = FIDD;
     this.charge = charge;
+    this.heartNum = heartNum;
     this.mainImage = mainImage;
     this.mans = mans;
     this.name = name;
@@ -83,9 +92,21 @@ public final class ListviewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.FIDD;
+      TextView FIDD = ViewBindings.findChildViewById(rootView, id);
+      if (FIDD == null) {
+        break missingId;
+      }
+
       id = R.id.charge;
       TextView charge = ViewBindings.findChildViewById(rootView, id);
       if (charge == null) {
+        break missingId;
+      }
+
+      id = R.id.heart_num;
+      TextView heartNum = ViewBindings.findChildViewById(rootView, id);
+      if (heartNum == null) {
         break missingId;
       }
 
@@ -113,8 +134,8 @@ public final class ListviewBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ListviewBinding((LinearLayout) rootView, FID, charge, mainImage, mans, name,
-          title);
+      return new ListviewBinding((LinearLayout) rootView, FID, FIDD, charge, heartNum, mainImage,
+          mans, name, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

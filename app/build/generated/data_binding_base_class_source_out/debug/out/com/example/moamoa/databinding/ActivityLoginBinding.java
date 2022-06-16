@@ -14,7 +14,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
-import com.google.android.gms.common.SignInButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -27,7 +26,13 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final ConstraintLayout container;
 
   @NonNull
-  public final SignInButton googleLogin;
+  public final Button googleLoginBtn;
+
+  @NonNull
+  public final EditText idtext;
+
+  @NonNull
+  public final Button kakaoLoginBtn;
 
   @NonNull
   public final ProgressBar loading;
@@ -36,26 +41,28 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final Button loginbtn;
 
   @NonNull
-  public final EditText password;
+  public final Button naverLoginBtn;
+
+  @NonNull
+  public final EditText pwtext;
 
   @NonNull
   public final TextView registerLog;
 
-  @NonNull
-  public final EditText username;
-
   private ActivityLoginBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout container, @NonNull SignInButton googleLogin,
-      @NonNull ProgressBar loading, @NonNull Button loginbtn, @NonNull EditText password,
-      @NonNull TextView registerLog, @NonNull EditText username) {
+      @NonNull ConstraintLayout container, @NonNull Button googleLoginBtn, @NonNull EditText idtext,
+      @NonNull Button kakaoLoginBtn, @NonNull ProgressBar loading, @NonNull Button loginbtn,
+      @NonNull Button naverLoginBtn, @NonNull EditText pwtext, @NonNull TextView registerLog) {
     this.rootView = rootView;
     this.container = container;
-    this.googleLogin = googleLogin;
+    this.googleLoginBtn = googleLoginBtn;
+    this.idtext = idtext;
+    this.kakaoLoginBtn = kakaoLoginBtn;
     this.loading = loading;
     this.loginbtn = loginbtn;
-    this.password = password;
+    this.naverLoginBtn = naverLoginBtn;
+    this.pwtext = pwtext;
     this.registerLog = registerLog;
-    this.username = username;
   }
 
   @Override
@@ -87,9 +94,21 @@ public final class ActivityLoginBinding implements ViewBinding {
     missingId: {
       ConstraintLayout container = (ConstraintLayout) rootView;
 
-      id = R.id.google_login;
-      SignInButton googleLogin = ViewBindings.findChildViewById(rootView, id);
-      if (googleLogin == null) {
+      id = R.id.google_login_btn;
+      Button googleLoginBtn = ViewBindings.findChildViewById(rootView, id);
+      if (googleLoginBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.idtext;
+      EditText idtext = ViewBindings.findChildViewById(rootView, id);
+      if (idtext == null) {
+        break missingId;
+      }
+
+      id = R.id.kakao_login_btn;
+      Button kakaoLoginBtn = ViewBindings.findChildViewById(rootView, id);
+      if (kakaoLoginBtn == null) {
         break missingId;
       }
 
@@ -105,9 +124,15 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.password;
-      EditText password = ViewBindings.findChildViewById(rootView, id);
-      if (password == null) {
+      id = R.id.naver_login_btn;
+      Button naverLoginBtn = ViewBindings.findChildViewById(rootView, id);
+      if (naverLoginBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.pwtext;
+      EditText pwtext = ViewBindings.findChildViewById(rootView, id);
+      if (pwtext == null) {
         break missingId;
       }
 
@@ -117,14 +142,8 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.username;
-      EditText username = ViewBindings.findChildViewById(rootView, id);
-      if (username == null) {
-        break missingId;
-      }
-
-      return new ActivityLoginBinding((ConstraintLayout) rootView, container, googleLogin, loading,
-          loginbtn, password, registerLog, username);
+      return new ActivityLoginBinding((ConstraintLayout) rootView, container, googleLoginBtn,
+          idtext, kakaoLoginBtn, loading, loginbtn, naverLoginBtn, pwtext, registerLog);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

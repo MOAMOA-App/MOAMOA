@@ -49,7 +49,7 @@
 
     <fragment
         android:id="@+id/navigation_formdetail"
-        android:name="com.example.moamoa.ui.formdetail.FormdetailFragement"
+        android:name="com.example.moamoa.ui.formdetail.FormdetailActivity"
         android:label='@string/title_formdetail'
         tools:layout="@layout/fragment_formdetail"/>
 

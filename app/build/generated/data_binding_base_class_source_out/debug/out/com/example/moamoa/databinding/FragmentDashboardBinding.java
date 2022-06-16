@@ -4,6 +4,7 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -23,16 +24,34 @@ public final class FragmentDashboardBinding implements ViewBinding {
   private final ScrollView rootView;
 
   @NonNull
+  public final EditText address;
+
+  @NonNull
+  public final Button buttonDashboard;
+
+  @NonNull
+  public final Button buttonImg;
+
+  @NonNull
   public final EditText cost;
 
   @NonNull
-  public final ImageView imageView2;
+  public final ImageView imageView;
+
+  @NonNull
+  public final EditText maxCount;
+
+  @NonNull
+  public final TextView numForm;
 
   @NonNull
   public final Spinner spinner;
 
   @NonNull
-  public final Spinner spinner2;
+  public final EditText subject;
+
+  @NonNull
+  public final EditText text;
 
   @NonNull
   public final TextView textDashboardend;
@@ -40,14 +59,22 @@ public final class FragmentDashboardBinding implements ViewBinding {
   @NonNull
   public final TextView textDashboardstart;
 
-  private FragmentDashboardBinding(@NonNull ScrollView rootView, @NonNull EditText cost,
-      @NonNull ImageView imageView2, @NonNull Spinner spinner, @NonNull Spinner spinner2,
+  private FragmentDashboardBinding(@NonNull ScrollView rootView, @NonNull EditText address,
+      @NonNull Button buttonDashboard, @NonNull Button buttonImg, @NonNull EditText cost,
+      @NonNull ImageView imageView, @NonNull EditText maxCount, @NonNull TextView numForm,
+      @NonNull Spinner spinner, @NonNull EditText subject, @NonNull EditText text,
       @NonNull TextView textDashboardend, @NonNull TextView textDashboardstart) {
     this.rootView = rootView;
+    this.address = address;
+    this.buttonDashboard = buttonDashboard;
+    this.buttonImg = buttonImg;
     this.cost = cost;
-    this.imageView2 = imageView2;
+    this.imageView = imageView;
+    this.maxCount = maxCount;
+    this.numForm = numForm;
     this.spinner = spinner;
-    this.spinner2 = spinner2;
+    this.subject = subject;
+    this.text = text;
     this.textDashboardend = textDashboardend;
     this.textDashboardstart = textDashboardstart;
   }
@@ -79,15 +106,45 @@ public final class FragmentDashboardBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.address;
+      EditText address = ViewBindings.findChildViewById(rootView, id);
+      if (address == null) {
+        break missingId;
+      }
+
+      id = R.id.button_dashboard;
+      Button buttonDashboard = ViewBindings.findChildViewById(rootView, id);
+      if (buttonDashboard == null) {
+        break missingId;
+      }
+
+      id = R.id.button_img;
+      Button buttonImg = ViewBindings.findChildViewById(rootView, id);
+      if (buttonImg == null) {
+        break missingId;
+      }
+
       id = R.id.cost;
       EditText cost = ViewBindings.findChildViewById(rootView, id);
       if (cost == null) {
         break missingId;
       }
 
-      id = R.id.imageView2;
-      ImageView imageView2 = ViewBindings.findChildViewById(rootView, id);
-      if (imageView2 == null) {
+      id = R.id.imageView;
+      ImageView imageView = ViewBindings.findChildViewById(rootView, id);
+      if (imageView == null) {
+        break missingId;
+      }
+
+      id = R.id.max_count;
+      EditText maxCount = ViewBindings.findChildViewById(rootView, id);
+      if (maxCount == null) {
+        break missingId;
+      }
+
+      id = R.id.num_form;
+      TextView numForm = ViewBindings.findChildViewById(rootView, id);
+      if (numForm == null) {
         break missingId;
       }
 
@@ -97,9 +154,15 @@ public final class FragmentDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.spinner2;
-      Spinner spinner2 = ViewBindings.findChildViewById(rootView, id);
-      if (spinner2 == null) {
+      id = R.id.subject;
+      EditText subject = ViewBindings.findChildViewById(rootView, id);
+      if (subject == null) {
+        break missingId;
+      }
+
+      id = R.id.text;
+      EditText text = ViewBindings.findChildViewById(rootView, id);
+      if (text == null) {
         break missingId;
       }
 
@@ -115,8 +178,9 @@ public final class FragmentDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentDashboardBinding((ScrollView) rootView, cost, imageView2, spinner,
-          spinner2, textDashboardend, textDashboardstart);
+      return new FragmentDashboardBinding((ScrollView) rootView, address, buttonDashboard,
+          buttonImg, cost, imageView, maxCount, numForm, spinner, subject, text, textDashboardend,
+          textDashboardstart);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

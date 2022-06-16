@@ -2,14 +2,10 @@ package com.example.moamoa.ui.mypage;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Image;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -22,10 +18,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.moamoa.LoginActivity;
 import com.example.moamoa.R;
-//import com.example.moamoa.User;
 import com.example.moamoa.ui.acount.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,7 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
+//import com.example.moamoa.User;
 
 public class MypageFragment extends Fragment {
 

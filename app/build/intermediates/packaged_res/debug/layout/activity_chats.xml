@@ -39,7 +39,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
-                    android:src="@drawable/ic_outline_dehaze_24" />
+                    android:src="@drawable/ic_outline_dehaze_24"
+                    android:contentDescription="menu" />
             </FrameLayout>
         </RelativeLayout>
 
@@ -67,7 +68,14 @@
             android:layout_height="match_parent"
             android:layout_gravity="end"
             android:fitsSystemWindows="true"
-            app:menu="@menu/chatdrawer" />
+            android:background="@color/white"
+
+            app:menu="@menu/chatdrawer"
+            app:headerLayout="@layout/nav_header_chats"
+            >
+                       
+
+        </com.google.android.material.navigation.NavigationView>
     </androidx.drawerlayout.widget.DrawerLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -11,8 +11,21 @@
     <uses-permission android:name="android.permission.INTERACT" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <queries>
+
+        <!-- 네이버앱 : 로그인, 스킴로그인 -->
+        <package android:name="com.nhn.android.search" />
+        <!-- 커스텀탭 로그인 -->
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService" />
+        </intent>
+
+        <package android:name="com.android.chrome" />
+    </queries>
+
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
@@ -27,6 +40,11 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.MOAMOA" >
+        <activity
+            android:name="com.example.moamoa.ui.dashboard.AddressApiActivity"
+            android:exported="false"
+            android:label="@string/title_activity_address_api"
+            android:theme="@style/Theme.MOAMOA.NoActionBar" />
         <activity
             android:name="com.example.moamoa.ui.chats.ChatsActivity"
             android:exported="false" />
@@ -68,6 +86,40 @@
         <activity
             android:name="com.example.moamoa.ui.mypage.Setting"
             android:label="환경설정" />
+        <!-- <activity -->
+        <!-- android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity" -->
+        <!-- android:configChanges="orientation|screenSize" -->
+        <!-- android:theme="@style/Theme.AppCompat.Light.Dialog" /> -->
+        <activity
+            android:name="com.navercorp.nid.oauth.NidOAuthBridgeActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" />
+        <activity
+            android:name="com.navercorp.nid.oauth.activity.NidOAuthWebViewActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="OAuth2.0 by WebView"
+            android:screenOrientation="behind"
+            android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" />
+        <activity
+            android:name="com.navercorp.nid.oauth.activity.NidOAuthCustomTabActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:label="OAuth2.0 by Custom tabs"
+            android:launchMode="singleTask"
+            android:screenOrientation="behind"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Intent URL 에서 로그인 액티비티를 실행하기 위해 설정 -->
+                <data
+                    android:host="authorize"
+                    android:path="/"
+                    android:scheme="naver3rdpartylogin" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"

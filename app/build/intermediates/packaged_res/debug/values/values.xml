@@ -3,33 +3,26 @@
     <string-array name="test">
         <item>식품</item>
         <item>의류</item>
-        <item>가전</item>
         <item>생활용품</item>
+        <item>취미</item>
         <item>기타</item>
 
     </string-array>
-    <string-array name="test2">
-        <item>전역</item>
-        <item>지역</item>
-    </string-array>
-    <string-array name="test3">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-    </string-array>
     <color name="black">#000000</color>
     <color name="gray">#8c8c8c</color>
+    <color name="kakao">#FEE500</color>
+    <color name="light_gray">#EAEAEA</color>
     <color name="main_green">#274E13</color>
     <color name="main_orange">#F1A94E</color>
+    <color name="naver">#03c75a</color>
     <color name="white">#FFFFFF</color>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
     <string name="app_name">MOAMOA</string>
     <string name="default_web_client_id" translatable="false">170210186260-4ge1o7dh207etiubbhubk002h10mpats.apps.googleusercontent.com</string>
+    <string name="exitchats">채팅방 나가기</string>
     <string name="gcm_defaultSenderId" translatable="false">170210186260</string>
-    <string name="getout">나가기</string>
     <string name="google_api_key" translatable="false">AIzaSyAOjSDUz0GD58SJbjPox9Xyx1PFARrPXao</string>
     <string name="google_app_id" translatable="false">1:170210186260:android:ae060a2f11659134404301</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAOjSDUz0GD58SJbjPox9Xyx1PFARrPXao</string>
@@ -41,13 +34,14 @@
     <string name="tab_text1_2">관심</string>
     <string name="tab_text1_3">식품</string>
     <string name="tab_text1_4">의류</string>
-    <string name="tab_text1_5">가전</string>
-    <string name="tab_text1_6">생활용품</string>
+    <string name="tab_text1_5">생활용품</string>
+    <string name="tab_text1_6">취미</string>
     <string name="tab_text1_7">기타</string>
     <string name="tab_text_1">참가 중</string>
     <string name="tab_text_2">공구 진행 중</string>
     <string name="tab_text_3">거래 완료</string>
     <string name="text_home_allview">전체보기</string>
+    <string name="title_activity_address_api">AddressApiActivity</string>
     <string name="title_activity_listup">ListupActivity</string>
     <string name="title_category">카테고리</string>
     <string name="title_category1">카테고리</string>

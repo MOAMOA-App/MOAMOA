@@ -22,13 +22,22 @@ public final class FragmentMyPageBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final TextView ID;
+
+  @NonNull
+  public final TextView area;
+
+  @NonNull
   public final ConstraintLayout constraintLayout;
 
   @NonNull
   public final ConstraintLayout constraintLayout2;
 
   @NonNull
-  public final ImageView imageView;
+  public final ImageView imageView3;
+
+  @NonNull
+  public final ImageView imageView4;
 
   @NonNull
   public final ListView listView1;
@@ -40,42 +49,41 @@ public final class FragmentMyPageBinding implements ViewBinding {
   public final ConstraintLayout myPage;
 
   @NonNull
-  public final TextView textView;
+  public final TextView nickname;
 
   @NonNull
-  public final TextView textView2;
+  public final ImageView profileImage;
+
+  @NonNull
+  public final TextView textView;
 
   @NonNull
   public final TextView textView3;
 
   @NonNull
-  public final TextView textView4;
-
-  @NonNull
   public final TextView textView5;
 
-  @NonNull
-  public final TextView textView6;
-
-  private FragmentMyPageBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout constraintLayout, @NonNull ConstraintLayout constraintLayout2,
-      @NonNull ImageView imageView, @NonNull ListView listView1, @NonNull ListView listView2,
-      @NonNull ConstraintLayout myPage, @NonNull TextView textView, @NonNull TextView textView2,
-      @NonNull TextView textView3, @NonNull TextView textView4, @NonNull TextView textView5,
-      @NonNull TextView textView6) {
+  private FragmentMyPageBinding(@NonNull ConstraintLayout rootView, @NonNull TextView ID,
+      @NonNull TextView area, @NonNull ConstraintLayout constraintLayout,
+      @NonNull ConstraintLayout constraintLayout2, @NonNull ImageView imageView3,
+      @NonNull ImageView imageView4, @NonNull ListView listView1, @NonNull ListView listView2,
+      @NonNull ConstraintLayout myPage, @NonNull TextView nickname, @NonNull ImageView profileImage,
+      @NonNull TextView textView, @NonNull TextView textView3, @NonNull TextView textView5) {
     this.rootView = rootView;
+    this.ID = ID;
+    this.area = area;
     this.constraintLayout = constraintLayout;
     this.constraintLayout2 = constraintLayout2;
-    this.imageView = imageView;
+    this.imageView3 = imageView3;
+    this.imageView4 = imageView4;
     this.listView1 = listView1;
     this.listView2 = listView2;
     this.myPage = myPage;
+    this.nickname = nickname;
+    this.profileImage = profileImage;
     this.textView = textView;
-    this.textView2 = textView2;
     this.textView3 = textView3;
-    this.textView4 = textView4;
     this.textView5 = textView5;
-    this.textView6 = textView6;
   }
 
   @Override
@@ -105,6 +113,18 @@ public final class FragmentMyPageBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.ID;
+      TextView ID = ViewBindings.findChildViewById(rootView, id);
+      if (ID == null) {
+        break missingId;
+      }
+
+      id = R.id.area;
+      TextView area = ViewBindings.findChildViewById(rootView, id);
+      if (area == null) {
+        break missingId;
+      }
+
       id = R.id.constraintLayout;
       ConstraintLayout constraintLayout = ViewBindings.findChildViewById(rootView, id);
       if (constraintLayout == null) {
@@ -117,9 +137,15 @@ public final class FragmentMyPageBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.imageView;
-      ImageView imageView = ViewBindings.findChildViewById(rootView, id);
-      if (imageView == null) {
+      id = R.id.imageView3;
+      ImageView imageView3 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView3 == null) {
+        break missingId;
+      }
+
+      id = R.id.imageView4;
+      ImageView imageView4 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView4 == null) {
         break missingId;
       }
 
@@ -137,15 +163,21 @@ public final class FragmentMyPageBinding implements ViewBinding {
 
       ConstraintLayout myPage = (ConstraintLayout) rootView;
 
-      id = R.id.textView;
-      TextView textView = ViewBindings.findChildViewById(rootView, id);
-      if (textView == null) {
+      id = R.id.nickname;
+      TextView nickname = ViewBindings.findChildViewById(rootView, id);
+      if (nickname == null) {
         break missingId;
       }
 
-      id = R.id.textView2;
-      TextView textView2 = ViewBindings.findChildViewById(rootView, id);
-      if (textView2 == null) {
+      id = R.id.profile_image;
+      ImageView profileImage = ViewBindings.findChildViewById(rootView, id);
+      if (profileImage == null) {
+        break missingId;
+      }
+
+      id = R.id.textView;
+      TextView textView = ViewBindings.findChildViewById(rootView, id);
+      if (textView == null) {
         break missingId;
       }
 
@@ -155,27 +187,15 @@ public final class FragmentMyPageBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textView4;
-      TextView textView4 = ViewBindings.findChildViewById(rootView, id);
-      if (textView4 == null) {
-        break missingId;
-      }
-
       id = R.id.textView5;
       TextView textView5 = ViewBindings.findChildViewById(rootView, id);
       if (textView5 == null) {
         break missingId;
       }
 
-      id = R.id.textView6;
-      TextView textView6 = ViewBindings.findChildViewById(rootView, id);
-      if (textView6 == null) {
-        break missingId;
-      }
-
-      return new FragmentMyPageBinding((ConstraintLayout) rootView, constraintLayout,
-          constraintLayout2, imageView, listView1, listView2, myPage, textView, textView2,
-          textView3, textView4, textView5, textView6);
+      return new FragmentMyPageBinding((ConstraintLayout) rootView, ID, area, constraintLayout,
+          constraintLayout2, imageView3, imageView4, listView1, listView2, myPage, nickname,
+          profileImage, textView, textView3, textView5);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

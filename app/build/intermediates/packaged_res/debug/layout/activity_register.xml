@@ -17,13 +17,14 @@
         android:orientation="vertical">
         <EditText
             android:id="@+id/nameEt"
-            android:layout_width="263dp"
+            android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginTop="104dp"
             android:hint="NAME"/>
+
         <EditText
-            android:id="@+id/emailEt"
-            android:layout_width="263dp"
+            android:id="@+id/confirmEdt"
+            android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginTop="10dp"
             android:hint="E-MAIL"
@@ -31,15 +32,16 @@
 
         <EditText
             android:id="@+id/passwordEdt"
-            android:layout_width="263dp"
+            android:layout_width="match_parent"
             android:layout_height="41dp"
             android:layout_marginTop="10dp"
             android:hint="비밀번호"
             android:imeOptions="actionDone"
             android:inputType="textPassword" />
+
         <EditText
             android:id="@+id/passwordcheckEdt"
-            android:layout_width="263dp"
+            android:layout_width="match_parent"
             android:layout_height="41dp"
             android:layout_marginTop="10dp"
             android:hint="비밀번호 확인"
@@ -47,13 +49,6 @@
             android:inputType="textPassword" />
 
 
-        <Button
-            android:id="@+id/register_reg"
-            android:layout_width="263dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="32dp"
-            android:text="가입하기" />
 
         <ProgressBar
             android:id="@+id/loading"
@@ -64,4 +59,18 @@
             android:layout_marginBottom="64dp"
             android:visibility="gone" />
     </LinearLayout>
+    <Button
+        android:id="@+id/register_reg"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="22dp"
+        android:background="@color/main_green"
+        android:text="회원가입"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

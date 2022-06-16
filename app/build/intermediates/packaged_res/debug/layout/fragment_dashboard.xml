@@ -11,8 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
         <Button
+            android:id="@+id/button_img"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="10dp"
@@ -23,8 +26,15 @@
             android:textAlignment="center"
             />
 
+        <TextView
+            android:id="@+id/num_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"  />
+
+    </LinearLayout>
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="182dp"
             android:src="@android:mipmap/sym_def_app_icon"
@@ -34,20 +44,17 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="10dp"
-            android:hint="제목" />
+            android:hint="제목"
+
+            android:id="@+id/subject"/>
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="10dp"
             android:entries="@array/test"/>
-        <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_margin="10dp"
-            android:entries="@array/test2">
-        </Spinner>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -75,17 +82,21 @@
             android:layout_margin="10dp"
             android:gravity="top"
             android:hint="내용"
+            android:id="@+id/text"
             android:minHeight="200dp" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="10dp"
             android:hint="인원"
+            android:id="@+id/max_count"
             android:inputType="number" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:hint="거래 장소"
+            android:id="@+id/address"
+
             android:layout_margin="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -96,7 +107,8 @@
         android:layout_width="72dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="시작일자" />
+        android:text="시작일자"
+    />
 
         <TextView
             android:id="@+id/text_dashboardstart"
@@ -104,7 +116,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="시작일자"
-            android:inputType="date" />
+            android:inputType="date"
+
+            />
 
 
     </LinearLayout>
@@ -138,6 +152,7 @@
                 android:textAlignment="center" />
     </LinearLayout>
     <Button
+            android:id="@+id/button_dashboard"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="20"

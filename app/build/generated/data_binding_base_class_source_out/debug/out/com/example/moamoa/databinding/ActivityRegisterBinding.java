@@ -22,10 +22,10 @@ public final class ActivityRegisterBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final ConstraintLayout container;
+  public final EditText confirmEdt;
 
   @NonNull
-  public final EditText emailEt;
+  public final ConstraintLayout container;
 
   @NonNull
   public final ProgressBar loading;
@@ -42,13 +42,13 @@ public final class ActivityRegisterBinding implements ViewBinding {
   @NonNull
   public final Button registerReg;
 
-  private ActivityRegisterBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout container, @NonNull EditText emailEt, @NonNull ProgressBar loading,
-      @NonNull EditText nameEt, @NonNull EditText passwordEdt, @NonNull EditText passwordcheckEdt,
+  private ActivityRegisterBinding(@NonNull ConstraintLayout rootView, @NonNull EditText confirmEdt,
+      @NonNull ConstraintLayout container, @NonNull ProgressBar loading, @NonNull EditText nameEt,
+      @NonNull EditText passwordEdt, @NonNull EditText passwordcheckEdt,
       @NonNull Button registerReg) {
     this.rootView = rootView;
+    this.confirmEdt = confirmEdt;
     this.container = container;
-    this.emailEt = emailEt;
     this.loading = loading;
     this.nameEt = nameEt;
     this.passwordEdt = passwordEdt;
@@ -83,13 +83,13 @@ public final class ActivityRegisterBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      ConstraintLayout container = (ConstraintLayout) rootView;
-
-      id = R.id.emailEt;
-      EditText emailEt = ViewBindings.findChildViewById(rootView, id);
-      if (emailEt == null) {
+      id = R.id.confirmEdt;
+      EditText confirmEdt = ViewBindings.findChildViewById(rootView, id);
+      if (confirmEdt == null) {
         break missingId;
       }
+
+      ConstraintLayout container = (ConstraintLayout) rootView;
 
       id = R.id.loading;
       ProgressBar loading = ViewBindings.findChildViewById(rootView, id);
@@ -121,8 +121,8 @@ public final class ActivityRegisterBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityRegisterBinding((ConstraintLayout) rootView, container, emailEt, loading,
-          nameEt, passwordEdt, passwordcheckEdt, registerReg);
+      return new ActivityRegisterBinding((ConstraintLayout) rootView, confirmEdt, container,
+          loading, nameEt, passwordEdt, passwordcheckEdt, registerReg);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

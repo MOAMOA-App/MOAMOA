@@ -271,6 +271,10 @@ attr circularflow_defaultAngle
 attr circularflow_defaultRadius
 attr circularflow_radiusInDP
 attr circularflow_viewCenter
+attr civ_border_color
+attr civ_border_overlay
+attr civ_border_width
+attr civ_circle_background_color
 attr clearTop
 attr clearsTag
 attr clickAction
@@ -1352,6 +1356,7 @@ color gray
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color kakao
+color light_gray
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -2010,6 +2015,7 @@ dimen design_tab_text_size_2line
 dimen design_textinput_caption_translate_y
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
+dimen fab_margin
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
 dimen fastscroll_minimum_range
@@ -2578,6 +2584,10 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable edit_border
 drawable empty_heart
+drawable formdetail_button_style
+drawable formdetail_heart_layer
+drawable formdetail_profile_bottomline
+drawable formdetail_top_border
 drawable full_heart
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
@@ -2588,6 +2598,8 @@ drawable ic_baseline_add_to_photos_24
 drawable ic_baseline_apps_24
 drawable ic_baseline_chevron_right_24
 drawable ic_baseline_clear_24
+drawable ic_baseline_favorite_24
+drawable ic_baseline_favorite_border_24
 drawable ic_baseline_loop_24
 drawable ic_baseline_photo
 drawable ic_baseline_supervisor_account_24
@@ -2611,10 +2623,9 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_notifications_black_24dp
 drawable ic_outline_arrow_back_ios_24
 drawable ic_outline_dehaze_24
-drawable kakao_login_large_wide
-drawable kakao_login_medium_wide
 drawable korea
 drawable login_btn_img
+drawable login_btn_style
 drawable m3_appbar_background
 drawable m3_popupmenu_background_overlay
 drawable m3_radiobutton_ripple
@@ -2648,6 +2659,7 @@ drawable mypage_right_border
 drawable mypage_top_border
 drawable nav_selector_color
 drawable naver_icon
+drawable naver_square_icon
 drawable navigation_empty_icon
 drawable nid_progress_dialog_shape
 drawable notification_action_background
@@ -2673,6 +2685,7 @@ id Button_send
 id CTRL
 id EditText_chat
 id FID
+id FIDD
 id FUNCTION
 id ID
 id Linear_chatmsg
@@ -2786,7 +2799,6 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
-id brand_logo
 id browser_actions_header_text
 id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
@@ -2892,10 +2904,13 @@ id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
 id detail_category
+id detail_chat_btn
 id detail_cost
 id detail_cost_view1
+id detail_heart_btn
 id detail_local
 id detail_nick
+id detail_party_btn
 id detail_profile
 id detail_subject
 id detail_textarea
@@ -2932,6 +2947,7 @@ id editnick
 id edittext_dropdown_editable
 id edittext_dropdown_noneditable
 id elastic
+id empty_heart
 id end
 id endToStart
 id end_padder
@@ -2964,6 +2980,7 @@ id fragment_chats_view
 id fragment_container_view_tag
 id frameLayout
 id frost
+id full_heart
 id fullscreen_header
 id game_group
 id game_group1
@@ -2973,7 +2990,7 @@ id glide_custom_view_target_tag
 id gone
 id goods_group
 id goods_group1
-id google_login
+id google_login_btn
 id graph
 id graph_wrap
 id group_divider
@@ -2983,6 +3000,8 @@ id guideline
 id hardware
 id header_title
 id heart
+id heart_layout
+id heart_num
 id hideable
 id home
 id homeAsUp
@@ -3014,7 +3033,7 @@ id item4
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
-id kakao_login
+id kakao_login_btn
 id labeled
 id layout
 id left
@@ -3122,7 +3141,7 @@ id nav_controller_view_tag
 id nav_host
 id nav_host_fragment_container
 id nav_view
-id naver_login
+id naver_login_btn
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3156,6 +3175,7 @@ id notification_background
 id notification_list
 id notification_main_column
 id notification_main_column_container
+id num_form
 id oauth_clientid
 id oauth_clientname
 id oauth_clientsecret
@@ -3518,6 +3538,7 @@ layout activity_main
 layout activity_oauth_webview
 layout activity_phone
 layout activity_register
+layout addressapi
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout created_forms
@@ -3555,7 +3576,6 @@ layout fragment_notifications
 layout homelistview
 layout listup
 layout listview
-layout login_btn
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3840,6 +3860,7 @@ string tab_text_1
 string tab_text_2
 string tab_text_3
 string text_home_allview
+string title_activity_address_api
 string title_activity_listup
 string title_category
 string title_category1
@@ -4949,6 +4970,7 @@ styleable Carousel carousel_backwardTransition carousel_emptyViewsBehavior carou
 styleable CheckedTextView android_checkMark checkMarkCompat checkMarkTint checkMarkTintMode
 styleable Chip android_textAppearance android_textSize android_textColor android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconTint checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipMinTouchTargetSize chipStartPadding chipStrokeColor chipStrokeWidth chipSurfaceColor closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible ensureMinTouchTargetSize hideMotionSpec iconEndPadding iconStartPadding rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec textEndPadding textStartPadding
 styleable ChipGroup checkedChip chipSpacing chipSpacingHorizontal chipSpacingVertical selectionRequired singleLine singleSelection
+styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_circle_background_color
 styleable CircularProgressIndicator indicatorDirectionCircular indicatorInset indicatorSize
 styleable ClockFaceView clockFaceBackgroundColor clockNumberTextColor
 styleable ClockHandView clockHandColor materialCircleRadius selectorSize

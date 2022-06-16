@@ -4,6 +4,11 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -11,6 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
+import de.hdodenhof.circleimageview.CircleImageView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -25,11 +31,69 @@ public final class ActivityFormdetailBinding implements ViewBinding {
   @NonNull
   public final ConstraintLayout container;
 
+  @NonNull
+  public final TextView detailCategory;
+
+  @NonNull
+  public final Button detailChatBtn;
+
+  @NonNull
+  public final TextView detailCost;
+
+  @NonNull
+  public final TextView detailCostView1;
+
+  @NonNull
+  public final ImageButton detailHeartBtn;
+
+  @NonNull
+  public final TextView detailLocal;
+
+  @NonNull
+  public final TextView detailNick;
+
+  @NonNull
+  public final Button detailPartyBtn;
+
+  @NonNull
+  public final CircleImageView detailProfile;
+
+  @NonNull
+  public final TextView detailSubject;
+
+  @NonNull
+  public final TextView detailTextarea;
+
+  @NonNull
+  public final LinearLayout heartLayout;
+
+  @NonNull
+  public final ImageView mainImage;
+
   private ActivityFormdetailBinding(@NonNull ConstraintLayout rootView, @NonNull Toolbar appbar,
-      @NonNull ConstraintLayout container) {
+      @NonNull ConstraintLayout container, @NonNull TextView detailCategory,
+      @NonNull Button detailChatBtn, @NonNull TextView detailCost,
+      @NonNull TextView detailCostView1, @NonNull ImageButton detailHeartBtn,
+      @NonNull TextView detailLocal, @NonNull TextView detailNick, @NonNull Button detailPartyBtn,
+      @NonNull CircleImageView detailProfile, @NonNull TextView detailSubject,
+      @NonNull TextView detailTextarea, @NonNull LinearLayout heartLayout,
+      @NonNull ImageView mainImage) {
     this.rootView = rootView;
     this.appbar = appbar;
     this.container = container;
+    this.detailCategory = detailCategory;
+    this.detailChatBtn = detailChatBtn;
+    this.detailCost = detailCost;
+    this.detailCostView1 = detailCostView1;
+    this.detailHeartBtn = detailHeartBtn;
+    this.detailLocal = detailLocal;
+    this.detailNick = detailNick;
+    this.detailPartyBtn = detailPartyBtn;
+    this.detailProfile = detailProfile;
+    this.detailSubject = detailSubject;
+    this.detailTextarea = detailTextarea;
+    this.heartLayout = heartLayout;
+    this.mainImage = mainImage;
   }
 
   @Override
@@ -67,7 +131,88 @@ public final class ActivityFormdetailBinding implements ViewBinding {
 
       ConstraintLayout container = (ConstraintLayout) rootView;
 
-      return new ActivityFormdetailBinding((ConstraintLayout) rootView, appbar, container);
+      id = R.id.detail_category;
+      TextView detailCategory = ViewBindings.findChildViewById(rootView, id);
+      if (detailCategory == null) {
+        break missingId;
+      }
+
+      id = R.id.detail_chat_btn;
+      Button detailChatBtn = ViewBindings.findChildViewById(rootView, id);
+      if (detailChatBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.detail_cost;
+      TextView detailCost = ViewBindings.findChildViewById(rootView, id);
+      if (detailCost == null) {
+        break missingId;
+      }
+
+      id = R.id.detail_cost_view1;
+      TextView detailCostView1 = ViewBindings.findChildViewById(rootView, id);
+      if (detailCostView1 == null) {
+        break missingId;
+      }
+
+      id = R.id.detail_heart_btn;
+      ImageButton detailHeartBtn = ViewBindings.findChildViewById(rootView, id);
+      if (detailHeartBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.detail_local;
+      TextView detailLocal = ViewBindings.findChildViewById(rootView, id);
+      if (detailLocal == null) {
+        break missingId;
+      }
+
+      id = R.id.detail_nick;
+      TextView detailNick = ViewBindings.findChildViewById(rootView, id);
+      if (detailNick == null) {
+        break missingId;
+      }
+
+      id = R.id.detail_party_btn;
+      Button detailPartyBtn = ViewBindings.findChildViewById(rootView, id);
+      if (detailPartyBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.detail_profile;
+      CircleImageView detailProfile = ViewBindings.findChildViewById(rootView, id);
+      if (detailProfile == null) {
+        break missingId;
+      }
+
+      id = R.id.detail_subject;
+      TextView detailSubject = ViewBindings.findChildViewById(rootView, id);
+      if (detailSubject == null) {
+        break missingId;
+      }
+
+      id = R.id.detail_textarea;
+      TextView detailTextarea = ViewBindings.findChildViewById(rootView, id);
+      if (detailTextarea == null) {
+        break missingId;
+      }
+
+      id = R.id.heart_layout;
+      LinearLayout heartLayout = ViewBindings.findChildViewById(rootView, id);
+      if (heartLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.mainImage;
+      ImageView mainImage = ViewBindings.findChildViewById(rootView, id);
+      if (mainImage == null) {
+        break missingId;
+      }
+
+      return new ActivityFormdetailBinding((ConstraintLayout) rootView, appbar, container,
+          detailCategory, detailChatBtn, detailCost, detailCostView1, detailHeartBtn, detailLocal,
+          detailNick, detailPartyBtn, detailProfile, detailSubject, detailTextarea, heartLayout,
+          mainImage);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

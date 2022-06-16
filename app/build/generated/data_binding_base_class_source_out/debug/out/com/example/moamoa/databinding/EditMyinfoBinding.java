@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -23,104 +22,116 @@ public final class EditMyinfoBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button button;
+  public final Button button6;
 
   @NonNull
-  public final Button button2;
+  public final Button button7;
 
   @NonNull
-  public final ConstraintLayout constraintLayout3;
+  public final ConstraintLayout constraintLayout6;
 
   @NonNull
-  public final ConstraintLayout constraintLayout4;
-
-  @NonNull
-  public final ConstraintLayout constraintLayout5;
+  public final ConstraintLayout constraintLayout7;
 
   @NonNull
   public final ConstraintLayout editMyinfo;
 
   @NonNull
-  public final EditText editTextPhone;
+  public final EditText editTextPhone2;
 
   @NonNull
   public final EditText editTextTextEmailAddress;
 
   @NonNull
-  public final EditText editTextTextPassword2;
+  public final TextView name;
 
   @NonNull
-  public final EditText editTextTextPassword4;
+  public final EditText newpassword;
 
   @NonNull
-  public final EditText editTextTextPassword5;
+  public final Button passwordButton;
 
   @NonNull
-  public final TextView textView10;
+  public final EditText passwordchk;
 
   @NonNull
-  public final TextView textView11;
+  public final EditText presentpassword;
 
   @NonNull
-  public final TextView textView12;
+  public final TextView pwdtext;
 
   @NonNull
-  public final TextView textView13;
+  public final TextView textView23;
 
   @NonNull
-  public final TextView textView14;
+  public final TextView textView24;
 
   @NonNull
-  public final EditText textView15;
+  public final TextView textView25;
 
   @NonNull
-  public final TextView textView16;
+  public final TextView textView26;
 
   @NonNull
-  public final TextView textView7;
+  public final TextView textView28;
 
   @NonNull
-  public final TextView textView8;
+  public final TextView textView29;
 
   @NonNull
-  public final TextView textView9;
+  public final TextView textView30;
 
   @NonNull
-  public final Toolbar toolbar;
+  public final TextView textView31;
 
-  private EditMyinfoBinding(@NonNull ConstraintLayout rootView, @NonNull Button button,
-      @NonNull Button button2, @NonNull ConstraintLayout constraintLayout3,
-      @NonNull ConstraintLayout constraintLayout4, @NonNull ConstraintLayout constraintLayout5,
-      @NonNull ConstraintLayout editMyinfo, @NonNull EditText editTextPhone,
-      @NonNull EditText editTextTextEmailAddress, @NonNull EditText editTextTextPassword2,
-      @NonNull EditText editTextTextPassword4, @NonNull EditText editTextTextPassword5,
-      @NonNull TextView textView10, @NonNull TextView textView11, @NonNull TextView textView12,
-      @NonNull TextView textView13, @NonNull TextView textView14, @NonNull EditText textView15,
-      @NonNull TextView textView16, @NonNull TextView textView7, @NonNull TextView textView8,
-      @NonNull TextView textView9, @NonNull Toolbar toolbar) {
+  @NonNull
+  public final TextView textView32;
+
+  @NonNull
+  public final TextView textView33;
+
+  @NonNull
+  public final TextView textView34;
+
+  @NonNull
+  public final TextView textView4;
+
+  private EditMyinfoBinding(@NonNull ConstraintLayout rootView, @NonNull Button button6,
+      @NonNull Button button7, @NonNull ConstraintLayout constraintLayout6,
+      @NonNull ConstraintLayout constraintLayout7, @NonNull ConstraintLayout editMyinfo,
+      @NonNull EditText editTextPhone2, @NonNull EditText editTextTextEmailAddress,
+      @NonNull TextView name, @NonNull EditText newpassword, @NonNull Button passwordButton,
+      @NonNull EditText passwordchk, @NonNull EditText presentpassword, @NonNull TextView pwdtext,
+      @NonNull TextView textView23, @NonNull TextView textView24, @NonNull TextView textView25,
+      @NonNull TextView textView26, @NonNull TextView textView28, @NonNull TextView textView29,
+      @NonNull TextView textView30, @NonNull TextView textView31, @NonNull TextView textView32,
+      @NonNull TextView textView33, @NonNull TextView textView34, @NonNull TextView textView4) {
     this.rootView = rootView;
-    this.button = button;
-    this.button2 = button2;
-    this.constraintLayout3 = constraintLayout3;
-    this.constraintLayout4 = constraintLayout4;
-    this.constraintLayout5 = constraintLayout5;
+    this.button6 = button6;
+    this.button7 = button7;
+    this.constraintLayout6 = constraintLayout6;
+    this.constraintLayout7 = constraintLayout7;
     this.editMyinfo = editMyinfo;
-    this.editTextPhone = editTextPhone;
+    this.editTextPhone2 = editTextPhone2;
     this.editTextTextEmailAddress = editTextTextEmailAddress;
-    this.editTextTextPassword2 = editTextTextPassword2;
-    this.editTextTextPassword4 = editTextTextPassword4;
-    this.editTextTextPassword5 = editTextTextPassword5;
-    this.textView10 = textView10;
-    this.textView11 = textView11;
-    this.textView12 = textView12;
-    this.textView13 = textView13;
-    this.textView14 = textView14;
-    this.textView15 = textView15;
-    this.textView16 = textView16;
-    this.textView7 = textView7;
-    this.textView8 = textView8;
-    this.textView9 = textView9;
-    this.toolbar = toolbar;
+    this.name = name;
+    this.newpassword = newpassword;
+    this.passwordButton = passwordButton;
+    this.passwordchk = passwordchk;
+    this.presentpassword = presentpassword;
+    this.pwdtext = pwdtext;
+    this.textView23 = textView23;
+    this.textView24 = textView24;
+    this.textView25 = textView25;
+    this.textView26 = textView26;
+    this.textView28 = textView28;
+    this.textView29 = textView29;
+    this.textView30 = textView30;
+    this.textView31 = textView31;
+    this.textView32 = textView32;
+    this.textView33 = textView33;
+    this.textView34 = textView34;
+    this.textView4 = textView4;
   }
 
   @Override
@@ -150,41 +161,35 @@ public final class EditMyinfoBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.button;
-      Button button = ViewBindings.findChildViewById(rootView, id);
-      if (button == null) {
+      id = R.id.button6;
+      Button button6 = ViewBindings.findChildViewById(rootView, id);
+      if (button6 == null) {
         break missingId;
       }
 
-      id = R.id.button2;
-      Button button2 = ViewBindings.findChildViewById(rootView, id);
-      if (button2 == null) {
+      id = R.id.button7;
+      Button button7 = ViewBindings.findChildViewById(rootView, id);
+      if (button7 == null) {
         break missingId;
       }
 
-      id = R.id.constraintLayout3;
-      ConstraintLayout constraintLayout3 = ViewBindings.findChildViewById(rootView, id);
-      if (constraintLayout3 == null) {
+      id = R.id.constraintLayout6;
+      ConstraintLayout constraintLayout6 = ViewBindings.findChildViewById(rootView, id);
+      if (constraintLayout6 == null) {
         break missingId;
       }
 
-      id = R.id.constraintLayout4;
-      ConstraintLayout constraintLayout4 = ViewBindings.findChildViewById(rootView, id);
-      if (constraintLayout4 == null) {
-        break missingId;
-      }
-
-      id = R.id.constraintLayout5;
-      ConstraintLayout constraintLayout5 = ViewBindings.findChildViewById(rootView, id);
-      if (constraintLayout5 == null) {
+      id = R.id.constraintLayout7;
+      ConstraintLayout constraintLayout7 = ViewBindings.findChildViewById(rootView, id);
+      if (constraintLayout7 == null) {
         break missingId;
       }
 
       ConstraintLayout editMyinfo = (ConstraintLayout) rootView;
 
-      id = R.id.editTextPhone;
-      EditText editTextPhone = ViewBindings.findChildViewById(rootView, id);
-      if (editTextPhone == null) {
+      id = R.id.editTextPhone2;
+      EditText editTextPhone2 = ViewBindings.findChildViewById(rootView, id);
+      if (editTextPhone2 == null) {
         break missingId;
       }
 
@@ -194,95 +199,119 @@ public final class EditMyinfoBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.editTextTextPassword2;
-      EditText editTextTextPassword2 = ViewBindings.findChildViewById(rootView, id);
-      if (editTextTextPassword2 == null) {
+      id = R.id.name;
+      TextView name = ViewBindings.findChildViewById(rootView, id);
+      if (name == null) {
         break missingId;
       }
 
-      id = R.id.editTextTextPassword4;
-      EditText editTextTextPassword4 = ViewBindings.findChildViewById(rootView, id);
-      if (editTextTextPassword4 == null) {
+      id = R.id.newpassword;
+      EditText newpassword = ViewBindings.findChildViewById(rootView, id);
+      if (newpassword == null) {
         break missingId;
       }
 
-      id = R.id.editTextTextPassword5;
-      EditText editTextTextPassword5 = ViewBindings.findChildViewById(rootView, id);
-      if (editTextTextPassword5 == null) {
+      id = R.id.password_button;
+      Button passwordButton = ViewBindings.findChildViewById(rootView, id);
+      if (passwordButton == null) {
         break missingId;
       }
 
-      id = R.id.textView10;
-      TextView textView10 = ViewBindings.findChildViewById(rootView, id);
-      if (textView10 == null) {
+      id = R.id.passwordchk;
+      EditText passwordchk = ViewBindings.findChildViewById(rootView, id);
+      if (passwordchk == null) {
         break missingId;
       }
 
-      id = R.id.textView11;
-      TextView textView11 = ViewBindings.findChildViewById(rootView, id);
-      if (textView11 == null) {
+      id = R.id.presentpassword;
+      EditText presentpassword = ViewBindings.findChildViewById(rootView, id);
+      if (presentpassword == null) {
         break missingId;
       }
 
-      id = R.id.textView12;
-      TextView textView12 = ViewBindings.findChildViewById(rootView, id);
-      if (textView12 == null) {
+      id = R.id.pwdtext;
+      TextView pwdtext = ViewBindings.findChildViewById(rootView, id);
+      if (pwdtext == null) {
         break missingId;
       }
 
-      id = R.id.textView13;
-      TextView textView13 = ViewBindings.findChildViewById(rootView, id);
-      if (textView13 == null) {
+      id = R.id.textView23;
+      TextView textView23 = ViewBindings.findChildViewById(rootView, id);
+      if (textView23 == null) {
         break missingId;
       }
 
-      id = R.id.textView14;
-      TextView textView14 = ViewBindings.findChildViewById(rootView, id);
-      if (textView14 == null) {
+      id = R.id.textView24;
+      TextView textView24 = ViewBindings.findChildViewById(rootView, id);
+      if (textView24 == null) {
         break missingId;
       }
 
-      id = R.id.textView15;
-      EditText textView15 = ViewBindings.findChildViewById(rootView, id);
-      if (textView15 == null) {
+      id = R.id.textView25;
+      TextView textView25 = ViewBindings.findChildViewById(rootView, id);
+      if (textView25 == null) {
         break missingId;
       }
 
-      id = R.id.textView16;
-      TextView textView16 = ViewBindings.findChildViewById(rootView, id);
-      if (textView16 == null) {
+      id = R.id.textView26;
+      TextView textView26 = ViewBindings.findChildViewById(rootView, id);
+      if (textView26 == null) {
         break missingId;
       }
 
-      id = R.id.textView7;
-      TextView textView7 = ViewBindings.findChildViewById(rootView, id);
-      if (textView7 == null) {
+      id = R.id.textView28;
+      TextView textView28 = ViewBindings.findChildViewById(rootView, id);
+      if (textView28 == null) {
         break missingId;
       }
 
-      id = R.id.textView8;
-      TextView textView8 = ViewBindings.findChildViewById(rootView, id);
-      if (textView8 == null) {
+      id = R.id.textView29;
+      TextView textView29 = ViewBindings.findChildViewById(rootView, id);
+      if (textView29 == null) {
         break missingId;
       }
 
-      id = R.id.textView9;
-      TextView textView9 = ViewBindings.findChildViewById(rootView, id);
-      if (textView9 == null) {
+      id = R.id.textView30;
+      TextView textView30 = ViewBindings.findChildViewById(rootView, id);
+      if (textView30 == null) {
         break missingId;
       }
 
-      id = R.id.toolbar;
-      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
-      if (toolbar == null) {
+      id = R.id.textView31;
+      TextView textView31 = ViewBindings.findChildViewById(rootView, id);
+      if (textView31 == null) {
         break missingId;
       }
 
-      return new EditMyinfoBinding((ConstraintLayout) rootView, button, button2, constraintLayout3,
-          constraintLayout4, constraintLayout5, editMyinfo, editTextPhone, editTextTextEmailAddress,
-          editTextTextPassword2, editTextTextPassword4, editTextTextPassword5, textView10,
-          textView11, textView12, textView13, textView14, textView15, textView16, textView7,
-          textView8, textView9, toolbar);
+      id = R.id.textView32;
+      TextView textView32 = ViewBindings.findChildViewById(rootView, id);
+      if (textView32 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView33;
+      TextView textView33 = ViewBindings.findChildViewById(rootView, id);
+      if (textView33 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView34;
+      TextView textView34 = ViewBindings.findChildViewById(rootView, id);
+      if (textView34 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView4;
+      TextView textView4 = ViewBindings.findChildViewById(rootView, id);
+      if (textView4 == null) {
+        break missingId;
+      }
+
+      return new EditMyinfoBinding((ConstraintLayout) rootView, button6, button7, constraintLayout6,
+          constraintLayout7, editMyinfo, editTextPhone2, editTextTextEmailAddress, name,
+          newpassword, passwordButton, passwordchk, presentpassword, pwdtext, textView23,
+          textView24, textView25, textView26, textView28, textView29, textView30, textView31,
+          textView32, textView33, textView34, textView4);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

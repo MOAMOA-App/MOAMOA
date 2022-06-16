@@ -12,6 +12,8 @@
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/formdetail_heart_layer.xml" value="0.18" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/formdetail_profile_bottomline.xml" value="0.18" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/formdetail_top_border.xml" value="0.2385" />
+        <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/full_heart.xml" value="0.1965" />
+        <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/heart.xml" value="0.1965" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.1955" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/ic_baseline_photo.xml" value="0.213" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/ic_create_24.xml" value="0.1625" />
@@ -21,6 +23,7 @@
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/ic_launcher_background.xml" value="0.362" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/ic_main_background.xml" value="0.2335" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.362" />
+        <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/login_btn_style.xml" value="0.1965" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/nav_selector_color.xml" value="0.2565" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/drawable/profile_style.xml" value="0.1955" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/activity_category.xml" value="0.146875" />
@@ -56,7 +59,7 @@
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/homelistview.xml" value="0.21965579710144928" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/listup.xml" value="0.151268115942029" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/listview.xml" value="0.33" />
-        <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/login_btn.xml" value="0.21" />
+        <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/login_btn.xml" value="0.25" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/nav_header_chats.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/naver_example.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Owner/AndroidStudioProjects/MOAMOA/app/src/main/res/layout/nickname.xml" value="0.36614583333333334" />

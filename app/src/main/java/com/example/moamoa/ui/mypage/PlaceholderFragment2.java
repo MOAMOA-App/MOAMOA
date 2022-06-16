@@ -6,19 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.moamoa.R;
-import com.example.moamoa.databinding.CreatedFormsBinding;
 import com.example.moamoa.databinding.EmptyFormsBinding;
 
 import java.util.ArrayList;
@@ -77,8 +71,8 @@ public class PlaceholderFragment2 extends Fragment {
         }
 
         //viewpager에 리스트 띄워줌
-        ListAdapter oAdapter = new CustomListView(listViewData);
-        listView.setAdapter(oAdapter);
+        //ListAdapter oAdapter = new CustomListView(listViewData);
+        //listView.setAdapter(oAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
