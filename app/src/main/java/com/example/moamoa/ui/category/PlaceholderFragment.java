@@ -23,6 +23,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.EmptyFormsBinding;
+import com.example.moamoa.databinding.ParticipatedFormsBinding;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -42,7 +43,7 @@ public class PlaceholderFragment extends Fragment {
     private int index = 1;
 
     private PageViewModel pageViewModel;
-    private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
+    private ParticipatedFormsBinding binding;  //empty_forms를 viewpager에 binding
     FirebaseDatabase firebaseDatabase;
 
     public static PlaceholderFragment newInstance(int index) {
@@ -74,7 +75,7 @@ public class PlaceholderFragment extends Fragment {
         int pos = getArguments().getInt(ARG_SECTION_NUMBER);
 
 
-        binding = EmptyFormsBinding.inflate(inflater, container, false);
+        binding = ParticipatedFormsBinding.inflate(inflater, container, false);
 
         View root = binding.getRoot();
         //index = bundle.getInt("grade", 0);
