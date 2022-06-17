@@ -27,6 +27,7 @@
     <string name="google_app_id" translatable="false">1:170210186260:android:ae060a2f11659134404301</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAOjSDUz0GD58SJbjPox9Xyx1PFARrPXao</string>
     <string name="google_storage_bucket" translatable="false">moamoa-e391d.appspot.com</string>
+    <string name="kakao_app_key">1ffe313e2b6c001fbbd0f795eedfc0be</string>
     <string name="participants">참여자</string>
     <string name="project_id" translatable="false">moamoa-e391d</string>
     <string name="selectlanguage">언어 선택</string>
@@ -54,17 +55,17 @@
     <string name="title_my_page">마이페이지</string>
     <string name="title_notifications">알람</string>
     <style name="Theme.MOAMOA" parent="Theme.AppCompat.Light">
-        <!-- Primary brand color. -->
+        
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryVariant">@color/main_orange</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
+        
         <item name="colorSecondary">@color/white</item>
         <item name="colorSecondaryVariant">@color/white</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
+        
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        
 
         <item name="android:textColor">@color/black</item>
 

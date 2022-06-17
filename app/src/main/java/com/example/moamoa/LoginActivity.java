@@ -1,6 +1,10 @@
 package com.example.moamoa;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,10 +33,17 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.kakao.sdk.auth.model.OAuthToken;
+import com.kakao.sdk.user.UserApiClient;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -63,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         TextView Naver_Login = (TextView) findViewById(R.id.naver_login_btn);
         TextView Kakao_Login = (TextView) findViewById(R.id.kakao_login_btn);
         Register = (TextView) findViewById(R.id.register_log);
-
+        //Log.e("getKeyHash", "" +getKeyHash(LoginActivity.this));
         mAuth = FirebaseAuth.getInstance();
         // [START config_signin]
         // Configure Google Sign In
@@ -73,7 +84,6 @@ public class LoginActivity extends AppCompatActivity {
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         // [END config_signin]
-
         Loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +111,23 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+        // 카카오가 설치되어 있는지 확인 하는 메서드또한 카카오에서 제공 콜백 객체를 이용함
+        Function2<OAuthToken, Throwable, Unit> callback = new  Function2<OAuthToken, Throwable, Unit>() {
+            @Override
+            public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
+                // 이때 토큰이 전달이 되면 로그인이 성공한 것이고 토큰이 전달되지 않았다면 로그인 실패
+                if(oAuthToken != null) {
+
+                }
+                if (throwable != null) {
+
+                }
+                updateKakaoLoginUi();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                return null;
+            }
+        };
         Google_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,6 +144,11 @@ public class LoginActivity extends AppCompatActivity {
         Kakao_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)){
+                    UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this,callback);
+                }else{
+                    UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this,callback);
+                }
                 Toast.makeText(LoginActivity.this, "카카오 로그인", Toast.LENGTH_SHORT).show();
             }
         });
@@ -129,6 +161,62 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    private void updateKakaoLoginUi() {
+        UserApiClient.getInstance().me(new Function2<com.kakao.sdk.user.model.User, Throwable, Unit>() {
+            @Override
+            public Unit invoke(com.kakao.sdk.user.model.User user, Throwable throwable) {
+                if (user != null) {
+                    HashMap<String,Object> childUpdates = new HashMap<>();
+                    postValues.put("type","kakao");
+                    random_nicks = new Random_nick();
+                    random_nicks.setNickname();
+                    postValues.put("nick",random_nicks.getNickname());
+                    // 유저의 어카운트정보에 이메일
+                    postValues.put("email",user.getKakaoAccount().getEmail());
+                    // 유저의 아이디
+                    Log.d(TAG,"invoke: id" + user.getId());
+                    long mNow = System.currentTimeMillis();
+                    mDate = new Date(mNow);
+                    SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                    postValues.put("joinDate",mFormat.format(mDate));
+                    postValues.put("loginDate",mFormat.format(mDate));
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference reference = database.getReference("users");
+                    childUpdates.put(String.valueOf(user.getId()), postValues);
+                    reference.updateChildren(childUpdates);
+                }else{
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                if (throwable != null) {
+                    Log.w(TAG, "invoke: " + throwable.getLocalizedMessage());
+                }
+                return null;
+            }
+        });
+    }
+
+    public static String getKeyHash(final Context context) {
+        PackageManager pm = context.getPackageManager();
+        try {
+            PackageInfo packageInfo = pm.getPackageInfo(context.getPackageName(), PackageManager.GET_SIGNATURES);
+            if (packageInfo == null)
+                return null;
+
+            for (Signature signature : packageInfo.signatures) {
+                try {
+                    MessageDigest md = MessageDigest.getInstance("SHA");
+                    md.update(signature.toByteArray());
+                    return android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -197,7 +285,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         //mAuth.signOut();
         if(currentUser != null){

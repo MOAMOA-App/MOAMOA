@@ -11,8 +11,8 @@
     <uses-permission android:name="android.permission.INTERACT" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <queries>
 
@@ -24,6 +24,20 @@
         </intent>
 
         <package android:name="com.android.chrome" />
+        <package android:name="com.locnall.KimGiSa" />
+        <package android:name="com.lguplus.navi" />
+        <package android:name="com.kakao.talk" />
+        <package android:name="com.kakao.talk.alpha" />
+        <package android:name="com.kakao.talk.sandbox" />
+        <package android:name="com.kakao.onetalk" />
+
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="https" />
+        </intent>
     </queries>
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -31,6 +45,7 @@
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 
     <application
+        android:name="com.example.moamoa.GlobalApplication"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
@@ -39,7 +54,12 @@
         android:roundIcon="@mipmap/ic_main"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.MOAMOA" >
+        android:theme="@style/Theme.MOAMOA"
+        android:usesCleartextTraffic="true" >
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
+
         <activity
             android:name="com.example.moamoa.ui.dashboard.AddressApiActivity"
             android:exported="false"
@@ -63,6 +83,10 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <data
+                    android:host="oauth"
+                    android:scheme="{KAKAO_APP_KEY}" />
             </intent-filter>
         </activity>
         <activity android:name="com.example.moamoa.ui.acount.RegisterActivity" />
@@ -120,6 +144,22 @@
                     android:scheme="naver3rdpartylogin" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.kakao.sdk.friend.view.FullPickerActivity"
+            android:theme="@style/DayNightFull"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name="com.kakao.sdk.friend.view.PopupPickerActivity"
+            android:theme="@style/DayNightPopup" />
+        <activity
+            android:name="com.kakao.sdk.auth.TalkAuthCodeActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/TransparentCompat" />
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/TransparentCompat" />
 
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"
@@ -230,6 +270,15 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.kakao.auth.authorization.authcode.KakaoWebViewActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:label="@string/com_kakao_login_button"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
 
         <provider
             android:name="androidx.startup.InitializationProvider"
