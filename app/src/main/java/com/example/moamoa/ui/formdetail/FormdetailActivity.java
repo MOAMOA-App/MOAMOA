@@ -12,16 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import com.bumptech.glide.Glide;
-import com.example.moamoa.Form;
 import com.example.moamoa.R;
-import com.example.moamoa.ui.acount.User;
 import com.example.moamoa.ui.chats.ChatsActivity;
-import com.example.moamoa.ui.chats.ChatsFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -32,8 +25,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
-import java.util.Objects;
 
 public class FormdetailActivity extends Activity {
     private DatabaseReference mDatabase;
@@ -62,12 +53,18 @@ public class FormdetailActivity extends Activity {
                 String text = dataSnapshot.child("text").getValue().toString();
                 String cost = dataSnapshot.child("cost").getValue().toString();
                 String max_count = dataSnapshot.child("max_count").getValue().toString();
+                String cur_count = dataSnapshot.child("parti_num").getValue().toString();
+                String date = dataSnapshot.child("deadline").getValue().toString();
+                String deadline = date.substring(2,4)+"년 "+date.substring(4,6)+"월 "+date.substring(6,8)+"일";
+                date = dataSnapshot.child("today").getValue().toString();
+                String start = date.substring(2,4)+"년 "+date.substring(4,6)+"월 "+date.substring(6,8)+"일";
+                String category = dataSnapshot.child("category_text").getValue().toString();
                 num_k= dataSnapshot.child("parti_num").getValue().toString() ;
                 image=dataSnapshot.child("image").getValue().toString() ;
                 Log.d("확인","message상세 이미지 : "+image);
                 String UID = dataSnapshot.child("UID_dash").getValue().toString();
                 UserFind(UID);
-                Initializeform(subject,"category",text,cost,max_count);
+                Initializeform(subject,category,text,cost,cur_count,max_count,start,deadline);
                 StorageReference pathReference = firebaseStorage.getReference(image);
 
                 FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
@@ -208,9 +205,6 @@ public class FormdetailActivity extends Activity {
                 ImageView profile = (ImageView) findViewById(R.id.detail_profile);
                 profil_text = dataSnapshot.child("image").getValue().toString();
                 name = dataSnapshot.child("nick").getValue().toString();
-
-
-
                 name_tv.setText(name);
                 FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
                 StorageReference pathReference = firebaseStorage.getReference(profil_text);
@@ -237,16 +231,25 @@ public class FormdetailActivity extends Activity {
         });
     }
 
-    private void Initializeform(String subject,String category,String text,String cost,String max_count) {
+    private void Initializeform(String subject,String category,String text,String cost,String cur_count,String max_count,String start, String dead) {
         TextView subject_text = (TextView) findViewById(R.id.detail_subject);
         TextView category_text = (TextView) findViewById(R.id.detail_category);
         TextView text_text = (TextView) findViewById(R.id.detail_textarea);
         TextView cost_text = (TextView) findViewById(R.id.detail_cost);
+        TextView party_num = (TextView) findViewById(R.id.detail_party_num);
+        TextView startdate = (TextView) findViewById(R.id.detail_startdate);
+        TextView deadline = (TextView) findViewById(R.id.detail_deadline);
+        if(cost.equals("")){
+            cost="---";
+        }
         //TextView max_count_text = (TextView) findViewById(R.id.);
         subject_text.setText(subject);
-        category_text.setText("1");
+        category_text.setText(category);
         text_text.setText(text);
         cost_text.setText(cost);
+        party_num.setText(cur_count+"/"+max_count);
+        startdate.setText(start);
+        deadline.setText(dead);
     }
 
 }

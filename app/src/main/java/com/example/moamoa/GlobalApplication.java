@@ -13,5 +13,5 @@ public class GlobalApplication extends Application {
         // 네이티브 앱 키로 초기화
         KakaoSdk.init(this,getString(R.string.kakao_app_key));
     }
-
+//
 }
