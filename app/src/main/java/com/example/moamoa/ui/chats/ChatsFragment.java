@@ -42,6 +42,7 @@ public class ChatsFragment extends Fragment {
     private ArrayList<ChatsData> list = new ArrayList<>();
     private RecyclerView.LayoutManager mLayoutManager;
 
+    private String NICKNAME;
     private String USERNAME, USERID;
     private String destinationNAME, destinationUID;
     private String FORMID;
@@ -69,16 +70,18 @@ public class ChatsFragment extends Fragment {
         // 현재 user의 ID랑 닉네임 불러오기 아이고뫃르겟다 그냥닉네임안보이게하자 만사해결 만사해결
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         USERID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        Log.e("TEST", "USERID: "+USERID);
+        //FINDUserName(USERID);
+        //Log.e("TEST", "USERNAME: "+USERNAME);
+        //USERNAME = NICKNAME;
+        Log.e("TEST", "USERID: "+USERID);    // 내 UID
 
         Bundle bundle = getArguments();
-        destinationUID = bundle.getString("destinationUID");
+        destinationUID = bundle.getString("destinationUID");    // 상대 UID
+        FORMID = bundle.getString("FORMID");
+        CHATROOM_NAME = bundle.getString("CHATROOM_NAME");
         Log.e("TEST", "destinationUID = "+destinationUID);
-        //CHATROOM_FID = bundle.getString("CHATROOM_FID");
-        //CHATROOM_NAME = bundle.getString("CHATROOM_NAME");
-
-
+        Log.e("TEST", "FORMID = "+FORMID);
+        Log.e("TEST", "CHATROOM_NAME = "+CHATROOM_NAME);
 
 
         recyclerView = (RecyclerView) root.findViewById(R.id.chats_recyclerview);
@@ -124,9 +127,15 @@ public class ChatsFragment extends Fragment {
                     chats.setSendedtime(ChatTime());
 
                     ChatModel chatModel = new ChatModel();
-                    chatModel.users.put(USERID.toString(),true);
-                    //chatModel.users.put(destinationUID.toString(), true);
+                    // formID 저장
+                    chatModel.form_ID = FORMID;
+                    Log.e("TEST", "form_ID: "+chatModel.form_ID);
 
+                    // USERID 저장
+                    chatModel.users.put(USERID.toString(),true);
+                    chatModel.users.put(destinationUID.toString(), true);
+
+                    Log.e("TEST","CHATROOM_FID"+CHATROOM_FID);
                     if (CHATROOM_FID == null){
                         FirebaseDatabase.getInstance().getReference().child("chatrooms").push().setValue(chatModel);
                     } else{
@@ -148,6 +157,7 @@ public class ChatsFragment extends Fragment {
 
             }
         });
+        checkChatRoom();
 
 
         myRef.addChildEventListener(new ChildEventListener() {
@@ -193,8 +203,7 @@ public class ChatsFragment extends Fragment {
         databaseReference.child(UID).child("nick").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String value = dataSnapshot.getValue(String.class);
-                //NICKNAME= value;
+                NICKNAME = dataSnapshot.getValue(String.class);
             }
 
             @Override
@@ -215,6 +224,7 @@ public class ChatsFragment extends Fragment {
         return TIME;
     }
 
+    // 채팅방 중복체크
     void checkChatRoom(){
         FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID)
                 .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -224,7 +234,7 @@ public class ChatsFragment extends Fragment {
                     ChatModel chatModel = item.getValue(ChatModel.class);
                     // 방 id 가져오기
                     if (chatModel.users.containsKey(destinationUID)){
-                        CHATROOM_FID = item.getKey();
+                        CHATROOM_FID = item.getKey();   //방 아이디 가져옴
                     }
                 }
             }

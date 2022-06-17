@@ -126,7 +126,7 @@ public class FormdetailActivity extends Activity {
 
                         // ChatsActivity에 subject, FID, UID 넘겨줌
                         intent.putExtra("CHATROOM_NAME", FORMNAME);
-                        intent.putExtra("CHATROOM_FID", FID);
+                        intent.putExtra("FORMID", FID);
                         intent.putExtra("destinationUID", UID);
 
                         startActivity(intent);

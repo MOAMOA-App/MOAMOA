@@ -39,6 +39,9 @@ public class ChatsActivity extends AppCompatActivity {
 
     private ActivityChatsBinding binding;
 
+    String Chatroomname, Formid, destinationuid;
+    ChatsFragment chatsFragment = new ChatsFragment();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,27 +49,30 @@ public class ChatsActivity extends AppCompatActivity {
 
         // FormdetailActivity에서 값 받음
         Intent getIntent = getIntent();
-        String Chatroomname = getIntent.getStringExtra("CHATROOM_NAME");
-        String Chatroomfid = getIntent.getStringExtra("CHATROOM_FID");
-        String destinationuid = getIntent.getStringExtra("destinationUID");
+        Chatroomname = getIntent.getStringExtra("CHATROOM_NAME");
+        Formid = getIntent.getStringExtra("FORMID");
+        destinationuid = getIntent.getStringExtra("destinationUID");
 
         Log.e("TEST", "Chatroomname "+Chatroomname);
-        Log.e("TEST", "Chatroomfid "+Chatroomfid);
+        Log.e("TEST", "Formid "+Formid);
         Log.e("TEST", "destinationuid "+destinationuid);
 
         // 받은 값 ChatsFragment에 넘겨줌
         // 하...왜일을두번하지 나도일을두번하기싫었는데 고치기엔이미숨을안쉬는코드임
         // ㅁㅊ 일을두번해도숨을안쉬는데요
 
+
         Bundle bundle = new Bundle();
 
         bundle.putString("CHATROOM_NAME", Chatroomname);
-        bundle.putString("CHATROOM_FID", Chatroomfid);
+        bundle.putString("FORMID", Formid);
         bundle.putString("destinationUID", destinationuid);
         //FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        ChatsFragment chatsFragment = new ChatsFragment();
         chatsFragment.setArguments(bundle);
         //ahfahefawfawfㅁㅇㄴㄻㅇㄴㄹㄴㅇㅁㄹ하.......또왜안되는데
+
+        /*프래그먼트 매니저가 프래그먼트를 담당한다!*/
+        getSupportFragmentManager().beginTransaction().replace(R.id.chatscontainer, chatsFragment).commit();
 
         binding = ActivityChatsBinding.inflate(getLayoutInflater());
         View root = binding.getRoot();

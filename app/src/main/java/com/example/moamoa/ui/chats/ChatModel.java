@@ -15,8 +15,8 @@ public class ChatModel {
     public Map<String, Comment> comments = new HashMap<>();
 
     public static class Comment{
-        String UID;
-        String message;
+        public String UID;
+        public String message;
     }
 
 }
