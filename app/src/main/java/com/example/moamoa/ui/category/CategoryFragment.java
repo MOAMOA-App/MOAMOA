@@ -38,7 +38,15 @@ public class CategoryFragment extends Fragment {
     Button button9;
     Button button10;
     Button button11;
+    static Button[] button_heart = new Button[7];
+    final List choices = new ArrayList();
+    static Integer[] Rid_button = {
 
+            R.id.all_group1, R.id.my_group1, R.id.food_group1, R.id.dailyitems_group1, R.id.clothes_group1,
+
+            R.id.appliance_group1, R.id.game_group1
+
+    };
     CategoryActivity categoryActivity;
 
 
@@ -55,7 +63,13 @@ public class CategoryFragment extends Fragment {
         button5 = rootView.findViewById(R.id.clothes_group);
         button6 = rootView.findViewById(R.id.appliance_group);
         button7 = rootView.findViewById(R.id.game_group);
-
+        button_heart[0] = (Button) rootView.findViewById(R.id.all_group1);
+        button_heart[1] = (Button) rootView.findViewById(R.id.my_group1);
+        button_heart[2] = (Button) rootView.findViewById(R.id.food_group1);
+        button_heart[3] = (Button) rootView.findViewById(R.id.dailyitems_group1);
+        button_heart[4] = (Button) rootView.findViewById(R.id.clothes_group1);
+        button_heart[5] = (Button) rootView.findViewById(R.id.appliance_group1);
+        button_heart[6] = (Button) rootView.findViewById(R.id.game_group1);
         // 프래그먼트 1에서 프래그먼트 2를 띄운다.
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +88,10 @@ public class CategoryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), CategoryActivity.class);
                 intent.putExtra("tabIdx", 1);
-                startActivity(intent);
+                Intent intent2 = new Intent(getActivity().getApplicationContext(), PlaceholderFragment.class);
+                intent2.putExtra("category", String.valueOf(choices));
+
+                startActivity(intent2);
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
@@ -157,10 +174,13 @@ public class CategoryFragment extends Fragment {
 
 
             final CharSequence[] items = list.toArray(new String[list.size()]);
-            final List choices = new ArrayList();
+            List choices = new ArrayList();
+            choices.clear();
+
             final boolean[] checkedItems = new boolean[]{ false, false, false, false, false};
 
             String title = getArguments().getString("title");
+
             return new AlertDialog.Builder(getActivity())
                     .setTitle(title)
                     .setMultiChoiceItems(items, null,
@@ -185,6 +205,10 @@ public class CategoryFragment extends Fragment {
                     .setPositiveButton("완료",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int i) {
+                                    for (int k = 0; k < 7; k++) {
+                                        getActivity().findViewById(Rid_button[k]).setVisibility(View.GONE);
+                                    }
+
                                     if (choices.size() > 0) {
                                         String cities = "";
 
@@ -192,28 +216,9 @@ public class CategoryFragment extends Fragment {
                                             int position = (int) choices.get(j);
                                             cities = cities + " " + list.get(position);
 
+                                            button_heart[j].setText(list.get(position));
+                                            getActivity().findViewById(Rid_button[j]).setVisibility(View.VISIBLE);
 
-                                            if (position == 0) {
-                                                getActivity().findViewById(R.id.food_group1).setVisibility(View.VISIBLE);
-                                            }
-                                            else if (position == 1) {
-                                                getActivity().findViewById(R.id.dailyitems_group1).setVisibility(View.VISIBLE);
-                                            }
-                                            else if (position == 2) {
-                                                getActivity().findViewById(R.id.clothes_group1).setVisibility(View.VISIBLE);
-                                            }
-                                            else if (position == 3) {
-                                                getActivity().findViewById(R.id.appliance_group1).setVisibility(View.VISIBLE);
-                                            }
-                                            else if (position == 4) {
-                                                getActivity().findViewById(R.id.game_group1).setVisibility(View.VISIBLE);
-                                            }
-                                            else if (position == 5) {
-                                                getActivity().findViewById(R.id.sports_group1).setVisibility(View.VISIBLE);
-                                            }
-                                            else if (position == 6) {
-                                                getActivity().findViewById(R.id.etc_group).setVisibility(View.VISIBLE);
-                                            }
                                         }
                                         Toast.makeText(getActivity(),
                                                 cities + "\n이상 " + choices.size() + " 카테고리 선택됨", Toast.LENGTH_LONG)

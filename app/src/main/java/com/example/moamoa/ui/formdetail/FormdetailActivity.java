@@ -95,23 +95,7 @@ public class FormdetailActivity extends Activity {
         });
 
 
-        FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
-                    Log.d("MainActivity", "ValueEventListener : " + snapshot.getKey());
-                    if (snapshot.getValue()=="host")
-                    {
-                      //  bb="true";
-                    }
-                    Log.d("MainActivity", "ValueEventListener : " + snapshot.getValue());
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError)
-            {    }
-        });
 
         chat_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,7 +126,7 @@ public class FormdetailActivity extends Activity {
 
                         // ChatsActivity에 subject, FID, UID 넘겨줌
                         intent.putExtra("CHATROOM_NAME", FORMNAME);
-                        intent.putExtra("CHATROOM_FID", FID);
+                        intent.putExtra("FORMID", FID);
                         intent.putExtra("destinationUID", UID);
 
                         startActivity(intent);
@@ -165,16 +149,43 @@ public class FormdetailActivity extends Activity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "참여하기 클릭", Toast.LENGTH_SHORT).show();
 
-                if (temp.contains(user.getUid())) {
-                    Toast.makeText(getApplicationContext(), "호스트입니다", Toast.LENGTH_SHORT).show();
+
+
+                    FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                Log.d("MainActivity", "파티 폼 : " + dataSnapshot.child(temp).getKey());
+                                Log.d("MainActivity", "파티냐 : " + dataSnapshot.child(temp).getValue());
+                            if (temp.contains(user.getUid())) {
+                                Toast.makeText(getApplicationContext(), "호스트입니다", Toast.LENGTH_SHORT).show();
+                            }
+                                else if (dataSnapshot.child(temp).getKey().equals(temp) &&dataSnapshot.child(temp).getValue().equals("parti"))
+                                {
+                                    Log.d("MainActivity", "파티 떠라: " +dataSnapshot.child(temp).getKey());
+                                    Toast.makeText(getApplicationContext(), "이미 참여하였습니다.", Toast.LENGTH_SHORT).show();
+
+
+                                }
+                                else
+                                {
+
+                                    num_b= 1 + Integer.parseInt(num_k);
+                                    FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(temp).setValue("parti");
+                                    FirebaseDatabase.getInstance().getReference("form").child(temp).child("parti_num").setValue(num_b);
+
+                                }
+
+
+                        }
+                        @Override
+                        public void onCancelled(DatabaseError databaseError)
+                        {    }
+                    });
+
+                     //파티 하면 숫자 안늘게 하기
                 }
-                else{
-                    num_b= 1 + Integer.parseInt(num_k);
-                    FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(temp).setValue("parti");
-                    FirebaseDatabase.getInstance().getReference("form").child(temp).child("parti_num").setValue(num_b);
-                    //파티 하면 숫자 안늘게 하기
-                }
-            }
+
         });
         heart_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,6 +208,9 @@ public class FormdetailActivity extends Activity {
                 ImageView profile = (ImageView) findViewById(R.id.detail_profile);
                 profil_text = dataSnapshot.child("image").getValue().toString();
                 name = dataSnapshot.child("nick").getValue().toString();
+
+
+
                 name_tv.setText(name);
                 FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
                 StorageReference pathReference = firebaseStorage.getReference(profil_text);
@@ -228,7 +242,7 @@ public class FormdetailActivity extends Activity {
         TextView category_text = (TextView) findViewById(R.id.detail_category);
         TextView text_text = (TextView) findViewById(R.id.detail_textarea);
         TextView cost_text = (TextView) findViewById(R.id.detail_cost);
-        TextView max_count_text = (TextView) findViewById(R.id.detail_category);
+        //TextView max_count_text = (TextView) findViewById(R.id.);
         subject_text.setText(subject);
         category_text.setText("1");
         text_text.setText(text);

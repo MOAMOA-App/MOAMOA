@@ -2,6 +2,7 @@ package com.example.moamoa.ui.chats;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.ToolbarWidgetWrapper;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
@@ -15,6 +16,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -27,52 +29,82 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.ActivityChatsBinding;
 import com.example.moamoa.databinding.FragmentChatsBinding;
+import com.example.moamoa.ui.formdetail.FormdetailActivity;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class ChatsActivity extends AppCompatActivity {
 
     private ActivityChatsBinding binding;
+
+    String Chatroomname, Formid, destinationuid;
+    String UID, NICK, destinationNICK;
+    ChatsFragment chatsFragment = new ChatsFragment();
+
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chats);
 
-        // FormdetailActivity에서 값 받음
-        Intent getIntent = getIntent();
-        String Chatroomname = getIntent.getStringExtra("CHATROOM_NAME");
-        String Chatroomfid = getIntent.getStringExtra("CHATROOM_FID");
-        String destinationuid = getIntent.getStringExtra("destinationUID");
-
-        Log.e("TEST", "Chatroomname "+Chatroomname);
-        Log.e("TEST", "Chatroomfid "+Chatroomfid);
-        Log.e("TEST", "destinationuid "+destinationuid);
-
-        // 받은 값 ChatsFragment에 넘겨줌
-        // 하...왜일을두번하지 나도일을두번하기싫었는데 고치기엔이미숨을안쉬는코드임
-        // ㅁㅊ 일을두번해도숨을안쉬는데요
-
-        Bundle bundle = new Bundle();
-
-        bundle.putString("CHATROOM_NAME", Chatroomname);
-        bundle.putString("CHATROOM_FID", Chatroomfid);
-        bundle.putString("destinationUID", destinationuid);
-        //FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        ChatsFragment chatsFragment = new ChatsFragment();
-        chatsFragment.setArguments(bundle);
-        //ahfahefawfawfㅁㅇㄴㄻㅇㄴㄹㄴㅇㅁㄹ하.......또왜안되는데
-
         binding = ActivityChatsBinding.inflate(getLayoutInflater());
         View root = binding.getRoot();
 
-        //
+        // 사용자의 UID 불러옴
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+        // FormdetailActivity에서 값 받음
+        Intent getIntent = getIntent();
+        Chatroomname = getIntent.getStringExtra("CHATROOM_NAME");
+        Formid = getIntent.getStringExtra("FORMID");
+        destinationuid = getIntent.getStringExtra("destinationUID");
+
+        // 값 잘 받았는지 테스트
+        Log.e("TEST", "Chatroomname "+Chatroomname);
+        Log.e("TEST", "Formid "+Formid);
+        Log.e("TEST", "destinationuid "+destinationuid);
+
+        // 받은 값 ChatsFragment에 넘겨줌
+        Bundle bundle = new Bundle();
+        bundle.putString("CHATROOM_NAME", Chatroomname);
+        bundle.putString("FORMID", Formid);
+        bundle.putString("destinationUID", destinationuid);
+        chatsFragment.setArguments(bundle);
+        /*
+        * ChatsFragment로 값이 안넘어갔던 이유: xml에 fragmentcontainerview 있음
+        * --> 값을 넘기기 전에 ChatsFragment가 만들어져 null값이 됨
+        * 해결 위해 fragmentcontainerview 대신 framelayout 사용 후 밑 코드로 ChatsFragment 연결해줌
+        */
+
+        // 프래그먼트 매니저로 chatscontainer에 chatsFragment 연결해줌
+        getSupportFragmentManager().beginTransaction().replace(R.id.chatscontainer, chatsFragment).commit();
+
+        // 채팅방 이름 세팅
+        TextView chatbar = findViewById(R.id.chatbarname);
+        chatbar.setText(Chatroomname);
+
+        // 메뉴 상호작용
         MenuItem select_language = root.findViewById(R.id.select_language);
         MenuItem exitchats = root.findViewById(R.id.exitchats);
 
@@ -178,6 +210,23 @@ public class ChatsActivity extends AppCompatActivity {
         // 기본 툴바 숨김
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+    }
+
+    private void FindUserNick(String UID){
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
+        mDatabase.child(UID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                NICK = dataSnapshot.child("nick").getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("", "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        });
     }
 
     @Override
