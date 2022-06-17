@@ -15,11 +15,35 @@
       },
       "oauth_client": [
         {
+          "client_id": "170210186260-3v6c1qa6187leo6tth3q18ktnbqve0m7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moamoa",
+            "certificate_hash": "2457f89fb8d33f903114d44fd5b3bce7aa3c4239"
+          }
+        },
+        {
+          "client_id": "170210186260-59n4gjciuq61alcep6eht6vrcog6b4e5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moamoa",
+            "certificate_hash": "5811bf851a83571b97cc9faad8ae6fbd142f0b1a"
+          }
+        },
+        {
           "client_id": "170210186260-bagok5cfcnjqdupoegj6u6pnkha2n5k5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.moamoa",
             "certificate_hash": "853dd624c5956013ca1fb5a2555c0cea80cea196"
+          }
+        },
+        {
+          "client_id": "170210186260-osddh2865ivoqni1h67es7fvqbqn0bqa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moamoa",
+            "certificate_hash": "c5d3b9df10ac3d96028537d39ac95b4435a47187"
           }
         },
         {
