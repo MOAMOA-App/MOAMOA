@@ -19,6 +19,7 @@ import android.widget.Toolbar;
 
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentChatsBinding;
+import com.example.moamoa.ui.acount.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -57,7 +58,9 @@ public class ChatsFragment extends Fragment {
 
     private Toolbar chattoolbar;
 
+    // 닉네임 받아서 설정하면 없앨코든데 닉네임이 안받아짐........
     private String nick = "닉네임1";
+
 
     @Nullable
     @Override
@@ -92,26 +95,14 @@ public class ChatsFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
 
-        // 채팅방 이름 FormdetailActivity랑 연결시킬 코드((아마도...)
-        chattoolbar = (Toolbar) root.findViewById(R.id.toolbar);
-        Bundle extra = getArguments();
-        if(extra != null){
-            CHATROOM_NAME = extra.getString("FormNAME");
-            if (CHATROOM_NAME != null){
-                chattoolbar.setTitle(CHATROOM_NAME);
-            }
-        }
+        //
 
-
-        // 채팅방 열때 필요한거-> 유저 두명 ID, 채팅방 ID
-        // chatroom -  채팅방  - user - 유저두명
-        //                    - chatmsg
-
-
+        //
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         myRef = database.getReference("message");
         EditText_chat = root.findViewById(R.id.EditText_chat);
 
+        // 전송버튼 눌렀을 때의 동작
         sendbtn = (Button) root.findViewById(R.id.Button_send);
         sendbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,7 +128,8 @@ public class ChatsFragment extends Fragment {
 
                 Log.e("TEST","CHATROOM_FID: "+CHATROOM_FID);
                 if (CHATROOM_FID == null){
-                    FirebaseDatabase.getInstance().getReference().child("chatrooms").push().setValue(chatModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    FirebaseDatabase.getInstance().getReference().child("chatrooms")
+                            .push().setValue(chatModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             checkChatRoom();
@@ -206,7 +198,8 @@ public class ChatsFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 for (DataSnapshot item : snapshot.getChildren()){
-                    NICKNAME = item.getKey();
+                    User user = new User();
+
                 }
             }
 
