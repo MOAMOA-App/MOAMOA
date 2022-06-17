@@ -47,38 +47,32 @@ public class ChatsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chats);
 
+        binding = ActivityChatsBinding.inflate(getLayoutInflater());
+        View root = binding.getRoot();
+
+
         // FormdetailActivity에서 값 받음
         Intent getIntent = getIntent();
         Chatroomname = getIntent.getStringExtra("CHATROOM_NAME");
         Formid = getIntent.getStringExtra("FORMID");
         destinationuid = getIntent.getStringExtra("destinationUID");
 
+        // 값 잘 받았는지 테스트
         Log.e("TEST", "Chatroomname "+Chatroomname);
         Log.e("TEST", "Formid "+Formid);
         Log.e("TEST", "destinationuid "+destinationuid);
 
         // 받은 값 ChatsFragment에 넘겨줌
-        // 하...왜일을두번하지 나도일을두번하기싫었는데 고치기엔이미숨을안쉬는코드임
-        // ㅁㅊ 일을두번해도숨을안쉬는데요
-
-
         Bundle bundle = new Bundle();
-
         bundle.putString("CHATROOM_NAME", Chatroomname);
         bundle.putString("FORMID", Formid);
         bundle.putString("destinationUID", destinationuid);
-        //FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         chatsFragment.setArguments(bundle);
-        //ahfahefawfawfㅁㅇㄴㄻㅇㄴㄹㄴㅇㅁㄹ하.......또왜안되는데
-
-        /*프래그먼트 매니저가 프래그먼트를 담당한다!*/
+        // 프래그먼트 매니저로 chatscontainer에 chatsFragment 연결해줌
         getSupportFragmentManager().beginTransaction().replace(R.id.chatscontainer, chatsFragment).commit();
 
-        binding = ActivityChatsBinding.inflate(getLayoutInflater());
-        View root = binding.getRoot();
 
-        //
-
+        // 메뉴 상호작용
         MenuItem select_language = root.findViewById(R.id.select_language);
         MenuItem exitchats = root.findViewById(R.id.exitchats);
 
