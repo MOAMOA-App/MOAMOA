@@ -29,24 +29,24 @@ public class HomeFragment extends Fragment {
     private ArrayList<homelist_data> homelist;
     private homelist_adapter homelistAdapter;
     private RecyclerView[] recyclerView = new RecyclerView[5];
-    private DatabaseReference mDatabase;
+    private FirebaseDatabase mDatabase;
     private TextView[] btn_c = new TextView[5];
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference reference = mDatabase.getReference();
 
         homelist = new ArrayList<>();
         homelistAdapter = new homelist_adapter(homelist);
 
         recyclerView[0] = (RecyclerView) root.findViewById(R.id.listview0);
         recyclerView[1] = (RecyclerView) root.findViewById(R.id.listview1);
-        recyclerView[2] = (RecyclerView) root.findViewById(R.id.listview2);
-        recyclerView[3] = (RecyclerView) root.findViewById(R.id.listview3);
-        recyclerView[4] = (RecyclerView) root.findViewById(R.id.listview4);
+        //recyclerView[2] = (RecyclerView) root.findViewById(R.id.listview2);
+        //recyclerView[3] = (RecyclerView) root.findViewById(R.id.listview3);
+        recyclerView[2] = (RecyclerView) root.findViewById(R.id.listview4);
 
-
-        mDatabase.child("form").limitToFirst(10).addValueEventListener(new ValueEventListener() {
+        reference.child("form").limitToFirst(10).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
                 //데이터가 쌓이기 때문에  clear()
@@ -66,10 +66,11 @@ public class HomeFragment extends Fragment {
                     if(x>10){ break;}
 
                 }
-                for(int i=0;i<5;i++){
+                for(int i=0;i<3;i++){
                     recyclerView[i].setAdapter(homelistAdapter);
                     recyclerView[i].setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL, false));
                 }
+
 
             }
             @Override
@@ -77,9 +78,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
-
-
 
         homelistAdapter.setOnItemClickListener(new homelist_adapter.OnItemClickListener() {
             @Override
@@ -112,7 +110,6 @@ public class HomeFragment extends Fragment {
         }
         return root;
     }
-
     public void InitializeFormData(String img, String title, String UID, String mans, String FID)
     {
         homelist_data tmp = new homelist_data();

@@ -3,43 +3,39 @@ package com.example.moamoa.ui.category;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.example.moamoa.R;
-import com.example.moamoa.ui.mypage.EditMyinfo;
-import com.example.moamoa.ui.mypage.ParticipatedForms;
+import com.example.moamoa.databinding.FragmentCategoryBinding;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryFragment extends Fragment {
-    Button btn_edit;
-    Button button1;
-    Button button2;
-    Button button3;
-    Button button4;
-    Button button5;
-    Button button6;
-    Button button7;
-    Button button8;
-    Button button9;
-    Button button10;
-    Button button11;
+
+    private FragmentCategoryBinding binding;
+    private DatabaseReference mDatabase;
+    private GridView[] gridViews = new GridView[2];
+    private CategoryAdapter categoryAdapter;
+    TextView btn_edit;
     static Button[] button_heart = new Button[7];
-    final List choices = new ArrayList();
+
     static Integer[] Rid_button = {
 
             R.id.all_group1, R.id.my_group1, R.id.food_group1, R.id.dailyitems_group1, R.id.clothes_group1,
@@ -47,110 +43,57 @@ public class CategoryFragment extends Fragment {
             R.id.appliance_group1, R.id.game_group1
 
     };
-    CategoryActivity categoryActivity;
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentCategoryBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_category, container, false);
-
-        btn_edit = rootView.findViewById(R.id.btn_edit);
-        button1 = rootView.findViewById(R.id.all_group);
-        button2 = rootView.findViewById(R.id.my_group);
-        button3 = rootView.findViewById(R.id.food_group);
-        button4 = rootView.findViewById(R.id.dailyitems_group);
-        button5 = rootView.findViewById(R.id.clothes_group);
-        button6 = rootView.findViewById(R.id.appliance_group);
-        button7 = rootView.findViewById(R.id.game_group);
-        button_heart[0] = (Button) rootView.findViewById(R.id.all_group1);
-        button_heart[1] = (Button) rootView.findViewById(R.id.my_group1);
-        button_heart[2] = (Button) rootView.findViewById(R.id.food_group1);
-        button_heart[3] = (Button) rootView.findViewById(R.id.dailyitems_group1);
-        button_heart[4] = (Button) rootView.findViewById(R.id.clothes_group1);
-        button_heart[5] = (Button) rootView.findViewById(R.id.appliance_group1);
-        button_heart[6] = (Button) rootView.findViewById(R.id.game_group1);
-        // 프래그먼트 1에서 프래그먼트 2를 띄운다.
-        button1.setOnClickListener(new View.OnClickListener() {
+        btn_edit = (TextView) root.findViewById(R.id.btn_edit);
+        gridViews[1] = (GridView) root.findViewById(R.id.category_layout);
+        categoryAdapter = new CategoryAdapter();
+        mDatabase.child("category").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CategoryActivity.class);
-                intent.putExtra("tabIdx", 0);
-                startActivity(intent);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
+                //데이터가 쌓이기 때문에  clear()
+                int x = 0;
+                for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
+                    String numb = x + "";
+                    String name = fileSnapshot.getValue().toString();
+                    categoryAdapter.addItem(new CategoryData(numb, name));
+
+                    x++;
+                }
+                gridViews[1].setAdapter(categoryAdapter);
             }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
+            }
 
         });
 
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CategoryActivity.class);
-                intent.putExtra("tabIdx", 1);
-                Intent intent2 = new Intent(getActivity().getApplicationContext(), PlaceholderFragment.class);
-                intent2.putExtra("category", String.valueOf(choices));
-
-                startActivity(intent2);
-            }
-        });
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),CategoryActivity.class);
-                intent.putExtra("tabIdx", 2);
-                startActivity(intent);
-            }
-        });
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CategoryActivity.class);
-                intent.putExtra("tabIdx", 3);
-                startActivity(intent);
-            }
-        });
-        button5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CategoryActivity.class);
-                intent.putExtra("tabIdx", 4);
-                startActivity(intent);
-            }
-        });
-        button6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CategoryActivity.class);
-                intent.putExtra("tabIdx", 5);
-                startActivity(intent);
-            }
-        });
-        button7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CategoryActivity.class);
-                intent.putExtra("tabIdx", 6);
-                startActivity(intent);
-            }
-        });
-
+        button_heart[0] = (Button) root.findViewById(R.id.all_group1);
+        button_heart[1] = (Button) root.findViewById(R.id.my_group1);
+        button_heart[2] = (Button) root.findViewById(R.id.food_group1);
+        button_heart[3] = (Button) root.findViewById(R.id.dailyitems_group1);
+        button_heart[4] = (Button) root.findViewById(R.id.clothes_group1);
+        button_heart[5] = (Button) root.findViewById(R.id.appliance_group1);
+        button_heart[6] = (Button) root.findViewById(R.id.game_group1);
         btn_edit.setOnClickListener(new View.OnClickListener() {
-
-
+            @Override
             public void onClick(View view) {
                 MyAlertDialogFragment newDialogFragment
                         = MyAlertDialogFragment.newInstance("관심 카테고리 편집");
                 newDialogFragment.show(getFragmentManager(), "dialog");
             }
-
         });
-        return rootView;
+
+        return root;
     }
 
-
     public static class MyAlertDialogFragment extends DialogFragment {
-
+        private DatabaseReference mDatabase;
         public static MyAlertDialogFragment newInstance(String title) {
             MyAlertDialogFragment frag = new MyAlertDialogFragment();
             Bundle args = new Bundle();
@@ -190,11 +133,11 @@ public class CategoryFragment extends Fragment {
 
                                     if (b) {
                                         // 체크 됐으면 리스트에 추가
-                             //           Log.d("확인","name : "+checkedItems[i]);
-                                      choices.add(i);
+                                        //           Log.d("확인","name : "+checkedItems[i]);
+                                        choices.add(i);
 
                                         //       checkedItems[i] = true;
-                         //               Log.d("확인","name : "+checkedItems[i]);
+                                        //               Log.d("확인","name : "+checkedItems[i]);
                                     } else if (choices.contains(i)) {
                                         // 체크 된거면 리스트에서 제거
                                         choices.remove(Integer.valueOf(i));
@@ -234,12 +177,6 @@ public class CategoryFragment extends Fragment {
                             })
                     .show();
         }
-
-        @Override
-        public void onDestroyView() {
-            super.onDestroyView();
-            //     binding = null;
-        }
     }
-
 }
+

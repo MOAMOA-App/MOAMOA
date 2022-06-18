@@ -13,18 +13,14 @@ import com.google.android.material.tabs.TabLayout;
 public class CategoryActivity extends AppCompatActivity {
 
     private ActivityCategoryBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         Intent i = getIntent();
-        int tabIdx = i.getIntExtra("tabIdx",0);
-
         super.onCreate(savedInstanceState);
-
         binding = ActivityCategoryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        int tabIdx = i.getIntExtra("tabIdx",0);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
 
         ViewPager viewPager = binding.viewPager;
@@ -36,5 +32,6 @@ public class CategoryActivity extends AppCompatActivity {
 
 
     }
+
 
 }

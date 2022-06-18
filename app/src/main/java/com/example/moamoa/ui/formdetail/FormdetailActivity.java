@@ -49,7 +49,6 @@ public class FormdetailActivity extends Activity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String subject = dataSnapshot.child("subject").getValue().toString();
-                //String category = dataSnapshot.child("category").getValue().toString();
                 String text = dataSnapshot.child("text").getValue().toString();
                 String cost = dataSnapshot.child("cost").getValue().toString();
                 String max_count = dataSnapshot.child("max_count").getValue().toString();
@@ -77,7 +76,6 @@ public class FormdetailActivity extends Activity {
                         Glide.with(mainImage.getContext())
                                 .load(uri)
                                 .into(mainImage);
-
                     }
                 });
 
@@ -91,16 +89,10 @@ public class FormdetailActivity extends Activity {
             }
         });
 
-
-
-
         chat_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "채팅하기 클릭", Toast.LENGTH_SHORT).show();
-
-
-
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("form");
                 database.child(temp).addValueEventListener(new ValueEventListener() {
                     @Override
