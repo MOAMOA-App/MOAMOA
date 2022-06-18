@@ -2,6 +2,7 @@ package com.example.moamoa.ui.mypage;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +17,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.example.moamoa.LoginActivity;
 import com.example.moamoa.R;
 import com.example.moamoa.ui.acount.User;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +30,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 //import com.example.moamoa.User;
 
@@ -50,6 +56,9 @@ public class MypageFragment extends Fragment {
         TextView id = view.findViewById(R.id.ID);
         TextView area = view.findViewById(R.id.area);
 
+
+
+
         if (user != null) {
             // User is signed in
             // Name, email address, and profile photo Url
@@ -60,8 +69,32 @@ public class MypageFragment extends Fragment {
             mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    //닉네임 표시
                     User User = snapshot.getValue(User.class);
                     nickname.setText(User.getnick());
+
+                    //이미지 표시
+                    FirebaseStorage storage = FirebaseStorage.getInstance();
+                    StorageReference storageReference = storage.getReference();
+                    StorageReference pathReference = storageReference.child("profile");
+
+                    String dimage = snapshot.child("image").getValue().toString();
+                    StorageReference submitProfile = storageReference.child(dimage);
+                    submitProfile.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Glide.with(mainImage.getContext())
+                                    .load(uri)
+                                    .into(mainImage);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getContext(),"데이터를 가져오는데 실패했습니다" , Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    //
+
                 }
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) { //참조에 액세스 할 수 없을 때 호출
@@ -71,16 +104,6 @@ public class MypageFragment extends Fragment {
             String email = user.getEmail();
 //            Uri photoUrl = user.getPhotoUrl();
 
-            // Check if user's email is verified
-            boolean emailVerified = user.isEmailVerified();
-
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getIdToken() instead.
-            String uid = user.getUid();
-
-
-//        mainImage.setImageResource(listViewData.get(position).mainImage);
             id.setText(email);
 //        area.setText(listViewData.get(position).charge);
 

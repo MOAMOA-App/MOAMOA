@@ -67,44 +67,44 @@ public class Setting extends AppCompatActivity {
                     startActivity(intent);
                 }
                 if (position == 3) {
-                    //계정정보 삭제
-                    new AlertDialog.Builder(Setting.this)   // TestActivity 부분에는 현재 Activity의 이름 입력.
-                            .setMessage("정말 탈퇴하시겠습니까?")     //제목부분(직접작성)
-                            .setPositiveButton("확인",new DialogInterface.OnClickListener(){      //버튼1(직접작성)
-                                public void onClick(DialogInterface dialog,int which){
-                                    //데이터베이스 정보 삭제
-                                    mDatabase.child("Users").child(user.getUid()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void aVoid) {
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            System.out.println("error: "+e.getMessage());
-                                        }
-                                    });
-                                    //계정 정보 삭제(데이터베이스와 별도)
-                                    user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                            }else {
-                                            }
-                                        }
-                                    });
-
-                                    auth.signOut();
-                                    Toast.makeText(getApplicationContext(), "회원 탈퇴 되었습니다.", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(Setting.this, LoginActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                }
-                            })
-                            .setNegativeButton("취소",new DialogInterface.OnClickListener(){//버튼2(직접 작성)
-                                public void onClick(DialogInterface dialog, int which){
-                                }
-                            })
-                            .show();
+//                    //계정정보 삭제
+//                    new AlertDialog.Builder(Setting.this)   // TestActivity 부분에는 현재 Activity의 이름 입력.
+//                            .setMessage("정말 탈퇴하시겠습니까?")     //제목부분(직접작성)
+//                            .setPositiveButton("확인",new DialogInterface.OnClickListener(){      //버튼1(직접작성)
+//                                public void onClick(DialogInterface dialog,int which){
+//                                    //데이터베이스 정보 삭제
+//                                    mDatabase.child("Users").child(user.getUid()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                        @Override
+//                                        public void onSuccess(Void aVoid) {
+//                                        }
+//                                    }).addOnFailureListener(new OnFailureListener() {
+//                                        @Override
+//                                        public void onFailure(@NonNull Exception e) {
+//                                            System.out.println("error: "+e.getMessage());
+//                                        }
+//                                    });
+//                                    //계정 정보 삭제(데이터베이스와 별도)
+//                                    user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task<Void> task) {
+//                                            if (task.isSuccessful()) {
+//                                            }else {
+//                                            }
+//                                        }
+//                                    });
+//
+//                                    auth.signOut();
+//                                    Toast.makeText(getApplicationContext(), "회원 탈퇴 되었습니다.", Toast.LENGTH_SHORT).show();
+//                                    Intent intent = new Intent(Setting.this, LoginActivity.class);
+//                                    startActivity(intent);
+//                                    finish();
+//                                }
+//                            })
+//                            .setNegativeButton("취소",new DialogInterface.OnClickListener(){//버튼2(직접 작성)
+//                                public void onClick(DialogInterface dialog, int which){
+//                                }
+//                            })
+//                            .show();
                 }
             }
         });

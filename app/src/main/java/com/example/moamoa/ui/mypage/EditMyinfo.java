@@ -22,6 +22,7 @@ import com.example.moamoa.R;
 import com.example.moamoa.ui.acount.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,7 +35,7 @@ public class EditMyinfo extends AppCompatActivity {
     private DatabaseReference mDatabase;
     EditText PresentPasswordText, PasswordText, PasswordcheckText;
     Button passwordBtn;
-    static int success;
+    private int success = 0 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class EditMyinfo extends AppCompatActivity {
 
             //nikname은 auth(계정 정보)에 들어가지 않으므로 database getReference()를 이용
             //닉네임 뜨는데 딜레이가 있음
-            mDatabase.child("Users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+            mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     User User = snapshot.getValue(User.class);
@@ -81,28 +82,38 @@ public class EditMyinfo extends AppCompatActivity {
             TextView pwdtext = findViewById(R.id.pwdtext);
 
             passwordBtn.setOnClickListener(new View.OnClickListener() {
+                private int success;
 
                 @Override
-                public void onClick(View v) {
+                public synchronized void onClick(View v) {
                     ProgressDialog mDialog = new ProgressDialog(EditMyinfo.this);
                     AlertDialog.Builder alerting = new AlertDialog.Builder(EditMyinfo.this);
                     //가입 정보 가져오기
+                    String useremail = user.getEmail();
                     String ppwd = PresentPasswordText.getText().toString().trim();
+                    login(useremail,ppwd);
+
                     String newpwd = PasswordText.getText().toString().trim();
                     String pwdcheck = PasswordcheckText.getText().toString().trim();
 
-                    String useremail = user.getEmail();
 
                     //재로그인
-                    FirebaseAuth.getInstance().signInWithEmailAndPassword(useremail,ppwd).addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) { // 로그인 성공 시 이벤트 발생
-                            Toast.makeText(getApplication(), "로그인 성공", Toast.LENGTH_SHORT).show();
-                            success = 1;
-                        } else {
-                            Toast.makeText(getApplication(), "로그인 실패", Toast.LENGTH_SHORT).show();
-                            success = 0;
-                        }
-                    });
+//                    auth.signInWithEmailAndPassword(useremail,ppwd)
+//                            .addOnCompleteListener(EditMyinfo.this, new OnCompleteListener<AuthResult>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<AuthResult> task) {
+//                                    if (task.isSuccessful()) {
+//                                        // Sign in success, update UI with the signed-in user's information
+//                                        Toast.makeText(getApplication(), "로그인 성공", Toast.LENGTH_LONG).show();
+//                                        success = 1;
+//                                    } else {
+//                                        // If sign in fails, display a message to the user.
+//                                        Toast.makeText(getApplication(), "로그인 실패", Toast.LENGTH_LONG).show();
+//                                        success = 0;
+//                                    }
+//                                }
+//                            });
+
 
                     if (ppwd.equals("")) {
                         alerting.setMessage("현재 비밀번호를 입력해주세요");
@@ -113,7 +124,7 @@ public class EditMyinfo extends AppCompatActivity {
                     } else if (pwdcheck.equals("")) {
                         alerting.setMessage("비밀번호 확인을 입력해주세요");
                         alerting.show();
-                    }else if (success != 1) {
+                    }else if (success == 0) {
                         alerting.setMessage("현재 비밀번호가 일치하지 않습니다.");
                         alerting.show();
                     }else if (newpwd.length() < 10) {
@@ -135,9 +146,9 @@ public class EditMyinfo extends AppCompatActivity {
                             }
                         });
                         pwdtext.setText("");
-                        Toast.makeText(getApplication(), "비밀번호가 변경되었습니다.\n다시 로그인해주세요.", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(EditMyinfo.this, LoginActivity.class);
                         startActivity(intent);
+                        Toast.makeText(getApplication(), "비밀번호가 변경되었습니다.\n다시 로그인해주세요.", Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -146,4 +157,24 @@ public class EditMyinfo extends AppCompatActivity {
             // No user is signed in
         }
     } // end of onCreate
+    public int login(String useremail, String ppwd){
+        //재로그인
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        auth.signInWithEmailAndPassword(useremail,ppwd)
+                .addOnCompleteListener(EditMyinfo.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Toast.makeText(getApplication(), "로그인 성공", Toast.LENGTH_LONG).show();
+                            success = 1;
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(getApplication(), "로그인 실패", Toast.LENGTH_LONG).show();
+                            success = 0;
+                        }
+                    }
+                });
+        return success;
+    }
 } // end of class
