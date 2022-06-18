@@ -20,7 +20,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.example.moamoa.LoginActivity;
 import com.example.moamoa.R;
-import com.example.moamoa.ui.acount.User;
+import com.example.moamoa.ui.account.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

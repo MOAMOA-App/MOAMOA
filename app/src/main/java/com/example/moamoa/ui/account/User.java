@@ -1,4 +1,4 @@
-package com.example.moamoa.ui.acount;
+package com.example.moamoa.ui.account;
 
 public class User {
     String UID;

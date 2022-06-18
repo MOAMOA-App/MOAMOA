@@ -1,6 +1,5 @@
 package com.example.moamoa.ui.dashboard;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,13 +22,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.moamoa.Form;
-import com.example.moamoa.MainActivity;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentDashboardBinding;
-import com.example.moamoa.ui.acount.Random_nick;
-import com.example.moamoa.ui.acount.User;
+import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.category.CategoryActivity;
-import com.example.moamoa.ui.category.CustomListView;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -46,9 +41,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 
 public class DashboardFragment extends Fragment {
     private FragmentDashboardBinding binding;

@@ -17,8 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.moamoa.databinding.ActivityLoginBinding;
-import com.example.moamoa.ui.acount.Random_nick;
-import com.example.moamoa.ui.acount.RegisterActivity;
+import com.example.moamoa.ui.account.Random_nick;
+import com.example.moamoa.ui.account.RegisterActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -144,11 +144,13 @@ public class LoginActivity extends AppCompatActivity {
         Kakao_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
                 if(UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)){
                     UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this,callback);
                 }else{
                     UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this,callback);
                 }
+                */
                 Toast.makeText(LoginActivity.this, "카카오 로그인", Toast.LENGTH_SHORT).show();
             }
         });

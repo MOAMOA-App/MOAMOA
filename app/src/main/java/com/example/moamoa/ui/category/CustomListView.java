@@ -1,35 +1,24 @@
 package com.example.moamoa.ui.category;
 
-import static androidx.fragment.app.FragmentManager.TAG;
-
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import androidx.annotation.NonNull;
-
 import com.bumptech.glide.Glide;
 import com.example.moamoa.Form;
-import com.example.moamoa.Heart;
 import com.example.moamoa.R;
-import com.example.moamoa.ui.acount.User;
-import com.example.moamoa.ui.home.homelist_adapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -89,9 +78,6 @@ public class CustomListView extends BaseAdapter {
                         .into(mainImage);
             }
         });
-
-
-
 
             TextView title = convertView.findViewById(R.id.title);
             TextView name = convertView.findViewById(R.id.name);

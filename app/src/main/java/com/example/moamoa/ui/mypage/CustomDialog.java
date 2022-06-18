@@ -2,21 +2,16 @@ package com.example.moamoa.ui.mypage;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
-import com.example.moamoa.LoginActivity;
 import com.example.moamoa.R;
-import com.example.moamoa.ui.acount.Random_nick;
-import com.example.moamoa.ui.acount.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

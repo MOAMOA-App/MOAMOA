@@ -1,4 +1,4 @@
-package com.example.moamoa.ui.acount;
+package com.example.moamoa.ui.account;
 
 
 import android.app.AlertDialog;

@@ -48,7 +48,7 @@
                     android:scheme="{KAKAO_APP_KEY}"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.acount.RegisterActivity" />
+        <activity android:name=".ui.account.RegisterActivity" />
         <activity
             android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
@@ -58,7 +58,7 @@
             android:name=".ui.mypage.EditMyinfo"
             android:label="계정 정보 수정" />
         <activity
-            android:name=".ui.acount.PhoneActivity"
+            android:name=".ui.account.PhoneActivity"
             android:label="휴대폰 인증" />
         <activity
             android:name=".ui.mypage.CreatedForms"

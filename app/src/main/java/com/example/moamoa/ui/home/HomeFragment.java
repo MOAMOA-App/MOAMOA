@@ -50,21 +50,18 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
                 //데이터가 쌓이기 때문에  clear()
-                int x=0;
                 homelist.clear();
                 for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
-
                     if (Integer.parseInt(fileSnapshot.child("state").getValue().toString())==0)
-                    { String Key = fileSnapshot.getKey();
-                    String subject = fileSnapshot.child("subject").getValue().toString();
-                    String max_count = fileSnapshot.child("max_count").getValue().toString();
-                    String UID = fileSnapshot.child("UID_dash").getValue().toString();
-                    String parti_num = fileSnapshot.child("parti_num").getValue().toString();
-                    String image =  fileSnapshot.child("image").getValue().toString();
-                    InitializeFormData(image,subject,UID,parti_num+"/"+max_count,Key);
-                    x++;}
-                    if(x>10){ break;}
-
+                    {
+                        String Key = fileSnapshot.getKey();
+                        String subject = fileSnapshot.child("subject").getValue().toString();
+                        String max_count = fileSnapshot.child("max_count").getValue().toString();
+                        String UID = fileSnapshot.child("UID_dash").getValue().toString();
+                        String parti_num = fileSnapshot.child("parti_num").getValue().toString();
+                        String image =  fileSnapshot.child("image").getValue().toString();
+                        InitializeFormData(image,subject,UID,parti_num+"/"+max_count,Key);
+                    }
                 }
                 for(int i=0;i<3;i++){
                     recyclerView[i].setAdapter(homelistAdapter);
