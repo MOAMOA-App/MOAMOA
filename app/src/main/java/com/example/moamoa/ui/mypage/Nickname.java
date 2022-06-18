@@ -10,7 +10,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.moamoa.R;
-//import com.example.moamoa.User;
 import com.example.moamoa.ui.acount.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,7 +36,7 @@ public class Nickname extends Dialog {
         cancelClick = findViewById(R.id.cancel);
 
         //변경 전 현재 닉네임 표시
-        mDatabase.child("Users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User User = snapshot.getValue(User.class);
@@ -54,7 +53,7 @@ public class Nickname extends Dialog {
             @Override
             public void onClick(View v) {
                 String nick = editnick.getText().toString().trim();
-                mDatabase.child("Users").child(user.getUid()).child("nick").setValue(nick);
+                mDatabase.child("users").child(user.getUid()).child("nick").setValue(nick);
                 dismiss();
             }
         });
