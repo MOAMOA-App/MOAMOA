@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -35,6 +36,7 @@ public class PlaceholderFragment3 extends Fragment {
 
     private PageViewModel pageViewModel;
     private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
+    private DatabaseReference mDatabase;
 
 
     public static PlaceholderFragment3 newInstance(int index) {
@@ -63,25 +65,27 @@ public class PlaceholderFragment3 extends Fragment {
             Bundle savedInstanceState) {
         int pos = getArguments().getInt(ARG_SECTION_NUMBER);
 
-//        binding = FragmentMainBinding.inflate(inflater, container, false);
         binding = EmptyFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         //추가
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         ListView listView;
         listView = root.findViewById(R.id.listview);
         ArrayList<Form> listViewData = new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference("heart").addValueEventListener(new ValueEventListener() {
+
+        mDatabase.child("heart").child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @SuppressLint("RestrictedApi")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 listViewData.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     Form listData = snapshot.getValue(Form.class);
                     Log.d("확인","루트 : "+user.getUid());
 
-                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==0 && pos==1) {
+                    if (listData.FID == true && pos==1) {
                         Log.d("확인","실행: "+listData.UID_dash);
                         listViewData.add(listData);
                     }
