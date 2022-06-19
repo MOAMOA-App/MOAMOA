@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,7 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.CreatedFormsBinding;
-import com.example.moamoa.databinding.FragmentMainBinding;
+import com.example.moamoa.databinding.EmptyFormsBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -38,8 +39,7 @@ public class PlaceholderFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
-    //    private CreatedFormsBinding binding;
-    private CreatedFormsBinding binding;
+    private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
 
 
     public static PlaceholderFragment newInstance(int index) {
@@ -68,8 +68,8 @@ public class PlaceholderFragment extends Fragment {
             Bundle savedInstanceState) {
         int pos = getArguments().getInt(ARG_SECTION_NUMBER);
 
-
-        binding = CreatedFormsBinding.inflate(inflater, container, false);
+//        binding = FragmentMainBinding.inflate(inflater, container, false);
+        binding = EmptyFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         //추가

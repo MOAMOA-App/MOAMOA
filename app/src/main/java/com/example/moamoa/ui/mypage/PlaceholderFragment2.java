@@ -37,11 +37,11 @@ import java.util.ArrayList;
 public class PlaceholderFragment2 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-
+    int name;
     private PageViewModel pageViewModel;
     private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
-    int name = 0;
-
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    Form listData;
     public static PlaceholderFragment2 newInstance(int index) {
         PlaceholderFragment2 fragment = new PlaceholderFragment2();
         Bundle bundle = new Bundle();
@@ -76,43 +76,58 @@ public class PlaceholderFragment2 extends Fragment {
         ListView listView;
         listView = root.findViewById(R.id.listview);
         ArrayList<Form> listViewData = new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
-            @SuppressLint("RestrictedApi")
+
+        FirebaseDatabase.getInstance().getReference().child("users").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                listViewData.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    Form listData = snapshot.getValue(Form.class);
-                    Log.d("확인","루트 : "+user.getUid());
-                    UserFind(listData.FID);
+            public void onDataChange(DataSnapshot dataSnapshot2) {
 
 
-                    if (name== 1&& listData.getstate()==0 && pos==1) {
-                        Log.d("확인","실행: "+listData.UID_dash);
-                        listViewData.add(listData);
+                FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
+                    @SuppressLint("RestrictedApi")
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        listViewData.clear();
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                            listData = snapshot.getValue(Form.class);
+
+
+                            if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue()!=null) {
+                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("parti") && listData.getstate() == 0 && pos == 1) {
+
+                                    listViewData.add(listData);
+                                }
+                                if (name == 1 && listData.getstate() == 1 && pos == 2) {
+
+                                    listViewData.add(listData);
+                                }
+
+                                if (name == 1 && listData.getstate() == 2 && pos == 3) {
+
+                                    listViewData.add(listData);
+                                }
+                            }
+
+                            //viewpager에 리스트 띄워줌
+                            ListAdapter oAdapter = new CustomListView(listViewData);
+                            listView.setAdapter(oAdapter);
+                        }
+
                     }
-                    if (name== 1&& listData.getstate()==1 && pos==2) {
-                        Log.d("확인","실행: "+listData.UID_dash);
-                        listViewData.add(listData);
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
                     }
+                });
 
-                    if (name== 1&& listData.getstate()==2 && pos==3) {
-                        Log.d("확인","실행: "+listData.UID_dash);
-                        listViewData.add(listData);
-                    }
-
-
-
-                    //viewpager에 리스트 띄워줌
-                    ListAdapter oAdapter = new CustomListView(listViewData);
-                    listView.setAdapter(oAdapter);
-                }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -124,38 +139,11 @@ public class PlaceholderFragment2 extends Fragment {
 
         return root;
     }
-
-    private int UserFind(String FID){
-        FirebaseDatabase.getInstance().getReference().child("users").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                String profil_text;
-
-                if (dataSnapshot.child(FID).getValue() != null) {
-                    if (dataSnapshot.child(FID).getValue().toString().equals("parti")) {
-                        name = 1;
-
-                    } else {
-                        name = 0;
-                    }
-
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w("", "loadPost:onCancelled", databaseError.toException());
-                // ...
-            }
-        });
-        return name;
-
-    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
 }
+//
 

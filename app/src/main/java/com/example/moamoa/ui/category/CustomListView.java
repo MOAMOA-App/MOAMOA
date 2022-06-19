@@ -126,9 +126,7 @@ public class CustomListView extends BaseAdapter {
                     }
                 }
 
-                    Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getKey());
 
-                    Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getValue());
             }
 
             @Override
@@ -152,7 +150,7 @@ public class CustomListView extends BaseAdapter {
                 });
 
 
-                Log.d("MainActivity", "vv: " + v);
+
 
                 if (button.isChecked()) {
 

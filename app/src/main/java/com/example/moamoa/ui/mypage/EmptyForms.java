@@ -26,13 +26,13 @@ package com.example.moamoa.ui.mypage;
 
 public class EmptyForms extends AppCompatActivity {
 
-    private EmptyFormsBinding binding;
+    private CreatedFormsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = EmptyFormsBinding.inflate(getLayoutInflater());
+        binding = CreatedFormsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         SectionsPagerAdapter2 sectionsPagerAdapter = new SectionsPagerAdapter2(this, getSupportFragmentManager());

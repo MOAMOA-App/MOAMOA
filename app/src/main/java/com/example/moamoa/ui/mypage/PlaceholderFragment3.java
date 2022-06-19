@@ -85,7 +85,7 @@ public class PlaceholderFragment3 extends Fragment {
                     Form listData = snapshot.getValue(Form.class);
                     Log.d("확인","루트 : "+user.getUid());
 
-                    if (listData.FID == true && pos==1) {
+                    if ( pos==1) {
                         Log.d("확인","실행: "+listData.UID_dash);
                         listViewData.add(listData);
                     }
