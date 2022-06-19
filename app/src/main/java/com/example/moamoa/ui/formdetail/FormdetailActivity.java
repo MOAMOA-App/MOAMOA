@@ -181,20 +181,22 @@ public class FormdetailActivity extends Activity {
                         Log.d("MainActivity", "파티냐 : " + dataSnapshot.child(temp).getValue());
                         if (temp.contains(user.getUid())) {
                             Toast.makeText(getApplicationContext(), "호스트입니다", Toast.LENGTH_SHORT).show();
-                        }
 
-                        else if(dataSnapshot.child(temp).getValue()!=null &&dataSnapshot.child(temp).getValue().equals("parti") && num_b!=Integer.parseInt(num_k)+1)
-                        {
-                            Log.d("MainActivity", "파티 떠라: " + dataSnapshot.child(temp).getKey());
-                            Toast.makeText(getApplicationContext(), "이미 참여하였습니다.", Toast.LENGTH_SHORT).show();
 
                         }
                         else if(dataSnapshot.child(temp).getValue()==null) {
-                                num_b = 1 + Integer.parseInt(num_k);
-                                FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(temp).setValue("parti");
-                                FirebaseDatabase.getInstance().getReference("form").child(temp).child("parti_num").setValue(num_b);
+                            num_b = 1 + Integer.parseInt(num_k);
+                            FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(temp).setValue("parti");
+                            FirebaseDatabase.getInstance().getReference("form").child(temp).child("parti_num").setValue(num_b);
 
-                            }
+                        }
+                        else if(dataSnapshot.child(temp).getValue()!=null &&dataSnapshot.child(temp).getValue().equals("parti") )
+                        {
+                   //         Log.d("MainActivity", "파티 떠라: " + dataSnapshot.child(temp).getKey());
+                            Toast.makeText(getApplicationContext(), "참여하였습니다.", Toast.LENGTH_SHORT).show();
+
+                        }
+
 
 
                     }
