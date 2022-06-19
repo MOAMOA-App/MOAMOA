@@ -44,3 +44,4 @@ public class SectionsPagerAdapter3 extends FragmentPagerAdapter {
         return 3;
     }
 }
+//
