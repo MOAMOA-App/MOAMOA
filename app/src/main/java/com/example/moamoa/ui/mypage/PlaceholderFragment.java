@@ -1,6 +1,7 @@
 package com.example.moamoa.ui.mypage;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.CreatedFormsBinding;
 import com.example.moamoa.databinding.EmptyFormsBinding;
+import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -116,11 +118,21 @@ public class PlaceholderFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String clickName = listViewData.get(position).subject;
-                Log.d("확인","name : "+clickName);
+
+                String FID = listViewData.get(position).FID;
+                String title = listViewData.get(position).subject;
+
+                //인텐트 선언 및 정의
+
+
+                Intent intent = new Intent(getContext(), FormdetailActivity.class);
+                //입력한 input값을 intent로 전달한다.
+                intent.putExtra("FID", FID);
+                //액티비티 이동
+                startActivity(intent);
+                //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
             }
         });
-//
 
         return root;
     }
