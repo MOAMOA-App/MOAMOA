@@ -165,8 +165,7 @@ public class FormdetailActivity extends Activity {
         party_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "참여하기 클릭", Toast.LENGTH_SHORT).show();
-
+ 
 
 
 

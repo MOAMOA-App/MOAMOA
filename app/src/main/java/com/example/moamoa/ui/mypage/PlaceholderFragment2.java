@@ -40,7 +40,7 @@ public class PlaceholderFragment2 extends Fragment {
 
     private PageViewModel pageViewModel;
     private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
-
+    int name = 0;
 
     public static PlaceholderFragment2 newInstance(int index) {
         PlaceholderFragment2 fragment = new PlaceholderFragment2();
@@ -85,19 +85,19 @@ public class PlaceholderFragment2 extends Fragment {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     Form listData = snapshot.getValue(Form.class);
                     Log.d("확인","루트 : "+user.getUid());
+                    UserFind(listData.FID);
 
 
-
-                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==0 && pos==1) {
+                    if (name== 1&& listData.getstate()==0 && pos==1) {
                         Log.d("확인","실행: "+listData.UID_dash);
                         listViewData.add(listData);
                     }
-                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==1 && pos==2) {
+                    if (name== 1&& listData.getstate()==1 && pos==2) {
                         Log.d("확인","실행: "+listData.UID_dash);
                         listViewData.add(listData);
                     }
 
-                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==2 && pos==3) {
+                    if (name== 1&& listData.getstate()==2 && pos==3) {
                         Log.d("확인","실행: "+listData.UID_dash);
                         listViewData.add(listData);
                     }
@@ -125,6 +125,33 @@ public class PlaceholderFragment2 extends Fragment {
         return root;
     }
 
+    private int UserFind(String FID){
+        FirebaseDatabase.getInstance().getReference().child("users").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                String profil_text;
+
+                if (dataSnapshot.child(FID).getValue() != null) {
+                    if (dataSnapshot.child(FID).getValue().toString().equals("parti")) {
+                        name = 1;
+
+                    } else {
+                        name = 0;
+                    }
+
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("", "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        });
+        return name;
+
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();

@@ -21,11 +21,7 @@
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
-        <activity
-            android:name=".ui.dashboard.AddressApiActivity"
-            android:exported="false"
-            android:label="@string/title_activity_address_api"
-            android:theme="@style/Theme.MOAMOA.NoActionBar" />
+
         <activity
             android:name=".ui.chats.ChatsActivity"
             android:exported="false" />
@@ -64,8 +60,8 @@
             android:name=".ui.mypage.CreatedForms"
             android:label="만든 폼 관리" />
         <activity
-            android:name=".ui.mypage.ParticipatedForms"
-            android:label="참여한 폼 관리" />
+            android:name=".ui.mypage.EmptyForms"
+            android:label="참여 폼 관리" />
         <activity
             android:name=".ui.mypage.Setting"
             android:label="환경설정" />

@@ -65,11 +65,26 @@ public class CustomListView extends BaseAdapter {
             }
             convertView = layoutInflater.inflate(R.layout.fragment_main, parent, false);
         }
+        TextView name = convertView.findViewById(R.id.charge);
         ImageView mainImage = convertView.findViewById(R.id.mainImage);
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
         StorageReference pathReference = firebaseStorage.getReference(listViewData.get(position).image);
+        String uid=listViewData.get(position).UID_dash;
 
+        FirebaseDatabase.getInstance().getReference().child("users").child(uid).child("nick").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                name.setText(dataSnapshot.getValue().toString());
 
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("", "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+
+        });
         pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -80,16 +95,16 @@ public class CustomListView extends BaseAdapter {
         });
 
             TextView title = convertView.findViewById(R.id.title);
-            TextView name = convertView.findViewById(R.id.name);
-            TextView charge = convertView.findViewById(R.id.charge);
+
+            TextView charge = convertView.findViewById(R.id.name);
             TextView mans = convertView.findViewById(R.id.mans);
 
             //mainImage.listViewData.get(position).photo);
             title.setText(listViewData.get(position).subject);
-            name.setText(listViewData.get(position).address);
 
-            charge.setText(listViewData.get(position).cost);
-            mans.setText(listViewData.get(position).deadline);
+
+            charge.setText(listViewData.get(position).address);
+            mans.setText(listViewData.get(position).parti_num+"/"+listViewData.get(position).max_count);
 
         //listview와 버튼 클릭 다르게 주기
 
