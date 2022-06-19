@@ -48,9 +48,7 @@ public class ChatListFragment extends Fragment {
     public void FormData()
     {
         list = new ArrayList<ChatListData>();
-        list.add(new ChatListData("폼이름1", "안녕하세요"));
-        list.add(new ChatListData("폼이름2", "안녕하세요"));
-        list.add(new ChatListData("폼이름3", "안녕하세요"));
+        list.add(new ChatListData("test", "궁금한 점이 있어 문의드립니다!"));
     }
 
     @Override

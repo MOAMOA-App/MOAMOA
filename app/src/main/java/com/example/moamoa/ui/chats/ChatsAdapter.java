@@ -54,7 +54,8 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
 
         if (list.get(position).getLeftname().equals(this.leftname)){
             // 내가 보낸 메시지일시 오른쪽에서 출력:왼쪽 이미지
-            holder.nickName.setVisibility(View.INVISIBLE);
+            //holder.nickName.setVisibility(View.INVISIBLE);
+            holder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
             holder.Message.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             holder.profile_image.setVisibility(View.INVISIBLE); //프사 안보이게
 
@@ -89,7 +90,7 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
     public void addChat(ChatsData chat) {
         list.add(chat);
         notifyItemInserted(list.size()-1); //갱신
-        // EX: 0, 1, 2 = 3번지. ~>오류날수도.
+        // EX: 0, 1, 2 = 3번지. ~>오류날수도 .
         // 사이즈가 3개면 3번지에 넣으란 뜻인데 저기에는 3번지 없음--> 2에 넣는다(list.size()-1)
     }
 

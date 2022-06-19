@@ -57,7 +57,7 @@ public class ChatsFragment extends Fragment {
     private Toolbar chattoolbar;
 
     // 닉네임 받아서 설정하면 없앨코든데 닉네임이 안받아짐........
-    private String nick = "닉네임1";
+    private String nick = "보라웨옹";
 
 
     @Nullable
@@ -71,6 +71,7 @@ public class ChatsFragment extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         USERID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FINDUserName(USERID);
+        //왜...닉네임이안받아질까
         Log.e("TEST", "USERNAME: "+USERNAME);
         //USERNAME = NICKNAME;
         Log.e("TEST", "USERID: "+USERID);    // 내 UID
@@ -155,7 +156,7 @@ public class ChatsFragment extends Fragment {
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Log.d("메시지 보냄", snapshot.getValue().toString());
+                Log.d("메시지 보냄 ", snapshot.getValue().toString());
                 ChatsData chats = snapshot.getValue(ChatsData.class);
                 Log.i("채팅 윈도우", "저장된 데이터 : " + chats.getLeftname() + ": " + chats.getLeftmessage());
 
@@ -193,28 +194,28 @@ public class ChatsFragment extends Fragment {
     void FINDUserName(String UID){
         FirebaseDatabase.getInstance().getReference().child("users").child("nick")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                for (DataSnapshot item : snapshot.getChildren()){
-                    User user = new User();
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        for (DataSnapshot item : snapshot.getChildren()){
+                            User user = new User();
 
-                }
-            }
+                        }
+                    }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w("", "loadPost:onCancelled", databaseError.toException());
-                // ...
-            }
-        });
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        // Getting Post failed, log a message
+                        Log.w("", "loadPost:onCancelled", databaseError.toException());
+                        // ...
+                    }
+                });
     }
 
     private String ChatTime() {
         Calendar calendar = Calendar.getInstance();
         @SuppressLint("DefaultLocale")
         String TIME = String.format("%d/%d %d:%d", calendar.get(Calendar.MONTH)+1, calendar.get(Calendar.DAY_OF_MONTH),
-                calendar.get(Calendar.HOUR_OF_DAY)-3, calendar.get(Calendar.MINUTE));
+                calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE));
 
         return TIME;
     }

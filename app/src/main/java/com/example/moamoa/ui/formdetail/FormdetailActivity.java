@@ -118,36 +118,38 @@ public class FormdetailActivity extends Activity {
         chat_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "채팅하기 클릭", Toast.LENGTH_SHORT).show();
-
-
-
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("form");
                 database.child(temp).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-
-                        // ChatActivity로 데이터 넘김
-                        Intent intent = new Intent(FormdetailActivity.this, ChatsActivity.class);
-
-                        // FORM 정보 불러옴(ChatFragment에서 CHATROOM_NAME과 CHATROOM_FID로 사용)
-                        String FORMNAME = dataSnapshot.child("subject").getValue().toString();
-                        String FID = temp;
-
                         // USER 정보 불러옴 (ChatsFragment에서 destinationUID로 사용)
                         String UID = dataSnapshot.child("UID_dash").getValue().toString();
 
-                        // 값 잘 불러왔는지 테스트
-                        Log.d("TEST", "subject: "+FORMNAME);
-                        Log.d("TEST", "FID: "+FID);
-                        Log.d("TEST", "UID: "+UID);
+                        if (user.getUid().equals(UID)) {
+                            // 본인의 폼에서는 채팅하기 누를 수 없음
+                            Toast.makeText(getApplicationContext(), "호스트", Toast.LENGTH_SHORT).show();
+                        } else{
+                            // ChatActivity로 데이터 넘김
+                            Intent intent = new Intent(FormdetailActivity.this, ChatsActivity.class);
 
-                        // ChatsActivity에 subject, FID, UID 넘겨줌
-                        intent.putExtra("CHATROOM_NAME", FORMNAME);
-                        intent.putExtra("CHATROOM_FID", FID);
-                        intent.putExtra("destinationUID", UID);
+                            // FORM 정보 불러옴(ChatFragment에서 CHATROOM_NAME과 CHATROOM_FID로 사용)
+                            String FORMNAME = dataSnapshot.child("subject").getValue().toString();
+                            String FID = temp;
 
-                        startActivity(intent);
+
+
+                            // 값 잘 불러왔는지 테스트
+                            Log.d("TEST", "subject: "+FORMNAME);
+                            Log.d("TEST", "FID: "+FID);
+                            Log.d("TEST", "UID: "+UID);
+
+                            // ChatsActivity에 subject, FID, UID 넘겨줌
+                            intent.putExtra("CHATROOM_NAME", FORMNAME);
+                            intent.putExtra("CHATROOM_FID", FID);
+                            intent.putExtra("destinationUID", UID);
+
+                            startActivity(intent);
+                        }
                     }
 
                     @Override
