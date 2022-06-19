@@ -62,13 +62,16 @@
             android:label="휴대폰 인증" />
         <activity
             android:name=".ui.mypage.CreatedForms"
-            android:label="만든 폼 관리" />
+            android:label="만든 게시글" />
+        <activity
+            android:name=".ui.mypage.ParticipatedForms"
+            android:label="참여한 게시글" />
         <activity
             android:name=".ui.mypage.HeartForms"
-            android:label="찜 폼 관리" />
+            android:label="관심 게시글" />
         <activity
             android:name=".ui.mypage.EmptyForms"
-            android:label="참여한 폼 관리" />
+            android:label="참여한 게시글" />
         <activity
             android:name=".ui.mypage.Setting"
             android:label="환경설정" />
