@@ -217,11 +217,18 @@
             android:layout_marginRight="10dp"
             android:gravity="center"
             android:background="@drawable/formdetail_heart_layer">
-            <ImageButton
-                android:id="@+id/detail_heart_btn"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:background="@drawable/ic_baseline_favorite_border_24"/>
+
+            <ToggleButton
+                android:id="@+id/heart"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:focusable="false"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/heart"
+                android:checked="false"
+                android:text=""
+                android:textOff=""
+                android:textOn="" />
         </LinearLayout>
         <Button
             android:id="@+id/detail_party_btn"

@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -40,6 +41,7 @@ public class FormdetailActivity extends Activity {
     int num_b;
     String num_k;
     String image;
+    String k;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formdetail);
@@ -52,7 +54,7 @@ public class FormdetailActivity extends Activity {
 
         Button chat_btn = (Button)findViewById(R.id.detail_chat_btn);   //채팅하기 버튼
         Button party_btn = (Button)findViewById(R.id.detail_party_btn); //참여하기 버튼
-        ImageButton heart_btn = (ImageButton) findViewById(R.id.detail_heart_btn);
+        //ImageButton heart_btn = (ImageButton) findViewById(R.id.detail_heart_btn);
         mDatabase = FirebaseDatabase.getInstance().getReference().child("form");
         mDatabase.child(temp).addValueEventListener(new ValueEventListener() {
             @Override
@@ -204,13 +206,88 @@ public class FormdetailActivity extends Activity {
             }
 
         });
-        heart_btn.setOnClickListener(new View.OnClickListener() {
+        ToggleButton button = findViewById(R.id.heart);
+        FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if (dataSnapshot.getValue() != null) {
+                    k=dataSnapshot.getKey();
+
+                    if (dataSnapshot.getValue().equals("true")) {
+
+                        button.setBackgroundResource(R.drawable.full_heart);
+
+                    } else {
+                        button.setBackgroundResource(R.drawable.empty_heart);
+
+                    }
+                }
+
+                Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getKey());
+
+                Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError)
+            {    }
+        });
+
+        //FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a+1);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "찜버튼 클릭", Toast.LENGTH_SHORT).show();
-                FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).setValue("true");
+                FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        //v= String.valueOf(dataSnapshot.getValue());
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError)
+                    {    }
+                });
+
+
+                //Log.d("MainActivity", "vv: " + v);
+
+                if (button.isChecked()) {
+
+                    //button.setBackgroundResource(R.drawable.full_heart);
+                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).setValue("true");
+                }
+                else if( !button.isChecked())
+                {
+
+                    // button.setBackgroundResource(R.drawable.empty_heart);
+                    //FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a-1);
+                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).setValue("false");
+                }
+                //{
+                //    button.setBackgroundResource(R.drawable.full_heart);
+                //    FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a+1);
+                //    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("true");
+
+                //}
+                //if (isChecked ){
+
+
+
+
 
             }
+
+
+
+
+
+            //
+            //String clickName = listViewData.get(position).subject;
+            //Log.d("확인","message : "+clickName);
+
+
+
         });
         return;
     }
