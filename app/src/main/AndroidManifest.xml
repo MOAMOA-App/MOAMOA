@@ -69,6 +69,9 @@
         <activity
             android:name=".ui.mypage.Setting"
             android:label="환경설정" />
+        <activity
+            android:name=".ui.mypage.CustomDialog"
+            android:theme="@android:style/Theme.Dialog" />
     </application>
 
 </manifest>

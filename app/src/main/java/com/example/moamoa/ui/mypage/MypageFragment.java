@@ -163,11 +163,11 @@ public class MypageFragment extends Fragment {
                     startActivity(intent);
                 }
                 if(position == 1){
-                    Intent intent = new Intent(getActivity(), ParticipatedForms.class);
+                    Intent intent = new Intent(getActivity(), CreatedForms.class);
                     startActivity(intent);
                 }
                 if(position == 2) {
-                    Intent intent = new Intent(getActivity(), EditMyinfo.class);
+                    Intent intent = new Intent(getActivity(), CreatedForms.class);
                     startActivity(intent);
                 }
             }
