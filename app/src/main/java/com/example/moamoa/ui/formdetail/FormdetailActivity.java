@@ -7,22 +7,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import com.bumptech.glide.Glide;
-import com.example.moamoa.Form;
 import com.example.moamoa.R;
-import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.chats.ChatsActivity;
-import com.example.moamoa.ui.chats.ChatsFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,8 +25,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
-import java.util.Objects;
 
 public class FormdetailActivity extends Activity {
     private DatabaseReference mDatabase;
@@ -63,13 +53,14 @@ public class FormdetailActivity extends Activity {
                 //String category = dataSnapshot.child("category").getValue().toString();
                 String text = dataSnapshot.child("text").getValue().toString();
                 String cost = dataSnapshot.child("cost").getValue().toString();
+                String category = dataSnapshot.child("category_text").getValue().toString();
                 String max_count = dataSnapshot.child("max_count").getValue().toString();
                 num_k= dataSnapshot.child("parti_num").getValue().toString() ;
                 image=dataSnapshot.child("image").getValue().toString() ;
                 Log.d("확인","message상세 이미지 : "+image);
                 String UID = dataSnapshot.child("UID_dash").getValue().toString();
                 UserFind(UID);
-                Initializeform(subject,"category",text,cost,num_k+"/"+max_count);
+                Initializeform(subject,category,text,cost,num_k+"/"+max_count);
                 StorageReference pathReference = firebaseStorage.getReference(image);
 
                 FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
@@ -339,7 +330,7 @@ public class FormdetailActivity extends Activity {
         TextView cost_text = (TextView) findViewById(R.id.detail_cost);
         TextView max_count_text = (TextView) findViewById(R.id.detail_party_num);
         subject_text.setText(subject);
-        category_text.setText("1");
+        category_text.setText(category);
         text_text.setText(text);
         cost_text.setText(cost);
         max_count_text.setText(max_count);
