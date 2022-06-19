@@ -1,4 +1,4 @@
-package com.example.moamoa.ui.category;
+package com.example.moamoa.ui.mypage;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,9 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.moamoa.databinding.CreatedFormsBinding;
+
 import com.google.android.material.tabs.TabLayout;
 
-public class ParticipatedForms extends AppCompatActivity {
+public class HeartForms extends AppCompatActivity {
     private CreatedFormsBinding binding;
 
     @Override
@@ -19,7 +20,7 @@ public class ParticipatedForms extends AppCompatActivity {
         binding = CreatedFormsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        SectionsPagerAdapter3 sectionsPagerAdapter = new SectionsPagerAdapter3(this, getSupportFragmentManager());
         ViewPager viewPager = binding.viewPager;
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = binding.tabs;
@@ -28,3 +29,4 @@ public class ParticipatedForms extends AppCompatActivity {
 
     }
 }
+//

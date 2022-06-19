@@ -47,6 +47,7 @@ public class DashboardFragment extends Fragment {
     private FragmentDashboardBinding binding;
     long mNow;
     Date mDate;
+    boolean on = false;
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMdd");
     SimpleDateFormat mFormat1 = new SimpleDateFormat("yyyyMMddhhmmss");
     StorageReference storageRef;
@@ -117,6 +118,43 @@ public class DashboardFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (on == false){
+                    Toast.makeText(getContext(),"사진을 추가하세요",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (subject.getText().toString().length()==0){
+                    Toast.makeText(getContext(),"제목을 입력하세요",Toast.LENGTH_SHORT).show();
+                    subject.requestFocus();
+                    return;
+                }
+
+                if (text.getText().toString().length()==0){
+                    Toast.makeText(getContext(),"내용을 입력하세요",Toast.LENGTH_SHORT).show();
+                    text.requestFocus();
+                    return;
+                }
+                if (address.getText().toString().length()==0){
+                    Toast.makeText(getContext(),"주소를 입력하세요",Toast.LENGTH_SHORT).show();
+                    address.requestFocus();
+                    return;
+                }
+                if (cost.getText().toString().length()==0){
+                    Toast.makeText(getContext(),"가격을 입력하세요",Toast.LENGTH_SHORT).show();
+                    cost.requestFocus();
+                    return;
+                }
+                if (max_count.getText().toString().length()==0){
+                    Toast.makeText(getContext(),"모집인원을 입력하세요",Toast.LENGTH_SHORT).show();
+                    max_count.requestFocus();
+                    return;
+
+                }
+                if (deadline.getText().toString().length()==0){
+                    Toast.makeText(getContext(),"마감일자를 입력하세요",Toast.LENGTH_SHORT).show();
+                    deadline.requestFocus();
+                    return;
+
+                }
                 FID=user.getUid()+num_a;
 //if (!(subject.equals("") && text.equals("") &&address.equals("")&&cost.equals("")&&max_count.equals("")&&deadline.equals(""))) {
 
@@ -224,6 +262,7 @@ public class DashboardFragment extends Fragment {
                     in.close();
                     photo.setImageBitmap(img);
                     getActivity().findViewById(R.id.imageView).setVisibility(View.VISIBLE);
+                    on=true;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

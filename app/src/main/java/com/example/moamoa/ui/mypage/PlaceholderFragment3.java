@@ -36,16 +36,16 @@ import java.util.ArrayList;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment extends Fragment {
+public class PlaceholderFragment3 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-
+    int name;
     private PageViewModel pageViewModel;
     private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
-
-
-    public static PlaceholderFragment newInstance(int index) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    Form listData;
+    public static PlaceholderFragment3 newInstance(int index) {
+        PlaceholderFragment3 fragment = new PlaceholderFragment3();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -78,50 +78,66 @@ public class PlaceholderFragment extends Fragment {
         ListView listView;
         listView = root.findViewById(R.id.listview);
         ArrayList<Form> listViewData = new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
-            @SuppressLint("RestrictedApi")
+
+
+        FirebaseDatabase.getInstance().getReference().child("heart").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                listViewData.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    Form listData = snapshot.getValue(Form.class);
-                    Log.d("확인","루트 : "+user.getUid());
+            public void onDataChange(DataSnapshot dataSnapshot2) {
 
 
+                FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
+                    @SuppressLint("RestrictedApi")
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        listViewData.clear();
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
-                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==0 && pos==1) {
-                        Log.d("확인","실행: "+listData.UID_dash);
-                        listViewData.add(listData);
+                            listData = snapshot.getValue(Form.class);
+
+                            Log.d("확인","핱츠 : "+dataSnapshot2.child(user.getUid()).child(listData.FID).getValue());
+                            if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue()!=null) {
+                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("true") && listData.getstate() == 0 && pos == 1) {
+
+                                    listViewData.add(listData);
+                                }
+                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("true")&& listData.getstate() == 1 && pos == 2) {
+
+                                    listViewData.add(listData);
+                                }
+
+                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("true")&& listData.getstate() == 2 && pos == 3) {
+
+                                    listViewData.add(listData);
+                                }
+                            }
+
+                            //viewpager에 리스트 띄워줌
+                            ListAdapter oAdapter = new CustomListView(listViewData);
+                            listView.setAdapter(oAdapter);
+                        }
+
                     }
-                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==1 && pos==2) {
-                        Log.d("확인","실행: "+listData.UID_dash);
-                        listViewData.add(listData);
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
                     }
+                });
 
-                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==2 && pos==3) {
-                        Log.d("확인","실행: "+listData.UID_dash);
-                        listViewData.add(listData);
-                    }
-
-
-
-                    //viewpager에 리스트 띄워줌
-                    ListAdapter oAdapter = new CustomListView(listViewData);
-                    listView.setAdapter(oAdapter);
-                }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Log.d("확인","message : "+"");
                 String FID = listViewData.get(position).FID;
                 String title = listViewData.get(position).subject;
-
+                Log.d("확인","message : "+FID);
+                Log.d("확인","message : "+title);
                 //인텐트 선언 및 정의
 
 
@@ -133,15 +149,13 @@ public class PlaceholderFragment extends Fragment {
                 //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
             }
         });
-
         return root;
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
 }
-//
+////
 

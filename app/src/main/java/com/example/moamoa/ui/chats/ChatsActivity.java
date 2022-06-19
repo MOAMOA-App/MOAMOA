@@ -57,7 +57,7 @@ public class ChatsActivity extends AppCompatActivity {
     private ActivityChatsBinding binding;
 
     String Chatroomname, Formid, destinationuid;
-    String UID, NICK, destinationNICK;
+    String UID, NICK, myNICK, destinationNICK;
     ChatsFragment chatsFragment = new ChatsFragment();
 
     private DatabaseReference mDatabase;
@@ -70,14 +70,17 @@ public class ChatsActivity extends AppCompatActivity {
         binding = ActivityChatsBinding.inflate(getLayoutInflater());
         View root = binding.getRoot();
 
-        // 사용자의 UID 불러옴
+        // 사용자의 UID, 닉네임 불러옴
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FindUserNick(UID);
+        Log.e("TEST", "NICK: "+NICK);
+        //myNICK = NICK;
 
         // FormdetailActivity에서 값 받음
         Intent getIntent = getIntent();
         Chatroomname = getIntent.getStringExtra("CHATROOM_NAME");
-        Formid = getIntent.getStringExtra("FORMID");
+        Formid = getIntent.getStringExtra("CHATROOM_FID");
         destinationuid = getIntent.getStringExtra("destinationUID");
 
         // 값 잘 받았는지 테스트
@@ -92,10 +95,10 @@ public class ChatsActivity extends AppCompatActivity {
         bundle.putString("destinationUID", destinationuid);
         chatsFragment.setArguments(bundle);
         /*
-        * ChatsFragment로 값이 안넘어갔던 이유: xml에 fragmentcontainerview 있음
-        * --> 값을 넘기기 전에 ChatsFragment가 만들어져 null값이 됨
-        * 해결 위해 fragmentcontainerview 대신 framelayout 사용 후 밑 코드로 ChatsFragment 연결해줌
-        */
+         * ChatsFragment로 값이 안넘어갔던 이유: xml에 fragmentcontainerview 있음
+         * --> 값을 넘기기 전에 ChatsFragment가 만들어져 null값이 됨
+         * 해결 위해 fragmentcontainerview 대신 framelayout 사용 후 밑 코드로 ChatsFragment 연결해줌
+         */
 
         // 프래그먼트 매니저로 chatscontainer에 chatsFragment 연결해줌
         getSupportFragmentManager().beginTransaction().replace(R.id.chatscontainer, chatsFragment).commit();
@@ -218,6 +221,7 @@ public class ChatsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 NICK = dataSnapshot.child("nick").getValue().toString();
+                Log.e("TEST", "nick: "+NICK);
             }
 
             @Override

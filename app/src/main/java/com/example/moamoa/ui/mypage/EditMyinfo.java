@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,10 +20,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.moamoa.LoginActivity;
 import com.example.moamoa.R;
 //import com.example.moamoa.User;
+import com.example.moamoa.ui.account.Random_nick;
+import com.example.moamoa.ui.account.RegisterActivity;
 import com.example.moamoa.ui.account.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.ActionCodeSettings;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -31,10 +37,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+
 public class EditMyinfo extends AppCompatActivity {
     private DatabaseReference mDatabase;
     EditText PresentPasswordText, PasswordText, PasswordcheckText;
     Button passwordBtn;
+    EditText EmailText;
+    Button emailBtn;
     private int success = 0 ;
 
     @Override
@@ -51,7 +63,7 @@ public class EditMyinfo extends AppCompatActivity {
             // Name, email address, and profile photo Url
             //프로필 정보
             TextView name = findViewById(R.id.name);
-            TextView Email = findViewById(R.id.editTextTextEmailAddress);
+            TextView Email = findViewById(R.id.editEmailAddress);
 
             //nikname은 auth(계정 정보)에 들어가지 않으므로 database getReference()를 이용
             //닉네임 뜨는데 딜레이가 있음
@@ -66,12 +78,8 @@ public class EditMyinfo extends AppCompatActivity {
                     Toast.makeText(getApplication(),"데이터를 가져오는데 실패했습니다" , Toast.LENGTH_LONG).show();
                 }
             });
-            String email = user.getEmail();
-
-            // Check if user's email is verified
-            boolean emailVerified = user.isEmailVerified();
-
-            Email.setText(email);
+            String emails = user.getEmail();
+            Email.setText(emails);
 
 
             //비밀번호 변경
@@ -150,6 +158,57 @@ public class EditMyinfo extends AppCompatActivity {
                         startActivity(intent);
                         Toast.makeText(getApplication(), "비밀번호가 변경되었습니다.\n다시 로그인해주세요.", Toast.LENGTH_LONG).show();
                     }
+                }
+            });
+
+            //이메일 변경
+            emailBtn = findViewById(R.id.button7);
+            EmailText = findViewById(R.id.editEmailAddress);
+
+            emailBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public synchronized void onClick(View v) {
+                    AlertDialog.Builder alerting = new AlertDialog.Builder(EditMyinfo.this);
+
+                    String emailText = EmailText.getText().toString().trim();
+                    boolean em = emailText.contains("@") & emailText.contains(".");
+
+                    FirebaseAuth.getInstance().getCurrentUser().updateEmail(emailText)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(getApplication(), "변경", Toast.LENGTH_LONG).show();
+                                            Log.d(TAG, "User email address updated.");
+                                            Email.setText(emailText);
+                                        }
+                                        else{
+                                            Toast.makeText(getApplication(), "실패", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });
+
+//                        user.sendEmailVerification()
+//                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                    @Override
+//                                    public void onComplete(@NonNull Task<Void> task) {
+//                                        if (task.isSuccessful()) {
+//                                            Log.d(TAG, "Email sent.");
+//                                            alerting.setMessage("입력하신 이메일의 인증 메일이 발송되었습니다")
+//                                                    .setNeutralButton("확인", new DialogInterface.OnClickListener() {
+//                                                        public void onClick(DialogInterface dialog, int which) {
+//                                                            Intent intent = new Intent(EditMyinfo.this, MypageFragment.class);
+//                                                            startActivity(intent);
+//                                                            finish();
+//                                                        }
+//                                                    }).create().show();
+//                                        }
+//                                    }
+//                                });
+//                    }else{
+////                        alerting.setMessage("다시 입력해주세요.");
+////                        alerting.show();
+//                    }
                 }
             });
 

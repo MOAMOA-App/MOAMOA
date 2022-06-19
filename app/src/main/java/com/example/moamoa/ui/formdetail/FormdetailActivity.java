@@ -11,10 +11,18 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
+import com.example.moamoa.Form;
 import com.example.moamoa.R;
+import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.chats.ChatsActivity;
+import com.example.moamoa.ui.chats.ChatsFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,11 +34,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.Objects;
+
 public class FormdetailActivity extends Activity {
     private DatabaseReference mDatabase;
     int num_b;
     String num_k;
     String image;
+    String k;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formdetail);
@@ -43,27 +54,22 @@ public class FormdetailActivity extends Activity {
 
         Button chat_btn = (Button)findViewById(R.id.detail_chat_btn);   //채팅하기 버튼
         Button party_btn = (Button)findViewById(R.id.detail_party_btn); //참여하기 버튼
-        ImageButton heart_btn = (ImageButton) findViewById(R.id.detail_heart_btn);
+        //ImageButton heart_btn = (ImageButton) findViewById(R.id.detail_heart_btn);
         mDatabase = FirebaseDatabase.getInstance().getReference().child("form");
         mDatabase.child(temp).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String subject = dataSnapshot.child("subject").getValue().toString();
+                //String category = dataSnapshot.child("category").getValue().toString();
                 String text = dataSnapshot.child("text").getValue().toString();
                 String cost = dataSnapshot.child("cost").getValue().toString();
                 String max_count = dataSnapshot.child("max_count").getValue().toString();
-                String cur_count = dataSnapshot.child("parti_num").getValue().toString();
-                String date = dataSnapshot.child("deadline").getValue().toString();
-                String deadline = date.substring(2,4)+"년 "+date.substring(4,6)+"월 "+date.substring(6,8)+"일";
-                date = dataSnapshot.child("today").getValue().toString();
-                String start = date.substring(2,4)+"년 "+date.substring(4,6)+"월 "+date.substring(6,8)+"일";
-                String category = dataSnapshot.child("category_text").getValue().toString();
                 num_k= dataSnapshot.child("parti_num").getValue().toString() ;
                 image=dataSnapshot.child("image").getValue().toString() ;
                 Log.d("확인","message상세 이미지 : "+image);
                 String UID = dataSnapshot.child("UID_dash").getValue().toString();
                 UserFind(UID);
-                Initializeform(subject,category,text,cost,cur_count,max_count,start,deadline);
+                Initializeform(subject,"category",text,cost,num_k+"/"+max_count);
                 StorageReference pathReference = firebaseStorage.getReference(image);
 
                 FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
@@ -76,6 +82,7 @@ public class FormdetailActivity extends Activity {
                         Glide.with(mainImage.getContext())
                                 .load(uri)
                                 .into(mainImage);
+
                     }
                 });
 
@@ -89,36 +96,60 @@ public class FormdetailActivity extends Activity {
             }
         });
 
+
+        FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                    Log.d("MainActivity", "ValueEventListener : " + snapshot.getKey());
+                    if (snapshot.getValue()=="host")
+                    {
+                        //  bb="true";
+                    }
+                    Log.d("MainActivity", "ValueEventListener : " + snapshot.getValue());
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError)
+            {    }
+        });
+
         chat_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "채팅하기 클릭", Toast.LENGTH_SHORT).show();
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("form");
                 database.child(temp).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-
-                        // ChatActivity로 데이터 넘김
-                        Intent intent = new Intent(FormdetailActivity.this, ChatsActivity.class);
-
-                        // FORM 정보 불러옴(ChatFragment에서 CHATROOM_NAME과 CHATROOM_FID로 사용)
-                        String FORMNAME = dataSnapshot.child("subject").getValue().toString();
-                        String FID = temp;
-
                         // USER 정보 불러옴 (ChatsFragment에서 destinationUID로 사용)
                         String UID = dataSnapshot.child("UID_dash").getValue().toString();
 
-                        // 값 잘 불러왔는지 테스트
-                        Log.d("TEST", "subject: "+FORMNAME);
-                        Log.d("TEST", "FID: "+FID);
-                        Log.d("TEST", "UID: "+UID);
+                        if (user.getUid().equals(UID)) {
+                            // 본인의 폼에서는 채팅하기 누를 수 없음
+                            Toast.makeText(getApplicationContext(), "호스트", Toast.LENGTH_SHORT).show();
+                        } else{
+                            // ChatActivity로 데이터 넘김
+                            Intent intent = new Intent(FormdetailActivity.this, ChatsActivity.class);
 
-                        // ChatsActivity에 subject, FID, UID 넘겨줌
-                        intent.putExtra("CHATROOM_NAME", FORMNAME);
-                        intent.putExtra("FORMID", FID);
-                        intent.putExtra("destinationUID", UID);
+                            // FORM 정보 불러옴(ChatFragment에서 CHATROOM_NAME과 CHATROOM_FID로 사용)
+                            String FORMNAME = dataSnapshot.child("subject").getValue().toString();
+                            String FID = temp;
 
-                        startActivity(intent);
+
+
+                            // 값 잘 불러왔는지 테스트
+                            Log.d("TEST", "subject: "+FORMNAME);
+                            Log.d("TEST", "FID: "+FID);
+                            Log.d("TEST", "UID: "+UID);
+
+                            // ChatsActivity에 subject, FID, UID 넘겨줌
+                            intent.putExtra("CHATROOM_NAME", FORMNAME);
+                            intent.putExtra("CHATROOM_FID", FID);
+                            intent.putExtra("destinationUID", UID);
+
+                            startActivity(intent);
+                        }
                     }
 
                     @Override
@@ -136,53 +167,130 @@ public class FormdetailActivity extends Activity {
         party_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "참여하기 클릭", Toast.LENGTH_SHORT).show();
+ 
 
 
 
-                    FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
+                FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
 
-                                Log.d("MainActivity", "파티 폼 : " + dataSnapshot.child(temp).getKey());
-                                Log.d("MainActivity", "파티냐 : " + dataSnapshot.child(temp).getValue());
-                            if (temp.contains(user.getUid())) {
-                                Toast.makeText(getApplicationContext(), "호스트입니다", Toast.LENGTH_SHORT).show();
-                            }
-                                else if (dataSnapshot.child(temp).getKey().equals(temp) &&dataSnapshot.child(temp).getValue().equals("parti"))
-                                {
-                                    Log.d("MainActivity", "파티 떠라: " +dataSnapshot.child(temp).getKey());
-                                    Toast.makeText(getApplicationContext(), "이미 참여하였습니다.", Toast.LENGTH_SHORT).show();
+                        Log.d("MainActivity", "우쉬: " + dataSnapshot.child(temp));
 
-
-                                }
-                                else
-                                {
-
-                                    num_b= 1 + Integer.parseInt(num_k);
-                                    FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(temp).setValue("parti");
-                                    FirebaseDatabase.getInstance().getReference("form").child(temp).child("parti_num").setValue(num_b);
-
-                                }
+                        Log.d("MainActivity", "파티 폼 : " + dataSnapshot.child(temp).getKey());
+                        Log.d("MainActivity", "파티냐 : " + dataSnapshot.child(temp).getValue());
+                        if (temp.contains(user.getUid())) {
+                            Toast.makeText(getApplicationContext(), "호스트입니다", Toast.LENGTH_SHORT).show();
 
 
                         }
-                        @Override
-                        public void onCancelled(DatabaseError databaseError)
-                        {    }
-                    });
+                        else if(dataSnapshot.child(temp).getValue()==null) {
+                            num_b = 1 + Integer.parseInt(num_k);
+                            FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(temp).setValue("parti");
+                            FirebaseDatabase.getInstance().getReference("form").child(temp).child("parti_num").setValue(num_b);
 
-                     //파티 하면 숫자 안늘게 하기
-                }
+                        }
+                        else if(dataSnapshot.child(temp).getValue()!=null &&dataSnapshot.child(temp).getValue().equals("parti") )
+                        {
+                   //         Log.d("MainActivity", "파티 떠라: " + dataSnapshot.child(temp).getKey());
+                            Toast.makeText(getApplicationContext(), "참여하였습니다.", Toast.LENGTH_SHORT).show();
+
+                        }
+
+
+
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError)
+                    {    }
+                });
+
+                //파티 하면 숫자 안늘게 하기
+            }
 
         });
-        heart_btn.setOnClickListener(new View.OnClickListener() {
+        ToggleButton button = findViewById(R.id.heart);
+        FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if (dataSnapshot.getValue() != null) {
+                    k=dataSnapshot.getKey();
+
+                    if (dataSnapshot.getValue().equals("true")) {
+
+                        button.setBackgroundResource(R.drawable.full_heart);
+
+                    } else {
+                        button.setBackgroundResource(R.drawable.empty_heart);
+
+                    }
+                }
+
+                Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getKey());
+
+                Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError)
+            {    }
+        });
+
+        //FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a+1);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "찜버튼 클릭", Toast.LENGTH_SHORT).show();
-                FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).setValue("true");
+                FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        //v= String.valueOf(dataSnapshot.getValue());
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError)
+                    {    }
+                });
+
+
+                //Log.d("MainActivity", "vv: " + v);
+
+                if (button.isChecked()) {
+
+                    //button.setBackgroundResource(R.drawable.full_heart);
+                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).setValue("true");
+                }
+                else if( !button.isChecked())
+                {
+
+                    // button.setBackgroundResource(R.drawable.empty_heart);
+                    //FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a-1);
+                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).setValue("false");
+                }
+                //{
+                //    button.setBackgroundResource(R.drawable.full_heart);
+                //    FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a+1);
+                //    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("true");
+
+                //}
+                //if (isChecked ){
+
+
+
+
 
             }
+
+
+
+
+
+            //
+            //String clickName = listViewData.get(position).subject;
+            //Log.d("확인","message : "+clickName);
+
+
+
         });
         return;
     }
@@ -193,6 +301,7 @@ public class FormdetailActivity extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name;
                 String profil_text;
+
                 TextView name_tv = (TextView) findViewById(R.id.detail_nick);
                 ImageView profile = (ImageView) findViewById(R.id.detail_profile);
                 profil_text = dataSnapshot.child("image").getValue().toString();
@@ -223,25 +332,17 @@ public class FormdetailActivity extends Activity {
         });
     }
 
-    private void Initializeform(String subject,String category,String text,String cost,String cur_count,String max_count,String start, String dead) {
+    private void Initializeform(String subject,String category,String text,String cost,String max_count) {
         TextView subject_text = (TextView) findViewById(R.id.detail_subject);
         TextView category_text = (TextView) findViewById(R.id.detail_category);
         TextView text_text = (TextView) findViewById(R.id.detail_textarea);
         TextView cost_text = (TextView) findViewById(R.id.detail_cost);
-        TextView party_num = (TextView) findViewById(R.id.detail_party_num);
-        TextView startdate = (TextView) findViewById(R.id.detail_startdate);
-        TextView deadline = (TextView) findViewById(R.id.detail_deadline);
-        if(cost.equals("")){
-            cost="---";
-        }
-        //TextView max_count_text = (TextView) findViewById(R.id.);
+        TextView max_count_text = (TextView) findViewById(R.id.detail_party_num);
         subject_text.setText(subject);
-        category_text.setText(category);
+        category_text.setText("1");
         text_text.setText(text);
         cost_text.setText(cost);
-        party_num.setText(cur_count+"/"+max_count);
-        startdate.setText(start);
-        deadline.setText(dead);
+        max_count_text.setText(max_count);
     }
 
 }

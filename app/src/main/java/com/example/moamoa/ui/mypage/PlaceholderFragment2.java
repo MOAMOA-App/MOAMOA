@@ -1,6 +1,7 @@
 package com.example.moamoa.ui.mypage;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.CreatedFormsBinding;
 import com.example.moamoa.databinding.EmptyFormsBinding;
+import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -37,11 +39,11 @@ import java.util.ArrayList;
 public class PlaceholderFragment2 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-
+    int name;
     private PageViewModel pageViewModel;
     private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
-
-
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    Form listData;
     public static PlaceholderFragment2 newInstance(int index) {
         PlaceholderFragment2 fragment = new PlaceholderFragment2();
         Bundle bundle = new Bundle();
@@ -76,59 +78,89 @@ public class PlaceholderFragment2 extends Fragment {
         ListView listView;
         listView = root.findViewById(R.id.listview);
         ArrayList<Form> listViewData = new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
-            @SuppressLint("RestrictedApi")
+
+        FirebaseDatabase.getInstance().getReference().child("users").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(DataSnapshot dataSnapshot2) {
                 listViewData.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    Form listData = snapshot.getValue(Form.class);
-                    Log.d("확인","루트 : "+user.getUid());
+
+                FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
+                    @SuppressLint("RestrictedApi")
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                            listData = snapshot.getValue(Form.class);
 
 
+                            if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue()!=null) {
+                                Log.d("확인","루트 : "+dataSnapshot2.child(user.getUid()).child(listData.FID).getKey().toString());
 
-                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==0 && pos==1) {
-                        Log.d("확인","실행: "+listData.UID_dash);
-                        listViewData.add(listData);
+
+                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("parti") && listData.getstate() == 0 && pos == 1) {
+
+                                    listViewData.add(listData);
+                                }
+                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("parti") && listData.getstate() == 1 && pos == 2) {
+
+                                    listViewData.add(listData);
+                                }
+
+                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("parti")&& listData.getstate() == 2 && pos == 3) {
+
+                                    listViewData.add(listData);
+                                }
+                            }
+
+                            //viewpager에 리스트 띄워줌
+                            ListAdapter oAdapter = new CustomListView(listViewData);
+                            listView.setAdapter(oAdapter);
+                        }
+
                     }
-                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==1 && pos==2) {
-                        Log.d("확인","실행: "+listData.UID_dash);
-                        listViewData.add(listData);
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
                     }
+                });
 
-                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==2 && pos==3) {
-                        Log.d("확인","실행: "+listData.UID_dash);
-                        listViewData.add(listData);
-                    }
-
-
-
-                    //viewpager에 리스트 띄워줌
-                    ListAdapter oAdapter = new CustomListView(listViewData);
-                    listView.setAdapter(oAdapter);
-                }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
+
+
+//
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String clickName = listViewData.get(position).subject;
-                Log.d("확인","name : "+clickName);
+                Log.d("확인","message : "+"");
+                String FID = listViewData.get(position).FID;
+                String title = listViewData.get(position).subject;
+                Log.d("확인","message : "+FID);
+                Log.d("확인","message : "+title);
+                //인텐트 선언 및 정의
+
+
+                Intent intent = new Intent(getContext(), FormdetailActivity.class);
+                //입력한 input값을 intent로 전달한다.
+                intent.putExtra("FID", FID);
+                //액티비티 이동
+                startActivity(intent);
+                //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
             }
         });
-//
-
         return root;
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
 }
+//
 
