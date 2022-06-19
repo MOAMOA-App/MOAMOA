@@ -87,41 +87,23 @@ public class EditMyinfo extends AppCompatActivity {
             PresentPasswordText = findViewById(R.id.presentpassword);
             PasswordText = findViewById(R.id.newpassword);
             PasswordcheckText = findViewById(R.id.passwordchk);
+
             TextView pwdtext = findViewById(R.id.pwdtext);
+            Intent intent = getIntent(); //전달할 데이터를 받을 Intent
+            //text 키값으로 데이터를 받는다. String을 받아야 하므로 getStringExtra()를 사용함
+            String checkpwd = intent.getStringExtra("ppwd");
 
             passwordBtn.setOnClickListener(new View.OnClickListener() {
-                private int success;
 
                 @Override
                 public synchronized void onClick(View v) {
                     ProgressDialog mDialog = new ProgressDialog(EditMyinfo.this);
                     AlertDialog.Builder alerting = new AlertDialog.Builder(EditMyinfo.this);
                     //가입 정보 가져오기
-                    String useremail = user.getEmail();
                     String ppwd = PresentPasswordText.getText().toString().trim();
-                    login(useremail,ppwd);
 
                     String newpwd = PasswordText.getText().toString().trim();
                     String pwdcheck = PasswordcheckText.getText().toString().trim();
-
-
-                    //재로그인
-//                    auth.signInWithEmailAndPassword(useremail,ppwd)
-//                            .addOnCompleteListener(EditMyinfo.this, new OnCompleteListener<AuthResult>() {
-//                                @Override
-//                                public void onComplete(@NonNull Task<AuthResult> task) {
-//                                    if (task.isSuccessful()) {
-//                                        // Sign in success, update UI with the signed-in user's information
-//                                        Toast.makeText(getApplication(), "로그인 성공", Toast.LENGTH_LONG).show();
-//                                        success = 1;
-//                                    } else {
-//                                        // If sign in fails, display a message to the user.
-//                                        Toast.makeText(getApplication(), "로그인 실패", Toast.LENGTH_LONG).show();
-//                                        success = 0;
-//                                    }
-//                                }
-//                            });
-
 
                     if (ppwd.equals("")) {
                         alerting.setMessage("현재 비밀번호를 입력해주세요");
@@ -132,7 +114,7 @@ public class EditMyinfo extends AppCompatActivity {
                     } else if (pwdcheck.equals("")) {
                         alerting.setMessage("비밀번호 확인을 입력해주세요");
                         alerting.show();
-                    }else if (success == 0) {
+                    }else if (!ppwd.equals(checkpwd)) {
                         alerting.setMessage("현재 비밀번호가 일치하지 않습니다.");
                         alerting.show();
                     }else if (newpwd.length() < 10) {
@@ -216,24 +198,4 @@ public class EditMyinfo extends AppCompatActivity {
             // No user is signed in
         }
     } // end of onCreate
-    public int login(String useremail, String ppwd){
-        //재로그인
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        auth.signInWithEmailAndPassword(useremail,ppwd)
-                .addOnCompleteListener(EditMyinfo.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(getApplication(), "로그인 성공", Toast.LENGTH_LONG).show();
-                            success = 1;
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(getApplication(), "로그인 실패", Toast.LENGTH_LONG).show();
-                            success = 0;
-                        }
-                    }
-                });
-        return success;
-    }
 } // end of class

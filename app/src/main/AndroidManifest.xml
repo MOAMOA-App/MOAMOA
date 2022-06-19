@@ -43,9 +43,9 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <data
-                    android:host="oauth"
-                    android:scheme="{KAKAO_APP_KEY}"/>
+<!--                <data-->
+<!--                    android:host="oauth"-->
+<!--                    android:scheme="{KAKAO_APP_KEY}"/>-->
             </intent-filter>
         </activity>
         <activity android:name=".ui.account.RegisterActivity" />
@@ -70,14 +70,14 @@
             android:name=".ui.mypage.HeartForms"
             android:label="관심 게시글" />
         <activity
-            android:name=".ui.mypage.EmptyForms"
-            android:label="참여한 게시글" />
-        <activity
             android:name=".ui.mypage.Setting"
             android:label="환경설정" />
         <activity
             android:name=".ui.mypage.CustomDialog"
             android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name=".ui.mypage.CheckLogin"
+            android:label="계정 정보 수정" />
     </application>
 
 </manifest>
