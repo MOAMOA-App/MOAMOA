@@ -82,29 +82,32 @@ public class PlaceholderFragment2 extends Fragment {
         FirebaseDatabase.getInstance().getReference().child("users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot2) {
-
+                listViewData.clear();
 
                 FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
                     @SuppressLint("RestrictedApi")
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        listViewData.clear();
+
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
                             listData = snapshot.getValue(Form.class);
 
 
                             if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue()!=null) {
+                                Log.d("확인","루트 : "+dataSnapshot2.child(user.getUid()).child(listData.FID).getKey().toString());
+
+
                                 if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("parti") && listData.getstate() == 0 && pos == 1) {
 
                                     listViewData.add(listData);
                                 }
-                                if (name == 1 && listData.getstate() == 1 && pos == 2) {
+                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("parti") && listData.getstate() == 1 && pos == 2) {
 
                                     listViewData.add(listData);
                                 }
 
-                                if (name == 1 && listData.getstate() == 2 && pos == 3) {
+                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("parti")&& listData.getstate() == 2 && pos == 3) {
 
                                     listViewData.add(listData);
                                 }

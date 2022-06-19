@@ -1,7 +1,5 @@
 package com.example.moamoa.ui.category;
 
-import static androidx.fragment.app.FragmentManager.TAG;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,14 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.CompoundButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.ToggleButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.moamoa.Form;
@@ -25,10 +24,10 @@ import com.example.moamoa.R;
 import com.example.moamoa.databinding.CreatedFormsBinding;
 import com.example.moamoa.databinding.EmptyFormsBinding;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
-import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -40,11 +39,10 @@ import java.util.ArrayList;
 public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-    private int index = 1;
 
     private PageViewModel pageViewModel;
-    private CreatedFormsBinding binding;  //empty_forms를 viewpager에 binding
-    FirebaseDatabase firebaseDatabase;
+    private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
+
 
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
@@ -70,20 +68,13 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        //Log.d("FbDatabase인덱스", String.valueOf(index));
-//        binding = FragmentMainBinding.inflate(inflater, container, false);
         int pos = getArguments().getInt(ARG_SECTION_NUMBER);
 
-
-        binding = CreatedFormsBinding.inflate(inflater, container, false);
-
+//        binding = FragmentMainBinding.inflate(inflater, container, false);
+        binding = EmptyFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        //index = bundle.getInt("grade", 0);
-        //DatabaseReference database = firebaseDatabase.getInstance().getReference();
-        Log.d("확인","컨텐 : "+container);
-        Log.d("확인","바인당 : "+binding);
-        Log.d("확인","루트 : "+pos);
 
+        //추가
         ListView listView;
         listView = root.findViewById(R.id.listview);
         ArrayList<Form> listViewData = new ArrayList<>();
@@ -93,12 +84,13 @@ public class PlaceholderFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 listViewData.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     Form listData = snapshot.getValue(Form.class);
+                    Log.d("확인","루트 : "+user.getUid());
 
-                    //v
 
-                    if ( pos==1 && listData.getstate()==0){
+
+                    if ( pos==1){
 
                         listViewData.add(listData);
                     }
@@ -128,29 +120,19 @@ public class PlaceholderFragment extends Fragment {
                     ListAdapter oAdapter = new CustomListView(listViewData);
                     listView.setAdapter(oAdapter);
 
-
                 }
-                index=1;
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
-            });
-        //추가
-
-
-        //viewpager에 리스트 띄워줌
-
-
+        });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("확인","message : "+"");
+
                 String FID = listViewData.get(position).FID;
                 String title = listViewData.get(position).subject;
-                Log.d("확인","message : "+FID);
-                Log.d("확인","message : "+title);
+
                 //인텐트 선언 및 정의
 
 
@@ -159,10 +141,9 @@ public class PlaceholderFragment extends Fragment {
                 intent.putExtra("FID", FID);
                 //액티비티 이동
                 startActivity(intent);
-              //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
+                //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
             }
         });
-
 
         return root;
     }
@@ -173,4 +154,5 @@ public class PlaceholderFragment extends Fragment {
         binding = null;
     }
 }
+//
 
