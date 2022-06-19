@@ -67,7 +67,7 @@ public class FormdetailActivity extends Activity {
                 Log.d("확인","message상세 이미지 : "+image);
                 String UID = dataSnapshot.child("UID_dash").getValue().toString();
                 UserFind(UID);
-                Initializeform(subject,"category",text,cost,max_count);
+                Initializeform(subject,"category",text,cost,num_k+"/"+max_count);
                 StorageReference pathReference = firebaseStorage.getReference(image);
 
                 FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
@@ -180,7 +180,7 @@ public class FormdetailActivity extends Activity {
                             Toast.makeText(getApplicationContext(), "호스트입니다", Toast.LENGTH_SHORT).show();
                         }
 
-                        else if(dataSnapshot.child(temp).getValue() !=null && dataSnapshot.child(temp).getKey().equals(temp) &&dataSnapshot.child(temp).getValue().equals("parti") && num_b!=Integer.parseInt(num_k))
+                        else if(dataSnapshot.child(temp).getValue()!=null &&dataSnapshot.child(temp).getValue().equals("parti") && num_b!=Integer.parseInt(num_k)+1)
                         {
                             Log.d("MainActivity", "파티 떠라: " + dataSnapshot.child(temp).getKey());
                             Toast.makeText(getApplicationContext(), "이미 참여하였습니다.", Toast.LENGTH_SHORT).show();
@@ -221,6 +221,7 @@ public class FormdetailActivity extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name;
                 String profil_text;
+
                 TextView name_tv = (TextView) findViewById(R.id.detail_nick);
                 ImageView profile = (ImageView) findViewById(R.id.detail_profile);
                 profil_text = dataSnapshot.child("image").getValue().toString();
@@ -256,11 +257,12 @@ public class FormdetailActivity extends Activity {
         TextView category_text = (TextView) findViewById(R.id.detail_category);
         TextView text_text = (TextView) findViewById(R.id.detail_textarea);
         TextView cost_text = (TextView) findViewById(R.id.detail_cost);
-        TextView max_count_text = (TextView) findViewById(R.id.detail_category);
+        TextView max_count_text = (TextView) findViewById(R.id.detail_party_num);
         subject_text.setText(subject);
         category_text.setText("1");
         text_text.setText(text);
         cost_text.setText(cost);
+        max_count_text.setText(max_count);
     }
 
 }
