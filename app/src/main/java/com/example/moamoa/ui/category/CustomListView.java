@@ -88,8 +88,10 @@ public class CustomListView extends BaseAdapter {
             title.setText(listViewData.get(position).subject);
             name.setText(listViewData.get(position).address);
 
-            charge.setText(listViewData.get(position).cost);
-            mans.setText(listViewData.get(position).deadline);
+            charge.setText(listViewData.get(position).cost+"원");
+
+            String x = listViewData.get(position).deadline.substring(0,4)+"/"+listViewData.get(position).deadline.substring(4,6)+"/"+listViewData.get(position).deadline.substring(6,8);
+            mans.setText(x);
 
         //listview와 버튼 클릭 다르게 주기
 

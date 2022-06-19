@@ -44,7 +44,7 @@ public class HomeFragment extends Fragment {
         recyclerView[1] = (RecyclerView) root.findViewById(R.id.listview1);
         //recyclerView[2] = (RecyclerView) root.findViewById(R.id.listview2);
         //recyclerView[3] = (RecyclerView) root.findViewById(R.id.listview3);
-        recyclerView[2] = (RecyclerView) root.findViewById(R.id.listview4);
+        recyclerView[2] = (RecyclerView) root.findViewById(R.id.listview2);
 
         reference.child("form").limitToFirst(10).addValueEventListener(new ValueEventListener() {
             @Override
