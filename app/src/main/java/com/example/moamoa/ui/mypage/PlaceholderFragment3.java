@@ -9,19 +9,23 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.moamoa.Form;
 import com.example.moamoa.R;
+import com.example.moamoa.databinding.CreatedFormsBinding;
 import com.example.moamoa.databinding.EmptyFormsBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -33,12 +37,11 @@ import java.util.ArrayList;
 public class PlaceholderFragment3 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-
+    int name;
     private PageViewModel pageViewModel;
     private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
-    private DatabaseReference mDatabase;
-
-
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    Form listData;
     public static PlaceholderFragment3 newInstance(int index) {
         PlaceholderFragment3 fragment = new PlaceholderFragment3();
         Bundle bundle = new Bundle();
@@ -65,49 +68,64 @@ public class PlaceholderFragment3 extends Fragment {
             Bundle savedInstanceState) {
         int pos = getArguments().getInt(ARG_SECTION_NUMBER);
 
+//        binding = FragmentMainBinding.inflate(inflater, container, false);
         binding = EmptyFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         //추가
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
         ListView listView;
         listView = root.findViewById(R.id.listview);
         ArrayList<Form> listViewData = new ArrayList<>();
 
-        mDatabase.child("heart").child(user.getUid()).addValueEventListener(new ValueEventListener() {
-            @SuppressLint("RestrictedApi")
+
+        FirebaseDatabase.getInstance().getReference().child("heart").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                listViewData.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Form listData = snapshot.getValue(Form.class);
-                    Log.d("확인","루트 : "+user.getUid());
+            public void onDataChange(DataSnapshot dataSnapshot2) {
 
-                    if ( pos==1) {
-                        Log.d("확인","실행: "+listData.UID_dash);
-                        listViewData.add(listData);
+
+                FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
+                    @SuppressLint("RestrictedApi")
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        listViewData.clear();
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                            listData = snapshot.getValue(Form.class);
+
+                            Log.d("확인","핱츠 : "+dataSnapshot2.child(user.getUid()).child(listData.FID).getValue());
+                            if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue()!=null) {
+                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("true") && listData.getstate() == 0 && pos == 1) {
+
+                                    listViewData.add(listData);
+                                }
+                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("true")&& listData.getstate() == 1 && pos == 2) {
+
+                                    listViewData.add(listData);
+                                }
+
+                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("true")&& listData.getstate() == 2 && pos == 3) {
+
+                                    listViewData.add(listData);
+                                }
+                            }
+
+                            //viewpager에 리스트 띄워줌
+                            ListAdapter oAdapter = new CustomListView(listViewData);
+                            listView.setAdapter(oAdapter);
+                        }
+
                     }
-                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==1 && pos==2) {
-                        Log.d("확인","실행: "+listData.UID_dash);
-                        listViewData.add(listData);
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
                     }
+                });
 
-                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==2 && pos==3) {
-                        Log.d("확인","실행: "+listData.UID_dash);
-                        listViewData.add(listData);
-                    }
-
-
-
-                    //viewpager에 리스트 띄워줌
-                    ListAdapter oAdapter = new CustomListView(listViewData);
-                    listView.setAdapter(oAdapter);
-                }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -121,11 +139,11 @@ public class PlaceholderFragment3 extends Fragment {
 
         return root;
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
 }
+//
 
