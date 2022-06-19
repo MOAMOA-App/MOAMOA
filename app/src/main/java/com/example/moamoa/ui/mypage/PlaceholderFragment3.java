@@ -9,18 +9,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.moamoa.Form;
 import com.example.moamoa.R;
-import com.example.moamoa.databinding.CreatedFormsBinding;
-import com.example.moamoa.databinding.FragmentMainBinding;
+import com.example.moamoa.databinding.EmptyFormsBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,17 +29,16 @@ import java.util.ArrayList;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment extends Fragment {
+public class PlaceholderFragment3 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
-    //    private CreatedFormsBinding binding;
-    private CreatedFormsBinding binding;
+    private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
 
 
-    public static PlaceholderFragment newInstance(int index) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
+    public static PlaceholderFragment3 newInstance(int index) {
+        PlaceholderFragment3 fragment = new PlaceholderFragment3();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -68,15 +63,15 @@ public class PlaceholderFragment extends Fragment {
             Bundle savedInstanceState) {
         int pos = getArguments().getInt(ARG_SECTION_NUMBER);
 
-
-        binding = CreatedFormsBinding.inflate(inflater, container, false);
+//        binding = FragmentMainBinding.inflate(inflater, container, false);
+        binding = EmptyFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         //추가
         ListView listView;
         listView = root.findViewById(R.id.listview);
         ArrayList<Form> listViewData = new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("heart").addValueEventListener(new ValueEventListener() {
             @SuppressLint("RestrictedApi")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -85,8 +80,6 @@ public class PlaceholderFragment extends Fragment {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     Form listData = snapshot.getValue(Form.class);
                     Log.d("확인","루트 : "+user.getUid());
-
-
 
                     if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==0 && pos==1) {
                         Log.d("확인","실행: "+listData.UID_dash);
@@ -131,5 +124,4 @@ public class PlaceholderFragment extends Fragment {
         binding = null;
     }
 }
-//
 
