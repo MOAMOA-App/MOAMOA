@@ -89,7 +89,7 @@
                     android:scheme="{KAKAO_APP_KEY}" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.moamoa.ui.acount.RegisterActivity" />
+        <activity android:name="com.example.moamoa.ui.account.RegisterActivity" />
         <activity
             android:name="com.example.moamoa.LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
@@ -99,17 +99,23 @@
             android:name="com.example.moamoa.ui.mypage.EditMyinfo"
             android:label="계정 정보 수정" />
         <activity
-            android:name="com.example.moamoa.ui.acount.PhoneActivity"
+            android:name="com.example.moamoa.ui.account.PhoneActivity"
             android:label="휴대폰 인증" />
         <activity
             android:name="com.example.moamoa.ui.mypage.CreatedForms"
             android:label="만든 폼 관리" />
         <activity
-            android:name="com.example.moamoa.ui.mypage.ParticipatedForms"
+            android:name="com.example.moamoa.ui.mypage.HeartForms"
+            android:label="찜 폼 관리" />
+        <activity
+            android:name="com.example.moamoa.ui.mypage.EmptyForms"
             android:label="참여한 폼 관리" />
         <activity
             android:name="com.example.moamoa.ui.mypage.Setting"
             android:label="환경설정" />
+        <activity
+            android:name="com.example.moamoa.ui.mypage.CustomDialog"
+            android:theme="@android:style/Theme.Dialog" />
         <!-- <activity -->
         <!-- android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity" -->
         <!-- android:configChanges="orientation|screenSize" -->

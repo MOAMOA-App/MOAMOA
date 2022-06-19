@@ -94,17 +94,17 @@ public class CustomListView extends BaseAdapter {
             }
         });
 
-            TextView title = convertView.findViewById(R.id.title);
+        TextView title = convertView.findViewById(R.id.title);
 
-            TextView charge = convertView.findViewById(R.id.name);
-            TextView mans = convertView.findViewById(R.id.mans);
+        TextView charge = convertView.findViewById(R.id.name);
+        TextView mans = convertView.findViewById(R.id.mans);
 
-            //mainImage.listViewData.get(position).photo);
-            title.setText(listViewData.get(position).subject);
+        //mainImage.listViewData.get(position).photo);
+        title.setText(listViewData.get(position).subject);
 
 
-            charge.setText(listViewData.get(position).address);
-            mans.setText(listViewData.get(position).parti_num+"/"+listViewData.get(position).max_count);
+        charge.setText(listViewData.get(position).address);
+        mans.setText(listViewData.get(position).parti_num+"/"+listViewData.get(position).max_count);
 
         //listview와 버튼 클릭 다르게 주기
 
@@ -160,7 +160,7 @@ public class CustomListView extends BaseAdapter {
                 else if( !button.isChecked())
                 {
 
-                   // button.setBackgroundResource(R.drawable.empty_heart);
+                    // button.setBackgroundResource(R.drawable.empty_heart);
                     //FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a-1);
                     FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("false");
                 }
@@ -176,15 +176,15 @@ public class CustomListView extends BaseAdapter {
 
 
 
-                }
+            }
 
 
 
 
 
-                //
-                //String clickName = listViewData.get(position).subject;
-                //Log.d("확인","message : "+clickName);
+            //
+            //String clickName = listViewData.get(position).subject;
+            //Log.d("확인","message : "+clickName);
 
 
 
