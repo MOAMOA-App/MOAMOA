@@ -95,7 +95,7 @@ public class DashboardFragment extends Fragment {
         Button button_img = (Button) root.findViewById(R.id.button_img);
         root.findViewById(R.id.button_img).setOnClickListener(onClickListener);
         TextView deadline = (TextView) root.findViewById(R.id.text_dashboardend);
-        today.setText(getTime());
+        today.setText(getTime1().substring(0,4)+"/"+getTime1().substring(4,6)+"/"+getTime1().substring(6,8));
         cost.addTextChangedListener(new CustomTextWatcher(cost));
         photo = (ImageView) root.findViewById(R.id.imageView);
         storage = FirebaseStorage.getInstance();
@@ -158,6 +158,7 @@ public class DashboardFragment extends Fragment {
                 FID=user.getUid()+num_a;
 //if (!(subject.equals("") && text.equals("") &&address.equals("")&&cost.equals("")&&max_count.equals("")&&deadline.equals(""))) {
 
+                String dead = (deadline.getText().toString().substring(0,4))+deadline.getText().toString().substring(5,7)+deadline.getText().toString().substring(8,10).toString();
                 Form form = new Form(
                         FID,
                         user.getUid(),
@@ -168,7 +169,7 @@ public class DashboardFragment extends Fragment {
                         category_text.getSelectedItem().toString(),
                         cost.getText().toString(),
                         max_count.getText().toString(),
-                        deadline.getText().toString(),
+                        dead,
                         getTime1()
                 );
 

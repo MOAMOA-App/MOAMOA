@@ -90,8 +90,13 @@ public class CustomListView extends BaseAdapter {
 
             charge.setText(listViewData.get(position).cost+"원");
 
-            String x = listViewData.get(position).deadline.substring(0,4)+"/"+listViewData.get(position).deadline.substring(4,6)+"/"+listViewData.get(position).deadline.substring(6,8);
-            mans.setText(x);
+
+        //mainImage.listViewData.get(position).photo);
+
+        mans.setText(listViewData.get(position).parti_num+"/"+listViewData.get(position).max_count);
+
+           // String x = listViewData.get(position).deadline.substring(0,4)+"/"+listViewData.get(position).deadline.substring(4,6)+"/"+listViewData.get(position).deadline.substring(6,8);
+            //mans.setText(x);
 
         //listview와 버튼 클릭 다르게 주기
 

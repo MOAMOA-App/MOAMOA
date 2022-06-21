@@ -21,11 +21,7 @@
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
-        <activity
-            android:name=".ui.dashboard.AddressApiActivity"
-            android:exported="false"
-            android:label="@string/title_activity_address_api"
-            android:theme="@style/Theme.MOAMOA.NoActionBar" />
+
         <activity
             android:name=".ui.chats.ChatsActivity"
             android:exported="false" />
@@ -43,9 +39,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <data
-                    android:host="oauth"
-                    android:scheme="{KAKAO_APP_KEY}"/>
+
             </intent-filter>
         </activity>
         <activity android:name=".ui.account.RegisterActivity" />
