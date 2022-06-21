@@ -178,7 +178,7 @@ public class MypageFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(view.getContext(), "메세지", Toast.LENGTH_SHORT).show();
                 if(position == 0){
-                    Intent intent = new Intent(getActivity(), EditMyinfo.class);
+                    Intent intent = new Intent(getActivity(), CheckLogin.class);
                     startActivity(intent);
                 }
                 if(position == 1){
