@@ -9,6 +9,7 @@ public class User {
     String host;
     String parti;
     String heart_user;
+    String area;
     int num;
 
 
@@ -60,6 +61,8 @@ public class User {
     public void setHost(String host){
         this.host = host;
     }
+    public String getArea(){ return area; }
+    public void setArea(String area){ this.area = area; }
     public String getparti(){
         return parti;
     }
