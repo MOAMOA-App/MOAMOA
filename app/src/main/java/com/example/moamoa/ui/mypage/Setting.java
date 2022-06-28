@@ -31,7 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Setting extends AppCompatActivity {
 
-    static final String[] LIST_MENU = {"알림 설정", "앱 정보", "로그아웃", "회원 탈퇴"};
+    static final String[] LIST_MENU = {"앱 정보", "로그아웃", "회원 탈퇴"};
     private DatabaseReference mDatabase;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,22 +51,17 @@ public class Setting extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(view.getContext(), "메세지", Toast.LENGTH_SHORT).show();
                 if (position == 0) {
-                    //string 부분 틀림
-//                    Intent intent = new Intent((EditMyinfo.class));
-//                    startActivity(intent);
-                }
-                if (position == 1) {
 //                    Intent intent = new Intent(String.valueOf(EditMyinfo.class));
 //                    startActivity(intent);
                 }
-                if (position == 2) {
+                if (position == 1) {
 
                     auth.signOut();
 
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
                 }
-                if (position == 3) {
+                if (position == 2) {
                     //계정정보 삭제
                     new AlertDialog.Builder(Setting.this)   // TestActivity 부분에는 현재 Activity의 이름 입력.
                             .setMessage("정말 탈퇴하시겠습니까?")     //제목부분(직접작성)

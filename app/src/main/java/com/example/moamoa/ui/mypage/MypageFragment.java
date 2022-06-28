@@ -37,8 +37,6 @@ import com.google.firebase.storage.StorageReference;
 
 public class MypageFragment extends Fragment {
 
-    static final String[] LIST_MENU1 = {"✎  만든 폼 관리", "✔  참여한 폼 관리", "♡  관심 목록"} ;
-    static final String[] LIST_MENU2 = {"\uD83D\uDC64  내 정보 수정", "⚙  환경설정"} ;
     private DatabaseReference mDatabase;
     private CustomDialog customDialog;
     private Nickname nickn;
@@ -55,8 +53,14 @@ public class MypageFragment extends Fragment {
         TextView nickname = view.findViewById(R.id.nickname);
         TextView id = view.findViewById(R.id.ID);
         TextView area = view.findViewById(R.id.area);
-
-
+        ViewGroup layout1 = view.findViewById(R.id.created1);
+        ViewGroup layout2 = view.findViewById(R.id.part2);
+        ViewGroup layout3 = view.findViewById(R.id.heart3);
+        ViewGroup layout4 = view.findViewById(R.id.chat1);
+        ViewGroup layout5 = view.findViewById(R.id.area2);
+        ViewGroup layout6 = view.findViewById(R.id.alarm3);
+        ViewGroup layout7 = view.findViewById(R.id.account4);
+        ViewGroup layout8 = view.findViewById(R.id.setting5);
 
 
         if (user != null) {
@@ -127,66 +131,88 @@ public class MypageFragment extends Fragment {
         mainImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customDialog = new CustomDialog(getContext(),"다이어로그에 들어갈 내용입니다.");
-                customDialog.show();
+                Intent intent = new Intent(getActivity(), CustomDialog.class);
+                startActivity(intent);
             }
         });
 
-        //게시글 관리 리스트
-        ArrayAdapter adapter1 = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, LIST_MENU1){
-            //리스트뷰 글씨색 바꾸기
+        //클릭
+        layout1.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public View getView(int position, View convertView, ViewGroup parent)
-            {
-                View view = super.getView(position, convertView, parent);
-                TextView tv = (TextView) view.findViewById(android.R.id.text1);
-                tv.setTextColor(Color.WHITE);
-                return view;
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(getContext(), CreatedForms.class);
+                startActivity(intent);
             }
-        };
+        });
+        layout2.setOnClickListener(new View.OnClickListener() {
 
-        //내 정보 설정
-        ArrayAdapter adapter2 = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, LIST_MENU2) ;
-
-        ListView listview1 = (ListView) view.findViewById(R.id.listView1) ;
-        listview1.setAdapter(adapter1) ;
-
-        ListView listview2 = (ListView) view.findViewById(R.id.listView2) ;
-        listview2.setAdapter(adapter2) ;
-
-        listview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(view.getContext(), "메세지", Toast.LENGTH_SHORT).show();
-                if(position == 0){
-                    Intent intent = new Intent(getActivity(), CreatedForms.class);
-                    startActivity(intent);
-                }
-                if(position == 1){
-                    Intent intent = new Intent(getActivity(), ParticipatedForms.class);
-                    startActivity(intent);
-                }
-                if(position == 2) {
-                    Intent intent = new Intent(getActivity(), HeartForms.class);
-                    startActivity(intent);
-                }
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(getContext(), ParticipatedForms.class);
+                startActivity(intent);
+            }
+        });
+        layout3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(getContext(), HeartForms.class);
+                startActivity(intent);
+            }
+        });
+        //채팅
+        layout4.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+//                Intent intent = new Intent(getContext(), CreatedForms.class);
+//                startActivity(intent);
+            }
+        });
+        //지역
+        layout5.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+//                Intent intent = new Intent(getContext(), CreatedForms.class);
+//                startActivity(intent);
+            }
+        });
+        //알람
+        layout6.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+//                Intent intent = new Intent(getContext(), CreatedForms.class);
+//                startActivity(intent);
+            }
+        });
+        layout7.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(getContext(), CheckLogin.class);
+                startActivity(intent);
+            }
+        });
+        layout8.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(getContext(), Setting.class);
+                startActivity(intent);
             }
         });
 
-        listview2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(view.getContext(), "메세지", Toast.LENGTH_SHORT).show();
-                if(position == 0){
-                    Intent intent = new Intent(getActivity(), CheckLogin.class);
-                    startActivity(intent);
-                }
-                if(position == 1){
-                    Intent intent = new Intent(getActivity(), Setting.class);
-                    startActivity(intent);
-                }
-            }
-        });
 
         return view ;
     }
