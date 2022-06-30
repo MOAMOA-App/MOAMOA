@@ -48,6 +48,21 @@ public class HomeFragment extends Fragment {
         for(int i=0;i<5;i++){
             homelist[i]=new ArrayList<>();
             homelistAdapter[i] = new homelist_adapter(homelist[i]);
+            int finalI = i;
+            homelistAdapter[i].setOnItemClickListener(new homelist_adapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(View v, int position) {
+                    String FID = homelist[finalI].get(position).getFID();
+                    String title = homelist[finalI].get(position).getTitle();
+                    //인텐트 선언 및 정의
+                    Intent intent = new Intent(getContext(), FormdetailActivity.class);
+                    //입력한 input값을 intent로 전달한다.
+                    intent.putExtra("FID", FID);
+                    //액티비티 이동
+                    startActivity(intent);
+                    //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
+                }
+            });
         }
         recyclerView[0] = (RecyclerView) root.findViewById(R.id.listview0);
         recyclerView[1] = (RecyclerView) root.findViewById(R.id.listview1);
@@ -59,20 +74,7 @@ public class HomeFragment extends Fragment {
         setOrderBydeadline(reference[1],1);
         setOrderBydeadline(reference[2],2);
 
-        homelistAdapter[0].setOnItemClickListener(new homelist_adapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View v, int position) {
-                String FID = homelist[0].get(position).getFID();
-                String title = homelist[0].get(position).getTitle();
-                //인텐트 선언 및 정의
-                Intent intent = new Intent(getContext(), FormdetailActivity.class);
-                //입력한 input값을 intent로 전달한다.
-                intent.putExtra("FID", FID);
-                //액티비티 이동
-                startActivity(intent);
-                //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
-            }
-        });
+
 
         btn_c[0] = (TextView) root.findViewById(R.id.btn_ctgy0);
         btn_c[1] = (TextView) root.findViewById(R.id.btn_ctgy1);
