@@ -25,7 +25,8 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
 public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.ViewHolder> {
-
+    // adapter에 들어갈 list 입니다.
+    private ArrayList<homelist_data> arrayList;
     public interface OnItemClickListener {
         void onItemClick(View v, int position) ;
     }
@@ -68,7 +69,7 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
         }
 
     }
-    ArrayList<homelist_data> arrayList = null;
+
     public homelist_adapter(ArrayList<homelist_data> arrayList) {
         this.arrayList = arrayList;
     }

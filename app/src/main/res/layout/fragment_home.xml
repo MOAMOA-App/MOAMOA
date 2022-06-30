@@ -23,14 +23,15 @@
                 android:layout_height="wrap_content"
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp">
+
                 <TextView
                     android:id="@+id/text_home0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
                     android:text="마감임박"
                     android:textSize="16dp"
-                    android:textStyle="bold"
-                    android:layout_alignParentStart="true"/>
+                    android:textStyle="bold" />
                 <TextView
                     android:id="@+id/btn_ctgy0"
                     android:layout_width="wrap_content"
@@ -58,83 +59,14 @@
                 android:layout_height="wrap_content"
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp">
-                <TextView
-                    android:id="@+id/text_home1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="인기별"
-                    android:textStyle="bold"
-                    android:textSize="16dp"/>
-                <TextView
-                    android:id="@+id/btn_ctgy1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_home_allview"
-                    android:textColor="@color/gray"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"/>
-            </RelativeLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listview1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:paddingTop="10dp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone"
-            android:layout_marginBottom="86dp">
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="10dp"
-                android:paddingLeft="10dp">
-                <TextView
-                    android:id="@+id/text_home4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="나의 관심 카테고리"
-                    android:textStyle="bold"
-                    android:textSize="16dp"/>
-                <TextView
-                    android:id="@+id/btn_ctgy4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_home_allview"
-                    android:textColor="@color/gray"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"/>
-            </RelativeLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listview4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:paddingTop="5dp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone"
-            android:layout_marginBottom="86dp">
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="10dp"
-                android:paddingLeft="10dp">
+
                 <TextView
                     android:id="@+id/text_home3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="최근 본 게시글"
-                    android:textStyle="bold"
-                    android:textSize="16dp"/>
+                    android:text="나의 관심 카테고리"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
                 <TextView
                     android:id="@+id/btn_ctgy3"
                     android:layout_width="wrap_content"
@@ -152,6 +84,41 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:paddingTop="5dp"/>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="86dp">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:id="@+id/text_home1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="인기별"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/btn_ctgy1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_home_allview"
+                    android:textColor="@color/gray"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listview1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:paddingTop="10dp"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -163,13 +130,14 @@
                 android:layout_height="wrap_content"
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp">
+
                 <TextView
                     android:id="@+id/text_home2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="신규"
-                    android:textStyle="bold"
-                    android:textSize="16dp"/>
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
                 <TextView
                     android:id="@+id/btn_ctgy2"
                     android:layout_width="wrap_content"
@@ -183,6 +151,42 @@
                 android:id="@+id/listview2"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:scrollbars="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:paddingTop="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="86dp">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:id="@+id/text_home4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="최근 본 게시글"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/btn_ctgy4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_home_allview"
+                    android:textColor="@color/gray"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listview4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:scrollbars="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:paddingTop="5dp"/>
