@@ -53,6 +53,7 @@ public class ChatsFragment extends Fragment {
     //private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     //private DatabaseReference databaseReference = firebaseDatabase.getReference();
     private DatabaseReference myRef;
+    private DatabaseReference mDatabase;
 
     private Toolbar chattoolbar;
 
@@ -70,20 +71,20 @@ public class ChatsFragment extends Fragment {
         // USERID firebase에서 받아옴
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         USERID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        FINDUserName(USERID);
-        //왜...닉네임이안받아질까
-        Log.e("TEST", "USERNAME: "+USERNAME);
-        //USERNAME = NICKNAME;
-        Log.e("TEST", "USERID: "+USERID);    // 내 UID
 
         // ChatsActivity에서 값 받음
         Bundle bundle = getArguments();
+        assert bundle != null;
+        USERNAME = bundle.getString("USERNAME");    // 내 닉네임
         destinationUID = bundle.getString("destinationUID");    // 상대 UID
+        destinationNAME = bundle.getString("destinationNAME");  // 상대 닉네임
         FORMID = bundle.getString("FORMID");
         CHATROOM_NAME = bundle.getString("CHATROOM_NAME");
 
         // 값 잘 받았는지 테스트
+        Log.e("TEST", "USERNAME = "+USERNAME);
         Log.e("TEST", "destinationUID = "+destinationUID);
+        Log.e("TEST", "destinationNAME = "+destinationNAME);
         Log.e("TEST", "FORMID = "+FORMID);
         Log.e("TEST", "CHATROOM_NAME = "+CHATROOM_NAME);
 
@@ -109,8 +110,14 @@ public class ChatsFragment extends Fragment {
                 String message = EditText_chat.getText().toString();
                 ChatsData chats = new ChatsData();
 
+                Log.e("TEST", "sending USERNAME: "+USERNAME);
+
                 // ChatsData 데이터설정 (화면용)
-                chats.setLeftname(nick);
+                if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(USERID))
+                    chats.setLeftname(USERNAME);
+                else
+                    chats.setLeftname(destinationNAME);
+
                 chats.setLeftmessage(message);
                 chats.setSendedtime(ChatTime());
 
