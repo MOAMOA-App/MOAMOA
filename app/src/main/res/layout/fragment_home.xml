@@ -76,6 +76,16 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
+            <GridView
+                android:id="@+id/home_my_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:numColumns="6"
+                android:columnWidth="50dp"
+                android:layout_marginTop="5dp"
+                android:stretchMode="none"
+                android:layout_marginLeft="10dp"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/listview3"
                 android:layout_width="match_parent"

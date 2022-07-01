@@ -4,11 +4,15 @@
     android:layout_height="match_parent">
     <TextView
         android:id="@+id/cate_name"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="@drawable/category_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/categorymy_style"
         android:text="관심"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"/>
 
     <TextView
         android:id="@+id/cate_numb"
