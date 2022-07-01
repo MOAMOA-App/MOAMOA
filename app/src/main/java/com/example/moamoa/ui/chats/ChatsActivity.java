@@ -38,6 +38,7 @@ import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.ActivityChatsBinding;
 import com.example.moamoa.databinding.FragmentChatsBinding;
+import com.example.moamoa.ui.chatlist.ChatListFragment;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.appbar.AppBarLayout;
@@ -53,11 +54,13 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class ChatsActivity extends AppCompatActivity {
-
+    //
     private ActivityChatsBinding binding;
 
     String Chatroomname, Formid, destinationuid;
     String UID, myNICK, destinationNICK;
+
+    ChatListFragment chatListFragment;
     ChatsFragment chatsFragment = new ChatsFragment();
 
     private DatabaseReference mDatabase;

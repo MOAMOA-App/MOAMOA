@@ -10,10 +10,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moamoa.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -51,7 +56,7 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
         holder.nickName.setText(chats.nickname);
         holder.Message.setText(chats.chatmsg);
         holder.sendedTime.setText(chats.sendedtime);
-
+//
         if (list.get(position).getLeftname().equals(this.leftname)){
             // 내가 보낸 메시지일시 오른쪽에서 출력:왼쪽 이미지
             //holder.nickName.setVisibility(View.INVISIBLE);
