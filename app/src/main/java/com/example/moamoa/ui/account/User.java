@@ -3,8 +3,9 @@ package com.example.moamoa.ui.account;
 public class User {
     String UID;
     String name;
-    String nick;
-    String profile_img;
+    // public으로 변경해서 채팅에서 씀
+    public String nick;
+    public String profile_img;
     String local;
     String host;
     String parti;

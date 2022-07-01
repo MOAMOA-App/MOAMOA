@@ -36,7 +36,7 @@
                 android:id="@+id/chat_formname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="6dp"
+                android:layout_marginStart="6dp"
                 android:text="폼 제목"
 
                 android:textSize="11sp"
@@ -47,8 +47,8 @@
                 android:id="@+id/chat_recent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="6dp"
-                android:text="채팅내용일부"
+                android:layout_marginStart="6dp"
+                android:text="마지막 메시지"
 
                 />
         </LinearLayout>

@@ -38,6 +38,7 @@ import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.ActivityChatsBinding;
 import com.example.moamoa.databinding.FragmentChatsBinding;
+import com.example.moamoa.ui.chatlist.ChatListFragment;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.appbar.AppBarLayout;
@@ -53,11 +54,13 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class ChatsActivity extends AppCompatActivity {
-
+    //
     private ActivityChatsBinding binding;
 
     String Chatroomname, Formid, destinationuid;
-    String UID, NICK, myNICK, destinationNICK;
+    String UID, myNICK, destinationNICK;
+
+    ChatListFragment chatListFragment;
     ChatsFragment chatsFragment = new ChatsFragment();
 
     private DatabaseReference mDatabase;
@@ -73,35 +76,54 @@ public class ChatsActivity extends AppCompatActivity {
         // 사용자의 UID, 닉네임 불러옴
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        FindUserNick(UID);
-        Log.e("TEST", "NICK: "+NICK);
-        //myNICK = NICK;
 
         // FormdetailActivity에서 값 받음
         Intent getIntent = getIntent();
         Chatroomname = getIntent.getStringExtra("CHATROOM_NAME");
         Formid = getIntent.getStringExtra("CHATROOM_FID");
         destinationuid = getIntent.getStringExtra("destinationUID");
+        destinationNICK = getIntent.getStringExtra("destinationNAME");
 
         // 값 잘 받았는지 테스트
+        Log.e("TEST", "USERNAME = "+myNICK);
         Log.e("TEST", "Chatroomname "+Chatroomname);
         Log.e("TEST", "Formid "+Formid);
         Log.e("TEST", "destinationuid "+destinationuid);
+        Log.e("TEST", "destinationNICK "+destinationNICK);
 
-        // 받은 값 ChatsFragment에 넘겨줌
-        Bundle bundle = new Bundle();
-        bundle.putString("CHATROOM_NAME", Chatroomname);
-        bundle.putString("FORMID", Formid);
-        bundle.putString("destinationUID", destinationuid);
-        chatsFragment.setArguments(bundle);
-        /*
-         * ChatsFragment로 값이 안넘어갔던 이유: xml에 fragmentcontainerview 있음
-         * --> 값을 넘기기 전에 ChatsFragment가 만들어져 null값이 됨
-         * 해결 위해 fragmentcontainerview 대신 framelayout 사용 후 밑 코드로 ChatsFragment 연결해줌
-         */
+        // USERID 바탕으로 닉네임 찾음
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
+        mDatabase.child(UID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // 내 닉네임 받아옴
+                myNICK = dataSnapshot.child("nick").getValue().toString();
 
-        // 프래그먼트 매니저로 chatscontainer에 chatsFragment 연결해줌
-        getSupportFragmentManager().beginTransaction().replace(R.id.chatscontainer, chatsFragment).commit();
+                // 받은 값 ChatsFragment에 넘겨줌
+                Bundle bundle = new Bundle();
+                bundle.putString("CHATROOM_NAME", Chatroomname);
+                bundle.putString("FORMID", Formid);
+                bundle.putString("destinationUID", destinationuid);
+                bundle.putString("destinationNAME", destinationNICK);
+                bundle.putString("USERNAME", myNICK);
+                chatsFragment.setArguments(bundle);
+                /*
+                 * ChatsFragment로 값이 안넘어갔던 이유: xml에 fragmentcontainerview 있음
+                 * --> 값을 넘기기 전에 ChatsFragment가 만들어져 null값이 됨
+                 * 해결 위해 fragmentcontainerview 대신 framelayout 사용 후 밑 코드로 ChatsFragment 연결해줌
+                 */
+
+                // 프래그먼트 매니저로 chatscontainer에 chatsFragment 연결해줌
+                getSupportFragmentManager().beginTransaction().replace(R.id.chatscontainer, chatsFragment).commit();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("", "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        });
 
         // 채팅방 이름 세팅
         TextView chatbar = findViewById(R.id.chatbarname);
@@ -213,24 +235,6 @@ public class ChatsActivity extends AppCompatActivity {
         // 기본 툴바 숨김
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-    }
-
-    private void FindUserNick(String UID){
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
-        mDatabase.child(UID).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                NICK = dataSnapshot.child("nick").getValue().toString();
-                Log.e("TEST", "nick: "+NICK);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w("", "loadPost:onCancelled", databaseError.toException());
-                // ...
-            }
-        });
     }
 
     @Override
