@@ -15,6 +15,8 @@ public class Form {
     public int heart_num;
     public int parti_num;
     public int state;
+    public int count;
+
 
 
 

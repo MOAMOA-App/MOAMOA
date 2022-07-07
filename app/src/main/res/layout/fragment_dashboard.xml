@@ -140,16 +140,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:hint="마감일자"
+                android:onClick="showDatePicker"
                 android:inputType="date" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginLeft="10dp"
-                android:onClick="showDatePicker"
-                android:text="Date"
-                android:textAlignment="center" />
     </LinearLayout>
     <Button
             android:id="@+id/button_dashboard"

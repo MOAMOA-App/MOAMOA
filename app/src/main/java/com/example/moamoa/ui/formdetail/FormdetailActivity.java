@@ -32,13 +32,17 @@ public class FormdetailActivity extends Activity {
     String num_k;
     String image;
     String k;
+    int count;
+    String temp;
+
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formdetail);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         Intent intent = getIntent();
-        String temp = intent.getStringExtra("FID");
+        temp= intent.getStringExtra("FID");
         ImageView mainImage = (ImageView) findViewById(R.id.mainImage);
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
 
@@ -59,11 +63,15 @@ public class FormdetailActivity extends Activity {
                 String deadline = dataSnapshot.child("deadline").getValue().toString();
                 num_k= dataSnapshot.child("parti_num").getValue().toString() ;
                 image=dataSnapshot.child("image").getValue().toString() ;
-                Log.d("확인","message상세 이미지 : "+image);
+
+                count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
+
+                Log.d("확인","message상세 이미지 : "+count);
                 String UID = dataSnapshot.child("UID_dash").getValue().toString();
                 UserFind(UID);
                 Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline);
                 StorageReference pathReference = firebaseStorage.getReference(image);
+
 
                 FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
                 if (activity.isFinishing())
@@ -95,12 +103,10 @@ public class FormdetailActivity extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
-                    Log.d("MainActivity", "ValueEventListener : " + snapshot.getKey());
                     if (snapshot.getValue()=="host")
                     {
                         //  bb="true";
                     }
-                    Log.d("MainActivity", "ValueEventListener : " + snapshot.getValue());
                 }
             }
             @Override
@@ -186,14 +192,8 @@ public class FormdetailActivity extends Activity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
-                        Log.d("MainActivity", "우쉬: " + dataSnapshot.child(temp));
-
-                        Log.d("MainActivity", "파티 폼 : " + dataSnapshot.child(temp).getKey());
-                        Log.d("MainActivity", "파티냐 : " + dataSnapshot.child(temp).getValue());
                         if (temp.contains(user.getUid())) {
                             Toast.makeText(getApplicationContext(), "호스트입니다", Toast.LENGTH_SHORT).show();
-
-
                         }
                         else if(dataSnapshot.child(temp).getValue()==null) {
                             num_b = 1 + Integer.parseInt(num_k);
@@ -215,7 +215,6 @@ public class FormdetailActivity extends Activity {
                     public void onCancelled(DatabaseError databaseError)
                     {    }
                 });
-
                 //파티 하면 숫자 안늘게 하기
             }
 
@@ -238,9 +237,7 @@ public class FormdetailActivity extends Activity {
                     }
                 }
 
-                Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getKey());
 
-                Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getValue());
             }
 
             @Override
@@ -304,6 +301,11 @@ public class FormdetailActivity extends Activity {
 
         });
         return;
+    }
+    @Override
+    public void onBackPressed() {
+        FirebaseDatabase.getInstance().getReference("form").child(temp).child("count").setValue(count+1);
+        finish();
     }
     private void UserFind(String UID){
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
