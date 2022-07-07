@@ -116,7 +116,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
                 //데이터가 쌓이기 때문에  clear()
-                categoryAdapter_my.isEmpty();
+                categoryAdapter_my
                 int x = 0;
                 for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
                     String numb = x + "";
