@@ -15,9 +15,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentChatlistBinding;
+import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.chats.ChatModel;
+import com.example.moamoa.ui.chats.ChatsFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,7 +31,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class ChatListFragment extends Fragment {
 
@@ -61,8 +69,6 @@ public class ChatListFragment extends Fragment {
 
          */
 
-        this.FormData();
-
         recyclerView = (RecyclerView) root.findViewById(R.id.chatting_list);
         recyclerView.setHasFixedSize(true);
 
@@ -77,12 +83,6 @@ public class ChatListFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(inflater.getContext()));
 
         return root;
-    }
-
-    public void FormData()
-    {
-        list = new ArrayList<ChatListData>();
-        list.add(new ChatListData("test", "궁금한 점이 있어 문의드립니다!"));
     }
 
     @Override
@@ -129,18 +129,53 @@ public class ChatListFragment extends Fragment {
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             final CustomViewHolder customViewHolder = (CustomViewHolder) holder;
             String destinationUID = null;
-
-            // 채팅방에 있는 유저 체크함
+            String formID = null;
+            // 채팅방에 있는 유저 체크
             for (String user: chatModels.get(position).users.keySet()){
                 if (!user.equals(UID)){ // 있는 유저 중 내가 아닌 사람 뽑아옴
                     destinationUID = user;
                 }
             }
-            /*
-            FirebaseDatabase.getInstance().getReference().child("users").child(destinationUID).addListenerForSingleValueEvent(new ValueEventListener() {
+
+            // destination이 누군지에 대한 정보 가져오기: users - child(UID) - destinationUID 확인 - formID 가져오기
+            // formID 가져오면 Form에서 폼이름과 사진 가져오기
+            String finalDestinationUID = destinationUID;    // makes destinationUID to be final
+            FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID)
+                    .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot item : snapshot.getChildren()){
+                        ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
+                        // 방 id 가져오기
+                        if (chatModel.users.containsKey(finalDestinationUID)){   //destinationUID 있는지 체크
+                            //FORMID = snapshot.child("form_ID").getValue().toString();
+                            FORMID = chatModel.form_ID;
+                        }
 
+                        FirebaseDatabase.getInstance().getReference().child("form").child(FORMID)
+                                .addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        Form form = snapshot.getValue(Form.class);
+                                        CHATROOM_NAME = snapshot.child("subject").getValue().toString();
+                                        //FORMID = snapshot.child("form_ID").getValue().toString();
+                                        Glide.with(customViewHolder.itemView.getContext())
+                                                .load(form.image)
+                                                .apply(new RequestOptions().circleCrop())
+                                                .into(customViewHolder.imageView);
+
+                                        //customViewHolder.formName.setText(CHATROOM_NAME);
+                                        customViewHolder.formName.setText(form.subject);
+                                        //어라? 이럴거면 이중으로 안해도되는거아닌가
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+                    }
                 }
 
                 @Override
@@ -149,7 +184,11 @@ public class ChatListFragment extends Fragment {
                 }
             });
 
-             */
+            // 메시지를 내림차순으로 정렬한 뒤 마지막 메시지의 키값을 가져옴
+            Map<String, ChatModel.Comment> commentMap = new TreeMap<>(Collections.reverseOrder());
+            commentMap.putAll(chatModels.get(position).comments);
+            String lastMessageKey = (String) commentMap.keySet().toArray()[0];
+            customViewHolder.recentMessage.setText(chatModels.get(position).comments.get(lastMessageKey).message);
         }
 
         @Override
