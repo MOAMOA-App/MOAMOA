@@ -159,44 +159,6 @@ public class ChatsFragment extends Fragment {
             }
         });
 
-        /*
-        myRef.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Log.d("메시지 보냄 ", snapshot.getValue().toString());
-                ChatsData chats = snapshot.getValue(ChatsData.class);
-                Log.i("채팅 윈도우", "저장된 데이터 : " + chats.getLeftname() + ": " + chats.getLeftmessage());
-
-                adapter.addChat(chats);
-                // 스크롤 맨끝으로
-                recyclerView.scrollToPosition(adapter.getItemCount()-1);
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-         */
-
-//
-
         return root;
     }
 

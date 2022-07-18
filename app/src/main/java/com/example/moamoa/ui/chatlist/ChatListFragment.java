@@ -1,5 +1,7 @@
 package com.example.moamoa.ui.chatlist;
 
+import android.annotation.SuppressLint;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,6 +24,7 @@ import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentChatlistBinding;
 import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.chats.ChatModel;
+import com.example.moamoa.ui.chats.ChatsActivity;
 import com.example.moamoa.ui.chats.ChatsFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -95,11 +98,14 @@ public class ChatListFragment extends Fragment {
 
         private List<ChatModel> chatModels = new ArrayList<>();
         private String UID;
+        private ArrayList<String> destinationUsers = new ArrayList<>();
 
         public ChatRecyclerViewAdapter(){
             UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-            FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+UID).addListenerForSingleValueEvent(new ValueEventListener() {
+            FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+UID)
+                    .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
+                // 여기서 equalTo는 true까지의 방만 검색한다. (내가 소속된 방만 띄움)
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     // 데이터 받아오기 세팅
@@ -126,7 +132,7 @@ public class ChatListFragment extends Fragment {
         }
 
         @Override
-        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
             final CustomViewHolder customViewHolder = (CustomViewHolder) holder;
             String destinationUID = null;
             String formID = null;
@@ -134,6 +140,7 @@ public class ChatListFragment extends Fragment {
             for (String user: chatModels.get(position).users.keySet()){
                 if (!user.equals(UID)){ // 있는 유저 중 내가 아닌 사람 뽑아옴
                     destinationUID = user;
+                    destinationUsers.add(destinationUID);
                 }
             }
 
@@ -157,17 +164,17 @@ public class ChatListFragment extends Fragment {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         Form form = snapshot.getValue(Form.class);
+
+                                        // 채팅방 제목(게시글 이름) 가져오기
                                         CHATROOM_NAME = snapshot.child("subject").getValue().toString();
-                                        //FORMID = snapshot.child("form_ID").getValue().toString();
+
+                                        // 채팅방 사진(게시글 사진) 가져오기
                                         Glide.with(customViewHolder.itemView.getContext())
                                                 .load(form.image)
                                                 .apply(new RequestOptions().circleCrop())
                                                 .into(customViewHolder.imageView);
 
-                                        //customViewHolder.formName.setText(CHATROOM_NAME);
                                         customViewHolder.formName.setText(form.subject);
-                                        //어라? 이럴거면 이중으로 안해도되는거아닌가
-
                                     }
 
                                     @Override
@@ -189,6 +196,17 @@ public class ChatListFragment extends Fragment {
             commentMap.putAll(chatModels.get(position).comments);
             String lastMessageKey = (String) commentMap.keySet().toArray()[0];
             customViewHolder.recentMessage.setText(chatModels.get(position).comments.get(lastMessageKey).message);
+
+            // 누르면 채팅방으로 넘어감(클릭 이벤트)
+            customViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), ChatsActivity.class);
+                    intent.putExtra("destinationUID", destinationUsers.get(position));
+
+                    startActivity(intent);
+                }
+            });
         }
 
         @Override
