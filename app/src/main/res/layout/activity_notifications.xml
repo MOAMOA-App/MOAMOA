@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.notifications.NotificationsActivity"
+    android:id="@+id/container2"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/chatstoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#F5B565"
+                app:titleTextColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/chatbarname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+
+                android:text="폼 이름"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <FrameLayout
+                android:id="@+id/drawer_button"
+                android:layout_width="50dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_alignParentRight="true"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:src="@drawable/ic_outline_dehaze_24"
+                    android:contentDescription="menu" />
+            </FrameLayout>
+        </RelativeLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/alarmcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

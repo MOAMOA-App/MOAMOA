@@ -9,14 +9,6 @@
     android:orientation="vertical"
     >
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_chat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#F5B565"
-        app:title="알림"
-        app:titleTextColor="#FFFFFF" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notification_list"
         android:layout_width="match_parent"

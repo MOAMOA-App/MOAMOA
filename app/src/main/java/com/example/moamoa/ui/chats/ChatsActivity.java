@@ -60,7 +60,6 @@ public class ChatsActivity extends AppCompatActivity {
     String Chatroomname, Formid, destinationuid;
     String UID, myNICK, destinationNICK;
 
-    ChatListFragment chatListFragment;
     ChatsFragment chatsFragment = new ChatsFragment();
 
     private DatabaseReference mDatabase;
