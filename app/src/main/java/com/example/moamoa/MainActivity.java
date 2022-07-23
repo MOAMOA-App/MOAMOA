@@ -3,6 +3,8 @@ package com.example.moamoa;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -163,5 +165,27 @@ public class MainActivity extends AppCompatActivity {
             finishAndRemoveTask(); // 액티비티 종료 + 태스크 리스트에서 지우기
             android.os.Process.killProcess(android.os.Process.myPid()); // 앱 프로세스 종료
         }
+    }
+
+    // 액션바 버튼추가
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.home_actionbar, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int curId = item.getItemId();
+        switch(curId){
+            case R.id.action_search:    // 검색
+                Toast.makeText(this, "Search Clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_alarm:     // 알림
+                Toast.makeText(this, "Alarm Clicked", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
