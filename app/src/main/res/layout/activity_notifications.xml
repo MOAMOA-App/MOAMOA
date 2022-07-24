@@ -12,7 +12,7 @@
     >
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/chatstoolbar"
+        android:id="@+id/alarmtoolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
@@ -29,13 +29,13 @@
                 app:titleTextColor="#FFFFFF" />
 
             <TextView
-                android:id="@+id/chatbarname"
+                android:id="@+id/alarmbarname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
 
-                android:text="폼 이름"
+                android:text="알림"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 

@@ -1,12 +1,14 @@
 package com.example.moamoa.ui.notifications;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.ActivityNotificationsBinding;
+import com.example.moamoa.ui.chats.ChatsFragment;
 
 public class NotificationsActivity extends AppCompatActivity {
     private ActivityNotificationsBinding binding;
@@ -23,5 +25,7 @@ public class NotificationsActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.alarmcontainer, notificationsFragment).commit();
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
     }
 }
