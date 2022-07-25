@@ -4,17 +4,20 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
@@ -32,6 +35,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
+import java.util.ArrayList;
 
 //import com.example.moamoa.User;
 
@@ -56,11 +61,6 @@ public class MypageFragment extends Fragment {
         ViewGroup layout1 = view.findViewById(R.id.created1);
         ViewGroup layout2 = view.findViewById(R.id.part2);
         ViewGroup layout3 = view.findViewById(R.id.heart3);
-        ViewGroup layout4 = view.findViewById(R.id.chat1);
-        ViewGroup layout5 = view.findViewById(R.id.area2);
-        ViewGroup layout6 = view.findViewById(R.id.alarm3);
-        ViewGroup layout7 = view.findViewById(R.id.account4);
-        ViewGroup layout8 = view.findViewById(R.id.setting5);
 
 
         if (user != null) {
@@ -137,6 +137,7 @@ public class MypageFragment extends Fragment {
         });
 
         //클릭
+        //생성한 공동구매
         layout1.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -146,6 +147,7 @@ public class MypageFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        //참여한 공동구매
         layout2.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -155,6 +157,7 @@ public class MypageFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        //관심 공동구매
         layout3.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -164,59 +167,57 @@ public class MypageFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        //채팅
-        layout4.setOnClickListener(new View.OnClickListener() {
 
+        //리스트뷰
+        ListView listView;
+        listView = view.findViewById(R.id.mp_list);
+
+        OptionAdapter oAdapter = new OptionAdapter();
+        listView.setAdapter(oAdapter);
+
+
+        // 첫 번째 아이템 추가.
+        oAdapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_baseline_textsms_24),"채팅 리스트") ;
+        // 두 번째 아이템 추가.
+        oAdapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_baseline_location_on_24), "지역 설정") ;
+        // 세 번째 아이템 추가.
+        oAdapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_access_alarm_24), "알람 설정") ;
+        // 네 번째 아이템 추가.
+        oAdapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_baseline_person_24), "계정 정보") ;
+        // 다섯 번째 아이템 추가.
+        oAdapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_baseline_settings_24), "환경 설정") ;
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-//                Intent intent = new Intent(getContext(), CreatedForms.class);
-//                startActivity(intent);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position==0){
+                    Intent intent = new Intent(getContext(), ParticipatedForms.class);
+                    startActivity(intent);
+                }
+                if(position==1){
+                    Intent intent = new Intent(getContext(), ParticipatedForms.class);
+                    startActivity(intent);
+                }
+                if(position==2){
+                    Intent intent = new Intent(getContext(), ParticipatedForms.class);
+                    startActivity(intent);
+                }
+                if(position==3){
+                    Intent intent = new Intent(getContext(), CheckLogin.class);
+                    startActivity(intent);
+                }
+                if(position==4){
+                    Intent intent = new Intent(getContext(), Setting.class);
+                    startActivity(intent);
+                }
+
             }
         });
-        //지역
-        layout5.setOnClickListener(new View.OnClickListener() {
+//
 
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-//                Intent intent = new Intent(getContext(), CreatedForms.class);
-//                startActivity(intent);
-            }
-        });
-        //알람
-        layout6.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-//                Intent intent = new Intent(getContext(), CreatedForms.class);
-//                startActivity(intent);
-            }
-        });
-        layout7.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Intent intent = new Intent(getContext(), CheckLogin.class);
-                startActivity(intent);
-            }
-        });
-        layout8.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Intent intent = new Intent(getContext(), Setting.class);
-                startActivity(intent);
-            }
-        });
-
-
-        return view ;
+        return view;
     }
 
 }
-
 
