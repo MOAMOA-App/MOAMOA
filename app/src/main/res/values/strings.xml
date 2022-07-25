@@ -28,5 +28,6 @@
     <string name="exitchats">채팅방 나가기</string>
     <string name="title_activity_address_api">AddressApiActivity</string>
     <string name="kakao_app_key">1ffe313e2b6c001fbbd0f795eedfc0be</string>
+    <string name="server_ip">54.183.248.140:8080</string>
     <!-- Strings used for fragments for navigation -->
    </resources>
