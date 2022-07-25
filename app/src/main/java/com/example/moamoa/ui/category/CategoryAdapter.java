@@ -2,13 +2,19 @@ package com.example.moamoa.ui.category;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +53,20 @@ public class CategoryAdapter extends BaseAdapter {
 
             TextView tv_num = (TextView) convertView.findViewById(R.id.cate_numb);
             TextView tv_name = (TextView) convertView.findViewById(R.id.cate_name);
+            ImageView tv_img = convertView.findViewById(R.id.cate_image);
 
+            FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+            StorageReference pathReference = firebaseStorage.getReference(bearItem.getName()+".png");
+
+
+            pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    Glide.with(tv_img.getContext())
+                            .load(uri)
+                            .into(tv_img);
+                }
+            });
             tv_num.setText(bearItem.getNumb());
             tv_name.setText(bearItem.getName());
 
