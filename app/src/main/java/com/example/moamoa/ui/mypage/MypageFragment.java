@@ -181,7 +181,7 @@ public class MypageFragment extends Fragment {
         // 두 번째 아이템 추가.
         oAdapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_baseline_location_on_24), "지역 설정") ;
         // 세 번째 아이템 추가.
-        oAdapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_access_alarm_24), "알람 설정") ;
+        oAdapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_notifications_gray_24dp), "알림 설정") ;
         // 네 번째 아이템 추가.
         oAdapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_baseline_person_24), "계정 정보") ;
         // 다섯 번째 아이템 추가.

@@ -25,7 +25,9 @@
 
     <!--Notice-->
 
-    <!--Notice-->
+    <!--dialog에서 activity로 바꿨더니 그림이 그려지지 않음, src와 srcCompat에 차이가 있음-->
+<!--    srcCompat은 vector Drawables(즉, 그림)를 모든 안드로이드에서 표현하게 해주는 안드 서포트 라이브러리 안에 구현된 기능이다. 그러므로 내가 해당 라이브러리를 쓰고 있는 것이 아니라면 당연히 srcCompat으로 리소스를 지정해봤자 에뮬레이터가 제대로 그려줄 리 없다.-->
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -42,7 +44,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_account_circle_24" />
+            android:src="@drawable/ic_account_circle_24" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -50,8 +52,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/profileimageView"
             app:layout_constraintEnd_toEndOf="@+id/profileimageView"
-            app:srcCompat="@drawable/baseline_square_24"
-            android:rotationX="2"/>
+            android:src="@drawable/baseline_square_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
