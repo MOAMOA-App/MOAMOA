@@ -57,4 +57,8 @@ public class CategoryAdapter_my extends BaseAdapter {
         return convertView;  //뷰 객체 반환
     }
 
+    public void clear() {
+        items.clear();
+        items.isEmpty();
+    }
 }
