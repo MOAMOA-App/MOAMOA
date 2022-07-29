@@ -94,7 +94,7 @@ public class MypageFragment extends Fragment {
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getContext(),"데이터를 가져오는데 실패했습니다" , Toast.LENGTH_LONG).show();
+                            Toast.makeText(getContext(),"데이터를 가져오는데 실패했습니다3" , Toast.LENGTH_LONG).show();
                         }
                     });
                     //
@@ -102,7 +102,7 @@ public class MypageFragment extends Fragment {
                 }
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) { //참조에 액세스 할 수 없을 때 호출
-                    Toast.makeText(getContext(),"데이터를 가져오는데 실패했습니다" , Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(),"데이터를 가져오는데 실패했습니다4" , Toast.LENGTH_LONG).show();
                 }
             });
             String email = user.getEmail();

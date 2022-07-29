@@ -1,5 +1,7 @@
 package com.example.moamoa.ui.mypage;
 
+import static java.lang.Thread.sleep;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
@@ -9,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
@@ -20,6 +23,8 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.LoginActivity;
@@ -36,6 +41,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.io.InputStream;
@@ -47,6 +53,8 @@ public class CustomDialog extends Activity {
     private Button defaultClick;
     private DatabaseReference mDatabase;
     private String dimage;
+    private final int GALLERY_CODE = 1;
+    private FirebaseStorage storage;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +68,7 @@ public class CustomDialog extends Activity {
         closeClick = findViewById(R.id.close);
         defaultClick = findViewById(R.id.defaultimage);
 
+        storage = FirebaseStorage.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -87,7 +96,6 @@ public class CustomDialog extends Activity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(CustomDialog.this, "데이터를 가져오는데 실패했습니다", Toast.LENGTH_LONG).show();
                             }
                         });
                     }
@@ -142,10 +150,15 @@ public class CustomDialog extends Activity {
                 //기본 이미지 변경
                 if(dimage == null){
                     finish();
-                }
-                else {
+                } else {
                     mDatabase.child("users").child(user.getUid()).child("image").setValue(dimage);
-                    finish();
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            finish();
+                        }
+                    }, 2000); //딜레이 타임 조절
                 }
             }
         });
@@ -158,20 +171,13 @@ public class CustomDialog extends Activity {
             }
         });
 
-//        이미지 버튼, 갤러리로 이동
+        //이미지 버튼, 갤러리로 이동
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                boolean hasWritePerm = checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
-//                if (!hasWritePerm) { // 권한 없을 시  권한설정 요청
-//                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-//                }
-//                else
-//
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
-                startActivityForResult(intent, 1);
+                startActivityForResult(intent, GALLERY_CODE);
 
             }
         });
@@ -181,15 +187,55 @@ public class CustomDialog extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         switch(requestCode) {
             case 1:
                 if (resultCode == RESULT_OK) {
                     Uri uri = data.getData();
+                    createProfile(uri);
+                    dimage = "userprofile/"+"profile_"+ user.getUid() +".png";
                     profile.setImageURI(uri);
                 }
                 break;
         }
     }
 
+    private void createProfile(Uri uri){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        StorageReference storageRef = storage.getReference();
+
+        String filename = "profile_" + user.getUid() + ".png";
+
+        Uri file = uri;
+
+        StorageReference riversRef = storageRef.child("userprofile/"+filename);
+        UploadTask uploadTask = riversRef.putFile(file);
+
+        //기본 이미지 삭제
+        StorageReference desertRef = storageRef.child("userprofile/"+"profile_"+ user.getUid()+".png");
+
+        desertRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+            }
+        });
+
+        //새로운 프로필 이미지 저장
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+            }
+        });
+
+    }
 }
+//파이어베이스에 사진이 저장되고 불러오는데 시간이 오래 걸림...
