@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -129,6 +130,16 @@ public class HomeFragment extends Fragment {
                 }
             });
         }
+
+        // 툴바 설정
+        root.findViewById(R.id.notification_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Alarm Clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         return root;
     }
     public void InitializeFormData(int i,String img, String title, String UID, String mans, String FID)
