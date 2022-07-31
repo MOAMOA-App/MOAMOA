@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
                     Form listData = snapshot.getValue(Form.class);
-/*
+///*
                     if (Integer.parseInt(listData.deadline.substring(0,8)) < today){
                         FirebaseDatabase.getInstance().getReference("form").child(listData.FID).child("state").setValue(2);
                     }
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                         FirebaseDatabase.getInstance().getReference("form").child(listData.FID).child("state").setValue(0);
                     }
 
-*/
+//*/
 
                 }
 
