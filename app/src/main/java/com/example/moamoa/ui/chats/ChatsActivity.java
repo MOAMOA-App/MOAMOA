@@ -1,5 +1,6 @@
 package com.example.moamoa.ui.chats;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ToolbarWidgetWrapper;
@@ -35,9 +36,11 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.ActivityChatsBinding;
 import com.example.moamoa.databinding.FragmentChatsBinding;
+import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.chatlist.ChatListFragment;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -132,8 +135,11 @@ public class ChatsActivity extends AppCompatActivity {
                  * 그럼 폼 제목에 사람 이름 넣는걸로 하면 될듯 굿굿
                  * */
 
+                /*
                 TextView chatbar = findViewById(R.id.chatbarname);
                 chatbar.setText(destinationNICK);
+
+                 */
 
                 // 프래그먼트 매니저로 chatscontainer에 chatsFragment 연결해줌
                 getSupportFragmentManager().beginTransaction().replace(R.id.chatscontainer, chatsFragment).commit();
@@ -158,7 +164,21 @@ public class ChatsActivity extends AppCompatActivity {
 
          */
 
+        FirebaseDatabase.getInstance().getReference().child("users").child(destinationuid)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        destinationNICK = snapshot.child("nick").getValue().toString();
 
+                        TextView chatbar = findViewById(R.id.chatbarname);
+                        chatbar.setText(destinationNICK);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
 
         // 메뉴 상호작용

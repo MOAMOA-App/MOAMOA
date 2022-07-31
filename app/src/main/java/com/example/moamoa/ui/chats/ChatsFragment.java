@@ -114,6 +114,8 @@ public class ChatsFragment extends Fragment {
                 chats.setLeftmessage(message);
                 chats.setSendedtime(ChatTime());
 
+                Log.e("TEST", "보낸 시간: " + ChatTime());
+
                 // ChatsModel 데이터설정 (DB용)
                 ChatModel chatModel = new ChatModel();
 

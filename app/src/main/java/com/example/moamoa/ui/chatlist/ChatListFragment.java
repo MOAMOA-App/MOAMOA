@@ -170,48 +170,6 @@ public class ChatListFragment extends Fragment {
                         }
                     });
 
-            /*
-            FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID)
-                    .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for (DataSnapshot item : snapshot.getChildren()){
-                        ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
-
-                        FirebaseDatabase.getInstance().getReference().child("form").child(FORMID)
-                                .addListenerForSingleValueEvent(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        Form form = snapshot.getValue(Form.class);
-
-                                        // 채팅방 제목(게시글 이름) 가져오기
-                                        CHATROOM_NAME = snapshot.child("subject").getValue().toString();
-
-                                        // 채팅방 사진(게시글 사진) 가져오기
-                                        Glide.with(customViewHolder.itemView.getContext())
-                                                .load(form.image)
-                                                .apply(new RequestOptions().circleCrop())
-                                                .into(customViewHolder.imageView);
-
-                                        customViewHolder.formName.setText(form.subject);
-                                    }
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                    }
-                                });
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-
-             */
-
             // 메시지를 내림차순으로 정렬한 뒤 마지막 메시지의 키값을 가져옴
             Map<String, ChatModel.Comment> commentMap = new TreeMap<>(Collections.reverseOrder());
             commentMap.putAll(chatModels.get(position).comments);
