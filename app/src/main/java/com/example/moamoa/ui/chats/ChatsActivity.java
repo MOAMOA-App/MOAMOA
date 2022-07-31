@@ -85,19 +85,9 @@ public class ChatsActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        // FormdetailActivity에서 값 받음
+        // FormdetailActivity와 ChatListFragment에서 값 받음
         Intent getIntent = getIntent();
-        Chatroomname = getIntent.getStringExtra("CHATROOM_NAME");
-        Formid = getIntent.getStringExtra("CHATROOM_FID");
         destinationuid = getIntent.getStringExtra("destinationUID");
-        destinationNICK = getIntent.getStringExtra("destinationNAME");
-
-        // 값 잘 받았는지 테스트
-        Log.e("TEST", "USERNAME = "+myNICK);
-        Log.e("TEST", "Chatroomname "+Chatroomname);
-        Log.e("TEST", "Formid "+Formid);
-        Log.e("TEST", "destinationuid "+destinationuid);
-        Log.e("TEST", "destinationNICK "+destinationNICK);
 
         // USERID 바탕으로 닉네임 찾음
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users");

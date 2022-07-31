@@ -34,11 +34,15 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class ChatsFragment extends Fragment {
 
@@ -57,6 +61,8 @@ public class ChatsFragment extends Fragment {
     private EditText EditText_chat;
     private Button sendbtn;
 
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy.MM.dd HH:mm");
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -65,65 +71,29 @@ public class ChatsFragment extends Fragment {
         View root = binding.getRoot();
 
         // USERID firebase에서 받아옴
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         USERID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        // ChatsActivity에서 값 받음
+        // ChatsActivity에서 destinationUID 받아옴
         Bundle bundle = getArguments();
         assert bundle != null;
-        USERNAME = bundle.getString("USERNAME");    // 내 닉네임
         destinationUID = bundle.getString("destinationUID");    // 상대 UID
-        destinationNAME = bundle.getString("destinationNAME");  // 상대 닉네임
-        FORMID = bundle.getString("FORMID");
-        CHATROOM_NAME = bundle.getString("CHATROOM_NAME");
-
-        // 값 잘 받았는지 테스트
-        Log.e("TEST", "USERNAME = "+USERNAME);
-        Log.e("TEST", "destinationUID = "+destinationUID);
-        Log.e("TEST", "destinationNAME = "+destinationNAME);
-        Log.e("TEST", "FORMID = "+FORMID);
-        Log.e("TEST", "CHATROOM_NAME = "+CHATROOM_NAME);
 
         //리사이클러뷰와 아답터 정의
-        //recyclerView = (RecyclerView) root.findViewById(R.id.chats_recyclerview);
-        //recyclerView.setHasFixedSize(true);
-        //adapter = new ChatsAdapter(getActivity(), list, nick);
-        //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        //recyclerView.setAdapter(adapter);
         recyclerView = (RecyclerView) root.findViewById(R.id.chats_recyclerview);
         recyclerView.setHasFixedSize(true);
 
-        //
-
-        //
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        EditText_chat = root.findViewById(R.id.EditText_chat);
-
         // 전송버튼 눌렀을 때의 동작
         sendbtn = (Button) root.findViewById(R.id.Button_send);
+        EditText_chat = (EditText) root.findViewById(R.id.EditText_chat);
         sendbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String message = EditText_chat.getText().toString();
-                ChatsData chats = new ChatsData();
-
-                Log.e("TEST", "sending USERNAME: "+USERNAME);
-
-                // ChatsData 데이터설정 (화면용)
-                chats.setLeftname(USERNAME);
-                chats.setLeftmessage(message);
-                chats.setSendedtime(ChatTime());
-
-                Log.e("TEST", "보낸 시간: " + ChatTime());
-
-                // ChatsModel 데이터설정 (DB용)
-                ChatModel chatModel = new ChatModel();
-
                 // USERID 저장
+                ChatModel chatModel = new ChatModel();
                 chatModel.users.put(USERID.toString(),true);
                 chatModel.users.put(destinationUID.toString(), true);
 
-                Log.e("TEST","CHATROOM_FID: "+CHATROOM_FID);
+                // 방 중복 방지
                 if (CHATROOM_FID == null){
                     sendbtn.setEnabled(false);
                     FirebaseDatabase.getInstance().getReference().child("chatrooms")
@@ -133,13 +103,12 @@ public class ChatsFragment extends Fragment {
                             checkChatRoom();
                         }
                     });
+
                 } else{
                     ChatModel.Comment comments = new ChatModel.Comment();
                     comments.UID = USERID;
-                    comments.message = message;
-
-                    Log.e("TEST","comments.uid: "+comments.UID);
-                    Log.e("TEST", "comments.message: "+comments.message);
+                    comments.message = EditText_chat.getText().toString();
+                    comments.timestamp = ServerValue.TIMESTAMP;
 
                     FirebaseDatabase.getInstance().getReference().child("chatrooms").child(CHATROOM_FID)
                             .child("comments").push().setValue(comments);
@@ -188,6 +157,8 @@ public class ChatsFragment extends Fragment {
             }
         });
     }
+
+    // 여기서부터 어댑터
 
     class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
@@ -258,13 +229,12 @@ public class ChatsFragment extends Fragment {
 
 
             } else {
-                // 프사 설정
                 Glide.with(holder.itemView.getContext())
                         .load(user.profile_img)
                         .apply(new RequestOptions().circleCrop())
-                        .into(messageViewHolder.profile_image);
+                        .into(messageViewHolder.profile_image); // 상대방의 프사 설정
 
-                messageViewHolder.nickName.setText(user.nick);
+                messageViewHolder.nickName.setText(user.nick);  // 닉네임 설정
                 messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                 messageViewHolder.Message.setText(comments.get(position).message);
                 messageViewHolder.profile_image.setVisibility(View.VISIBLE); //프사 보이게
@@ -274,6 +244,11 @@ public class ChatsFragment extends Fragment {
 
             ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
 
+            long unixTime = (long) comments.get(position).timestamp;
+            Date date = new Date(unixTime);
+            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+            String time = simpleDateFormat.format(date);
+            messageViewHolder.sendedTime.setText(time);
         }
 
         @Override
