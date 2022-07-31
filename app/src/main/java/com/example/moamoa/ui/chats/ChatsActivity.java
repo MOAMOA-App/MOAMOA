@@ -89,70 +89,42 @@ public class ChatsActivity extends AppCompatActivity {
         Intent getIntent = getIntent();
         destinationuid = getIntent.getStringExtra("destinationUID");
 
-        // USERID 바탕으로 닉네임 찾음
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
-        mDatabase.child(UID).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // 내 닉네임 받아옴
-                myNICK = dataSnapshot.child("nick").getValue().toString();
 
-                // 받은 값 ChatsFragment에 넘겨줌
-                Bundle bundle = new Bundle();
-                bundle.putString("CHATROOM_NAME", Chatroomname);
-                bundle.putString("FORMID", Formid);
-                bundle.putString("destinationUID", destinationuid);
-                bundle.putString("destinationNAME", destinationNICK);
-                bundle.putString("USERNAME", myNICK);
-                chatsFragment.setArguments(bundle);
-                /*
-                 * ChatsFragment로 값이 안넘어갔던 이유: xml에 fragmentcontainerview 있음
-                 * --> 값을 넘기기 전에 ChatsFragment가 만들어져 null값이 됨
-                 * 해결 위해 fragmentcontainerview 대신 framelayout 사용 후 밑 코드로 ChatsFragment 연결해줌
-                 */
-
-
-                // 채팅방 이름 세팅
-                /*
-                 * 그러니까 여기서 뭘해야되냐면... 일단 거기서도 채팅이 되고 채팅 리스트가 따로 있는 한 넘겨받아서 할순없음
-                 * 왜냐면 넘겨받은값은 폼에서 들어갈때는 몰라도 채팅 리스트에선 안넘겨받앗으니까 없는거잖아...
-                 * 그럼 거기 있는게 뭐냐면 일단 사람 아이디는 있는듯
-                 * 습 그럼 그냥 폼으로 나누겠다는 걸 없애고 그냥 사람이랑 채팅을 하고
-                 *
-                 * 정리
-                 * 공지--> 폼이 중요 (추후 제작) 폼 정보 넣어서 공지방 만듦
-                 * 그 외 문의채팅--> 폼 중요X 사람 정보만 있으면 됨
-                 * 그럼 폼 제목에 사람 이름 넣는걸로 하면 될듯 굿굿
-                 * */
-
-                /*
-                TextView chatbar = findViewById(R.id.chatbarname);
-                chatbar.setText(destinationNICK);
-
-                 */
-
-                // 프래그먼트 매니저로 chatscontainer에 chatsFragment 연결해줌
-                getSupportFragmentManager().beginTransaction().replace(R.id.chatscontainer, chatsFragment).commit();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w("", "loadPost:onCancelled", databaseError.toException());
-                // ...
-            }
-        });
-
+        // 받은 값 ChatsFragment에 넘겨줌
+        Bundle bundle = new Bundle();
+        bundle.putString("destinationUID", destinationuid);
+        chatsFragment.setArguments(bundle);
         /*
-        // 툴바 설정
-        Toolbar chatToolbar = findViewById(R.id.chat_toolbar);
-        setSupportActionBar(chatToolbar);
-
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_outline_dehaze_24);
-        getSupportActionBar().setTitle("");
-
+         * ChatsFragment로 값이 안넘어갔던 이유: xml에 fragmentcontainerview 있음
+         * --> 값을 넘기기 전에 ChatsFragment가 만들어져 null값이 됨
+         * 해결 위해 fragmentcontainerview 대신 framelayout 사용 후 밑 코드로 ChatsFragment 연결해줌
          */
+
+        // 프래그먼트 매니저로 chatscontainer에 chatsFragment 연결해줌
+        getSupportFragmentManager().beginTransaction().replace(R.id.chatscontainer, chatsFragment).commit();
+
+
+        // 헤더 설정 (나와 상대방의 정보가 뜨는 곳)
+        NavigationView navigationView =  (NavigationView) findViewById(R.id.nav_view_chats);
+        View nav_header_view = navigationView.inflateHeaderView(R.layout.nav_header_chats);
+        // 내 프로필
+
+
+        // 상대방 프로필
+
+
+
+        /* 채팅방 이름 세팅
+         * 그러니까 여기서 뭘해야되냐면... 일단 거기서도 채팅이 되고 채팅 리스트가 따로 있는 한 넘겨받아서 할순없음
+         * 왜냐면 넘겨받은값은 폼에서 들어갈때는 몰라도 채팅 리스트에선 안넘겨받앗으니까 없는거잖아...
+         * 그럼 거기 있는게 뭐냐면 일단 사람 아이디는 있는듯
+         * 습 그럼 그냥 폼으로 나누겠다는 걸 없애고 그냥 사람이랑 채팅을 하고
+         *
+         * 정리
+         * 공지--> 폼이 중요 (추후 제작) 폼 정보 넣어서 공지방 만듦
+         * 그 외 문의채팅--> 폼 중요X 사람 정보만 있으면 됨
+         * 그럼 폼 제목에 사람 이름 넣는걸로 하면 될듯 굿굿
+         * */
 
         FirebaseDatabase.getInstance().getReference().child("users").child(destinationuid)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -160,8 +132,58 @@ public class ChatsActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         destinationNICK = snapshot.child("nick").getValue().toString();
 
+                        // 채팅방 이름 설정
                         TextView chatbar = findViewById(R.id.chatbarname);
                         chatbar.setText(destinationNICK);
+
+                        // 헤더에서 상대방 닉네임 보여줌
+                        TextView nav_header_destiniationnick = (TextView) nav_header_view.findViewById(R.id.TextView_nickname_right);
+                        nav_header_destiniationnick.setText(destinationNICK);
+
+                        // 헤더에서 상대방 프사 보여줌
+                        ImageView destinationPfImage = (ImageView) findViewById(R.id.profile_image_right);
+                        String destinationprofil_text = snapshot.child("image").getValue().toString();
+                        FirebaseStorage.getInstance().getReference(destinationprofil_text)
+                                .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                Glide.with(destinationPfImage)
+                                        .load(uri)
+                                        .into(destinationPfImage);
+                                Log.e("TEST", "상대방 프사 띄우기 완료");
+                            }
+                        });
+
+                        // 헤더에서 내 닉네임 보여줌
+                        FirebaseDatabase.getInstance().getReference().child("users").child(UID)
+                                .addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        myNICK = snapshot.child("nick").getValue().toString();
+
+                                        // 헤더에서 내 닉네임 보여줌
+                                        TextView nav_header_mynick = (TextView) nav_header_view.findViewById(R.id.TextView_nickname_left);
+                                        nav_header_mynick.setText(myNICK);
+
+                                        // 헤더에서 내 프사 보여줌
+                                        ImageView myPfImage = (ImageView) findViewById(R.id.profile_image_left);
+                                        String myprofil_text = snapshot.child("image").getValue().toString();
+                                        FirebaseStorage.getInstance().getReference(myprofil_text)
+                                                .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                            @Override
+                                            public void onSuccess(Uri uri) {
+                                                Glide.with(myPfImage)
+                                                        .load(uri)
+                                                        .into(myPfImage);
+                                            }
+                                        });
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
                     }
 
                     @Override
@@ -277,6 +299,8 @@ public class ChatsActivity extends AppCompatActivity {
         // 기본 툴바 숨김
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
+
     }
 
     @Override

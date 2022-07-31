@@ -72,7 +72,7 @@
             android:layout_height="match_parent" />
 
         <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
+            android:id="@+id/nav_view_chats"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="end"
@@ -82,8 +82,6 @@
             app:menu="@menu/chatdrawer"
             app:headerLayout="@layout/nav_header_chats"
             >
-                       
-
         </com.google.android.material.navigation.NavigationView>
     </androidx.drawerlayout.widget.DrawerLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
