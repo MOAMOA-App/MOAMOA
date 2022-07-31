@@ -53,9 +53,15 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ChatsActivity extends AppCompatActivity {
     //
     private ActivityChatsBinding binding;
+
+    private List<ChatModel> chatModels = new ArrayList<>();
+    private ArrayList<String> destinationUsers = new ArrayList<>();
 
     String Chatroomname, Formid, destinationuid;
     String UID, myNICK, destinationNICK;
@@ -112,6 +118,23 @@ public class ChatsActivity extends AppCompatActivity {
                  * 해결 위해 fragmentcontainerview 대신 framelayout 사용 후 밑 코드로 ChatsFragment 연결해줌
                  */
 
+
+                // 채팅방 이름 세팅
+                /*
+                 * 그러니까 여기서 뭘해야되냐면... 일단 거기서도 채팅이 되고 채팅 리스트가 따로 있는 한 넘겨받아서 할순없음
+                 * 왜냐면 넘겨받은값은 폼에서 들어갈때는 몰라도 채팅 리스트에선 안넘겨받앗으니까 없는거잖아...
+                 * 그럼 거기 있는게 뭐냐면 일단 사람 아이디는 있는듯
+                 * 습 그럼 그냥 폼으로 나누겠다는 걸 없애고 그냥 사람이랑 채팅을 하고
+                 *
+                 * 정리
+                 * 공지--> 폼이 중요 (추후 제작) 폼 정보 넣어서 공지방 만듦
+                 * 그 외 문의채팅--> 폼 중요X 사람 정보만 있으면 됨
+                 * 그럼 폼 제목에 사람 이름 넣는걸로 하면 될듯 굿굿
+                 * */
+
+                TextView chatbar = findViewById(R.id.chatbarname);
+                chatbar.setText(destinationNICK);
+
                 // 프래그먼트 매니저로 chatscontainer에 chatsFragment 연결해줌
                 getSupportFragmentManager().beginTransaction().replace(R.id.chatscontainer, chatsFragment).commit();
             }
@@ -136,9 +159,7 @@ public class ChatsActivity extends AppCompatActivity {
          */
 
 
-        // 채팅방 이름 세팅
-        TextView chatbar = findViewById(R.id.chatbarname);
-        chatbar.setText(Chatroomname);
+
 
         // 메뉴 상호작용
         MenuItem select_language = root.findViewById(R.id.select_language);

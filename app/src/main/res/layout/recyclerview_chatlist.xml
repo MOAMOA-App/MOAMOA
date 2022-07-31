@@ -33,11 +33,11 @@
             android:gravity="center_vertical">
             <!--폼 제목 따오기-->
             <TextView
-                android:id="@+id/chat_formname"
+                android:id="@+id/chat_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:text="폼 제목"
+                android:text="유저 이름"
 
                 android:textSize="11sp"
                 android:textStyle="bold"

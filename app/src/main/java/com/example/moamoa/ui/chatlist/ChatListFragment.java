@@ -144,20 +144,39 @@ public class ChatListFragment extends Fragment {
                 }
             }
 
+            // 다시
+            // destination에 대한 정보 가져오기: users - child(UID) - destinationUID 확인
+            String finalDestinationUID = destinationUID;    // makes destinationUID to be final
+
+
             // destination이 누군지에 대한 정보 가져오기: users - child(UID) - destinationUID 확인 - formID 가져오기
             // formID 가져오면 Form에서 폼이름과 사진 가져오기
-            String finalDestinationUID = destinationUID;    // makes destinationUID to be final
+            FirebaseDatabase.getInstance().getReference().child("users").child(finalDestinationUID)
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            User user = snapshot.getValue(User.class);
+                            Glide.with(customViewHolder.itemView.getContext())
+                                    .load(user.profile_img)
+                                    .apply(new RequestOptions().circleCrop())
+                                    .into(customViewHolder.imageView);
+
+                            customViewHolder.userName.setText(user.nick);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+            /*
             FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID)
                     .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot item : snapshot.getChildren()){
                         ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
-                        // 방 id 가져오기
-                        if (chatModel.users.containsKey(finalDestinationUID)){   //destinationUID 있는지 체크
-                            //FORMID = snapshot.child("form_ID").getValue().toString();
-                            FORMID = chatModel.form_ID;
-                        }
 
                         FirebaseDatabase.getInstance().getReference().child("form").child(FORMID)
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -191,6 +210,8 @@ public class ChatListFragment extends Fragment {
                 }
             });
 
+             */
+
             // 메시지를 내림차순으로 정렬한 뒤 마지막 메시지의 키값을 가져옴
             Map<String, ChatModel.Comment> commentMap = new TreeMap<>(Collections.reverseOrder());
             commentMap.putAll(chatModels.get(position).comments);
@@ -216,13 +237,13 @@ public class ChatListFragment extends Fragment {
 
         private class CustomViewHolder extends RecyclerView.ViewHolder {
             public ImageView imageView;
-            public TextView formName, recentMessage;
+            public TextView userName, recentMessage;
 
             public CustomViewHolder(View view) {
                 super(view);
 
                 imageView = (ImageView) view.findViewById(R.id.chatlist_Image);
-                formName = (TextView) view.findViewById(R.id.chat_formname);
+                userName = (TextView) view.findViewById(R.id.chat_username);
                 recentMessage = (TextView) view.findViewById(R.id.chat_recent);
 
             }

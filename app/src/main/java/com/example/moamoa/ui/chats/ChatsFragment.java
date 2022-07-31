@@ -51,17 +51,11 @@ public class ChatsFragment extends Fragment {
 
     private String USERNAME, USERID;
     private String destinationNAME, destinationUID;
-    private String FORMID, FirebaseFORMID;
+    private String FORMID;
     String CHATROOM_NAME, CHATROOM_FID;
-    ChatModel chatModel;
 
     private EditText EditText_chat;
     private Button sendbtn;
-    private DatabaseReference myRef;
-
-    // 닉네임 받아서 설정하면 없앨코든데 닉네임이 안받아짐........
-    private String nick = "보라웨옹";
-
 
     @Nullable
     @Override
@@ -122,10 +116,6 @@ public class ChatsFragment extends Fragment {
 
                 // ChatsModel 데이터설정 (DB용)
                 ChatModel chatModel = new ChatModel();
-
-                // formID 저장
-                chatModel.form_ID = FORMID;
-                Log.e("TEST", "form_ID: "+chatModel.form_ID);
 
                 // USERID 저장
                 chatModel.users.put(USERID.toString(),true);
