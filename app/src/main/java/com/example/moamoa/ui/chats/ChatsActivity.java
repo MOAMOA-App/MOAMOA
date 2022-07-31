@@ -32,7 +32,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
@@ -123,6 +123,18 @@ public class ChatsActivity extends AppCompatActivity {
                 // ...
             }
         });
+
+        /*
+        // 툴바 설정
+        Toolbar chatToolbar = findViewById(R.id.chat_toolbar);
+        setSupportActionBar(chatToolbar);
+
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_outline_dehaze_24);
+        getSupportActionBar().setTitle("");
+
+         */
+
 
         // 채팅방 이름 세팅
         TextView chatbar = findViewById(R.id.chatbarname);
