@@ -15,8 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moamoa.R;
+import com.example.moamoa.sv.RCategory;
+import com.example.moamoa.sv.Retrofit_Client;
 import com.example.moamoa.databinding.FragmentHomeBinding;
-import com.example.moamoa.ui.category.CategoryActivity;
 import com.example.moamoa.ui.category.CategoryAdapter_my;
 import com.example.moamoa.ui.category.CategoryData;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
@@ -31,6 +32,10 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
@@ -124,12 +129,33 @@ public class HomeFragment extends Fragment {
             btn_c[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    test();
+                    /*
                     Intent intent = new Intent(getActivity(), CategoryActivity.class);
                     startActivity(intent);
+
+                     */
                 }
             });
         }
         return root;
+    }
+
+    public void test(){
+        Call<RCategory> call;
+        call = Retrofit_Client.getApiService().category();
+        call.enqueue(new Callback<RCategory>() {
+            @Override
+            public void onResponse(Call<RCategory> call, Response<RCategory> response) {
+                RCategory result = response.body();
+                Log.e("Retrofit:connect -> ", result.getCategory().toString());
+            }
+
+            @Override
+            public void onFailure(Call<RCategory> call, Throwable t) {
+                Log.e("Retrofit:error -> ", t.toString());
+            }
+        });
     }
     public void InitializeFormData(int i,String img, String title, String UID, String mans, String FID)
     {
