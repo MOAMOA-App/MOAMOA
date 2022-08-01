@@ -3,6 +3,7 @@ package com.example.moamoa.ui.chatlist;
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -26,12 +27,14 @@ import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.chats.ChatModel;
 import com.example.moamoa.ui.chats.ChatsActivity;
 import com.example.moamoa.ui.chats.ChatsFragment;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -156,12 +159,18 @@ public class ChatListFragment extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             User user = snapshot.getValue(User.class);
-                            Glide.with(customViewHolder.itemView.getContext())
-                                    .load(user.profile_img)
-                                    .apply(new RequestOptions().circleCrop())
-                                    .into(customViewHolder.imageView);
-
                             customViewHolder.userName.setText(user.nick);
+
+                            String destinationprofil_text = snapshot.child("image").getValue().toString();
+                            FirebaseStorage.getInstance().getReference(destinationprofil_text)
+                                    .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Glide.with(customViewHolder.imageView)
+                                            .load(uri)
+                                            .into(customViewHolder.imageView);
+                                }
+                            });
                         }
 
                         @Override

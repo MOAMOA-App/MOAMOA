@@ -1,6 +1,7 @@
 package com.example.moamoa.ui.chats;
 
 import android.annotation.SuppressLint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -36,6 +37,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -220,20 +222,57 @@ public class ChatsFragment extends Fragment {
                 // 내가 보낸 메시지일시 오른쪽에서 출력:왼쪽 이미지
                 //messageViewHolder.nickName.setVisibility(View.INVISIBLE);
                 messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
-                messageViewHolder.nickName.setText(USERNAME);
+                FirebaseDatabase.getInstance().getReference().child("users").child(USERID)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                USERNAME = snapshot.child("nick").getValue().toString();
+                                messageViewHolder.nickName.setText(USERNAME);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
                 messageViewHolder.Message.setText(comments.get(position).message);
                 messageViewHolder.profile_image.setVisibility(View.INVISIBLE); //프사 안보이게
 
                 messageViewHolder.chatLayout.setGravity(Gravity.END);
                 messageViewHolder.LinearChatMsg.setGravity(Gravity.END);
 
-
             } else {
+                // 상대방의 프사 설정
+                FirebaseDatabase.getInstance().getReference().child("users").child(destinationUID)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                String destinationprofil_text = snapshot.child("image").getValue().toString();
+                                FirebaseStorage.getInstance().getReference(destinationprofil_text)
+                                        .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        Glide.with(messageViewHolder.profile_image)
+                                                .load(uri)
+                                                .into(messageViewHolder.profile_image);
+                                    }
+                                });
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                /*
                 Glide.with(holder.itemView.getContext())
                         .load(user.profile_img)
                         .apply(new RequestOptions().circleCrop())
                         .into(messageViewHolder.profile_image); // 상대방의 프사 설정
 
+                 */
                 messageViewHolder.nickName.setText(user.nick);  // 닉네임 설정
                 messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                 messageViewHolder.Message.setText(comments.get(position).message);

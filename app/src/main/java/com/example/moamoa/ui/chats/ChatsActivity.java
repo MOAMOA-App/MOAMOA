@@ -150,7 +150,6 @@ public class ChatsActivity extends AppCompatActivity {
                                 Glide.with(destinationPfImage)
                                         .load(uri)
                                         .into(destinationPfImage);
-                                Log.e("TEST", "상대방 프사 띄우기 완료");
                             }
                         });
 
