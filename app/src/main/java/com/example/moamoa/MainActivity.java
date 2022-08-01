@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 import androidx.navigation.NavController;
@@ -59,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         //추가
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
     }
     // [END auth_with_google]
     @Override
@@ -156,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // 액션바 버튼추가
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.home_actionbar, menu);
@@ -176,4 +180,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+     */
 }
