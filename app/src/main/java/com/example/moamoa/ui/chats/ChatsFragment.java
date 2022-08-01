@@ -80,7 +80,7 @@ public class ChatsFragment extends Fragment {
         assert bundle != null;
         destinationUID = bundle.getString("destinationUID");    // 상대 UID
 
-        //리사이클러뷰와 아답터 정의
+        //리사이클러뷰 정의
         recyclerView = (RecyclerView) root.findViewById(R.id.chats_recyclerview);
         recyclerView.setHasFixedSize(true);
 
@@ -121,6 +121,7 @@ public class ChatsFragment extends Fragment {
 
             }
         });
+        checkChatRoom();
 
         return root;
     }
