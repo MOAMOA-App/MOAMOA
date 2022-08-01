@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 import androidx.navigation.NavController;
@@ -64,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         //추가
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
     }
     // [END auth_with_google]
     @Override
@@ -87,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
                     Form listData = snapshot.getValue(Form.class);
-
+///*
                     if (Integer.parseInt(listData.deadline.substring(0,8)) < today){
                         FirebaseDatabase.getInstance().getReference("form").child(listData.FID).child("state").setValue(2);
                     }
@@ -101,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
                     {
                         FirebaseDatabase.getInstance().getReference("form").child(listData.FID).child("state").setValue(0);
                     }
+
+//*/
 
                 }
 

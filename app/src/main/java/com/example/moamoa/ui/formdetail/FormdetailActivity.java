@@ -125,34 +125,32 @@ public class FormdetailActivity extends Activity {
                         String UID = dataSnapshot.child("UID_dash").getValue().toString();
 
                         // FORM 정보 불러옴(ChatFragment에서 CHATROOM_NAME과 CHATROOM_FID로 사용)
+                        /*
                         String FORMNAME = dataSnapshot.child("subject").getValue().toString();
                         String FID = temp;
+                        */
 
 
-                        mDatabase.child(UID).addValueEventListener(new ValueEventListener() {
+                        database.child(UID).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 // USER 닉네임 불러옴 (ChatsFragment에서 destinationNAME으로 사용
-                                String USERNAME = dataSnapshot.child("nick").getValue().toString();
+                                // String USERNAME = dataSnapshot.child("nick").getValue().toString();
 
                                 if (user.getUid().equals(UID)) {
                                     // 본인의 폼에서는 채팅하기 누를 수 없음
-                                    Toast.makeText(getApplicationContext(), "호스트", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "내 게시글입니다.", Toast.LENGTH_SHORT).show();
                                 } else{
-                                    // ChatActivity로 데이터 넘김
+                                    // ChatActivity로 UID 넘김 (destinationUID)
                                     Intent intent = new Intent(FormdetailActivity.this, ChatsActivity.class);
+                                    intent.putExtra("destinationUID", UID);
 
-                                    // 값 잘 불러왔는지 테스트
-                                    Log.d("TEST", "subject: "+FORMNAME);
-                                    Log.d("TEST", "FID: "+FID);
-                                    Log.d("TEST", "UID: "+UID);
-                                    Log.e("TEST", "보낼이름: "+USERNAME);
-
+                                    /*
                                     // ChatsActivity에 subject, FID, UID 넘겨줌
                                     intent.putExtra("CHATROOM_NAME", FORMNAME);
                                     intent.putExtra("CHATROOM_FID", FID);
-                                    intent.putExtra("destinationUID", UID);
                                     intent.putExtra("destinationNAME", USERNAME);
+                                    */
 
                                     startActivity(intent);
                                 }
@@ -165,8 +163,6 @@ public class FormdetailActivity extends Activity {
                                 // ...
                             }
                         });
-
-
                     }
 
                     @Override
@@ -176,7 +172,6 @@ public class FormdetailActivity extends Activity {
                         // ...
                     }
                 });
-
             }
         });
 

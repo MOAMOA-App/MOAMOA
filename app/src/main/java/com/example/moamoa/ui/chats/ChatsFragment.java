@@ -1,6 +1,7 @@
 package com.example.moamoa.ui.chats;
 
 import android.annotation.SuppressLint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -34,11 +35,16 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class ChatsFragment extends Fragment {
 
@@ -51,17 +57,13 @@ public class ChatsFragment extends Fragment {
 
     private String USERNAME, USERID;
     private String destinationNAME, destinationUID;
-    private String FORMID, FirebaseFORMID;
+    private String FORMID;
     String CHATROOM_NAME, CHATROOM_FID;
-    ChatModel chatModel;
 
     private EditText EditText_chat;
     private Button sendbtn;
-    private DatabaseReference myRef;
 
-    // 닉네임 받아서 설정하면 없앨코든데 닉네임이 안받아짐........
-    private String nick = "보라웨옹";
-
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy.MM.dd HH:mm");
 
     @Nullable
     @Override
@@ -71,67 +73,29 @@ public class ChatsFragment extends Fragment {
         View root = binding.getRoot();
 
         // USERID firebase에서 받아옴
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         USERID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        // ChatsActivity에서 값 받음
+        // ChatsActivity에서 destinationUID 받아옴
         Bundle bundle = getArguments();
         assert bundle != null;
-        USERNAME = bundle.getString("USERNAME");    // 내 닉네임
         destinationUID = bundle.getString("destinationUID");    // 상대 UID
-        destinationNAME = bundle.getString("destinationNAME");  // 상대 닉네임
-        FORMID = bundle.getString("FORMID");
-        CHATROOM_NAME = bundle.getString("CHATROOM_NAME");
 
-        // 값 잘 받았는지 테스트
-        Log.e("TEST", "USERNAME = "+USERNAME);
-        Log.e("TEST", "destinationUID = "+destinationUID);
-        Log.e("TEST", "destinationNAME = "+destinationNAME);
-        Log.e("TEST", "FORMID = "+FORMID);
-        Log.e("TEST", "CHATROOM_NAME = "+CHATROOM_NAME);
-
-        //리사이클러뷰와 아답터 정의
-        //recyclerView = (RecyclerView) root.findViewById(R.id.chats_recyclerview);
-        //recyclerView.setHasFixedSize(true);
-        //adapter = new ChatsAdapter(getActivity(), list, nick);
-        //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        //recyclerView.setAdapter(adapter);
+        //리사이클러뷰 정의
         recyclerView = (RecyclerView) root.findViewById(R.id.chats_recyclerview);
         recyclerView.setHasFixedSize(true);
 
-        //
-
-        //
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        EditText_chat = root.findViewById(R.id.EditText_chat);
-
         // 전송버튼 눌렀을 때의 동작
         sendbtn = (Button) root.findViewById(R.id.Button_send);
+        EditText_chat = (EditText) root.findViewById(R.id.EditText_chat);
         sendbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String message = EditText_chat.getText().toString();
-                ChatsData chats = new ChatsData();
-
-                Log.e("TEST", "sending USERNAME: "+USERNAME);
-
-                // ChatsData 데이터설정 (화면용)
-                chats.setLeftname(USERNAME);
-                chats.setLeftmessage(message);
-                chats.setSendedtime(ChatTime());
-
-                // ChatsModel 데이터설정 (DB용)
-                ChatModel chatModel = new ChatModel();
-
-                // formID 저장
-                chatModel.form_ID = FORMID;
-                Log.e("TEST", "form_ID: "+chatModel.form_ID);
-
                 // USERID 저장
+                ChatModel chatModel = new ChatModel();
                 chatModel.users.put(USERID.toString(),true);
                 chatModel.users.put(destinationUID.toString(), true);
 
-                Log.e("TEST","CHATROOM_FID: "+CHATROOM_FID);
+                // 방 중복 방지
                 if (CHATROOM_FID == null){
                     sendbtn.setEnabled(false);
                     FirebaseDatabase.getInstance().getReference().child("chatrooms")
@@ -141,13 +105,12 @@ public class ChatsFragment extends Fragment {
                             checkChatRoom();
                         }
                     });
+
                 } else{
                     ChatModel.Comment comments = new ChatModel.Comment();
                     comments.UID = USERID;
-                    comments.message = message;
-
-                    Log.e("TEST","comments.uid: "+comments.UID);
-                    Log.e("TEST", "comments.message: "+comments.message);
+                    comments.message = EditText_chat.getText().toString();
+                    comments.timestamp = ServerValue.TIMESTAMP;
 
                     FirebaseDatabase.getInstance().getReference().child("chatrooms").child(CHATROOM_FID)
                             .child("comments").push().setValue(comments);
@@ -158,6 +121,7 @@ public class ChatsFragment extends Fragment {
 
             }
         });
+        checkChatRoom();
 
         return root;
     }
@@ -196,6 +160,8 @@ public class ChatsFragment extends Fragment {
             }
         });
     }
+
+    // 여기서부터 어댑터
 
     class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
@@ -257,22 +223,58 @@ public class ChatsFragment extends Fragment {
                 // 내가 보낸 메시지일시 오른쪽에서 출력:왼쪽 이미지
                 //messageViewHolder.nickName.setVisibility(View.INVISIBLE);
                 messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
-                messageViewHolder.nickName.setText(USERNAME);
+                FirebaseDatabase.getInstance().getReference().child("users").child(USERID)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                USERNAME = snapshot.child("nick").getValue().toString();
+                                messageViewHolder.nickName.setText(USERNAME);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
                 messageViewHolder.Message.setText(comments.get(position).message);
                 messageViewHolder.profile_image.setVisibility(View.INVISIBLE); //프사 안보이게
 
                 messageViewHolder.chatLayout.setGravity(Gravity.END);
                 messageViewHolder.LinearChatMsg.setGravity(Gravity.END);
 
-
             } else {
-                // 프사 설정
+                // 상대방의 프사 설정
+                FirebaseDatabase.getInstance().getReference().child("users").child(destinationUID)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                String destinationprofil_text = snapshot.child("image").getValue().toString();
+                                FirebaseStorage.getInstance().getReference(destinationprofil_text)
+                                        .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        Glide.with(messageViewHolder.profile_image)
+                                                .load(uri)
+                                                .into(messageViewHolder.profile_image);
+                                    }
+                                });
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                /*
                 Glide.with(holder.itemView.getContext())
                         .load(user.profile_img)
                         .apply(new RequestOptions().circleCrop())
-                        .into(messageViewHolder.profile_image);
+                        .into(messageViewHolder.profile_image); // 상대방의 프사 설정
 
-                messageViewHolder.nickName.setText(user.nick);
+                 */
+                messageViewHolder.nickName.setText(user.nick);  // 닉네임 설정
                 messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                 messageViewHolder.Message.setText(comments.get(position).message);
                 messageViewHolder.profile_image.setVisibility(View.VISIBLE); //프사 보이게
@@ -282,6 +284,11 @@ public class ChatsFragment extends Fragment {
 
             ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
 
+            long unixTime = (long) comments.get(position).timestamp;
+            Date date = new Date(unixTime);
+            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+            String time = simpleDateFormat.format(date);
+            messageViewHolder.sendedTime.setText(time);
         }
 
         @Override

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -21,6 +22,7 @@ import com.example.moamoa.databinding.FragmentHomeBinding;
 import com.example.moamoa.ui.category.CategoryAdapter_my;
 import com.example.moamoa.ui.category.CategoryData;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
+import com.example.moamoa.ui.notifications.NotificationsActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -138,6 +140,17 @@ public class HomeFragment extends Fragment {
                 }
             });
         }
+
+        // 툴바 설정
+        root.findViewById(R.id.notification_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), NotificationsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         return root;
     }
 

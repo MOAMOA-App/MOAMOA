@@ -3,6 +3,7 @@ package com.example.moamoa.ui.chatlist;
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -26,12 +27,14 @@ import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.chats.ChatModel;
 import com.example.moamoa.ui.chats.ChatsActivity;
 import com.example.moamoa.ui.chats.ChatsFragment;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -144,52 +147,37 @@ public class ChatListFragment extends Fragment {
                 }
             }
 
+            // 다시
+            // destination에 대한 정보 가져오기: users - child(UID) - destinationUID 확인
+            String finalDestinationUID = destinationUID;    // makes destinationUID to be final
+
+
             // destination이 누군지에 대한 정보 가져오기: users - child(UID) - destinationUID 확인 - formID 가져오기
             // formID 가져오면 Form에서 폼이름과 사진 가져오기
-            String finalDestinationUID = destinationUID;    // makes destinationUID to be final
-            FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID)
-                    .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for (DataSnapshot item : snapshot.getChildren()){
-                        ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
-                        // 방 id 가져오기
-                        if (chatModel.users.containsKey(finalDestinationUID)){   //destinationUID 있는지 체크
-                            //FORMID = snapshot.child("form_ID").getValue().toString();
-                            FORMID = chatModel.form_ID;
+            FirebaseDatabase.getInstance().getReference().child("users").child(finalDestinationUID)
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            User user = snapshot.getValue(User.class);
+                            customViewHolder.userName.setText(user.nick);
+
+                            String destinationprofil_text = snapshot.child("image").getValue().toString();
+                            FirebaseStorage.getInstance().getReference(destinationprofil_text)
+                                    .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Glide.with(customViewHolder.imageView)
+                                            .load(uri)
+                                            .into(customViewHolder.imageView);
+                                }
+                            });
                         }
 
-                        FirebaseDatabase.getInstance().getReference().child("form").child(FORMID)
-                                .addListenerForSingleValueEvent(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        Form form = snapshot.getValue(Form.class);
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                                        // 채팅방 제목(게시글 이름) 가져오기
-                                        CHATROOM_NAME = snapshot.child("subject").getValue().toString();
-
-                                        // 채팅방 사진(게시글 사진) 가져오기
-                                        Glide.with(customViewHolder.itemView.getContext())
-                                                .load(form.image)
-                                                .apply(new RequestOptions().circleCrop())
-                                                .into(customViewHolder.imageView);
-
-                                        customViewHolder.formName.setText(form.subject);
-                                    }
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                    }
-                                });
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
+                        }
+                    });
 
             // 메시지를 내림차순으로 정렬한 뒤 마지막 메시지의 키값을 가져옴
             Map<String, ChatModel.Comment> commentMap = new TreeMap<>(Collections.reverseOrder());
@@ -216,13 +204,13 @@ public class ChatListFragment extends Fragment {
 
         private class CustomViewHolder extends RecyclerView.ViewHolder {
             public ImageView imageView;
-            public TextView formName, recentMessage;
+            public TextView userName, recentMessage;
 
             public CustomViewHolder(View view) {
                 super(view);
 
                 imageView = (ImageView) view.findViewById(R.id.chatlist_Image);
-                formName = (TextView) view.findViewById(R.id.chat_formname);
+                userName = (TextView) view.findViewById(R.id.chat_username);
                 recentMessage = (TextView) view.findViewById(R.id.chat_recent);
 
             }
