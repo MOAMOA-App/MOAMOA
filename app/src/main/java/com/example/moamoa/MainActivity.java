@@ -1,6 +1,5 @@
 package com.example.moamoa;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 import androidx.navigation.NavController;
@@ -22,10 +20,6 @@ import com.example.moamoa.databinding.ActivityMainBinding;
 import com.example.moamoa.ui.dashboard.DatePickerFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -65,23 +59,12 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         //추가
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
     }
     // [END auth_with_google]
     @Override
     protected void onStart() {
         super.onStart();
         /*
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if(currentUser==null){
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-        }
-
-         */
-
         int today= Integer.parseInt(getTime());
         FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
             @SuppressLint("RestrictedApi")
@@ -91,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
                     Form listData = snapshot.getValue(Form.class);
-///*
+
                     if (Integer.parseInt(listData.deadline.substring(0,8)) < today){
                         FirebaseDatabase.getInstance().getReference("form").child(listData.FID).child("state").setValue(2);
                     }
@@ -106,8 +89,6 @@ public class MainActivity extends AppCompatActivity {
                         FirebaseDatabase.getInstance().getReference("form").child(listData.FID).child("state").setValue(0);
                     }
 
-//*/
-
                 }
 
             }
@@ -116,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+       */
     }
 //캘린더
 
