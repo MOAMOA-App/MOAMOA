@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -16,9 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moamoa.R;
+import com.example.moamoa.databinding.FragmentHomeBinding;
 import com.example.moamoa.sv.RCategory;
 import com.example.moamoa.sv.Retrofit_Client;
-import com.example.moamoa.databinding.FragmentHomeBinding;
 import com.example.moamoa.ui.category.CategoryAdapter_my;
 import com.example.moamoa.ui.category.CategoryData;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
