@@ -14,6 +14,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.ActivityCategoryBinding;
+import com.example.moamoa.ui.notifications.NotificationsActivity;
+import com.example.moamoa.ui.search.SearchActivity;
 import com.google.android.material.tabs.TabLayout;
 
 public class CategoryActivity extends AppCompatActivity {
@@ -46,7 +48,8 @@ public class CategoryActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int curId = item.getItemId();
         if (curId == R.id.action_search) {    // 검색
-            Toast.makeText(this, "Search Clicked", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
