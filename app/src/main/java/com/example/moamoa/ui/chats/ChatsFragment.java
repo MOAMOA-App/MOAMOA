@@ -58,7 +58,7 @@ public class ChatsFragment extends Fragment {
     private String USERNAME, USERID;
     private String destinationNAME, destinationUID;
     private String FORMID;
-    String CHATROOM_NAME, CHATROOM_FID;
+    String CHATROOM_FID;
 
     private EditText EditText_chat;
     private Button sendbtn;
@@ -75,7 +75,7 @@ public class ChatsFragment extends Fragment {
         // USERID firebase에서 받아옴
         USERID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        // ChatsActivity에서 destinationUID 받아옴
+        // ChatsActivity와 FormdetailActivity에서 destinationUID 받아옴
         Bundle bundle = getArguments();
         assert bundle != null;
         destinationUID = bundle.getString("destinationUID");    // 상대 UID
@@ -162,7 +162,6 @@ public class ChatsFragment extends Fragment {
     }
 
     // 여기서부터 어댑터
-
     class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
         List<ChatModel.Comment> comments;
@@ -267,13 +266,7 @@ public class ChatsFragment extends Fragment {
 
                             }
                         });
-                /*
-                Glide.with(holder.itemView.getContext())
-                        .load(user.profile_img)
-                        .apply(new RequestOptions().circleCrop())
-                        .into(messageViewHolder.profile_image); // 상대방의 프사 설정
 
-                 */
                 messageViewHolder.nickName.setText(user.nick);  // 닉네임 설정
                 messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                 messageViewHolder.Message.setText(comments.get(position).message);
