@@ -39,6 +39,7 @@ public class CategoryActivity extends AppCompatActivity {
         tabs.setTabTextColors(Color.rgb(0,0,0),Color.rgb(47,157,39));
     }
 
+    // 툴바 설정 (검색버튼)
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.category_actionbar, menu);
@@ -47,7 +48,7 @@ public class CategoryActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int curId = item.getItemId();
-        if (curId == R.id.action_search) {    // 검색
+        if (curId == R.id.action_search) {  // 검색버튼 누를 시 검색 화면으로 이동
             Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
             startActivity(intent);
         }
