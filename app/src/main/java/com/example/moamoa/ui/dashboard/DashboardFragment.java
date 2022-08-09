@@ -166,7 +166,7 @@ public class DashboardFragment extends Fragment {
                         subject.getText().toString(),
                         text.getText().toString(),
                         address.getText().toString(),
-                        category_text.getSelectedItem().toString(),
+                        (Integer) category_text.getSelectedItem(),
                         cost.getText().toString(),
                         max_count.getText().toString(),
                         dead,

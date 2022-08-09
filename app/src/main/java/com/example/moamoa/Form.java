@@ -6,7 +6,7 @@ public class Form {
    public  String text;
     public String image;
     public  String address;
-    public String category_text;
+    public int category_text;
     public String cost;
     public String max_count;
     public String deadline;
@@ -22,7 +22,7 @@ public class Form {
 
 
     public Form(){ };
-    public Form( String FID, String UID_dash,String image, String subject, String text, String address,String category_text, String cost, String max_count,String deadline, String today){
+    public Form( String FID, String UID_dash,String image, String subject, String text, String address,int category_text, String cost, String max_count,String deadline, String today){
         this.FID = FID;
 
         this.UID_dash=UID_dash;
@@ -81,8 +81,8 @@ public class Form {
     public String getCost(){ return cost; }
     public void setCost(String cost) {this.cost = cost;
     }
-    public String getCategory_text(){ return category_text; }
-    public void setCategory_text(String category_text) {this.category_text = category_text;
+    public int getCategory_text(){ return category_text; }
+    public void setCategory_text(int category_text) {this.category_text = category_text;
     }
     public String getMax_count(){ return max_count; }
     public void setMax_count(String max_count) {this.max_count = max_count;

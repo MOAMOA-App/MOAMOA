@@ -23,6 +23,7 @@ import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.CreatedFormsBinding;
 import com.example.moamoa.databinding.EmptyFormsBinding;
+import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -32,6 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -42,8 +44,9 @@ public class PlaceholderFragment extends Fragment {
 
     private PageViewModel pageViewModel;
     private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
+    int[] ca_num;
 
-
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle bundle = new Bundle();
@@ -73,11 +76,29 @@ public class PlaceholderFragment extends Fragment {
 //        binding = FragmentMainBinding.inflate(inflater, container, false);
         binding = EmptyFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
+ca_num = new int[8];
+List<Integer> ca_num = new ArrayList();
         //추가
         ListView listView;
         listView = root.findViewById(R.id.listview);
         ArrayList<Form> listViewData = new ArrayList<>();
+        FirebaseDatabase.getInstance().getReference("User").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+            @SuppressLint("RestrictedApi")
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                listViewData.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                    CategoryData userData = snapshot.getValue(CategoryData.class);
+                    Log.d("확인","마이 카테고리 : "+userData.getName());
+                    ca_num.add(Integer.parseInt(userData.getName()));
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
         FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
             @SuppressLint("RestrictedApi")
             @Override
@@ -94,25 +115,34 @@ public class PlaceholderFragment extends Fragment {
 
                         listViewData.add(listData);
                     }
+                    if ( pos==2){
+                        for (int i = 0; i < 8; i++) {
+                          //  if (ca_num.equals(listData.category_text)){
+                                listViewData.add(listData);
+                           // }
+                        }
 
-                    if (listData.category_text.equals("식품") && pos==3 && listData.getstate()==0){
+//                        listViewData.add(listData);
+                    }
 
+                    if (listData.category_text==2 && pos==3 && listData.getstate()==0){
+//식품
                         listViewData.add(listData);
                     }
-                    if (listData.category_text.equals("의류") && pos==4 && listData.getstate()==0){
-
+                    if (listData.category_text==5 && pos==4 && listData.getstate()==0){
+//의류
                         listViewData.add(listData);
                     }
-                    if (listData.category_text.equals("생활용품") && pos==5 && listData.getstate()==0){
-
+                    if (listData.category_text==3 && pos==5 && listData.getstate()==0){
+//생활
                         listViewData.add(listData);
                     }
-                    if (listData.category_text.equals("취미") && pos==6 && listData.getstate()==0){
-
+                    if (listData.category_text==6 && pos==6 && listData.getstate()==0){
+//취미
                         listViewData.add(listData);
                     }
-                    if (listData.category_text.equals("기타") && pos==7 && listData.getstate()==0){
-
+                    if (listData.category_text==7 && pos==7 && listData.getstate()==0){
+//기타
                         listViewData.add(listData);
                     }
 

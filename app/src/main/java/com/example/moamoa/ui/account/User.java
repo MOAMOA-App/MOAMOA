@@ -6,6 +6,7 @@ public class User {
     // public으로 변경해서 채팅에서 씀
     public String nick;
     public String profile_img;
+    int my_category;
     String local;
     String host;
     String parti;
@@ -74,4 +75,11 @@ public class User {
     public void setheart_user(String heart_user){
         this.heart_user = heart_user;
     }
+    public int getMy_category(){
+        return my_category;
+    }
+    public void setMy_category(int my_category){
+        this.my_category = my_category;
+    }
+
 }
