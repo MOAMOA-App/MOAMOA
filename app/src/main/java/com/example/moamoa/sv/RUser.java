@@ -2,30 +2,40 @@ package com.example.moamoa.sv;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.sql.Array;
-
 public class RUser {
     @SerializedName("uid")
     private String userid;
 
+    @SerializedName("nickname")
+    private String nickname;
+
+    @SerializedName("profile")
+    private String profile;
+
     @SerializedName("email")
     private String email;
 
-    @SerializedName("category")
-    private Array category;
+    @SerializedName("phone")
+    private String phone;
 
-    public RUser() {
-    }
+    @SerializedName("now")
+    private String now;
 
-    public java.lang.String getUserid() {
+    public String getNow() { return now; }
+
+    public String getUserid(){
         return userid;
     }
 
-    public String getEmail() {
+    public String getEmail(){
         return email;
     }
 
-    public Array getCategory() {
-        return category;
+    public String getNickname(){
+        return nickname;
+    }
+
+    public String getProfile() {
+        return profile;
     }
 }

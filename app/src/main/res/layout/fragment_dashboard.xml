@@ -58,7 +58,17 @@
                     android:onClick="onClick"
                     android:textAlignment="center"
                     />
-
+                <Button
+                    android:id="@+id/button_imgs"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:drawableTop="@drawable/ic_baseline_photo"
+                    android:text="10/10"
+                    android:onClick="onClick"
+                    android:textAlignment="center"
+                    />
                 <TextView
                     android:id="@+id/num_form"
                     android:layout_width="match_parent"
@@ -66,12 +76,38 @@
                     android:inputType="number"  />
 
             </LinearLayout>
+
+            <GridView
+                android:id="@+id/photo_dash"
+                android:layout_width="173dp"
+                android:layout_height="145dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:columnWidth="50dp"
+                android:numColumns="10"
+                android:orientation="horizontal"
+                android:stretchMode="none"
+                android:visibility="gone"
+
+             />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                />
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="182dp"
-                android:src="@android:mipmap/sym_def_app_icon"
-                android:visibility="gone"/>
+                android:src="@android:mipmap/sym_def_app_icon"/>
+
 
             <EditText
                 android:layout_width="match_parent"
