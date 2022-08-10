@@ -24,8 +24,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
-        Log.d("확인","두번째 : "+fm);
-        Log.d("확인","두번째 : "+context);
+
     }
 
     @Override

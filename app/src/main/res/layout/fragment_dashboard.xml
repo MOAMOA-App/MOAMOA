@@ -106,7 +106,9 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="182dp"
-                android:src="@android:mipmap/sym_def_app_icon"/>
+                android:src="@android:mipmap/sym_def_app_icon"
+                android:visibility="gone"
+                />
 
 
             <EditText

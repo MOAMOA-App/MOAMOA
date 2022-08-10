@@ -22,7 +22,7 @@ public class Form {
 
 
     public Form(){ };
-    public Form( String FID, String UID_dash,String image, String subject, String text, String address,int category_text, String cost, String max_count,String deadline, String today){
+    public Form( String FID, String UID_dash,String image, String subject, String text, String address,int category_text, String cost, String max_count,String deadline, String today,int count){
         this.FID = FID;
 
         this.UID_dash=UID_dash;
@@ -35,7 +35,7 @@ public class Form {
         this.max_count = max_count;
         this.deadline = deadline;
         this.today = today;
-
+        this.count = count;
     }
  //   public void setUID(String FID){
   //      this.FID = FID;
@@ -101,6 +101,9 @@ public class Form {
     }
     public int getstate(){ return state; }
     public void setstate(int state) {this.state = state;
+    }
+    public int getCount(){ return count; }
+    public void setCount(int count) {this.count = count;
     }
 
 

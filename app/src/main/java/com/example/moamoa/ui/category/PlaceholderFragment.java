@@ -3,11 +3,13 @@ package com.example.moamoa.ui.category;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -29,11 +31,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -41,11 +47,11 @@ import java.util.List;
 public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-
+    private DatabaseReference mDatabase;
     private PageViewModel pageViewModel;
     private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
     int[] ca_num;
-
+    Form listData;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
@@ -76,22 +82,55 @@ public class PlaceholderFragment extends Fragment {
 //        binding = FragmentMainBinding.inflate(inflater, container, false);
         binding = EmptyFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-ca_num = new int[8];
-List<Integer> ca_num = new ArrayList();
+        ca_num = new int[8];
+        List<Integer> ca_num = new ArrayList();
         //추가
         ListView listView;
         listView = root.findViewById(R.id.listview);
-        ArrayList<Form> listViewData = new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference("User").child(user.getUid()).addValueEventListener(new ValueEventListener() {
-            @SuppressLint("RestrictedApi")
+        Button button_dead = (Button) root.findViewById(R.id.sort_dead);
+        Button button_hot = (Button) root.findViewById(R.id.sort_hot);
+        Button button_new = (Button) root.findViewById(R.id.sort_new);
+        button_dead.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onClick(View v) {
+                button_dead.setSelected(true);
+                button_hot.setSelected(false);
+                button_new.setSelected(false);
+
+
+            }
+        });
+        button_hot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button_dead.setSelected(false);
+                button_hot.setSelected(true);
+                button_new.setSelected(false);
+
+
+            }
+        });
+        button_new.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button_dead.setSelected(false);
+                button_hot.setSelected(false);
+                button_new.setSelected(true);
+
+            }
+        });
+
+        ArrayList<Form> listViewData = new ArrayList<>();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
+        mDatabase.child("mycategory").addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 listViewData.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    CategoryData user1 = snapshot.getValue(CategoryData.class);
 
-                    CategoryData userData = snapshot.getValue(CategoryData.class);
-                    Log.d("확인","마이 카테고리 : "+userData.getName());
-                    ca_num.add(Integer.parseInt(userData.getName()));
+
                 }
             }
             @Override
@@ -106,20 +145,21 @@ List<Integer> ca_num = new ArrayList();
                 listViewData.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    Form listData = snapshot.getValue(Form.class);
-                    Log.d("확인","루트 : "+user.getUid());
+                    listData = snapshot.getValue(Form.class);
 
 
 
-                    if ( pos==1){
-
+                    if ( pos==1 ){
+                    //    listData.orderByChild("count");
+                       // mDatabase.child("form").orderByChild("height");
                         listViewData.add(listData);
+
                     }
                     if ( pos==2){
                         for (int i = 0; i < 8; i++) {
-                          //  if (ca_num.equals(listData.category_text)){
-                                listViewData.add(listData);
-                           // }
+                            //  if (ca_num.equals(listData.category_text)){
+                            listViewData.add(listData);
+                            // }
                         }
 
 //                        listViewData.add(listData);
@@ -183,6 +223,13 @@ List<Integer> ca_num = new ArrayList();
         super.onDestroyView();
         binding = null;
     }
-}
+    private void UserFind(String UID){
+
+
+    }
+
+
+        }
+
 //
 

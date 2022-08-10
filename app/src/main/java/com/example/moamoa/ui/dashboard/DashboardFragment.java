@@ -198,6 +198,7 @@ public class DashboardFragment extends Fragment {
                         max_count.getText().toString(),
                         dead,
                         getTime1()
+                        ,0
                 );
 
 

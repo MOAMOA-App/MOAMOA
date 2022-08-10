@@ -1,17 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:backgroundTint="#FFFFFF"
-    tools:context=".ui.mypage.CreatedForms">
 
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+        android:weightSum="10"
+    tools:context=".ui.mypage.EmptyForms">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_gravity="center_horizontal"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="최신순"
+            android:id="@+id/sort_new"
+            android:textColor="@color/white"
+            android:backgroundTint= "@drawable/button_selector"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="마감순"
+            android:id="@+id/sort_dead"
+            android:textColor="@color/white"
+            android:backgroundTint= "@drawable/button_selector"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="인기순"
+            android:id="@+id/sort_hot"
+            android:textColor="@color/white"
+            android:backgroundTint= "@drawable/button_selector"/>
+    </LinearLayout>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp"
-        android:id="@+id/listview"></ListView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:id="@+id/listview"
+        ></ListView>
+
+</LinearLayout>
