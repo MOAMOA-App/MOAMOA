@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.moamoa">
+    package="com.example.moamoa" >
 
     <uses-permission
         android:name="android.permission.INTERACT"
@@ -9,7 +9,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:name=".GlobalApplication"
         android:allowBackup="true"
@@ -18,12 +17,7 @@
         android:roundIcon="@mipmap/ic_main"
         android:supportsRtl="true"
         android:theme="@style/Theme.MOAMOA"
-        tools:ignore="ExtraText">
-        <activity
-            android:name=".ui.search.SearchActivity"
-            android:exported="false"
-            android:label="게시글 검색"/>
-
+        tools:ignore="ExtraText" >
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
@@ -31,23 +25,23 @@
         <activity
             android:name=".ui.chats.ChatsActivity"
             android:exported="false"
-            android:label="채팅" />
+            android:label="채팅"/>
         <activity
             android:name=".ui.notifications.NotificationsActivity"
-            android:label="알림" />
+            android:label="알림"/>
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" >
+        </activity>
         <activity
             android:name=".LoginActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -55,9 +49,7 @@
         <activity
             android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name=".ui.category.CategoryActivity"
-            android:label="카테고리" />
+        <activity android:name=".ui.category.CategoryActivity" />
         <activity android:name=".ui.formdetail.FormdetailActivity" />
         <activity
             android:name=".ui.mypage.EditMyinfo"
@@ -73,9 +65,10 @@
             android:label="참여한 게시글" />
         <activity
             android:name=".ui.mypage.HeartForms"
-            android:label="관심 게시글" /> <!-- <activity -->
-        <!-- android:name=".ui.mypage.EmptyForms" -->
-        <!-- android:label="참여한 게시글" /> -->
+            android:label="관심 게시글" />
+<!--        <activity-->
+<!--            android:name=".ui.mypage.EmptyForms"-->
+<!--            android:label="참여한 게시글" />-->
         <activity
             android:name=".ui.mypage.Setting"
             android:label="환경설정" />
@@ -85,6 +78,11 @@
         <activity
             android:name=".ui.mypage.CustomDialog"
             android:theme="@android:style/Theme.Dialog" />
+        <!-- crop activity -->
+        <activity
+            android:name="com.soundcloud.android.crop.CropImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>

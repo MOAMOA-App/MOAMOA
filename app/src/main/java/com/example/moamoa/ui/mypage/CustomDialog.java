@@ -1,16 +1,14 @@
 package com.example.moamoa.ui.mypage;
 
-import static java.lang.Thread.sleep;
-
-import android.app.ActionBar;
 import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
+
 import android.content.Intent;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
@@ -19,17 +17,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.core.content.FileProvider;
 
 import com.bumptech.glide.Glide;
-import com.example.moamoa.LoginActivity;
+import com.example.moamoa.BuildConfig;
 import com.example.moamoa.R;
-import com.example.moamoa.databinding.CreatedFormsBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,9 +35,13 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.soundcloud.android.crop.Crop;
 
 import java.io.File;
-import java.io.InputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class CustomDialog extends Activity {
     private ImageView profile;
@@ -53,8 +50,10 @@ public class CustomDialog extends Activity {
     private Button defaultClick;
     private DatabaseReference mDatabase;
     private String dimage;
-    private final int GALLERY_CODE = 1;
     private FirebaseStorage storage;
+    private static final int PICK_FROM_ALBUM = 1; //앨범에서 사진 가져오기
+
+    private File tempFile;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,12 +118,12 @@ public class CustomDialog extends Activity {
                 StorageReference storageReference = storage.getReference();
                 StorageReference pathReference = storageReference.child("profile");
 
-                if (pathReference == null){
+                if (pathReference == null) {
                     finish();
-                }else {
+                } else {
                     int randomNum1 = (int) (Math.random() * 4);
                     int randomNum2 = (int) (Math.random() * 10);
-                    dimage = "profile/"+randomNum1+"_"+randomNum2+".png";
+                    dimage = "profile/" + randomNum1 + "_" + randomNum2 + ".png";
                     StorageReference submitProfile = storageReference.child(dimage);
                     submitProfile.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
@@ -136,7 +135,7 @@ public class CustomDialog extends Activity {
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(CustomDialog.this,"데이터를 가져오는데 실패했습니다" , Toast.LENGTH_LONG).show();
+                            Toast.makeText(CustomDialog.this, "데이터를 가져오는데 실패했습니다", Toast.LENGTH_LONG).show();
                         }
                     });
                 }
@@ -147,8 +146,7 @@ public class CustomDialog extends Activity {
         okClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //기본 이미지 변경
-                if(dimage == null){
+                if (dimage == null) {
                     finish();
                 } else {
                     mDatabase.child("users").child(user.getUid()).child("image").setValue(dimage);
@@ -158,7 +156,8 @@ public class CustomDialog extends Activity {
                         public void run() {
                             finish();
                         }
-                    }, 2000); //딜레이 타임 조절
+                    }, 5000); //딜레이 타임 조절
+                    //파이어베이스에 이미지를 저장하고 불러오는데 시간이 오래 걸린다.
                 }
             }
         });
@@ -176,8 +175,8 @@ public class CustomDialog extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType("image/*");
-                startActivityForResult(intent, GALLERY_CODE);
+                intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+                startActivityForResult(intent, PICK_FROM_ALBUM);
 
             }
         });
@@ -189,28 +188,118 @@ public class CustomDialog extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        switch(requestCode) {
-            case 1:
-                if (resultCode == RESULT_OK) {
-                    Uri uri = data.getData();
-                    createProfile(uri);
-                    dimage = "userprofile/"+"profile_"+ user.getUid() +".png";
-                    profile.setImageURI(uri);
+//        switch(requestCode) {
+//            case 1:
+//                if (resultCode == RESULT_OK) {
+//                    Uri uri = data.getData();
+//                    createProfile(uri);
+//                    dimage = "userprofile/"+"profile_"+ user.getUid() +".png";
+//                    profile.setImageURI(uri);
+//                }
+//                break;
+//        }
+        //cancel 버튼
+        if (resultCode != RESULT_OK) {
+            Toast.makeText(this, "취소 되었습니다.", Toast.LENGTH_SHORT).show();
+
+            if (tempFile != null) {
+                if (tempFile.exists()) {
+                    if (tempFile.delete()) {
+//                        Log.e(TAG, tempFile.getAbsolutePath() + " 삭제 성공");
+                        tempFile = null;
+                    }
                 }
-                break;
+            }
+
+            return;
         }
+
+        switch (requestCode) {
+            case PICK_FROM_ALBUM: {
+
+                Uri photoUri = data.getData();
+
+                //갤러리에서 선택한 경우에는 tempFile 이 없으므로 새로 생성해줍니다.
+                if (tempFile == null) {
+                    try {
+                        tempFile = createImageFile();
+                    } catch (IOException e) {
+                        Toast.makeText(this, "이미지 처리 오류! 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                        finish();
+                        e.printStackTrace();
+                    }
+                }
+
+                //크롭 후 저장할 Uri
+                Uri savingUri = Uri.fromFile(tempFile);
+
+                Crop.of(photoUri, savingUri).asSquare().start(this);
+
+                break;
+            }
+
+            case Crop.REQUEST_CROP: {
+                setImage();
+                createProfile(tempFile);
+                dimage = "userprofile/"+"profile_"+ user.getUid() +".png";
+
+                /**
+                 *  tempFile 사용 후 null 처리를 해줘야 합니다.
+                 *  (resultCode != RESULT_OK) 일 때 (tempFile != null)이면 해당 파일을 삭제하기 때문에
+                 *  기존에 데이터가 남아 있게 되면 원치 않은 삭제가 이뤄집니다.
+                 */
+
+                tempFile = null;
+            }
+
+        }
+
     }
 
-    private void createProfile(Uri uri){
+    //폴더 및 파일 만들기
+    private File createImageFile() throws IOException {
+
+        String imageFileName = "temp_";
+
+        // 빈 파일 생성
+        File image = File.createTempFile(imageFileName, ".png");
+
+        return image;
+    }
+
+    /**!!비트맵으로 바꾸는 이유를 모르겠음.!!*/
+    /**
+     * tempFile 을 bitmap 으로 변환 후 ImageView 에 설정한다.
+     */
+    private void setImage() {
+
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        Bitmap originalBm = BitmapFactory.decodeFile(tempFile.getAbsolutePath(), options);
+
+        profile.setImageBitmap(originalBm);
+
+//        /**
+//         *  tempFile 사용 후 null 처리를 해줘야 합니다.
+//         *  (resultCode != RESULT_OK) 일 때 (tempFile != null)이면 해당 파일을 삭제하기 때문에
+//         *  기존에 데이터가 남아 있게 되면 원치 않은 삭제가 이뤄집니다.
+//         */
+//        tempFile = null;
+
+    }
+//출처 : https://black-jin0427.tistory.com/123
+
+    //데이터베이스에 사진 저장하기
+    private void createProfile(File cropFile){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         StorageReference storageRef = storage.getReference();
 
         String filename = "profile_" + user.getUid() + ".png";
 
-        Uri file = uri;
+        Uri file = Uri.fromFile(cropFile);
 
         StorageReference riversRef = storageRef.child("userprofile/"+filename);
-        UploadTask uploadTask = riversRef.putFile(file);
+        UploadTask uploadTask;
+        uploadTask = riversRef.putFile(file);
 
         //기본 이미지 삭제
         StorageReference desertRef = storageRef.child("userprofile/"+"profile_"+ user.getUid()+".png");
