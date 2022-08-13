@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MOAMOA"
         tools:ignore="ExtraText" >
+
+        <activity
+            android:name=".ui.search.SearchActivity"
+            android:exported="false"
+            android:label="게시글 검색"/>
+
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
@@ -49,8 +55,11 @@
         <activity
             android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity android:name=".ui.category.CategoryActivity" />
-        <activity android:name=".ui.formdetail.FormdetailActivity" />
+        <activity
+            android:name=".ui.category.CategoryActivity"
+            android:label="카테고리"/>
+        <activity
+            android:name=".ui.formdetail.FormdetailActivity" />
         <activity
             android:name=".ui.mypage.EditMyinfo"
             android:label="계정 정보 수정" />
