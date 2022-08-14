@@ -1,6 +1,8 @@
 package com.example.moamoa;
 
-public class Form {
+import android.util.Log;
+
+public class Form  implements Comparable<Form> {
    public String FID;
    public String subject;
    public  String text;
@@ -9,7 +11,7 @@ public class Form {
     public int category_text;
     public String cost;
     public String max_count;
-    public String deadline;
+    public int deadline;
     public String today;
     public String UID_dash;
     public int heart_num;
@@ -17,12 +19,12 @@ public class Form {
     public int state;
     public int count;
 
-
+    public int s_case;
 
 
 
     public Form(){ };
-    public Form( String FID, String UID_dash,String image, String subject, String text, String address,int category_text, String cost, String max_count,String deadline, String today,int count){
+    public Form( String FID, String UID_dash,String image, String subject, String text, String address,int category_text, String cost, String max_count,int deadline, String today,int count){
         this.FID = FID;
 
         this.UID_dash=UID_dash;
@@ -36,6 +38,32 @@ public class Form {
         this.deadline = deadline;
         this.today = today;
         this.count = count;
+    }
+    @Override
+    public int compareTo(Form o) {
+        Log.d("MainActivity", "ChildEventListener -  : " + s_case);
+
+            if (s_case==0 && this.count > o.count) {
+                return -1;
+            } else if (s_case==0 && this.count == o.count) {
+                return 0;
+            } else if (s_case==0 && this.count < o.count){
+                return 1;
+            } else if (s_case==1 && this.deadline > o.deadline) {
+                return -1;
+            } else if (s_case==1 && this.deadline == o.deadline) {
+                return 0;
+            } else if (s_case==1 && this.deadline < o.deadline) {
+                return 1;
+            } else if (s_case==2 && this.count < o.count){
+                return -1;
+            } else if (s_case==2 && this.count == o.count) {
+                return 0;
+            } else{
+                return 1;
+            }
+
+
     }
  //   public void setUID(String FID){
   //      this.FID = FID;
@@ -87,8 +115,8 @@ public class Form {
     public String getMax_count(){ return max_count; }
     public void setMax_count(String max_count) {this.max_count = max_count;
     }
-    public String getDeadline(){ return deadline; }
-    public void setDeadline(String deadline) {this.deadline = deadline;
+    public int getDeadline(){ return deadline; }
+    public void setDeadline(int deadline) {this.deadline = deadline;
     }
     public String getToday(){ return today; }
     public void setToday(String today) {this.today = today;

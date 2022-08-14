@@ -1,7 +1,10 @@
 package com.example.moamoa.ui.category;
 
+import static androidx.fragment.app.FragmentManager.TAG;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -17,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -29,13 +33,16 @@ import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Collections;
@@ -51,8 +58,9 @@ public class PlaceholderFragment extends Fragment {
     private PageViewModel pageViewModel;
     private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
     int[] ca_num;
-    Form listData;
+    ArrayList<Form> listViewData = new ArrayList<>();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    Form  listData;
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle bundle = new Bundle();
@@ -96,7 +104,11 @@ public class PlaceholderFragment extends Fragment {
                 button_dead.setSelected(true);
                 button_hot.setSelected(false);
                 button_new.setSelected(false);
-
+                listData.s_case = 1;
+                listViewData.add(listData);
+                Collections.sort(listViewData);
+                ListAdapter oAdapter = new CustomListView(listViewData);
+                listView.setAdapter(oAdapter);
 
             }
         });
@@ -106,8 +118,11 @@ public class PlaceholderFragment extends Fragment {
                 button_dead.setSelected(false);
                 button_hot.setSelected(true);
                 button_new.setSelected(false);
-
-
+                listData.s_case = 0;
+                listViewData.add(listData);
+                Collections.sort(listViewData);
+                ListAdapter oAdapter = new CustomListView(listViewData);
+                listView.setAdapter(oAdapter);
             }
         });
         button_new.setOnClickListener(new View.OnClickListener() {
@@ -119,8 +134,9 @@ public class PlaceholderFragment extends Fragment {
 
             }
         });
+        Query query =  FirebaseDatabase.getInstance().getReference("form").
+                orderByChild("count");
 
-        ArrayList<Form> listViewData = new ArrayList<>();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
         mDatabase.child("mycategory").addValueEventListener(new ValueEventListener() {
 
@@ -137,6 +153,56 @@ public class PlaceholderFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+//        query.addChildEventListener(new ChildEventListener() {
+//            @Override
+//        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                listData =dataSnapshot.getValue(Form.class);
+//                Log.d("MainActivity", "ChildEventListener - onChildAdded : " + listData.count);
+//                listViewData.add(listData);
+//                ListAdapter oAdapter = new CustomListView(listViewData);
+//                listView.setAdapter(oAdapter);
+//
+//            }    @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s)
+//            {        Log.d("MainActivity", "ChildEventListener - onChildChanged : " + s);    }
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//                Log.d("MainActivity", "ChildEventListener - onChildRemoved : " + dataSnapshot.getKey());
+//            }
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//                Log.d("MainActivity", "ChildEventListener - onChildMoved" + s);    }
+//            @Override    public void onCancelled(DatabaseError databaseError) {
+//                Log.d("MainActivity", "ChildEventListener - onCancelled" + databaseError.getMessage());
+//            }});
+//        query.addValueEventListener(new ValueEventListener() {
+//            @RequiresApi(api = Build.VERSION_CODES.N)
+//            @SuppressLint("RestrictedApi")
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                listViewData.clear();
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    listData = snapshot.getValue(Form.class);
+//
+//                    if ( pos==1 ){
+//
+//                        listViewData.add(listData);
+//
+//                    }
+//
+//
+//                    Collections.sort(listViewData);
+//
+//                    ListAdapter oAdapter = new CustomListView(listViewData);
+//                    listView.setAdapter(oAdapter);
+//
+//
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//            }
+//        });
 
         FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
             @SuppressLint("RestrictedApi")
@@ -147,13 +213,15 @@ public class PlaceholderFragment extends Fragment {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     listData = snapshot.getValue(Form.class);
 
+                    Log.d("MainActivity", "ChildEventListener -  : " + listData);
 
 
                     if ( pos==1 ){
                     //    listData.orderByChild("count");
                        // mDatabase.child("form").orderByChild("height");
-                        listViewData.add(listData);
+                        //listViewData.add(listData);
 
+                        listViewData.add(listData);
                     }
                     if ( pos==2){
                         for (int i = 0; i < 8; i++) {
@@ -185,10 +253,12 @@ public class PlaceholderFragment extends Fragment {
 //기타
                         listViewData.add(listData);
                     }
+                    if (button_hot.isSelected()){
 
-
+                    }
                     ListAdapter oAdapter = new CustomListView(listViewData);
                     listView.setAdapter(oAdapter);
+
 
                 }
             }

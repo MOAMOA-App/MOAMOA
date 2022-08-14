@@ -196,7 +196,7 @@ public class DashboardFragment extends Fragment {
                         (Integer) category_text.getSelectedItem(),
                         cost.getText().toString(),
                         max_count.getText().toString(),
-                        dead,
+                        Integer.parseInt(dead),
                         getTime1()
                         ,0
                 );
