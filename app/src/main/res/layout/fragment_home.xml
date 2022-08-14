@@ -37,6 +37,24 @@
 
             <!-- 툴바 알림 버튼 설정 -->
             <FrameLayout
+                android:id="@+id/search_btn"
+                android:layout_width="50dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_toLeftOf="@+id/notification_btn"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:src="@drawable/ic_outline_search_24"
+                    android:contentDescription="menu" />
+
+            </FrameLayout>
+
+            <!-- 툴바 알림 버튼 설정 -->
+            <FrameLayout
                 android:id="@+id/notification_btn"
                 android:layout_width="50dp"
                 android:layout_height="?attr/actionBarSize"

@@ -43,6 +43,43 @@
                 android:text="검색" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:src="@drawable/ic_outline_edit_note_24"
+
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+
+                android:contentDescription="DetailSearch" />
+
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:textColor="@color/white"
+                android:text="카테고리"
+                >
+            </Button>
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:textColor="@color/white"
+                android:text="진행 상태"
+                >
+            </Button>
+
+        </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <ListView
