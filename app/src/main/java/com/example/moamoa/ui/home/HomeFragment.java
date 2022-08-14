@@ -21,6 +21,7 @@ import com.example.moamoa.ui.category.CategoryAdapter_my;
 import com.example.moamoa.ui.category.CategoryData;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.example.moamoa.ui.notifications.NotificationsActivity;
+import com.example.moamoa.ui.search.SearchActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -136,6 +137,14 @@ public class HomeFragment extends Fragment {
         }
 
         // 툴바 설정
+        root.findViewById(R.id.search_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
         root.findViewById(R.id.notification_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
