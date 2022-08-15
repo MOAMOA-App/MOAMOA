@@ -106,10 +106,12 @@ public class SearchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // 검색할 텍스트 search_input에 저장
                 search_input = EditText_search.getText().toString();
-                Log.e("TEST", "search_input: "+search_input);
+                Log.e("TEST", "search_input: "+search_input);   // 삭제예정코드(확인용)
 
-                // 각각 제목/작성자이름 기준으로 검색 예정
+                // 각각 제목/작성자이름 기준으로 검색
                 // search_input 포함하는 게시글 찾아 목록에 추가
+
+                // 제목 기준 게시물 검색
                 if (search_std.equals("제목")){
                     Toast.makeText(getApplicationContext(), "제목 기준", Toast.LENGTH_SHORT).show();
                     Log.e("TEST", "search_input: "+search_input);
@@ -119,15 +121,17 @@ public class SearchActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             arrayList.clear();
+                            // for문 돌려서 해당 키워드가 제목에 있는지 검색
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                                 Form form = dataSnapshot.getValue(Form.class);
+                                // 키워드가 제목에 있으면 add
                                 if (form.subject.contains(search_input)){
                                     arrayList.add(form);
                                     Log.e("TEST", "form: "+form);
                                 }
                             }
-                            ListAdapter oAdapter = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                            listView.setAdapter(oAdapter);            // 리스트뷰의 어댑터 지정
+                            customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
+                            listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                         }
 
                         @Override
@@ -149,7 +153,8 @@ public class SearchActivity extends AppCompatActivity {
                         }
                     });
                 }
-                /*
+
+                // 작성자 이름 기준 게시물 검색
                 else if (search_std.equals("이름")){
                     Toast.makeText(getApplicationContext(), "작성자 이름 기준", Toast.LENGTH_SHORT).show();
                     Log.e("TEST", "search_input: "+search_input);
@@ -158,21 +163,28 @@ public class SearchActivity extends AppCompatActivity {
                     // 엥 아니지? 그냥 UID가 맞는지 찾아보면 되는거잖아
                     // 그니까 작성자를 찾아봐 아 습 아닌가... 일단 닉네임으로 검색을 하는거잖아 그럼
                     // 어니다 그냥 아이디랑 닉네임 일일이 대조하는게 나을듯...
+                    // 일단 for문을 돌린 뒤에 그 안에서 검색하면 되나
 
                     FirebaseDatabase.getInstance().getReference().child("form").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             arrayList.clear();
+                            // for문 돌려서 해당 키워드와 작성자 이름이 맞는 게시물이 있는지 검색
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                                 Form form = dataSnapshot.getValue(Form.class);
 
+                                // UID_dash로 닉네임 검색 위해 users 불러옴
                                 FirebaseDatabase.getInstance().getReference().child("users").child(form.UID_dash)
                                         .addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         User user = snapshot.getValue(User.class);
 
-                                        if (form.subject.contains(search_input)){
+                                        // 닉네임 불러옴
+                                        String usernick = snapshot.child("nick").getValue().toString();
+
+                                        // 닉네임이 맞을 시 add
+                                        if (usernick.equals(search_input)){
                                             arrayList.add(form);
                                             Log.e("TEST", "form: "+form);
                                         }
@@ -182,11 +194,7 @@ public class SearchActivity extends AppCompatActivity {
                                     public void onCancelled(@NonNull DatabaseError error) {
 
                                     }
-                                })
-
-
-
-
+                                });
                             }
                             customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                             listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
@@ -197,42 +205,6 @@ public class SearchActivity extends AppCompatActivity {
                             Toast.makeText(SearchActivity.this, "error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
-
-
-
-
-
-                }
-
-                 */
-
-
-
-                /*
-
-                 else if (search_std.equals("이름")){
-                    Toast.makeText(getApplicationContext(), "작성자 이름 기준", Toast.LENGTH_SHORT).show();
-                    Log.e("TEST", "search_input: "+search_input);
-
-                    FirebaseDatabase.getInstance().getReference("form")
-                            .addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    arrayList.clear();
-                                    Form form = snapshot.getValue(Form.class);
-                                    assert form != null;
-                                    if (form.subject.contains(search_input))
-                                        arrayList.add(form);
-
-                                    ListAdapter oAdapter = new CustomListView(arrayList);
-                                    listView.setAdapter(oAdapter);
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                }
-                            });
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -240,20 +212,13 @@ public class SearchActivity extends AppCompatActivity {
                             String FID = arrayList.get(position).FID;
                             String title = arrayList.get(position).subject;
 
-                            //인텐트 선언 및 정의
-
-
+                            // 액티비티 이동 + 값 전달
                             Intent intent = new Intent(getApplicationContext(), FormdetailActivity.class);
-                            //입력한 input값을 intent로 전달한다.
-                            intent.putExtra("FID", FID);
-                            //액티비티 이동
+                            intent.putExtra("FID", FID);    //input값 intent로 전달
                             startActivity(intent);
-                            //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
                         }
                     });
                 }
-
-                 */
             }
         });
 
