@@ -25,6 +25,7 @@ import com.example.moamoa.databinding.ActivitySearchBinding;
 import com.example.moamoa.databinding.EmptyFormsBinding;
 import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.category.CustomListView;
+import com.example.moamoa.ui.category.PlaceholderFragment;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,10 +38,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
-    //private ActivitySearchBinding binding;
-    ActivitySearchBinding binding;
+    private ActivitySearchBinding binding;
 
-    private ListView listView;  // 리스트뷰와 연결
     private ArrayList<Form> arrayList;  // 리스트 안에 담을 데이터들을 저장
     private CustomListView customListView;  // 리스트뷰 어댑터
 
@@ -48,21 +47,24 @@ public class SearchActivity extends AppCompatActivity {
     private String search_std, search_input;
     private Button search_btn;
 
+    public static SearchActivity newInstance(int index){
+        SearchActivity searchActivity = new SearchActivity();
+        return searchActivity;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
         binding = ActivitySearchBinding.inflate(getLayoutInflater());
         View root = binding.getRoot();
 
         // 리스트뷰 정의
-        listView = root.findViewById(R.id.search_listview);
+        ListView listView = findViewById(R.id.search_listview);
 
         // 리스트 모두 가져오기
-        /*
         arrayList = new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference().child("form").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 arrayList.clear();
@@ -80,8 +82,6 @@ public class SearchActivity extends AppCompatActivity {
                 Toast.makeText(SearchActivity.this, "error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-         */
 
         // 검색 기준 설정 (제목/사용자닉네임)
         Spinner spinner = findViewById(R.id.searchspinner);
@@ -108,37 +108,6 @@ public class SearchActivity extends AppCompatActivity {
                 search_input = EditText_search.getText().toString();
                 Log.e("TEST", "search_input: "+search_input);
 
-                // 검색 전에 일단 모든 게시물 불러오기
-                /*
-                arrayList = new ArrayList<>();
-                FirebaseDatabase.getInstance().getReference("form")
-                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                                arrayList.clear();
-                                for (DataSnapshot snapshot : datasnapshot.getChildren()){
-                                    Form form = snapshot.getValue(Form.class);
-
-                                    assert form != null;
-                                    if (form.subject.contains(search_input))
-                                        arrayList.add(form);
-                                    else
-                                        Toast.makeText(getApplicationContext(), "게시글이 없어요.", Toast.LENGTH_SHORT).show();
-
-                                    customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                                    listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                                }
-
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
-
-                 */
-
                 // 각각 제목/작성자이름 기준으로 검색 예정
                 // search_input 포함하는 게시글 찾아 목록에 추가
                 if (search_std.equals("제목")){
@@ -157,8 +126,8 @@ public class SearchActivity extends AppCompatActivity {
                                     Log.e("TEST", "form: "+form);
                                 }
                             }
-                            customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                            listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
+                            ListAdapter oAdapter = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
+                            listView.setAdapter(oAdapter);            // 리스트뷰의 어댑터 지정
                         }
 
                         @Override
