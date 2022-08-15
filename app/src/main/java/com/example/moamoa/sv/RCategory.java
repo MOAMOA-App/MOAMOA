@@ -6,15 +6,15 @@ import java.util.List;
 
 public class RCategory {
     @SerializedName("cid")
-    private int cid;
+    private static int cid;
 
     @SerializedName("cname")
-    private String cname;
+    private static String cname;
 
     @SerializedName("category")
-    private List category;
+    private static List category;
 
-    public int getCid () {
+    public static int getCid() {
         return cid;
     }
 
@@ -22,7 +22,8 @@ public class RCategory {
         return cname;
     }
 
-    public List getCategory(){
+    public static List getCategory(){
         return category;
     }
+
 }

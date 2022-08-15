@@ -7,24 +7,29 @@ import com.example.moamoa.sv.RForm;
 import com.example.moamoa.sv.RUser;
 import com.example.moamoa.sv.Retrofit_Client;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Retrofit_Function {
     //카테고리 불러오기
-    public void category(){
-        Call<RCategory> call;
+    public static void category(){
+        Call<List<RCategory>> call;
         call = Retrofit_Client.getApiService().category();
-        call.enqueue(new Callback<RCategory>() {
+        call.enqueue(new Callback<List<RCategory>>() {
             @Override
-            public void onResponse(Call<RCategory> call, Response<RCategory> response) {
-                RCategory result = response.body();
-                Log.e("Retrofit:connect -> ", result.getCategory().toString());
+            public void onResponse(Call<List<RCategory>> call, Response<List<RCategory>> response) {
+                if(!response.isSuccessful()){
+                    Log.e("Retrofit:connect -> ",response.errorBody().toString());
+                }else{
+                    Log.e("Retrofit:connect -> ",response.body().toString()+"");
+                }
             }
 
             @Override
-            public void onFailure(Call<RCategory> call, Throwable t) {
+            public void onFailure(Call<List<RCategory>> call, Throwable t) {
                 Log.e("Retrofit:error -> ", t.toString());
             }
         });
@@ -37,7 +42,7 @@ public class Retrofit_Function {
             @Override
             public void onResponse(Call<Object> RUser, Response<Object> response) {
                 Object result = response.body();
-                Log.e("Retrofit:connect -> ", String.valueOf(result.getClass()));
+                Log.e("Retrofit:connect -> ",result.toString());
             }
             @Override
             public void onFailure(Call<Object> call, Throwable t) {
@@ -63,6 +68,7 @@ public class Retrofit_Function {
             }
         });
     }
+
     //회원가입하기
     public static void register(String uname, String email, String passwd, String nick, String profile, String type){
         Call<RUser> call;

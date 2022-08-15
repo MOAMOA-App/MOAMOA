@@ -35,84 +35,39 @@ public class FormdetailActivity extends Activity {
     int count;
     String temp;
 
+    private ImageView mainImage;
+    private FirebaseStorage firebaseStorage;
+    private FirebaseUser user;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Intent intent = getIntent();
+        temp = intent.getStringExtra("UID_dash");
+        if(user.getUid().equals(temp)){
+            Intent intent1 = new Intent(this, DetailCreaterSideActivity.class);
+            intent1.putExtra("FID", intent.getStringExtra("FID"));
+            intent1.putExtra(("UID_dash"),temp);
+            startActivity(intent1);
+            finish();
+        }
+    }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formdetail);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        mainImage = (ImageView) findViewById(R.id.mainImage);
+        firebaseStorage = FirebaseStorage.getInstance();
         Intent intent = getIntent();
         temp= intent.getStringExtra("FID");
-        ImageView mainImage = (ImageView) findViewById(R.id.mainImage);
-        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
 
         Button chat_btn = (Button)findViewById(R.id.detail_chat_btn);   //채팅하기 버튼
         Button party_btn = (Button)findViewById(R.id.detail_party_btn); //참여하기 버튼
         //ImageButton heart_btn = (ImageButton) findViewById(R.id.detail_heart_btn);
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("form");
-        mDatabase.child(temp).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String subject = dataSnapshot.child("subject").getValue().toString();
-                //String category = dataSnapshot.child("category").getValue().toString();
-                String text = dataSnapshot.child("text").getValue().toString();
-                String cost = dataSnapshot.child("cost").getValue().toString();
-                String category = dataSnapshot.child("category_text").getValue().toString();
-                String max_count = dataSnapshot.child("max_count").getValue().toString();
-                String today = dataSnapshot.child("today").getValue().toString();
-                String deadline = dataSnapshot.child("deadline").getValue().toString();
-                num_k= dataSnapshot.child("parti_num").getValue().toString() ;
-                image=dataSnapshot.child("image").getValue().toString() ;
 
-                count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
-
-                Log.d("확인","message상세 이미지 : "+count);
-                String UID = dataSnapshot.child("UID_dash").getValue().toString();
-                UserFind(UID);
-                Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline);
-                StorageReference pathReference = firebaseStorage.getReference(image);
-
-
-                FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
-                if (activity.isFinishing())
-                    return;
-
-                pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Glide.with(mainImage.getContext())
-                                .load(uri)
-                                .into(mainImage);
-
-                    }
-                });
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w("", "loadPost:onCancelled", databaseError.toException());
-                // ...
-            }
-        });
-
-
-        FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-
-                    if (snapshot.getValue()=="host")
-                    {
-                        //  bb="true";
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError)
-            {    }
-        });
+        printpage();
 
         chat_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,10 +134,6 @@ public class FormdetailActivity extends Activity {
         party_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
- 
-
-
-
                 FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -254,18 +205,14 @@ public class FormdetailActivity extends Activity {
                     public void onCancelled(DatabaseError databaseError)
                     {    }
                 });
-
-
                 //Log.d("MainActivity", "vv: " + v);
 
                 if (button.isChecked()) {
-
                     //button.setBackgroundResource(R.drawable.full_heart);
                     FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).setValue("true");
                 }
                 else if( !button.isChecked())
                 {
-
                     // button.setBackgroundResource(R.drawable.empty_heart);
                     //FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a-1);
                     FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).setValue("false");
@@ -274,33 +221,69 @@ public class FormdetailActivity extends Activity {
                 //    button.setBackgroundResource(R.drawable.full_heart);
                 //    FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a+1);
                 //    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("true");
-
                 //}
                 //if (isChecked ){
-
-
-
-
-
             }
-
-
-
-
-
-            //
             //String clickName = listViewData.get(position).subject;
             //Log.d("확인","message : "+clickName);
-
-
-
         });
         return;
     }
     @Override
     public void onBackPressed() {
-        FirebaseDatabase.getInstance().getReference("form").child(temp).child("count").setValue(count+1);
+        //FirebaseDatabase.getInstance().getReference("form").child(temp).child("count").setValue(count+1);
         finish();
+    }
+
+    private void printpage(){
+        //Retrofit_Function.category();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("form");
+        mDatabase.child(temp).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String subject = dataSnapshot.child("subject").getValue().toString();
+                String text = dataSnapshot.child("text").getValue().toString();
+                String cost = dataSnapshot.child("cost").getValue().toString();
+                String category =dataSnapshot.child("category_text").getValue().toString();
+                String max_count = dataSnapshot.child("max_count").getValue().toString();
+                String today = dataSnapshot.child("today").getValue().toString();
+                String deadline = dataSnapshot.child("deadline").getValue().toString();
+                num_k= dataSnapshot.child("parti_num").getValue().toString() ;
+                image=dataSnapshot.child("image").getValue().toString() ;
+
+                count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
+
+                Log.d("확인","message상세 이미지 : "+count);
+                String UID = dataSnapshot.child("UID_dash").getValue().toString();
+                UserFind(UID);
+                Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline);
+                StorageReference pathReference = firebaseStorage.getReference(image);
+
+
+                FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
+                if (activity.isFinishing())
+                    return;
+
+                pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Glide.with(mainImage.getContext())
+                                .load(uri)
+                                .into(mainImage);
+
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("", "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        });
+
     }
     private void UserFind(String UID){
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users");

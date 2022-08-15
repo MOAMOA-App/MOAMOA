@@ -43,6 +43,7 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
         TextView txt_name;
         TextView txt_mans;
         TextView txt_FID;
+        TextView txt_UID;
 
         public ViewHolder(View view) {
             super(view);
@@ -53,6 +54,7 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
             txt_name = (TextView) view.findViewById(R.id.name);
             txt_mans = (TextView) view.findViewById(R.id.mans);
             txt_FID = (TextView) view.findViewById(R.id.FID);
+            txt_UID = (TextView) view.findViewById(R.id.UID);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -119,6 +121,7 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
 
         });
         viewHolder.txt_title.setText(item.getTitle());
+        viewHolder.txt_UID.setText(item.getUID());
         //viewHolder.txt_name.setText(item.getNick());
         viewHolder.txt_mans.setText(item.getMans());
         viewHolder.txt_FID.setText(item.getFID());

@@ -45,6 +45,7 @@ public class HomeFragment extends Fragment {
     private CategoryAdapter_my categoryAdapter_my;
     private GridView gridViews;
     boolean[] my_list = new boolean[15];
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -106,10 +107,12 @@ public class HomeFragment extends Fragment {
                 public void onItemClick(View v, int position) {
                     String FID = homelist[finalI].get(position).getFID();
                     String title = homelist[finalI].get(position).getTitle();
+                    String UID = homelist[finalI].get(position).getUID();
                     //인텐트 선언 및 정의
                     Intent intent = new Intent(getContext(), FormdetailActivity.class);
                     //입력한 input값을 intent로 전달한다.
                     intent.putExtra("FID", FID);
+                    intent.putExtra(("UID_dash"),UID);
                     //액티비티 이동
                     startActivity(intent);
                     //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
@@ -126,7 +129,7 @@ public class HomeFragment extends Fragment {
             btn_c[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Retrofit_Function.userlist();
+                    Retrofit_Function.category();
                     /*
                     Intent intent = new Intent(getActivity(), CategoryActivity.class);
                     startActivity(intent);
@@ -166,6 +169,7 @@ public class HomeFragment extends Fragment {
         tmp.setNick(UID);
         tmp.setMans(mans);
         tmp.setFID(FID);
+        tmp.setUID(UID);
         homelist[i].add(tmp);
 
     }
@@ -181,9 +185,7 @@ public class HomeFragment extends Fragment {
                     DataSnapshot result = task.getResult();
                     for (DataSnapshot fileSnapshot : result.getChildren() ) {
                         String Key = fileSnapshot.getKey();
-                        String subject = fileSnapshot.child("today").getValue().toString().substring(4,8)+"_"+fileSnapshot.child("deadline").getValue().toString().substring(4);
-
-                        //String subject = fileSnapshot.child("subject").getValue().toString();
+                        String subject = fileSnapshot.child("subject").getValue().toString();
                         String max_count = fileSnapshot.child("max_count").getValue().toString();
                         String UID = fileSnapshot.child("UID_dash").getValue().toString();
                         String parti_num = fileSnapshot.child("parti_num").getValue().toString();
