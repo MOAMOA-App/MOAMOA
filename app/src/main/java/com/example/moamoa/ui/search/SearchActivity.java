@@ -154,6 +154,49 @@ public class SearchActivity extends AppCompatActivity {
                     });
                 }
 
+                // 제목+내용 기준 게시물 검색
+                else if (search_std.equals("제목+내용")){
+                    Toast.makeText(getApplicationContext(), "제목+내용 기준", Toast.LENGTH_SHORT).show();
+                    Log.e("TEST", "search_input: "+search_input);
+
+                    arrayList = new ArrayList<>();
+                    FirebaseDatabase.getInstance().getReference().child("form").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            arrayList.clear();
+                            // for문 돌려서 해당 키워드가 제목에 있는지 검색
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                                Form form = dataSnapshot.getValue(Form.class);
+                                // 키워드가 제목에 있으면 add
+                                if (form.subject.contains(search_input) || form.text.contains(search_input)){
+                                    arrayList.add(form);
+                                    Log.e("TEST", "form: "+form);
+                                }
+                            }
+                            customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
+                            listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Toast.makeText(SearchActivity.this, "error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            String FID = arrayList.get(position).FID;
+                            String title = arrayList.get(position).subject;
+
+                            // 액티비티 이동 + 값 전달
+                            Intent intent = new Intent(getApplicationContext(), FormdetailActivity.class);
+                            intent.putExtra("FID", FID);    //input값 intent로 전달
+                            startActivity(intent);
+                        }
+                    });
+                }
+
                 // 작성자 이름 기준 게시물 검색
                 else if (search_std.equals("이름")){
                     Toast.makeText(getApplicationContext(), "작성자 이름 기준", Toast.LENGTH_SHORT).show();
@@ -179,16 +222,23 @@ public class SearchActivity extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         User user = snapshot.getValue(User.class);
-
-                                        // 닉네임 불러옴
-                                        String usernick = snapshot.child("nick").getValue().toString();
+                                        Log.e("TEST1", "userUID: "+user);
 
                                         // 닉네임이 맞을 시 add
-                                        if (usernick.equals(search_input)){
+                                        if (user.nick.equals(search_input)){
+                                            Log.e("TEST2", "usernick: "+user.nick);
                                             arrayList.add(form);
-                                            Log.e("TEST", "form: "+form);
+                                            Log.e("TEST3", "form: "+form);
+
+                                            // 현 문제: 추가는 됐는데 화면에 안나옴
+                                            // No setter/field found on class
+
+                                            // 해결(밑문장 위치 옮김)
                                         }
+                                        customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
+                                        listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                                     }
+
 
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError error) {
@@ -196,8 +246,8 @@ public class SearchActivity extends AppCompatActivity {
                                     }
                                 });
                             }
-                            customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                            listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
+
+
                         }
 
                         @Override
