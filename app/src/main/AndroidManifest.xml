@@ -82,15 +82,19 @@
             android:label="참여한 게시글" />
         <activity
             android:name=".ui.mypage.HeartForms"
-            android:label="관심 게시글" /> <!-- <activity -->
-        <!-- android:name=".ui.mypage.EmptyForms" -->
-        <!-- android:label="참여한 게시글" /> -->
+            android:label="관심 게시글" />
+        <activity
+            android:name=".ui.mypage.AlarmSetting"
+            android:label="알림 설정" />
         <activity
             android:name=".ui.mypage.Setting"
             android:label="환경설정" />
         <activity
             android:name=".ui.mypage.CheckLogin"
             android:label="계정 정보 수정" />
+        <activity
+            android:name=".ui.mypage.CheckMyinfo"
+            android:label="계정 정보" />
         <activity
             android:name=".ui.mypage.CustomDialog"
             android:theme="@android:style/Theme.Dialog" />
