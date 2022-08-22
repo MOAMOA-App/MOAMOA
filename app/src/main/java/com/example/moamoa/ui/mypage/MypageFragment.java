@@ -195,7 +195,7 @@ public class MypageFragment extends Fragment {
                     startActivity(intent);
                 }
                 if(position==2){
-                    Intent intent = new Intent(getContext(), ParticipatedForms.class);
+                    Intent intent = new Intent(getContext(), AlarmSetting.class);
                     startActivity(intent);
                 }
                 if(position==3){
