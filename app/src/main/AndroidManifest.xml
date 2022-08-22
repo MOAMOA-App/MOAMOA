@@ -35,6 +35,11 @@
             android:label="게시글 검색"/>
 
         <activity
+            android:name=".ui.chatlist.ChatListActivity"
+            android:exported="false"
+            android:label="채팅 이력"/>
+
+        <activity
             android:name=".ui.chats.ChatsActivity"
             android:exported="false"
             android:label="채팅" />

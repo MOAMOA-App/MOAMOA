@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.example.moamoa.LoginActivity;
 import com.example.moamoa.R;
 import com.example.moamoa.ui.account.User;
+import com.example.moamoa.ui.chatlist.ChatListActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -186,8 +187,8 @@ public class MypageFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position==0){
-                    Intent intent = new Intent(getContext(), ParticipatedForms.class);
+                if(position==0){    // 채팅이력
+                    Intent intent = new Intent(getContext(), ChatListActivity.class);
                     startActivity(intent);
                 }
                 if(position==1){
