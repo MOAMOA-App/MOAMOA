@@ -92,6 +92,9 @@
             android:name=".ui.mypage.CheckLogin"
             android:label="계정 정보 수정" />
         <activity
+            android:name=".ui.mypage.CheckMyinfo"
+            android:label="계정 정보" />
+        <activity
             android:name=".ui.mypage.CustomDialog"
             android:theme="@android:style/Theme.Dialog" />
     </application>
