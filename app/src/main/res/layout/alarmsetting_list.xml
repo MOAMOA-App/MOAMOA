@@ -22,7 +22,7 @@
         android:layout_height="48dp"
         android:layout_weight="1"
         android:checked="true"
-        android:switchMinWidth="48dp"
+        android:switchMinWidth="44dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="10dp"

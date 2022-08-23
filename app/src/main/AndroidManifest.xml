@@ -89,6 +89,9 @@
             android:name=".ui.mypage.HeartForms"
             android:label="관심 게시글" />
         <activity
+            android:name=".ui.mypage.AreaSetting"
+            android:label="지역 설정" />
+        <activity
             android:name=".ui.mypage.AlarmSetting"
             android:label="알림 설정" />
         <activity

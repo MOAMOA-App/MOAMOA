@@ -6,8 +6,8 @@
                 <shape android:shape="oval">
                     <size android:width="23dp" android:height="23dp" />
                     <corners android:radius="45dp" />
-                    <solid android:color="#2F9D27" />
-                    <stroke android:width="0.2dp" android:color="#2F9D27"/>
+                    <solid android:color="#22741C" />
+                    <stroke android:width="0.2dp" android:color="#34862E"/>
                 </shape>
             </item>
         </layer-list>
