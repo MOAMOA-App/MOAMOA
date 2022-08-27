@@ -1,17 +1,13 @@
 package com.example.moamoa.ui.mypage;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.example.moamoa.LoginActivity;
 import com.example.moamoa.R;
 import com.example.moamoa.ui.account.User;
+import com.example.moamoa.ui.chatlist.ChatListActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,8 +33,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.util.ArrayList;
-
 //import com.example.moamoa.User;
 
 public class MypageFragment extends Fragment {
@@ -45,6 +40,7 @@ public class MypageFragment extends Fragment {
     private DatabaseReference mDatabase;
     private CustomDialog customDialog;
     private Nickname nickn;
+//    private String type;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -191,21 +187,45 @@ public class MypageFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position==0){
-                    Intent intent = new Intent(getContext(), ParticipatedForms.class);
+                if(position==0){    // 채팅이력
+                    Intent intent = new Intent(getContext(), ChatListActivity.class);
                     startActivity(intent);
                 }
                 if(position==1){
-                    Intent intent = new Intent(getContext(), ParticipatedForms.class);
+                    Intent intent = new Intent(getContext(), AreaSetting.class);
                     startActivity(intent);
                 }
                 if(position==2){
-                    Intent intent = new Intent(getContext(), ParticipatedForms.class);
+                    Intent intent = new Intent(getContext(), AlarmSetting.class);
                     startActivity(intent);
                 }
                 if(position==3){
-                    Intent intent = new Intent(getContext(), CheckLogin.class);
-                    startActivity(intent);
+                    //타입 확인
+                    mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            User User = snapshot.getValue(User.class);
+                            String type = User.getType();
+
+                            //모아모아 생성 계정이라면
+                            if(type.equals("email")) {
+                                Intent intent = new Intent(getContext(), CheckLogin.class);
+                                startActivity(intent);
+                            }
+
+                            //간편 로그인 계정이라면
+                            else {
+                                Intent intent = new Intent(getContext(), CheckMyinfo.class);
+                                startActivity(intent);
+                            }
+
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) { //참조에 액세스 할 수 없을 때 호출
+                            Toast.makeText(getContext(),"데이터를 가져오는데 실패했습니다" , Toast.LENGTH_LONG).show();
+                        }
+                    });
+
                 }
                 if(position==4){
                     Intent intent = new Intent(getContext(), Setting.class);

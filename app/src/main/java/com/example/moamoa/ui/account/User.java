@@ -13,6 +13,7 @@ public class User {
     String heart_user;
     String area;
     int num;
+    String type;
 
 
     public User(){ };
@@ -80,6 +81,11 @@ public class User {
     }
     public void setMy_category(int my_category){
         this.my_category = my_category;
+    }
+    public String getType() { return type;}
+
+    public void setType(String type) {
+        this.type = type;
     }
 
 }

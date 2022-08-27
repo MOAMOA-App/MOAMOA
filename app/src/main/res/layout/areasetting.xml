@@ -6,33 +6,77 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:gravity="center|top">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Spinner
-                android:id="@+id/spinner3"
-                android:layout_width="284dp"
-                android:layout_height="51dp" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-        </LinearLayout>
+            android:layout_marginTop="60dp"
+            android:text="도시"
+            android:textStyle="bold"
+            android:textSize="16sp" />
 
         <Spinner
-            android:id="@+id/spinner4"
-            android:layout_width="285dp"
-            android:layout_height="50dp" />
+            android:id="@+id/spin_city"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/spinner_style"/>
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="시 군 구"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/spin_sigungu"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/spinner_style"/>
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="읍 면 동"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:hint="  ex) 봉담읍 "
+                android:background="@drawable/edit_border"
+                android:layout_weight="9"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/spinbtn_ok"
+            android:layout_width="263dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="64dp"
+            android:background="@drawable/login_btn_style"
+            android:backgroundTint="@color/main_orange"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="변경" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
