@@ -40,6 +40,8 @@
                 android:id="@+id/searchBtn"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:text="검색" />
 
         </LinearLayout>
@@ -64,6 +66,7 @@
 
 
             <Button
+                android:id="@+id/select_category"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:textColor="@color/white"
@@ -72,6 +75,7 @@
             </Button>
 
             <Button
+                android:id="@+id/select_state"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:textColor="@color/white"

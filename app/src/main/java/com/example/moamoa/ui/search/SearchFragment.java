@@ -1,9 +1,13 @@
 package com.example.moamoa.ui.search;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -15,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.moamoa.Form;
@@ -22,14 +27,22 @@ import com.example.moamoa.R;
 import com.example.moamoa.databinding.ActivitySearchBinding;
 import com.example.moamoa.databinding.FragmentSearchBinding;
 import com.example.moamoa.ui.account.User;
+import com.example.moamoa.ui.category.CategoryFragment;
 import com.example.moamoa.ui.category.CustomListView;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class SearchFragment extends Fragment {
 
@@ -42,11 +55,77 @@ public class SearchFragment extends Fragment {
     private String search_std, search_input;
     private Button search_btn;
 
+    private Button SelectCategory, SelectState;
+    private FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+    private DatabaseReference mDatabase;
+    public static SearchFragment mContext;
+    private List<String> name_list = new ArrayList<>();
+    private List<Integer> numb_list = new ArrayList<>();
+
+    List<Integer> my_category = new ArrayList<>();
+    List<Integer> my_state = new ArrayList<>();
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentSearchBinding.inflate(getLayoutInflater());
         View root = binding.getRoot();
+
+        // 카테고리 선택
+        /*
+        일단 뭘어케하면되냐면... 일단 여기서 선택을 해놔 체크박스에 다 체크된상태로
+        저거를 리스트에 담아놓고 저 밑 코드에서 이제 리스트에 담긴 카테고리만 출력하도록 하는거지
+        그럼 생각할게
+         - 리스트에 담을 방법
+         - 리스트에서 뺄 방법
+         - 리스트에 담긴 카테고리만 출력할 방법
+        앞을 생각하면 뒤는 따라올듯?
+        담을 방법은 일단... 파이어베이스에서 카테고리 목록 불러와서 리스트에 넣어야됨
+        리스트에 담긴 카테고리만 출력하는거는 for문 돌려서 글 카테고리가 리스트에 담긴 카테고리에 있는지 보면 될거고
+         */
+        mContext = this;
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        SelectCategory = root.findViewById(R.id.select_category);
+        SelectState = root.findViewById(R.id.select_state);
+
+        // 팝업 제목 설정(카테고리 선택)
+        Category_select category_select = Category_select.newInstance("카테고리 선택");
+
+        //my_list=initmylist();
+
+        // 카테고리 목록 띄움
+        mDatabase.child("category").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
+                //데이터가 쌓이기 때문에  clear()
+                int x = 0;
+                for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
+                    String numb = x + "";
+                    String name = fileSnapshot.getValue().toString();
+                    if(x>1){
+                        name_list.add(name);
+                    }
+                    x++;
+                }
+                category_select.set_list(name_list);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+        });
+        // 버튼 누르면 위에서 설정한 카테고리 목록 출력
+        SelectCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                category_select.show(getFragmentManager(), "dialog");
+            }
+        });
 
         // 리스트뷰 정의
         ListView listView = root.findViewById(R.id.search_listview);
@@ -276,5 +355,109 @@ public class SearchFragment extends Fragment {
         });
 
         return root;
+    }
+
+    /*
+    public boolean[] initmylist(){
+        boolean[] my_list = new boolean[15];
+        for(int i=0;i<15;i++){
+            my_list[i]=false;
+        }
+        mDatabase.child("users").child(currentUser.getUid()).child("mycategory").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                }
+                else {
+                    DataSnapshot result = task.getResult();
+                    //Log.e("firebase", result.toString());
+                    if(result!=null){
+                        for (DataSnapshot fileSnapshot : result.getChildren() ) {
+                            //my_list[(int) fileSnapshot.getValue()]=true;
+                            String temp = fileSnapshot.getValue().toString();
+                            int x = Integer.parseInt(temp);
+                            my_list[x]=true;
+                        }
+                    }
+
+                }
+            }
+        });
+        return my_list;
+    }
+
+     */
+
+    public static class Category_select extends DialogFragment {
+        private DatabaseReference mDatabase;
+        private List<String> list = new ArrayList<>();
+        private boolean[] my_list;
+
+        public static Category_select newInstance(String title) {
+            Category_select frag = new Category_select();
+            Bundle args = new Bundle();
+            args.putString("title", title);
+            frag.setArguments(args);
+            return frag;
+        }
+        public void set_list(List list){
+            this.list = list;
+        }
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final CharSequence[] items = list.toArray(new String[list.size()]);
+            List choices = new ArrayList();
+            choices.clear();
+            final boolean[] checkedItems = new boolean[list.size()];
+
+            String title = getArguments().getString("title");
+
+            return new AlertDialog.Builder(getActivity())
+                    .setTitle(title)
+                    .setMultiChoiceItems(items, null,
+                            new DialogInterface.OnMultiChoiceClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i, boolean b) {
+                                    if (b) {
+                                        // 체크 됐으면 리스트에 추가
+                                        //           Log.d("확인","name : "+checkedItems[i]);
+                                        choices.add(i+2);
+
+                                        //       checkedItems[i] = true;
+                                        //               Log.d("확인","name : "+checkedItems[i]);
+                                    } else if (choices.contains(i+2)) {
+                                        // 체크 된거면 리스트에서 제거
+                                        choices.remove(Integer.valueOf(i+2));
+
+                                    }
+                                }
+                            })
+                    .setPositiveButton("완료",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int i) {
+                                    Log.e("TEST_SC", "choices:"+choices);
+
+                                    /*
+                                    HashMap<String,Object> childUpdates = new HashMap<>();
+                                    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                    DatabaseReference reference = database.getReference("users");
+                                    childUpdates.put("mycategory", choices);
+                                    reference.child(currentUser.getUid()).updateChildren(childUpdates);
+                                    my_list=((CategoryFragment)CategoryFragment.mContext).initmylist();
+                                    */
+                                }
+
+                            })
+                    .setNegativeButton("취소",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int i) {
+
+                                }
+                            })
+                    .show();
+        }
     }
 }
