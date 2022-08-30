@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.DashboardFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white"
+   >
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/dashboardtoolbar"
@@ -32,8 +34,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
 
-                android:text="글쓰기"
-                android:textSize="20sp"/>
+                android:text="공동구매 글쓰기"
+                android:textSize="20sp" />
         </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -43,7 +45,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="15dp">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -116,7 +119,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
                 android:hint="제목"
-
+                android:textStyle="bold"
                 android:id="@+id/subject"/>
             <Spinner
                 android:id="@+id/spinner"
@@ -155,10 +158,47 @@
                 android:hint="내용"
                 android:id="@+id/text"
                 android:minHeight="200dp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                >
+
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="직거래만"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"/>
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="택배/비대면"
+                    android:layout_marginRight="20dp"                    />
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="둘 다 가능" />
+            </RadioGroup>
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:text="인원제한 없음" />
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_margin="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
                 android:hint="인원"
                 android:id="@+id/max_count"
                 android:inputType="number" />
@@ -167,8 +207,9 @@
                 android:layout_height="60dp"
                 android:hint="거래 장소"
                 android:id="@+id/address"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"/>
 
-                android:layout_margin="10dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -197,6 +238,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 >
 
                 <TextView
@@ -212,7 +255,8 @@
                     android:layout_margin="10dp"
                     android:hint="마감일자"
                     android:onClick="showDatePicker"
-                    android:inputType="date" />
+                    android:inputType="date"
+                    />
 
             </LinearLayout>
             <Button
@@ -223,7 +267,8 @@
                 android:background="@color/main_orange"
                 android:textSize="20sp"
                 android:textColor="@color/white"
-                android:text="글 올리기">
+                android:text="글 올리기"
+                >
             </Button>
 
         </LinearLayout>
