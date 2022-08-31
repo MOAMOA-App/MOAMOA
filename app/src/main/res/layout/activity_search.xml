@@ -1,90 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.fragment.app.FragmentContainerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Spinner
-                android:id="@+id/searchspinner"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:entries="@array/searchoption" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <EditText
-                    android:id="@+id/searchWord"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-                    android:hint="검색어를 입력해주세요."
-                    android:inputType="text" />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/searchBtn"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:text="검색" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-
-            >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:src="@drawable/ic_outline_edit_note_24"
-
-                android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp"
-
-                android:contentDescription="DetailSearch" />
+    android:id="@+id/searchcontainerview"
+    android:name="com.example.moamoa.ui.search.SearchFragment"
+    >
 
 
-            <Button
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:textColor="@color/white"
-                android:text="카테고리"
-                >
-            </Button>
-
-            <Button
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:textColor="@color/white"
-                android:text="진행 상태"
-                >
-            </Button>
-
-        </LinearLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <ListView
-        android:id="@+id/search_listview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-</LinearLayout>
+</androidx.fragment.app.FragmentContainerView>

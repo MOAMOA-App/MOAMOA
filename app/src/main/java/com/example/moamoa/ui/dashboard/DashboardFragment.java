@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -106,6 +107,7 @@ public class DashboardFragment extends Fragment {
         Button button_img = (Button) root.findViewById(R.id.button_img);
         root.findViewById(R.id.button_img).setOnClickListener(onClickListener);
         TextView deadline = (TextView) root.findViewById(R.id.text_dashboardend);
+        CheckBox checkBox = (CheckBox) root.findViewById(R.id.checkBox);
         today.setText(getTime1().substring(0,4)+"/"+getTime1().substring(4,6)+"/"+getTime1().substring(6,8));
         cost.addTextChangedListener(new CustomTextWatcher(cost));
         photo = (ImageView) root.findViewById(R.id.imageView);
@@ -123,9 +125,8 @@ public class DashboardFragment extends Fragment {
                 startActivityForResult(intent, 2222);
             }
         });
-
+        Log.d("확인","message : "+checkBox.isChecked());
         recyclerView = root.findViewById(R.id.recyclerView);
-
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
@@ -142,6 +143,35 @@ public class DashboardFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+        checkBox.setOnClickListener(new View.OnClickListener() {
+                                      @Override
+                                      public void onClick(View view) {
+                                          if (checkBox.isChecked()) {
+                                              max_count.setClickable(false);
+                                              max_count.setFocusable(false);
+
+                                          } else {
+                                              max_count.setFocusableInTouchMode(true);
+                                              max_count.setFocusable(true);
+                                          }
+                                      }
+
+ });
+        max_count.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkBox.isChecked()) {
+
+                    Toast.makeText(getContext(),"인원제한 없음을 해제해주세요.",Toast.LENGTH_SHORT).show();
+
+
+                } else {
+
+                }
+            }
+
+        });
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

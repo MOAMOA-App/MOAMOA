@@ -65,6 +65,7 @@ public class CustomListView extends BaseAdapter {
             }
             convertView = layoutInflater.inflate(R.layout.fragment_main, parent, false);
         }
+        TextView state=convertView.findViewById(R.id.state);
         TextView name = convertView.findViewById(R.id.charge);
         ImageView mainImage = convertView.findViewById(R.id.mainImage);
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
@@ -93,7 +94,16 @@ public class CustomListView extends BaseAdapter {
                         .into(mainImage);
             }
         });
-
+        state.setVisibility(View.VISIBLE);
+        if(listViewData.get(position).state==0){
+            state.setBackgroundResource(R.drawable.state_0);
+        }
+        else if(listViewData.get(position).state==1){
+            state.setBackgroundResource(R.drawable.state_1);
+        }
+        else if(listViewData.get(position).state==2){
+            state.setBackgroundResource(R.drawable.state_2);
+        }
         TextView title = convertView.findViewById(R.id.title);
 
         TextView charge = convertView.findViewById(R.id.name);
