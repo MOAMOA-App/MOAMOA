@@ -242,7 +242,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
                 //데이터가 쌓이기 때문에  clear()
-
+                gridViews.removeAllViewsInLayout();
+                categoryAdapter_my.clear();
                 int x = 0;
                 for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
                     String numb = x + "";

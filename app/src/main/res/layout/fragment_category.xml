@@ -12,8 +12,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/categorytoolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -32,91 +31,94 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
-
                 android:text="카테고리"
                 android:textSize="20sp"/>
         </RelativeLayout>
-
     </com.google.android.material.appbar.AppBarLayout>
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_height="match_parent"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_marginTop="10dp">
 
-        <TextView
+            <TextView
 
-            android:id="@+id/my_category_txt"
+                android:id="@+id/my_category_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="관심 카테고리"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/moveto_mygroup"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/my_category_txt"
+                android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_baseline_chevron_right_24" />
+
+            <TextView
+                android:id="@+id/btn_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/category_edit_style"
+                android:layout_centerVertical="true"
+                android:text="편집"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/my_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="관심 카테고리"
-            android:textSize="17sp" />
+            android:orientation="horizontal"
+            android:numColumns="6"
+            android:columnWidth="50dp"
+            android:stretchMode="none"
+            android:layout_marginLeft="14dp"/>
 
-        <ImageView
-            android:id="@+id/moveto_mygroup"
-            android:layout_width="25dp"
-            android:layout_height="match_parent"
-            android:layout_toRightOf="@+id/my_category_txt"
-            android:background="@color/white"
-            android:clickable="true"
-            android:focusable="true"
-            android:src="@drawable/ic_baseline_chevron_right_24" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_marginTop="16dp">
 
-        <TextView
-            android:id="@+id/btn_edit"
+            <TextView
+                android:id="@+id/all_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="전체 카테고리"
+                android:textSize="17sp"/>
+
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/category_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:background="@drawable/category_edit_style"
-            android:layout_centerVertical="true"
-            android:text="편집"
-            android:textSize="15sp" />
-    </RelativeLayout>
-
-    <GridView
-        android:id="@+id/my_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:numColumns="6"
-        android:columnWidth="50dp"
-        android:stretchMode="none"
-        android:layout_marginLeft="14dp"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:layout_marginTop="16dp">
-
-        <TextView
-            android:id="@+id/all_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="전체 카테고리"
-            android:textSize="17sp" />
-
-    </RelativeLayout>
-
-    <GridView
-        android:id="@+id/category_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:numColumns="3"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:columnWidth="80dp"
-        android:stretchMode="spacingWidth"
-        android:verticalSpacing="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp">
-    </GridView>
-
-
+            android:orientation="horizontal"
+            android:numColumns="3"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:columnWidth="100dp"
+            android:stretchMode="spacingWidth"
+            android:verticalSpacing="16dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="12dp">
+        </GridView>
+    </LinearLayout>
 </LinearLayout>
