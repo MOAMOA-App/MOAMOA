@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -63,6 +65,8 @@ public class DashboardFragment extends Fragment {
     Uri file;
     String FID;
     int num_a;
+    String max;
+    String express;
     ImageView photo;
     String imageUrl;
     Button button_img;
@@ -102,6 +106,7 @@ public class DashboardFragment extends Fragment {
         EditText address = (EditText) root.findViewById(R.id.address);
         EditText cost = (EditText) root.findViewById(R.id.cost);
         EditText max_count = (EditText) root.findViewById(R.id.max_count);
+        RadioGroup radioGroup=(RadioGroup) root.findViewById(R.id.radioGroup);
         Spinner category_text = (Spinner) root.findViewById(R.id.spinner);
         Button button = (Button) root.findViewById(R.id.button_dashboard);
         Button button_img = (Button) root.findViewById(R.id.button_img);
@@ -143,20 +148,41 @@ public class DashboardFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId){
+                    case R.id.radioButton1:
+                        express= "직거래";
+                        break;
+                    case R.id.radioButton2:
+                        express= "택배";
+                        break;
+                    case R.id.radioButton3:
+                        express= "둘다가능";
+                        break;
+                }
+            }
+        });
+
         checkBox.setOnClickListener(new View.OnClickListener() {
                                       @Override
                                       public void onClick(View view) {
                                           if (checkBox.isChecked()) {
                                               max_count.setClickable(false);
                                               max_count.setFocusable(false);
+                                              max= "100";
 
                                           } else {
+                                              max="";
                                               max_count.setFocusableInTouchMode(true);
                                               max_count.setFocusable(true);
                                           }
                                       }
 
  });
+
         max_count.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -200,6 +226,10 @@ public class DashboardFragment extends Fragment {
                     cost.requestFocus();
                     return;
                 }
+                if (express.length()==0){
+                    Toast.makeText(getContext(),"배송 여부를 선택하세요요",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (max_count.getText().toString().length()==0){
                     Toast.makeText(getContext(),"모집인원을 입력하세요",Toast.LENGTH_SHORT).show();
                     max_count.requestFocus();
@@ -214,7 +244,7 @@ public class DashboardFragment extends Fragment {
                 }
                 FID=user.getUid()+num_a;
 //if (!(subject.equals("") && text.equals("") &&address.equals("")&&cost.equals("")&&max_count.equals("")&&deadline.equals(""))) {
-
+                max=max_count.getText().toString();
                 String dead = (deadline.getText().toString().substring(0,4))+deadline.getText().toString().substring(5,7)+deadline.getText().toString().substring(8,10).toString();
                 Form form = new Form(
                         FID,
@@ -225,10 +255,12 @@ public class DashboardFragment extends Fragment {
                         address.getText().toString(),
                         (Integer) category_text.getSelectedItem(),
                         cost.getText().toString(),
-                        max_count.getText().toString(),
+                        max,
                         Integer.parseInt(dead),
-                        getTime1()
-                        ,0
+                        getTime1(),
+                        0,
+                        express
+
                 );
 
 

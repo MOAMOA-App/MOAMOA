@@ -3,28 +3,29 @@ package com.example.moamoa;
 import android.util.Log;
 
 public class Form  implements Comparable<Form> {
-   public String FID;
-   public String subject;
-   public  String text;
-    public String image;
-    public  String address;
-    public int category_text;
-    public String cost;
-    public String max_count;
-    public int deadline;
-    public String today;
-    public String UID_dash;
-    public int heart_num;
-    public int parti_num;
-    public int state;
-    public int count;
+   public String FID; //폼이름
+   public String subject; //제목
+   public  String text; //내용
+    public String image; //이미지
+    public  String address; //주소
+    public int category_text; //카테고리
+    public String cost; //가격
+    public String max_count; //마감인원
+    public int deadline; //마감기간
+    public String today; //작성일
+    public String UID_dash; //UID
+    public int heart_num; //찜갯수
+    public int parti_num; //참여수
+    public int state; //상태
+    public int count; //조회수
 
-    public int s_case;
+    public int s_case; //
+    public String express; //배송종류
 
 
 
     public Form(){ };
-    public Form( String FID, String UID_dash,String image, String subject, String text, String address,int category_text, String cost, String max_count,int deadline, String today,int count){
+    public Form( String FID, String UID_dash,String image, String subject, String text, String address,int category_text, String cost, String max_count,int deadline, String today,int count,String express){
         this.FID = FID;
 
         this.UID_dash=UID_dash;
@@ -38,6 +39,7 @@ public class Form  implements Comparable<Form> {
         this.deadline = deadline;
         this.today = today;
         this.count = count;
+        this.express = express;
     }
     @Override
     public int compareTo(Form o) {
@@ -132,6 +134,9 @@ public class Form  implements Comparable<Form> {
     }
     public int getCount(){ return count; }
     public void setCount(int count) {this.count = count;
+    }
+    public String getExpress(){ return express; }
+    public void setExpress(String express) {this.express = express;
     }
 
 
