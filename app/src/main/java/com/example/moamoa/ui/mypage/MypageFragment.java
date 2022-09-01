@@ -33,7 +33,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-//import com.example.moamoa.User;
 
 public class MypageFragment extends Fragment {
 
@@ -93,7 +92,8 @@ public class MypageFragment extends Fragment {
                             Toast.makeText(getContext(),"데이터를 가져오는데 실패했습니다3" , Toast.LENGTH_LONG).show();
                         }
                     });
-                    //
+                    //지역 표시
+                    area.setText(User.getArea());
 
                 }
                 @Override
@@ -102,10 +102,8 @@ public class MypageFragment extends Fragment {
                 }
             });
             String email = user.getEmail();
-//            Uri photoUrl = user.getPhotoUrl();
 
             id.setText(email);
-//        area.setText(listViewData.get(position).charge);
 
         } else {
             // No user is signed in

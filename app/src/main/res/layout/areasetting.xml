@@ -60,6 +60,7 @@
             android:layout_height="60dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editarea"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:hint="  ex) 봉담읍 "
