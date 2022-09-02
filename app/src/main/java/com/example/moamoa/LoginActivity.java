@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.moamoa.databinding.ActivityLoginBinding;
 import com.example.moamoa.ui.account.Random_nick;
 import com.example.moamoa.ui.account.RegisterActivity;
+import com.google.android.gms.auth.api.identity.SignInCredential;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -92,13 +93,6 @@ public class LoginActivity extends AppCompatActivity {
                 if(!pwt.equals("") & !idt.equals("")){
                     mAuth.signInWithEmailAndPassword(idt,pwt).addOnCompleteListener(task -> {
                         if (task.isSuccessful()) { // 로그인 성공 시 이벤트 발생
-                            long mNow = System.currentTimeMillis();
-                            mDate = new Date(mNow);
-                            SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                            FirebaseDatabase database = FirebaseDatabase.getInstance();
-                            DatabaseReference reference = database.getReference("users");
-                            reference.child(mAuth.getUid()).child("loginDate").setValue(mFormat.format(mDate));
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                         } else {
                             IDText.setText("");
@@ -132,6 +126,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+
                 startActivityForResult(signInIntent, RC_SIGN_IN);
             }
         });
@@ -177,11 +172,6 @@ public class LoginActivity extends AppCompatActivity {
                     postValues.put("email",user.getKakaoAccount().getEmail());
                     // 유저의 아이디
                     Log.d(TAG,"invoke: id" + user.getId());
-                    long mNow = System.currentTimeMillis();
-                    mDate = new Date(mNow);
-                    SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                    postValues.put("joinDate",mFormat.format(mDate));
-                    postValues.put("loginDate",mFormat.format(mDate));
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference reference = database.getReference("users");
                     childUpdates.put(String.valueOf(user.getId()), postValues);
@@ -222,7 +212,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        Log.e("google",resultCode+"");
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
@@ -230,16 +220,12 @@ public class LoginActivity extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 postValues.put("type","google");
+                postValues.put("id",account.getId());
                 postValues.put("name",account.getGivenName());
                 random_nicks = new Random_nick();
                 random_nicks.setNickname();
                 postValues.put("nick",random_nicks.getNickname());
                 postValues.put("image","profile/"+random_nicks.getImage()+".png");
-                long mNow = System.currentTimeMillis();
-                mDate = new Date(mNow);
-                SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                postValues.put("joinDate",mFormat.format(mDate));
-                postValues.put("loginDate",mFormat.format(mDate));
                 firebaseAuthWithGoogle(account.getIdToken());
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
             } catch (ApiException e) {
