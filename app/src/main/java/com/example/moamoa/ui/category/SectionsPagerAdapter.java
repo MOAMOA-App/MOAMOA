@@ -1,6 +1,7 @@
 package com.example.moamoa.ui.category;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -17,14 +18,14 @@ import com.example.moamoa.R;
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-    @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text1_1, R.string.tab_text1_2, R.string.tab_text1_3,R.string.tab_text1_4,R.string.tab_text1_5,R.string.tab_text1_6,R.string.tab_text1_7};
+    private static String[] TAB_TITLES = new String[]{};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
-
+        Resources res = context.getResources();
+        TAB_TITLES = res.getStringArray(R.array.category);
     }
 
     @Override
@@ -38,7 +39,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
 
-        return mContext.getResources().getString(TAB_TITLES[position]);
+        return TAB_TITLES[position];
     }
 
     @Override

@@ -86,7 +86,7 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        //
+        //탭번호
         int pos = getArguments().getInt(ARG_SECTION_NUMBER);
 
         binding = EmptyFormsBinding.inflate(inflater, container, false);
@@ -149,22 +149,27 @@ public class PlaceholderFragment extends Fragment {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     listData = snapshot.getValue(Form.class);
                     Log.d("MainActivity", "ChildEventListener -  : " + listData);
-
+                    switch(pos){
+                        case 1:
+                            listViewData.add(listData);
+                            break;
+                        case 2:
+                            for (int i = 0; i < 2; i++) {
+                                listViewData.add(listData);
+                            }
+                            break;
+                        default:
+                            if(listData.category_text==pos-1 && listData.getstate()==0){
+                                listViewData.add(listData);
+                            }
+                    }
+                    /*
                     if ( pos==1 ){
-                    //    listData.orderByChild("count");
-                       // mDatabase.child("form").orderByChild("height");
-                        //listViewData.add(listData);
-
-                        listViewData.add(listData);
                     }
                     if ( pos==2){
-                        for (int i = 0; i < 8; i++) {
-                            //  if (ca_num.equals(listData.category_text)){
+                        for (int i = 0; i < 2; i++) {
                             listViewData.add(listData);
-                            // }
                         }
-
-//                        listViewData.add(listData);
                     }
                     for(int i=2;i<category_list.length;i++){
                         if (listData.category_text==2 && pos==3 && listData.getstate()==0){
@@ -192,6 +197,8 @@ public class PlaceholderFragment extends Fragment {
                     if (button_hot.isSelected()){
 
                     }
+
+                     */
                     ListAdapter oAdapter = new CustomListView(listViewData);
                     listView.setAdapter(oAdapter);
 
