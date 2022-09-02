@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -23,14 +22,10 @@ public final class FragmentNotificationsBinding implements ViewBinding {
   @NonNull
   public final RecyclerView notificationList;
 
-  @NonNull
-  public final Toolbar toolbarChat;
-
   private FragmentNotificationsBinding(@NonNull LinearLayout rootView,
-      @NonNull RecyclerView notificationList, @NonNull Toolbar toolbarChat) {
+      @NonNull RecyclerView notificationList) {
     this.rootView = rootView;
     this.notificationList = notificationList;
-    this.toolbarChat = toolbarChat;
   }
 
   @Override
@@ -66,14 +61,7 @@ public final class FragmentNotificationsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.toolbar_chat;
-      Toolbar toolbarChat = ViewBindings.findChildViewById(rootView, id);
-      if (toolbarChat == null) {
-        break missingId;
-      }
-
-      return new FragmentNotificationsBinding((LinearLayout) rootView, notificationList,
-          toolbarChat);
+      return new FragmentNotificationsBinding((LinearLayout) rootView, notificationList);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

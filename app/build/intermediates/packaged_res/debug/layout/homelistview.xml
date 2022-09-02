@@ -11,7 +11,9 @@
         android:id="@+id/mainImage"
         android:layout_width="120dp"
         android:layout_height="100dp"
-        android:src="@drawable/ic_launcher_background"
+        android:scaleType="center"
+        android:background="@drawable/homelistview_image_border"
+        android:clipToOutline="true"
         android:padding="5dp"/>
     <TextView
         android:id="@+id/name"
@@ -40,6 +42,10 @@
         android:textStyle="bold"/>
     <TextView
         android:id="@+id/FID"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+    <TextView
+        android:id="@+id/UID"
         android:layout_width="0dp"
         android:layout_height="0dp"/>
 </LinearLayout>

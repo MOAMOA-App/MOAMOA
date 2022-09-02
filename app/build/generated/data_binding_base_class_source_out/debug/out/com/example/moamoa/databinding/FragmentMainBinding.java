@@ -40,11 +40,15 @@ public final class FragmentMainBinding implements ViewBinding {
   public final TextView name;
 
   @NonNull
+  public final TextView state;
+
+  @NonNull
   public final TextView title;
 
   private FragmentMainBinding(@NonNull LinearLayout rootView, @NonNull TextView FID,
       @NonNull TextView charge, @NonNull ToggleButton heart, @NonNull ImageView mainImage,
-      @NonNull TextView mans, @NonNull TextView name, @NonNull TextView title) {
+      @NonNull TextView mans, @NonNull TextView name, @NonNull TextView state,
+      @NonNull TextView title) {
     this.rootView = rootView;
     this.FID = FID;
     this.charge = charge;
@@ -52,6 +56,7 @@ public final class FragmentMainBinding implements ViewBinding {
     this.mainImage = mainImage;
     this.mans = mans;
     this.name = name;
+    this.state = state;
     this.title = title;
   }
 
@@ -118,6 +123,12 @@ public final class FragmentMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.state;
+      TextView state = ViewBindings.findChildViewById(rootView, id);
+      if (state == null) {
+        break missingId;
+      }
+
       id = R.id.title;
       TextView title = ViewBindings.findChildViewById(rootView, id);
       if (title == null) {
@@ -125,7 +136,7 @@ public final class FragmentMainBinding implements ViewBinding {
       }
 
       return new FragmentMainBinding((LinearLayout) rootView, FID, charge, heart, mainImage, mans,
-          name, title);
+          name, state, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

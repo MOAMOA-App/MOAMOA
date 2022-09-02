@@ -4,33 +4,49 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
+import com.google.android.material.appbar.AppBarLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
 public final class FragmentChatlistBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final LinearLayout rootView;
+
+  @NonNull
+  public final TextView chatlistbarname;
+
+  @NonNull
+  public final AppBarLayout chatlisttoolbar;
 
   @NonNull
   public final RecyclerView chattingList;
 
-  private FragmentChatlistBinding(@NonNull ConstraintLayout rootView,
-      @NonNull RecyclerView chattingList) {
+  @NonNull
+  public final Toolbar toolbar;
+
+  private FragmentChatlistBinding(@NonNull LinearLayout rootView, @NonNull TextView chatlistbarname,
+      @NonNull AppBarLayout chatlisttoolbar, @NonNull RecyclerView chattingList,
+      @NonNull Toolbar toolbar) {
     this.rootView = rootView;
+    this.chatlistbarname = chatlistbarname;
+    this.chatlisttoolbar = chatlisttoolbar;
     this.chattingList = chattingList;
+    this.toolbar = toolbar;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -55,13 +71,32 @@ public final class FragmentChatlistBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.chatlistbarname;
+      TextView chatlistbarname = ViewBindings.findChildViewById(rootView, id);
+      if (chatlistbarname == null) {
+        break missingId;
+      }
+
+      id = R.id.chatlisttoolbar;
+      AppBarLayout chatlisttoolbar = ViewBindings.findChildViewById(rootView, id);
+      if (chatlisttoolbar == null) {
+        break missingId;
+      }
+
       id = R.id.chatting_list;
       RecyclerView chattingList = ViewBindings.findChildViewById(rootView, id);
       if (chattingList == null) {
         break missingId;
       }
 
-      return new FragmentChatlistBinding((ConstraintLayout) rootView, chattingList);
+      id = R.id.toolbar;
+      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+
+      return new FragmentChatlistBinding((LinearLayout) rootView, chatlistbarname, chatlisttoolbar,
+          chattingList, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

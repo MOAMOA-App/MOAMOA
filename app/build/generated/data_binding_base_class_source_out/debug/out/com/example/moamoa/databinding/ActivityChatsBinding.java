@@ -5,12 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentContainerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
@@ -25,6 +25,12 @@ public final class ActivityChatsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final TextView chatbarname;
+
+  @NonNull
+  public final FrameLayout chatscontainer;
+
+  @NonNull
   public final AppBarLayout chatstoolbar;
 
   @NonNull
@@ -37,26 +43,24 @@ public final class ActivityChatsBinding implements ViewBinding {
   public final DrawerLayout drawerLayout;
 
   @NonNull
-  public final FragmentContainerView fragmentChatsView;
-
-  @NonNull
-  public final NavigationView navView;
+  public final NavigationView navViewChats;
 
   @NonNull
   public final Toolbar toolbar;
 
-  private ActivityChatsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull AppBarLayout chatstoolbar, @NonNull ConstraintLayout container,
-      @NonNull FrameLayout drawerButton, @NonNull DrawerLayout drawerLayout,
-      @NonNull FragmentContainerView fragmentChatsView, @NonNull NavigationView navView,
+  private ActivityChatsBinding(@NonNull ConstraintLayout rootView, @NonNull TextView chatbarname,
+      @NonNull FrameLayout chatscontainer, @NonNull AppBarLayout chatstoolbar,
+      @NonNull ConstraintLayout container, @NonNull FrameLayout drawerButton,
+      @NonNull DrawerLayout drawerLayout, @NonNull NavigationView navViewChats,
       @NonNull Toolbar toolbar) {
     this.rootView = rootView;
+    this.chatbarname = chatbarname;
+    this.chatscontainer = chatscontainer;
     this.chatstoolbar = chatstoolbar;
     this.container = container;
     this.drawerButton = drawerButton;
     this.drawerLayout = drawerLayout;
-    this.fragmentChatsView = fragmentChatsView;
-    this.navView = navView;
+    this.navViewChats = navViewChats;
     this.toolbar = toolbar;
   }
 
@@ -87,6 +91,18 @@ public final class ActivityChatsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.chatbarname;
+      TextView chatbarname = ViewBindings.findChildViewById(rootView, id);
+      if (chatbarname == null) {
+        break missingId;
+      }
+
+      id = R.id.chatscontainer;
+      FrameLayout chatscontainer = ViewBindings.findChildViewById(rootView, id);
+      if (chatscontainer == null) {
+        break missingId;
+      }
+
       id = R.id.chatstoolbar;
       AppBarLayout chatstoolbar = ViewBindings.findChildViewById(rootView, id);
       if (chatstoolbar == null) {
@@ -107,15 +123,9 @@ public final class ActivityChatsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.fragment_chats_view;
-      FragmentContainerView fragmentChatsView = ViewBindings.findChildViewById(rootView, id);
-      if (fragmentChatsView == null) {
-        break missingId;
-      }
-
-      id = R.id.nav_view;
-      NavigationView navView = ViewBindings.findChildViewById(rootView, id);
-      if (navView == null) {
+      id = R.id.nav_view_chats;
+      NavigationView navViewChats = ViewBindings.findChildViewById(rootView, id);
+      if (navViewChats == null) {
         break missingId;
       }
 
@@ -125,8 +135,8 @@ public final class ActivityChatsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityChatsBinding((ConstraintLayout) rootView, chatstoolbar, container,
-          drawerButton, drawerLayout, fragmentChatsView, navView, toolbar);
+      return new ActivityChatsBinding((ConstraintLayout) rootView, chatbarname, chatscontainer,
+          chatstoolbar, container, drawerButton, drawerLayout, navViewChats, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

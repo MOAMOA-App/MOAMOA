@@ -24,6 +24,9 @@ public final class HomelistviewBinding implements ViewBinding {
   public final TextView FID;
 
   @NonNull
+  public final TextView UID;
+
+  @NonNull
   public final ImageView mainImage;
 
   @NonNull
@@ -36,10 +39,11 @@ public final class HomelistviewBinding implements ViewBinding {
   public final TextView title;
 
   private HomelistviewBinding(@NonNull LinearLayout rootView, @NonNull TextView FID,
-      @NonNull ImageView mainImage, @NonNull TextView mans, @NonNull TextView name,
-      @NonNull TextView title) {
+      @NonNull TextView UID, @NonNull ImageView mainImage, @NonNull TextView mans,
+      @NonNull TextView name, @NonNull TextView title) {
     this.rootView = rootView;
     this.FID = FID;
+    this.UID = UID;
     this.mainImage = mainImage;
     this.mans = mans;
     this.name = name;
@@ -79,6 +83,12 @@ public final class HomelistviewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.UID;
+      TextView UID = ViewBindings.findChildViewById(rootView, id);
+      if (UID == null) {
+        break missingId;
+      }
+
       id = R.id.mainImage;
       ImageView mainImage = ViewBindings.findChildViewById(rootView, id);
       if (mainImage == null) {
@@ -103,7 +113,8 @@ public final class HomelistviewBinding implements ViewBinding {
         break missingId;
       }
 
-      return new HomelistviewBinding((LinearLayout) rootView, FID, mainImage, mans, name, title);
+      return new HomelistviewBinding((LinearLayout) rootView, FID, UID, mainImage, mans, name,
+          title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

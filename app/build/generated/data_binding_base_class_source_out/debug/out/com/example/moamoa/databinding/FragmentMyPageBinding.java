@@ -5,14 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
+import com.google.android.material.appbar.AppBarLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -34,22 +37,43 @@ public final class FragmentMyPageBinding implements ViewBinding {
   public final ConstraintLayout constraintLayout2;
 
   @NonNull
+  public final LinearLayout created1;
+
+  @NonNull
+  public final LinearLayout heart3;
+
+  @NonNull
+  public final ImageView imageView2;
+
+  @NonNull
   public final ImageView imageView3;
 
   @NonNull
   public final ImageView imageView4;
 
   @NonNull
-  public final ListView listView1;
+  public final ImageView imageView5;
 
   @NonNull
-  public final ListView listView2;
+  public final ImageView imageView7;
+
+  @NonNull
+  public final ListView mpList;
 
   @NonNull
   public final ConstraintLayout myPage;
 
   @NonNull
+  public final TextView mypagebarname;
+
+  @NonNull
+  public final AppBarLayout mypagetoolbar;
+
+  @NonNull
   public final TextView nickname;
+
+  @NonNull
+  public final LinearLayout part2;
 
   @NonNull
   public final ImageView profileImage;
@@ -58,32 +82,59 @@ public final class FragmentMyPageBinding implements ViewBinding {
   public final TextView textView;
 
   @NonNull
+  public final TextView textView2;
+
+  @NonNull
   public final TextView textView3;
 
   @NonNull
   public final TextView textView5;
 
+  @NonNull
+  public final TextView textView6;
+
+  @NonNull
+  public final TextView textView8;
+
+  @NonNull
+  public final Toolbar toolbar;
+
   private FragmentMyPageBinding(@NonNull ConstraintLayout rootView, @NonNull TextView ID,
       @NonNull TextView area, @NonNull ConstraintLayout constraintLayout,
-      @NonNull ConstraintLayout constraintLayout2, @NonNull ImageView imageView3,
-      @NonNull ImageView imageView4, @NonNull ListView listView1, @NonNull ListView listView2,
-      @NonNull ConstraintLayout myPage, @NonNull TextView nickname, @NonNull ImageView profileImage,
-      @NonNull TextView textView, @NonNull TextView textView3, @NonNull TextView textView5) {
+      @NonNull ConstraintLayout constraintLayout2, @NonNull LinearLayout created1,
+      @NonNull LinearLayout heart3, @NonNull ImageView imageView2, @NonNull ImageView imageView3,
+      @NonNull ImageView imageView4, @NonNull ImageView imageView5, @NonNull ImageView imageView7,
+      @NonNull ListView mpList, @NonNull ConstraintLayout myPage, @NonNull TextView mypagebarname,
+      @NonNull AppBarLayout mypagetoolbar, @NonNull TextView nickname, @NonNull LinearLayout part2,
+      @NonNull ImageView profileImage, @NonNull TextView textView, @NonNull TextView textView2,
+      @NonNull TextView textView3, @NonNull TextView textView5, @NonNull TextView textView6,
+      @NonNull TextView textView8, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.ID = ID;
     this.area = area;
     this.constraintLayout = constraintLayout;
     this.constraintLayout2 = constraintLayout2;
+    this.created1 = created1;
+    this.heart3 = heart3;
+    this.imageView2 = imageView2;
     this.imageView3 = imageView3;
     this.imageView4 = imageView4;
-    this.listView1 = listView1;
-    this.listView2 = listView2;
+    this.imageView5 = imageView5;
+    this.imageView7 = imageView7;
+    this.mpList = mpList;
     this.myPage = myPage;
+    this.mypagebarname = mypagebarname;
+    this.mypagetoolbar = mypagetoolbar;
     this.nickname = nickname;
+    this.part2 = part2;
     this.profileImage = profileImage;
     this.textView = textView;
+    this.textView2 = textView2;
     this.textView3 = textView3;
     this.textView5 = textView5;
+    this.textView6 = textView6;
+    this.textView8 = textView8;
+    this.toolbar = toolbar;
   }
 
   @Override
@@ -137,6 +188,24 @@ public final class FragmentMyPageBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.created1;
+      LinearLayout created1 = ViewBindings.findChildViewById(rootView, id);
+      if (created1 == null) {
+        break missingId;
+      }
+
+      id = R.id.heart3;
+      LinearLayout heart3 = ViewBindings.findChildViewById(rootView, id);
+      if (heart3 == null) {
+        break missingId;
+      }
+
+      id = R.id.imageView2;
+      ImageView imageView2 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView2 == null) {
+        break missingId;
+      }
+
       id = R.id.imageView3;
       ImageView imageView3 = ViewBindings.findChildViewById(rootView, id);
       if (imageView3 == null) {
@@ -149,23 +218,47 @@ public final class FragmentMyPageBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.listView1;
-      ListView listView1 = ViewBindings.findChildViewById(rootView, id);
-      if (listView1 == null) {
+      id = R.id.imageView5;
+      ImageView imageView5 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView5 == null) {
         break missingId;
       }
 
-      id = R.id.listView2;
-      ListView listView2 = ViewBindings.findChildViewById(rootView, id);
-      if (listView2 == null) {
+      id = R.id.imageView7;
+      ImageView imageView7 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView7 == null) {
+        break missingId;
+      }
+
+      id = R.id.mp_list;
+      ListView mpList = ViewBindings.findChildViewById(rootView, id);
+      if (mpList == null) {
         break missingId;
       }
 
       ConstraintLayout myPage = (ConstraintLayout) rootView;
 
+      id = R.id.mypagebarname;
+      TextView mypagebarname = ViewBindings.findChildViewById(rootView, id);
+      if (mypagebarname == null) {
+        break missingId;
+      }
+
+      id = R.id.mypagetoolbar;
+      AppBarLayout mypagetoolbar = ViewBindings.findChildViewById(rootView, id);
+      if (mypagetoolbar == null) {
+        break missingId;
+      }
+
       id = R.id.nickname;
       TextView nickname = ViewBindings.findChildViewById(rootView, id);
       if (nickname == null) {
+        break missingId;
+      }
+
+      id = R.id.part2;
+      LinearLayout part2 = ViewBindings.findChildViewById(rootView, id);
+      if (part2 == null) {
         break missingId;
       }
 
@@ -181,6 +274,12 @@ public final class FragmentMyPageBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.textView2;
+      TextView textView2 = ViewBindings.findChildViewById(rootView, id);
+      if (textView2 == null) {
+        break missingId;
+      }
+
       id = R.id.textView3;
       TextView textView3 = ViewBindings.findChildViewById(rootView, id);
       if (textView3 == null) {
@@ -193,9 +292,28 @@ public final class FragmentMyPageBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.textView6;
+      TextView textView6 = ViewBindings.findChildViewById(rootView, id);
+      if (textView6 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView8;
+      TextView textView8 = ViewBindings.findChildViewById(rootView, id);
+      if (textView8 == null) {
+        break missingId;
+      }
+
+      id = R.id.toolbar;
+      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+
       return new FragmentMyPageBinding((ConstraintLayout) rootView, ID, area, constraintLayout,
-          constraintLayout2, imageView3, imageView4, listView1, listView2, myPage, nickname,
-          profileImage, textView, textView3, textView5);
+          constraintLayout2, created1, heart3, imageView2, imageView3, imageView4, imageView5,
+          imageView7, mpList, myPage, mypagebarname, mypagetoolbar, nickname, part2, profileImage,
+          textView, textView2, textView3, textView5, textView6, textView8, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

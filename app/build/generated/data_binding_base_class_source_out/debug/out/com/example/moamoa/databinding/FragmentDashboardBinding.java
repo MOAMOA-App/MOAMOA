@@ -5,23 +5,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ScrollView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
+import com.google.android.material.appbar.AppBarLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
 public final class FragmentDashboardBinding implements ViewBinding {
   @NonNull
-  private final ScrollView rootView;
+  private final LinearLayout rootView;
 
   @NonNull
   public final EditText address;
@@ -33,7 +40,19 @@ public final class FragmentDashboardBinding implements ViewBinding {
   public final Button buttonImg;
 
   @NonNull
+  public final Button buttonImgs;
+
+  @NonNull
+  public final CheckBox checkBox;
+
+  @NonNull
   public final EditText cost;
+
+  @NonNull
+  public final TextView dashboardbarname;
+
+  @NonNull
+  public final AppBarLayout dashboardtoolbar;
 
   @NonNull
   public final ImageView imageView;
@@ -43,6 +62,24 @@ public final class FragmentDashboardBinding implements ViewBinding {
 
   @NonNull
   public final TextView numForm;
+
+  @NonNull
+  public final GridView photoDash;
+
+  @NonNull
+  public final RadioButton radioButton1;
+
+  @NonNull
+  public final RadioButton radioButton2;
+
+  @NonNull
+  public final RadioButton radioButton3;
+
+  @NonNull
+  public final RadioGroup radioGroup;
+
+  @NonNull
+  public final RecyclerView recyclerView;
 
   @NonNull
   public final Spinner spinner;
@@ -59,29 +96,48 @@ public final class FragmentDashboardBinding implements ViewBinding {
   @NonNull
   public final TextView textDashboardstart;
 
-  private FragmentDashboardBinding(@NonNull ScrollView rootView, @NonNull EditText address,
-      @NonNull Button buttonDashboard, @NonNull Button buttonImg, @NonNull EditText cost,
-      @NonNull ImageView imageView, @NonNull EditText maxCount, @NonNull TextView numForm,
-      @NonNull Spinner spinner, @NonNull EditText subject, @NonNull EditText text,
-      @NonNull TextView textDashboardend, @NonNull TextView textDashboardstart) {
+  @NonNull
+  public final Toolbar toolbar;
+
+  private FragmentDashboardBinding(@NonNull LinearLayout rootView, @NonNull EditText address,
+      @NonNull Button buttonDashboard, @NonNull Button buttonImg, @NonNull Button buttonImgs,
+      @NonNull CheckBox checkBox, @NonNull EditText cost, @NonNull TextView dashboardbarname,
+      @NonNull AppBarLayout dashboardtoolbar, @NonNull ImageView imageView,
+      @NonNull EditText maxCount, @NonNull TextView numForm, @NonNull GridView photoDash,
+      @NonNull RadioButton radioButton1, @NonNull RadioButton radioButton2,
+      @NonNull RadioButton radioButton3, @NonNull RadioGroup radioGroup,
+      @NonNull RecyclerView recyclerView, @NonNull Spinner spinner, @NonNull EditText subject,
+      @NonNull EditText text, @NonNull TextView textDashboardend,
+      @NonNull TextView textDashboardstart, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.address = address;
     this.buttonDashboard = buttonDashboard;
     this.buttonImg = buttonImg;
+    this.buttonImgs = buttonImgs;
+    this.checkBox = checkBox;
     this.cost = cost;
+    this.dashboardbarname = dashboardbarname;
+    this.dashboardtoolbar = dashboardtoolbar;
     this.imageView = imageView;
     this.maxCount = maxCount;
     this.numForm = numForm;
+    this.photoDash = photoDash;
+    this.radioButton1 = radioButton1;
+    this.radioButton2 = radioButton2;
+    this.radioButton3 = radioButton3;
+    this.radioGroup = radioGroup;
+    this.recyclerView = recyclerView;
     this.spinner = spinner;
     this.subject = subject;
     this.text = text;
     this.textDashboardend = textDashboardend;
     this.textDashboardstart = textDashboardstart;
+    this.toolbar = toolbar;
   }
 
   @Override
   @NonNull
-  public ScrollView getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -124,9 +180,33 @@ public final class FragmentDashboardBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.button_imgs;
+      Button buttonImgs = ViewBindings.findChildViewById(rootView, id);
+      if (buttonImgs == null) {
+        break missingId;
+      }
+
+      id = R.id.checkBox;
+      CheckBox checkBox = ViewBindings.findChildViewById(rootView, id);
+      if (checkBox == null) {
+        break missingId;
+      }
+
       id = R.id.cost;
       EditText cost = ViewBindings.findChildViewById(rootView, id);
       if (cost == null) {
+        break missingId;
+      }
+
+      id = R.id.dashboardbarname;
+      TextView dashboardbarname = ViewBindings.findChildViewById(rootView, id);
+      if (dashboardbarname == null) {
+        break missingId;
+      }
+
+      id = R.id.dashboardtoolbar;
+      AppBarLayout dashboardtoolbar = ViewBindings.findChildViewById(rootView, id);
+      if (dashboardtoolbar == null) {
         break missingId;
       }
 
@@ -145,6 +225,42 @@ public final class FragmentDashboardBinding implements ViewBinding {
       id = R.id.num_form;
       TextView numForm = ViewBindings.findChildViewById(rootView, id);
       if (numForm == null) {
+        break missingId;
+      }
+
+      id = R.id.photo_dash;
+      GridView photoDash = ViewBindings.findChildViewById(rootView, id);
+      if (photoDash == null) {
+        break missingId;
+      }
+
+      id = R.id.radioButton1;
+      RadioButton radioButton1 = ViewBindings.findChildViewById(rootView, id);
+      if (radioButton1 == null) {
+        break missingId;
+      }
+
+      id = R.id.radioButton2;
+      RadioButton radioButton2 = ViewBindings.findChildViewById(rootView, id);
+      if (radioButton2 == null) {
+        break missingId;
+      }
+
+      id = R.id.radioButton3;
+      RadioButton radioButton3 = ViewBindings.findChildViewById(rootView, id);
+      if (radioButton3 == null) {
+        break missingId;
+      }
+
+      id = R.id.radioGroup;
+      RadioGroup radioGroup = ViewBindings.findChildViewById(rootView, id);
+      if (radioGroup == null) {
+        break missingId;
+      }
+
+      id = R.id.recyclerView;
+      RecyclerView recyclerView = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerView == null) {
         break missingId;
       }
 
@@ -178,9 +294,16 @@ public final class FragmentDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentDashboardBinding((ScrollView) rootView, address, buttonDashboard,
-          buttonImg, cost, imageView, maxCount, numForm, spinner, subject, text, textDashboardend,
-          textDashboardstart);
+      id = R.id.toolbar;
+      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+
+      return new FragmentDashboardBinding((LinearLayout) rootView, address, buttonDashboard,
+          buttonImg, buttonImgs, checkBox, cost, dashboardbarname, dashboardtoolbar, imageView,
+          maxCount, numForm, photoDash, radioButton1, radioButton2, radioButton3, radioGroup,
+          recyclerView, spinner, subject, text, textDashboardend, textDashboardstart, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

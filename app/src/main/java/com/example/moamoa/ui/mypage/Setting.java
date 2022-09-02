@@ -1,11 +1,9 @@
 package com.example.moamoa.ui.mypage;
 
-import static android.content.ContentValues.TAG;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import android.view.View;
 

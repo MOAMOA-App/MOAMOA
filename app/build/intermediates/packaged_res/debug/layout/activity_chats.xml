@@ -24,8 +24,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="#F5B565"
-                app:title="폼 이름"
                 app:titleTextColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/chatbarname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+
+                android:text="폼 이름"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
             <FrameLayout
                 android:id="@+id/drawer_button"
@@ -56,14 +66,13 @@
         app:layout_constraintTop_toBottomOf="@id/chatstoolbar"
         tools:openDrawer="end">
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragment_chats_view"
-            android:name="com.example.moamoa.ui.chats.ChatsFragment"
+        <FrameLayout
+            android:id="@+id/chatscontainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
+            android:id="@+id/nav_view_chats"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="end"
@@ -73,8 +82,6 @@
             app:menu="@menu/chatdrawer"
             app:headerLayout="@layout/nav_header_chats"
             >
-                       
-
         </com.google.android.material.navigation.NavigationView>
     </androidx.drawerlayout.widget.DrawerLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
