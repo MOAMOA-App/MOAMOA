@@ -3,6 +3,7 @@ package com.example.moamoa.ui.category;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -41,8 +43,6 @@ public class CategoryFragment extends Fragment {
     private CategoryAdapter_my categoryAdapter_my;
     public static CategoryFragment mContext;
     TextView btn_edit;
-    private List<String> name_list = new ArrayList<>();
-    private List<Integer> numb_list = new ArrayList<>();
     boolean[] my_list = new boolean[15];
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -59,48 +59,20 @@ public class CategoryFragment extends Fragment {
                 = MyAlertDialogFragment.newInstance("관심 카테고리 편집");
 
         my_list=initmylist();
-
+        Resources res = getResources();
+        String[] name_list = res.getStringArray(R.array.category);
 
         gridViews[0].setAdapter(categoryAdapter_my);
-        //카테고리 grid 출력
-        mDatabase.child("category").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
-                //데이터가 쌓이기 때문에  clear()
-                int x = 0;
-                for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
-                    String numb = x + "";
-                    String name = fileSnapshot.getValue().toString();
-                    categoryAdapter.addItem(new CategoryData(numb, name));
-                    if(x>1){
-                        name_list.add(name);
-                    }
-                    x++;
-                }
-                myAlertDialogFragment.set_list(name_list);
+        gridViews[1].setAdapter(categoryAdapter);
+        for (int i=0;i<name_list.length;i++) {
+            String numb = i + "";
+            String name = name_list[i];
+            categoryAdapter.addItem(new CategoryData(numb, name));
+        }
 
-                gridViews[1].setAdapter(categoryAdapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-
-        });
-
-
-        mDatabase.child("user").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
-                }
-                else {
-
-                }
-            }
-        });
+        name_list=Arrays.copyOfRange(name_list,2,name_list.length);
+        List mycatname_list = Arrays.asList(name_list);
+        myAlertDialogFragment.set_list(mycatname_list);
 
         btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,32 +84,20 @@ public class CategoryFragment extends Fragment {
         return root;
     }
     public void setmycategory(boolean[] list){
-        mDatabase.child("category").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
-                //데이터가 쌓이기 때문에  clear()
-                gridViews[0].removeAllViewsInLayout();
-                categoryAdapter_my.clear();
+        gridViews[0].removeAllViewsInLayout();
+        categoryAdapter_my.clear();
 
-                int x = 0;
-                for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
-                    String numb = x + "";
-                    String name = fileSnapshot.getValue().toString();
-                    if(list[x]){
-                        categoryAdapter_my.addItem(new CategoryData(numb,name));
-                    }
-                    x++;
-                }
-                categoryAdapter_my.notifyDataSetChanged();
+        Resources res = getResources();
+        String[] name_list = res.getStringArray(R.array.category);
+        for (int i=0;i< name_list.length;i++) {
+            String name = name_list[i];
+            if(my_list[i]){
+                categoryAdapter_my.addItem(new CategoryData(i+"",name));
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-
-        });
+        }
+        categoryAdapter_my.notifyDataSetChanged();
     }
+
     public boolean[] initmylist(){
         boolean[] my_list = new boolean[15];
         for(int i=0;i<15;i++){
@@ -151,10 +111,8 @@ public class CategoryFragment extends Fragment {
                 }
                 else {
                     DataSnapshot result = task.getResult();
-                    //Log.e("firebase", result.toString());
                     if(result!=null){
                         for (DataSnapshot fileSnapshot : result.getChildren() ) {
-                            //my_list[(int) fileSnapshot.getValue()]=true;
                             String temp = fileSnapshot.getValue().toString();
                             int x = Integer.parseInt(temp);
                             my_list[x]=true;
@@ -168,10 +126,7 @@ public class CategoryFragment extends Fragment {
         return my_list;
     }
 
-
-
     public static class MyAlertDialogFragment extends DialogFragment {
-        private DatabaseReference mDatabase;
         private List<String> list = new ArrayList<>();
         private boolean[] my_list;
 
@@ -225,33 +180,11 @@ public class CategoryFragment extends Fragment {
                                     childUpdates.put("mycategory", choices);
                                     reference.child(currentUser.getUid()).updateChildren(childUpdates);
                                     my_list=((CategoryFragment)CategoryFragment.mContext).initmylist();
-                                    /*
-                                    for (int k = 0; k < 7; k++) {
-                                        getActivity().findViewById(Rid_button[k]).setVisibility(View.GONE);
-                                    }
-
-                                    if (choices.size() > 0) {
-                                        String cities = "";
-
-                                        for (int j = 0; j < choices.size(); j++) {
-                                            int position = (int) choices.get(j);
-                                            cities = cities + " " + list.get(position);
-
-                                            button_heart[j].setText(list.get(position));
-                                            getActivity().findViewById(Rid_button[j]).setVisibility(View.VISIBLE);
-
-                                        }
-                                        Toast.makeText(getActivity(),
-                                                cities + "\n이상 " + choices.size() + " 카테고리 선택됨", Toast.LENGTH_LONG)
-                                                .show();
-                                    }
-                                    */
                                 }
                             })
                     .setNegativeButton("취소",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int i) {
-
                                 }
                             })
                     .show();

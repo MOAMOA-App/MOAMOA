@@ -4,6 +4,7 @@ import static androidx.fragment.app.FragmentManager.TAG;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -85,9 +86,9 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+        //
         int pos = getArguments().getInt(ARG_SECTION_NUMBER);
 
-//        binding = FragmentMainBinding.inflate(inflater, container, false);
         binding = EmptyFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         ca_num = new int[8];
@@ -95,9 +96,9 @@ public class PlaceholderFragment extends Fragment {
         //추가
         ListView listView;
         listView = root.findViewById(R.id.listview);
-        Button button_dead = (Button) root.findViewById(R.id.sort_dead);
-        Button button_hot = (Button) root.findViewById(R.id.sort_hot);
-        Button button_new = (Button) root.findViewById(R.id.sort_new);
+        Button button_dead = (Button) root.findViewById(R.id.sort_dead);    //마감순
+        Button button_hot = (Button) root.findViewById(R.id.sort_hot);      //인기순
+        Button button_new = (Button) root.findViewById(R.id.sort_new);      //최신순
         button_dead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,87 +135,20 @@ public class PlaceholderFragment extends Fragment {
 
             }
         });
-        Query query =  FirebaseDatabase.getInstance().getReference("form").
-                orderByChild("count");
-
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
-        mDatabase.child("mycategory").addValueEventListener(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                listViewData.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    CategoryData user1 = snapshot.getValue(CategoryData.class);
-
-
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-//        query.addChildEventListener(new ChildEventListener() {
-//            @Override
-//        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-//                listData =dataSnapshot.getValue(Form.class);
-//                Log.d("MainActivity", "ChildEventListener - onChildAdded : " + listData.count);
-//                listViewData.add(listData);
-//                ListAdapter oAdapter = new CustomListView(listViewData);
-//                listView.setAdapter(oAdapter);
-//
-//            }    @Override
-//            public void onChildChanged(DataSnapshot dataSnapshot, String s)
-//            {        Log.d("MainActivity", "ChildEventListener - onChildChanged : " + s);    }
-//            @Override
-//            public void onChildRemoved(DataSnapshot dataSnapshot) {
-//                Log.d("MainActivity", "ChildEventListener - onChildRemoved : " + dataSnapshot.getKey());
-//            }
-//            @Override
-//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-//                Log.d("MainActivity", "ChildEventListener - onChildMoved" + s);    }
-//            @Override    public void onCancelled(DatabaseError databaseError) {
-//                Log.d("MainActivity", "ChildEventListener - onCancelled" + databaseError.getMessage());
-//            }});
-//        query.addValueEventListener(new ValueEventListener() {
-//            @RequiresApi(api = Build.VERSION_CODES.N)
-//            @SuppressLint("RestrictedApi")
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                listViewData.clear();
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    listData = snapshot.getValue(Form.class);
-//
-//                    if ( pos==1 ){
-//
-//                        listViewData.add(listData);
-//
-//                    }
-//
-//
-//                    Collections.sort(listViewData);
-//
-//                    ListAdapter oAdapter = new CustomListView(listViewData);
-//                    listView.setAdapter(oAdapter);
-//
-//
-//                }
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//            }
-//        });
 
         FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
             @SuppressLint("RestrictedApi")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 listViewData.clear();
+
+                Resources res = getResources();
+                String[] category_list = res.getStringArray(R.array.category);
+
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     listData = snapshot.getValue(Form.class);
-
                     Log.d("MainActivity", "ChildEventListener -  : " + listData);
-
 
                     if ( pos==1 ){
                     //    listData.orderByChild("count");
@@ -232,11 +166,13 @@ public class PlaceholderFragment extends Fragment {
 
 //                        listViewData.add(listData);
                     }
-
-                    if (listData.category_text==2 && pos==3 && listData.getstate()==0){
+                    for(int i=2;i<category_list.length;i++){
+                        if (listData.category_text==2 && pos==3 && listData.getstate()==0){
 //식품
-                        listViewData.add(listData);
+                            listViewData.add(listData);
+                        }
                     }
+
                     if (listData.category_text==5 && pos==4 && listData.getstate()==0){
 //의류
                         listViewData.add(listData);

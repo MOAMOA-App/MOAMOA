@@ -1,6 +1,7 @@
 package com.example.moamoa.ui.home;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -58,28 +59,6 @@ public class HomeFragment extends Fragment {
         //카테고리 grid 출력
 
         gridViews.setAdapter(categoryAdapter_my);
-        mDatabase.getReference().child("category").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
-                //데이터가 쌓이기 때문에  clear()
-                int x = 0;
-                for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
-                    String numb = x + "";
-                    String name = fileSnapshot.getValue().toString();
-                    if(my_list[x]){
-                        categoryAdapter_my.addItem(new CategoryData(numb,name));
-                    }
-                    x++;
-                }
-                gridViews.setAdapter(categoryAdapter_my);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-
-        });
 
         recyclerView[0] = (RecyclerView) root.findViewById(R.id.listview0);
         recyclerView[1] = (RecyclerView) root.findViewById(R.id.listview1);
@@ -238,29 +217,17 @@ public class HomeFragment extends Fragment {
 
     public void setmycategory(){
         categoryAdapter_my.isEmpty();
-        mDatabase.getReference().child("category").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
-                //데이터가 쌓이기 때문에  clear()
-                gridViews.removeAllViewsInLayout();
-                categoryAdapter_my.clear();
-                int x = 0;
-                for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
-                    String numb = x + "";
-                    String name = fileSnapshot.getValue().toString();
-                    if(my_list[x]){
-                        categoryAdapter_my.addItem(new CategoryData(numb,name));
-                    }
-                    x++;
-                }
-                categoryAdapter_my.notifyDataSetChanged();
+        Resources res = getResources();
+        String[] cat = res.getStringArray(R.array.category);
+        gridViews.removeAllViewsInLayout();
+        categoryAdapter_my.clear();
+        int x = 0;
+        for (int i=0;i< cat.length;i++) {
+            String name = cat[i];
+            if(my_list[i]){
+                categoryAdapter_my.addItem(new CategoryData(i+"",name));
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-
-        });
+        }
+        categoryAdapter_my.notifyDataSetChanged();
     }
 }
