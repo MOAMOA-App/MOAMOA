@@ -31,16 +31,16 @@ public final class FragmentChatsBinding implements ViewBinding {
   public final RecyclerView chatsRecyclerview;
 
   @NonNull
-  public final LinearLayout frameLayout;
+  public final LinearLayout fragmentChatsView;
 
   private FragmentChatsBinding(@NonNull LinearLayout rootView, @NonNull Button ButtonSend,
       @NonNull TextInputEditText EditTextChat, @NonNull RecyclerView chatsRecyclerview,
-      @NonNull LinearLayout frameLayout) {
+      @NonNull LinearLayout fragmentChatsView) {
     this.rootView = rootView;
     this.ButtonSend = ButtonSend;
     this.EditTextChat = EditTextChat;
     this.chatsRecyclerview = chatsRecyclerview;
-    this.frameLayout = frameLayout;
+    this.fragmentChatsView = fragmentChatsView;
   }
 
   @Override
@@ -88,10 +88,10 @@ public final class FragmentChatsBinding implements ViewBinding {
         break missingId;
       }
 
-      LinearLayout frameLayout = (LinearLayout) rootView;
+      LinearLayout fragmentChatsView = (LinearLayout) rootView;
 
       return new FragmentChatsBinding((LinearLayout) rootView, ButtonSend, EditTextChat,
-          chatsRecyclerview, frameLayout);
+          chatsRecyclerview, fragmentChatsView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

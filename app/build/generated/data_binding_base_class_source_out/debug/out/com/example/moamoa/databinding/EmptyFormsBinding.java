@@ -4,10 +4,11 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
@@ -17,19 +18,32 @@ import java.lang.String;
 
 public final class EmptyFormsBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final LinearLayout rootView;
 
   @NonNull
   public final ListView listview;
 
-  private EmptyFormsBinding(@NonNull ConstraintLayout rootView, @NonNull ListView listview) {
+  @NonNull
+  public final Button sortDead;
+
+  @NonNull
+  public final Button sortHot;
+
+  @NonNull
+  public final Button sortNew;
+
+  private EmptyFormsBinding(@NonNull LinearLayout rootView, @NonNull ListView listview,
+      @NonNull Button sortDead, @NonNull Button sortHot, @NonNull Button sortNew) {
     this.rootView = rootView;
     this.listview = listview;
+    this.sortDead = sortDead;
+    this.sortHot = sortHot;
+    this.sortNew = sortNew;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -60,7 +74,25 @@ public final class EmptyFormsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new EmptyFormsBinding((ConstraintLayout) rootView, listview);
+      id = R.id.sort_dead;
+      Button sortDead = ViewBindings.findChildViewById(rootView, id);
+      if (sortDead == null) {
+        break missingId;
+      }
+
+      id = R.id.sort_hot;
+      Button sortHot = ViewBindings.findChildViewById(rootView, id);
+      if (sortHot == null) {
+        break missingId;
+      }
+
+      id = R.id.sort_new;
+      Button sortNew = ViewBindings.findChildViewById(rootView, id);
+      if (sortNew == null) {
+        break missingId;
+      }
+
+      return new EmptyFormsBinding((LinearLayout) rootView, listview, sortDead, sortHot, sortNew);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

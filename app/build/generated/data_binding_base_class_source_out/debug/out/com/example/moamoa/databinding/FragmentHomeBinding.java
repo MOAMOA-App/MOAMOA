@@ -4,21 +4,25 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
+import android.widget.FrameLayout;
+import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
+import com.google.android.material.appbar.AppBarLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
 public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
-  private final ScrollView rootView;
+  private final LinearLayout rootView;
 
   @NonNull
   public final TextView btnCtgy0;
@@ -36,6 +40,18 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final TextView btnCtgy4;
 
   @NonNull
+  public final GridView homeMyCategory;
+
+  @NonNull
+  public final Toolbar homeToolbar;
+
+  @NonNull
+  public final TextView homebarname;
+
+  @NonNull
+  public final AppBarLayout hometoolbar;
+
+  @NonNull
   public final RecyclerView listview0;
 
   @NonNull
@@ -49,6 +65,12 @@ public final class FragmentHomeBinding implements ViewBinding {
 
   @NonNull
   public final RecyclerView listview4;
+
+  @NonNull
+  public final FrameLayout notificationBtn;
+
+  @NonNull
+  public final FrameLayout searchBtn;
 
   @NonNull
   public final TextView textHome0;
@@ -65,11 +87,14 @@ public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
   public final TextView textHome4;
 
-  private FragmentHomeBinding(@NonNull ScrollView rootView, @NonNull TextView btnCtgy0,
+  private FragmentHomeBinding(@NonNull LinearLayout rootView, @NonNull TextView btnCtgy0,
       @NonNull TextView btnCtgy1, @NonNull TextView btnCtgy2, @NonNull TextView btnCtgy3,
-      @NonNull TextView btnCtgy4, @NonNull RecyclerView listview0, @NonNull RecyclerView listview1,
+      @NonNull TextView btnCtgy4, @NonNull GridView homeMyCategory, @NonNull Toolbar homeToolbar,
+      @NonNull TextView homebarname, @NonNull AppBarLayout hometoolbar,
+      @NonNull RecyclerView listview0, @NonNull RecyclerView listview1,
       @NonNull RecyclerView listview2, @NonNull RecyclerView listview3,
-      @NonNull RecyclerView listview4, @NonNull TextView textHome0, @NonNull TextView textHome1,
+      @NonNull RecyclerView listview4, @NonNull FrameLayout notificationBtn,
+      @NonNull FrameLayout searchBtn, @NonNull TextView textHome0, @NonNull TextView textHome1,
       @NonNull TextView textHome2, @NonNull TextView textHome3, @NonNull TextView textHome4) {
     this.rootView = rootView;
     this.btnCtgy0 = btnCtgy0;
@@ -77,11 +102,17 @@ public final class FragmentHomeBinding implements ViewBinding {
     this.btnCtgy2 = btnCtgy2;
     this.btnCtgy3 = btnCtgy3;
     this.btnCtgy4 = btnCtgy4;
+    this.homeMyCategory = homeMyCategory;
+    this.homeToolbar = homeToolbar;
+    this.homebarname = homebarname;
+    this.hometoolbar = hometoolbar;
     this.listview0 = listview0;
     this.listview1 = listview1;
     this.listview2 = listview2;
     this.listview3 = listview3;
     this.listview4 = listview4;
+    this.notificationBtn = notificationBtn;
+    this.searchBtn = searchBtn;
     this.textHome0 = textHome0;
     this.textHome1 = textHome1;
     this.textHome2 = textHome2;
@@ -91,7 +122,7 @@ public final class FragmentHomeBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public ScrollView getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -146,6 +177,30 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.home_my_category;
+      GridView homeMyCategory = ViewBindings.findChildViewById(rootView, id);
+      if (homeMyCategory == null) {
+        break missingId;
+      }
+
+      id = R.id.home_toolbar;
+      Toolbar homeToolbar = ViewBindings.findChildViewById(rootView, id);
+      if (homeToolbar == null) {
+        break missingId;
+      }
+
+      id = R.id.homebarname;
+      TextView homebarname = ViewBindings.findChildViewById(rootView, id);
+      if (homebarname == null) {
+        break missingId;
+      }
+
+      id = R.id.hometoolbar;
+      AppBarLayout hometoolbar = ViewBindings.findChildViewById(rootView, id);
+      if (hometoolbar == null) {
+        break missingId;
+      }
+
       id = R.id.listview0;
       RecyclerView listview0 = ViewBindings.findChildViewById(rootView, id);
       if (listview0 == null) {
@@ -173,6 +228,18 @@ public final class FragmentHomeBinding implements ViewBinding {
       id = R.id.listview4;
       RecyclerView listview4 = ViewBindings.findChildViewById(rootView, id);
       if (listview4 == null) {
+        break missingId;
+      }
+
+      id = R.id.notification_btn;
+      FrameLayout notificationBtn = ViewBindings.findChildViewById(rootView, id);
+      if (notificationBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.search_btn;
+      FrameLayout searchBtn = ViewBindings.findChildViewById(rootView, id);
+      if (searchBtn == null) {
         break missingId;
       }
 
@@ -206,9 +273,10 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentHomeBinding((ScrollView) rootView, btnCtgy0, btnCtgy1, btnCtgy2, btnCtgy3,
-          btnCtgy4, listview0, listview1, listview2, listview3, listview4, textHome0, textHome1,
-          textHome2, textHome3, textHome4);
+      return new FragmentHomeBinding((LinearLayout) rootView, btnCtgy0, btnCtgy1, btnCtgy2,
+          btnCtgy3, btnCtgy4, homeMyCategory, homeToolbar, homebarname, hometoolbar, listview0,
+          listview1, listview2, listview3, listview4, notificationBtn, searchBtn, textHome0,
+          textHome1, textHome2, textHome3, textHome4);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -4,15 +4,17 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
+import com.google.android.material.appbar.AppBarLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -25,117 +27,44 @@ public final class FragmentCategoryBinding implements ViewBinding {
   public final TextView allCategory;
 
   @NonNull
-  public final Button allGroup;
+  public final TextView btnEdit;
 
   @NonNull
-  public final Button allGroup1;
+  public final GridView categoryLayout;
 
   @NonNull
-  public final Button applianceGroup;
+  public final TextView categorybarname;
 
   @NonNull
-  public final Button applianceGroup1;
-
-  @NonNull
-  public final Button btnEdit;
-
-  @NonNull
-  public final Button clothesGroup;
-
-  @NonNull
-  public final Button clothesGroup1;
-
-  @NonNull
-  public final Button dailyitemsGroup;
-
-  @NonNull
-  public final Button dailyitemsGroup1;
-
-  @NonNull
-  public final Button etcGroup;
-
-  @NonNull
-  public final Button etcGroup1;
-
-  @NonNull
-  public final Button foodGroup;
-
-  @NonNull
-  public final Button foodGroup1;
-
-  @NonNull
-  public final Button gameGroup;
-
-  @NonNull
-  public final Button gameGroup1;
-
-  @NonNull
-  public final Button goodsGroup;
-
-  @NonNull
-  public final Button goodsGroup1;
+  public final AppBarLayout categorytoolbar;
 
   @NonNull
   public final ImageView movetoMygroup;
 
   @NonNull
-  public final TextView myCategory;
+  public final GridView myCategory;
 
   @NonNull
-  public final Button myGroup;
+  public final TextView myCategoryTxt;
 
   @NonNull
-  public final Button myGroup1;
-
-  @NonNull
-  public final Button petsGroup;
-
-  @NonNull
-  public final Button petsGroup1;
-
-  @NonNull
-  public final Button sportsGroup;
-
-  @NonNull
-  public final Button sportsGroup1;
+  public final Toolbar toolbar;
 
   private FragmentCategoryBinding(@NonNull LinearLayout rootView, @NonNull TextView allCategory,
-      @NonNull Button allGroup, @NonNull Button allGroup1, @NonNull Button applianceGroup,
-      @NonNull Button applianceGroup1, @NonNull Button btnEdit, @NonNull Button clothesGroup,
-      @NonNull Button clothesGroup1, @NonNull Button dailyitemsGroup,
-      @NonNull Button dailyitemsGroup1, @NonNull Button etcGroup, @NonNull Button etcGroup1,
-      @NonNull Button foodGroup, @NonNull Button foodGroup1, @NonNull Button gameGroup,
-      @NonNull Button gameGroup1, @NonNull Button goodsGroup, @NonNull Button goodsGroup1,
-      @NonNull ImageView movetoMygroup, @NonNull TextView myCategory, @NonNull Button myGroup,
-      @NonNull Button myGroup1, @NonNull Button petsGroup, @NonNull Button petsGroup1,
-      @NonNull Button sportsGroup, @NonNull Button sportsGroup1) {
+      @NonNull TextView btnEdit, @NonNull GridView categoryLayout,
+      @NonNull TextView categorybarname, @NonNull AppBarLayout categorytoolbar,
+      @NonNull ImageView movetoMygroup, @NonNull GridView myCategory,
+      @NonNull TextView myCategoryTxt, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.allCategory = allCategory;
-    this.allGroup = allGroup;
-    this.allGroup1 = allGroup1;
-    this.applianceGroup = applianceGroup;
-    this.applianceGroup1 = applianceGroup1;
     this.btnEdit = btnEdit;
-    this.clothesGroup = clothesGroup;
-    this.clothesGroup1 = clothesGroup1;
-    this.dailyitemsGroup = dailyitemsGroup;
-    this.dailyitemsGroup1 = dailyitemsGroup1;
-    this.etcGroup = etcGroup;
-    this.etcGroup1 = etcGroup1;
-    this.foodGroup = foodGroup;
-    this.foodGroup1 = foodGroup1;
-    this.gameGroup = gameGroup;
-    this.gameGroup1 = gameGroup1;
-    this.goodsGroup = goodsGroup;
-    this.goodsGroup1 = goodsGroup1;
+    this.categoryLayout = categoryLayout;
+    this.categorybarname = categorybarname;
+    this.categorytoolbar = categorytoolbar;
     this.movetoMygroup = movetoMygroup;
     this.myCategory = myCategory;
-    this.myGroup = myGroup;
-    this.myGroup1 = myGroup1;
-    this.petsGroup = petsGroup;
-    this.petsGroup1 = petsGroup1;
-    this.sportsGroup = sportsGroup;
-    this.sportsGroup1 = sportsGroup1;
+    this.myCategoryTxt = myCategoryTxt;
+    this.toolbar = toolbar;
   }
 
   @Override
@@ -171,105 +100,27 @@ public final class FragmentCategoryBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.all_group;
-      Button allGroup = ViewBindings.findChildViewById(rootView, id);
-      if (allGroup == null) {
-        break missingId;
-      }
-
-      id = R.id.all_group1;
-      Button allGroup1 = ViewBindings.findChildViewById(rootView, id);
-      if (allGroup1 == null) {
-        break missingId;
-      }
-
-      id = R.id.appliance_group;
-      Button applianceGroup = ViewBindings.findChildViewById(rootView, id);
-      if (applianceGroup == null) {
-        break missingId;
-      }
-
-      id = R.id.appliance_group1;
-      Button applianceGroup1 = ViewBindings.findChildViewById(rootView, id);
-      if (applianceGroup1 == null) {
-        break missingId;
-      }
-
       id = R.id.btn_edit;
-      Button btnEdit = ViewBindings.findChildViewById(rootView, id);
+      TextView btnEdit = ViewBindings.findChildViewById(rootView, id);
       if (btnEdit == null) {
         break missingId;
       }
 
-      id = R.id.clothes_group;
-      Button clothesGroup = ViewBindings.findChildViewById(rootView, id);
-      if (clothesGroup == null) {
+      id = R.id.category_layout;
+      GridView categoryLayout = ViewBindings.findChildViewById(rootView, id);
+      if (categoryLayout == null) {
         break missingId;
       }
 
-      id = R.id.clothes_group1;
-      Button clothesGroup1 = ViewBindings.findChildViewById(rootView, id);
-      if (clothesGroup1 == null) {
+      id = R.id.categorybarname;
+      TextView categorybarname = ViewBindings.findChildViewById(rootView, id);
+      if (categorybarname == null) {
         break missingId;
       }
 
-      id = R.id.dailyitems_group;
-      Button dailyitemsGroup = ViewBindings.findChildViewById(rootView, id);
-      if (dailyitemsGroup == null) {
-        break missingId;
-      }
-
-      id = R.id.dailyitems_group1;
-      Button dailyitemsGroup1 = ViewBindings.findChildViewById(rootView, id);
-      if (dailyitemsGroup1 == null) {
-        break missingId;
-      }
-
-      id = R.id.etc_group;
-      Button etcGroup = ViewBindings.findChildViewById(rootView, id);
-      if (etcGroup == null) {
-        break missingId;
-      }
-
-      id = R.id.etc_group1;
-      Button etcGroup1 = ViewBindings.findChildViewById(rootView, id);
-      if (etcGroup1 == null) {
-        break missingId;
-      }
-
-      id = R.id.food_group;
-      Button foodGroup = ViewBindings.findChildViewById(rootView, id);
-      if (foodGroup == null) {
-        break missingId;
-      }
-
-      id = R.id.food_group1;
-      Button foodGroup1 = ViewBindings.findChildViewById(rootView, id);
-      if (foodGroup1 == null) {
-        break missingId;
-      }
-
-      id = R.id.game_group;
-      Button gameGroup = ViewBindings.findChildViewById(rootView, id);
-      if (gameGroup == null) {
-        break missingId;
-      }
-
-      id = R.id.game_group1;
-      Button gameGroup1 = ViewBindings.findChildViewById(rootView, id);
-      if (gameGroup1 == null) {
-        break missingId;
-      }
-
-      id = R.id.goods_group;
-      Button goodsGroup = ViewBindings.findChildViewById(rootView, id);
-      if (goodsGroup == null) {
-        break missingId;
-      }
-
-      id = R.id.goods_group1;
-      Button goodsGroup1 = ViewBindings.findChildViewById(rootView, id);
-      if (goodsGroup1 == null) {
+      id = R.id.categorytoolbar;
+      AppBarLayout categorytoolbar = ViewBindings.findChildViewById(rootView, id);
+      if (categorytoolbar == null) {
         break missingId;
       }
 
@@ -280,52 +131,26 @@ public final class FragmentCategoryBinding implements ViewBinding {
       }
 
       id = R.id.my_category;
-      TextView myCategory = ViewBindings.findChildViewById(rootView, id);
+      GridView myCategory = ViewBindings.findChildViewById(rootView, id);
       if (myCategory == null) {
         break missingId;
       }
 
-      id = R.id.my_group;
-      Button myGroup = ViewBindings.findChildViewById(rootView, id);
-      if (myGroup == null) {
+      id = R.id.my_category_txt;
+      TextView myCategoryTxt = ViewBindings.findChildViewById(rootView, id);
+      if (myCategoryTxt == null) {
         break missingId;
       }
 
-      id = R.id.my_group1;
-      Button myGroup1 = ViewBindings.findChildViewById(rootView, id);
-      if (myGroup1 == null) {
+      id = R.id.toolbar;
+      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
         break missingId;
       }
 
-      id = R.id.pets_group;
-      Button petsGroup = ViewBindings.findChildViewById(rootView, id);
-      if (petsGroup == null) {
-        break missingId;
-      }
-
-      id = R.id.pets_group1;
-      Button petsGroup1 = ViewBindings.findChildViewById(rootView, id);
-      if (petsGroup1 == null) {
-        break missingId;
-      }
-
-      id = R.id.sports_group;
-      Button sportsGroup = ViewBindings.findChildViewById(rootView, id);
-      if (sportsGroup == null) {
-        break missingId;
-      }
-
-      id = R.id.sports_group1;
-      Button sportsGroup1 = ViewBindings.findChildViewById(rootView, id);
-      if (sportsGroup1 == null) {
-        break missingId;
-      }
-
-      return new FragmentCategoryBinding((LinearLayout) rootView, allCategory, allGroup, allGroup1,
-          applianceGroup, applianceGroup1, btnEdit, clothesGroup, clothesGroup1, dailyitemsGroup,
-          dailyitemsGroup1, etcGroup, etcGroup1, foodGroup, foodGroup1, gameGroup, gameGroup1,
-          goodsGroup, goodsGroup1, movetoMygroup, myCategory, myGroup, myGroup1, petsGroup,
-          petsGroup1, sportsGroup, sportsGroup1);
+      return new FragmentCategoryBinding((LinearLayout) rootView, allCategory, btnEdit,
+          categoryLayout, categorybarname, categorytoolbar, movetoMygroup, myCategory,
+          myCategoryTxt, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

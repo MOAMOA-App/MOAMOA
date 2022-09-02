@@ -34,13 +34,13 @@ public final class EditMyinfoBinding implements ViewBinding {
   public final ConstraintLayout constraintLayout7;
 
   @NonNull
+  public final EditText editEmailAddress;
+
+  @NonNull
   public final ConstraintLayout editMyinfo;
 
   @NonNull
   public final EditText editTextPhone2;
-
-  @NonNull
-  public final EditText editTextTextEmailAddress;
 
   @NonNull
   public final TextView name;
@@ -98,8 +98,8 @@ public final class EditMyinfoBinding implements ViewBinding {
 
   private EditMyinfoBinding(@NonNull ConstraintLayout rootView, @NonNull Button button6,
       @NonNull Button button7, @NonNull ConstraintLayout constraintLayout6,
-      @NonNull ConstraintLayout constraintLayout7, @NonNull ConstraintLayout editMyinfo,
-      @NonNull EditText editTextPhone2, @NonNull EditText editTextTextEmailAddress,
+      @NonNull ConstraintLayout constraintLayout7, @NonNull EditText editEmailAddress,
+      @NonNull ConstraintLayout editMyinfo, @NonNull EditText editTextPhone2,
       @NonNull TextView name, @NonNull EditText newpassword, @NonNull Button passwordButton,
       @NonNull EditText passwordchk, @NonNull EditText presentpassword, @NonNull TextView pwdtext,
       @NonNull TextView textView23, @NonNull TextView textView24, @NonNull TextView textView25,
@@ -111,9 +111,9 @@ public final class EditMyinfoBinding implements ViewBinding {
     this.button7 = button7;
     this.constraintLayout6 = constraintLayout6;
     this.constraintLayout7 = constraintLayout7;
+    this.editEmailAddress = editEmailAddress;
     this.editMyinfo = editMyinfo;
     this.editTextPhone2 = editTextPhone2;
-    this.editTextTextEmailAddress = editTextTextEmailAddress;
     this.name = name;
     this.newpassword = newpassword;
     this.passwordButton = passwordButton;
@@ -185,17 +185,17 @@ public final class EditMyinfoBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.editEmailAddress;
+      EditText editEmailAddress = ViewBindings.findChildViewById(rootView, id);
+      if (editEmailAddress == null) {
+        break missingId;
+      }
+
       ConstraintLayout editMyinfo = (ConstraintLayout) rootView;
 
       id = R.id.editTextPhone2;
       EditText editTextPhone2 = ViewBindings.findChildViewById(rootView, id);
       if (editTextPhone2 == null) {
-        break missingId;
-      }
-
-      id = R.id.editTextTextEmailAddress;
-      EditText editTextTextEmailAddress = ViewBindings.findChildViewById(rootView, id);
-      if (editTextTextEmailAddress == null) {
         break missingId;
       }
 
@@ -308,10 +308,10 @@ public final class EditMyinfoBinding implements ViewBinding {
       }
 
       return new EditMyinfoBinding((ConstraintLayout) rootView, button6, button7, constraintLayout6,
-          constraintLayout7, editMyinfo, editTextPhone2, editTextTextEmailAddress, name,
-          newpassword, passwordButton, passwordchk, presentpassword, pwdtext, textView23,
-          textView24, textView25, textView26, textView28, textView29, textView30, textView31,
-          textView32, textView33, textView34, textView4);
+          constraintLayout7, editEmailAddress, editMyinfo, editTextPhone2, name, newpassword,
+          passwordButton, passwordchk, presentpassword, pwdtext, textView23, textView24, textView25,
+          textView26, textView28, textView29, textView30, textView31, textView32, textView33,
+          textView34, textView4);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

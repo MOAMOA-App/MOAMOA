@@ -5,10 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -44,7 +44,10 @@ public final class ActivityFormdetailBinding implements ViewBinding {
   public final TextView detailCostView1;
 
   @NonNull
-  public final ImageButton detailHeartBtn;
+  public final TextView detailDateBar;
+
+  @NonNull
+  public final TextView detailDeadline;
 
   @NonNull
   public final TextView detailLocal;
@@ -56,13 +59,22 @@ public final class ActivityFormdetailBinding implements ViewBinding {
   public final Button detailPartyBtn;
 
   @NonNull
+  public final TextView detailPartyNum;
+
+  @NonNull
   public final CircleImageView detailProfile;
+
+  @NonNull
+  public final TextView detailStartdate;
 
   @NonNull
   public final TextView detailSubject;
 
   @NonNull
   public final TextView detailTextarea;
+
+  @NonNull
+  public final ToggleButton heart;
 
   @NonNull
   public final LinearLayout heartLayout;
@@ -73,10 +85,12 @@ public final class ActivityFormdetailBinding implements ViewBinding {
   private ActivityFormdetailBinding(@NonNull ConstraintLayout rootView, @NonNull Toolbar appbar,
       @NonNull ConstraintLayout container, @NonNull TextView detailCategory,
       @NonNull Button detailChatBtn, @NonNull TextView detailCost,
-      @NonNull TextView detailCostView1, @NonNull ImageButton detailHeartBtn,
-      @NonNull TextView detailLocal, @NonNull TextView detailNick, @NonNull Button detailPartyBtn,
-      @NonNull CircleImageView detailProfile, @NonNull TextView detailSubject,
-      @NonNull TextView detailTextarea, @NonNull LinearLayout heartLayout,
+      @NonNull TextView detailCostView1, @NonNull TextView detailDateBar,
+      @NonNull TextView detailDeadline, @NonNull TextView detailLocal, @NonNull TextView detailNick,
+      @NonNull Button detailPartyBtn, @NonNull TextView detailPartyNum,
+      @NonNull CircleImageView detailProfile, @NonNull TextView detailStartdate,
+      @NonNull TextView detailSubject, @NonNull TextView detailTextarea,
+      @NonNull ToggleButton heart, @NonNull LinearLayout heartLayout,
       @NonNull ImageView mainImage) {
     this.rootView = rootView;
     this.appbar = appbar;
@@ -85,13 +99,17 @@ public final class ActivityFormdetailBinding implements ViewBinding {
     this.detailChatBtn = detailChatBtn;
     this.detailCost = detailCost;
     this.detailCostView1 = detailCostView1;
-    this.detailHeartBtn = detailHeartBtn;
+    this.detailDateBar = detailDateBar;
+    this.detailDeadline = detailDeadline;
     this.detailLocal = detailLocal;
     this.detailNick = detailNick;
     this.detailPartyBtn = detailPartyBtn;
+    this.detailPartyNum = detailPartyNum;
     this.detailProfile = detailProfile;
+    this.detailStartdate = detailStartdate;
     this.detailSubject = detailSubject;
     this.detailTextarea = detailTextarea;
+    this.heart = heart;
     this.heartLayout = heartLayout;
     this.mainImage = mainImage;
   }
@@ -155,9 +173,15 @@ public final class ActivityFormdetailBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.detail_heart_btn;
-      ImageButton detailHeartBtn = ViewBindings.findChildViewById(rootView, id);
-      if (detailHeartBtn == null) {
+      id = R.id.detail_date_bar;
+      TextView detailDateBar = ViewBindings.findChildViewById(rootView, id);
+      if (detailDateBar == null) {
+        break missingId;
+      }
+
+      id = R.id.detail_deadline;
+      TextView detailDeadline = ViewBindings.findChildViewById(rootView, id);
+      if (detailDeadline == null) {
         break missingId;
       }
 
@@ -179,9 +203,21 @@ public final class ActivityFormdetailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.detail_party_num;
+      TextView detailPartyNum = ViewBindings.findChildViewById(rootView, id);
+      if (detailPartyNum == null) {
+        break missingId;
+      }
+
       id = R.id.detail_profile;
       CircleImageView detailProfile = ViewBindings.findChildViewById(rootView, id);
       if (detailProfile == null) {
+        break missingId;
+      }
+
+      id = R.id.detail_startdate;
+      TextView detailStartdate = ViewBindings.findChildViewById(rootView, id);
+      if (detailStartdate == null) {
         break missingId;
       }
 
@@ -194,6 +230,12 @@ public final class ActivityFormdetailBinding implements ViewBinding {
       id = R.id.detail_textarea;
       TextView detailTextarea = ViewBindings.findChildViewById(rootView, id);
       if (detailTextarea == null) {
+        break missingId;
+      }
+
+      id = R.id.heart;
+      ToggleButton heart = ViewBindings.findChildViewById(rootView, id);
+      if (heart == null) {
         break missingId;
       }
 
@@ -210,9 +252,9 @@ public final class ActivityFormdetailBinding implements ViewBinding {
       }
 
       return new ActivityFormdetailBinding((ConstraintLayout) rootView, appbar, container,
-          detailCategory, detailChatBtn, detailCost, detailCostView1, detailHeartBtn, detailLocal,
-          detailNick, detailPartyBtn, detailProfile, detailSubject, detailTextarea, heartLayout,
-          mainImage);
+          detailCategory, detailChatBtn, detailCost, detailCostView1, detailDateBar, detailDeadline,
+          detailLocal, detailNick, detailPartyBtn, detailPartyNum, detailProfile, detailStartdate,
+          detailSubject, detailTextarea, heart, heartLayout, mainImage);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

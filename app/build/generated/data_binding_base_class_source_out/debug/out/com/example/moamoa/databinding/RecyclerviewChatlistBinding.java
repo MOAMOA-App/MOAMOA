@@ -21,10 +21,10 @@ public final class RecyclerviewChatlistBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final TextView chatFormname;
+  public final TextView chatRecent;
 
   @NonNull
-  public final TextView chatRecent;
+  public final TextView chatUsername;
 
   @NonNull
   public final ImageView chatlistImage;
@@ -35,13 +35,12 @@ public final class RecyclerviewChatlistBinding implements ViewBinding {
   @NonNull
   public final LinearLayout chatlistunit;
 
-  private RecyclerviewChatlistBinding(@NonNull LinearLayout rootView,
-      @NonNull TextView chatFormname, @NonNull TextView chatRecent,
-      @NonNull ImageView chatlistImage, @NonNull TextView chatlistnum,
-      @NonNull LinearLayout chatlistunit) {
+  private RecyclerviewChatlistBinding(@NonNull LinearLayout rootView, @NonNull TextView chatRecent,
+      @NonNull TextView chatUsername, @NonNull ImageView chatlistImage,
+      @NonNull TextView chatlistnum, @NonNull LinearLayout chatlistunit) {
     this.rootView = rootView;
-    this.chatFormname = chatFormname;
     this.chatRecent = chatRecent;
+    this.chatUsername = chatUsername;
     this.chatlistImage = chatlistImage;
     this.chatlistnum = chatlistnum;
     this.chatlistunit = chatlistunit;
@@ -74,15 +73,15 @@ public final class RecyclerviewChatlistBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.chat_formname;
-      TextView chatFormname = ViewBindings.findChildViewById(rootView, id);
-      if (chatFormname == null) {
-        break missingId;
-      }
-
       id = R.id.chat_recent;
       TextView chatRecent = ViewBindings.findChildViewById(rootView, id);
       if (chatRecent == null) {
+        break missingId;
+      }
+
+      id = R.id.chat_username;
+      TextView chatUsername = ViewBindings.findChildViewById(rootView, id);
+      if (chatUsername == null) {
         break missingId;
       }
 
@@ -104,7 +103,7 @@ public final class RecyclerviewChatlistBinding implements ViewBinding {
         break missingId;
       }
 
-      return new RecyclerviewChatlistBinding((LinearLayout) rootView, chatFormname, chatRecent,
+      return new RecyclerviewChatlistBinding((LinearLayout) rootView, chatRecent, chatUsername,
           chatlistImage, chatlistnum, chatlistunit);
     }
     String missingId = rootView.getResources().getResourceName(id);
