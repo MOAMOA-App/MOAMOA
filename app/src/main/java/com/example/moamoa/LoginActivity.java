@@ -245,15 +245,15 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-
                             HashMap<String,Object> childUpdates = new HashMap<>();
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             DatabaseReference reference = database.getReference("users");
-                            childUpdates.put(user.getUid(), postValues);
-                            reference.updateChildren(childUpdates);
+                            if(reference.child(user.getUid()).getKey() == null){
+                                childUpdates.put(user.getUid(), postValues);
+                                reference.updateChildren(childUpdates);
+                            }
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             updateUI(user);
