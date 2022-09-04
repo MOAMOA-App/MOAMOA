@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -41,6 +42,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -62,10 +64,9 @@ public class SearchFragment extends Fragment {
     private List<String> name_list = new ArrayList<>();
     private List<Integer> numb_list = new ArrayList<>();
 
+    boolean[] my_list = new boolean[15];
     List<Integer> my_category = new ArrayList<>();
     List<Integer> my_state = new ArrayList<>();
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,6 +86,7 @@ public class SearchFragment extends Fragment {
         담을 방법은 일단... 파이어베이스에서 카테고리 목록 불러와서 리스트에 넣어야됨
         리스트에 담긴 카테고리만 출력하는거는 for문 돌려서 글 카테고리가 리스트에 담긴 카테고리에 있는지 보면 될거고
          */
+        /*
         mContext = this;
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -95,8 +97,15 @@ public class SearchFragment extends Fragment {
         Category_select category_select = Category_select.newInstance("카테고리 선택");
 
         //my_list=initmylist();
+        Resources res = getResources();
+        String[] list = res.getStringArray(R.array.category);
+
+        list= Arrays.copyOfRange(list,2,list.length);
+        List category_list = Arrays.asList(list);
+        category_select.set_list(category_list);
 
         // 카테고리 목록 띄움
+
         mDatabase.child("category").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
@@ -107,6 +116,7 @@ public class SearchFragment extends Fragment {
                     String name = fileSnapshot.getValue().toString();
                     if(x>1){
                         name_list.add(name);
+                        Log.e("TEST_SEARCH", "name_list"+name_list);
                     }
                     x++;
                 }
@@ -123,9 +133,12 @@ public class SearchFragment extends Fragment {
         SelectCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                category_select.show(getFragmentManager(), "dialog");
+                showDialog(0); // 다이얼로그 호출
+                //category_select.show(getFragmentManager(), "dialog");
             }
         });
+
+
 
         // 리스트뷰 정의
         ListView listView = root.findViewById(R.id.search_listview);
@@ -137,12 +150,15 @@ public class SearchFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 arrayList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Log.e("TEST_SC", "my_category:"+my_category);
+
                     Form form = dataSnapshot.getValue(Form.class);
                     arrayList.add(form);
                     Log.e("TEST", "form: "+form);
                 }
                 customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                 listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
+                Log.e("TEST", "my_category: "+my_category);
             }
 
             @Override
@@ -354,10 +370,19 @@ public class SearchFragment extends Fragment {
             }
         });
 
+         */
         return root;
+
+
     }
 
     /*
+    public List<Integer> getMy_category() {
+        List<Integer> my_category = new ArrayList<>();
+
+        return my_category;
+    }
+
     public boolean[] initmylist(){
         boolean[] my_list = new boolean[15];
         for(int i=0;i<15;i++){
@@ -378,6 +403,7 @@ public class SearchFragment extends Fragment {
                             String temp = fileSnapshot.getValue().toString();
                             int x = Integer.parseInt(temp);
                             my_list[x]=true;
+
                         }
                     }
 
@@ -387,12 +413,14 @@ public class SearchFragment extends Fragment {
         return my_list;
     }
 
-     */
-
     public static class Category_select extends DialogFragment {
         private DatabaseReference mDatabase;
         private List<String> list = new ArrayList<>();
         private boolean[] my_list;
+
+        private List<Integer> MyList;
+
+        List my_category = new ArrayList<>();
 
         public static Category_select newInstance(String title) {
             Category_select frag = new Category_select();
@@ -409,7 +437,6 @@ public class SearchFragment extends Fragment {
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             final CharSequence[] items = list.toArray(new String[list.size()]);
             List choices = new ArrayList();
-            choices.clear();
             final boolean[] checkedItems = new boolean[list.size()];
 
             String title = getArguments().getString("title");
@@ -422,11 +449,7 @@ public class SearchFragment extends Fragment {
                                 public void onClick(DialogInterface dialogInterface, int i, boolean b) {
                                     if (b) {
                                         // 체크 됐으면 리스트에 추가
-                                        //           Log.d("확인","name : "+checkedItems[i]);
                                         choices.add(i+2);
-
-                                        //       checkedItems[i] = true;
-                                        //               Log.d("확인","name : "+checkedItems[i]);
                                     } else if (choices.contains(i+2)) {
                                         // 체크 된거면 리스트에서 제거
                                         choices.remove(Integer.valueOf(i+2));
@@ -437,17 +460,12 @@ public class SearchFragment extends Fragment {
                     .setPositiveButton("완료",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int i) {
-                                    Log.e("TEST_SC", "choices:"+choices);
-
-                                    /*
-                                    HashMap<String,Object> childUpdates = new HashMap<>();
-                                    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                    DatabaseReference reference = database.getReference("users");
-                                    childUpdates.put("mycategory", choices);
-                                    reference.child(currentUser.getUid()).updateChildren(childUpdates);
-                                    my_list=((CategoryFragment)CategoryFragment.mContext).initmylist();
-                                    */
+                                    //my_list=((SearchFragment)SearchFragment.mContext).initmylist();
+                                    //MyList=((SearchFragment)SearchFragment.mContext).getMy_category();
+                                    //Log.e("TEST_SC", "choices:"+choices);
+                                    my_category = choices;
+                                    Toast.makeText(getContext(), "선택된 카테고리는 "+choices+"입니다",
+                                            Toast.LENGTH_SHORT).show();
                                 }
 
                             })
@@ -460,4 +478,39 @@ public class SearchFragment extends Fragment {
                     .show();
         }
     }
+
+    protected Dialog onCreateDialog(int id) {
+        final String[] items = {"하이힐", "운동화", "슬리퍼", "샌달", "나이키"};
+        final boolean[] checkedItems = {true, true, true, true, true}; //
+        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(getContext());
+        builder.setTitle("타이틀");
+        builder.setMultiChoiceItems(items, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                // 바뀐 것을 적용한다.
+                checkedItems[which] = isChecked;
+            }
+        });
+
+        // 같은 onclick을 쓰기때문에 DialogInterface를 적어주어야 에러발생하지 않는다.
+        builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Toast로 현제 체크된 항목 표시하기
+                String str = "";
+                for (int i = 0; i < items.length; i++) {
+                    if (checkedItems[i]) {
+                        str += items[i];
+                        if (i != items.length - 1) {
+                            str += ", ";
+                        }
+                    }
+                }
+                Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show();
+            }
+        });
+        return builder.create();
+    }
+
+     */
 }

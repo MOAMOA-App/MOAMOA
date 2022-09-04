@@ -5,7 +5,7 @@
     <string name="title_notifications">알람</string>
     <string name="title_chats">채팅</string>
     <string name="title_my_page">마이페이지</string>
-    <string name="title_chatlist">채팅이력</string>
+    <string name="title_chatlist">대화 목록</string>
     <string name="title_formdetail">폼 상세</string>
     <string name="tab_text_1">참가 중</string>
     <string name="tab_text_2">진행 중</string>

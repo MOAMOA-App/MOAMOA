@@ -171,7 +171,7 @@ public class MypageFragment extends Fragment {
 
 
         // 첫 번째 아이템 추가.
-        oAdapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_baseline_textsms_24),"채팅 리스트") ;
+        oAdapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_baseline_textsms_24),"대화 목록") ;
         // 두 번째 아이템 추가.
         oAdapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.ic_baseline_location_on_24), "지역 설정") ;
         // 세 번째 아이템 추가.

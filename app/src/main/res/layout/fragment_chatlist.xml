@@ -32,7 +32,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
 
-                android:text="채팅 이력"
+                android:text="대화 목록"
                 android:textSize="20sp"/>
         </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>

@@ -3,7 +3,7 @@ package com.example.moamoa.ui.category;
 public class CategoryData {
 
     private String numb;
-    private String name;
+    public String name;
     public CategoryData(String numb, String name){
         this.numb  = numb;
         this.name  = name;
