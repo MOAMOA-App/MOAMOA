@@ -52,6 +52,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class DashboardFragment extends Fragment {
+
+
+     /**
+      *
+      * **/
     private FragmentDashboardBinding binding;
     long mNow;
     Date mDate;
@@ -173,9 +178,11 @@ public class DashboardFragment extends Fragment {
                                               max_count.setClickable(false);
                                               max_count.setFocusable(false);
                                               max= "100";
+                                              max_count.setVisibility(View.GONE);
 
                                           } else {
                                               max="";
+                                              max_count.setVisibility(View.VISIBLE);
                                               max_count.setFocusableInTouchMode(true);
                                               max_count.setFocusable(true);
                                           }
@@ -183,20 +190,6 @@ public class DashboardFragment extends Fragment {
 
  });
 
-        max_count.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (checkBox.isChecked()) {
-
-                    Toast.makeText(getContext(),"인원제한 없음을 해제해주세요.",Toast.LENGTH_SHORT).show();
-
-
-                } else {
-
-                }
-            }
-
-        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

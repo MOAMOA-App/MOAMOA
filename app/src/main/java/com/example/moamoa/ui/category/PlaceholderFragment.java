@@ -52,6 +52,11 @@ import java.util.Comparator;
 /**
  * A placeholder fragment containing a simple view.
  */
+
+/**
+ *
+ */
+
 public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
@@ -172,25 +177,25 @@ public class PlaceholderFragment extends Fragment {
                         }
                     }
                     for(int i=2;i<category_list.length;i++){
-                        if (listData.category_text==2 && pos==3 && listData.getstate()==0){
+                        if (listData.category_text==2 && pos==3 ){
 //식품
                             listViewData.add(listData);
                         }
                     }
 
-                    if (listData.category_text==5 && pos==4 && listData.getstate()==0){
+                    if (listData.category_text==5 && pos==4 ){
 //의류
                         listViewData.add(listData);
                     }
-                    if (listData.category_text==3 && pos==5 && listData.getstate()==0){
+                    if (listData.category_text==3 && pos==5){
 //생활
                         listViewData.add(listData);
                     }
-                    if (listData.category_text==6 && pos==6 && listData.getstate()==0){
+                    if (listData.category_text==6 && pos==6 ){
 //취미
                         listViewData.add(listData);
                     }
-                    if (listData.category_text==7 && pos==7 && listData.getstate()==0){
+                    if (listData.category_text==7 && pos==7 ){
 //기타
                         listViewData.add(listData);
                     }
