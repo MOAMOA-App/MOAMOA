@@ -176,10 +176,42 @@ public class SearchActivity extends AppCompatActivity {
                             // for문 돌려서 해당 키워드가 제목에 있는지 검색
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                                 Form form = dataSnapshot.getValue(Form.class);
+
                                 // 키워드가 제목에 있으면 add
                                 if (form.subject.contains(search_input)){
                                     arrayList.add(form);
                                     Log.e("TEST", "form: "+form);
+
+                                    String cat1 = Integer.toString(form.category_text);
+                                    Log.e("TEST_3", "cat1: "+cat1);
+
+                                    FirebaseDatabase.getInstance().getReference().child("category").child(cat1)
+                                            .addValueEventListener(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                    String cat2 = snapshot.getValue().toString();
+                                                    Log.e("TEST_3", "cat2: "+cat2);
+
+                                                    // 키워드가 제목에 있으면 add
+                                                    /*
+                                                    if (form.subject.contains(search_input)){
+                                                        for (int i=0;i<category.length;i++){
+                                                            if (cat2.equals(category[i])){
+                                                                arrayList.add(form);
+                                                                Log.e("TEST", "form: "+form);
+                                                            }
+                                                        }
+                                                    }
+
+                                                    */
+
+                                                }
+
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                                }
+                                            });
                                 }
                             }
                             customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
@@ -191,124 +223,6 @@ public class SearchActivity extends AppCompatActivity {
                             Toast.makeText(SearchActivity.this, "error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
-                    /*
-                    FirebaseDatabase.getInstance().getReference().child("form").addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            arrayList.clear();
-                            // for문 돌려서 해당 키워드가 제목에 있는지 검색
-                            for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                                Form form = dataSnapshot.getValue(Form.class);
-
-                                String cat1 = Integer.toString(form.category_text);
-                                Log.e("TEST_3", "cat1: "+cat1);
-
-                                FirebaseDatabase.getInstance().getReference("category")
-                                        .addValueEventListener(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        CategoryData categoryData
-                                                = snapshot.getValue(CategoryData.class);
-                                        String cat2 = categoryData.name;
-                                        Log.e("TEST_3", "cat2: "+cat2);
-
-                                        if (form.subject.contains(search_input)){
-                                            for (int i=0;i<category.length;i++){
-                                                if (cat2.equals(category[i])){
-                                                    arrayList.add(form);
-                                                    Log.e("TEST", "form: "+form);
-                                                }
-                                            }
-
-                                        }
-
-
-                                    }
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                    }
-                                });
-
-
-
-                                // 키워드가 제목에 있으면 add
-                                if (form.subject.contains(search_input)){
-                                    arrayList.add(form);
-                                    Log.e("TEST", "form: "+form);
-                                }
-                            }
-                            customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                            listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            Toast.makeText(SearchActivity.this, "error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-                     */
-                    /*
-                    FirebaseDatabase.getInstance().getReference().child("form").addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            arrayList.clear();
-                            Form form = snapshot.getValue(Form.class);
-                            String cat1 = Integer.toString(form.category_text);
-                            Log.e("TEST_3", "cat1: "+cat1);
-
-                            // for문 돌려서 해당 키워드가 제목에 있는지 검색
-                            FirebaseDatabase.getInstance().getReference("category").addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
-                                    for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                                        CategoryData categoryData = snapshot.getValue(CategoryData.class);
-
-                                        String cat2 = categoryData.getName();
-                                        Log.e("TEST_3", "cat2: "+cat2);
-
-                                        // 키워드가 제목에 있으면 add
-                                        if (form.subject.contains(search_input)){
-                                            arrayList.add(form);
-                                            Log.e("TEST", "form: "+form);
-                                        }
-
-                                        // 키워드가 제목에 있으면 add
-                                        /*
-                                        if (form.subject.contains(search_input)){
-                                            for (int i=0;i<category.length;i++){
-                                                if (cat2.equals(category[i])){
-                                                    arrayList.add(form);
-                                                    Log.e("TEST", "form: "+form);
-                                                }
-                                            }
-
-                                        }
-
-                                         */
-                    /*
-                                    }
-                                    customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                                    listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                }
-                            });
-
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            Toast.makeText(SearchActivity.this, "error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-                     */
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -443,7 +357,8 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
 
-    private String[] getMy_Category(){  // 카테고리 목록 불러오기
+    // 카테고리 목록 불러오기
+    private String[] getMy_Category(){
         Resources res = getResources();
         final String[] item = res.getStringArray(R.array.category);
         // 카테고리 목록에서 전체/관심 뺌
