@@ -1,7 +1,10 @@
 package com.example.moamoa.ui.mypage;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Activity;
 
+import android.content.Context;
 import android.content.Intent;
 
 import android.graphics.Bitmap;
@@ -10,7 +13,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.StrictMode;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -37,8 +42,11 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.soundcloud.android.crop.Crop;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -57,6 +65,10 @@ public class CustomDialog extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        //출처: https://soohyun6879.tistory.com/76 [코딩기록:티스토리]
 
         //타이틀바없애기
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -148,7 +160,9 @@ public class CustomDialog extends Activity {
             public void onClick(View v) {
                 if (dimage == null) {
                     finish();
-                } else {
+                }
+                //갤러리에서 가져온 이미지
+                if (dimage.contains("userprofile/")){
                     mDatabase.child("users").child(user.getUid()).child("image").setValue(dimage);
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
@@ -156,8 +170,34 @@ public class CustomDialog extends Activity {
                         public void run() {
                             finish();
                         }
-                    }, 5000); //딜레이 타임 조절
+                    }, 4000); //딜레이 타임 조절 //4초
                     //파이어베이스에 이미지를 저장하고 불러오는데 시간이 오래 걸린다.
+                }
+                //기본 이미지 설정
+                else {
+                    mDatabase.child("users").child(user.getUid()).child("image").setValue(dimage);
+
+                    //갤러리에서 받아온 이전 이미지 삭제
+                    StorageReference storageRef = storage.getReference();
+                    StorageReference desertRef = storageRef.child("userprofile/"+"profile_"+ user.getUid()+".jpeg");
+
+                    desertRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                        }
+                    });
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            finish();
+                        }
+                    }, 3000); //딜레이 타임 조절 //3초
                 }
             }
         });
@@ -188,41 +228,32 @@ public class CustomDialog extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-//        switch(requestCode) {
-//            case 1:
-//                if (resultCode == RESULT_OK) {
-//                    Uri uri = data.getData();
-//                    createProfile(uri);
-//                    dimage = "userprofile/"+"profile_"+ user.getUid() +".png";
-//                    profile.setImageURI(uri);
-//                }
-//                break;
-//        }
         //cancel 버튼
         if (resultCode != RESULT_OK) {
             Toast.makeText(this, "취소 되었습니다.", Toast.LENGTH_SHORT).show();
 
+            //tempFile == 크롭으로 넘어가자마자 생기는 임시 크롭 이미지 파일
             if (tempFile != null) {
                 if (tempFile.exists()) {
                     if (tempFile.delete()) {
-//                        Log.e(TAG, tempFile.getAbsolutePath() + " 삭제 성공");
+                        Log.e(TAG, tempFile.getAbsolutePath() + " 삭제 성공");
                         tempFile = null;
                     }
                 }
             }
-
             return;
         }
 
+        //done 버튼 누르기 전
         switch (requestCode) {
+            //앨범에서 이미지 가져옴
             case PICK_FROM_ALBUM: {
-
-                Uri photoUri = data.getData();
+                Uri photoUri = data.getData(); //가져온 이미지
 
                 //갤러리에서 선택한 경우에는 tempFile 이 없으므로 새로 생성해줍니다.
                 if (tempFile == null) {
                     try {
-                        tempFile = createImageFile();
+                        tempFile = createImageFile();  //temp_.jpg 파일 생성
                     } catch (IOException e) {
                         Toast.makeText(this, "이미지 처리 오류! 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
                         finish();
@@ -231,17 +262,29 @@ public class CustomDialog extends Activity {
                 }
 
                 //크롭 후 저장할 Uri
+                //파일을 Uri로 변경
                 Uri savingUri = Uri.fromFile(tempFile);
 
+                //원본 이미지 photoUri에서 크롭하여 savingUri로
                 Crop.of(photoUri, savingUri).asSquare().start(this);
 
                 break;
             }
 
+            //done 누르면
             case Crop.REQUEST_CROP: {
-                setImage();
-                createProfile(tempFile);
-                dimage = "userprofile/"+"profile_"+ user.getUid() +".png";
+                //tempfile을 Bitmap으로 변경
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                Bitmap originalBm = BitmapFactory.decodeFile(tempFile.getAbsolutePath(), options);
+
+                //bitmap으로 변경된 이미지를 profile에 setimage
+                profile.setImageBitmap(originalBm);
+
+                //bitmap을 Uri로
+                Uri uri = getImageUri(this,originalBm);
+
+                createProfile(uri);
+                dimage = "userprofile/"+"profile_"+ user.getUid() +".jpeg";
 
                 /**
                  *  tempFile 사용 후 null 처리를 해줘야 합니다.
@@ -262,47 +305,39 @@ public class CustomDialog extends Activity {
         String imageFileName = "temp_";
 
         // 빈 파일 생성
-        File image = File.createTempFile(imageFileName, ".png");
+        File image = File.createTempFile(imageFileName, ".jpg");
 
         return image;
     }
 
-    /**!!비트맵으로 바꾸는 이유를 모르겠음.!!*/
-    /**
-     * tempFile 을 bitmap 으로 변환 후 ImageView 에 설정한다.
-     */
-    private void setImage() {
+    //Bitmap -> Uri로 변경 (bitmap 압축 코드 포함)
+    private Uri getImageUri(Context context, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        //Bitmap 압축 함수
+        //compress() 의 두번째 파라메터로 40 을 넘기고있는데 이건 40%로 압축한다는 의미입니다.
+        inImage.compress(Bitmap.CompressFormat.JPEG, 40, bytes);
 
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        Bitmap originalBm = BitmapFactory.decodeFile(tempFile.getAbsolutePath(), options);
+        //없으면 바이트가 줄지 않음
+        byte[] byteArray = bytes.toByteArray();
+        Bitmap compressedBitmap = BitmapFactory.decodeByteArray(byteArray,0,byteArray.length);
 
-        profile.setImageBitmap(originalBm);
-
-//        /**
-//         *  tempFile 사용 후 null 처리를 해줘야 합니다.
-//         *  (resultCode != RESULT_OK) 일 때 (tempFile != null)이면 해당 파일을 삭제하기 때문에
-//         *  기존에 데이터가 남아 있게 되면 원치 않은 삭제가 이뤄집니다.
-//         */
-//        tempFile = null;
-
+        String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), compressedBitmap, "Title", null);
+        return Uri.parse(path);
     }
-//출처 : https://black-jin0427.tistory.com/123
 
     //데이터베이스에 사진 저장하기
-    private void createProfile(File cropFile){
+    private void createProfile(Uri uri){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         StorageReference storageRef = storage.getReference();
 
-        String filename = "profile_" + user.getUid() + ".png";
-
-        Uri file = Uri.fromFile(cropFile);
+        String filename = "profile_" + user.getUid() + ".jpeg";
 
         StorageReference riversRef = storageRef.child("userprofile/"+filename);
         UploadTask uploadTask;
-        uploadTask = riversRef.putFile(file);
+        uploadTask = riversRef.putFile(uri);
 
-        //기본 이미지 삭제
-        StorageReference desertRef = storageRef.child("userprofile/"+"profile_"+ user.getUid()+".png");
+        //이전 이미지 삭제
+        StorageReference desertRef = storageRef.child("userprofile/"+"profile_"+ user.getUid()+".jpeg");
 
         desertRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -326,5 +361,9 @@ public class CustomDialog extends Activity {
         });
 
     }
+
 }
 //파이어베이스에 사진이 저장되고 불러오는데 시간이 오래 걸림...
+
+//출처 : https://black-jin0427.tistory.com/123
+//bitmap 압축 : https://hello-bryan.tistory.com/69
