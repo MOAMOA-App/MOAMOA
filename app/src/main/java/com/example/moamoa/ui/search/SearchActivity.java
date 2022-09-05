@@ -21,7 +21,6 @@ import android.widget.Toast;
 
 import com.example.moamoa.Form;
 import com.example.moamoa.R;
-import com.example.moamoa.databinding.FragmentSearchBinding;
 import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.category.CategoryData;
 import com.example.moamoa.ui.category.CustomListView;
@@ -65,6 +64,11 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+        // 카테고리 목록 불러옴
+        category = getMy_Category();
+        Log.e("TEST_4", "category: "+ Arrays.toString(category));
+
+
         // 카테고리 선택
         /*
         일단 뭘어케하면되냐면... 일단 여기서 선택을 해놔 체크박스에 다 체크된상태로
@@ -92,7 +96,6 @@ public class SearchActivity extends AppCompatActivity {
                 showDialog(0); // 다이얼로그 호출
             }
         });
-
 
         // 리스트뷰 정의
         ListView listView = findViewById(R.id.search_listview);
@@ -440,14 +443,25 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
 
+    private String[] getMy_Category(){  // 카테고리 목록 불러오기
+        Resources res = getResources();
+        final String[] item = res.getStringArray(R.array.category);
+        // 카테고리 목록에서 전체/관심 뺌
+        final String[] items = new String[10];
+        for (int i = 0; i<item.length-2; i++){
+            items[i] = item[i+2];
+            Log.e("TEST_4", "items["+i+"]: "+items[i]);
+        }
+        Log.e("TEST_4", "items: "+ Arrays.toString(items));
+        return items;
+    }
+
     protected Dialog onCreateDialog(int id) {
 
-        // 카테고리 목록 불러오기
-        Resources res = getResources();
-        final String[] items = res.getStringArray(R.array.category);
+        String[] items = getMy_Category();
 
         // 체크박스 모두 체크
-        final boolean[] checkedItems = new boolean[15];
+        final boolean[] checkedItems = new boolean[10];
         for (int i = 0; i<items.length; i++){
             checkedItems[i] = true;
         }
