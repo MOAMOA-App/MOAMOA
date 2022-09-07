@@ -2,8 +2,6 @@ package com.example.moamoa.ui.dashboard;
 
 import android.content.ClipData;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -15,7 +13,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -46,7 +43,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -79,6 +75,8 @@ public class DashboardFragment extends Fragment {
     private final int GALLERY_CODE = 10;
     private FirebaseAuth firebaseAuth;
     int i = 1;
+
+
 
     private static final String TAG = "MultiImageActivity";
     ArrayList<Uri> uriList = new ArrayList<>();     // 이미지의 uri를 담을 ArrayList 객체
@@ -189,7 +187,14 @@ public class DashboardFragment extends Fragment {
                                       }
 
  });
+        address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AddressResponse.class);
+                startActivity(intent);
 
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
