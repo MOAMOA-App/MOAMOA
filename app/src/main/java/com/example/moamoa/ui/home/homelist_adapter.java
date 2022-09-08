@@ -44,17 +44,19 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
         TextView txt_mans;
         TextView txt_FID;
         TextView txt_UID;
+        TextView txt_cateog;
 
         public ViewHolder(View view) {
             super(view);
             Log.i("view",view+"");
             // Define click listener for the ViewHolder's View
-            img_main = (ImageView) view.findViewById(R.id.mainImage);
-            txt_title = (TextView) view.findViewById(R.id.title);
-            txt_name = (TextView) view.findViewById(R.id.name);
-            txt_mans = (TextView) view.findViewById(R.id.mans);
-            txt_FID = (TextView) view.findViewById(R.id.FID);
-            txt_UID = (TextView) view.findViewById(R.id.UID);
+            img_main = (ImageView) view.findViewById(R.id.homelist_mainImage);
+            txt_title = (TextView) view.findViewById(R.id.homelist_title);
+            txt_name = (TextView) view.findViewById(R.id.homelist_name);
+            txt_mans = (TextView) view.findViewById(R.id.homelist_mans);
+            txt_FID = (TextView) view.findViewById(R.id.homelist_FID);
+            txt_UID = (TextView) view.findViewById(R.id.homelist_UID);
+            txt_cateog = (TextView) view.findViewById(R.id.homelist_category);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -106,10 +108,10 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
         //viewHolder.img_main.setImageResource();
         DatabaseReference mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
-        mDatabase.child(item.getNick()).child("nick").addValueEventListener(new ValueEventListener() {
+        mDatabase.child(item.getNick()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                viewHolder.txt_name.setText((dataSnapshot.getValue().toString()));
+                viewHolder.txt_name.setText((dataSnapshot.child("nick").getValue().toString()));
 
             }
             @Override
@@ -120,11 +122,12 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
             }
 
         });
+        viewHolder.txt_cateog.setText(item.getCategory());
         viewHolder.txt_title.setText(item.getTitle());
         viewHolder.txt_UID.setText(item.getUID());
-        //viewHolder.txt_name.setText(item.getNick());
         viewHolder.txt_mans.setText(item.getMans());
         viewHolder.txt_FID.setText(item.getFID());
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)

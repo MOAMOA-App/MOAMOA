@@ -124,7 +124,6 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = findViewById(R.id.text_dashboardend);
         tv.setText(year_string  +"/"+month_string +"/"+ day_string);
 
-        //Toast.makeText(this,"Date: "+dateMessage,Toast.LENGTH_SHORT).show();
     }
 //캘린더
     private long backKeyPressedTime = 0;

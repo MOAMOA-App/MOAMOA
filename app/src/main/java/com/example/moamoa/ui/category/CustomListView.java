@@ -1,5 +1,6 @@
 package com.example.moamoa.ui.category;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
@@ -11,9 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import androidx.activity.result.contract.ActivityResultContracts;
+
 import com.bumptech.glide.Glide;
 import com.example.moamoa.Form;
 import com.example.moamoa.R;
+import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -73,6 +77,8 @@ public class CustomListView extends BaseAdapter {
         pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
+                CategoryActivity context = (CategoryActivity) mainImage.getContext();
+                if (context.isFinishing()) return;
                 Glide.with(mainImage.getContext())
                         .load(uri)
                         .into(mainImage);

@@ -1,5 +1,7 @@
 package com.example.moamoa.ui.home;
 
+import java.time.format.SignStyle;
+
 public class homelist_data {
     private String mainImage;
     private String title;
@@ -7,6 +9,7 @@ public class homelist_data {
     private String mans;
     private String FID;
     private String UID;
+    private String category;
     /*
     public homelist_data(String mainImage, String title, String name, String mans, String FID){
         this.mainImage  = mainImage;
@@ -32,6 +35,8 @@ public class homelist_data {
 
     public String getUID() {return this.UID;}
 
+    public String getCategory() {return this.category;}
+
     public void setImgName(String MainImage){this.mainImage = MainImage; }
 
     public void setTitle(String title){this.title = title; }
@@ -43,4 +48,6 @@ public class homelist_data {
     public void setFID(String FID){this.FID = FID; }
 
     public void setUID(String UID){this.UID = UID; }
+
+    public void setCategory(String category){this.category = category; }
 }

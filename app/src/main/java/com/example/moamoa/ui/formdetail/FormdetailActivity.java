@@ -1,7 +1,9 @@
 package com.example.moamoa.ui.formdetail;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -253,6 +255,10 @@ public class FormdetailActivity extends Activity {
 
                 count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
 
+                Resources res = getResources();
+                String[] cat = res.getStringArray(R.array.category);
+                category=cat[Integer.parseInt(category)];
+
                 Log.d("확인","message상세 이미지 : "+count);
                 String UID = dataSnapshot.child("UID_dash").getValue().toString();
                 UserFind(UID);
@@ -267,6 +273,7 @@ public class FormdetailActivity extends Activity {
                 pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+                        if (activity.isFinishing()) return;
                         Glide.with(mainImage.getContext())
                                 .load(uri)
                                 .into(mainImage);
@@ -302,11 +309,10 @@ public class FormdetailActivity extends Activity {
                 StorageReference pathReference = firebaseStorage.getReference(profil_text);
 
                 FormdetailActivity activity1 = (FormdetailActivity) profile.getContext() ;
-                if (activity1.isFinishing())
-                    return;
                 pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+                        if (activity1.isFinishing()) return;
                         Glide.with(profile)
                                 .load(uri)
                                 .into(profile);
@@ -332,6 +338,7 @@ public class FormdetailActivity extends Activity {
         TextView start = (TextView) findViewById(R.id.detail_startdate);
 
         TextView deadlines = (TextView) findViewById(R.id.detail_deadline);
+
 
         subject_text.setText(subject);
         category_text.setText(category);

@@ -140,15 +140,21 @@ public class HomeFragment extends Fragment {
     }
 
 
-    public void InitializeFormData(int i,String img, String title, String UID, String mans, String FID)
+    public void InitializeFormData(int i,String img, String title, String UID, String mans, String FID, String category)
     {
         homelist_data tmp = new homelist_data();
+
+        Resources res = getResources();
+        String[] cat = res.getStringArray(R.array.category);
+        category=cat[Integer.parseInt(category)];
+
         tmp.setImgName(img);
         tmp.setTitle(title);
         tmp.setNick(UID);
         tmp.setMans(mans);
         tmp.setFID(FID);
         tmp.setUID(UID);
+        tmp.setCategory(category);
         homelist[i].add(tmp);
 
     }
@@ -169,7 +175,8 @@ public class HomeFragment extends Fragment {
                         String UID = fileSnapshot.child("UID_dash").getValue().toString();
                         String parti_num = fileSnapshot.child("parti_num").getValue().toString();
                         String image =  fileSnapshot.child("image").getValue().toString();
-                        InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key);
+                        String category = fileSnapshot.child("category_text").getValue().toString();
+                        InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key,category);
                     }
                 }
                 recyclerView[i].setAdapter(homelistAdapter[i]);

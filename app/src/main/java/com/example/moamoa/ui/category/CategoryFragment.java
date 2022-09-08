@@ -158,11 +158,8 @@ public class CategoryFragment extends Fragment {
                                 public void onClick(DialogInterface dialogInterface, int i, boolean b) {
                                     if (b) {
                                         // 체크 됐으면 리스트에 추가
-                                        //           Log.d("확인","name : "+checkedItems[i]);
                                         choices.add(i+2);
 
-                                        //       checkedItems[i] = true;
-                                        //               Log.d("확인","name : "+checkedItems[i]);
                                     } else if (choices.contains(i+2)) {
                                         // 체크 된거면 리스트에서 제거
                                         choices.remove(Integer.valueOf(i+2));
