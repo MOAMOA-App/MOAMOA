@@ -21,7 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MOAMOA"
         tools:ignore="ExtraText">
-
+        <meta-data
+            android:name="xjdzzwh9wk"
+            android:value="qQ7H0N5M4ZQLzBYyIdCtzzmIVPqQjpb6TsIUxHix" />
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
@@ -73,6 +75,9 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name=".ui.category.CategoryActivity"
+            android:label="카테고리" />
+        <activity
+            android:name=".ui.dashboard.MapActivity"
             android:label="카테고리" />
         <activity android:name=".ui.formdetail.FormdetailActivity" />
         <activity
