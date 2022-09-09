@@ -75,7 +75,7 @@ public class DashboardFragment extends Fragment {
     private final int GALLERY_CODE = 10;
     private FirebaseAuth firebaseAuth;
     int i = 1;
-
+    double la,lo;
 
 
     private static final String TAG = "MultiImageActivity";
@@ -257,8 +257,9 @@ public class DashboardFragment extends Fragment {
                         Integer.parseInt(dead),
                         getTime1(),
                         0,
-                        express
-
+                        express,
+                        la,
+                        lo
                 );
 
 

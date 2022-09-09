@@ -13,7 +13,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical">
+    <EditText
 
+    android:id="@+id/map_text"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_margin="10dp" />
+    <Button
+        android:id="@+id/button_map"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"         >
+    </Button>
     <com.naver.maps.map.MapView
         android:id="@+id/mv"
         android:layout_width="match_parent"
