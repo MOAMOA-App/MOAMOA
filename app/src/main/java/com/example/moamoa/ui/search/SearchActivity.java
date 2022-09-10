@@ -35,6 +35,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -44,48 +45,44 @@ public class SearchActivity extends AppCompatActivity {
     private ArrayList<Form> arrayList;  // 리스트 안에 담을 데이터들을 저장
     private CustomListView customListView;  // 리스트뷰 어댑터
 
-    private EditText EditText_search;
-    private String search_std, search_input;
-    private Button search_btn;
+    private EditText EditText_search;           // 이거그뭐야... 검색창임
+    private String search_std, search_input;    // std: 검색기준, input: EditText_search 텍스트화
+    private Button search_btn;                  // 검색버튼
 
-    private Button SelectCategory, SelectState;
+    private Button SelectCategory, SelectState; // 카테고리 선택버튼과 상태 선택버튼
     private DatabaseReference mDatabase;
-    private List<String> name_list = new ArrayList<>();
-    private List<Integer> numb_list = new ArrayList<>();
 
-    boolean[] my_list = new boolean[15];
-    List<Integer> my_category = new ArrayList<>();
-    List<Integer> my_state = new ArrayList<>();
+    static List<Integer> my_category = new ArrayList<>();   // 카테고리 숫자 담을 리스트
+    static List<Integer> my_state = new ArrayList<>();      // 게시글 상태 숫자 담을 리스트
 
-    static String[] category = new String[15];
+    static String[] category = new String[15];          // 카테고리 목록
+    static boolean[] cat_checkbox = new boolean[15];    // 카테고리 체크박스
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+        /*
+        * 오류남!! 코드 오류나길래 일부러 옛ㄴ날걸로해서 복붙했는데 왜오류나는지 모르겠음
+        * 로그
+        * java.lang.ClassCastException: com.example.moamoa.ui.search.SearchActivity
+        * cannot be cast to com.example.moamoa.ui.category.CategoryActivity
+        at com.example.moamoa.ui.category.CustomListView$1.onSuccess(CustomListView.java:80)
+        at com.example.moamoa.ui.category.CustomListView$1.onSuccess(CustomListView.java:77)
+        * */
+
         // 카테고리 목록 불러옴
         category = getMy_Category();
         Log.e("TEST_4", "category: "+ Arrays.toString(category));
 
+        // 카테고리 체크박스 전부 체크, 리스트에 추가 (초기값)
+        cat_checkbox = allCheck_CB();
+        my_category = returnCheckBox(cat_checkbox);
 
-        // 카테고리 선택
-        /*
-        일단 뭘어케하면되냐면... 일단 여기서 선택을 해놔 체크박스에 다 체크된상태로
-        저거를 리스트에 담아놓고 저 밑 코드에서 이제 리스트에 담긴 카테고리만 출력하도록 하는거지
-        그럼 생각할게
-         - 리스트에 담을 방법
-         - 리스트에서 뺄 방법
-         - 리스트에 담긴 카테고리만 출력할 방법
-        앞을 생각하면 뒤는 따라올듯?
-        담을 방법은 일단... 파이어베이스에서 카테고리 목록 불러와서 리스트에 넣어야됨
-        리스트에 담긴 카테고리만 출력하는거는 for문 돌려서 글 카테고리가 리스트에 담긴 카테고리에 있는지 보면 될거고
-
-        담고빼기는 했는데 이제 이걸 어케... 출력하냐 지금 리스트가 다 string으로 되어있는데
-        그럼 category 연결해서 이름을 찾아와서 검색을 해야하나 스으읍
-         */
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        // 버튼 정의
         SelectCategory = findViewById(R.id.select_category);
         SelectState = findViewById(R.id.select_state);
 
@@ -94,6 +91,23 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showDialog(0); // 다이얼로그 호출
+                Log.e("TEST_6", "my_category: "+ my_category);
+            }
+        });
+        Log.e("TEST_6", "my_category: "+ my_category);
+
+        // 검색 기준 설정 (제목/사용자닉네임)
+        Spinner spinner = findViewById(R.id.searchspinner);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                search_std = adapterView.getItemAtPosition(position).toString();
+                Log.e("TEST", "search_std: "+search_std);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
@@ -108,8 +122,21 @@ public class SearchActivity extends AppCompatActivity {
                 arrayList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Form form = dataSnapshot.getValue(Form.class);
+                    // 카테고리 숫자 cat에 저장
+                    int cat = form.category_text;
+                    Log.e("TEST_7", "cat: "+cat);
+
                     arrayList.add(form);
                     Log.e("TEST", "form: "+form);
+
+                    /*
+                    // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
+                    if (my_category.contains(cat)){
+                        arrayList.add(form);
+                        Log.e("TEST", "form: "+form);
+                    }
+
+                     */
                 }
                 customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                 listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
@@ -134,20 +161,7 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-        // 검색 기준 설정 (제목/사용자닉네임)
-        Spinner spinner = findViewById(R.id.searchspinner);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                search_std = adapterView.getItemAtPosition(position).toString();
-                Log.e("TEST", "search_std: "+search_std);
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         // 검색 버튼을 누르면 해당되는 게시물 불러옴
         EditText_search = findViewById(R.id.searchWord);
@@ -177,41 +191,15 @@ public class SearchActivity extends AppCompatActivity {
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                                 Form form = dataSnapshot.getValue(Form.class);
 
+                                // 카테고리 숫자 cat에 저장
+                                int cat = form.category_text;
+                                Log.e("TEST_7", "cat: "+cat);
+
                                 // 키워드가 제목에 있으면 add
-                                if (form.subject.contains(search_input)){
+                                // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
+                                if (my_category.contains(cat) && form.subject.contains(search_input) ){
                                     arrayList.add(form);
                                     Log.e("TEST", "form: "+form);
-
-                                    String cat1 = Integer.toString(form.category_text);
-                                    Log.e("TEST_3", "cat1: "+cat1);
-
-                                    FirebaseDatabase.getInstance().getReference().child("category").child(cat1)
-                                            .addValueEventListener(new ValueEventListener() {
-                                                @Override
-                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                    String cat2 = snapshot.getValue().toString();
-                                                    Log.e("TEST_3", "cat2: "+cat2);
-
-                                                    // 키워드가 제목에 있으면 add
-                                                    /*
-                                                    if (form.subject.contains(search_input)){
-                                                        for (int i=0;i<category.length;i++){
-                                                            if (cat2.equals(category[i])){
-                                                                arrayList.add(form);
-                                                                Log.e("TEST", "form: "+form);
-                                                            }
-                                                        }
-                                                    }
-
-                                                    */
-
-                                                }
-
-                                                @Override
-                                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                                }
-                                            });
                                 }
                             }
                             customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
@@ -251,8 +239,15 @@ public class SearchActivity extends AppCompatActivity {
                             // for문 돌려서 해당 키워드가 제목에 있는지 검색
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                                 Form form = dataSnapshot.getValue(Form.class);
+
+                                // 카테고리 숫자 cat에 저장
+                                int cat = form.category_text;
+                                Log.e("TEST_7", "cat: "+cat);
+
                                 // 키워드가 제목에 있으면 add
-                                if (form.subject.contains(search_input) || form.text.contains(search_input)){
+                                // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
+                                if (my_category.contains(cat) && form.subject.contains(search_input)
+                                        || form.text.contains(search_input)){
                                     arrayList.add(form);
                                     Log.e("TEST", "form: "+form);
                                 }
@@ -300,6 +295,10 @@ public class SearchActivity extends AppCompatActivity {
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                                 Form form = dataSnapshot.getValue(Form.class);
 
+                                // 카테고리 숫자 cat에 저장
+                                int cat = form.category_text;
+                                Log.e("TEST_7", "cat: "+cat);
+
                                 // UID_dash로 닉네임 검색 위해 users 불러옴
                                 FirebaseDatabase.getInstance().getReference().child("users").child(form.UID_dash)
                                         .addValueEventListener(new ValueEventListener() {
@@ -309,7 +308,9 @@ public class SearchActivity extends AppCompatActivity {
                                                 Log.e("TEST1", "userUID: "+user);
 
                                                 // 닉네임이 맞을 시 add
-                                                if (user.nick.equals(search_input)){
+                                                // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
+                                                if (my_category.contains(cat) &&
+                                                        user.nick.equals(search_input)){
                                                     Log.e("TEST2", "usernick: "+user.nick);
                                                     arrayList.add(form);
                                                     Log.e("TEST3", "form: "+form);
@@ -361,25 +362,44 @@ public class SearchActivity extends AppCompatActivity {
     private String[] getMy_Category(){
         Resources res = getResources();
         final String[] item = res.getStringArray(R.array.category);
+
         // 카테고리 목록에서 전체/관심 뺌
-        final String[] items = new String[10];
+        String[] items = new String[10];
         for (int i = 0; i<item.length-2; i++){
             items[i] = item[i+2];
-            Log.e("TEST_4", "items["+i+"]: "+items[i]);
+            //Log.e("TEST_4", "items["+i+"]: "+items[i]);
         }
         Log.e("TEST_4", "items: "+ Arrays.toString(items));
         return items;
     }
 
+    // 체크박스 모두 체크
+    private boolean[] allCheck_CB(){
+        boolean[] checkedItems = new boolean[10];
+        Arrays.fill(checkedItems, true);
+        return checkedItems;
+    }
+
+    // // true인 것만 골라서 리스트에 숫자로 넣음 (파이어베이스 연결을 위해)
+    private List<Integer> returnCheckBox(boolean[] booleans){
+        List<Integer> my_category = new ArrayList<>();
+        my_category.clear();
+        for (int i = 0; i<booleans.length; i++ ){
+            if (booleans[i]){
+                my_category.add(i+2);
+            }
+        }
+        //Log.e("TEST_5", "my_category: "+ my_category);
+
+        return my_category;
+    }
+
     protected Dialog onCreateDialog(int id) {
 
-        String[] items = getMy_Category();
+        // 카테고리 목록 불러옴, 체크박스 모두 체크
+        final String[] items = getMy_Category();
+        final boolean[] checkedItems = allCheck_CB();
 
-        // 체크박스 모두 체크
-        final boolean[] checkedItems = new boolean[10];
-        for (int i = 0; i<items.length; i++){
-            checkedItems[i] = true;
-        }
         androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
 
         // 제목 설정
@@ -397,19 +417,15 @@ public class SearchActivity extends AppCompatActivity {
         builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                category = items;
 
-                // 현제 체크된 항목 확인
-                String str = "";
-                for (int i = 0; i < items.length; i++) {
-                    if (checkedItems[i]) {
-                        str += items[i];
-                        if (i != items.length - 1) {
-                            str += ", ";
-                        }
-                    }
+                // 제대로 출력되는지 확인용
+                for (int i = 0; i<checkedItems.length; i++ ){
+                    Log.e("TEST_5", "checkedItems["+i+"]: "+checkedItems[i]);
                 }
-                Toast.makeText(SearchActivity.this, str, Toast.LENGTH_SHORT).show();
+
+                // true인 것만 골라서 my_category에 넣음
+                my_category = returnCheckBox(checkedItems);
+                Log.e("TEST_5", "my_category: "+ my_category);
             }
         });
         return builder.create();
