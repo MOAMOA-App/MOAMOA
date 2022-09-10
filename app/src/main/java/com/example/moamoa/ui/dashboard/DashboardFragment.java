@@ -236,7 +236,7 @@ public class DashboardFragment extends Fragment {
                     Toast.makeText(getContext(),"배송 여부를 선택하세요요",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (max_count.getText().toString().length()==0){
+                if (max_count.getText().toString().length()==0 && !checkBox.isChecked() ){
                     Toast.makeText(getContext(),"모집인원을 입력하세요",Toast.LENGTH_SHORT).show();
                     max_count.requestFocus();
                     return;
