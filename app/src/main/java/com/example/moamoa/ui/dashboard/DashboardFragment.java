@@ -76,6 +76,7 @@ public class DashboardFragment extends Fragment {
     private FirebaseAuth firebaseAuth;
     int i = 1;
     String point;
+    ClipData clipData;
 
     private static final String TAG = "MultiImageActivity";
     ArrayList<Uri> uriList = new ArrayList<>();     // 이미지의 uri를 담을 ArrayList 객체
@@ -258,7 +259,7 @@ public class DashboardFragment extends Fragment {
                         subject.getText().toString(),
                         text.getText().toString(),
                         address.getText().toString(),
-                        (Integer) category_text.getSelectedItem(),
+                        1,
                         cost.getText().toString(),
                         max,
                         Integer.parseInt(dead),
@@ -282,22 +283,23 @@ public class DashboardFragment extends Fragment {
                // reference.updateChildren(childUpdates);
 
                 storageRef = storage.getReference();
-                riversRef = storageRef.child("photo/"+user.getUid() +num_a +".png");
+                for(int i = 0; i < clipData.getItemCount(); i++) {
+                    riversRef = storageRef.child("photo/" + user.getUid() + num_a + "_"+(i+1)+".png");
 
-                uploadTask = riversRef.putFile(file);
-                uploadTask.addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        //Toast.makeText(getContext().getApplicationContext().this,"정상 업로드 안됨",Toast.LENGTH_SHORT);
-                    }
+                    uploadTask = riversRef.putFile(uriList.get(i));
+                    uploadTask.addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            //Toast.makeText(getContext().getApplicationContext().this,"정상 업로드 안됨",Toast.LENGTH_SHORT);
+                        }
 
-                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        //Toast.makeText(DashboardActivity.this,"업로드",Toast.LENGTH_SHORT);
-                    }
-                });
-
+                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            //Toast.makeText(DashboardActivity.this,"업로드",Toast.LENGTH_SHORT);
+                        }
+                    });
+                }
                 FirebaseDatabase.getInstance().getReference("form").child(FID).setValue(form)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
@@ -339,7 +341,7 @@ public class DashboardFragment extends Fragment {
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, true));
             }
             else{      // 이미지를 여러장 선택한 경우
-                ClipData clipData = data.getClipData();
+               clipData = data.getClipData();
                 Log.e("clipData", String.valueOf(clipData.getItemCount()));
 
                 if(clipData.getItemCount() > 10){   // 선택한 이미지가 11장 이상인 경우
@@ -352,7 +354,7 @@ public class DashboardFragment extends Fragment {
                         Uri imageUri = clipData.getItemAt(i).getUri();  // 선택한 이미지들의 uri를 가져온다.
                         try {
                             uriList.add(imageUri);  //uri를 list에 담는다.
-
+                            on=true;
                         } catch (Exception e) {
                             Log.e(TAG, "File select error", e);
                         }
