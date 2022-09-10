@@ -18,14 +18,14 @@ public class Form  implements Comparable<Form> {
     public int parti_num; //참여수
     public int state; //상태
     public int count; //조회수
-
-    public int s_case; //
+    public String point; //위도,경도
+    public int s_case; //지역 상태
     public String express; //배송종류
 
 
 
     public Form(){ };
-    public Form( String FID, String UID_dash,String image, String subject, String text, String address,int category_text, String cost, String max_count,int deadline, String today,int count,String express){
+    public Form( String FID, String UID_dash,String image, String subject, String text, String address,int category_text, String cost, String max_count,int deadline, String today,int count,String express, String point){
         this.FID = FID;
 
         this.UID_dash=UID_dash;
@@ -40,6 +40,8 @@ public class Form  implements Comparable<Form> {
         this.today = today;
         this.count = count;
         this.express = express;
+        this.point=point;
+
     }
     @Override
     public int compareTo(Form o) {
@@ -64,30 +66,21 @@ public class Form  implements Comparable<Form> {
             } else{
                 return 1;
             }
-
-
     }
- //   public void setUID(String FID){
-  //      this.FID = FID;
- //   }
 
     /*
     public String getFID() {
         return FID;
     }
-
     public void setFID(String FID) {
         this.FID = FID;
     }
-
     public String getUID_dash() {
         return UID_dash;
     }
-
     public void setUID_dash(String UID_dash) {
         this.UID_dash = UID_dash;
     }
-
      */
 
     public String getSubject(){
@@ -138,7 +131,8 @@ public class Form  implements Comparable<Form> {
     public String getExpress(){ return express; }
     public void setExpress(String express) {this.express = express;
     }
-
-
+    public String getPoint(){ return point; }
+    public void setPoint(String point) {this.point = point;
+    }
 
 }

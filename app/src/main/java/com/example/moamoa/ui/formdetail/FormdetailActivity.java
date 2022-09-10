@@ -4,15 +4,20 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.location.Address;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
@@ -27,6 +32,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.naver.maps.geometry.LatLng;
+import com.naver.maps.map.CameraPosition;
+import com.naver.maps.map.MapView;
+import com.naver.maps.map.NaverMap;
+import com.naver.maps.map.NaverMapSdk;
+import com.naver.maps.map.OnMapReadyCallback;
+import com.naver.maps.map.overlay.Marker;
+
+import java.io.IOException;
+import java.util.List;
 
 public class FormdetailActivity extends Activity {
     private DatabaseReference mDatabase;
@@ -36,11 +51,21 @@ public class FormdetailActivity extends Activity {
     String k;
     int count;
     String temp;
+    String str;
+    String adr;
 
+    // 지도
+    private MapView mapView;
+    private static NaverMap naverMap;
+    private LatLng myLatLng = new LatLng( 37.3399, 126.733);
+    Marker marker = new Marker();
+    private Geocoder geocoder;
+    Button btn_map;
+//
     private ImageView mainImage;
     private FirebaseStorage firebaseStorage;
     private FirebaseUser user;
-
+    String point;
     @Override
     protected void onStart() {
         super.onStart();
@@ -68,7 +93,14 @@ public class FormdetailActivity extends Activity {
         Button chat_btn = (Button)findViewById(R.id.detail_chat_btn);   //채팅하기 버튼
         Button party_btn = (Button)findViewById(R.id.detail_party_btn); //참여하기 버튼
         //ImageButton heart_btn = (ImageButton) findViewById(R.id.detail_heart_btn);
-
+        //
+        NaverMapSdk.getInstance(this).setClient(
+                new NaverMapSdk.NaverCloudPlatformClient("xjdzzwh9wk"));
+        mapView = (MapView)findViewById(R.id.mv);
+        btn_map = (Button)findViewById(R.id.button_map);
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync((OnMapReadyCallback) this);
+        //
         printpage();
 
         chat_btn.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +112,7 @@ public class FormdetailActivity extends Activity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         // USER 정보 불러옴 (ChatsFragment에서 destinationUID로 사용)
                         String UID = dataSnapshot.child("UID_dash").getValue().toString();
-
+                        point=dataSnapshot.child("point").getValue().toString();
                         // FORM 정보 불러옴(ChatFragment에서 CHATROOM_NAME과 CHATROOM_FID로 사용)
                         /*
                         String FORMNAME = dataSnapshot.child("subject").getValue().toString();
@@ -237,6 +269,20 @@ public class FormdetailActivity extends Activity {
         finish();
     }
 
+    public void onMapReady(@NonNull NaverMap naverMap) {
+        this.naverMap = naverMap;
+        geocoder = new Geocoder(this);
+        String[] PointArray=point.split(",");
+        String latitude = PointArray[0]; // 경도
+        String longitude = PointArray[1]; // 경도
+        LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
+        marker.setPosition(point1);
+        marker.setMap(naverMap);
+                // 해당 좌표로 화면 줌
+        CameraPosition cameraPosition = new CameraPosition(point1, 16);
+            }
+
+
     private void printpage(){
         //Retrofit_Function.category();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("form");
@@ -292,6 +338,7 @@ public class FormdetailActivity extends Activity {
         });
 
     }
+
     private void UserFind(String UID){
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
         mDatabase.child(UID).addValueEventListener(new ValueEventListener() {
