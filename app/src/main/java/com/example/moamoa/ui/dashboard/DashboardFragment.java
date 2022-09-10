@@ -75,8 +75,7 @@ public class DashboardFragment extends Fragment {
     private final int GALLERY_CODE = 10;
     private FirebaseAuth firebaseAuth;
     int i = 1;
-    double la,lo;
-
+    String point;
 
     private static final String TAG = "MultiImageActivity";
     ArrayList<Uri> uriList = new ArrayList<>();     // 이미지의 uri를 담을 ArrayList 객체
@@ -112,6 +111,7 @@ public class DashboardFragment extends Fragment {
         RadioGroup radioGroup=(RadioGroup) root.findViewById(R.id.radioGroup);
         Spinner category_text = (Spinner) root.findViewById(R.id.spinner);
         Button button = (Button) root.findViewById(R.id.button_dashboard);
+        Button btn_addr = (Button) root.findViewById(R.id.button_addr);
         Button button_img = (Button) root.findViewById(R.id.button_img);
         root.findViewById(R.id.button_img).setOnClickListener(onClickListener);
         TextView deadline = (TextView) root.findViewById(R.id.text_dashboardend);
@@ -195,7 +195,14 @@ public class DashboardFragment extends Fragment {
 
             }
         });
+        btn_addr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MapActivity.class);
+                startActivity(intent);
 
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -258,8 +265,7 @@ public class DashboardFragment extends Fragment {
                         getTime1(),
                         0,
                         express,
-                        la,
-                        lo
+                        point
                 );
 
 

@@ -31,7 +31,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private LatLng myLatLng = new LatLng( 37.3399, 126.733);
     Marker marker = new Marker();
     private Geocoder geocoder;
-    Button btn_map;
+    Button btn_map,btn_submit;
     EditText adr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 new NaverMapSdk.NaverCloudPlatformClient("xjdzzwh9wk"));
         mapView = (MapView)findViewById(R.id.mv);
         btn_map = (Button)findViewById(R.id.button_map);
+        btn_submit = (Button)findViewById(R.id.btn_submit);
+
         adr = (EditText)findViewById(R.id.map_text);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
@@ -53,8 +55,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
         geocoder = new Geocoder(this);
-        CameraPosition cameraPosition = new CameraPosition(myLatLng, 16);
-        naverMap.setCameraPosition(cameraPosition);
+
         btn_map.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -89,6 +90,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 marker.setMap(naverMap);
                 // 해당 좌표로 화면 줌
                 CameraPosition cameraPosition = new CameraPosition(point, 16);
+                naverMap.setCameraPosition(cameraPosition);
             }
         });
     }
