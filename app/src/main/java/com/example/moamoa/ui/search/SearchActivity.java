@@ -76,7 +76,7 @@ public class SearchActivity extends AppCompatActivity {
 
         // 카테고리 목록 불러옴, 체크박스 전부 체크, 리스트에 추가 (초기값)
         category = getMy_Category();
-        cat_checkbox = allCheck_CB();
+        cat_checkbox = allCheck_CB(category);
         my_category = returnCheckBox(cat_checkbox);
 
         // 버튼 정의
@@ -329,8 +329,8 @@ public class SearchActivity extends AppCompatActivity {
      * 체크박스 모두 체크
      * @return checkedItems 카테고리 체크박스 전부 체크
      */
-    private boolean[] allCheck_CB(){
-        boolean[] checkedItems = new boolean[10];
+    private boolean[] allCheck_CB(String[] items){
+        boolean[] checkedItems = new boolean[items.length];
         Arrays.fill(checkedItems, true);
         return checkedItems;
     }
@@ -348,7 +348,6 @@ public class SearchActivity extends AppCompatActivity {
                 my_category.add(i+2);
             }
         }
-
         return my_category;
     }
 
@@ -356,18 +355,20 @@ public class SearchActivity extends AppCompatActivity {
      * 카테고리 선택 / 상태 선택 / 정렬 다이얼로그
      */
     protected Dialog onCreateDialog(int id) {
+        Resources res = getResources();
+
         switch (id){
             // 카테고리 다이얼로그
             case DIALOG_CATEGORY:
                 // 카테고리 목록 불러옴, 체크박스 모두 체크
                 final String[] items = getMy_Category();
-                final boolean[] checkedItems = allCheck_CB();
+                final boolean[] checkedItems = allCheck_CB(items);
 
                 androidx.appcompat.app.AlertDialog.Builder builder1
                         = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
 
                 // 제목 설정
-                builder1.setTitle("카테고리 선택");
+                builder1.setTitle("카테고리");
 
                 // 바뀐 것 적용
                 builder1.setMultiChoiceItems(items, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
@@ -388,10 +389,22 @@ public class SearchActivity extends AppCompatActivity {
                 return builder1.create();
 
             case DIALOG_STATE:
+
+
+                final String[] states = res.getStringArray(R.array.state);
+                final boolean[] checked_state = allCheck_CB(states);
+
                 androidx.appcompat.app.AlertDialog.Builder builder2
                         = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
 
                 builder2.setTitle("게시글 진행 상태");
+
+                builder2.setMultiChoiceItems(states, checked_state, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        checked_state[which] = isChecked;
+                    }
+                });
 
                 builder2.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
@@ -403,10 +416,20 @@ public class SearchActivity extends AppCompatActivity {
                 return builder2.create();
 
             case DIALOG_SORT:
+
+                final String[] sortstd = res.getStringArray(R.array.sortstd);
+
                 androidx.appcompat.app.AlertDialog.Builder builder3
                         = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
 
                 builder3.setTitle("정렬 기준");
+
+                builder3.setSingleChoiceItems(sortstd, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(SearchActivity.this, sortstd[which], Toast.LENGTH_SHORT).show();
+                    }
+                });
 
                 builder3.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override

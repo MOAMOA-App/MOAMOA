@@ -22,5 +22,16 @@
         <item>해외</item>
     </string-array>
 
+    <string-array name="state">
+        <item>모집중</item>
+        <item>진행중</item>
+        <item>완료</item>
+    </string-array>
+
+    <string-array name="sortstd">
+        <item>최신순</item>
+        <item>인기순</item>
+        <item>마감순</item>
+    </string-array>
 
 </resources>
