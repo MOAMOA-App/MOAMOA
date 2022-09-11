@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.moamoa.Form;
 import com.example.moamoa.R;
+import com.example.moamoa.databinding.FragmentSearchBinding;
 import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.category.CustomListView;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
@@ -31,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -41,11 +44,14 @@ import java.util.List;
  */
 public class SearchActivity extends AppCompatActivity {
 
+    FragmentSearchBinding binding;
+    SearchFragment searchFragment = new SearchFragment();
+
     private ArrayList<Form> arrayList;      // 리스트 안에 담을 데이터들을 저장
     private CustomListView customListView;  // 리스트뷰 어댑터
 
     private EditText EditText_search;
-    private String search_std, search_input;    // std: 검색기준, input: EditText_search 텍스트화
+    private static String search_std, search_input;    // std: 검색기준, input: EditText_search 텍스트화
     private Button search_btn;
 
     final int DIALOG_CATEGORY = 1;
@@ -54,11 +60,11 @@ public class SearchActivity extends AppCompatActivity {
 
     private Button SelectCategory, SelectState, SortBtn;
 
-    static List<Integer> my_category = new ArrayList<>();   // 카테고리 숫자 담을 리스트
-    static List<Integer> my_state = new ArrayList<>();      // 게시글 상태 숫자 담을 리스트
+    Form listData;
 
-    static String[] category = new String[15];          // 카테고리 목록
-    static boolean[] cat_checkbox = new boolean[15];    // 카테고리 체크박스
+    static ArrayList<Integer> my_category = new ArrayList<>();   // 카테고리 숫자 담을 리스트
+    static ArrayList<Integer> my_state = new ArrayList<>();      // 게시글 상태 숫자 담을 리스트
+    static int sort_std;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,17 +80,67 @@ public class SearchActivity extends AppCompatActivity {
         at com.example.moamoa.ui.category.CustomListView$1.onSuccess(CustomListView.java:77)
         * */
 
+        // 검색 기준 설정 (제목/사용자닉네임)
+        Spinner spinner = findViewById(R.id.searchspinner);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                search_std = adapterView.getItemAtPosition(position).toString();
+                Log.e("TEST5", "search_std1: "+search_std);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        Log.e("TEST5", "search_std2: "+search_std);
+
+
+
         // 카테고리 목록 불러옴, 체크박스 전부 체크, 리스트에 추가 (초기값)
-        category = getMy_Category();
-        cat_checkbox = allCheck_CB(category);
+        String[] category = getMy_Category();
+        boolean[] cat_checkbox = allCheck_CB(category);
         my_category = returnCheckBox(cat_checkbox);
 
-        // 버튼 정의
-        SelectCategory = findViewById(R.id.select_category);
-        SelectState = findViewById(R.id.select_state);
-        SortBtn = findViewById(R.id.search_sortbtn);
+        // 상태 목록 불러옴, 체크박스 전부 체크, 리스트에 추가 (초기값)
+        Resources res = getResources();
+        String[] state = res.getStringArray(R.array.state);
+        boolean[] state_checkbox = allCheck_CB(state);
+        my_state = returnStateCheckBox(state_checkbox);
+
+        // 게시글 정렬 기준 초기값: 최신순
+        sort_std = 0;
+
+        // 만약 모두 체크되어있지 않으면 getExtra를 불러오기
+        // 그거를 어케아느냐... 1. 체크박스가 모두 true인지 보기 2. my_category 길이가 category 길이인지 보기
+
+        // 아니지 일단 받아와서 만약 null이면 모두 채우기 해야지
+        /*
+        Intent getIntent = getIntent();
+        my_category = getIntent.getIntegerArrayListExtra("category");
+        Log.e("TEST_3", "my_category: "+my_category);
+        if (my_category == null){
+            cat_checkbox = allCheck_CB(category);
+            my_category = returnCheckBox(cat_checkbox);
+            Log.e("TEST_2", "my_category_2: "+my_category);
+        }
+
+         */
+        /*
+        Log.e("TEST_3", "my_category_1: "+my_category);
+        Log.e("TEST_3", "my_category_1: "+my_category);
+        if (my_category.size() != category.length){
+            my_category = getIntent.getIntegerArrayListExtra("category");
+            Log.e("TEST_2", "my_category_1: "+my_category);
+        } else {
+
+        }
+
+         */
 
         // 버튼 누르면 카테고리 목록 출력
+        SelectCategory = findViewById(R.id.select_category);
         SelectCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,6 +149,7 @@ public class SearchActivity extends AppCompatActivity {
         });
 
         // 버튼 누르면 상태 목록 출력
+        SelectState = findViewById(R.id.select_state);
         SelectState.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +158,7 @@ public class SearchActivity extends AppCompatActivity {
         });
 
         // 버튼 누르면 정렬 기준 목록 출력
+        SortBtn = findViewById(R.id.search_sortbtn);
         SortBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,20 +166,20 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-        // 검색 기준 설정 (제목/사용자닉네임)
-        Spinner spinner = findViewById(R.id.searchspinner);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                search_std = adapterView.getItemAtPosition(position).toString();
-            }
+        /*
+        // 검색할 텍스트 search_input에 저장 (초기값)
+        search_input = null;
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+        // 프래그먼트 매니저로 chatscontainer에 searchFragment 연결해줌
+        Bundle bundle = new Bundle();
+        bundle.putString("searchStd", search_std);
+        bundle.putString("searchInput", search_input);
+        bundle.putIntegerArrayList("myCategory", my_category);
+        searchFragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.searchcontainer, searchFragment).commit();
 
-            }
-        });
 
+         */
         // 리스트뷰 정의
         ListView listView = findViewById(R.id.search_listview);
 
@@ -135,12 +193,19 @@ public class SearchActivity extends AppCompatActivity {
                     Form form = dataSnapshot.getValue(Form.class);
                     // 카테고리 숫자 cat에 저장
                     int cat = form.category_text;
+                    int sta = form.state;
 
                     // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
-                    if (my_category.contains(cat)){
+                    if (my_category.contains(cat) && my_state.contains(sta)){
                         arrayList.add(form);
                     }
                 }
+                /*
+                listData.s_case = sort_std;
+                arrayList.add(listData);
+                Collections.sort(arrayList);
+
+                 */
                 customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                 listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
             }
@@ -175,6 +240,23 @@ public class SearchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // 검색할 텍스트 search_input에 저장
                 search_input = EditText_search.getText().toString();
+                /*
+                Log.e("TEST5", "search_std3: "+search_std);
+                Log.e("TEST5", "search_input1: "+search_input);
+
+                // 프래그먼트 매니저로 searchcontainer에 searchFragment 연결 + 값 넘김
+                Bundle bundle = new Bundle();
+                bundle.putString("searchStd", search_std);
+                bundle.putString("searchInput", search_input);
+                bundle.putIntegerArrayList("myCategory", my_category);
+                searchFragment.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.searchcontainer, searchFragment).commit();
+
+
+
+                 */
+                // 검색할 텍스트 search_input에 저장
+                search_input = EditText_search.getText().toString();
 
                 // search_input 포함하는 게시글 찾아 목록에 추가
                 switch (search_std) {
@@ -190,11 +272,15 @@ public class SearchActivity extends AppCompatActivity {
 
                                     // 카테고리 숫자 cat에 저장
                                     int cat = form.category_text;
+                                    int sta = form.state;
 
                                     // 키워드가 제목에 있으면 add
                                     // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
-                                    if (my_category.contains(cat) && form.subject.contains(search_input)) {
+                                    if (my_category.contains(cat) && my_state.contains(sta)
+                                            && form.subject.contains(search_input)) {
                                         arrayList.add(form);
+                                        Log.e("TEST1", "my_state: "+my_state);
+                                        Log.e("TEST1", "sta: "+sta);
 
                                     }
                                 }
@@ -221,11 +307,12 @@ public class SearchActivity extends AppCompatActivity {
 
                                     // 카테고리 숫자 cat에 저장
                                     int cat = form.category_text;
+                                    int sta = form.state;
 
                                     // 키워드가 제목에 있으면 add
                                     // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
                                     if ((form.subject.contains(search_input) || form.text.contains(search_input))
-                                            && my_category.contains(cat)) {
+                                            && my_category.contains(cat) && my_state.contains(sta)) {
                                         arrayList.add(form);
                                     }
                                 }
@@ -252,6 +339,7 @@ public class SearchActivity extends AppCompatActivity {
 
                                     // 카테고리 숫자 cat에 저장
                                     int cat = form.category_text;
+                                    int sta = form.state;
 
                                     // UID_dash로 닉네임 검색 위해 users 불러옴
                                     FirebaseDatabase.getInstance().getReference().child("users").child(form.UID_dash)
@@ -262,7 +350,8 @@ public class SearchActivity extends AppCompatActivity {
 
                                                     // 닉네임이 맞을 시 add
                                                     // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
-                                                    if (my_category.contains(cat) && user.nick.equals(search_input)) {
+                                                    if (my_category.contains(cat) && my_state.contains(sta)
+                                                            && user.nick.equals(search_input)) {
                                                         arrayList.add(form);
 
                                                         // 현 문제: 추가는 됐는데 화면에 안나옴
@@ -340,8 +429,8 @@ public class SearchActivity extends AppCompatActivity {
      * @param booleans 체크박스 체크 여부 배열
      * @return my_category 값이 true면 인덱스+2를 my_category에 넣음
      */
-    private List<Integer> returnCheckBox(boolean[] booleans){
-        List<Integer> my_category = new ArrayList<>();
+    private ArrayList<Integer> returnCheckBox(boolean[] booleans){
+        ArrayList<Integer> my_category = new ArrayList<>();
         //my_category.clear();
         for (int i = 0; i<booleans.length; i++ ){
             if (booleans[i]){
@@ -352,14 +441,29 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     /**
+     * 체크박스에서 true인 것만 골라서 리스트에 숫자로 넣음
+     * @param booleans 체크박스 체크 여부 배열
+     * @return my_category 값이 true면 인덱스를 my_category에 넣음
+     */
+    private ArrayList<Integer> returnStateCheckBox(boolean[] booleans){
+        ArrayList<Integer> list = new ArrayList<>();
+        //my_category.clear();
+        for (int i = 0; i<booleans.length; i++ ){
+            if (booleans[i]){
+                list.add(i);
+            }
+        }
+        return list;
+    }
+
+    /**
      * 카테고리 선택 / 상태 선택 / 정렬 다이얼로그
      */
     protected Dialog onCreateDialog(int id) {
         Resources res = getResources();
 
         switch (id){
-            // 카테고리 다이얼로그
-            case DIALOG_CATEGORY:
+            case DIALOG_CATEGORY:   // 카테고리 선택
                 // 카테고리 목록 불러옴, 체크박스 모두 체크
                 final String[] items = getMy_Category();
                 final boolean[] checkedItems = allCheck_CB(items);
@@ -388,17 +492,18 @@ public class SearchActivity extends AppCompatActivity {
                 });
                 return builder1.create();
 
-            case DIALOG_STATE:
-
-
+            case DIALOG_STATE:  // 상태 선택
+                // 상태 리스트 불러옴, 체크박스 모두 체크
                 final String[] states = res.getStringArray(R.array.state);
                 final boolean[] checked_state = allCheck_CB(states);
 
                 androidx.appcompat.app.AlertDialog.Builder builder2
                         = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
 
+                // 제목 설정
                 builder2.setTitle("게시글 진행 상태");
 
+                // 바뀐 것 적용
                 builder2.setMultiChoiceItems(states, checked_state, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which, boolean isChecked) {
@@ -409,14 +514,13 @@ public class SearchActivity extends AppCompatActivity {
                 builder2.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        my_state = returnStateCheckBox(checked_state);
                     }
                 });
 
                 return builder2.create();
 
-            case DIALOG_SORT:
-
+            case DIALOG_SORT:   // 게시글 정렬
                 final String[] sortstd = res.getStringArray(R.array.sortstd);
 
                 androidx.appcompat.app.AlertDialog.Builder builder3
@@ -428,13 +532,10 @@ public class SearchActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(SearchActivity.this, sortstd[which], Toast.LENGTH_SHORT).show();
-                    }
-                });
+                        sort_std = Arrays.asList(sortstd).indexOf(sortstd[which]);
+                        Log.e("TEST2", "sort_std: "+sort_std);
 
-                builder3.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
+                        dialog.dismiss(); // 누르면 바로 닫히는 형태
                     }
                 });
 

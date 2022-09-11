@@ -25,7 +25,7 @@
     <string-array name="state">
         <item>모집중</item>
         <item>진행중</item>
-        <item>완료</item>
+        <item>거래 완료</item>
     </string-array>
 
     <string-array name="sortstd">
