@@ -29,5 +29,8 @@
     <string name="title_activity_address_api">AddressApiActivity</string>
     <string name="kakao_app_key">1ffe313e2b6c001fbbd0f795eedfc0be</string>
     <string name="server_ip">54.183.248.140:8080</string>
+    <string name="search_selectcat">카테고리</string>
+    <string name="search_selectstate">진행 상태</string>
+    <string name="search_sortstd">정렬 기준</string>
     <!-- Strings used for fragments for navigation -->
 </resources>

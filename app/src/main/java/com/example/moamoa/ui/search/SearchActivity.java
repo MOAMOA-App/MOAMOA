@@ -37,7 +37,7 @@ import java.util.List;
  * @file SearchActivity
  * @author 유진
  * @brief 게시글을 제목/제목+내용/작성자 이름 기준으로 검색
- * 카테고리 선택 후 검색 버튼 누르면 선택한 카테고리에 해당되는 게시글 목록 출력
+ * 카테고리/상태/정렬기준 선택 후 검색 버튼 누르면 선택한 카테고리에 해당되는 게시글 목록 출력
  */
 public class SearchActivity extends AppCompatActivity {
 
@@ -48,7 +48,11 @@ public class SearchActivity extends AppCompatActivity {
     private String search_std, search_input;    // std: 검색기준, input: EditText_search 텍스트화
     private Button search_btn;
 
-    private Button SelectCategory, SelectState;
+    final int DIALOG_CATEGORY = 1;
+    final int DIALOG_STATE = 2;
+    final int DIALOG_SORT = 3;
+
+    private Button SelectCategory, SelectState, SortBtn;
 
     static List<Integer> my_category = new ArrayList<>();   // 카테고리 숫자 담을 리스트
     static List<Integer> my_state = new ArrayList<>();      // 게시글 상태 숫자 담을 리스트
@@ -78,12 +82,29 @@ public class SearchActivity extends AppCompatActivity {
         // 버튼 정의
         SelectCategory = findViewById(R.id.select_category);
         SelectState = findViewById(R.id.select_state);
+        SortBtn = findViewById(R.id.search_sortbtn);
 
         // 버튼 누르면 카테고리 목록 출력
         SelectCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDialog(0); // 다이얼로그 호출
+                showDialog(DIALOG_CATEGORY); // 다이얼로그 호출
+            }
+        });
+
+        // 버튼 누르면 상태 목록 출력
+        SelectState.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog(DIALOG_STATE); // 다이얼로그 호출
+            }
+        });
+
+        // 버튼 누르면 정렬 기준 목록 출력
+        SortBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog(DIALOG_SORT); // 다이얼로그 호출
             }
         });
 
@@ -332,37 +353,70 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     /**
-     * 카테고리 선택 다이얼로그
+     * 카테고리 선택 / 상태 선택 / 정렬 다이얼로그
      */
     protected Dialog onCreateDialog(int id) {
+        switch (id){
+            // 카테고리 다이얼로그
+            case DIALOG_CATEGORY:
+                // 카테고리 목록 불러옴, 체크박스 모두 체크
+                final String[] items = getMy_Category();
+                final boolean[] checkedItems = allCheck_CB();
 
-        // 카테고리 목록 불러옴, 체크박스 모두 체크
-        final String[] items = getMy_Category();
-        final boolean[] checkedItems = allCheck_CB();
+                androidx.appcompat.app.AlertDialog.Builder builder1
+                        = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
 
-        androidx.appcompat.app.AlertDialog.Builder builder
-                = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
+                // 제목 설정
+                builder1.setTitle("카테고리 선택");
 
-        // 제목 설정
-        builder.setTitle("카테고리 선택");
+                // 바뀐 것 적용
+                builder1.setMultiChoiceItems(items, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        checkedItems[which] = isChecked;
+                    }
+                });
 
-        // 바뀐 것 적용
-        builder.setMultiChoiceItems(items, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                checkedItems[which] = isChecked;
-            }
-        });
+                // 같은 onclick을 사용하기 때문에 DialogInterface 적어주어야 에러가 발생하지 않음
+                builder1.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // true인 것만 골라서 my_category에 넣음
+                        my_category = returnCheckBox(checkedItems);
+                    }
+                });
+                return builder1.create();
 
-        // 같은 onclick을 사용하기 때문에 DialogInterface 적어주어야 에러가 발생하지 않음
-        builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+            case DIALOG_STATE:
+                androidx.appcompat.app.AlertDialog.Builder builder2
+                        = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
 
-                // true인 것만 골라서 my_category에 넣음
-                my_category = returnCheckBox(checkedItems);
-            }
-        });
-        return builder.create();
+                builder2.setTitle("게시글 진행 상태");
+
+                builder2.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+                return builder2.create();
+
+            case DIALOG_SORT:
+                androidx.appcompat.app.AlertDialog.Builder builder3
+                        = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
+
+                builder3.setTitle("정렬 기준");
+
+                builder3.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+                return builder3.create();
+        }
+        return super.onCreateDialog(id);
     }
 }
