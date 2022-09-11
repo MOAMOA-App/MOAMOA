@@ -68,6 +68,7 @@ public class DashboardFragment extends Fragment {
     int num_a;
     String max;
     String express;
+    int photo_num;
     ImageView photo;
     String imageUrl;
     Button button_img;
@@ -256,6 +257,7 @@ public class DashboardFragment extends Fragment {
                         FID,
                         user.getUid(),
                         "photo/"+FID+".png",
+                        photo_num,
                         subject.getText().toString(),
                         text.getText().toString(),
                         address.getText().toString(),
@@ -333,8 +335,9 @@ public class DashboardFragment extends Fragment {
             if(data.getClipData() == null){     // 이미지를 하나만 선택한 경우
                 Log.e("single choice: ", String.valueOf(data.getData()));
                 Uri imageUri = data.getData();
-                uriList.add(imageUri);
 
+                uriList.add(imageUri);
+                photo_num=1;
                 adapter = new MultiImageAdapter(uriList, getContext());
                 recyclerView.setAdapter(adapter);
                // recyclerView.setItemAnimator(null);
@@ -355,6 +358,7 @@ public class DashboardFragment extends Fragment {
                         try {
                             uriList.add(imageUri);  //uri를 list에 담는다.
                             on=true;
+                            photo_num= clipData.getItemCount();
                         } catch (Exception e) {
                             Log.e(TAG, "File select error", e);
                         }

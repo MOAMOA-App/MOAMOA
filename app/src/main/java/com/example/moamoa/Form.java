@@ -7,6 +7,7 @@ public class Form  implements Comparable<Form> {
    public String subject; //제목
    public  String text; //내용
     public String image; //이미지
+    public int photo_num; //이미지 갯수
     public  String address; //주소
     public int category_text; //카테고리
     public String cost; //가격
@@ -25,12 +26,13 @@ public class Form  implements Comparable<Form> {
 
 
     public Form(){ };
-    public Form( String FID, String UID_dash,String image, String subject, String text, String address,int category_text, String cost, String max_count,int deadline, String today,int count,String express, String point){
+    public Form( String FID, String UID_dash,String image,int photo_num, String subject, String text, String address,int category_text, String cost, String max_count,int deadline, String today,int count,String express, String point){
         this.FID = FID;
 
         this.UID_dash=UID_dash;
         this.subject = subject;
         this.image=image;
+        this.photo_num=photo_num;
         this.text = text;
         this.address = address;
         this.category_text = category_text;
@@ -134,5 +136,9 @@ public class Form  implements Comparable<Form> {
     public String getPoint(){ return point; }
     public void setPoint(String point) {this.point = point;
     }
+    public int getPhoto_num(){ return photo_num; }
+    public void setPhoto_num(int photo_num) {this.photo_num = photo_num;
+    }
+
 
 }
