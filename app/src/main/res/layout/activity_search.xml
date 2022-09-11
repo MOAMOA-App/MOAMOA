@@ -70,7 +70,7 @@
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:textColor="@color/white"
-                android:text="카테고리"
+                android:text="@string/search_selectcat"
                 >
             </Button>
 
@@ -78,8 +78,17 @@
                 android:id="@+id/select_state"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
+                android:text="@string/search_selectstate"
                 android:textColor="@color/white"
-                android:text="진행 상태"
+                >
+            </Button>
+
+            <Button
+                android:id="@+id/search_sortbtn"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:textColor="@color/white"
+                android:text="@string/search_sortstd"
                 >
             </Button>
 
@@ -92,20 +101,20 @@
         android:layout_height="match_parent" />
 
 </LinearLayout>
-<!--
-<androidx.fragment.app.FragmentContainerView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
+    <!--
+    <androidx.fragment.app.FragmentContainerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
 
-    android:id="@+id/searchcontainerview"
-    android:name="com.example.moamoa.ui.search.SearchFragment"
-    >
+        android:id="@+id/searchcontainerview"
+        android:name="com.example.moamoa.ui.search.SearchFragment"
+        >
 
 
-</androidx.fragment.app.FragmentContainerView>
--->
+    </androidx.fragment.app.FragmentContainerView>
+    -->
