@@ -51,6 +51,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
+//프로필 이미지 설정하는 클래스
 public class CustomDialog extends Activity {
     private ImageView profile;
     private Button okClick;
@@ -62,6 +63,7 @@ public class CustomDialog extends Activity {
     private static final int PICK_FROM_ALBUM = 1; //앨범에서 사진 가져오기
 
     private File tempFile;
+    private Uri uri;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -163,8 +165,21 @@ public class CustomDialog extends Activity {
                 }
                 //갤러리에서 가져온 이미지
                 if (dimage.contains("userprofile/")){
-                    mDatabase.child("users").child(user.getUid()).child("image").setValue(dimage);
+                    //userprofile에 이미지 저장(image)
+                    createProfile(uri);
+
                     Handler handler = new Handler();
+
+                    //user의 image를 dimage 값으로 변경 (text)
+                    mDatabase.child("users").child(user.getUid()).child("image").setValue(dimage);
+
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(CustomDialog.this, "저장되었습니다.", Toast.LENGTH_LONG).show();
+                        }
+                    }, 1500);
+
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -281,9 +296,8 @@ public class CustomDialog extends Activity {
                 profile.setImageBitmap(originalBm);
 
                 //bitmap을 Uri로
-                Uri uri = getImageUri(this,originalBm);
+                uri = getImageUri(this,originalBm);
 
-                createProfile(uri);
                 dimage = "userprofile/"+"profile_"+ user.getUid() +".jpeg";
 
                 /**
@@ -314,8 +328,8 @@ public class CustomDialog extends Activity {
     private Uri getImageUri(Context context, Bitmap inImage) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         //Bitmap 압축 함수
-        //compress() 의 두번째 파라메터로 40 을 넘기고있는데 이건 40%로 압축한다는 의미입니다.
-        inImage.compress(Bitmap.CompressFormat.JPEG, 40, bytes);
+        //compress() 의 두번째 파라메터로 60 을 넘기고있는데 이건 60%로 압축한다는 의미입니다.
+        inImage.compress(Bitmap.CompressFormat.JPEG, 60, bytes);
 
         //없으면 바이트가 줄지 않음
         byte[] byteArray = bytes.toByteArray();
