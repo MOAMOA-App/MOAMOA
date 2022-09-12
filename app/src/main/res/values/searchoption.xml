@@ -3,6 +3,6 @@
     <string-array name="searchoption">
         <item>제목</item>
         <item>제목+내용</item>
-        <item>사용자 이름</item>
+        <item>작성자 이름</item>
     </string-array>
 </resources>
