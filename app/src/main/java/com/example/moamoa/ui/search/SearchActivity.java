@@ -1,12 +1,14 @@
 package com.example.moamoa.ui.search;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -31,9 +33,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -64,7 +68,7 @@ public class SearchActivity extends AppCompatActivity {
 
     static ArrayList<Integer> my_category = new ArrayList<>();   // 카테고리 숫자 담을 리스트
     static ArrayList<Integer> my_state = new ArrayList<>();      // 게시글 상태 숫자 담을 리스트
-    static int sort_std;
+    static int sort_std = 0;
 
     ListView listView;
 
@@ -74,13 +78,24 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         /*
-        * 오류남!! 코드 오류나길래 일부러 옛날걸로해서 복붙했는데 왜오류나는지 모르겠음
-        * 로그
-        * java.lang.ClassCastException: com.example.moamoa.ui.search.SearchActivity
-        * cannot be cast to com.example.moamoa.ui.category.CategoryActivity
-        at com.example.moamoa.ui.category.CustomListView$1.onSuccess(CustomListView.java:80)
-        at com.example.moamoa.ui.category.CustomListView$1.onSuccess(CustomListView.java:77)
-        * */
+         * 정렬어케할지
+         * 스으읍........ 이거 따로 ArrayList 만들어서 다 따로 정렬해줘야되나
+         * 저거에 따라서 정렬하면서 기존 arrayList도 정렬하면 되지않을까싶기도...
+         * sort_std에 따라서 만약 최신순이다 싶으면
+         * 아 근데 같이정렬이 되나 일단 필요한거
+         * form.count 조회수 -> 인기순 int
+         * form.today 작성일 -> 최신순 String
+         * form.deadline 마감일자 -> 마감순 int
+         * form.max_count 마감인원 -> 마감순 String
+         *
+         * 아니면 아예 Arraylist를 Hashmap으로 바꿔서
+         * 아니다... CustomListView에서 ArrayList<Form> 해버려서
+         *
+         * 리스트에 추가할때 이미 있는 데이터랑 비교해서 그거보다 크면 넣고 작으면 앞에 넣자
+         * 그러면 최신순/인기순/마감순 switch문 넣어서
+         * 리스트 null일시 그냥 추가
+         * null 아닐시
+         */
 
         // 검색 기준 설정 (제목/사용자닉네임)
         Spinner spinner = findViewById(R.id.searchspinner);
@@ -108,9 +123,6 @@ public class SearchActivity extends AppCompatActivity {
         String[] state = res.getStringArray(R.array.state);
         boolean[] state_checkbox = allCheck_CB(state);
         my_state = returnStateCheckBox(state_checkbox);
-
-        // 게시글 정렬 기준 초기값: 최신순
-        sort_std = 0;
 
         // 버튼 누르면 카테고리 목록 출력
         SelectCategory = findViewById(R.id.select_category);
@@ -178,6 +190,7 @@ public class SearchActivity extends AppCompatActivity {
         if (search_input.equals("")){
             arrayList = new ArrayList<>();
             FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
+                @RequiresApi(api = Build.VERSION_CODES.N)
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     arrayList.clear();
@@ -197,8 +210,26 @@ public class SearchActivity extends AppCompatActivity {
                     // arrayList.add(listData);
                     // Collections.sort(arrayList);
 
-                    customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                    listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
+                    //if (arrayList.get(0).max_count.equals("0"))
+
+                    switch (sort_std){
+                        case 0: // 최신순
+                            Log.e("TEST10", "sort_std: "+sort_std);
+                            customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
+                            listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
+                            break;
+                        case 1: // 인기순
+                            Log.e("TEST10", "sort_std: "+sort_std);
+                            arrayList.sort(Comparator.reverseOrder());
+                            customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
+                            listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
+                            break;
+                        case 2: // 마감순
+                            Log.e("TEST10", "sort_std: "+sort_std);
+                            customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
+                            listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
+                            break;
+                    }
                 }
 
                 @Override
@@ -230,9 +261,14 @@ public class SearchActivity extends AppCompatActivity {
                                     arrayList.add(form);
                                     Log.e("TEST1", "my_state: "+my_state);
                                     Log.e("TEST1", "sta: "+sta);
-
+                                    Log.e("TEST2", "form.count: "+form.count);
+                                    Log.e("TEST2", "form.today: "+form.today);
+                                    Log.e("TEST2", "form.max_count: "+form.max_count);
+                                    Log.e("TEST2", "form.deadline: "+form.deadline);
                                 }
                             }
+                            Log.e("TEST2", "arrayList: "+arrayList);
+
                             customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                             listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                         }
@@ -491,6 +527,7 @@ public class SearchActivity extends AppCompatActivity {
                         Log.e("TEST2", "sort_std: "+sort_std);
 
                         dialog.dismiss(); // 누르면 바로 닫히는 형태
+                        search(search_std);
                     }
                 });
 
