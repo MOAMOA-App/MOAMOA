@@ -311,7 +311,7 @@ public class FormdetailActivity extends Activity {
                 Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline);
                 StorageReference pathReference = firebaseStorage.getReference(image);
 
-
+                /*
                 FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
                 if (activity.isFinishing())
                     return;
@@ -326,7 +326,7 @@ public class FormdetailActivity extends Activity {
 
                     }
                 });
-
+                */
             }
 
             @Override

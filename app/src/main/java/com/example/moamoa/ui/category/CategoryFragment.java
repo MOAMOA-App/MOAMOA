@@ -51,6 +51,8 @@ public class CategoryFragment extends Fragment {
         mContext = this;
         mDatabase = FirebaseDatabase.getInstance().getReference();
         btn_edit = (TextView) root.findViewById(R.id.btn_edit);
+        /*  gridViews 0 관심 카테고리 설정
+            gridViews 1 카테고리 선택 상세 페이지 이동 */
         gridViews[0] = (GridView) root.findViewById(R.id.my_category);
         gridViews[1] = (GridView) root.findViewById(R.id.category_layout);
         categoryAdapter = new CategoryAdapter();
@@ -83,6 +85,8 @@ public class CategoryFragment extends Fragment {
 
         return root;
     }
+
+    /* mylist 배열 true인 요소의 태그를 출력 */
     public void setmycategory(boolean[] list){
         gridViews[0].removeAllViewsInLayout();
         categoryAdapter_my.clear();
@@ -98,6 +102,7 @@ public class CategoryFragment extends Fragment {
         categoryAdapter_my.notifyDataSetChanged();
     }
 
+    /* mylist 배열 초기화 */
     public boolean[] initmylist(){
         boolean[] my_list = new boolean[15];
         for(int i=0;i<15;i++){
@@ -126,6 +131,7 @@ public class CategoryFragment extends Fragment {
         return my_list;
     }
 
+    /* 관심카테고리 선택 페이지 */
     public static class MyAlertDialogFragment extends DialogFragment {
         private List<String> list = new ArrayList<>();
 

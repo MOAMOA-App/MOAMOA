@@ -106,7 +106,7 @@ public class HomeFragment extends Fragment {
         GetOrderByreference(reference[1],1);
         GetOrderByreference(reference[2],2);
 
-        //전체보기 버튼 클릭 시 CategoryActivity 이동 설정
+        /* 전체보기 버튼 클릭 시 CategoryActivity 이동 설정 */
         for(int i=0;i<4;i++){
             btn_c[i].setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -118,7 +118,7 @@ public class HomeFragment extends Fragment {
             });
         }
 
-        // 상단의 툴바 검색 버튼 설정
+        /* 상단의 툴바 검색 버튼 설정 */
         root.findViewById(R.id.search_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,7 +126,7 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        // 상단의 툴바 알림 버튼 설정
+        /* 상단의 툴바 알림 버튼 설정 */
         root.findViewById(R.id.notification_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,7 +137,7 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-
+    /* Adapter에 넣을 Data 입력 */
     public void InitializeFormData(int i,String img, String title, String UID, String mans, String FID, String category)
     {
         homelist_data tmp = new homelist_data();
@@ -156,6 +156,7 @@ public class HomeFragment extends Fragment {
         homelist[i].add(tmp);
 
     }
+    /* 마감/인기/신규순 리스트 출력 */
     public void GetOrderByreference(Query reference, int i){
         reference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -182,11 +183,10 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-
+    /* 관심카테고리 출력*/
     public void GetMyReference( int i){
         ArrayList<Integer> list = new ArrayList<Integer>();
         for(int x=2;x<my_list.length;x++){
-            Log.e("my_list search", String.valueOf(my_list[x]));
             if(my_list[x]) list.add(x);
         }
         Query reference = FirebaseDatabase.getInstance().getReference().child("form");
@@ -211,8 +211,6 @@ public class HomeFragment extends Fragment {
                             String parti_num = fileSnapshot.child("parti_num").getValue().toString();
                             String image =  fileSnapshot.child("image").getValue().toString();
                             InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key,category);
-                            Log.e("start search",count+"");
-
                             count++;
                         }
 
@@ -228,7 +226,7 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
+    /* mylist 배열 초기화 */
     public void initmylist(){
         for(int i=0;i<15;i++){
             my_list[i]=false;
@@ -254,7 +252,7 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-
+    /* mylist에 true값을 가진 요소로 카테고리 태그 출력*/
     public void setmycategory(){
         categoryAdapter_my.isEmpty();
         Resources res = getResources();

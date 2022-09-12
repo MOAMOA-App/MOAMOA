@@ -47,7 +47,6 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
 public class LoginActivity extends AppCompatActivity {
-
     private ActivityLoginBinding binding;
     private TextView Register;
     private Button Loginbtn;
@@ -57,7 +56,6 @@ public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 10;
     Random_nick random_nicks;
     EditText IDText,PasswordText;
-    Date mDate;
     HashMap<Object,String> postValues = new HashMap<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,16 +65,16 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        //버튼 선언
-        Loginbtn = findViewById(R.id.loginbtn);
-        IDText   = findViewById(R.id.idtext);
-        PasswordText = findViewById(R.id.pwtext);
-        TextView Google_Login = (TextView) findViewById(R.id.google_login_btn);
-        TextView Naver_Login = (TextView) findViewById(R.id.naver_login_btn);
-        TextView Kakao_Login = (TextView) findViewById(R.id.kakao_login_btn);
-        Register = (TextView) findViewById(R.id.register_log);
-        //Log.e("getKeyHash", "" +getKeyHash(LoginActivity.this));
+        /* 버튼 선언 */
+        Loginbtn     = findViewById(R.id.loginbtn); //로그인 버튼
+        IDText       = findViewById(R.id.idtext);   //아이디 Text
+        PasswordText = findViewById(R.id.pwtext);   //비밀번호 Text
+        TextView Google_Login = (TextView) findViewById(R.id.google_login_btn); //구글 로그인
+        TextView Naver_Login  = (TextView) findViewById(R.id.naver_login_btn);  //네이버 로그인
+        TextView Kakao_Login  = (TextView) findViewById(R.id.kakao_login_btn);  //카카오 로그인
+        Register = (TextView) findViewById(R.id.register_log);                  //회원가입
         mAuth = FirebaseAuth.getInstance();
+
         // [START config_signin]
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -85,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         // [END config_signin]
+
         Loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

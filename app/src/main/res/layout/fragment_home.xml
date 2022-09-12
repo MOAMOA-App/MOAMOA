@@ -153,9 +153,10 @@
                     android:orientation="horizontal"
                     android:numColumns="6"
                     android:columnWidth="50dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="2dp"
                     android:stretchMode="none"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="10dp"
+                    android:paddingBottom="5dp"/>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/listview3"
                     android:layout_width="match_parent"
@@ -230,7 +231,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/listview2"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
                     android:scrollbars="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:paddingTop="5dp"/>

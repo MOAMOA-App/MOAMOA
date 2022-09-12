@@ -28,6 +28,7 @@ public class User {
     public void setUID(String UID){
         this.UID = UID;
     }
+
     public String getname(){
         return name;
     }
@@ -37,6 +38,7 @@ public class User {
     public String getnick(){
         return nick;
     }
+
     public void setnick(String nick){
         this.nick = nick;
     }

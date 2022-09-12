@@ -58,7 +58,6 @@ import java.util.Comparator;
  */
 
 public class PlaceholderFragment extends Fragment {
-
     private static final String ARG_SECTION_NUMBER = "section_number";
     private DatabaseReference mDatabase;
     private PageViewModel pageViewModel;
@@ -67,6 +66,7 @@ public class PlaceholderFragment extends Fragment {
     ArrayList<Form> listViewData = new ArrayList<>();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     Form  listData;
+
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle bundle = new Bundle();
@@ -88,22 +88,20 @@ public class PlaceholderFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(
-            @NonNull LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        //탭번호
+    public View onCreateView( @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        //상세 카테고리 탭 번호
         int pos = getArguments().getInt(ARG_SECTION_NUMBER);
 
         binding = EmptyFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         ca_num = new int[8];
-        List<Integer> ca_num = new ArrayList();
         //추가
         ListView listView;
         listView = root.findViewById(R.id.listview);
-        Button button_dead = (Button) root.findViewById(R.id.sort_dead);    //마감순
-        Button button_hot = (Button) root.findViewById(R.id.sort_hot);      //인기순
-        Button button_new = (Button) root.findViewById(R.id.sort_new);      //최신순
+        Button button_dead  = (Button) root.findViewById(R.id.sort_dead);   //마감순
+        Button button_hot   = (Button) root.findViewById(R.id.sort_hot);    //인기순
+        Button button_new   = (Button) root.findViewById(R.id.sort_new);    //최신순
+
         button_dead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,46 +166,8 @@ public class PlaceholderFragment extends Fragment {
                                 listViewData.add(listData);
                             }
                     }
-                    /*
-                    if ( pos==1 ){
-                    }
-                    if ( pos==2){
-                        for (int i = 0; i < 2; i++) {
-                            listViewData.add(listData);
-                        }
-                    }
-                    for(int i=2;i<category_list.length;i++){
-                        if (listData.category_text==2 && pos==3 ){
-//식품
-                            listViewData.add(listData);
-                        }
-                    }
-
-                    if (listData.category_text==5 && pos==4 ){
-//의류
-                        listViewData.add(listData);
-                    }
-                    if (listData.category_text==3 && pos==5){
-//생활
-                        listViewData.add(listData);
-                    }
-                    if (listData.category_text==6 && pos==6 ){
-//취미
-                        listViewData.add(listData);
-                    }
-                    if (listData.category_text==7 && pos==7 ){
-//기타
-                        listViewData.add(listData);
-                    }
-                    if (button_hot.isSelected()){
-
-                    }
-
-                     */
                     ListAdapter oAdapter = new CustomListView(listViewData);
                     listView.setAdapter(oAdapter);
-
-
                 }
             }
             @Override
@@ -222,8 +182,6 @@ public class PlaceholderFragment extends Fragment {
                 String title = listViewData.get(position).subject;
 
                 //인텐트 선언 및 정의
-
-
                 Intent intent = new Intent(getContext(), FormdetailActivity.class);
                 //입력한 input값을 intent로 전달한다.
                 intent.putExtra("FID", FID);
@@ -241,13 +199,4 @@ public class PlaceholderFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-    private void UserFind(String UID){
-
-
-    }
-
-
-        }
-
-//
-
+}
