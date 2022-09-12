@@ -109,6 +109,9 @@ public class SearchActivity extends AppCompatActivity {
         boolean[] state_checkbox = allCheck_CB(state);
         my_state = returnStateCheckBox(state_checkbox);
 
+        // 게시글 정렬 기준 초기값: 최신순
+        sort_std = 0;
+
         // 버튼 누르면 카테고리 목록 출력
         SelectCategory = findViewById(R.id.select_category);
         SelectCategory.setOnClickListener(new View.OnClickListener() {
@@ -145,7 +148,7 @@ public class SearchActivity extends AppCompatActivity {
 
         // 리스트 모두 가져오기 (초기 상태)
         search_std = "제목";  // search_std 초기화
-        sort_std = 0;       // 게시글 정렬 기준 초기값: 최신순
+        search_input = "";
         search(search_std);
 
         // 검색 버튼을 누르면 해당되는 게시물 불러옴
@@ -158,14 +161,21 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 게시글 리스트 출력
+     * search_input 비었을 시 전체 게시글 출력
+     * 아닐 시 각 기준에 따라 게시글 출력
+     * @param search_std 검색 기준
+     */
     private void search(String search_std){
         // 검색할 텍스트 search_input에 저장
         search_input = EditText_search.getText().toString();
 
         //
         Log.e("TEST6", "search_std: "+search_std);
+        Log.e("TEST6", "search_input: "+search_input);
 
-        if (search_input == null){
+        if (search_input.equals("")){
             arrayList = new ArrayList<>();
             FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
                 @Override
