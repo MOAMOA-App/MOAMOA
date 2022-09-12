@@ -1,8 +1,12 @@
 package com.example.moamoa.ui.category;
 
+
+
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,23 +54,22 @@ public class CategoryAdapter extends BaseAdapter {
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) ((Context) context).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.category_btn_design, viewGroup, false);
+            final int[] mid = {R.drawable.c_0,R.drawable.c_1,R.drawable.c_2,R.drawable.c_3,R.drawable.c_4,R.drawable.c_5,R.drawable.c_6,R.drawable.c_7,R.drawable.c_8,R.drawable.c_9,R.drawable.c_10,R.drawable.c_11};
+
 
             TextView tv_num = (TextView) convertView.findViewById(R.id.cate_numb);
             TextView tv_name = (TextView) convertView.findViewById(R.id.cate_name);
+
+
+            // drawable 리소스 객체 가져오기
+
+            // XML 에 있는 ImageView 위젯에 이미지 셋팅
             ImageView tv_img = convertView.findViewById(R.id.cate_image);
 
-            FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-            StorageReference pathReference = firebaseStorage.getReference(bearItem.getName()+".png");
-
-
-            pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                @Override
-                public void onSuccess(Uri uri) {
-                    Glide.with(tv_img.getContext())
-                            .load(uri)
-                            .into(tv_img);
-                }
-            });
+            int imageResource = mid[Integer.parseInt(bearItem.getNumb())];
+            System.out.println("int"+imageResource);
+            Drawable image = convertView.getResources().getDrawable(imageResource);
+            tv_img.setImageDrawable(image);
             tv_num.setText(bearItem.getNumb());
             tv_name.setText(bearItem.getName());
 

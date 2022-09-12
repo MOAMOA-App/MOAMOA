@@ -114,8 +114,7 @@ public class DashboardFragment extends Fragment {
         Spinner category_text = (Spinner) root.findViewById(R.id.spinner);
         Button button = (Button) root.findViewById(R.id.button_dashboard);
         Button btn_addr = (Button) root.findViewById(R.id.button_addr);
-        Button button_img = (Button) root.findViewById(R.id.button_img);
-        root.findViewById(R.id.button_img).setOnClickListener(onClickListener);
+
         TextView deadline = (TextView) root.findViewById(R.id.text_dashboardend);
         CheckBox checkBox = (CheckBox) root.findViewById(R.id.checkBox);
         today.setText(getTime1().substring(0,4)+"/"+getTime1().substring(4,6)+"/"+getTime1().substring(6,8));
@@ -377,45 +376,6 @@ public class DashboardFragment extends Fragment {
         binding = null;
     }
 
-
-        //  final TextView textView = binding.textDashboard;
-      //  dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        View.OnClickListener onClickListener = new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.button_img:
-                        loadAlbum();
-                        break;
-                }
-            }
-        };
-
-        private void loadAlbum(){
-            Intent intent = new Intent(Intent.ACTION_PICK);
-            intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
-            startActivityForResult(intent,GALLERY_CODE);
-        }
-//        @Override
-//        public void onActivityResult(int requestCode, final int resultCode, final Intent data){
-//            super.onActivityResult(requestCode, resultCode, data);
-//            if(requestCode==GALLERY_CODE){
-//                file = data.getData();
-//
-//                try{
-//                    InputStream in = getContext().getContentResolver().openInputStream(data.getData());
-//                    Bitmap img = BitmapFactory.decodeStream(in);
-//                    in.close();
-//                    photo.setImageBitmap(img);
-//                    getActivity().findViewById(R.id.imageView).setVisibility(View.VISIBLE);
-//                    on=true;
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        }
 
 
 

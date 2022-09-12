@@ -11,6 +11,8 @@
     <string name="tab_text_2">진행 중</string>
     <string name="tab_text_3">거래 완료</string>
     <string name="tab_text_4">모집 중</string>
+    <string name="tab_text_1_new">거래 진행 중</string>
+
     <string name="title_category">카테고리</string>
     <string name="title_category1">카테고리</string>
     <string name="title_formlist">폼</string>

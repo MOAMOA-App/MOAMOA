@@ -102,12 +102,12 @@ public class PlaceholderFragment2 extends Fragment {
 
                                     listViewData.add(listData);
                                 }
-                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("parti") && listData.getstate() == 1 && pos == 2) {
+                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("parti") && listData.getstate() == 1 && pos == 1) {
 
                                     listViewData.add(listData);
                                 }
 
-                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("parti")&& listData.getstate() == 2 && pos == 3) {
+                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("parti")&& listData.getstate() == 2 && pos == 2) {
 
                                     listViewData.add(listData);
                                 }

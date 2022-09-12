@@ -94,7 +94,7 @@ public class PlaceholderFragment3 extends Fragment {
 
                             listData = snapshot.getValue(Form.class);
 
-                            Log.d("확인","핱츠 : "+dataSnapshot2.child(user.getUid()).child(listData.FID).getValue());
+
                             if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue()!=null) {
                                 if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("true") && listData.getstate() == 0 && pos == 1) {
 
