@@ -35,4 +35,5 @@
     <string name="search_selectstate">진행 상태</string>
     <string name="search_sortstd">정렬 기준</string>
     <!-- Strings used for fragments for navigation -->
+    <string name="default_notification_channel_id">Channel ID</string>
 </resources>
