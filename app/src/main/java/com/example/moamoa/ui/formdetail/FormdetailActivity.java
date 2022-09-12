@@ -18,10 +18,14 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
 import com.example.moamoa.ui.chats.ChatsActivity;
+import com.example.moamoa.ui.dashboard.MultiImageAdapter;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -41,6 +45,7 @@ import com.naver.maps.map.OnMapReadyCallback;
 import com.naver.maps.map.overlay.Marker;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FormdetailActivity extends Activity {
@@ -66,6 +71,13 @@ public class FormdetailActivity extends Activity {
     private FirebaseStorage firebaseStorage;
     private FirebaseUser user;
     String point;
+
+    private static final String TAG = "MultiImageActivity";
+    ArrayList<Uri> uriList = new ArrayList<>();     // 이미지의 uri를 담을 ArrayList 객체
+    RecyclerView recyclerView;  // 이미지를 보여줄 리사이클러뷰
+    MultiImageAdapter adapter;  // 리사이클러뷰에 적용시킬 어댑터
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -98,9 +110,10 @@ public class FormdetailActivity extends Activity {
                 new NaverMapSdk.NaverCloudPlatformClient("xjdzzwh9wk"));
         mapView = (MapView)findViewById(R.id.mv);
         btn_map = (Button)findViewById(R.id.button_map);
-        mapView.onCreate(savedInstanceState);
-        mapView.getMapAsync((OnMapReadyCallback) this);
-        //
+ //       mapView.onCreate(savedInstanceState);
+ //       mapView.getMapAsync((OnMapReadyCallback) this);
+        recyclerView = findViewById(R.id.recyclerView);
+
         printpage();
 
         chat_btn.setOnClickListener(new View.OnClickListener() {
@@ -269,18 +282,18 @@ public class FormdetailActivity extends Activity {
         finish();
     }
 
-    public void onMapReady(@NonNull NaverMap naverMap) {
-        this.naverMap = naverMap;
-        geocoder = new Geocoder(this);
-        String[] PointArray=point.split(",");
-        String latitude = PointArray[0]; // 경도
-        String longitude = PointArray[1]; // 경도
-        LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
-        marker.setPosition(point1);
-        marker.setMap(naverMap);
-                // 해당 좌표로 화면 줌
-        CameraPosition cameraPosition = new CameraPosition(point1, 16);
-            }
+//    public void onMapReady(@NonNull NaverMap naverMap) {
+//        this.naverMap = naverMap;
+//        geocoder = new Geocoder(this);
+//        String[] PointArray=point.split(",");
+//        String latitude = PointArray[0]; // 경도
+//        String longitude = PointArray[1]; // 경도
+//        LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
+//        marker.setPosition(point1);
+//        marker.setMap(naverMap);
+//                // 해당 좌표로 화면 줌
+//        CameraPosition cameraPosition = new CameraPosition(point1, 16);
+//            }
 
 
     private void printpage(){
@@ -297,8 +310,8 @@ public class FormdetailActivity extends Activity {
                 String today = dataSnapshot.child("today").getValue().toString();
                 String deadline = dataSnapshot.child("deadline").getValue().toString();
                 num_k= dataSnapshot.child("parti_num").getValue().toString() ;
-                image=dataSnapshot.child("image").getValue().toString() ;
-
+                image=dataSnapshot.child("FID").getValue().toString() ;
+                int i=Integer.parseInt(dataSnapshot.child("photo_num").getValue().toString()) ;
                 count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
 
                 Resources res = getResources();
@@ -309,24 +322,29 @@ public class FormdetailActivity extends Activity {
                 String UID = dataSnapshot.child("UID_dash").getValue().toString();
                 UserFind(UID);
                 Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline);
-                StorageReference pathReference = firebaseStorage.getReference(image);
+
+                //for (int k = 1; k <= i; k++) {
+                    StorageReference pathReference = firebaseStorage.getReference(image + "_" + 1 + "png");
 
 
-                FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
-                if (activity.isFinishing())
-                    return;
+
 
                 pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        if (activity.isFinishing()) return;
-                        Glide.with(mainImage.getContext())
-                                .load(uri)
-                                .into(mainImage);
+                        Toast.makeText(getApplicationContext(), "다운로드 성공 : "+ uri, Toast.LENGTH_SHORT).show();
+                        uriList.add(uri);
+                        adapter = new MultiImageAdapter(uriList, getApplicationContext());
+                        recyclerView.setAdapter(adapter);   // 리사이클러뷰에 어댑터 세팅
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, true));     // 리사이클러뷰 수평 스크롤 적용
 
-                    }
-                });
+                    }    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getApplicationContext(), "다운로드 실패", Toast.LENGTH_SHORT).show();
+                        }    });
 
+                //}
             }
 
             @Override

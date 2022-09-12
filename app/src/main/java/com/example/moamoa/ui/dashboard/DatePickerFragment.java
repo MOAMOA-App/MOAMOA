@@ -17,6 +17,7 @@ import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
+ * 캘린더 대쉬보드에서 날짜정할때
  */
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {

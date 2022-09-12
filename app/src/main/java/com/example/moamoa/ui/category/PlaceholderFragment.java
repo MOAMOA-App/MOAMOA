@@ -54,7 +54,7 @@ import java.util.Comparator;
  */
 
 /**
- *
+ * 공동구매 리스트에서 데이터 출력하기 위해 데이터 리스트에 저장 후 CustomListView로 이동
  */
 
 public class PlaceholderFragment extends Fragment {

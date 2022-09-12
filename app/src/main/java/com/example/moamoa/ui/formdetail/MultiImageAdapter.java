@@ -1,4 +1,4 @@
-package com.example.moamoa.ui.dashboard;
+package com.example.moamoa.ui.formdetail;
 
 import android.content.Context;
 import android.net.Uri;
@@ -44,18 +44,18 @@ public class MultiImageAdapter extends RecyclerView.Adapter<MultiImageAdapter.Vi
     // onCreateViewHolder() - 아이템 뷰를 위한 뷰홀더 객체 생성하여 리턴.
     // LayoutInflater - XML에 정의된 Resource(자원) 들을 View의 형태로 반환.
     @Override
-    public MultiImageAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext() ;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;    // context에서 LayoutInflater 객체를 얻는다.
         View view = inflater.inflate(R.layout.multi_image_item, parent, false) ;	// 리사이클러뷰에 들어갈 아이템뷰의 레이아웃을 inflate.
-        MultiImageAdapter.ViewHolder vh = new MultiImageAdapter.ViewHolder(view) ;
+        ViewHolder vh = new ViewHolder(view) ;
 
         return vh ;
     }
 
     // onBindViewHolder() - position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
     @Override
-    public void onBindViewHolder(MultiImageAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         Uri image_uri = mData.get(position) ;
 
         Glide.with(mContext)

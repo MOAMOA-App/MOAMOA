@@ -51,7 +51,7 @@ public class DashboardFragment extends Fragment {
 
 
      /**
-      *
+      *공동구매 글 작성
       * **/
     private FragmentDashboardBinding binding;
     long mNow;

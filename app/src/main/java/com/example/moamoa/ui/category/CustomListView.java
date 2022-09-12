@@ -30,6 +30,10 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
+/*
+* 데이터를 listview안에 넣는
+* 클릭하면 상세폼으로 이동 찜버튼 누르기
+* */
 public class CustomListView extends BaseAdapter {
     LayoutInflater layoutInflater = null;
     private ArrayList<Form> listViewData = null;

@@ -25,6 +25,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/*
+* 지도*/
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
     private MapView mapView;
     private static NaverMap naverMap;
