@@ -2,6 +2,7 @@ package com.example.moamoa.ui.formdetail;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -76,19 +77,11 @@ public class DetailCreaterSideActivity extends Activity {
                 String deadline = dataSnapshot.child("deadline").getValue().toString();
                 String num_k= dataSnapshot.child("parti_num").getValue().toString() ;
 
-                mDatabase = FirebaseDatabase.getInstance().getReference();
-                mDatabase.child("category").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  //변화된 값이 DataSnapshot 으로 넘어온다.
-                        for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
-                            Log.e("", fileSnapshot.getValue().toString());
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                Resources res = getResources();
+                String[] cat = res.getStringArray(R.array.category);
+                category=cat[Integer.parseInt(category)];
 
-                    }
-                });
+
                 image=dataSnapshot.child("image").getValue().toString() ;
 
                 count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
@@ -107,6 +100,7 @@ public class DetailCreaterSideActivity extends Activity {
                 pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+                        if (activity.isFinishing()) return;
                         Glide.with(mainImage.getContext())
                                 .load(uri)
                                 .into(mainImage);
@@ -148,6 +142,7 @@ public class DetailCreaterSideActivity extends Activity {
                 pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+                        if (activity1.isFinishing()) return;
                         Glide.with(profile)
                                 .load(uri)
                                 .into(profile);

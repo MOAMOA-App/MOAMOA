@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.moamoa.R;
 import com.example.moamoa.Retrofit_Function;
 import com.example.moamoa.databinding.FragmentHomeBinding;
+import com.example.moamoa.ui.category.CategoryActivity;
 import com.example.moamoa.ui.category.CategoryAdapter_my;
 import com.example.moamoa.ui.category.CategoryData;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
@@ -28,10 +29,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -55,38 +54,42 @@ public class HomeFragment extends Fragment {
 
         categoryAdapter_my = new CategoryAdapter_my();
         gridViews = (GridView) root.findViewById(R.id.home_my_category);
-        my_list=initmylist();
-        //카테고리 grid 출력
-
+        initmylist();
+        /* 카테고리 grid 출력 */
         gridViews.setAdapter(categoryAdapter_my);
 
+        /* 카테고리 Recyclerview 설정 */
         recyclerView[0] = (RecyclerView) root.findViewById(R.id.listview0);
         recyclerView[1] = (RecyclerView) root.findViewById(R.id.listview1);
         recyclerView[2] = (RecyclerView) root.findViewById(R.id.listview2);
         recyclerView[3] = (RecyclerView) root.findViewById(R.id.listview3);
-        recyclerView[4] = (RecyclerView) root.findViewById(R.id.listview4);
-        btn_c[0] = (TextView) root.findViewById(R.id.btn_ctgy0);
-        btn_c[1] = (TextView) root.findViewById(R.id.btn_ctgy1);
-        btn_c[2] = (TextView) root.findViewById(R.id.btn_ctgy2);
-        btn_c[3] = (TextView) root.findViewById(R.id.btn_ctgy3);    // 관심카테고리
-        btn_c[4] = (TextView) root.findViewById(R.id.btn_ctgy4);
-
+        //recyclerView[4] = (RecyclerView) root.findViewById(R.id.listview4);
         reference[0] = mDatabase.getReference().child("form").orderByChild("deadline").limitToFirst(10);    //마감임박
         reference[1] = mDatabase.getReference().child("form").orderByChild("parti_num").limitToLast(10);   //인기별
         reference[2] = mDatabase.getReference().child("form").orderByChild("today").limitToFirst(10);       //신규
-        reference[2] = mDatabase.getReference().child("form").orderByChild("today").limitToFirst(10);       //나의 관심 카테고리
-        reference[2] = mDatabase.getReference().child("form").orderByChild("today").limitToFirst(10);       //최근 본 게시글
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        for(int i=0;i<5;i++){
+        reference[3] = mDatabase.getReference().child("form").orderByChild("today").limitToFirst(10);       //나의 관심 카테고리
+        //reference[2] = mDatabase.getReference().child("form").orderByChild("today").limitToFirst(10);       //최근 본 게시글
+
+
+
+        /* 전체보기 버튼 */
+        btn_c[0] = (TextView) root.findViewById(R.id.btn_ctgy0);
+        btn_c[1] = (TextView) root.findViewById(R.id.btn_ctgy1);
+        btn_c[2] = (TextView) root.findViewById(R.id.btn_ctgy2);
+        btn_c[3] = (TextView) root.findViewById(R.id.btn_ctgy3);   
+        //btn_c[4] = (TextView) root.findViewById(R.id.btn_ctgy4);
+
+
+        /* 각 listview에 상세 페이지 이동 연동 */
+        for(int i=0;i<4;i++){
             homelist[i]=new ArrayList<>();
             homelistAdapter[i] = new homelist_adapter(homelist[i]);
             int finalI = i;
             homelistAdapter[i].setOnItemClickListener(new homelist_adapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(View v, int position) {
-                    String FID = homelist[finalI].get(position).getFID();
-                    String title = homelist[finalI].get(position).getTitle();
-                    String UID = homelist[finalI].get(position).getUID();
+                    String FID   = homelist[finalI].get(position).getFID();
+                    String UID   = homelist[finalI].get(position).getUID();
                     //인텐트 선언 및 정의
                     Intent intent = new Intent(getContext(), FormdetailActivity.class);
                     //입력한 input값을 intent로 전달한다.
@@ -94,31 +97,28 @@ public class HomeFragment extends Fragment {
                     intent.putExtra(("UID_dash"),UID);
                     //액티비티 이동
                     startActivity(intent);
-                    //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
                 }
             });
         }
 
-        setOrderBydeadline(reference[0],0);
-        setOrderBydeadline(reference[1],1);
-        setOrderBydeadline(reference[2],2);
+        /* 각 레퍼런스 데이터 불러오기 */
+        GetOrderByreference(reference[0],0);
+        GetOrderByreference(reference[1],1);
+        GetOrderByreference(reference[2],2);
 
-
-        for(int i=0;i<5;i++){
+        //전체보기 버튼 클릭 시 CategoryActivity 이동 설정
+        for(int i=0;i<4;i++){
             btn_c[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Retrofit_Function.category();
-                    /*
                     Intent intent = new Intent(getActivity(), CategoryActivity.class);
                     startActivity(intent);
-
-                     */
                 }
             });
         }
 
-        // 툴바 설정
+        // 상단의 툴바 검색 버튼 설정
         root.findViewById(R.id.search_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,7 +126,7 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
+        // 상단의 툴바 알림 버튼 설정
         root.findViewById(R.id.notification_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,8 +134,6 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-
         return root;
     }
 
@@ -158,7 +156,7 @@ public class HomeFragment extends Fragment {
         homelist[i].add(tmp);
 
     }
-    public void setOrderBydeadline(Query reference, int i){
+    public void GetOrderByreference(Query reference, int i){
         reference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -185,15 +183,53 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    public void GetMyReference( int i){
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for(int x=2;x<my_list.length;x++){
+            Log.e("my_list search", String.valueOf(my_list[x]));
+            if(my_list[x]) list.add(x);
+        }
+        Query reference = FirebaseDatabase.getInstance().getReference().child("form");
+        reference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                }
+                else {
+                    homelist[i].clear();
+                    DataSnapshot result = task.getResult();
+                    int count=0;
+                    for (DataSnapshot fileSnapshot : result.getChildren() ) {
+                        String category = fileSnapshot.child("category_text").getValue().toString();
+                        int temp = Integer.parseInt(category);
+                        if(list.contains(temp) && count<10){
+                            String Key = fileSnapshot.getKey();
+                            String subject = fileSnapshot.child("subject").getValue().toString();
+                            String max_count = fileSnapshot.child("max_count").getValue().toString();
+                            String UID = fileSnapshot.child("UID_dash").getValue().toString();
+                            String parti_num = fileSnapshot.child("parti_num").getValue().toString();
+                            String image =  fileSnapshot.child("image").getValue().toString();
+                            InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key,category);
+                            Log.e("start search",count+"");
 
+                            count++;
+                        }
+
+                    }
+                }
+                recyclerView[i].setAdapter(homelistAdapter[i]);
+                recyclerView[i].setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL, false));
+            }
+        });
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
 
-    public boolean[] initmylist(){
-        boolean[] my_list = new boolean[15];
+    public void initmylist(){
         for(int i=0;i<15;i++){
             my_list[i]=false;
         }
@@ -205,21 +241,18 @@ public class HomeFragment extends Fragment {
                 }
                 else {
                     DataSnapshot result = task.getResult();
-                    //Log.e("firebase", result.toString());
                     if(result!=null){
                         for (DataSnapshot fileSnapshot : result.getChildren() ) {
-                            //my_list[(int) fileSnapshot.getValue()]=true;
                             String temp = fileSnapshot.getValue().toString();
                             int x = Integer.parseInt(temp);
                             my_list[x]=true;
                         }
-                        setmycategory();
                     }
-
+                    setmycategory();
+                    GetMyReference(3);
                 }
             }
         });
-        return my_list;
     }
 
     public void setmycategory(){

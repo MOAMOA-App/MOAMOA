@@ -128,7 +128,6 @@ public class CategoryFragment extends Fragment {
 
     public static class MyAlertDialogFragment extends DialogFragment {
         private List<String> list = new ArrayList<>();
-        private boolean[] my_list;
 
         public static MyAlertDialogFragment newInstance(String title) {
             MyAlertDialogFragment frag = new MyAlertDialogFragment();
@@ -176,7 +175,7 @@ public class CategoryFragment extends Fragment {
                                     DatabaseReference reference = database.getReference("users");
                                     childUpdates.put("mycategory", choices);
                                     reference.child(currentUser.getUid()).updateChildren(childUpdates);
-                                    my_list=((CategoryFragment)CategoryFragment.mContext).initmylist();
+                                    ((CategoryFragment)CategoryFragment.mContext).initmylist();
                                 }
                             })
                     .setNegativeButton("취소",
