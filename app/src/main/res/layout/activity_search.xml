@@ -41,12 +41,14 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
+                android:backgroundTint="@color/main_orange"
+
 
                 android:text="검색" />
 
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -54,15 +56,19 @@
             >
 
             <ImageView
+                android:id="@+id/search_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal|center_vertical"
-                android:src="@drawable/ic_outline_edit_note_24"
 
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
 
-                android:contentDescription="DetailSearch" />
+                android:contentDescription="DetailSearch"
+                android:src="@drawable/ic_outline_edit_note_24" />
 
 
             <Button
@@ -70,6 +76,8 @@
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:textColor="@color/white"
+                android:backgroundTint="@color/main_orange"
+                android:layout_toRightOf="@+id/search_icon"
                 android:text="@string/search_selectcat"
                 >
             </Button>
@@ -78,27 +86,42 @@
                 android:id="@+id/select_state"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
+                android:layout_toRightOf="@+id/select_category"
+                android:backgroundTint="@color/main_orange"
                 android:text="@string/search_selectstate"
                 android:textColor="@color/white"
+
                 >
+
             </Button>
 
             <Button
                 android:id="@+id/search_sortbtn"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
-                android:textColor="@color/white"
+                android:layout_alignParentEnd="true"
+                android:background="#00ff0000"
+                android:backgroundTint="@color/white"
+
                 android:text="@string/search_sortstd"
-                >
+                android:textColor="@color/black">
+
             </Button>
 
-        </LinearLayout>
+        </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <ListView
         android:id="@+id/search_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <!--
+    <FrameLayout
+        android:id="@+id/searchcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    -->
 
 </LinearLayout>
     <!--
