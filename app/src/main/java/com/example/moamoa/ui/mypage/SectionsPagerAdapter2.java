@@ -17,7 +17,7 @@ import com.example.moamoa.R;
 public class SectionsPagerAdapter2 extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2, R.string.tab_text_3};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1_new,  R.string.tab_text_3};
     private final Context mContext;
 
     public SectionsPagerAdapter2(Context context, FragmentManager fm) {
@@ -41,6 +41,6 @@ public class SectionsPagerAdapter2 extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show  3 total pages.
-        return 3;
+        return 2;
     }
 }

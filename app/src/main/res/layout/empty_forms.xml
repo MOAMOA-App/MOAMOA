@@ -25,7 +25,7 @@
             android:text="최신순"
             android:id="@+id/sort_new"
             android:textColor="@color/white"
-            android:backgroundTint= "@drawable/button_selector"
+
             />
 
         <Button
@@ -35,8 +35,8 @@
             android:layout_marginLeft="10dp"
             android:text="마감순"
             android:id="@+id/sort_dead"
-            android:textColor="@color/white"
-            android:backgroundTint= "@drawable/button_selector"/>
+            android:textColor="@color/white"></Button>
+
 
         <Button
             android:layout_width="wrap_content"
@@ -45,8 +45,8 @@
             android:layout_marginLeft="10dp"
             android:text="인기순"
             android:id="@+id/sort_hot"
-            android:textColor="@color/white"
-            android:backgroundTint= "@drawable/button_selector"/>
+            android:textColor="@color/white"></Button>
+
     </LinearLayout>
     <ListView
         android:layout_width="match_parent"

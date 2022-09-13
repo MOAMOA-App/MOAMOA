@@ -94,12 +94,12 @@ public class PlaceholderFragment extends Fragment {
                         Log.d("확인","실행: "+listData.UID_dash);
                         listViewData.add(listData);
                     }
-                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==1 && pos==2) {
+                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==1 && pos==1) {
                         Log.d("확인","실행: "+listData.UID_dash);
                         listViewData.add(listData);
                     }
 
-                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==2 && pos==3) {
+                    if (listData.UID_dash.equals(user.getUid())&& listData.getstate()==2 && pos==2) {
                         Log.d("확인","실행: "+listData.UID_dash);
                         listViewData.add(listData);
                     }
