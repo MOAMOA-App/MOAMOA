@@ -13,7 +13,7 @@ public class CustomTextWatcher implements TextWatcher {
     private EditText editText;
     String strAmount = "";
 
-    CustomTextWatcher(EditText et) {
+    public CustomTextWatcher(EditText et) {
         editText = et;
     }
 

@@ -145,7 +145,7 @@ public class PlaceholderFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 listViewData.clear();
 
-                Resources res = getResources();
+                Resources res = getActivity().getResources();
                 String[] category_list = res.getStringArray(R.array.category);
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {

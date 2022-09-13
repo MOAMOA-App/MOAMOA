@@ -83,6 +83,8 @@ public class CustomListView extends BaseAdapter {
             public void onSuccess(Uri uri) {
                 //CategoryActivity context = (CategoryActivity) mainImage.getContext();
                 //if (context.isFinishing()) return;
+                Activity context = (Activity) mainImage.getContext();
+                if(context.isFinishing()) return;
                 Glide.with(mainImage.getContext())
                         .load(uri)
                         .into(mainImage);

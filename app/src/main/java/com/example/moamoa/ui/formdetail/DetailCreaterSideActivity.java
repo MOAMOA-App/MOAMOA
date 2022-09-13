@@ -26,6 +26,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.DecimalFormat;
+
 public class DetailCreaterSideActivity extends Activity {
 
     private DatabaseReference mDatabase;
@@ -71,7 +73,8 @@ public class DetailCreaterSideActivity extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String subject = dataSnapshot.child("subject").getValue().toString();
                 String text = dataSnapshot.child("text").getValue().toString();
-                String cost = dataSnapshot.child("cost").getValue().toString();
+                DecimalFormat myFormatter = new DecimalFormat("###,###");
+                String cost = myFormatter.format(dataSnapshot.child("cost").getValue());
                 String category = dataSnapshot.child("category_text").getValue().toString();
                 String max_count = dataSnapshot.child("max_count").getValue().toString();
                 String today = dataSnapshot.child("today").getValue().toString();
