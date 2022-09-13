@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
@@ -28,7 +29,7 @@ import com.google.firebase.storage.StorageReference;
 public class DetailCreaterSideActivity extends Activity {
 
     private DatabaseReference mDatabase;
-    private ImageView mainImage;
+    private RecyclerView mainImage;
     private FirebaseStorage firebaseStorage;
     private FirebaseUser user;
 
@@ -42,7 +43,7 @@ public class DetailCreaterSideActivity extends Activity {
         setContentView(R.layout.activity_detailcreaterside);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
-        mainImage = (ImageView) findViewById(R.id.mainImage);
+        mainImage = (RecyclerView) findViewById(R.id.mainImage);
         firebaseStorage = FirebaseStorage.getInstance();
         Intent intent = getIntent();
         temp = intent.getStringExtra("FID");
@@ -94,9 +95,7 @@ public class DetailCreaterSideActivity extends Activity {
 
 
                 DetailCreaterSideActivity activity = (DetailCreaterSideActivity) mainImage.getContext();
-                if (activity.isFinishing())
-                    return;
-
+                /*
                 pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
@@ -107,7 +106,7 @@ public class DetailCreaterSideActivity extends Activity {
 
                     }
                 });
-
+                */
             }
 
             @Override

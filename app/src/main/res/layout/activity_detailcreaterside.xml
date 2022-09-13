@@ -10,6 +10,7 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
     <ScrollView
         android:layout_width="match_parent"
@@ -20,13 +21,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <ImageView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/mainImage"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:scaleType="center"
                 android:background="@color/light_gray"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/ic_launcher_background"
+                />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -36,44 +45,47 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:background="@drawable/formdetail_profile_bottomline"
-                    android:gravity="center">
+                    android:paddingVertical="5dp"
+                    android:background="@drawable/formdetail_profile_bottomline">
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/detail_profile"
                         android:layout_width="41dp"
                         android:layout_height="41dp"
                         android:layout_margin="5dp"
+                        android:layout_gravity="center|left"
                         android:src="@drawable/ic_launcher_background"/>
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="5dp">
-
                         <TextView
                             android:id="@+id/detail_nick"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="작성자"
                             android:textSize="15sp" />
-
                         <TextView
                             android:id="@+id/detail_local"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="3dp"
                             android:text="지역"
                             android:visibility="invisible"
                             android:textSize="11sp" />
                     </LinearLayout>
+                    <ImageButton
+                        android:src="@drawable/ic_baseline_menu_24"
+                        android:layout_gravity="center|right"
+                        android:layout_width="41dp"
+                        android:layout_height="match_parent"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="200dp"
                     android:background="@drawable/mypage_bottom_border"
+                    android:minHeight="250dp"
                     android:orientation="vertical">
 
 
@@ -84,9 +96,10 @@
                         android:layout_marginTop="10dp"
                         android:padding="3dp"
                         android:text="제목"
-                        android:textStyle="bold"
                         android:textColor="#000000"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/detail_category"
                         android:layout_width="wrap_content"
@@ -94,6 +107,7 @@
                         android:background="@drawable/formdetail_tag_style"
                         android:text="카테고리"
                         android:textSize="14sp" />
+
                     <TextView
                         android:id="@+id/detail_textarea"
                         android:layout_width="match_parent"
@@ -102,7 +116,9 @@
                         android:text="내용"
                         android:textColor="#000000"
                         android:textSize="17sp" />
+
                 </LinearLayout>
+
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
@@ -149,6 +165,7 @@
                     android:layout_height="35dp"
                     android:paddingBottom="5dp"
                     android:gravity="bottom"
+                    android:layout_marginBottom="15dp"
                     android:background="@drawable/mypage_bottom_border">
 
                     <TextView
@@ -188,14 +205,20 @@
                         android:textColor="#000000"
                         android:textSize="17sp" />
                 </RelativeLayout>
+
+                <!--com.naver.maps.map.MapView
+                    android:id="@+id/mv"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"/-->
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="500dp"
+                    android:layout_height="100dp"
                     android:orientation="vertical">
-
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -214,18 +237,18 @@
             android:layout_height="56dp"
             android:layout_alignParentStart="true"
             android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:background="@drawable/formdetail_heart_layer">
+            android:background="@drawable/formdetail_heart_layer"
+            android:gravity="center">
 
             <ToggleButton
                 android:id="@+id/heart"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:focusable="false"
                 android:layout_alignParentEnd="true"
                 android:background="@drawable/heart"
                 android:backgroundTint="@color/main_green"
                 android:checked="false"
+                android:focusable="false"
                 android:text=""
                 android:textOff=""
                 android:textOn="" />

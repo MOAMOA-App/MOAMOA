@@ -65,7 +65,7 @@ public class HomeFragment extends Fragment {
         recyclerView[3] = (RecyclerView) root.findViewById(R.id.listview3);
         //recyclerView[4] = (RecyclerView) root.findViewById(R.id.listview4);
         reference[0] = mDatabase.getReference().child("form").orderByChild("deadline").limitToFirst(10);    //마감임박
-        reference[1] = mDatabase.getReference().child("form").orderByChild("parti_num").limitToLast(10);   //인기별
+        reference[1] = mDatabase.getReference().child("form").orderByChild("parti_num").limitToLast(10);    //인기별
         reference[2] = mDatabase.getReference().child("form").orderByChild("today").limitToFirst(10);       //신규
         reference[3] = mDatabase.getReference().child("form").orderByChild("today").limitToFirst(10);       //나의 관심 카테고리
         //reference[2] = mDatabase.getReference().child("form").orderByChild("today").limitToFirst(10);       //최근 본 게시글

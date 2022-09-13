@@ -23,7 +23,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
+                    android:id="@+id/mainImage"
                     android:layout_marginTop="24dp"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -79,11 +79,12 @@
                                 android:textSize="11sp" />
                         </LinearLayout>
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:minHeight="200dp"
                         android:background="@drawable/mypage_bottom_border"
+                        android:minHeight="250dp"
                         android:orientation="vertical">
 
 
@@ -94,9 +95,10 @@
                             android:layout_marginTop="10dp"
                             android:padding="3dp"
                             android:text="제목"
-                            android:textStyle="bold"
                             android:textColor="#000000"
-                            android:textSize="20sp" />
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/detail_category"
                             android:layout_width="wrap_content"
@@ -104,6 +106,7 @@
                             android:background="@drawable/formdetail_tag_style"
                             android:text="카테고리"
                             android:textSize="14sp" />
+
                         <TextView
                             android:id="@+id/detail_textarea"
                             android:layout_width="match_parent"
@@ -112,13 +115,9 @@
                             android:text="내용"
                             android:textColor="#000000"
                             android:textSize="17sp" />
-                        <com.naver.maps.map.MapView
-                            android:id="@+id/mv"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"/>
 
                     </LinearLayout>
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
@@ -165,6 +164,7 @@
                         android:layout_height="35dp"
                         android:paddingBottom="5dp"
                         android:gravity="bottom"
+                        android:layout_marginBottom="15dp"
                         android:background="@drawable/mypage_bottom_border">
 
                         <TextView
@@ -204,9 +204,16 @@
                             android:textColor="#000000"
                             android:textSize="17sp" />
                     </RelativeLayout>
+
+                    <com.naver.maps.map.MapView
+                        android:id="@+id/mv"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_weight="1"/>
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="500dp"
+                        android:layout_height="100dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="match_parent"

@@ -81,8 +81,8 @@ public class CustomListView extends BaseAdapter {
         pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                CategoryActivity context = (CategoryActivity) mainImage.getContext();
-                if (context.isFinishing()) return;
+                //CategoryActivity context = (CategoryActivity) mainImage.getContext();
+                //if (context.isFinishing()) return;
                 Glide.with(mainImage.getContext())
                         .load(uri)
                         .into(mainImage);
