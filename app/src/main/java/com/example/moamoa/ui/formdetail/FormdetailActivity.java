@@ -54,6 +54,7 @@ public class FormdetailActivity extends Activity {
     String k;
     int count;
     String temp;
+    String FID;
     String str;
     String adr;
 
@@ -91,7 +92,7 @@ public class FormdetailActivity extends Activity {
         mainImage = (RecyclerView) findViewById(R.id.mainImage);
         firebaseStorage = FirebaseStorage.getInstance();
         Intent intent = getIntent();
-        temp= intent.getStringExtra("FID");
+        FID= intent.getStringExtra("FID");
 
         Button chat_btn = (Button)findViewById(R.id.detail_chat_btn);   //채팅하기 버튼
         Button party_btn = (Button)findViewById(R.id.detail_party_btn); //참여하기 버튼
@@ -175,18 +176,18 @@ public class FormdetailActivity extends Activity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
-                        if (temp.contains(user.getUid())) {
+                        if (FID.contains(user.getUid())) {
                             Toast.makeText(getApplicationContext(), "호스트입니다", Toast.LENGTH_SHORT).show();
                         }
-                        else if(dataSnapshot.child(temp).getValue()==null) {
+                        else if(dataSnapshot.child(FID).getValue()==null) {
                             num_b = 1 + Integer.parseInt(num_k);
-                            FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(temp).setValue("parti");
-                            FirebaseDatabase.getInstance().getReference("form").child(temp).child("parti_num").setValue(num_b);
+                            FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(FID).setValue("parti");
+                            FirebaseDatabase.getInstance().getReference("form").child(FID).child("parti_num").setValue(num_b);
 
                         }
-                        else if(dataSnapshot.child(temp).getValue()!=null &&dataSnapshot.child(temp).getValue().equals("parti") )
+                        else if(dataSnapshot.child(FID).getValue()!=null &&dataSnapshot.child(FID).getValue().equals("parti") )
                         {
-                   //         Log.d("MainActivity", "파티 떠라: " + dataSnapshot.child(temp).getKey());
+                   //         Log.d("MainActivity", "파티 떠라: " + dataSnapshot.child(FID).getKey());
                             Toast.makeText(getApplicationContext(), "참여하였습니다.", Toast.LENGTH_SHORT).show();
 
                         }
@@ -203,7 +204,7 @@ public class FormdetailActivity extends Activity {
 
         });
         ToggleButton button = findViewById(R.id.heart);
-        FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(FID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -232,7 +233,7 @@ public class FormdetailActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).addValueEventListener(new ValueEventListener() {
+                FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(FID).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         //v= String.valueOf(dataSnapshot.getValue());
@@ -246,13 +247,13 @@ public class FormdetailActivity extends Activity {
 
                 if (button.isChecked()) {
                     //button.setBackgroundResource(R.drawable.full_heart);
-                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).setValue("true");
+                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(FID).setValue("true");
                 }
                 else if( !button.isChecked())
                 {
                     // button.setBackgroundResource(R.drawable.empty_heart);
                     //FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a-1);
-                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(temp).setValue("false");
+                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(FID).setValue("false");
                 }
                 //{
                 //    button.setBackgroundResource(R.drawable.full_heart);
@@ -268,7 +269,9 @@ public class FormdetailActivity extends Activity {
     }
     @Override
     public void onBackPressed() {
-        //FirebaseDatabase.getInstance().getReference("form").child(temp).child("count").setValue(count+1);
+        FirebaseDatabase.getInstance().getReference("form").child(FID).child("count").setValue(count+1);
+
+        Log.d("확인","message상세 이미지 : "+count+1);
         finish();
     }
 
@@ -288,7 +291,7 @@ public class FormdetailActivity extends Activity {
 
     private void printpage(){
         mDatabase = FirebaseDatabase.getInstance().getReference().child("form");
-        mDatabase.child(temp).addValueEventListener(new ValueEventListener() {
+        mDatabase.child(FID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String subject = dataSnapshot.child("subject").getValue().toString();
