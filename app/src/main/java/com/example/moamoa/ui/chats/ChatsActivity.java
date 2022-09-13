@@ -37,6 +37,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.ActivityChatsBinding;
 import com.example.moamoa.databinding.FragmentChatsBinding;
@@ -106,14 +107,12 @@ public class ChatsActivity extends AppCompatActivity {
 
         // 헤더 설정 (나와 상대방의 정보가 뜨는 곳)
         NavigationView navigationView =  (NavigationView) findViewById(R.id.nav_view_chats);
-        View nav_header_view = navigationView.inflateHeaderView(R.layout.nav_header_chats);
+        View nav_header_view = navigationView.getHeaderView(0);
+        //inflateHeaderView(R.layout.nav_header_chats);
         // 내 프로필
 
 
         // 상대방 프로필
-
-
-
         /* 채팅방 이름 세팅
          * 그러니까 여기서 뭘해야되냐면... 일단 거기서도 채팅이 되고 채팅 리스트가 따로 있는 한 넘겨받아서 할순없음
          * 왜냐면 넘겨받은값은 폼에서 들어갈때는 몰라도 채팅 리스트에선 안넘겨받앗으니까 없는거잖아...
