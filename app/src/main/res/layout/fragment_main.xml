@@ -20,13 +20,13 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingRight="3dp">
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="3dp"
                 android:text="제목"
                 android:textColor="#000000"
                 android:textSize="15sp" />
@@ -42,11 +42,9 @@
 
             <ToggleButton
                 android:id="@+id/heart"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="0dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
                 android:background="@drawable/heart"
                 android:checked="false"
                 android:focusable="false"
@@ -67,7 +65,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:padding="3dp"
                 android:text="가격"
                 android:textColor="#000000"
                 android:textSize="15sp" />
@@ -90,9 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="6dp"
-                android:padding="3dp"
-
+                android:paddingRight="3dp"
                 android:text="01/10"
                 android:textAlignment="textEnd"
                 android:textColor="#000000"
