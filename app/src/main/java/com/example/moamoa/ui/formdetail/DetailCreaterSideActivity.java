@@ -77,7 +77,7 @@ public class DetailCreaterSideActivity extends Activity {
                 String today = dataSnapshot.child("today").getValue().toString();
                 String deadline = dataSnapshot.child("deadline").getValue().toString();
                 String num_k= dataSnapshot.child("parti_num").getValue().toString() ;
-
+                String express = dataSnapshot.child("express").getValue().toString();
                 Resources res = getResources();
                 String[] cat = res.getStringArray(R.array.category);
                 category=cat[Integer.parseInt(category)];
@@ -90,7 +90,7 @@ public class DetailCreaterSideActivity extends Activity {
                 Log.d("확인","message상세 이미지 : "+count);
                 String UID = dataSnapshot.child("UID_dash").getValue().toString();
                 UserFind(UID);
-                Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline);
+                Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline,express,count);
                 StorageReference pathReference = firebaseStorage.getReference(image);
 
 
@@ -136,8 +136,6 @@ public class DetailCreaterSideActivity extends Activity {
                 StorageReference pathReference = firebaseStorage.getReference(profil_text);
 
                 DetailCreaterSideActivity activity1 = (DetailCreaterSideActivity) profile.getContext() ;
-                if (activity1.isFinishing())
-                    return;
                 pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
@@ -158,21 +156,28 @@ public class DetailCreaterSideActivity extends Activity {
         });
     }
 
-    private void Initializeform(String subject,String category,String text,String cost,String max_count,String today,String deadline) {
+    private void Initializeform
+            (String subject,String category,String text,String cost,String max_count,
+             String today,String deadline,String express,Integer count)
+    {
         TextView subject_text = (TextView) findViewById(R.id.detail_subject);
         TextView category_text = (TextView) findViewById(R.id.detail_category);
         TextView text_text = (TextView) findViewById(R.id.detail_textarea);
         TextView cost_text = (TextView) findViewById(R.id.detail_cost);
         TextView max_count_text = (TextView) findViewById(R.id.detail_party_num);
         TextView start = (TextView) findViewById(R.id.detail_startdate);
-
         TextView deadlines = (TextView) findViewById(R.id.detail_deadline);
+        TextView express_text = (TextView) findViewById(R.id.detail_express);
+        TextView count_text = (TextView) findViewById(R.id.detail_counttext);
+
         subject_text.setText(subject);
+        category_text.setText(category);
         text_text.setText(text);
         cost_text.setText(cost);
-        category_text.setText(category);
         start.setText(today.toString().substring(0,4)+"년"+today.toString().substring(4,6)+"월"+today.toString().substring(6,8)+"일");
         deadlines.setText(deadline.toString().substring(0,4)+"년"+deadline.toString().substring(4,6)+"월"+deadline.toString().substring(6,8)+"일");
         max_count_text.setText(max_count);
+        express_text.setText(express);
+        count_text.setText("조회 "+count);
     }
 }

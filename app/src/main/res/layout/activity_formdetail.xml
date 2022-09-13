@@ -24,7 +24,6 @@
             android:orientation="vertical">
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/mainImage"
-                    android:layout_marginTop="24dp"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -46,8 +45,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+
+                        android:layout_marginBottom="10dp"
                         android:background="@drawable/formdetail_profile_bottomline"
                         android:gravity="center">
                         <de.hdodenhof.circleimageview.CircleImageView
@@ -86,27 +87,46 @@
                         android:background="@drawable/mypage_bottom_border"
                         android:minHeight="250dp"
                         android:orientation="vertical">
-
-
                         <TextView
                             android:id="@+id/detail_subject"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_height="match_parent"
                             android:padding="3dp"
                             android:text="제목"
                             android:textColor="#000000"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/detail_category"
+                        <!--TextView
+                            android:id="@+id/form_state"
                             android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="참여모집"
+                            android:padding="3dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:textColor="@color/main_green"
+                            android:textSize="20sp"
+                            android:textStyle="bold" /-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/formdetail_tag_style"
-                            android:text="카테고리"
-                            android:textSize="14sp" />
-
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/detail_category"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/formdetail_tag_style"
+                                android:text="카테고리"
+                                android:layout_marginRight="5dp"
+                                android:textSize="14sp"/>
+                            <TextView
+                                android:id="@+id/detail_express"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/formdetail_tag_style"
+                                android:text="직거래"
+                                android:textSize="14sp"/>
+                        </LinearLayout>
                         <TextView
                             android:id="@+id/detail_textarea"
                             android:layout_width="match_parent"
@@ -115,7 +135,20 @@
                             android:text="내용"
                             android:textColor="#000000"
                             android:textSize="17sp" />
-
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+                        <TextView
+                            android:id="@+id/detail_counttext"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="3dp"
+                            android:text="조회 0"
+                            android:layout_gravity="bottom"
+                            android:textColor="@color/gray"
+                            android:textSize="13sp"
+                            android:layout_marginBottom="5dp"/>
                     </LinearLayout>
 
                     <RelativeLayout
@@ -208,7 +241,7 @@
                     <com.naver.maps.map.MapView
                         android:id="@+id/mv"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="200dp"
                         android:layout_weight="1"/>
 
                     <LinearLayout
