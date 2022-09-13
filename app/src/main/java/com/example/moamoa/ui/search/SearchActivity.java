@@ -91,7 +91,6 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 search_std = adapterView.getItemAtPosition(position).toString();
-                Log.e("TEST5", "search_std1: "+search_std);
             }
 
             @Override
@@ -99,7 +98,6 @@ public class SearchActivity extends AppCompatActivity {
 
             }
         });
-        Log.e("TEST5", "search_std2: "+search_std);
 
         // 카테고리 목록 불러옴, 체크박스 전부 체크, 리스트에 추가 (초기값)
         String[] category = getMy_Category();
@@ -184,13 +182,8 @@ public class SearchActivity extends AppCompatActivity {
         // 검색할 텍스트 search_input에 저장
         search_input = EditText_search.getText().toString();
 
-        //
-        Log.e("TEST6", "search_std: "+search_std);
-        Log.e("TEST6", "search_input: "+search_input);
-
         if (search_input.equals("")){
             arrayList = new ArrayList<>();
-            Log.e("TEST11", "sortStdHashmap.get(sort_std)): "+sortStdHashmap.get(sort_std));
             FirebaseDatabase.getInstance().getReference("form")
                     .orderByChild(Objects.requireNonNull(sortStdHashmap.get(sort_std)))
                     .addValueEventListener(new ValueEventListener() {
@@ -212,18 +205,16 @@ public class SearchActivity extends AppCompatActivity {
 
                             switch (sort_std){
                                 case 0: // 최신순
-                                    Log.e("TEST10", "sort_std: "+sort_std);
                                     Collections.reverse(arrayList);
                                     customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                                     listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                                     break;
                                 case 1: // 인기순
-                                    Log.e("TEST10", "sort_std: "+sort_std);
+                                    Collections.reverse(arrayList);
                                     customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                                     listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                                     break;
                                 case 2: // 마감순
-                                    Log.e("TEST10", "sort_std: "+sort_std);
                                     customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                                     listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                                     break;
@@ -259,30 +250,21 @@ public class SearchActivity extends AppCompatActivity {
                                         if (my_category.contains(cat) && my_state.contains(sta)
                                                 && form.subject.contains(search_input)) {
                                             arrayList.add(form);
-                                            Log.e("TEST1", "my_state: "+my_state);
-                                            Log.e("TEST1", "sta: "+sta);
-                                            Log.e("TEST2", "form.count: "+form.count);
-                                            Log.e("TEST2", "form.today: "+form.today);
-                                            Log.e("TEST2", "form.max_count: "+form.max_count);
-                                            Log.e("TEST2", "form.deadline: "+form.deadline);
                                         }
                                     }
-                                    Log.e("TEST2", "arrayList: "+arrayList);
 
                                     switch (sort_std){
                                         case 0: // 최신순
-                                            Log.e("TEST10", "sort_std: "+sort_std);
                                             Collections.reverse(arrayList);
                                             customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                                             listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                                             break;
                                         case 1: // 인기순
-                                            Log.e("TEST10", "sort_std: "+sort_std);
+                                            Collections.reverse(arrayList);
                                             customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                                             listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                                             break;
                                         case 2: // 마감순
-                                            Log.e("TEST10", "sort_std: "+sort_std);
                                             customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                                             listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                                             break;
@@ -321,18 +303,16 @@ public class SearchActivity extends AppCompatActivity {
                                     }
                                     switch (sort_std){
                                         case 0: // 최신순
-                                            Log.e("TEST10", "sort_std: "+sort_std);
                                             Collections.reverse(arrayList);
                                             customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                                             listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                                             break;
                                         case 1: // 인기순
-                                            Log.e("TEST10", "sort_std: "+sort_std);
+                                            Collections.reverse(arrayList);
                                             customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                                             listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                                             break;
                                         case 2: // 마감순
-                                            Log.e("TEST10", "sort_std: "+sort_std);
                                             customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                                             listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                                             break;
@@ -383,18 +363,16 @@ public class SearchActivity extends AppCompatActivity {
                                                         }
                                                         switch (sort_std){
                                                             case 0: // 최신순
-                                                                Log.e("TEST10", "sort_std: "+sort_std);
                                                                 Collections.reverse(arrayList);
                                                                 customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                                                                 listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                                                                 break;
                                                             case 1: // 인기순
-                                                                Log.e("TEST10", "sort_std: "+sort_std);
+                                                                Collections.reverse(arrayList);
                                                                 customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                                                                 listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                                                                 break;
                                                             case 2: // 마감순
-                                                                Log.e("TEST10", "sort_std: "+sort_std);
                                                                 customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                                                                 listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                                                                 break;
@@ -576,7 +554,6 @@ public class SearchActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(SearchActivity.this, sortstd[which], Toast.LENGTH_SHORT).show();
                         sort_std = Arrays.asList(sortstd).indexOf(sortstd[which]);
-                        Log.e("TEST2", "sort_std: "+sort_std);
 
                         dialog.dismiss(); // 누르면 바로 닫히는 형태
                         search(search_std);
