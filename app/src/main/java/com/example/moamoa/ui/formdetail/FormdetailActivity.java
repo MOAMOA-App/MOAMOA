@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
 import com.example.moamoa.ui.chats.ChatsActivity;
+import com.example.moamoa.ui.dashboard.CustomTextWatcher;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -44,6 +45,7 @@ import com.naver.maps.map.overlay.Marker;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class FormdetailActivity extends Activity {
@@ -296,7 +298,10 @@ public class FormdetailActivity extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String subject = dataSnapshot.child("subject").getValue().toString();
                 String text = dataSnapshot.child("text").getValue().toString();
-                String cost = dataSnapshot.child("cost").getValue().toString();
+
+                DecimalFormat myFormatter = new DecimalFormat("###,###");
+                String cost = myFormatter.format(dataSnapshot.child("cost").getValue());
+
                 String category = dataSnapshot.child("category_text").getValue().toString();
                 String max_count = dataSnapshot.child("max_count").getValue().toString();
                 String today = dataSnapshot.child("today").getValue().toString();
@@ -307,10 +312,10 @@ public class FormdetailActivity extends Activity {
                 String[] cat = res.getStringArray(R.array.category);
                 category=cat[Integer.parseInt(category)];
 
-
                 image=dataSnapshot.child("image").getValue().toString() ;
-
                 count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
+
+
 
                 Log.d("확인","message상세 이미지 : "+count);
                 String UID = dataSnapshot.child("UID_dash").getValue().toString();
