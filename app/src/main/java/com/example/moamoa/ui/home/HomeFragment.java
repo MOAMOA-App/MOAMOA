@@ -32,10 +32,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class HomeFragment extends Fragment {
-    private FragmentHomeBinding binding;
+    private @NonNull FragmentHomeBinding binding;
     private FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
     private ArrayList<homelist_data> homelist[]=new ArrayList[5];
     private homelist_adapter homelistAdapter[]=new homelist_adapter[5];
@@ -51,7 +53,9 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
         mDatabase = FirebaseDatabase.getInstance();
         Query reference[] = new Query[5];
-
+        SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMdd");
+        long mNow = System.currentTimeMillis();
+        Date mDate = new Date(mNow);
         categoryAdapter_my = new CategoryAdapter_my();
         gridViews = (GridView) root.findViewById(R.id.home_my_category);
         initmylist();
@@ -64,13 +68,13 @@ public class HomeFragment extends Fragment {
         recyclerView[2] = (RecyclerView) root.findViewById(R.id.listview2);
         recyclerView[3] = (RecyclerView) root.findViewById(R.id.listview3);
         //recyclerView[4] = (RecyclerView) root.findViewById(R.id.listview4);
+        Log.e("today",mFormat.format(mDate));
+        //reference[0] = mDatabase.getReference().child("form").orderByChild("deadline").startAt(mFormat.format(mDate)).limitToFirst(10);    //마감임박
         reference[0] = mDatabase.getReference().child("form").orderByChild("deadline").limitToFirst(10);    //마감임박
-        reference[1] = mDatabase.getReference().child("form").orderByChild("parti_num").limitToLast(10);    //인기별
-        reference[2] = mDatabase.getReference().child("form").orderByChild("today").limitToFirst(10);       //신규
-        reference[3] = mDatabase.getReference().child("form").orderByChild("today").limitToFirst(10);       //나의 관심 카테고리
+        reference[1] = mDatabase.getReference().child("form").orderByChild("count").limitToLast(10);        //인기순
+        reference[2] = mDatabase.getReference().child("form").orderByChild("today").limitToLast(10);        //신규
+        //reference[3] = mDatabase.getReference().child("form").orderByChild("today").limitToFirst(10);       //나의 관심 카테고리
         //reference[2] = mDatabase.getReference().child("form").orderByChild("today").limitToFirst(10);       //최근 본 게시글
-
-
 
         /* 전체보기 버튼 */
         btn_c[0] = (TextView) root.findViewById(R.id.btn_ctgy0);
@@ -106,6 +110,7 @@ public class HomeFragment extends Fragment {
         GetOrderByreference(reference[1],1);
         GetOrderByreference(reference[2],2);
 
+
         /* 전체보기 버튼 클릭 시 CategoryActivity 이동 설정 */
         for(int i=0;i<4;i++){
             btn_c[i].setOnClickListener(new View.OnClickListener() {
@@ -138,14 +143,13 @@ public class HomeFragment extends Fragment {
     }
 
     /* Adapter에 넣을 Data 입력 */
-    public void InitializeFormData(int i,String img, String title, String UID, String mans, String FID, String category)
+    public void InitializeFormData(int i,String img, String title, String UID, String mans, String FID, String category,String state)
     {
         homelist_data tmp = new homelist_data();
 
         Resources res = getResources();
         String[] cat = res.getStringArray(R.array.category);
         category=cat[Integer.parseInt(category)];
-
         tmp.setImgName(img);
         tmp.setTitle(title);
         tmp.setNick(UID);
@@ -153,6 +157,7 @@ public class HomeFragment extends Fragment {
         tmp.setFID(FID);
         tmp.setUID(UID);
         tmp.setCategory(category);
+        tmp.setState(state);
         homelist[i].add(tmp);
 
     }
@@ -175,7 +180,8 @@ public class HomeFragment extends Fragment {
                         String parti_num = fileSnapshot.child("parti_num").getValue().toString();
                         String image =  fileSnapshot.child("image").getValue().toString();
                         String category = fileSnapshot.child("category_text").getValue().toString();
-                        InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key,category);
+                        String state = fileSnapshot.child("state").getValue().toString();
+                        InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key,category,state);
                     }
                 }
                 recyclerView[i].setAdapter(homelistAdapter[i]);
@@ -210,7 +216,8 @@ public class HomeFragment extends Fragment {
                             String UID = fileSnapshot.child("UID_dash").getValue().toString();
                             String parti_num = fileSnapshot.child("parti_num").getValue().toString();
                             String image =  fileSnapshot.child("image").getValue().toString();
-                            InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key,category);
+                            String state = fileSnapshot.child("state").getValue().toString();
+                            InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key,category, state);
                             count++;
                         }
 
