@@ -49,7 +49,7 @@ import java.util.List;
 public class FormdetailActivity extends Activity {
     private DatabaseReference mDatabase;
     int num_b;
-    String num_k;
+    int num_k;
     String image;
     String k;
     int count;
@@ -180,7 +180,7 @@ public class FormdetailActivity extends Activity {
                             Toast.makeText(getApplicationContext(), "호스트입니다", Toast.LENGTH_SHORT).show();
                         }
                         else if(dataSnapshot.child(FID).getValue()==null) {
-                            num_b = 1 + Integer.parseInt(num_k);
+                            num_b = 1 + num_k;
                             FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(FID).setValue("parti");
                             FirebaseDatabase.getInstance().getReference("form").child(FID).child("parti_num").setValue(num_b);
 
@@ -301,7 +301,7 @@ public class FormdetailActivity extends Activity {
                 String max_count = dataSnapshot.child("max_count").getValue().toString();
                 String today = dataSnapshot.child("today").getValue().toString();
                 String deadline = dataSnapshot.child("deadline").getValue().toString();
-                String num_k= dataSnapshot.child("parti_num").getValue().toString() ;
+                int num_k= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
                 String express = dataSnapshot.child("express").getValue().toString();
                 Resources res = getResources();
                 String[] cat = res.getStringArray(R.array.category);
