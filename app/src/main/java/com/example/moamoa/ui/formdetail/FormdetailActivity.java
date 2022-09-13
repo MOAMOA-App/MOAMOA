@@ -18,6 +18,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
@@ -39,6 +40,8 @@ import com.naver.maps.map.NaverMap;
 import com.naver.maps.map.NaverMapSdk;
 import com.naver.maps.map.OnMapReadyCallback;
 import com.naver.maps.map.overlay.Marker;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.List;
@@ -62,7 +65,7 @@ public class FormdetailActivity extends Activity {
     private Geocoder geocoder;
     Button btn_map;
 //
-    private ImageView mainImage;
+    private RecyclerView mainImage;
     private FirebaseStorage firebaseStorage;
     private FirebaseUser user;
     String point;
@@ -85,7 +88,7 @@ public class FormdetailActivity extends Activity {
         setContentView(R.layout.activity_formdetail);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
-        mainImage = (ImageView) findViewById(R.id.mainImage);
+        mainImage = (RecyclerView) findViewById(R.id.mainImage);
         firebaseStorage = FirebaseStorage.getInstance();
         Intent intent = getIntent();
         temp= intent.getStringExtra("FID");
@@ -284,7 +287,6 @@ public class FormdetailActivity extends Activity {
 
 
     private void printpage(){
-        //Retrofit_Function.category();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("form");
         mDatabase.child(temp).addValueEventListener(new ValueEventListener() {
             @Override
@@ -292,30 +294,30 @@ public class FormdetailActivity extends Activity {
                 String subject = dataSnapshot.child("subject").getValue().toString();
                 String text = dataSnapshot.child("text").getValue().toString();
                 String cost = dataSnapshot.child("cost").getValue().toString();
-                String category =dataSnapshot.child("category_text").getValue().toString();
+                String category = dataSnapshot.child("category_text").getValue().toString();
                 String max_count = dataSnapshot.child("max_count").getValue().toString();
                 String today = dataSnapshot.child("today").getValue().toString();
                 String deadline = dataSnapshot.child("deadline").getValue().toString();
-                num_k= dataSnapshot.child("parti_num").getValue().toString() ;
-                image=dataSnapshot.child("image").getValue().toString() ;
-
-                count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
-
+                String num_k= dataSnapshot.child("parti_num").getValue().toString() ;
+                String express = dataSnapshot.child("express").getValue().toString();
                 Resources res = getResources();
                 String[] cat = res.getStringArray(R.array.category);
                 category=cat[Integer.parseInt(category)];
 
+
+                image=dataSnapshot.child("image").getValue().toString() ;
+
+                count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
+
                 Log.d("확인","message상세 이미지 : "+count);
                 String UID = dataSnapshot.child("UID_dash").getValue().toString();
                 UserFind(UID);
-                Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline);
+                Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline,express,count);
                 StorageReference pathReference = firebaseStorage.getReference(image);
 
-                /*
-                FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
-                if (activity.isFinishing())
-                    return;
 
+                FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
+                /*
                 pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
@@ -346,7 +348,6 @@ public class FormdetailActivity extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name;
                 String profil_text;
-
                 TextView name_tv = (TextView) findViewById(R.id.detail_nick);
                 ImageView profile = (ImageView) findViewById(R.id.detail_profile);
                 profil_text = dataSnapshot.child("image").getValue().toString();
@@ -376,16 +377,19 @@ public class FormdetailActivity extends Activity {
         });
     }
 
-    private void Initializeform(String subject,String category,String text,String cost,String max_count,String today,String deadline) {
+    private void Initializeform
+            (String subject,String category,String text,String cost,String max_count,
+             String today,String deadline,String express,Integer count)
+    {
         TextView subject_text = (TextView) findViewById(R.id.detail_subject);
         TextView category_text = (TextView) findViewById(R.id.detail_category);
         TextView text_text = (TextView) findViewById(R.id.detail_textarea);
         TextView cost_text = (TextView) findViewById(R.id.detail_cost);
         TextView max_count_text = (TextView) findViewById(R.id.detail_party_num);
         TextView start = (TextView) findViewById(R.id.detail_startdate);
-
         TextView deadlines = (TextView) findViewById(R.id.detail_deadline);
-
+        TextView express_text = (TextView) findViewById(R.id.detail_express);
+        TextView count_text = (TextView) findViewById(R.id.detail_counttext);
 
         subject_text.setText(subject);
         category_text.setText(category);
@@ -394,6 +398,7 @@ public class FormdetailActivity extends Activity {
         start.setText(today.toString().substring(0,4)+"년"+today.toString().substring(4,6)+"월"+today.toString().substring(6,8)+"일");
         deadlines.setText(deadline.toString().substring(0,4)+"년"+deadline.toString().substring(4,6)+"월"+deadline.toString().substring(6,8)+"일");
         max_count_text.setText(max_count);
+        express_text.setText(express);
+        count_text.setText("조회 "+count);
     }
-
 }
