@@ -76,9 +76,10 @@ public class DashboardFragment extends Fragment {
     int i = 1;
     String point;
     ClipData clipData;
-
+    String address_s;
     private static final String TAG = "MultiImageActivity";
     ArrayList<Uri> uriList = new ArrayList<>();     // 이미지의 uri를 담을 ArrayList 객체
+    EditText address;
 
     RecyclerView recyclerView;  // 이미지를 보여줄 리사이클러뷰
     MultiImageAdapter adapter;  // 리사이클러뷰에 적용시킬 어댑터
@@ -106,7 +107,7 @@ public class DashboardFragment extends Fragment {
         EditText subject    = (EditText) root.findViewById(R.id.subject);               //제목
         TextView today      = (TextView) root.findViewById(R.id.text_dashboardstart);   //게시글 생성 날짜
         EditText text       = (EditText) root.findViewById(R.id.text);                  //내용
-        EditText address    = (EditText) root.findViewById(R.id.address);               //주소
+        address    = (EditText) root.findViewById(R.id.address);               //주소
         EditText cost       = (EditText) root.findViewById(R.id.cost);                  //금액
         EditText max_count  = (EditText) root.findViewById(R.id.max_count);             //마감 최대 인원 수
         Button button       = (Button) root.findViewById(R.id.button_dashboard);        //
@@ -326,7 +327,11 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        if (getArguments() != null)
+        {
+            address_s = getArguments().getString("address"); // 프래그먼트1에서 받아온 값 넣기
+            address.setText(address_s);
+        }
         if(data == null){   // 어떤 이미지도 선택하지 않은 경우
             Toast.makeText(getActivity(), "이미지를 선택하지 않았습니다.", Toast.LENGTH_LONG).show();
         }
