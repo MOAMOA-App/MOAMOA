@@ -34,6 +34,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -44,6 +46,8 @@ import com.example.moamoa.databinding.FragmentChatsBinding;
 import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.chatlist.ChatListFragment;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
+import com.example.moamoa.ui.notifications.NotificationsAdapter;
+import com.example.moamoa.ui.notifications.NotificationsData;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
@@ -73,6 +77,12 @@ public class ChatsActivity extends AppCompatActivity {
     ChatsFragment chatsFragment = new ChatsFragment();
 
     private DatabaseReference mDatabase;
+
+    // 임시(삭제예정)
+    private NotificationsAdapter adapter;
+    private ArrayList<NotificationsData> list1 = new ArrayList<>();
+    // 여기까지
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,11 +114,26 @@ public class ChatsActivity extends AppCompatActivity {
         // 프래그먼트 매니저로 chatscontainer에 chatsFragment 연결해줌
         getSupportFragmentManager().beginTransaction().replace(R.id.chatscontainer, chatsFragment).commit();
 
+        // 임시(삭제예정)
+        this.FormData();
+        // 리스트에 유저 정보 넣기
+        // CHATROOM_FID 불러와서 그 밑에 users 정보 불러오면 될듯
+        RecyclerView recyclerView = findViewById(R.id.chats_recyclerview_userinfo);
+        recyclerView.setHasFixedSize(true);
+
+        adapter = new NotificationsAdapter(getApplicationContext(), list1);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.setAdapter(adapter);
+        // 여기까지
+
+        /*
 
         // 헤더 설정 (나와 상대방의 정보가 뜨는 곳)
         NavigationView navigationView =  (NavigationView) findViewById(R.id.nav_view_chats);
         View nav_header_view = navigationView.getHeaderView(0);
         //inflateHeaderView(R.layout.nav_header_chats);
+
+         */
         // 내 프로필
 
 
@@ -125,6 +150,7 @@ public class ChatsActivity extends AppCompatActivity {
          * 그럼 폼 제목에 사람 이름 넣는걸로 하면 될듯 굿굿
          * */
 
+        /*
         FirebaseDatabase.getInstance().getReference().child("users").child(destinationuid)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -134,6 +160,7 @@ public class ChatsActivity extends AppCompatActivity {
                         // 채팅방 이름 설정
                         TextView chatbar = findViewById(R.id.chatbarname);
                         chatbar.setText(destinationNICK);
+
 
                         // 헤더에서 상대방 닉네임 보여줌
                         TextView nav_header_destiniationnick = (TextView) nav_header_view.findViewById(R.id.TextView_nickname_right);
@@ -189,6 +216,8 @@ public class ChatsActivity extends AppCompatActivity {
 
                     }
                 });
+
+         */
 
 
         // 메뉴 상호작용
@@ -344,4 +373,14 @@ public class ChatsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
+
+    // 임시(삭제예정)
+    public void FormData()
+    {
+        list1 = new ArrayList<NotificationsData>();
+        list1.add(new NotificationsData("참여한 폼에 변동 사항이 있습니다.", "폼이름1"));
+        list1.add(new NotificationsData("참여한 폼에 변동 사항이 있습니다.", "폼이름2"));
+        list1.add(new NotificationsData("참여한 폼에 변동 사항이 있습니다.", "폼이름3"));
+    }
+    // 여기까지
 }

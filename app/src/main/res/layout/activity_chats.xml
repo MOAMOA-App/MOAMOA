@@ -71,6 +71,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
+
+
+        <!--
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view_chats"
             android:layout_width="wrap_content"
@@ -82,7 +85,60 @@
             app:menu="@menu/chatdrawer"
             app:headerLayout="@layout/nav_header_chats"
             >
+
+
         </com.google.android.material.navigation.NavigationView>
+        -->
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/layout_chat_userinfo"
+            android:layout_width="280dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="end"
+            android:fitsSystemWindows="true"
+            android:background="@color/white"
+            android:weightSum="1"
+            >
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/chats_recyclerview_userinfo"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="end"
+                android:fitsSystemWindows="true"
+                android:background="@color/white"
+                >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+
+                android:orientation="horizontal">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0">
+
+                </Button>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0">
+
+                </Button>
+
+            </LinearLayout>
+        </LinearLayout>
+
     </androidx.drawerlayout.widget.DrawerLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
