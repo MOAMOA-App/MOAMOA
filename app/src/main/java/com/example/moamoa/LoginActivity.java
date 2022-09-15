@@ -72,8 +72,8 @@ public class LoginActivity extends AppCompatActivity {
         TextView Google_Login = (TextView) findViewById(R.id.google_login_btn); //구글 로그인
         TextView Naver_Login  = (TextView) findViewById(R.id.naver_login_btn);  //네이버 로그인
         TextView Kakao_Login  = (TextView) findViewById(R.id.kakao_login_btn);  //카카오 로그인
-        Register = (TextView) findViewById(R.id.register_log);                  //회원가입
-        mAuth = FirebaseAuth.getInstance();
+        Register    = (TextView) findViewById(R.id.register_log);                  //회원가입
+        mAuth       = FirebaseAuth.getInstance();
 
         // [START config_signin]
         // Configure Google Sign In
