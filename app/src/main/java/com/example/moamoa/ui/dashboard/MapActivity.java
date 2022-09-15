@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.moamoa.R;
 import com.naver.maps.geometry.LatLng;
@@ -35,6 +36,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private Geocoder geocoder;
     Button btn_map,btn_submit;
     EditText adr;
+    String address;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +78,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 System.out.println(addressList.get(0).toString());
                 // 콤마를 기준으로 split
                 String []splitStr = addressList.get(0).toString().split(",");
-                String address = splitStr[0].substring(splitStr[0].indexOf("\"") + 1,splitStr[0].length() - 2); // 주소
+                address = splitStr[0].substring(splitStr[0].indexOf("\"") + 1,splitStr[0].length() - 2); // 주소
                 System.out.println(address);
 
                 String latitude = splitStr[splitStr.length-6].substring(splitStr[splitStr.length-6].indexOf("=") + 1); // 위도
@@ -95,5 +97,24 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 naverMap.setCameraPosition(cameraPosition);
             }
         });
+
+        btn_submit.setOnClickListener(new Button.OnClickListener(){
+            public void onClick(View view) {
+                Bundle bundle = new Bundle(); // 번들을 통해 값 전달
+                bundle.putString("address",address);//번들에 넘길 값 저장
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                DashboardFragment fragment2 = new DashboardFragment();//프래그먼트2 선언
+                fragment2.setArguments(bundle);//번들을 프래그먼트2로 보낼 준비
+                transaction.replace(R.id.address, fragment2);
+                transaction.commit();
+
+
+            }
+
+        });
+
+
+
     }
+
 }
