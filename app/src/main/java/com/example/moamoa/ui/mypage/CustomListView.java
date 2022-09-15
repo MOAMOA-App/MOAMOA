@@ -1,5 +1,6 @@
 package com.example.moamoa.ui.mypage;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
@@ -65,7 +66,7 @@ public class CustomListView extends BaseAdapter {
             }
             convertView = layoutInflater.inflate(R.layout.fragment_main, parent, false);
         }
-        TextView state=convertView.findViewById(R.id.state);
+        TextView state=convertView.findViewById(R.id.list_state);
         TextView name = convertView.findViewById(R.id.charge);
         ImageView mainImage = convertView.findViewById(R.id.mainImage);
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
@@ -89,6 +90,7 @@ public class CustomListView extends BaseAdapter {
         pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
+
                 Glide.with(mainImage.getContext())
                         .load(uri)
                         .into(mainImage);

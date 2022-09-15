@@ -1,7 +1,9 @@
 package com.example.moamoa.ui.category;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -64,6 +66,7 @@ public class CustomListView extends BaseAdapter {
         return 0;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
@@ -91,24 +94,36 @@ public class CustomListView extends BaseAdapter {
             }
         });
 
-            TextView title = convertView.findViewById(R.id.title);
-            TextView name = convertView.findViewById(R.id.name);
-            TextView charge = convertView.findViewById(R.id.charge);
-            TextView mans = convertView.findViewById(R.id.mans);
+        TextView title  = convertView.findViewById(R.id.title);
+        TextView name   = convertView.findViewById(R.id.name);
+        TextView charge = convertView.findViewById(R.id.charge);
+        TextView mans   = convertView.findViewById(R.id.mans);
+        TextView state  = convertView.findViewById(R.id.list_state);
 
-            //mainImage.listViewData.get(position).photo);
-            title.setText(listViewData.get(position).subject);
-            name.setText(listViewData.get(position).address);
-
-            charge.setText(listViewData.get(position).cost+"원");
-
-
+        String state_temp="";
+        switch(listViewData.get(position).state){
+            case 0:
+                state_temp = "참여모집";
+                state.setTextColor(Color.parseColor("#F1A94E"));
+                break;
+            case 1:
+                state_temp = "거래진행";
+                state.setTextColor(Color.parseColor("#274E13"));
+                break;
+            case 2:
+                state_temp = "거래종료";
+                state.setTextColor(Color.parseColor("#4C4C4C"));
+                break;
+        }
         //mainImage.listViewData.get(position).photo);
-
+        title.setText(listViewData.get(position).subject);
+        name.setText(listViewData.get(position).address);
+        charge.setText(listViewData.get(position).cost+"원");
+        state.setText("["+state_temp+"]");
         mans.setText(listViewData.get(position).parti_num+"/"+listViewData.get(position).max_count);
 
-           // String x = listViewData.get(position).deadline.substring(0,4)+"/"+listViewData.get(position).deadline.substring(4,6)+"/"+listViewData.get(position).deadline.substring(6,8);
-            //mans.setText(x);
+        // String x = listViewData.get(position).deadline.substring(0,4)+"/"+listViewData.get(position).deadline.substring(4,6)+"/"+listViewData.get(position).deadline.substring(6,8);
+        //mans.setText(x);
 
         //listview와 버튼 클릭 다르게 주기
 
@@ -183,17 +198,6 @@ public class CustomListView extends BaseAdapter {
 
 
                 }
-
-
-
-
-
-                //
-                //String clickName = listViewData.get(position).subject;
-                //Log.d("확인","message : "+clickName);
-
-
-
         });
 
         return convertView;

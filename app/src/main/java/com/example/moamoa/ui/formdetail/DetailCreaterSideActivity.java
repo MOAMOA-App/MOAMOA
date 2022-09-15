@@ -81,6 +81,9 @@ public class DetailCreaterSideActivity extends Activity {
                         switch (menuItem.getItemId()){
                             case(R.id.Detail_Creator_Change):
                                 Log.e("popup","수정하기");
+                                /*
+                                    게시글 수정 어디까지 허용할 것인가.
+                                 */
                                 break;
                             case(R.id.Detail_Creator_Delete):
                                 Log.e("popup","삭제하기");
@@ -97,6 +100,14 @@ public class DetailCreaterSideActivity extends Activity {
                                             .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialogInterface, int i) {
+                                                    /*
+                                                        삭제xxxxx
+                                                        form -> 비활성화 -> 비활성화 후 일정 기간이 지나면 삭제가 젤 좋을 듯
+                                                        heart -> 게시글에 접근할 수 없으면 스킵. 오류 없이 해야 함
+                                                        거래 진행중에 삭제 불가능
+                                                        거래 완료 후 삭제시 내가 구매한 게시글 목록 관련 회의 필요
+
+                                                     */
                                                 }
                                             }).show();
                                 break;

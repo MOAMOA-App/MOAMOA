@@ -107,7 +107,7 @@ public class DashboardFragment extends Fragment {
         EditText subject    = (EditText) root.findViewById(R.id.subject);               //제목
         TextView today      = (TextView) root.findViewById(R.id.text_dashboardstart);   //게시글 생성 날짜
         EditText text       = (EditText) root.findViewById(R.id.text);                  //내용
-        address    = (EditText) root.findViewById(R.id.address);               //주소
+        address             = (EditText) root.findViewById(R.id.address);               //주소
         EditText cost       = (EditText) root.findViewById(R.id.cost);                  //금액
         EditText max_count  = (EditText) root.findViewById(R.id.max_count);             //마감 최대 인원 수
         Button button       = (Button) root.findViewById(R.id.button_dashboard);        //

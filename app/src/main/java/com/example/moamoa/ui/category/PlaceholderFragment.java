@@ -144,10 +144,6 @@ public class PlaceholderFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 listViewData.clear();
-
-                Resources res = getActivity().getResources();
-                String[] category_list = res.getStringArray(R.array.category);
-
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     listData = snapshot.getValue(Form.class);
