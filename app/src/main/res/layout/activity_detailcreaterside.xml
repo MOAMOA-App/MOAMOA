@@ -6,7 +6,6 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -73,7 +72,6 @@
                             android:id="@+id/detail_local"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="3dp"
                             android:text="빈 칸"
                             android:textSize="11sp" />
                     </LinearLayout>
@@ -82,6 +80,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"/>
                     <ImageButton
+                        android:id="@+id/creator_menu"
                         android:layout_width="41dp"
                         android:layout_height="41dp"
                         android:background="@color/white"
@@ -253,12 +252,6 @@
                     android:textSize="17sp"
                     android:layout_marginBottom="3dp"/>
 
-                <com.naver.maps.map.MapView
-                    android:id="@+id/mv"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_weight="1"/>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
@@ -266,6 +259,11 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
+                    <com.naver.maps.map.MapView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="3dp"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -298,11 +296,12 @@
                 android:focusable="false"
                 android:text=""
                 android:textOff=""
-                android:textOn="" />
+                android:textOn=""
+                android:visibility="invisible"/>
         </LinearLayout>
 
         <Button
-            android:id="@+id/detail_party_btn"
+            android:id="@+id/creator_showparty"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:layout_centerVertical="true"
@@ -314,19 +313,20 @@
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold" />
+
         <TextView
             android:id="@+id/detail_party_num"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@+id/detail_party_btn"
+            android:layout_toRightOf="@+id/creator_showparty"
             android:gravity="center"
             android:padding="10dp"
             android:text="0/14"
-            android:textStyle="bold"
             android:textColor="@color/main_green"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
         <Button
-            android:id="@+id/detail_chat_btn"
+            android:id="@+id/creator_notice"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:text="공지하기"

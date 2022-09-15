@@ -74,7 +74,6 @@
                                 android:id="@+id/detail_local"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="3dp"
                                 android:text="빈 칸"
                                 android:textSize="11sp"/>
                         </LinearLayout>
@@ -82,11 +81,12 @@
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:layout_weight="1"/>
-                        <ImageButton
+
+                        <!--ImageButton
                             android:layout_width="41dp"
                             android:layout_height="41dp"
                             android:background="@color/white"
-                            android:src="@drawable/ic_baseline_menu_24"/>
+                            android:src="@drawable/ic_baseline_menu_24"/-->
                     </LinearLayout>
 
                     <LinearLayout
@@ -257,7 +257,8 @@
                         android:id="@+id/mv"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:paddingHorizontal="3dp"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
