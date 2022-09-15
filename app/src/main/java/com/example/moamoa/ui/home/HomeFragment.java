@@ -209,21 +209,38 @@ public class HomeFragment extends Fragment {
                     homelist[i].clear();
                     DataSnapshot result = task.getResult();
                     int count=0;
-                    for (DataSnapshot fileSnapshot : result.getChildren() ) {
-                        String category = fileSnapshot.child("category_text").getValue().toString();
-                        int temp = Integer.parseInt(category);
-                        if(list.contains(temp) && count<10){
-                            String Key       = fileSnapshot.getKey();
-                            String subject   = fileSnapshot.child("subject").getValue().toString();
-                            String max_count = fileSnapshot.child("max_count").getValue().toString();
-                            String UID       = fileSnapshot.child("UID_dash").getValue().toString();
-                            String parti_num = fileSnapshot.child("parti_num").getValue().toString();
-                            String image     = fileSnapshot.child("image").getValue().toString();
-                            String state     = fileSnapshot.child("state").getValue().toString();
-                            InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key,category, state);
-                            count++;
-                        }
+                    if(list.isEmpty()){
+                        for (DataSnapshot fileSnapshot : result.getChildren() ) {
+                            String category = fileSnapshot.child("category_text").getValue().toString();
+                            if(count<10){
+                                String Key       = fileSnapshot.getKey();
+                                String subject   = fileSnapshot.child("subject").getValue().toString();
+                                String max_count = fileSnapshot.child("max_count").getValue().toString();
+                                String UID       = fileSnapshot.child("UID_dash").getValue().toString();
+                                String parti_num = fileSnapshot.child("parti_num").getValue().toString();
+                                String image     = fileSnapshot.child("image").getValue().toString();
+                                String state     = fileSnapshot.child("state").getValue().toString();
+                                InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key,category, state);
+                                count++;
+                            }
 
+                        }
+                    }else{
+                        for (DataSnapshot fileSnapshot : result.getChildren() ) {
+                            String category = fileSnapshot.child("category_text").getValue().toString();
+                            int temp = Integer.parseInt(category);
+                            if(list.contains(temp) && count<10){
+                                String Key       = fileSnapshot.getKey();
+                                String subject   = fileSnapshot.child("subject").getValue().toString();
+                                String max_count = fileSnapshot.child("max_count").getValue().toString();
+                                String UID       = fileSnapshot.child("UID_dash").getValue().toString();
+                                String parti_num = fileSnapshot.child("parti_num").getValue().toString();
+                                String image     = fileSnapshot.child("image").getValue().toString();
+                                String state     = fileSnapshot.child("state").getValue().toString();
+                                InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key,category, state);
+                                count++;
+                            }
+                        }
                     }
                 }
                 recyclerView[i].setAdapter(homelistAdapter[i]);
