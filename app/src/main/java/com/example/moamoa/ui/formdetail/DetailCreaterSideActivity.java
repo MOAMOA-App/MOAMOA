@@ -2,20 +2,16 @@ package com.example.moamoa.ui.formdetail;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextThemeWrapper;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -23,13 +19,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -163,7 +157,6 @@ public class DetailCreaterSideActivity extends Activity {
 
                 DecimalFormat myFormatter = new DecimalFormat("###,###");
                 String cost         = myFormatter.format(dataSnapshot.child("cost").getValue());
-
                 String subject      = dataSnapshot.child("subject").getValue().toString();
                 String text         = dataSnapshot.child("text").getValue().toString();
                 String category     = dataSnapshot.child("category_text").getValue().toString();

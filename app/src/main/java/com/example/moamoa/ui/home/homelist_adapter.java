@@ -16,7 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -115,19 +117,12 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
         //viewHolder.img_main.setImageResource();
         DatabaseReference mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
-        mDatabase.child(item.getNick()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                viewHolder.txt_name.setText((dataSnapshot.child("nick").getValue().toString()));
 
-            }
+        mDatabase.child(item.getNick()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w("", "loadPost:onCancelled", databaseError.toException());
-                // ...
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                viewHolder.txt_name.setText((task.getResult().child("nick").getValue().toString()));
             }
-
         });
         viewHolder.txt_cateog.setText(item.getCategory());
         viewHolder.txt_title.setText(item.getTitle());

@@ -26,7 +26,9 @@ import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
 import com.example.moamoa.ui.chats.ChatsActivity;
 import com.example.moamoa.ui.dashboard.CustomTextWatcher;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -173,23 +175,30 @@ public class FormdetailActivity extends Activity {
         });
 
 
+        TextView state_text = (TextView) findViewById(R.id.detail_state);
         party_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                FirebaseDatabase.getInstance().getReference("form").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        Log.e("",task.getResult().toString());
+                    }
+                });
 
+                FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
                         if (FID.contains(user.getUid())) {
                             Toast.makeText(getApplicationContext(), "호스트입니다", Toast.LENGTH_SHORT).show();
                         }
-                        else if(dataSnapshot.child(FID).getValue()==null) {
+                        else if(task.getResult().child(FID).getValue()==null) {
                             num_b = 1 + num_k;
                             FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(FID).setValue("parti");
                             FirebaseDatabase.getInstance().getReference("form").child(FID).child("parti_num").setValue(num_b);
 
                         }
-                        else if(dataSnapshot.child(FID).getValue()!=null &&dataSnapshot.child(FID).getValue().equals("parti") )
+                        else if(task.getResult().child(FID).getValue()!=null &&task.getResult().child(FID).getValue().equals("parti") )
                         {
                    //         Log.d("MainActivity", "파티 떠라: " + dataSnapshot.child(FID).getKey());
                             Toast.makeText(getApplicationContext(), "참여하였습니다.", Toast.LENGTH_SHORT).show();
@@ -199,9 +208,6 @@ public class FormdetailActivity extends Activity {
 
 
                     }
-                    @Override
-                    public void onCancelled(DatabaseError databaseError)
-                    {    }
                 });
                 //파티 하면 숫자 안늘게 하기
             }
