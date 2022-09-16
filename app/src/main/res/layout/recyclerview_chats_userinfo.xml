@@ -52,4 +52,9 @@
             android:textColor="@color/black"
             android:textSize="15sp" />
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/chats_recyclerview_userinfo_UID"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
 </RelativeLayout>

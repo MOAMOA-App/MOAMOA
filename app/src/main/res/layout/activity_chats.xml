@@ -116,27 +116,50 @@
 
             </androidx.recyclerview.widget.RecyclerView>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="bottom"
+                android:layout_weight="0"
+                android:background="@color/light_gray"
 
                 android:orientation="horizontal">
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0">
 
-                </Button>
+                <FrameLayout
+                    android:id="@+id/chats_btn_getoutofroom"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:clickable="true"
+                    android:focusable="true">
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:src="@drawable/ic_baseline_exit_to_app_24"
+                        android:contentDescription="getoutofroom" />
 
-                </Button>
+                </FrameLayout>
 
-            </LinearLayout>
+                <FrameLayout
+                    android:id="@+id/chats_btn_selectlanguage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:src="@drawable/ic_outline_spellcheck_24"
+                        android:contentDescription="@string/selectlanguage" />
+
+                </FrameLayout>
+
+            </RelativeLayout>
         </LinearLayout>
 
     </androidx.drawerlayout.widget.DrawerLayout>

@@ -1,17 +1,21 @@
 package com.example.moamoa.ui.chats;
 
 public class ChatsUserData {
-    String profilepic;
-    String nationality;
-    String usernick;
-    String account;
+    private String profilepic;
+    private String nationality;
+    private String usernick;
+    private String account;
+    private String UID;
 
-    public ChatsUserData(String profilepic, String usernick, String account){
+    /*
+    public ChatsUserData(String profilepic, String nationality, String usernick, String account, String UID){
         this.profilepic = profilepic;
-        //this.nationality = nationality;
+        this.nationality = nationality;
         this.usernick = usernick;
         this.account = account;
+        this.UID = UID;
     }
+     */
 
     public String getProfilepic() {
         return profilepic;
@@ -36,5 +40,22 @@ public class ChatsUserData {
     public void setUsernick(String usernick) {
         this.usernick = usernick;
     }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public String getUID() {
+        return UID;
+    }
+
+    public void setUID(String UID) {
+        this.UID = UID;
+    }
+
 
 }
