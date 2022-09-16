@@ -160,17 +160,20 @@ public class DetailCreaterSideActivity extends Activity {
         mDatabase.child(temp).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String subject = dataSnapshot.child("subject").getValue().toString();
-                String text = dataSnapshot.child("text").getValue().toString();
+
                 DecimalFormat myFormatter = new DecimalFormat("###,###");
-                String cost = myFormatter.format(dataSnapshot.child("cost").getValue());
-                String category = dataSnapshot.child("category_text").getValue().toString();
-                String max_count = dataSnapshot.child("max_count").getValue().toString();
-                String today = dataSnapshot.child("today").getValue().toString();
-                String deadline = dataSnapshot.child("deadline").getValue().toString();
-                String num_k= dataSnapshot.child("parti_num").getValue().toString() ;
-                String express = dataSnapshot.child("express").getValue().toString();
-                String state = dataSnapshot.child("state").getValue().toString();
+                String cost         = myFormatter.format(dataSnapshot.child("cost").getValue());
+
+                String subject      = dataSnapshot.child("subject").getValue().toString();
+                String text         = dataSnapshot.child("text").getValue().toString();
+                String category     = dataSnapshot.child("category_text").getValue().toString();
+                String max_count    = dataSnapshot.child("max_count").getValue().toString();
+                String today        = dataSnapshot.child("today").getValue().toString();
+                String deadline     = dataSnapshot.child("deadline").getValue().toString();
+                String num_k        = dataSnapshot.child("parti_num").getValue().toString() ;
+                String express      = dataSnapshot.child("express").getValue().toString();
+                String state        = dataSnapshot.child("state").getValue().toString();
+
                 Resources res = getResources();
                 String[] cat = res.getStringArray(R.array.category);
                 category=cat[Integer.parseInt(category)];

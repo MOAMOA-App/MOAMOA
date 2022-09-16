@@ -304,15 +304,14 @@ public class FormdetailActivity extends Activity {
                     String text = dataSnapshot.child("text").getValue().toString();
 
                     DecimalFormat myFormatter = new DecimalFormat("###,###");
-                    String cost = myFormatter.format(dataSnapshot.child("cost").getValue());
-
-                    String category = dataSnapshot.child("category_text").getValue().toString();
-                    String max_count = dataSnapshot.child("max_count").getValue().toString();
-                    String today = dataSnapshot.child("today").getValue().toString();
-                    String deadline = dataSnapshot.child("deadline").getValue().toString();
-                    String state = dataSnapshot.child("state").getValue().toString();
+                    String cost         = myFormatter.format(dataSnapshot.child("cost").getValue());
+                    String category     = dataSnapshot.child("category_text").getValue().toString();
+                    String max_count    = dataSnapshot.child("max_count").getValue().toString();
+                    String today        = dataSnapshot.child("today").getValue().toString();
+                    String deadline     = dataSnapshot.child("deadline").getValue().toString();
+                    String state        = dataSnapshot.child("state").getValue().toString();
+                    String express      = dataSnapshot.child("express").getValue().toString();
                     int num_k= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
-                    String express = dataSnapshot.child("express").getValue().toString();
                     Resources res = getResources();
                     String[] cat = res.getStringArray(R.array.category);
                     category=cat[Integer.parseInt(category)];
@@ -394,25 +393,16 @@ public class FormdetailActivity extends Activity {
             (String subject,String category,String text,String cost,String max_count,
              String today,String deadline,String express,Integer count,String state)
     {
-        TextView subject_text = (TextView) findViewById(R.id.detail_subject);
-        TextView category_text = (TextView) findViewById(R.id.detail_category);
-        TextView text_text = (TextView) findViewById(R.id.detail_textarea);
-        TextView cost_text = (TextView) findViewById(R.id.detail_cost);
+        TextView subject_text   = (TextView) findViewById(R.id.detail_subject);
+        TextView category_text  = (TextView) findViewById(R.id.detail_category);
+        TextView text_text      = (TextView) findViewById(R.id.detail_textarea);
+        TextView cost_text      = (TextView) findViewById(R.id.detail_cost);
         TextView max_count_text = (TextView) findViewById(R.id.detail_party_num);
-        TextView start = (TextView) findViewById(R.id.detail_startdate);
-        TextView deadlines = (TextView) findViewById(R.id.detail_deadline);
-        TextView express_text = (TextView) findViewById(R.id.detail_express);
-        TextView count_text = (TextView) findViewById(R.id.detail_counttext);
-        TextView state_text = (TextView) findViewById(R.id.detail_state);
-        subject_text.setText(subject);
-        category_text.setText(category);
-        text_text.setText(text);
-        cost_text.setText(cost);
-        start.setText(today.toString().substring(0,4)+"년"+today.toString().substring(4,6)+"월"+today.toString().substring(6,8)+"일");
-        deadlines.setText(deadline.toString().substring(0,4)+"년"+deadline.toString().substring(4,6)+"월"+deadline.toString().substring(6,8)+"일");
-        max_count_text.setText(max_count);
-        express_text.setText(express);
-        count_text.setText("조회 "+count);
+        TextView start          = (TextView) findViewById(R.id.detail_startdate);
+        TextView deadlines      = (TextView) findViewById(R.id.detail_deadline);
+        TextView express_text   = (TextView) findViewById(R.id.detail_express);
+        TextView count_text     = (TextView) findViewById(R.id.detail_counttext);
+        TextView state_text     = (TextView) findViewById(R.id.detail_state);
 
         switch(state){
             case "0":
@@ -428,5 +418,16 @@ public class FormdetailActivity extends Activity {
                 state_text.setTextColor(Color.parseColor("#4C4C4C"));
                 break;
         }
+        subject_text.setText(subject);
+        category_text.setText(category);
+        text_text.setText(text);
+        cost_text.setText(cost);
+        start.setText(today.toString().substring(0,4)+"년"+today.toString().substring(4,6)+"월"+today.toString().substring(6,8)+"일");
+        deadlines.setText(deadline.toString().substring(0,4)+"년"+deadline.toString().substring(4,6)+"월"+deadline.toString().substring(6,8)+"일");
+        max_count_text.setText(max_count);
+        express_text.setText(express);
+        count_text.setText("조회 "+count);
+
+
     }
 }
