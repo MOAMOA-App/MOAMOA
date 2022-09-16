@@ -30,6 +30,7 @@ import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentDashboardBinding;
 import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.category.CategoryActivity;
+import com.example.moamoa.ui.mypage.PageViewModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -96,6 +97,18 @@ public class DashboardFragment extends Fragment {
 
         return mFormat1.format(mDate);
     }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+        if (getArguments() != null) {
+            address_s = getArguments().getString("address");
+            address.setText(address_s);
+        }
+
+
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel =
@@ -121,7 +134,6 @@ public class DashboardFragment extends Fragment {
         cost.addTextChangedListener(new CustomTextWatcher(cost));
         photo = (ImageView) root.findViewById(R.id.imageView);
         storage = FirebaseStorage.getInstance();
-
 
         Button btn_getImage = root.findViewById(R.id.button_imgs);
         btn_getImage.setOnClickListener(new View.OnClickListener() {
@@ -327,11 +339,7 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (getArguments() != null)
-        {
-            address_s = getArguments().getString("address"); // 프래그먼트1에서 받아온 값 넣기
-            address.setText(address_s);
-        }
+
         if(data == null){   // 어떤 이미지도 선택하지 않은 경우
             Toast.makeText(getActivity(), "이미지를 선택하지 않았습니다.", Toast.LENGTH_LONG).show();
         }

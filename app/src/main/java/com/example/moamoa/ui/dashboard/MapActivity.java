@@ -1,5 +1,6 @@
 package com.example.moamoa.ui.dashboard;
 
+import android.app.Fragment;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.moamoa.R;
@@ -37,6 +39,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     Button btn_map,btn_submit;
     EditText adr;
     String address;
+    String address_s;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,8 +90,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
                 Log.d("MainActivity", "vv: " + latitude);
                 Log.d("MainActivity", "vv: " + longitude);
-
-                // 좌표(위도, 경도) 생성
+                address_s=latitude+","+longitude;
+            // 좌표(위도, 경도) 생성
                 LatLng point = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
                 // 마커 생성
                 marker.setPosition(point);
@@ -100,14 +104,13 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         btn_submit.setOnClickListener(new Button.OnClickListener(){
             public void onClick(View view) {
-                Bundle bundle = new Bundle(); // 번들을 통해 값 전달
-                bundle.putString("address",address);//번들에 넘길 값 저장
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                DashboardFragment fragment2 = new DashboardFragment();//프래그먼트2 선언
-                fragment2.setArguments(bundle);//번들을 프래그먼트2로 보낼 준비
-                transaction.replace(R.id.address, fragment2);
-                transaction.commit();
-
+                DashboardFragment myFragment = new DashboardFragment();
+                FragmentManager manager=getSupportFragmentManager();
+                FragmentTransaction transaction= manager.beginTransaction();
+                Bundle bundle = new Bundle(); // 파라미터의 숫자는 전달하려는 값의 갯수
+                bundle.putString("address", address_s );
+                myFragment.setArguments(bundle);
+                transaction.replace(R.id.addr,myFragment).commit();
 
             }
 
