@@ -205,7 +205,7 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), MapFragment.class);
-                startActivity(intent);
+                startActivity(intent);f
 
             }
         });
