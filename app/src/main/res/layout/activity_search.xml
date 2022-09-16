@@ -18,7 +18,7 @@
 
             <Spinner
                 android:id="@+id/searchspinner"
-                android:layout_width="wrap_content"
+                android:layout_width="95dp"
                 android:layout_height="match_parent"
                 android:entries="@array/searchoption" />
 
@@ -42,7 +42,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/main_orange"
-
 
                 android:text="검색" />
 
@@ -101,7 +100,6 @@
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
                 android:background="#00ff0000"
-                android:backgroundTint="@color/white"
 
                 android:text="@string/search_sortstd"
                 android:textColor="@color/black">

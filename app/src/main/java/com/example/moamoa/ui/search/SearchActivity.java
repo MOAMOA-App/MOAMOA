@@ -78,7 +78,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private FirebaseDatabase mDatabase;
 
-    private HashMap<Integer, String> sortStdHashmap = new HashMap<>();
+    private final HashMap<Integer, String> sortStdHashmap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,18 +148,13 @@ public class SearchActivity extends AppCompatActivity {
         // ListView listView = findViewById(R.id.search_listview);
         listView = findViewById(R.id.search_listview);
 
-        /*
-        orderbychild(std)만 추가하면 되는거잖아
-        0일시 "today" 1일시 "parti_num" 2일시 "deadline"으로
-        그러면 hashmap으로 만들면?? 될듯??? 하하하
-         */
-
         // 입력 텍스트
         EditText_search = findViewById(R.id.searchWord);
 
         // 리스트 모두 가져오기 (초기 상태)
         search_std = "제목";  // search_std 초기화
         search_input = "";
+        SortBtn.setText("최신순"); // 정렬 기준 버튼 이름 최신순으로 변경
         search(search_std);
 
         // 검색 버튼을 누르면 해당되는 게시물 불러옴
@@ -554,6 +549,7 @@ public class SearchActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(SearchActivity.this, sortstd[which], Toast.LENGTH_SHORT).show();
                         sort_std = Arrays.asList(sortstd).indexOf(sortstd[which]);
+                        SortBtn.setText(sortstd[which]);
 
                         dialog.dismiss(); // 누르면 바로 닫히는 형태
                         search(search_std);
