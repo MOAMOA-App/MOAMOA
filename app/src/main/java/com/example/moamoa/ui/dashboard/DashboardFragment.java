@@ -282,7 +282,7 @@ public class DashboardFragment extends Fragment {
 
 
                // childUpdates.put(user.getUid(), postValues);
-               // reference.updateChildren(childUpdates);
+               // reference.updateChildren(childUpdates)
 
                 storageRef = storage.getReference();
                 for(int i = 0; i < clipData.getItemCount(); i++) {
