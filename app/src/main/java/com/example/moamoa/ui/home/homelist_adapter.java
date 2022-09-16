@@ -1,5 +1,6 @@
 package com.example.moamoa.ui.home;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.net.Uri;
 import android.util.Log;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
+import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -99,9 +101,11 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
         homelist_data item = arrayList.get(position);
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
         StorageReference pathReference = firebaseStorage.getReference(item.getImgName());
+        Activity context = (Activity) viewHolder.img_main.getContext();
         pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
+                if (context.isFinishing()) return;
                 Glide.with(viewHolder.img_main.getContext())
                         .load(uri)
                         .into(viewHolder.img_main);
