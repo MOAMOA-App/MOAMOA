@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.dashboard.DashboardFragment"
+        android:orientation="vertical"
+        android:background="@color/white"
+        >
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/dashboardtoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="#ffffff"
+                    app:titleTextColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/dashboardbarname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15dp"
+
+                    android:text="공동구매 글쓰기"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/change_image_btn"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:drawableTop="@drawable/ic_baseline_photo"
+                        android:text="10/10"
+                        android:onClick="onClick"
+                        android:textAlignment="center"
+                        />
+                    <TextView
+                        android:id="@+id/chang_image_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"  />
+
+                </LinearLayout>
+
+                <GridView
+                    android:id="@+id/change_photo_show"
+                    android:layout_width="173dp"
+                    android:layout_height="145dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:columnWidth="50dp"
+                    android:numColumns="10"
+                    android:orientation="horizontal"
+                    android:stretchMode="none"
+                    android:visibility="gone"
+
+                    />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4"
+                    />
+
+                <ImageView
+                    android:id="@+id/change_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="182dp"
+                    android:src="@android:mipmap/sym_def_app_icon"
+                    android:visibility="gone"
+                    />
+                <EditText
+                    android:id="@+id/change_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:hint="제목"
+                    android:textStyle="bold"/>
+                <Spinner
+                    android:id="@+id/change_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:entries="@array/test"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:textSize="25sp"
+                        android:text="₩"
+                        android:gravity="center"
+                        android:layout_marginStart="10dp"/>
+                    <EditText
+                        android:id="@+id/change_cost"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:hint="가격"
+                        android:inputType="number" />
+                </LinearLayout>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="top"
+                    android:hint="내용"
+                    android:id="@+id/text"
+                    android:minHeight="200dp" />
+
+                <RadioGroup
+                    android:id="@+id/change_location_radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/radioButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="직거래만"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="20dp"/>
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="택배/비대면"
+                        android:layout_marginRight="20dp"                    />
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="둘 다 가능" />
+                </RadioGroup>
+
+                <CheckBox
+                    android:id="@+id/change_nonemax_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="인원제한 없음" />
+
+                <EditText
+                    android:id="@+id/change_max_num_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:hint="인원"
+                    android:inputType="number" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/addr"
+                    >
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:hint="거래 장소"
+                        android:id="@+id/address"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="2"/>
+                    <Button
+                        android:id="@+id/change_map_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="8"
+                        android:text="수정" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="72dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="시작일자"
+                        />
+
+                    <TextView
+                        android:id="@+id/change_startdate_txt"
+                        android:layout_width="188dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:hint="시작일자"
+                        android:inputType="date"
+
+                        />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    >
+
+                    <TextView
+                        android:layout_width="72dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="마감일자" />
+
+                    <TextView
+                        android:id="@+id/change_deadline_txt"
+                        android:layout_width="188dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:hint="마감일자"
+                        android:onClick="showDatePicker"
+                        android:inputType="date"
+                        />
+
+                </LinearLayout>
+                <Button
+                    android:id="@+id/change_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="20"
+                    android:background="@color/main_orange"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:text="글 올리기"
+                    android:layout_marginBottom="40dp"
+                    >
+                </Button>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

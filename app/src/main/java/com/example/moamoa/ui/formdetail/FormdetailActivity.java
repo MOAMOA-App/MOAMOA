@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -308,6 +310,7 @@ public class FormdetailActivity extends Activity {
                     String max_count = dataSnapshot.child("max_count").getValue().toString();
                     String today = dataSnapshot.child("today").getValue().toString();
                     String deadline = dataSnapshot.child("deadline").getValue().toString();
+                    String state = dataSnapshot.child("state").getValue().toString();
                     int num_k= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
                     String express = dataSnapshot.child("express").getValue().toString();
                     Resources res = getResources();
@@ -318,11 +321,10 @@ public class FormdetailActivity extends Activity {
                     count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
 
 
-
                     Log.d("확인","message상세 이미지 : "+count);
                     String UID = dataSnapshot.child("UID_dash").getValue().toString();
                     UserFind(UID);
-                    Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline,express,count);
+                    Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline,express,count,state);
                     StorageReference pathReference = firebaseStorage.getReference(image);
 
 
@@ -390,7 +392,7 @@ public class FormdetailActivity extends Activity {
 
     private void Initializeform
             (String subject,String category,String text,String cost,String max_count,
-             String today,String deadline,String express,Integer count)
+             String today,String deadline,String express,Integer count,String state)
     {
         TextView subject_text = (TextView) findViewById(R.id.detail_subject);
         TextView category_text = (TextView) findViewById(R.id.detail_category);
@@ -401,7 +403,7 @@ public class FormdetailActivity extends Activity {
         TextView deadlines = (TextView) findViewById(R.id.detail_deadline);
         TextView express_text = (TextView) findViewById(R.id.detail_express);
         TextView count_text = (TextView) findViewById(R.id.detail_counttext);
-
+        TextView state_text = (TextView) findViewById(R.id.detail_state);
         subject_text.setText(subject);
         category_text.setText(category);
         text_text.setText(text);
@@ -411,5 +413,20 @@ public class FormdetailActivity extends Activity {
         max_count_text.setText(max_count);
         express_text.setText(express);
         count_text.setText("조회 "+count);
+
+        switch(state){
+            case "0":
+                state_text.setText("[참여모집]");
+                state_text.setTextColor(Color.parseColor("#F1A94E"));
+                break;
+            case "1":
+                state_text.setText("[거래진행]");
+                state_text.setTextColor(Color.parseColor("#274E13"));
+                break;
+            case "2":
+                state_text.setText("[거래완료]");
+                state_text.setTextColor(Color.parseColor("#4C4C4C"));
+                break;
+        }
     }
 }

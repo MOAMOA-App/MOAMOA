@@ -3,13 +3,17 @@ package com.example.moamoa.ui.formdetail;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -25,6 +29,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -70,10 +75,18 @@ public class DetailCreaterSideActivity extends Activity {
         Button notice_btn    = (Button)findViewById(R.id.creator_notice);       //채팅하기 버튼
         Button showparty_btn = (Button)findViewById(R.id.creator_showparty); //참여하기 버튼
         ImageButton menu_btn = (ImageButton)findViewById(R.id.creator_menu); //메뉴보기 버튼
+
+        showparty_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         menu_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PopupMenu popupMenu = new PopupMenu(getApplicationContext(),view);
+                Context wrapper = new ContextThemeWrapper(getApplicationContext(), R.style.PopupMenu);
+                PopupMenu popupMenu = new PopupMenu(wrapper,view);
                 popupMenu.inflate(R.menu.detailcreatorside_menu);
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -81,16 +94,20 @@ public class DetailCreaterSideActivity extends Activity {
                         switch (menuItem.getItemId()){
                             case(R.id.Detail_Creator_Change):
                                 Log.e("popup","수정하기");
+                                Intent intent1 = new Intent(DetailCreaterSideActivity.this, FormChangeActivity.class);
+                                intent1.putExtra("FID", intent.getStringExtra("FID"));
+                                intent1.putExtra(("UID_dash"),temp);
+                                startActivity(intent1);
+                                finish();
                                 /*
                                     게시글 수정 어디까지 허용할 것인가.
                                  */
                                 break;
                             case(R.id.Detail_Creator_Delete):
                                 Log.e("popup","삭제하기");
-                                /*AlertDialog.Builder oDialog = new AlertDialog.Builder(this, android.R.style.테마이름);*/
-                                AlertDialog.Builder delete_alert = new AlertDialog.Builder(DetailCreaterSideActivity.this);
-                                delete_alert.setTitle("게시글 삭제")
-                                            .setMessage("정말로 삭제하시겠습니까?")
+                                AlertDialog.Builder delete_alert = new AlertDialog.Builder(DetailCreaterSideActivity.this, R.style.AlertDialog);
+
+                                delete_alert.setMessage("정말로 삭제하시겠습니까?")
                                             .setPositiveButton("네", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -100,14 +117,6 @@ public class DetailCreaterSideActivity extends Activity {
                                             .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                                    /*
-                                                        삭제xxxxx
-                                                        form -> 비활성화 -> 비활성화 후 일정 기간이 지나면 삭제가 젤 좋을 듯
-                                                        heart -> 게시글에 접근할 수 없으면 스킵. 오류 없이 해야 함
-                                                        거래 진행중에 삭제 불가능
-                                                        거래 완료 후 삭제시 내가 구매한 게시글 목록 관련 회의 필요
-
-                                                     */
                                                 }
                                             }).show();
                                 break;
@@ -161,6 +170,7 @@ public class DetailCreaterSideActivity extends Activity {
                 String deadline = dataSnapshot.child("deadline").getValue().toString();
                 String num_k= dataSnapshot.child("parti_num").getValue().toString() ;
                 String express = dataSnapshot.child("express").getValue().toString();
+                String state = dataSnapshot.child("state").getValue().toString();
                 Resources res = getResources();
                 String[] cat = res.getStringArray(R.array.category);
                 category=cat[Integer.parseInt(category)];
@@ -173,7 +183,7 @@ public class DetailCreaterSideActivity extends Activity {
                 Log.d("확인","message상세 이미지 : "+count);
                 String UID = dataSnapshot.child("UID_dash").getValue().toString();
                 UserFind(UID);
-                Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline,express,count);
+                Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline,express,count,state);
                 StorageReference pathReference = firebaseStorage.getReference(image);
 
 
@@ -241,7 +251,7 @@ public class DetailCreaterSideActivity extends Activity {
 
     private void Initializeform
             (String subject,String category,String text,String cost,String max_count,
-             String today,String deadline,String express,Integer count)
+             String today,String deadline,String express,Integer count,String state)
     {
         TextView subject_text = (TextView) findViewById(R.id.detail_subject);
         TextView category_text = (TextView) findViewById(R.id.detail_category);
@@ -252,6 +262,7 @@ public class DetailCreaterSideActivity extends Activity {
         TextView deadlines = (TextView) findViewById(R.id.detail_deadline);
         TextView express_text = (TextView) findViewById(R.id.detail_express);
         TextView count_text = (TextView) findViewById(R.id.detail_counttext);
+        TextView state_text = (TextView) findViewById(R.id.detail_state);
 
         subject_text.setText(subject);
         category_text.setText(category);
@@ -262,5 +273,20 @@ public class DetailCreaterSideActivity extends Activity {
         max_count_text.setText(max_count);
         express_text.setText(express);
         count_text.setText("조회 "+count);
+
+        switch(state){
+            case "0":
+                state_text.setText("[참여모집]");
+                state_text.setTextColor(Color.parseColor("#F1A94E"));
+                break;
+            case "1":
+                state_text.setText("[거래진행]");
+                state_text.setTextColor(Color.parseColor("#274E13"));
+                break;
+            case "2":
+                state_text.setText("[거래완료]");
+                state_text.setTextColor(Color.parseColor("#4C4C4C"));
+                break;
+        }
     }
 }

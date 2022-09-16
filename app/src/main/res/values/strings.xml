@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MOAMOA</string>
+    <string name="app_name">모아모아</string>
     <string name="title_home">홈</string>
     <string name="title_dashboard">글쓰기</string>
     <string name="title_notifications">알람</string>
