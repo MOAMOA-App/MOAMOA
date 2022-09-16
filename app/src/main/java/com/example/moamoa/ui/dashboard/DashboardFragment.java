@@ -76,10 +76,10 @@ public class DashboardFragment extends Fragment {
     int i = 1;
     String point;
     ClipData clipData;
-    String address_s;
+    String address;
     private static final String TAG = "MultiImageActivity";
     ArrayList<Uri> uriList = new ArrayList<>();     // 이미지의 uri를 담을 ArrayList 객체
-    EditText address;
+    EditText address_s;
 
     RecyclerView recyclerView;  // 이미지를 보여줄 리사이클러뷰
     MultiImageAdapter adapter;  // 리사이클러뷰에 적용시킬 어댑터
@@ -104,10 +104,23 @@ public class DashboardFragment extends Fragment {
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+
+
+        address_s    = (EditText) root.findViewById(R.id.address);
+        if (getArguments() != null)
+        {
+            address = getArguments().getString("address "); // 프래그먼트1에서 받아온 값 넣기
+            address_s.setText(address );
+        }
+
+
+
+
+
         EditText subject    = (EditText) root.findViewById(R.id.subject);               //제목
         TextView today      = (TextView) root.findViewById(R.id.text_dashboardstart);   //게시글 생성 날짜
         EditText text       = (EditText) root.findViewById(R.id.text);                  //내용
-        address    = (EditText) root.findViewById(R.id.address);               //주소
+         //주소
         EditText cost       = (EditText) root.findViewById(R.id.cost);                  //금액
         EditText max_count  = (EditText) root.findViewById(R.id.max_count);             //마감 최대 인원 수
         Button button       = (Button) root.findViewById(R.id.button_dashboard);        //
@@ -188,10 +201,10 @@ public class DashboardFragment extends Fragment {
                                       }
 
  });
-        address.setOnClickListener(new View.OnClickListener() {
+   /*     address_s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), MapActivity.class);
+                Intent intent = new Intent(getContext(), MapFragment.class);
                 startActivity(intent);
 
             }
@@ -199,11 +212,13 @@ public class DashboardFragment extends Fragment {
         btn_addr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), MapActivity.class);
+                Intent intent = new Intent(getContext(), MapFragment.class);
                 startActivity(intent);
 
             }
         });
+
+    */
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -223,9 +238,9 @@ public class DashboardFragment extends Fragment {
                     text.requestFocus();
                     return;
                 }
-                if (address.getText().toString().length()==0){
+                if (address_s.getText().toString().length()==0){
                     Toast.makeText(getContext(),"주소를 입력하세요",Toast.LENGTH_SHORT).show();
-                    address.requestFocus();
+                    address_s.requestFocus();
                     return;
                 }
                 if (cost.getText().toString().length()==0){
@@ -260,7 +275,7 @@ public class DashboardFragment extends Fragment {
                         photo_num,
                         subject.getText().toString(),
                         text.getText().toString(),
-                        address.getText().toString(),
+                        address_s.getText().toString(),
                         1,
                         Integer.parseInt(cost.getText().toString().replace(",","")),
                         max,
@@ -327,11 +342,7 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (getArguments() != null)
-        {
-            address_s = getArguments().getString("address"); // 프래그먼트1에서 받아온 값 넣기
-            address.setText(address_s);
-        }
+
         if(data == null){   // 어떤 이미지도 선택하지 않은 경우
             Toast.makeText(getActivity(), "이미지를 선택하지 않았습니다.", Toast.LENGTH_LONG).show();
         }
