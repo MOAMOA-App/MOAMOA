@@ -39,8 +39,8 @@ import java.util.Date;
 public class HomeFragment extends Fragment {
     private @NonNull FragmentHomeBinding binding;
     private FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-    private ArrayList<homelist_data> homelist[]=new ArrayList[5];
-    private homelist_adapter homelistAdapter[]=new homelist_adapter[5];
+    private ArrayList<homelist_data> homelist[]=new ArrayList[4];
+    private homelist_adapter homelistAdapter[]=new homelist_adapter[4];
     private RecyclerView[] recyclerView = new RecyclerView[5];
     private FirebaseDatabase mDatabase;
     private TextView[] btn_c = new TextView[5];
@@ -63,25 +63,22 @@ public class HomeFragment extends Fragment {
         gridViews.setAdapter(categoryAdapter_my);
 
         /* 카테고리 Recyclerview 설정 */
-        recyclerView[0] = (RecyclerView) root.findViewById(R.id.listview0);
-        recyclerView[1] = (RecyclerView) root.findViewById(R.id.listview1);
-        recyclerView[2] = (RecyclerView) root.findViewById(R.id.listview2);
-        recyclerView[3] = (RecyclerView) root.findViewById(R.id.listview3);
+        recyclerView[0] = (RecyclerView) root.findViewById(R.id.listview0); //마감순
+        recyclerView[1] = (RecyclerView) root.findViewById(R.id.listview1); //인기순
+        recyclerView[2] = (RecyclerView) root.findViewById(R.id.listview2); //신규순
+        recyclerView[3] = (RecyclerView) root.findViewById(R.id.listview3); //관심
         //recyclerView[4] = (RecyclerView) root.findViewById(R.id.listview4);
-        Log.e("today",mFormat.format(mDate));
-        //reference[0] = mDatabase.getReference().child("form").orderByChild("deadline").startAt(mFormat.format(mDate)).limitToFirst(10);    //마감임박
-        reference[0] = mDatabase.getReference().child("form").orderByChild("deadline").limitToFirst(10);    //마감임박
-        reference[1] = mDatabase.getReference().child("form").orderByChild("count").limitToLast(10);        //인기순
-        reference[2] = mDatabase.getReference().child("form").orderByChild("today").limitToLast(10);        //신규
-        //reference[3] = mDatabase.getReference().child("form").orderByChild("today").limitToFirst(10);       //나의 관심 카테고리
-        //reference[2] = mDatabase.getReference().child("form").orderByChild("today").limitToFirst(10);       //최근 본 게시글
+
+
+        reference[0] = mDatabase.getReference().child("form").orderByChild("deadline").startAt(Integer.parseInt(mFormat.format(mDate))).limitToFirst(10);
+        reference[1] = mDatabase.getReference().child("form").orderByChild("count").limitToLast(10);
+        reference[2] = mDatabase.getReference().child("form").orderByChild("today").limitToLast(10);
 
         /* 전체보기 버튼 */
         btn_c[0] = (TextView) root.findViewById(R.id.btn_ctgy0);
         btn_c[1] = (TextView) root.findViewById(R.id.btn_ctgy1);
         btn_c[2] = (TextView) root.findViewById(R.id.btn_ctgy2);
-        btn_c[3] = (TextView) root.findViewById(R.id.btn_ctgy3);   
-        //btn_c[4] = (TextView) root.findViewById(R.id.btn_ctgy4);
+        btn_c[3] = (TextView) root.findViewById(R.id.btn_ctgy3);
 
 
         /* 각 listview에 상세 페이지 이동 연동 */
@@ -109,7 +106,6 @@ public class HomeFragment extends Fragment {
         GetOrderByreference(reference[0],0);
         GetOrderByreference(reference[1],1);
         GetOrderByreference(reference[2],2);
-
 
         /* 전체보기 버튼 클릭 시 CategoryActivity 이동 설정 */
         for(int i=0;i<4;i++){
@@ -173,23 +169,30 @@ public class HomeFragment extends Fragment {
                     homelist[i].clear();
                     DataSnapshot result = task.getResult();
                     for (DataSnapshot fileSnapshot : result.getChildren() ) {
-                        String Key = fileSnapshot.getKey();
-                        String subject = fileSnapshot.child("subject").getValue().toString();
+                        String Key       = fileSnapshot.getKey();
+                        String subject   = fileSnapshot.child("subject").getValue().toString();
                         String max_count = fileSnapshot.child("max_count").getValue().toString();
-                        String UID = fileSnapshot.child("UID_dash").getValue().toString();
+                        String UID       = fileSnapshot.child("UID_dash").getValue().toString();
                         String parti_num = fileSnapshot.child("parti_num").getValue().toString();
-                        String image =  fileSnapshot.child("image").getValue().toString();
-                        String category = fileSnapshot.child("category_text").getValue().toString();
-                        String state = fileSnapshot.child("state").getValue().toString();
+                        String image     = fileSnapshot.child("image").getValue().toString();
+                        String category  = fileSnapshot.child("category_text").getValue().toString();
+                        String state     = fileSnapshot.child("state").getValue().toString();
                         InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key,category,state);
                     }
                 }
                 recyclerView[i].setAdapter(homelistAdapter[i]);
-                recyclerView[i].setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL, false));
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+                linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
+                if(i>0){
+                    linearLayoutManager.setReverseLayout(true);
+                    linearLayoutManager.setStackFromEnd(true);
+                }
+                recyclerView[i].setLayoutManager(linearLayoutManager);
+
             }
         });
     }
-    /* 관심카테고리 출력*/
+    /*관심카테고리 출력*/
     public void GetMyReference( int i){
         ArrayList<Integer> list = new ArrayList<Integer>();
         for(int x=2;x<my_list.length;x++){
@@ -206,21 +209,38 @@ public class HomeFragment extends Fragment {
                     homelist[i].clear();
                     DataSnapshot result = task.getResult();
                     int count=0;
-                    for (DataSnapshot fileSnapshot : result.getChildren() ) {
-                        String category = fileSnapshot.child("category_text").getValue().toString();
-                        int temp = Integer.parseInt(category);
-                        if(list.contains(temp) && count<10){
-                            String Key = fileSnapshot.getKey();
-                            String subject = fileSnapshot.child("subject").getValue().toString();
-                            String max_count = fileSnapshot.child("max_count").getValue().toString();
-                            String UID = fileSnapshot.child("UID_dash").getValue().toString();
-                            String parti_num = fileSnapshot.child("parti_num").getValue().toString();
-                            String image =  fileSnapshot.child("image").getValue().toString();
-                            String state = fileSnapshot.child("state").getValue().toString();
-                            InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key,category, state);
-                            count++;
-                        }
+                    if(list.isEmpty()){
+                        for (DataSnapshot fileSnapshot : result.getChildren() ) {
+                            String category = fileSnapshot.child("category_text").getValue().toString();
+                            if(count<10){
+                                String Key       = fileSnapshot.getKey();
+                                String subject   = fileSnapshot.child("subject").getValue().toString();
+                                String max_count = fileSnapshot.child("max_count").getValue().toString();
+                                String UID       = fileSnapshot.child("UID_dash").getValue().toString();
+                                String parti_num = fileSnapshot.child("parti_num").getValue().toString();
+                                String image     = fileSnapshot.child("image").getValue().toString();
+                                String state     = fileSnapshot.child("state").getValue().toString();
+                                InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key,category, state);
+                                count++;
+                            }
 
+                        }
+                    }else{
+                        for (DataSnapshot fileSnapshot : result.getChildren() ) {
+                            String category = fileSnapshot.child("category_text").getValue().toString();
+                            int temp = Integer.parseInt(category);
+                            if(list.contains(temp) && count<10){
+                                String Key       = fileSnapshot.getKey();
+                                String subject   = fileSnapshot.child("subject").getValue().toString();
+                                String max_count = fileSnapshot.child("max_count").getValue().toString();
+                                String UID       = fileSnapshot.child("UID_dash").getValue().toString();
+                                String parti_num = fileSnapshot.child("parti_num").getValue().toString();
+                                String image     = fileSnapshot.child("image").getValue().toString();
+                                String state     = fileSnapshot.child("state").getValue().toString();
+                                InitializeFormData(i,image,subject,UID,parti_num+"/"+max_count,Key,category, state);
+                                count++;
+                            }
+                        }
                     }
                 }
                 recyclerView[i].setAdapter(homelistAdapter[i]);

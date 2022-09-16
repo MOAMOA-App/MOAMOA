@@ -15,7 +15,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginRight="10dp"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/round_border_style"/>
 
         <TextView
             android:id="@+id/FIDD"

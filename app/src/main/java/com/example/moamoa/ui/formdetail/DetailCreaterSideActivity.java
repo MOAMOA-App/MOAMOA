@@ -1,14 +1,25 @@
 package com.example.moamoa.ui.formdetail;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,6 +39,9 @@ import com.google.firebase.storage.StorageReference;
 
 import java.text.DecimalFormat;
 
+/**
+ * 판매자용 게시글 상세보기 페이지
+ */
 public class DetailCreaterSideActivity extends Activity {
 
     private DatabaseReference mDatabase;
@@ -44,20 +58,86 @@ public class DetailCreaterSideActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailcreaterside);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        mainImage = (RecyclerView) findViewById(R.id.mainImage);
+        user        = FirebaseAuth.getInstance().getCurrentUser();
+        mainImage   = (RecyclerView) findViewById(R.id.mainImage);  //상세이미지
         firebaseStorage = FirebaseStorage.getInstance();
         Intent intent = getIntent();
         temp = intent.getStringExtra("FID");
 
-        Button chat_btn = (Button)findViewById(R.id.detail_chat_btn);   //채팅하기 버튼
-        Button party_btn = (Button)findViewById(R.id.detail_party_btn); //참여하기 버튼
-        //ImageButton heart_btn = (ImageButton) findViewById(R.id.detail_heart_btn);
-
+        //게시글 내용 채우기 함수
         printpage();
+        //버튼 선언
+        Button notice_btn    = (Button)findViewById(R.id.creator_notice);       //채팅하기 버튼
+        Button showparty_btn = (Button)findViewById(R.id.creator_showparty); //참여하기 버튼
+        ImageButton menu_btn = (ImageButton)findViewById(R.id.creator_menu); //메뉴보기 버튼
+        menu_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popupMenu = new PopupMenu(getApplicationContext(),view);
+                popupMenu.inflate(R.menu.detailcreatorside_menu);
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()){
+                            case(R.id.Detail_Creator_Change):
+                                Log.e("popup","수정하기");
+                                /*
+                                    게시글 수정 어디까지 허용할 것인가.
+                                 */
+                                break;
+                            case(R.id.Detail_Creator_Delete):
+                                Log.e("popup","삭제하기");
+                                /*AlertDialog.Builder oDialog = new AlertDialog.Builder(this, android.R.style.테마이름);*/
+                                AlertDialog.Builder delete_alert = new AlertDialog.Builder(DetailCreaterSideActivity.this);
+                                delete_alert.setTitle("게시글 삭제")
+                                            .setMessage("정말로 삭제하시겠습니까?")
+                                            .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
 
+                                                }
+                                            })
+                                            .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    /*
+                                                        삭제xxxxx
+                                                        form -> 비활성화 -> 비활성화 후 일정 기간이 지나면 삭제가 젤 좋을 듯
+                                                        heart -> 게시글에 접근할 수 없으면 스킵. 오류 없이 해야 함
+                                                        거래 진행중에 삭제 불가능
+                                                        거래 완료 후 삭제시 내가 구매한 게시글 목록 관련 회의 필요
 
+                                                     */
+                                                }
+                                            }).show();
+                                break;
+                        }
+                        return true;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
+    }
 
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.detailcreatorside_menu,menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        super.onContextItemSelected(item);
+        switch(item.getItemId()){
+            case R.id.Detail_Creator_Change:
+                count = 0;
+                break;
+            case R.id.Detail_Creator_Delete:
+                count = 1;
+                break;
+        }
+        return true;
     }
 
     @Override

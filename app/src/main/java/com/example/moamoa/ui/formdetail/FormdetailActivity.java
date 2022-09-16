@@ -296,47 +296,50 @@ public class FormdetailActivity extends Activity {
         mDatabase.child(FID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String subject = dataSnapshot.child("subject").getValue().toString();
-                String text = dataSnapshot.child("text").getValue().toString();
+                if(dataSnapshot.exists()){
 
-                DecimalFormat myFormatter = new DecimalFormat("###,###");
-                String cost = myFormatter.format(dataSnapshot.child("cost").getValue());
+                    String subject = dataSnapshot.child("subject").getValue().toString();
+                    String text = dataSnapshot.child("text").getValue().toString();
 
-                String category = dataSnapshot.child("category_text").getValue().toString();
-                String max_count = dataSnapshot.child("max_count").getValue().toString();
-                String today = dataSnapshot.child("today").getValue().toString();
-                String deadline = dataSnapshot.child("deadline").getValue().toString();
-                int num_k= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
-                String express = dataSnapshot.child("express").getValue().toString();
-                Resources res = getResources();
-                String[] cat = res.getStringArray(R.array.category);
-                category=cat[Integer.parseInt(category)];
+                    DecimalFormat myFormatter = new DecimalFormat("###,###");
+                    String cost = myFormatter.format(dataSnapshot.child("cost").getValue());
 
-                image=dataSnapshot.child("image").getValue().toString() ;
-                count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
+                    String category = dataSnapshot.child("category_text").getValue().toString();
+                    String max_count = dataSnapshot.child("max_count").getValue().toString();
+                    String today = dataSnapshot.child("today").getValue().toString();
+                    String deadline = dataSnapshot.child("deadline").getValue().toString();
+                    int num_k= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
+                    String express = dataSnapshot.child("express").getValue().toString();
+                    Resources res = getResources();
+                    String[] cat = res.getStringArray(R.array.category);
+                    category=cat[Integer.parseInt(category)];
 
-
-
-                Log.d("확인","message상세 이미지 : "+count);
-                String UID = dataSnapshot.child("UID_dash").getValue().toString();
-                UserFind(UID);
-                Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline,express,count);
-                StorageReference pathReference = firebaseStorage.getReference(image);
+                    image=dataSnapshot.child("image").getValue().toString() ;
+                    count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
 
 
-                FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
-                /*
-                pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        if (activity.isFinishing()) return;
-                        Glide.with(mainImage.getContext())
-                                .load(uri)
-                                .into(mainImage);
 
-                    }
-                });
-                */
+                    Log.d("확인","message상세 이미지 : "+count);
+                    String UID = dataSnapshot.child("UID_dash").getValue().toString();
+                    UserFind(UID);
+                    Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline,express,count);
+                    StorageReference pathReference = firebaseStorage.getReference(image);
+
+
+                    FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
+                    /*
+                    pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            if (activity.isFinishing()) return;
+                            Glide.with(mainImage.getContext())
+                                    .load(uri)
+                                    .into(mainImage);
+
+                        }
+                    });
+                    */
+                }
             }
 
             @Override

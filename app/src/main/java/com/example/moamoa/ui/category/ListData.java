@@ -11,4 +11,5 @@ public class ListData {
     public String mans  = "";
     public String title = "";
     public String name  = "";
+    public String state = "";
 }

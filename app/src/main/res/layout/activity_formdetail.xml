@@ -58,7 +58,7 @@
                             android:layout_margin="5dp"
                             android:src="@drawable/ic_launcher_background"/>
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:padding="5dp">
@@ -74,11 +74,19 @@
                                 android:id="@+id/detail_local"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="3dp"
-                                android:text="지역"
-                                android:visibility="invisible"
-                                android:textSize="11sp" />
+                                android:text="빈 칸"
+                                android:textSize="11sp"/>
                         </LinearLayout>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <!--ImageButton
+                            android:layout_width="41dp"
+                            android:layout_height="41dp"
+                            android:background="@color/white"
+                            android:src="@drawable/ic_baseline_menu_24"/-->
                     </LinearLayout>
 
                     <LinearLayout
@@ -237,12 +245,20 @@
                             android:textColor="#000000"
                             android:textSize="17sp" />
                     </RelativeLayout>
-
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:gravity="bottom"
+                        android:text="거래 장소"
+                        android:textSize="17sp"
+                        android:layout_marginBottom="3dp"/>
                     <com.naver.maps.map.MapView
                         android:id="@+id/mv"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:paddingHorizontal="3dp"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
