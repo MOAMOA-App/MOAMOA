@@ -14,6 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -42,12 +43,14 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.ActivityChatsBinding;
-import com.example.moamoa.databinding.FragmentChatsBinding;
 import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.chatlist.ChatListFragment;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
+import com.example.moamoa.ui.home.homelist_adapter;
+import com.example.moamoa.ui.home.homelist_data;
 import com.example.moamoa.ui.notifications.NotificationsAdapter;
 import com.example.moamoa.ui.notifications.NotificationsData;
+import com.example.moamoa.ui.search.SearchActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
@@ -57,6 +60,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -71,18 +75,21 @@ public class ChatsActivity extends AppCompatActivity {
     private List<ChatModel> chatModels = new ArrayList<>();
     private ArrayList<String> destinationUsers = new ArrayList<>();
 
-    String Chatroomname, Formid, destinationuid;
-    String UID, myNICK, destinationNICK;
+    private String Chatroomname, Formid;
 
-    ChatsFragment chatsFragment = new ChatsFragment();
+    private String UID, destinationuid;
+    private String myNICK, destinationNICK;
 
-    private DatabaseReference mDatabase;
+    private ChatsFragment chatsFragment = new ChatsFragment();
 
-    // 임시(삭제예정)
-    private NotificationsAdapter adapter;
-    private ArrayList<NotificationsData> list1 = new ArrayList<>();
-    // 여기까지
+    private FirebaseDatabase mDatabase;
+    private FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+    private ArrayList<ChatsUserData> arrayList = new ArrayList<>();
+    private ChatUserAdapter chatUserAdapter;
+    private RecyclerView recyclerView;
 
+    final int DIALOG_EXITROOM = 1;
+    final int DIALOG_SELECTLANG = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,16 +122,21 @@ public class ChatsActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.chatscontainer, chatsFragment).commit();
 
         // 임시(삭제예정)
-        this.FormData();
+        //this.FormData();
         // 리스트에 유저 정보 넣기
         // CHATROOM_FID 불러와서 그 밑에 users 정보 불러오면 될듯
-        RecyclerView recyclerView = findViewById(R.id.chats_recyclerview_userinfo);
-        recyclerView.setHasFixedSize(true);
 
-        adapter = new NotificationsAdapter(getApplicationContext(), list1);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        recyclerView.setAdapter(adapter);
+        //recyclerView.setHasFixedSize(true);
+
+        //adapter = new NotificationsAdapter(getApplicationContext(), list1);
+        //recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        //recyclerView.setAdapter(adapter);
         // 여기까지
+
+        mDatabase = FirebaseDatabase.getInstance();
+        //recyclerView = findViewById(R.id.chats_recyclerview_userinfo);
+
+        //getUserList();
 
         /*
 
@@ -150,7 +162,6 @@ public class ChatsActivity extends AppCompatActivity {
          * 그럼 폼 제목에 사람 이름 넣는걸로 하면 될듯 굿굿
          * */
 
-        /*
         FirebaseDatabase.getInstance().getReference().child("users").child(destinationuid)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -161,13 +172,12 @@ public class ChatsActivity extends AppCompatActivity {
                         TextView chatbar = findViewById(R.id.chatbarname);
                         chatbar.setText(destinationNICK);
 
-
                         // 헤더에서 상대방 닉네임 보여줌
-                        TextView nav_header_destiniationnick = (TextView) nav_header_view.findViewById(R.id.TextView_nickname_right);
-                        nav_header_destiniationnick.setText(destinationNICK);
+                        TextView TextView_destinationnick = (TextView) findViewById(R.id.chats_TextView_theirnickname);
+                        TextView_destinationnick.setText(destinationNICK);
 
                         // 헤더에서 상대방 프사 보여줌
-                        ImageView destinationPfImage = (ImageView) findViewById(R.id.profile_image_right);
+                        ImageView destinationPfImage = (ImageView) findViewById(R.id.chats_theirprofile_image);
                         String destinationprofil_text = snapshot.child("image").getValue().toString();
                         FirebaseStorage.getInstance().getReference(destinationprofil_text)
                                 .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -187,11 +197,11 @@ public class ChatsActivity extends AppCompatActivity {
                                         myNICK = snapshot.child("nick").getValue().toString();
 
                                         // 헤더에서 내 닉네임 보여줌
-                                        TextView nav_header_mynick = (TextView) nav_header_view.findViewById(R.id.TextView_nickname_left);
-                                        nav_header_mynick.setText(myNICK);
+                                        TextView TextView_mynick = (TextView) findViewById(R.id.chats_TextView_mynickname);
+                                        TextView_mynick.setText(myNICK);
 
                                         // 헤더에서 내 프사 보여줌
-                                        ImageView myPfImage = (ImageView) findViewById(R.id.profile_image_left);
+                                        ImageView myPfImage = (ImageView) findViewById(R.id.chats_myprofile_image);
                                         String myprofil_text = snapshot.child("image").getValue().toString();
                                         FirebaseStorage.getInstance().getReference(myprofil_text)
                                                 .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -217,13 +227,6 @@ public class ChatsActivity extends AppCompatActivity {
                     }
                 });
 
-         */
-
-
-        // 메뉴 상호작용
-        MenuItem select_language = root.findViewById(R.id.select_language);
-        MenuItem exitchats = root.findViewById(R.id.exitchats);
-
         // 채팅창 메뉴
         findViewById(R.id.drawer_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -233,66 +236,25 @@ public class ChatsActivity extends AppCompatActivity {
                 if (!drawer.isDrawerOpen(Gravity.RIGHT)) {
                     drawer.openDrawer(Gravity.RIGHT) ;
                     Log.d(this.getClass().getName(), "서랍 열기");
-
-                    /*
-                    MenuItem select_language = root.findViewById(R.id.select_language);
-                    MenuItem exitchats = root.findViewById(R.id.exitchats);
-                    */
-
-                    /*
-
-                    int id = root.getId();
-
-                    if (id == R.id.select_language) {
-                        Log.d("TAG", "언어 선택");
-                    } else if (id == R.id.exitchats) {
-                        Log.d("TAG", "채팅방 나가기");
-                    }
-
-                     */
-
-                    /*
-                    select_language.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem item) {
-                            Log.d("TAG", "언어 선택");
-
-                            return false;
-                        }
-                    });
-                    exitchats.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem item) {
-                            Log.d("TAG", "채팅방 나가기");
-
-                            return false;
-                        }
-                    });
-
-                     */
-
-
-                    /*
-                    onOptionsItemSelected(MenuItem item){
-                        Toast toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
-
-                        int id = root.getId();
-                        if (id == R.id.select_language) {
-                            toast.setText("언어 선택");
-                            Log.d("TAG", "언어 선택");
-                        } else if (id == R.id.exitchats) {
-                            toast.setText("채팅방 나가기");
-                            Log.d("TAG", "채팅방 나가기");
-                        }
-                    }
-
-                     */
-
                 }
                 else{
                     drawer.closeDrawer(Gravity.RIGHT);
                     Log.d(this.getClass().getName(), "서랍 닫기");
                 }
+            }
+        });
+
+        findViewById(R.id.chats_btn_getoutofroom).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    showDialog(DIALOG_EXITROOM); // 다이얼로그 호출
+            }
+        });
+
+        findViewById(R.id.chats_btn_selectlanguage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog(DIALOG_SELECTLANG); // 다이얼로그 호출
             }
         });
         /*
@@ -330,57 +292,70 @@ public class ChatsActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.chatdrawer, menu);
+    protected Dialog onCreateDialog(int id){
+        switch (id){
+            case DIALOG_EXITROOM:
+                androidx.appcompat.app.AlertDialog.Builder builder1
+                        = new androidx.appcompat.app.AlertDialog.Builder(ChatsActivity.this);
 
-        return true;
-    }
+                builder1.setTitle("채팅방 나가기");
 
+                return builder1.create();
 
-    @Override
-    public boolean onOptionsItemSelected (MenuItem item) {
+            case DIALOG_SELECTLANG:
+                androidx.appcompat.app.AlertDialog.Builder builder2
+                        = new androidx.appcompat.app.AlertDialog.Builder(ChatsActivity.this);
 
-        binding = ActivityChatsBinding.inflate(getLayoutInflater());
-        View root = binding.getRoot();
-        Toast toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
+                builder2.setTitle("언어 선택");
 
-        int id = root.getId();
-        if (id == R.id.select_language) {
-            toast.setText("언어 선택");
-            Log.d("TAG", "언어 선택");
-        } else if (id == R.id.exitchats) {
-            toast.setText("채팅방 나가기");
-            Log.d("TAG", "채팅방 나가기");
+                return builder2.create();
         }
-
-
-        /*
-        switch (item.getItemId()) {
-            case R.id.select_language:
-                toast.setText("언어 선택");
-                Log.d("TAG", "언어 선택");
-                return true;
-            case R.id.exitchats:
-                toast.setText("채팅방 나가기");
-                Log.d("TAG", "채팅방 나가기");
-                return true;
-        }
-        toast.show();
-         */
-        return super.onOptionsItemSelected(item);
-
+        return super.onCreateDialog(id);
     }
 
-    // 임시(삭제예정)
-    public void FormData()
-    {
-        list1 = new ArrayList<NotificationsData>();
-        list1.add(new NotificationsData("참여한 폼에 변동 사항이 있습니다.", "폼이름1"));
-        list1.add(new NotificationsData("참여한 폼에 변동 사항이 있습니다.", "폼이름2"));
-        list1.add(new NotificationsData("참여한 폼에 변동 사항이 있습니다.", "폼이름3"));
+    /*
+    public void InitializeData(String profileimg, String nationality, String nick, String UID){
+        ChatsUserData tmpdata = new ChatsUserData();
+        tmpdata.setUID(UID);
+        tmpdata.setUsernick(nick);
+        tmpdata.setProfilepic(profileimg);
+        tmpdata.setNationality(nationality);
+        arrayList.add(tmpdata);
     }
-    // 여기까지
+
+    public void getUserList(){
+        FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+UID)
+                .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
+            // 여기서 equalTo는 true까지의 방만 검색한다. (내가 소속된 방만 검색)
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // 데이터 받아오기 세팅
+                chatModels.clear();
+                for (DataSnapshot item : snapshot.getChildren()){
+                    ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
+                    assert chatModel != null;
+                    if (chatModel.users.containsKey(destinationuid)){   //destinationUID 있는지 체크
+                        chatModels.add(item.getValue(ChatModel.class));
+                        Log.e("TEST666", "chatModels"+chatModels);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+        mDatabase.getReference().child("user").get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+            @Override
+            public void onSuccess(DataSnapshot dataSnapshot) {
+
+            }
+        });
+    }
+
+     */
 }

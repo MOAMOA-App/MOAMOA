@@ -4,7 +4,6 @@ public class ChatsUserData {
     private String profilepic;
     private String nationality;
     private String usernick;
-    private String account;
     private String UID;
 
     /*
@@ -39,14 +38,6 @@ public class ChatsUserData {
 
     public void setUsernick(String usernick) {
         this.usernick = usernick;
-    }
-
-    public String getAccount() {
-        return account;
-    }
-
-    public void setAccount(String account) {
-        this.account = account;
     }
 
     public String getUID() {

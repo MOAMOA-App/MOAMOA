@@ -34,7 +34,6 @@ public class ChatUserAdapter extends RecyclerView.Adapter<ChatUserAdapter.ViewHo
         public ImageView ProfileImage;
         public TextView UserNationality;
         public TextView UserNickname;
-        public TextView AccountOwner;
         public TextView UID;
 
         public ViewHolder(View view){
@@ -42,7 +41,6 @@ public class ChatUserAdapter extends RecyclerView.Adapter<ChatUserAdapter.ViewHo
             ProfileImage =(ImageView)view.findViewById(R.id.chats_profile_image);
             UserNationality = (TextView) view.findViewById(R.id.chats_nationality);
             UserNickname = (TextView) view.findViewById(R.id.chats_TextView_nickname);
-            AccountOwner = (TextView) view.findViewById(R.id.accountowner);
             UID = (TextView) view.findViewById(R.id.chats_recyclerview_userinfo_UID);
         }
     }
@@ -95,7 +93,6 @@ public class ChatUserAdapter extends RecyclerView.Adapter<ChatUserAdapter.ViewHo
 
         });
 
-        viewHolder.AccountOwner.setText(item.getAccount());
         viewHolder.UserNationality.setText(item.getNationality());
         viewHolder.UID.setText(item.getUID());
     }
