@@ -97,23 +97,59 @@ public class ChatsFragment extends Fragment {
 
                 // 방 중복 방지
                 if (CHATROOM_FID == null){
-                    sendbtn.setEnabled(false);
-                    FirebaseDatabase.getInstance().getReference().child("chatrooms")
-                            .push().setValue(chatModel).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            checkChatRoom();
-                        }
-                    });
+                    ChatModel.Comment comments = new ChatModel.Comment();
+                    comments.UID = USERID;
+                    comments.message = EditText_chat.getText().toString();
+                    comments.timestamp = ServerValue.TIMESTAMP;
+                    if (!comments.message.equals("")){
+                        sendbtn.setEnabled(false);
+                        FirebaseDatabase.getInstance().getReference().child("chatrooms")
+                                .push().setValue(chatModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID)
+                                        .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot item : snapshot.getChildren()){
+                                            ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
+                                            // 방 id 가져오기
+                                            if (chatModel.users.containsKey(destinationUID)){   //destinationUID 있는지 체크
+                                                CHATROOM_FID = item.getKey();   //방 아이디 가져옴
+                                                sendbtn.setEnabled(true);
+
+                                                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                                                recyclerView.setAdapter(new RecyclerViewAdapter());
+                                                FirebaseDatabase.getInstance().getReference().child("chatrooms").child(CHATROOM_FID)
+                                                        .child("comments").push().setValue(comments);
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+                            }
+                        });
+                    }
+
 
                 } else{
                     ChatModel.Comment comments = new ChatModel.Comment();
                     comments.UID = USERID;
                     comments.message = EditText_chat.getText().toString();
                     comments.timestamp = ServerValue.TIMESTAMP;
+                    if (!comments.message.equals("")){
+                        FirebaseDatabase.getInstance().getReference().child("chatrooms")
+                                .child(CHATROOM_FID).child("comments")
+                                .push().setValue(comments);
+                    }
 
-                    FirebaseDatabase.getInstance().getReference().child("chatrooms").child(CHATROOM_FID)
-                            .child("comments").push().setValue(comments);
+
+
                 }
 
                 EditText_chat.setText(null);    // edittext 안 내용 삭제
@@ -309,5 +345,4 @@ public class ChatsFragment extends Fragment {
             }
         }
     }
-
 }
