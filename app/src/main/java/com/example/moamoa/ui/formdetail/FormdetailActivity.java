@@ -114,13 +114,20 @@ public class FormdetailActivity extends Activity {
         chat_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = getIntent();
+                temp = intent.getStringExtra("UID_dash");
+
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("form");
                 database.child(temp).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         // USER 정보 불러옴 (ChatsFragment에서 destinationUID로 사용)
-                        String UID = dataSnapshot.child("UID_dash").getValue().toString();
-                        point=dataSnapshot.child("point").getValue().toString();
+                        String UID = temp;
+                        // dataSnapshot.child("UID_dash").getValue().toString();
+
+                        // 밑에꺼... 무슨코드인지모르겠음
+                        // point=dataSnapshot.child("point").getValue().toString();
+
                         // FORM 정보 불러옴(ChatFragment에서 CHATROOM_NAME과 CHATROOM_FID로 사용)
                         /*
                         String FORMNAME = dataSnapshot.child("subject").getValue().toString();
