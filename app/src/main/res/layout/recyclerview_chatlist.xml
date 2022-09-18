@@ -46,7 +46,7 @@
             <TextView
                 android:id="@+id/chat_recent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="20dp"
                 android:layout_marginStart="6dp"
                 android:text="마지막 메시지"
 
