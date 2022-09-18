@@ -107,7 +107,7 @@ public class SearchActivity extends AppCompatActivity {
         // 상태 목록 불러옴, 체크박스 전부 체크, 리스트에 추가 (초기값)
         Resources res = getResources();
         String[] state = res.getStringArray(R.array.state);
-        boolean[] state_checkbox = allCheck_CB(state);
+        boolean[] state_checkbox = {true, true, false};
         my_state = returnStateCheckBox(state_checkbox);
 
         // 정렬 기준 설정
@@ -483,7 +483,8 @@ public class SearchActivity extends AppCompatActivity {
                         = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
 
                 // 제목 설정
-                builder1.setTitle("카테고리");
+                builder1.setTitle("카테고리")
+                        .setCancelable(false);
 
                 // 바뀐 것 적용
                 builder1.setMultiChoiceItems(items, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
@@ -502,26 +503,27 @@ public class SearchActivity extends AppCompatActivity {
                         search(search_std);
                     }
                 });
+
                 return builder1.create();
 
             case DIALOG_STATE:
 
                 // 상태 리스트 불러옴, 체크박스 모두 체크
                 final String[] states = res.getStringArray(R.array.state);
-                final boolean[] checked_state = allCheck_CB(states);
+                final boolean[] checked_state = {true, true, false};
 
                 androidx.appcompat.app.AlertDialog.Builder builder2
                         = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
 
                 // 제목 설정
-                builder2.setTitle("게시글 진행 상태");
+                builder2.setTitle("게시글 진행 상태")
+                        .setCancelable(false);
 
                 // 바뀐 것 적용
                 builder2.setMultiChoiceItems(states, checked_state, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                         checked_state[which] = isChecked;
-                        search(search_std);
                     }
                 });
 
@@ -554,7 +556,7 @@ public class SearchActivity extends AppCompatActivity {
                         dialog.dismiss(); // 누르면 바로 닫히는 형태
                         search(search_std);
                     }
-                });
+                }).setCancelable(false);
 
                 return builder3.create();
         }
