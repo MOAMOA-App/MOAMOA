@@ -2,13 +2,14 @@ package com.example.moamoa;
 
 import android.util.Log;
 
-public class Form  implements Comparable<Form> {
+public class Form  {
     public String FID;          //폼이름
     public String subject;      //제목
     public String text;         //내용
     public String image;        //이미지
     public int photo_num;       //이미지 갯수
     public String address;      //주소
+    public String add_detail;      //주소
     public int category_text;   //카테고리
     public int cost;            //가격
     public String max_count;    //마감인원
@@ -26,7 +27,7 @@ public class Form  implements Comparable<Form> {
 
 
     public Form(){ };
-    public Form( String FID, String UID_dash,String image,int photo_num, String subject, String text, String address,int category_text, int cost, String max_count,int deadline, String today,int count,String express, String point){
+    public Form( String FID, String UID_dash,String image,int photo_num, String subject, String text, String address,String add_detail,int category_text, int cost, String max_count,int deadline, String today,int count,String express, String point){
         this.FID = FID;
 
         this.UID_dash   = UID_dash;
@@ -35,6 +36,7 @@ public class Form  implements Comparable<Form> {
         this.photo_num  = photo_num;
         this.text       = text;
         this.address    = address;
+        this.add_detail    = add_detail;
         this.category_text = category_text;
         this.cost       = cost;
         this.max_count  = max_count;
@@ -45,45 +47,7 @@ public class Form  implements Comparable<Form> {
         this.point      = point;
 
     }
-    @Override
-    public int compareTo(Form o) {
-        Log.d("MainActivity", "ChildEventListener -  : " + s_case);
 
-            if (s_case==0 && this.count > o.count) {
-                return -1;
-            } else if (s_case==0 && this.count == o.count) {
-                return 0;
-            } else if (s_case==0 && this.count < o.count){
-                return 1;
-            } else if (s_case==1 && this.deadline > o.deadline) {
-                return -1;
-            } else if (s_case==1 && this.deadline == o.deadline) {
-                return 0;
-            } else if (s_case==1 && this.deadline < o.deadline) {
-                return 1;
-            } else if (s_case==2 && this.count < o.count){
-                return -1;
-            } else if (s_case==2 && this.count == o.count) {
-                return 0;
-            } else{
-                return 1;
-            }
-    }
-
-    /*
-    public String getFID() {
-        return FID;
-    }
-    public void setFID(String FID) {
-        this.FID = FID;
-    }
-    public String getUID_dash() {
-        return UID_dash;
-    }
-    public void setUID_dash(String UID_dash) {
-        this.UID_dash = UID_dash;
-    }
-     */
 
     public String getSubject(){
         return subject;

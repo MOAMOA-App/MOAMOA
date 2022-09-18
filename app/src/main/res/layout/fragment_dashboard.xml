@@ -64,7 +64,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginLeft="10dp"
                     android:drawableTop="@drawable/ic_baseline_photo"
-                    android:text="10/10"
+                    android:text="0/10"
                     android:onClick="onClick"
                     android:textAlignment="center"
                     />
@@ -146,13 +146,14 @@
                     android:hint="가격"
                     android:inputType="number" />
             </LinearLayout>
+
             <EditText
+                android:id="@+id/text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="top"
                 android:hint="내용"
-                android:id="@+id/text"
                 android:minHeight="200dp" />
 
             <RadioGroup
@@ -205,21 +206,41 @@
             android:orientation="horizontal"
 
             >
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="거래 장소"
-                android:id="@+id/address"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="2"/>
+
+            <LinearLayout
+                android:layout_width="286dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                >
+
+                <EditText
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="2"
+                    android:hint="거래 장소" />
+
+                <EditText
+                    android:id="@+id/address_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="2"
+                    android:hint="상세정보(선택)" />
+            </LinearLayout>
+
             <Button
                 android:id="@+id/button_addr"
-                android:layout_width="match_parent"
+                android:layout_width="51dp"
                 android:layout_height="60dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="8"
+                android:layout_marginTop="30dp"
                 android:text="수정" />
         </LinearLayout>
             <LinearLayout
