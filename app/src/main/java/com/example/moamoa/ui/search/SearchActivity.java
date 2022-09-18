@@ -61,13 +61,12 @@ public class SearchActivity extends AppCompatActivity {
     static ArrayList<Integer> my_state = new ArrayList<>();      // 게시글 상태 숫자 담을 리스트
     static int sort_std = 0;
 
-    ListView listView;
-
-    private FirebaseDatabase mDatabase;
+    ListView listView;  // 리스트뷰 연결 예정
 
     private final HashMap<Integer, String> sortStdHashmap = new HashMap<>();
+    // 다이얼로그 번호와 정렬에 필요한 String 넣을 해시맵
 
-    private Query sortedQuery;
+    private Query sortedQuery;  // 데이터 정렬한 쿼리 넣을 예정
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,7 +159,7 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
     /**
-     * 게시글 adapter에 부착해서 출력
+     * 게시글 리스트 adapter에 부착해 출력함
      * @param sort_std 정렬 기준
      */
     private void printlistview(int sort_std){
