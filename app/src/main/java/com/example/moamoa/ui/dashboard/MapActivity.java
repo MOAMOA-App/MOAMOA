@@ -15,6 +15,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.moamoa.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 import com.naver.maps.geometry.LatLng;
 import com.naver.maps.map.CameraPosition;
 import com.naver.maps.map.MapView;
@@ -40,7 +43,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     EditText adr;
     String address;
     String address_s;
-
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String str;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +71,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         btn_map.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v){
-                String str=adr.getText().toString();
+                str=adr.getText().toString();
                 List<Address> addressList = null;
                 try {
                     // editText에 입력한 텍스트(주소, 지역, 장소 등)을 지오 코딩을 이용해 변환
@@ -104,14 +108,19 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         btn_submit.setOnClickListener(new Button.OnClickListener(){
             public void onClick(View view) {
-                DashboardFragment myFragment = new DashboardFragment();
-                FragmentManager manager=getSupportFragmentManager();
-                FragmentTransaction transaction= manager.beginTransaction();
-                Bundle bundle = new Bundle(); // 파라미터의 숫자는 전달하려는 값의 갯수
-                bundle.putString("address", address_s );
-                myFragment.setArguments(bundle);
-                transaction.replace(R.id.addr,myFragment).commit();
 
+
+                FirebaseDatabase.getInstance().getReference("Map").child(user.getUid()).child("경위도").setValue(address_s);
+                FirebaseDatabase.getInstance().getReference("Map").child(user.getUid()).child("주소").setValue(str);
+
+//                DashboardFragment myFragment = new DashboardFragment();
+//                FragmentManager manager=getSupportFragmentManager();
+//                FragmentTransaction transaction= manager.beginTransaction();
+//                Bundle bundle = new Bundle(); // 파라미터의 숫자는 전달하려는 값의 갯수
+//                bundle.putString("address", address_s );
+//                myFragment.setArguments(bundle);
+//                transaction.replace(R.id.addr,myFragment).commit();
+                    finish();
             }
 
         });

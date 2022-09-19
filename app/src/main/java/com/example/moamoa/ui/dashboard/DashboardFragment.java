@@ -31,8 +31,10 @@ import com.example.moamoa.databinding.FragmentDashboardBinding;
 import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.category.CategoryActivity;
 import com.example.moamoa.ui.mypage.PageViewModel;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -106,12 +108,12 @@ public class DashboardFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-        if (getArguments() != null) {
-            address_s = getArguments().getString("address");
-            address_d  = getArguments().getString("address_d");
-
-
-        }
+//        if (getArguments() != null) {
+//            address_s = getArguments().getString("address");
+//            address_d  = getArguments().getString("address_d");
+//
+//
+//        }
 
 
     }
@@ -136,7 +138,7 @@ public class DashboardFragment extends Fragment {
         CheckBox checkBox   = (CheckBox) root.findViewById(R.id.checkBox);              //인원제한유무
         RadioGroup radioGroup   = (RadioGroup) root.findViewById(R.id.radioGroup);      //거래 방식
         Spinner category_text   = (Spinner) root.findViewById(R.id.spinner);            //카테고리
-        address.setText(address_d);
+//        address.setText(address_d);
         today.setText(getTime1().substring(0,4)+"/"+getTime1().substring(4,6)+"/"+getTime1().substring(6,8));
         cost.addTextChangedListener(new CustomTextWatcher(cost));
         photo = (ImageView) root.findViewById(R.id.imageView);
@@ -171,6 +173,28 @@ public class DashboardFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+        FirebaseDatabase.getInstance().getReference("Map").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try {
+
+                    address_s = snapshot.child("경위도").getValue().toString();
+                    address_d = snapshot.child("주소").getValue().toString();
+
+                    Log.d("확인", "message1 : " + address_s);
+                    Log.d("확인", "message1 : " + snapshot.getValue().toString());
+                    address.setText(address_d);
+                    FirebaseDatabase.getInstance().getReference("Map").child(user.getUid()).child("경위도").setValue(null);
+                    FirebaseDatabase.getInstance().getReference("Map").child(user.getUid()).child("주소").setValue(null);
+
+                }catch (NullPointerException e){}
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -220,6 +244,34 @@ public class DashboardFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), MapActivity.class);
                 startActivity(intent);
+
+//                FirebaseDatabase.getInstance().getReference("map").child(user.getUid()).child("경위도").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                        if (!task.isSuccessful()) {
+//                            Log.e("firebase", "Error getting data", task.getException());
+//                        }
+//                        else {
+//                            DataSnapshot result = task.getResult();
+//                            if(result!=null){
+//
+//                                try {
+//
+//
+//                                    for (DataSnapshot fileSnapshot : result.getChildren() ) {
+//                                        address_s = result.getValue().toString();
+//                                        address.setText(address_s);
+//                                        Log.i("num",address_s);
+//                                    }
+//                                }
+//                                catch (NullPointerException e){
+//
+//                                }
+//                            }
+//                        }
+//
+//                    }
+//                });
 
             }
         });
@@ -283,7 +335,7 @@ public class DashboardFragment extends Fragment {
                         photo_num,
                         subject.getText().toString(),
                         text.getText().toString(),
-                        address.getText().toString(),
+                        address_s,
                         add_detail,
                         1,
                         Integer.parseInt(cost.getText().toString().replace(",","")),
