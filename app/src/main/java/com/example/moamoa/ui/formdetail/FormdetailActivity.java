@@ -50,12 +50,13 @@ import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class FormdetailActivity extends Activity {
     private DatabaseReference mDatabase;
-    int num_b;
-    int num_k;
     String image;
     String k;
     int count;
@@ -63,7 +64,7 @@ public class FormdetailActivity extends Activity {
     String FID;
     String str;
     String adr;
-
+    int count_party;
     // 지도
     private MapView mapView;
     private static NaverMap naverMap;
@@ -182,41 +183,43 @@ public class FormdetailActivity extends Activity {
         });
 
 
-        TextView state_text = (TextView) findViewById(R.id.detail_state);
+        //참가 버튼
         party_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseDatabase.getInstance().getReference("form").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        Log.e("",task.getResult().toString());
-                    }
-                });
-
-                FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        if (FID.contains(user.getUid())) {
-                            Toast.makeText(getApplicationContext(), "호스트입니다", Toast.LENGTH_SHORT).show();
+                TextView state_text = (TextView) findViewById(R.id.detail_state);
+                String state = (String) state_text.getText();
+                if(state=="[참여모집]"){
+                    FirebaseDatabase.getInstance().getReference("party").child(FID).child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            if(!task.getResult().child(user.getUid()).exists()){
+                                FirebaseDatabase.getInstance().getReference("form").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        int max = Integer.parseInt(String.valueOf(task.getResult().child("max_count").getValue()));
+                                        int now = Integer.parseInt(String.valueOf(task.getResult().child("parti_num").getValue()));
+                                        if(max>now){
+                                            HashMap<String,Object> childUpdates = new HashMap<>();
+                                            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("party");
+                                            childUpdates.put(user.getUid(),getToday());
+                                            reference.child(FID).updateChildren(childUpdates);
+                                            FirebaseDatabase.getInstance().getReference("form").child(FID).child("parti_num").setValue(count_party+1);
+                                            Toast.makeText(getApplicationContext(), "참여되었습니다", Toast.LENGTH_SHORT).show();
+                                            printpage();
+                                        }else{
+                                            Toast.makeText(getApplicationContext(), "참여 인원이 꽉 찼습니다.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            }else{
+                                Toast.makeText(getApplicationContext(), "이미 참여한 게시글 입니다.", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        else if(task.getResult().child(FID).getValue()==null) {
-                            num_b = 1 + num_k;
-                            FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(FID).setValue("parti");
-                            FirebaseDatabase.getInstance().getReference("form").child(FID).child("parti_num").setValue(num_b);
-
-                        }
-                        else if(task.getResult().child(FID).getValue()!=null &&task.getResult().child(FID).getValue().equals("parti") )
-                        {
-                   //         Log.d("MainActivity", "파티 떠라: " + dataSnapshot.child(FID).getKey());
-                            Toast.makeText(getApplicationContext(), "참여하였습니다.", Toast.LENGTH_SHORT).show();
-
-                        }
-
-
-
-                    }
-                });
-                //파티 하면 숫자 안늘게 하기
+                    });
+                }else{
+                    Toast.makeText(getApplicationContext(), "이미 거래가 진행 중인 게시글 입니다.", Toast.LENGTH_SHORT).show();
+                }
             }
 
         });
@@ -291,7 +294,13 @@ public class FormdetailActivity extends Activity {
         Log.d("확인","message상세 이미지 : "+count+1);
         finish();
     }
+    private String getToday(){
+        SimpleDateFormat mFormat1 = new SimpleDateFormat("yyyyMMddhhmmss");
+        long mNow = System.currentTimeMillis();
+        Date mDate = new Date(mNow);
 
+        return mFormat1.format(mDate);
+    }
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
         geocoder = new Geocoder(this);
@@ -324,11 +333,11 @@ public class FormdetailActivity extends Activity {
                     String deadline     = dataSnapshot.child("deadline").getValue().toString();
                     String state        = dataSnapshot.child("state").getValue().toString();
                     String express      = dataSnapshot.child("express").getValue().toString();
-                     add_s      = dataSnapshot.child("address").getValue().toString();
+                    //String add_detail   = dataSnapshot.child("add_detail").getValue().toString();
+                    add_s      = dataSnapshot.child("address").getValue().toString();
 
-                    String add_detail   = dataSnapshot.child("add_detail").getValue().toString();
-
-                    int num_k= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
+                    String add_detail = "테스트";
+                    count_party= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
 
                     Resources res = getResources();
                     String[] cat = res.getStringArray(R.array.category);
@@ -341,7 +350,7 @@ public class FormdetailActivity extends Activity {
                     Log.d("확인","message상세 이미지 : "+count);
                     String UID = dataSnapshot.child("UID_dash").getValue().toString();
                     UserFind(UID);
-                    Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline,add_detail,express,count,state);
+                    Initializeform(subject,category,text,cost,count_party+"/"+max_count,today,deadline,add_detail,express,count,state);
                     StorageReference pathReference = firebaseStorage.getReference(image);
 
 

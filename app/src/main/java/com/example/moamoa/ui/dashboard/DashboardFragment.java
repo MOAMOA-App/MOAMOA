@@ -65,7 +65,7 @@ public class DashboardFragment extends Fragment {
     Uri file;
     String FID;
     int num_a;
-    String max;
+    int max;
     String express;
     int photo_num;
     ImageView photo;
@@ -126,7 +126,7 @@ public class DashboardFragment extends Fragment {
         EditText subject    = (EditText) root.findViewById(R.id.subject);               //제목
         TextView today      = (TextView) root.findViewById(R.id.text_dashboardstart);   //게시글 생성 날짜
         EditText text       = (EditText) root.findViewById(R.id.text);                  //내용
-        address    = (EditText) root.findViewById(R.id.address);               //주소
+        address             = (EditText) root.findViewById(R.id.address);               //주소
         EditText address_detail    = (EditText) root.findViewById(R.id.address_detail);       //상세주소
         EditText cost       = (EditText) root.findViewById(R.id.cost);                  //금액
         EditText max_count  = (EditText) root.findViewById(R.id.max_count);             //마감 최대 인원 수
@@ -195,11 +195,11 @@ public class DashboardFragment extends Fragment {
                                           if (checkBox.isChecked()) {
                                               max_count.setClickable(false);
                                               max_count.setFocusable(false);
-                                              max= "100";
+                                              max= 100;
                                               max_count.setVisibility(View.GONE);
 
                                           } else {
-                                              max="";
+                                              max=0;
                                               max_count.setVisibility(View.VISIBLE);
                                               max_count.setFocusableInTouchMode(true);
                                               max_count.setFocusable(true);
@@ -274,7 +274,7 @@ public class DashboardFragment extends Fragment {
 
                 FID=user.getUid()+num_a;
 //if (!(subject.equals("") && text.equals("") &&address.equals("")&&cost.equals("")&&max_count.equals("")&&deadline.equals(""))) {
-                max=max_count.getText().toString();
+                max=Integer.parseInt(max_count.getText().toString());
                 String dead = (deadline.getText().toString().substring(0,4))+deadline.getText().toString().substring(5,7)+deadline.getText().toString().substring(8,10).toString();
                 Form form = new Form(
                         FID,
@@ -292,7 +292,8 @@ public class DashboardFragment extends Fragment {
                         getTime1(),
                         0,
                         express,
-                        point
+                        point,
+                        0
                 );
 
 

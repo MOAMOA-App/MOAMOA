@@ -12,7 +12,7 @@ public class Form  {
     public String add_detail;      //주소
     public int category_text;   //카테고리
     public int cost;            //가격
-    public String max_count;    //마감인원
+    public int max_count;    //마감인원
     public int deadline;        //마감기간
     public String today;        //작성일
     public String UID_dash;     //UID
@@ -23,11 +23,14 @@ public class Form  {
     public String point;        //위도,경도
     public int s_case;          //지역 상태
     public String express;      //배송종류
+    public int active;          //활성화
 
 
 
     public Form(){ };
-    public Form( String FID, String UID_dash,String image,int photo_num, String subject, String text, String address,String add_detail,int category_text, int cost, String max_count,int deadline, String today,int count,String express, String point){
+    public Form( String FID, String UID_dash,String image,int photo_num, String subject, String text,
+                 String address,String add_detail,int category_text, int cost, int max_count,int deadline,
+                 String today,int count,String express, String point, int active){
         this.FID = FID;
 
         this.UID_dash   = UID_dash;
@@ -45,6 +48,7 @@ public class Form  {
         this.count      = count;
         this.express    = express;
         this.point      = point;
+        this.active     = active;
 
     }
 
@@ -71,8 +75,8 @@ public class Form  {
     public void setCost(int cost) {this.cost = cost;}
     public int getCategory_text(){ return category_text; }
     public void setCategory_text(int category_text) {this.category_text = category_text;}
-    public String getMax_count(){ return max_count; }
-    public void setMax_count(String max_count) {this.max_count = max_count;}
+    public int getMax_count(){ return max_count; }
+    public void setMax_count(int max_count) {this.max_count = max_count;}
     public int getDeadline(){ return deadline; }
     public void setDeadline(int deadline) {this.deadline = deadline;}
     public String getToday(){ return today; }
@@ -91,6 +95,8 @@ public class Form  {
     public void setPoint(String point) {this.point = point;}
     public int getPhoto_num(){ return photo_num; }
     public void setPhoto_num(int photo_num) {this.photo_num = photo_num;}
+    public int getActive(){ return active; }
+    public void setActive(int active){this.active=active;}
 
 
 }

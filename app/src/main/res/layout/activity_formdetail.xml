@@ -252,25 +252,25 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
+                        android:orientation="vertical"
+                        android:paddingBottom="5dp"
                         android:gravity="bottom"
-                        android:text="거래 장소"
-                        android:textSize="17sp"
-                        android:layout_marginBottom="3dp"/>
+                        android:layout_marginBottom="15dp"
+                        android:background="@drawable/mypage_bottom_border">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:gravity="bottom"
+                            android:text="거래 장소"
+                            android:textSize="17sp"/>
                         <TextView
                             android:id="@+id/detail_address"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
-                            android:gravity="bottom"
-                            android:text="상세주소"
-                            android:textSize="17sp"
-                            android:layout_marginBottom="3dp"/>
+                            android:text="상세 주소"
+                            android:textSize="17sp"/>
                     </LinearLayout>
                     <com.naver.maps.map.MapView
                         android:id="@+id/mv"
