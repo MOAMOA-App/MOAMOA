@@ -43,7 +43,7 @@ public class CategoryFragment extends Fragment {
     private CategoryAdapter_my categoryAdapter_my;
     public static CategoryFragment mContext;
     TextView btn_edit;
-    boolean[] my_list = new boolean[15];
+    static boolean[] my_list = new boolean[15];
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentCategoryBinding.inflate(inflater, container, false);
@@ -180,8 +180,13 @@ public class CategoryFragment extends Fragment {
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                                     DatabaseReference reference = database.getReference("users");
                                     childUpdates.put("mycategory", choices);
-                                    reference.child(currentUser.getUid()).updateChildren(childUpdates);
-                                    ((CategoryFragment)CategoryFragment.mContext).initmylist();
+
+                                    reference.child(currentUser.getUid()).updateChildren(childUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            my_list=((CategoryFragment)CategoryFragment.mContext).initmylist();
+                                        }
+                                    });
                                 }
                             })
                     .setNegativeButton("취소",
