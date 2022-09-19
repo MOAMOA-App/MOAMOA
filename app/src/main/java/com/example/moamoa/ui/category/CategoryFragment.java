@@ -42,7 +42,6 @@ public class CategoryFragment extends Fragment {
     private CategoryAdapter categoryAdapter;
     private CategoryAdapter_my categoryAdapter_my;
     public static CategoryFragment mContext;
-    TextView btn_edit;
     static boolean[] my_list = new boolean[15];
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,7 +49,8 @@ public class CategoryFragment extends Fragment {
         View root = binding.getRoot();
         mContext = this;
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        btn_edit = (TextView) root.findViewById(R.id.btn_edit);
+
+        TextView btn_edit = (TextView) root.findViewById(R.id.btn_edit);
         /*  gridViews 0 관심 카테고리 설정
             gridViews 1 카테고리 선택 상세 페이지 이동 */
         gridViews[0] = (GridView) root.findViewById(R.id.my_category);

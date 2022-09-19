@@ -31,18 +31,16 @@
                     android:id="@+id/searchWord"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
                     android:hint="검색어를 입력해주세요."
                     android:inputType="text" />
             </LinearLayout>
-
             <Button
                 android:id="@+id/searchBtn"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/main_orange"
-
                 android:text="검색" />
 
         </LinearLayout>
@@ -73,19 +71,18 @@
 
             <Button
                 android:id="@+id/select_category"
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/main_orange"
                 android:layout_toRightOf="@+id/search_icon"
+                android:backgroundTint="@color/main_orange"
                 android:text="@string/search_selectcat"
-                >
-            </Button>
+                android:textColor="@color/white"></Button>
 
             <Button
                 android:id="@+id/select_state"
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_toRightOf="@+id/select_category"
                 android:backgroundTint="@color/main_orange"
                 android:text="@string/search_selectstate"

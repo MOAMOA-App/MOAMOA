@@ -53,14 +53,9 @@ public class DashboardFragment extends Fragment {
       *공동구매 글 작성
       * **/
     private FragmentDashboardBinding binding;
-    long mNow;
-    Date mDate;
     boolean on = false;
-    SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMdd");
-    SimpleDateFormat mFormat1 = new SimpleDateFormat("yyyyMMddhhmmss");
     StorageReference storageRef;
     StorageReference riversRef;
-    FirebaseDatabase firebaseDatabase;
     UploadTask uploadTask;
     Uri file;
     String FID;
@@ -89,15 +84,10 @@ public class DashboardFragment extends Fragment {
     RecyclerView recyclerView;  // 이미지를 보여줄 리사이클러뷰
     MultiImageAdapter adapter;  // 리사이클러뷰에 적용시킬 어댑터
 
-    private String getTime(){
-        mNow = System.currentTimeMillis();
-        mDate = new Date(mNow);
-
-        return mFormat.format(mDate);
-    }
-    private String getTime1(){
-        mNow = System.currentTimeMillis();
-        mDate = new Date(mNow);
+    private String GetTimeStart(){
+        SimpleDateFormat mFormat1 = new SimpleDateFormat("yyyyMMddhhmmss");
+        long mNow = System.currentTimeMillis();
+        Date mDate = new Date(mNow);
 
         return mFormat1.format(mDate);
     }
@@ -107,13 +97,9 @@ public class DashboardFragment extends Fragment {
 
 
         if (getArguments() != null) {
-            address_s = getArguments().getString("address");
-            address_d  = getArguments().getString("address_d");
-
-
+            String address_s = getArguments().getString("address");
+            String address_d  = getArguments().getString("address_d");
         }
-
-
     }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -127,7 +113,7 @@ public class DashboardFragment extends Fragment {
         TextView today      = (TextView) root.findViewById(R.id.text_dashboardstart);   //게시글 생성 날짜
         EditText text       = (EditText) root.findViewById(R.id.text);                  //내용
         address             = (EditText) root.findViewById(R.id.address);               //주소
-        EditText address_detail    = (EditText) root.findViewById(R.id.address_detail);       //상세주소
+        EditText address_detail    = (EditText) root.findViewById(R.id.address_detail); //상세주소
         EditText cost       = (EditText) root.findViewById(R.id.cost);                  //금액
         EditText max_count  = (EditText) root.findViewById(R.id.max_count);             //마감 최대 인원 수
         Button button       = (Button) root.findViewById(R.id.button_dashboard);        //
@@ -137,7 +123,7 @@ public class DashboardFragment extends Fragment {
         RadioGroup radioGroup   = (RadioGroup) root.findViewById(R.id.radioGroup);      //거래 방식
         Spinner category_text   = (Spinner) root.findViewById(R.id.spinner);            //카테고리
         address.setText(address_d);
-        today.setText(getTime1().substring(0,4)+"/"+getTime1().substring(4,6)+"/"+getTime1().substring(6,8));
+        today.setText(GetTimeStart().substring(0,4)+"/"+GetTimeStart().substring(4,6)+"/"+GetTimeStart().substring(6,8));
         cost.addTextChangedListener(new CustomTextWatcher(cost));
         photo = (ImageView) root.findViewById(R.id.imageView);
         storage = FirebaseStorage.getInstance();
@@ -289,7 +275,7 @@ public class DashboardFragment extends Fragment {
                         Integer.parseInt(cost.getText().toString().replace(",","")),
                         max,
                         Integer.parseInt(dead),
-                        getTime1(),
+                        GetTimeStart(),
                         0,
                         express,
                         point,
@@ -389,7 +375,6 @@ public class DashboardFragment extends Fragment {
                             Log.e(TAG, "File select error", e);
                         }
                     }
-
                     adapter = new MultiImageAdapter(uriList, getContext());
                     recyclerView.setAdapter(adapter);   // 리사이클러뷰에 어댑터 세팅
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, true));     // 리사이클러뷰 수평 스크롤 적용

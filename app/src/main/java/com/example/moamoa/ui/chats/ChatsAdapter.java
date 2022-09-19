@@ -110,14 +110,13 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.Holder> {
 
         public Holder(View view){
             super(view);
-            profile_image = (ImageView) view.findViewById(R.id.profile_image);
-            nickName = (TextView) view.findViewById(R.id.chat_nickname);
-            Message = (TextView) view.findViewById(R.id.chat_msg);
-            cv = (CardView) view.findViewById(R.id.chat_cardview);
-            sendedTime = (TextView) view.findViewById(R.id.sended_time);
-
-            chatLayout = (LinearLayout) view.findViewById(R.id.chatting_layout);
-            LinearChatMsg = (LinearLayout) view.findViewById(R.id.Linear_chatmsg);
+            profile_image   = (ImageView) view.findViewById(R.id.profile_image);
+            nickName        = (TextView) view.findViewById(R.id.chat_nickname);
+            Message         = (TextView) view.findViewById(R.id.chat_msg);
+            cv              = (CardView) view.findViewById(R.id.chat_cardview);
+            sendedTime      = (TextView) view.findViewById(R.id.sended_time);
+            chatLayout      = (LinearLayout) view.findViewById(R.id.chatting_layout);
+            LinearChatMsg   = (LinearLayout) view.findViewById(R.id.Linear_chatmsg);
 
             rootView = view;
         }

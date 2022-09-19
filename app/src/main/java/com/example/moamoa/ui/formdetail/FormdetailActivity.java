@@ -76,7 +76,6 @@ public class FormdetailActivity extends Activity {
     private RecyclerView mainImage;
     private FirebaseStorage firebaseStorage;
     private FirebaseUser user;
-    String point;
     @Override
     protected void onStart() {
         super.onStart();

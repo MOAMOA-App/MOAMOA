@@ -350,14 +350,14 @@ public class ChatsFragment extends Fragment {
 
             public MessageViewHolder(View view){
                 super(view);
-                profile_image = (ImageView) view.findViewById(R.id.profile_image);
-                nickName = (TextView) view.findViewById(R.id.chat_nickname);
-                Message = (TextView) view.findViewById(R.id.chat_msg);
-                cv = (CardView) view.findViewById(R.id.chat_cardview);
-                sendedTime = (TextView) view.findViewById(R.id.sended_time);
+                profile_image   = (ImageView) view.findViewById(R.id.profile_image);
+                nickName        = (TextView) view.findViewById(R.id.chat_nickname);
+                Message         = (TextView) view.findViewById(R.id.chat_msg);
+                cv              = (CardView) view.findViewById(R.id.chat_cardview);
+                sendedTime      = (TextView) view.findViewById(R.id.sended_time);
 
-                chatLayout = (LinearLayout) view.findViewById(R.id.chatting_layout);
-                LinearChatMsg = (LinearLayout) view.findViewById(R.id.Linear_chatmsg);
+                chatLayout      = (LinearLayout) view.findViewById(R.id.chatting_layout);
+                LinearChatMsg   = (LinearLayout) view.findViewById(R.id.Linear_chatmsg);
             }
         }
     }
