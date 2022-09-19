@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,26 +21,19 @@ import android.widget.Toast;
 
 import com.example.moamoa.Form;
 import com.example.moamoa.R;
-import com.example.moamoa.databinding.FragmentSearchBinding;
 import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.category.CustomListView;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.core.OrderBy;
+import com.google.firebase.database.Query;
 
-import java.lang.reflect.Array;
-import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -51,9 +43,6 @@ import java.util.Objects;
  * 카테고리/상태/정렬기준 선택 후 검색 버튼 누르면 선택한 카테고리에 해당되는 게시글 목록 출력
  */
 public class SearchActivity extends AppCompatActivity {
-
-    FragmentSearchBinding binding;
-    SearchFragment searchFragment = new SearchFragment();
 
     private ArrayList<Form> arrayList;      // 리스트 안에 담을 데이터들을 저장
     private CustomListView customListView;  // 리스트뷰 어댑터
@@ -68,17 +57,16 @@ public class SearchActivity extends AppCompatActivity {
 
     private Button SelectCategory, SelectState, SortBtn;
 
-    Form listData;
-
     static ArrayList<Integer> my_category = new ArrayList<>();   // 카테고리 숫자 담을 리스트
     static ArrayList<Integer> my_state = new ArrayList<>();      // 게시글 상태 숫자 담을 리스트
     static int sort_std = 0;
 
-    ListView listView;
+    ListView listView;  // 리스트뷰 연결 예정
 
-    private FirebaseDatabase mDatabase;
+    private final HashMap<Integer, String> sortStdHashmap = new HashMap<>();
+    // 다이얼로그 번호와 정렬에 필요한 String 넣을 해시맵
 
-    private HashMap<Integer, String> sortStdHashmap = new HashMap<>();
+    private Query sortedQuery;  // 데이터 정렬한 쿼리 넣을 예정
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +95,7 @@ public class SearchActivity extends AppCompatActivity {
         // 상태 목록 불러옴, 체크박스 전부 체크, 리스트에 추가 (초기값)
         Resources res = getResources();
         String[] state = res.getStringArray(R.array.state);
-        boolean[] state_checkbox = allCheck_CB(state);
+        boolean[] state_checkbox = {true, true, false};
         my_state = returnStateCheckBox(state_checkbox);
 
         // 정렬 기준 설정
@@ -144,15 +132,13 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
+        // 데이터 정렬한 쿼리
+        sortedQuery = FirebaseDatabase.getInstance().getReference("form")
+                .orderByChild(Objects.requireNonNull(sortStdHashmap.get(sort_std)));
+
         // 리스트뷰 정의
         // ListView listView = findViewById(R.id.search_listview);
         listView = findViewById(R.id.search_listview);
-
-        /*
-        orderbychild(std)만 추가하면 되는거잖아
-        0일시 "today" 1일시 "parti_num" 2일시 "deadline"으로
-        그러면 hashmap으로 만들면?? 될듯??? 하하하
-         */
 
         // 입력 텍스트
         EditText_search = findViewById(R.id.searchWord);
@@ -160,6 +146,7 @@ public class SearchActivity extends AppCompatActivity {
         // 리스트 모두 가져오기 (초기 상태)
         search_std = "제목";  // search_std 초기화
         search_input = "";
+        SortBtn.setText("최신순"); // 정렬 기준 버튼 이름 최신순으로 변경
         search(search_std);
 
         // 검색 버튼을 누르면 해당되는 게시물 불러옴
@@ -170,6 +157,28 @@ public class SearchActivity extends AppCompatActivity {
                 search(search_std);
             }
         });
+    }
+    /**
+     * 게시글 리스트 adapter에 부착해 출력함
+     * @param sort_std 정렬 기준
+     */
+    private void printlistview(int sort_std){
+        switch (sort_std){
+            case 0: // 최신순
+                Collections.reverse(arrayList);
+                customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
+                listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
+                break;
+            case 1: // 인기순
+                Collections.reverse(arrayList);
+                customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
+                listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
+                break;
+            case 2: // 마감순
+                customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
+                listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
+                break;
+        }
     }
 
     /**
@@ -182,219 +191,155 @@ public class SearchActivity extends AppCompatActivity {
         // 검색할 텍스트 search_input에 저장
         search_input = EditText_search.getText().toString();
 
+        // search_input 비었을 시 전체 리스트 출력
         if (search_input.equals("")){
             arrayList = new ArrayList<>();
-            FirebaseDatabase.getInstance().getReference("form")
-                    .orderByChild(Objects.requireNonNull(sortStdHashmap.get(sort_std)))
-                    .addValueEventListener(new ValueEventListener() {
-                        @RequiresApi(api = Build.VERSION_CODES.N)
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            arrayList.clear();
-                            for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                                Form form = dataSnapshot.getValue(Form.class);
-                                // 카테고리 숫자 cat에 저장
-                                int cat = form.category_text;
-                                int sta = form.state;
+            sortedQuery.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @RequiresApi(api = Build.VERSION_CODES.N)
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                    } else{
+                        arrayList.clear();
+                        DataSnapshot result = task.getResult();
+                        for (DataSnapshot dataSnapshot : result.getChildren()){
+                            Form form = dataSnapshot.getValue(Form.class);
+                            // 카테고리 숫자 cat에 저장
+                            assert form != null;
+                            int cat = form.category_text;
+                            int sta = form.state;
 
-                                // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
-                                if (my_category.contains(cat) && my_state.contains(sta)){
-                                    arrayList.add(form);
-                                }
-                            }
-
-                            switch (sort_std){
-                                case 0: // 최신순
-                                    Collections.reverse(arrayList);
-                                    customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                                    listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                                    break;
-                                case 1: // 인기순
-                                    Collections.reverse(arrayList);
-                                    customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                                    listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                                    break;
-                                case 2: // 마감순
-                                    customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                                    listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                                    break;
+                            // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
+                            if (my_category.contains(cat) && my_state.contains(sta)){
+                                arrayList.add(form);
                             }
                         }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            Toast.makeText(SearchActivity.this, "error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        } else{
-            // search_input 포함하는 게시글 찾아 목록에 추가
+                        printlistview(sort_std);
+                    }
+                }
+            });
+        } else{ // search_input 포함하는 게시글 찾아 목록에 추가
             switch (search_std) {
                 case "제목":  // 제목 기준 게시물 검색
                     arrayList = new ArrayList<>();
-                    FirebaseDatabase.getInstance().getReference().child("form")
-                            .orderByChild(Objects.requireNonNull(sortStdHashmap.get(sort_std)))
-                            .addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    arrayList.clear();
-                                    // for문 돌려서 해당 키워드가 제목에 있는지 검색
-                                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                                        Form form = dataSnapshot.getValue(Form.class);
+                    sortedQuery.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                        @Override
+                        @RequiresApi(api = Build.VERSION_CODES.N)
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            if (!task.isSuccessful()) {
+                                Log.e("firebase", "Error getting data", task.getException());
+                            } else{
+                                arrayList.clear();
+                                DataSnapshot result = task.getResult();
+                                for (DataSnapshot dataSnapshot : result.getChildren()) {
+                                    Form form = dataSnapshot.getValue(Form.class);
 
-                                        // 카테고리 숫자 cat에 저장
-                                        int cat = form.category_text;
-                                        int sta = form.state;
+                                    // 카테고리 숫자 cat에 저장
+                                    assert form != null;
+                                    int cat = form.category_text;
+                                    int sta = form.state;
 
-                                        // 키워드가 제목에 있으면 add
-                                        // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
-                                        if (my_category.contains(cat) && my_state.contains(sta)
-                                                && form.subject.contains(search_input)) {
-                                            arrayList.add(form);
-                                        }
-                                    }
-
-                                    switch (sort_std){
-                                        case 0: // 최신순
-                                            Collections.reverse(arrayList);
-                                            customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                                            listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                                            break;
-                                        case 1: // 인기순
-                                            Collections.reverse(arrayList);
-                                            customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                                            listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                                            break;
-                                        case 2: // 마감순
-                                            customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                                            listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                                            break;
+                                    // 키워드가 제목에 있으면 add
+                                    // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
+                                    if (my_category.contains(cat) && my_state.contains(sta)
+                                            && form.subject.contains(search_input)) {
+                                        arrayList.add(form);
                                     }
                                 }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-                                    Toast.makeText(SearchActivity.this, "error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                                printlistview(sort_std);
+                            }
+                        }
+                    });
                     break;
 
                 case "제목+내용":   // 제목+내용 기준 게시물 검색
                     arrayList = new ArrayList<>();
-                    FirebaseDatabase.getInstance().getReference().child("form")
-                            .orderByChild(Objects.requireNonNull(sortStdHashmap.get(sort_std)))
-                            .addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    arrayList.clear();
-                                    // for문 돌려서 해당 키워드가 제목에 있는지 검색
-                                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                                        Form form = dataSnapshot.getValue(Form.class);
+                    sortedQuery.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                        @Override
+                        @RequiresApi(api = Build.VERSION_CODES.N)
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            if (!task.isSuccessful()) {
+                                Log.e("firebase", "Error getting data", task.getException());
+                            } else{
+                                arrayList.clear();
+                                DataSnapshot result = task.getResult();
+                                // for문 돌려서 해당 키워드가 제목에 있는지 검색
+                                for (DataSnapshot dataSnapshot : result.getChildren()) {
+                                    Form form = dataSnapshot.getValue(Form.class);
 
-                                        // 카테고리 숫자 cat에 저장
-                                        int cat = form.category_text;
-                                        int sta = form.state;
+                                    // 카테고리 숫자 cat에 저장
+                                    assert form != null;
+                                    int cat = form.category_text;
+                                    int sta = form.state;
 
-                                        // 키워드가 제목에 있으면 add
-                                        // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
-                                        if ((form.subject.contains(search_input) || form.text.contains(search_input))
-                                                && my_category.contains(cat) && my_state.contains(sta)) {
-                                            arrayList.add(form);
-                                        }
-                                    }
-                                    switch (sort_std){
-                                        case 0: // 최신순
-                                            Collections.reverse(arrayList);
-                                            customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                                            listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                                            break;
-                                        case 1: // 인기순
-                                            Collections.reverse(arrayList);
-                                            customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                                            listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                                            break;
-                                        case 2: // 마감순
-                                            customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                                            listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                                            break;
+                                    // 키워드가 제목에 있으면 add
+                                    // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
+                                    if ((form.subject.contains(search_input) || form.text.contains(search_input))
+                                            && my_category.contains(cat) && my_state.contains(sta)) {
+                                        arrayList.add(form);
                                     }
                                 }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-                                    Toast.makeText(SearchActivity.this, "error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                                printlistview(sort_std);
+                            }
+                        }
+                    });
                     break;
 
                 case "작성자 이름":  // 작성자 이름 기준 게시물 검색
                     // form 불러옴-> form UID로 users 불러옴-> 닉네임 불러와서 검색
                     arrayList = new ArrayList<>();
-                    FirebaseDatabase.getInstance().getReference().child("form")
-                            .orderByChild(Objects.requireNonNull(sortStdHashmap.get(sort_std)))
-                            .addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    arrayList.clear();
-                                    // for문 돌려서 해당 키워드와 작성자 이름이 맞는 게시물이 있는지 검색
-                                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                                        Form form = dataSnapshot.getValue(Form.class);
+                    sortedQuery.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                        @Override
+                        @RequiresApi(api = Build.VERSION_CODES.N)
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            if (!task.isSuccessful()) {
+                                Log.e("firebase", "Error getting data", task.getException());
+                            } else{
+                                arrayList.clear();
+                                DataSnapshot result1 = task.getResult();
+                                for (DataSnapshot dataSnapshot : result1.getChildren()) {
+                                    Form form = dataSnapshot.getValue(Form.class);
 
-                                        // 카테고리 숫자 cat에 저장
-                                        int cat = form.category_text;
-                                        int sta = form.state;
+                                    // 카테고리 숫자 cat에 저장
+                                    assert form != null;
+                                    int cat = form.category_text;
+                                    int sta = form.state;
 
-                                        // UID_dash로 닉네임 검색 위해 users 불러옴
-                                        FirebaseDatabase.getInstance().getReference().child("users").child(form.UID_dash)
-                                                .addValueEventListener(new ValueEventListener() {
-                                                    @Override
-                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                        User user = snapshot.getValue(User.class);
+                                    // UID_dash로 닉네임 검색 위해 users 불러옴
+                                    FirebaseDatabase.getInstance().getReference().child("users")
+                                            .child(form.UID_dash)
+                                            .get()
+                                            .addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                                    if (!task.isSuccessful()) {
+                                                        Log.e("firebase", "Error getting data", task.getException());
+                                                    } else{
+                                                        DataSnapshot result2 = task.getResult();
+                                                        User user = result2.getValue(User.class);
 
                                                         // 닉네임이 맞을 시 add
                                                         // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
-                                                        if (my_category.contains(cat) && my_state.contains(sta)
-                                                                && user.nick.equals(search_input)) {
-                                                            arrayList.add(form);
+                                                        if (my_category.contains(cat) && my_state.contains(sta)) {
+                                                            assert user != null;
+                                                            if (user.nick.equals(search_input)) {
+                                                                arrayList.add(form);
 
-                                                            // 현 문제: 추가는 됐는데 화면에 안나옴
-                                                            // No setter/field found on class
+                                                                // 현 문제: 추가는 됐는데 화면에 안나옴
+                                                                // No setter/field found on class
 
-                                                            // 해결(밑문장 위치 옮김)
+                                                                // 해결(밑문장 위치 옮김)
+                                                            }
                                                         }
-                                                        switch (sort_std){
-                                                            case 0: // 최신순
-                                                                Collections.reverse(arrayList);
-                                                                customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                                                                listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                                                                break;
-                                                            case 1: // 인기순
-                                                                Collections.reverse(arrayList);
-                                                                customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                                                                listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                                                                break;
-                                                            case 2: // 마감순
-                                                                customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
-                                                                listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
-                                                                break;
-                                                        }
+                                                        printlistview(sort_std);
                                                     }
-
-
-                                                    @Override
-                                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                                    }
-                                                });
-                                    }
-
-
+                                                }
+                                            });
                                 }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-                                    Toast.makeText(SearchActivity.this, "error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                            }
+                        }
+                    });
                     break;
             }
         }
@@ -488,7 +433,8 @@ public class SearchActivity extends AppCompatActivity {
                         = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
 
                 // 제목 설정
-                builder1.setTitle("카테고리");
+                builder1.setTitle("카테고리")
+                        .setCancelable(false);
 
                 // 바뀐 것 적용
                 builder1.setMultiChoiceItems(items, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
@@ -507,26 +453,27 @@ public class SearchActivity extends AppCompatActivity {
                         search(search_std);
                     }
                 });
+
                 return builder1.create();
 
             case DIALOG_STATE:
 
                 // 상태 리스트 불러옴, 체크박스 모두 체크
                 final String[] states = res.getStringArray(R.array.state);
-                final boolean[] checked_state = allCheck_CB(states);
+                final boolean[] checked_state = {true, true, false};
 
                 androidx.appcompat.app.AlertDialog.Builder builder2
                         = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
 
                 // 제목 설정
-                builder2.setTitle("게시글 진행 상태");
+                builder2.setTitle("게시글 진행 상태")
+                        .setCancelable(false);
 
                 // 바뀐 것 적용
                 builder2.setMultiChoiceItems(states, checked_state, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                         checked_state[which] = isChecked;
-                        search(search_std);
                     }
                 });
 
@@ -554,11 +501,12 @@ public class SearchActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(SearchActivity.this, sortstd[which], Toast.LENGTH_SHORT).show();
                         sort_std = Arrays.asList(sortstd).indexOf(sortstd[which]);
+                        SortBtn.setText(sortstd[which]);
 
                         dialog.dismiss(); // 누르면 바로 닫히는 형태
                         search(search_std);
                     }
-                });
+                }).setCancelable(false);
 
                 return builder3.create();
         }

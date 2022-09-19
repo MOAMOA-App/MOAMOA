@@ -44,11 +44,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.TimeZone;
 
 public class ChatsFragment extends Fragment {
 
     private FragmentChatsBinding binding;
+
+    LinearLayoutManager linearLayoutManager;
 
     private RecyclerView recyclerView;
     private ChatsAdapter adapter;
@@ -80,9 +83,13 @@ public class ChatsFragment extends Fragment {
         assert bundle != null;
         destinationUID = bundle.getString("destinationUID");    // 상대 UID
 
+
+
         //리사이클러뷰 정의
         recyclerView = (RecyclerView) root.findViewById(R.id.chats_recyclerview);
         recyclerView.setHasFixedSize(true);
+        linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setStackFromEnd(true);
 
         // 전송버튼 눌렀을 때의 동작
         sendbtn = (Button) root.findViewById(R.id.Button_send);
@@ -97,25 +104,60 @@ public class ChatsFragment extends Fragment {
 
                 // 방 중복 방지
                 if (CHATROOM_FID == null){
-                    sendbtn.setEnabled(false);
-                    FirebaseDatabase.getInstance().getReference().child("chatrooms")
-                            .push().setValue(chatModel).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            checkChatRoom();
-                        }
-                    });
+                    ChatModel.Comment comments = new ChatModel.Comment();
+                    comments.UID = USERID;
+                    comments.message = EditText_chat.getText().toString();
+                    comments.timestamp = ServerValue.TIMESTAMP;
+                    if (!comments.message.equals("")){
+                        sendbtn.setEnabled(false);
+                        FirebaseDatabase.getInstance().getReference().child("chatrooms")
+                                .push().setValue(chatModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID)
+                                        .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot item : snapshot.getChildren()){
+                                            ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
+                                            // 방 id 가져오기
+                                            if (chatModel.users.containsKey(destinationUID)){   //destinationUID 있는지 체크
+                                                CHATROOM_FID = item.getKey();   //방 아이디 가져옴
+                                                sendbtn.setEnabled(true);
+
+                                                recyclerView.setLayoutManager(linearLayoutManager);
+                                                recyclerView.setAdapter(new RecyclerViewAdapter());
+                                                FirebaseDatabase.getInstance().getReference().child("chatrooms").child(CHATROOM_FID)
+                                                        .child("comments").push().setValue(comments);
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+                            }
+                        });
+                    }
+
 
                 } else{
                     ChatModel.Comment comments = new ChatModel.Comment();
                     comments.UID = USERID;
                     comments.message = EditText_chat.getText().toString();
                     comments.timestamp = ServerValue.TIMESTAMP;
+                    if (!comments.message.equals("")){
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                        recyclerView.setAdapter(new RecyclerViewAdapter());
+                        FirebaseDatabase.getInstance().getReference().child("chatrooms")
+                                .child(CHATROOM_FID).child("comments")
+                                .push().setValue(comments);
+                    }
 
-                    FirebaseDatabase.getInstance().getReference().child("chatrooms").child(CHATROOM_FID)
-                            .child("comments").push().setValue(comments);
                 }
-
                 EditText_chat.setText(null);    // edittext 안 내용 삭제
                 Log.d(this.getClass().getName(), "메세지 보냄");
 
@@ -148,7 +190,7 @@ public class ChatsFragment extends Fragment {
                     if (chatModel.users.containsKey(destinationUID)){   //destinationUID 있는지 체크
                         CHATROOM_FID = item.getKey();   //방 아이디 가져옴
                         sendbtn.setEnabled(true);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(new RecyclerViewAdapter());
                     }
                 }
@@ -187,14 +229,13 @@ public class ChatsFragment extends Fragment {
 
         void getMessageList() {
             FirebaseDatabase.getInstance().getReference().child("chatrooms").child(CHATROOM_FID).child("comments").addValueEventListener(new ValueEventListener() {
+                @SuppressLint("NotifyDataSetChanged")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     comments.clear();
-
                     for(DataSnapshot item : snapshot.getChildren()){
                         comments.add(item.getValue(ChatModel.Comment.class));
                     }
-
                     notifyDataSetChanged(); // 리스트 갱신
                 }
 
@@ -214,6 +255,7 @@ public class ChatsFragment extends Fragment {
             return new MessageViewHolder(view);
         }
 
+        @SuppressLint("UseCompatLoadingForDrawables")
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             MessageViewHolder messageViewHolder = (MessageViewHolder)holder;
@@ -237,10 +279,16 @@ public class ChatsFragment extends Fragment {
                         });
 
                 messageViewHolder.Message.setText(comments.get(position).message);
+                //messageViewHolder.Message.setBackground(requireContext().getResources()
+                //        .getDrawable(R.drawable.speechbubbletest));
                 messageViewHolder.profile_image.setVisibility(View.INVISIBLE); //프사 안보이게
 
                 messageViewHolder.chatLayout.setGravity(Gravity.END);
                 messageViewHolder.LinearChatMsg.setGravity(Gravity.END);
+                messageViewHolder.cv.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+                messageViewHolder.chatLayout.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+                messageViewHolder.LinearChatMsg.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+                messageViewHolder.cv.setForegroundGravity(Gravity.END);
 
             } else {
                 // 상대방의 프사 설정
@@ -269,9 +317,13 @@ public class ChatsFragment extends Fragment {
 
                 messageViewHolder.nickName.setText(user.nick);  // 닉네임 설정
                 messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+                //messageViewHolder.Message.setBackground(requireContext().getResources()
+                //        .getDrawable(R.drawable.speechbubbletest));
                 messageViewHolder.Message.setText(comments.get(position).message);
                 messageViewHolder.profile_image.setVisibility(View.VISIBLE); //프사 보이게
-
+                messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+                messageViewHolder.cv.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+                messageViewHolder.cv.setForegroundGravity(Gravity.START);
                 messageViewHolder.chatLayout.setGravity(Gravity.START);
             }
 
@@ -309,5 +361,4 @@ public class ChatsFragment extends Fragment {
             }
         }
     }
-
 }

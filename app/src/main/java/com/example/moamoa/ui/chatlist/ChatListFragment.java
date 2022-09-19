@@ -1,6 +1,7 @@
 package com.example.moamoa.ui.chatlist;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.net.Uri;
@@ -65,25 +66,8 @@ public class ChatListFragment extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         USERID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        /*
-        // ChatsActivity에서 값 받음
-        Bundle bundle = getArguments();
-        assert bundle != null;
-        destinationUID = bundle.getString("destinationUID");    // 상대 UID
-        FORMID = bundle.getString("FORMID");
-        CHATROOM_NAME = bundle.getString("CHATROOM_NAME");
-
-         */
-
         recyclerView = (RecyclerView) root.findViewById(R.id.chatting_list);
         recyclerView.setHasFixedSize(true);
-
-        /*
-        adapter = new ChatListAdapter(getActivity(), list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(adapter);
-
-         */
 
         recyclerView.setAdapter(new ChatRecyclerViewAdapter());
         recyclerView.setLayoutManager(new LinearLayoutManager(inflater.getContext()));
@@ -109,6 +93,7 @@ public class ChatListFragment extends Fragment {
             FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+UID)
                     .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
                 // 여기서 equalTo는 true까지의 방만 검색한다. (내가 소속된 방만 띄움)
+                @SuppressLint("NotifyDataSetChanged")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     // 데이터 받아오기 세팅
@@ -147,54 +132,57 @@ public class ChatListFragment extends Fragment {
                 }
             }
 
-            // 다시
-            // destination에 대한 정보 가져오기: users - child(UID) - destinationUID 확인
-            String finalDestinationUID = destinationUID;    // makes destinationUID to be final
+            if (destinationUsers != null){
+                // destination에 대한 정보 가져오기: users - child(UID) - destinationUID 확인
+                String finalDestinationUID = destinationUID;    // makes destinationUID to be final
 
+                // destination이 누군지에 대한 정보 가져오기: users - child(UID) - destinationUID 확인 - formID 가져오기
+                // formID 가져오면 Form에서 폼이름과 사진 가져오기
+                FirebaseDatabase.getInstance().getReference().child("users").child(finalDestinationUID)
+                        .addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                User user = snapshot.getValue(User.class);
+                                customViewHolder.userName.setText(user.nick);
 
-            // destination이 누군지에 대한 정보 가져오기: users - child(UID) - destinationUID 확인 - formID 가져오기
-            // formID 가져오면 Form에서 폼이름과 사진 가져오기
-            FirebaseDatabase.getInstance().getReference().child("users").child(finalDestinationUID)
-                    .addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            User user = snapshot.getValue(User.class);
-                            customViewHolder.userName.setText(user.nick);
+                                String destinationprofil_text = snapshot.child("image").getValue().toString();
+                                FirebaseStorage.getInstance().getReference(destinationprofil_text)
+                                        .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        Activity context = (Activity) customViewHolder.imageView.getContext();
+                                        if(context.isFinishing()) return;
+                                        Glide.with(customViewHolder.imageView)
+                                                .load(uri)
+                                                .into(customViewHolder.imageView);
+                                    }
+                                });
+                            }
 
-                            String destinationprofil_text = snapshot.child("image").getValue().toString();
-                            FirebaseStorage.getInstance().getReference(destinationprofil_text)
-                                    .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    Glide.with(customViewHolder.imageView)
-                                            .load(uri)
-                                            .into(customViewHolder.imageView);
-                                }
-                            });
-                        }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+                            }
+                        });
 
-                        }
-                    });
+                // 메시지를 내림차순으로 정렬한 뒤 마지막 메시지의 키값을 가져옴
+                Map<String, ChatModel.Comment> commentMap = new TreeMap<>(Collections.reverseOrder());
+                commentMap.putAll(chatModels.get(position).comments);
+                String lastMessageKey = (String) commentMap.keySet().toArray()[0];
+                customViewHolder.recentMessage.setText(chatModels.get(position).comments.get(lastMessageKey).message);
 
-            // 메시지를 내림차순으로 정렬한 뒤 마지막 메시지의 키값을 가져옴
-            Map<String, ChatModel.Comment> commentMap = new TreeMap<>(Collections.reverseOrder());
-            commentMap.putAll(chatModels.get(position).comments);
-            String lastMessageKey = (String) commentMap.keySet().toArray()[0];
-            customViewHolder.recentMessage.setText(chatModels.get(position).comments.get(lastMessageKey).message);
+                // 누르면 채팅방으로 넘어감(클릭 이벤트)
+                customViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(v.getContext(), ChatsActivity.class);
+                        intent.putExtra("destinationUID", destinationUsers.get(position));
 
-            // 누르면 채팅방으로 넘어감(클릭 이벤트)
-            customViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), ChatsActivity.class);
-                    intent.putExtra("destinationUID", destinationUsers.get(position));
+                        startActivity(intent);
+                    }
+                });
+            }
 
-                    startActivity(intent);
-                }
-            });
         }
 
         @Override

@@ -110,7 +110,7 @@ public class PlaceholderFragment extends Fragment {
                 button_new.setSelected(false);
                 listData.s_case = 1;
                 listViewData.add(listData);
-                Collections.sort(listViewData);
+
                 ListAdapter oAdapter = new CustomListView(listViewData);
                 listView.setAdapter(oAdapter);
 
@@ -124,7 +124,7 @@ public class PlaceholderFragment extends Fragment {
                 button_new.setSelected(false);
                 listData.s_case = 0;
                 listViewData.add(listData);
-                Collections.sort(listViewData);
+
                 ListAdapter oAdapter = new CustomListView(listViewData);
                 listView.setAdapter(oAdapter);
             }

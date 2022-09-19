@@ -71,7 +71,7 @@ public class FormdetailActivity extends Activity {
     Marker marker = new Marker();
     private Geocoder geocoder;
     Button btn_map;
-//
+    String add_s;
     private RecyclerView mainImage;
     private FirebaseStorage firebaseStorage;
     private FirebaseUser user;
@@ -116,13 +116,20 @@ public class FormdetailActivity extends Activity {
         chat_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = getIntent();
+                temp = intent.getStringExtra("UID_dash");
+
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("form");
                 database.child(temp).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         // USER 정보 불러옴 (ChatsFragment에서 destinationUID로 사용)
-                        String UID = dataSnapshot.child("UID_dash").getValue().toString();
-                        point=dataSnapshot.child("point").getValue().toString();
+                        String UID = temp;
+                        // dataSnapshot.child("UID_dash").getValue().toString();
+
+                        // 밑에꺼... 무슨코드인지모르겠음
+                        // point=dataSnapshot.child("point").getValue().toString();
+
                         // FORM 정보 불러옴(ChatFragment에서 CHATROOM_NAME과 CHATROOM_FID로 사용)
                         /*
                         String FORMNAME = dataSnapshot.child("subject").getValue().toString();
@@ -288,7 +295,7 @@ public class FormdetailActivity extends Activity {
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
         geocoder = new Geocoder(this);
-        String[] PointArray=point.split(",");
+        String[] PointArray=add_s.split(",");
         String latitude = PointArray[0]; // 경도
         String longitude = PointArray[1]; // 경도
         LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
@@ -317,7 +324,12 @@ public class FormdetailActivity extends Activity {
                     String deadline     = dataSnapshot.child("deadline").getValue().toString();
                     String state        = dataSnapshot.child("state").getValue().toString();
                     String express      = dataSnapshot.child("express").getValue().toString();
+                     add_s      = dataSnapshot.child("address").getValue().toString();
+
+                    String add_detail   = dataSnapshot.child("add_detail").getValue().toString();
+
                     int num_k= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
+
                     Resources res = getResources();
                     String[] cat = res.getStringArray(R.array.category);
                     category=cat[Integer.parseInt(category)];
@@ -329,7 +341,7 @@ public class FormdetailActivity extends Activity {
                     Log.d("확인","message상세 이미지 : "+count);
                     String UID = dataSnapshot.child("UID_dash").getValue().toString();
                     UserFind(UID);
-                    Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline,express,count,state);
+                    Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline,add_detail,express,count,state);
                     StorageReference pathReference = firebaseStorage.getReference(image);
 
 
@@ -397,7 +409,7 @@ public class FormdetailActivity extends Activity {
 
     private void Initializeform
             (String subject,String category,String text,String cost,String max_count,
-             String today,String deadline,String express,Integer count,String state)
+             String today,String deadline,String add_detail, String express,Integer count,String state)
     {
         TextView subject_text   = (TextView) findViewById(R.id.detail_subject);
         TextView category_text  = (TextView) findViewById(R.id.detail_category);
@@ -409,6 +421,7 @@ public class FormdetailActivity extends Activity {
         TextView express_text   = (TextView) findViewById(R.id.detail_express);
         TextView count_text     = (TextView) findViewById(R.id.detail_counttext);
         TextView state_text     = (TextView) findViewById(R.id.detail_state);
+        TextView address        = (TextView) findViewById(R.id.detail_address);
 
         switch(state){
             case "0":
@@ -433,7 +446,7 @@ public class FormdetailActivity extends Activity {
         max_count_text.setText(max_count);
         express_text.setText(express);
         count_text.setText("조회 "+count);
-
+        address.setText(add_detail);
 
     }
 }

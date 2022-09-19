@@ -30,6 +30,7 @@ import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentDashboardBinding;
 import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.category.CategoryActivity;
+import com.example.moamoa.ui.mypage.PageViewModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -77,9 +78,13 @@ public class DashboardFragment extends Fragment {
     String point;
     ClipData clipData;
     String address_s;
+    String address_d;
+    EditText address;
+    String add_detail;
+    Button btn_getImage;
+
     private static final String TAG = "MultiImageActivity";
     ArrayList<Uri> uriList = new ArrayList<>();     // 이미지의 uri를 담을 ArrayList 객체
-    EditText address;
 
     RecyclerView recyclerView;  // 이미지를 보여줄 리사이클러뷰
     MultiImageAdapter adapter;  // 리사이클러뷰에 적용시킬 어댑터
@@ -96,6 +101,20 @@ public class DashboardFragment extends Fragment {
 
         return mFormat1.format(mDate);
     }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+        if (getArguments() != null) {
+            address_s = getArguments().getString("address");
+            address_d  = getArguments().getString("address_d");
+
+
+        }
+
+
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel =
@@ -108,22 +127,22 @@ public class DashboardFragment extends Fragment {
         TextView today      = (TextView) root.findViewById(R.id.text_dashboardstart);   //게시글 생성 날짜
         EditText text       = (EditText) root.findViewById(R.id.text);                  //내용
         address    = (EditText) root.findViewById(R.id.address);               //주소
+        EditText address_detail    = (EditText) root.findViewById(R.id.address_detail);       //상세주소
         EditText cost       = (EditText) root.findViewById(R.id.cost);                  //금액
         EditText max_count  = (EditText) root.findViewById(R.id.max_count);             //마감 최대 인원 수
         Button button       = (Button) root.findViewById(R.id.button_dashboard);        //
         Button btn_addr     = (Button) root.findViewById(R.id.button_addr);             //
         TextView deadline   = (TextView) root.findViewById(R.id.text_dashboardend);     //마감일자
-        CheckBox checkBox   = (CheckBox) root.findViewById(R.id.checkBox);              //
+        CheckBox checkBox   = (CheckBox) root.findViewById(R.id.checkBox);              //인원제한유무
         RadioGroup radioGroup   = (RadioGroup) root.findViewById(R.id.radioGroup);      //거래 방식
         Spinner category_text   = (Spinner) root.findViewById(R.id.spinner);            //카테고리
-
+        address.setText(address_d);
         today.setText(getTime1().substring(0,4)+"/"+getTime1().substring(4,6)+"/"+getTime1().substring(6,8));
         cost.addTextChangedListener(new CustomTextWatcher(cost));
         photo = (ImageView) root.findViewById(R.id.imageView);
         storage = FirebaseStorage.getInstance();
 
-
-        Button btn_getImage = root.findViewById(R.id.button_imgs);
+        btn_getImage = root.findViewById(R.id.button_imgs);
         btn_getImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -249,6 +268,10 @@ public class DashboardFragment extends Fragment {
                     return;
 
                 }
+
+                    add_detail=address_d+address_detail.getText();
+
+
                 FID=user.getUid()+num_a;
 //if (!(subject.equals("") && text.equals("") &&address.equals("")&&cost.equals("")&&max_count.equals("")&&deadline.equals(""))) {
                 max=max_count.getText().toString();
@@ -261,6 +284,7 @@ public class DashboardFragment extends Fragment {
                         subject.getText().toString(),
                         text.getText().toString(),
                         address.getText().toString(),
+                        add_detail,
                         1,
                         Integer.parseInt(cost.getText().toString().replace(",","")),
                         max,
@@ -327,11 +351,7 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (getArguments() != null)
-        {
-            address_s = getArguments().getString("address"); // 프래그먼트1에서 받아온 값 넣기
-            address.setText(address_s);
-        }
+
         if(data == null){   // 어떤 이미지도 선택하지 않은 경우
             Toast.makeText(getActivity(), "이미지를 선택하지 않았습니다.", Toast.LENGTH_LONG).show();
         }
@@ -363,6 +383,7 @@ public class DashboardFragment extends Fragment {
                             uriList.add(imageUri);  //uri를 list에 담는다.
                             on=true;
                             photo_num= clipData.getItemCount();
+                            btn_getImage.setText(photo_num+"/"+10);
                         } catch (Exception e) {
                             Log.e(TAG, "File select error", e);
                         }
