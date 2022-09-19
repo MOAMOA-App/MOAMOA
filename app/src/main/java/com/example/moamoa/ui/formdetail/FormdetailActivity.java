@@ -20,6 +20,7 @@ import android.widget.ToggleButton;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -55,15 +56,14 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-public class FormdetailActivity extends Activity {
+public class FormdetailActivity extends AppCompatActivity implements OnMapReadyCallback {
     private DatabaseReference mDatabase;
     String image;
     String k;
     int count;
     String temp;
     String FID;
-    String str;
-    String adr;
+
     int count_party;
     // 지도
     private MapView mapView;
@@ -71,12 +71,11 @@ public class FormdetailActivity extends Activity {
     private LatLng myLatLng = new LatLng( 37.3399, 126.733);
     Marker marker = new Marker();
     private Geocoder geocoder;
-    Button btn_map;
-    String add_s;
+    String addr_co;
+
     private RecyclerView mainImage;
     private FirebaseStorage firebaseStorage;
     private FirebaseUser user;
-    String point;
     @Override
     protected void onStart() {
         super.onStart();
@@ -105,14 +104,13 @@ public class FormdetailActivity extends Activity {
         Button party_btn = (Button)findViewById(R.id.detail_party_btn); //참여하기 버튼
         //ImageButton heart_btn = (ImageButton) findViewById(R.id.detail_heart_btn);
         //
+        printpage();
         NaverMapSdk.getInstance(this).setClient(
                 new NaverMapSdk.NaverCloudPlatformClient("xjdzzwh9wk"));
         mapView = (MapView)findViewById(R.id.mv);
-        btn_map = (Button)findViewById(R.id.button_map);
         mapView.onCreate(savedInstanceState);
-        //mapView.getMapAsync((OnMapReadyCallback) this);
-        //
-        printpage();
+        mapView.getMapAsync(this);
+
 
         chat_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -234,13 +232,10 @@ public class FormdetailActivity extends Activity {
                     if (dataSnapshot.getValue().equals("true")) {
 
                         button.setBackgroundResource(R.drawable.full_heart);
-
                     } else {
                         button.setBackgroundResource(R.drawable.empty_heart);
-
                     }
                 }
-
 
             }
 
@@ -249,7 +244,7 @@ public class FormdetailActivity extends Activity {
             {    }
         });
 
-        //FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a+1);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -263,27 +258,19 @@ public class FormdetailActivity extends Activity {
                     public void onCancelled(DatabaseError databaseError)
                     {    }
                 });
-                //Log.d("MainActivity", "vv: " + v);
 
                 if (button.isChecked()) {
-                    //button.setBackgroundResource(R.drawable.full_heart);
+
                     FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(FID).setValue("true");
                 }
                 else if( !button.isChecked())
                 {
-                    // button.setBackgroundResource(R.drawable.empty_heart);
-                    //FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a-1);
+
                     FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(FID).setValue("false");
                 }
-                //{
-                //    button.setBackgroundResource(R.drawable.full_heart);
-                //    FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a+1);
-                //    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("true");
-                //}
-                //if (isChecked ){
+
             }
-            //String clickName = listViewData.get(position).subject;
-            //Log.d("확인","message : "+clickName);
+;
         });
         return;
     }
@@ -304,7 +291,8 @@ public class FormdetailActivity extends Activity {
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
         geocoder = new Geocoder(this);
-        String[] PointArray=add_s.split(",");
+        String[] PointArray=addr_co.split(",");
+        Log.d("확인","message상세 이미지 : "+addr_co);
         String latitude = PointArray[0]; // 경도
         String longitude = PointArray[1]; // 경도
         LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
@@ -312,7 +300,9 @@ public class FormdetailActivity extends Activity {
         marker.setMap(naverMap);
                 // 해당 좌표로 화면 줌
         CameraPosition cameraPosition = new CameraPosition(point1, 16);
-            }
+
+        naverMap.setCameraPosition(cameraPosition);
+    }
 
 
     private void printpage(){
@@ -333,10 +323,14 @@ public class FormdetailActivity extends Activity {
                     String deadline     = dataSnapshot.child("deadline").getValue().toString();
                     String state        = dataSnapshot.child("state").getValue().toString();
                     String express      = dataSnapshot.child("express").getValue().toString();
-                    //String add_detail   = dataSnapshot.child("add_detail").getValue().toString();
-                    add_s      = dataSnapshot.child("address").getValue().toString();
+                    String address   = dataSnapshot.child("address").getValue().toString();
+                    String addr_detail   = dataSnapshot.child("addr_detail").getValue().toString();
 
-                    String add_detail = "테스트";
+
+
+                    addr_co      = dataSnapshot.child("addr_co").getValue().toString();
+
+
                     count_party= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
 
                     Resources res = getResources();
@@ -350,23 +344,12 @@ public class FormdetailActivity extends Activity {
                     Log.d("확인","message상세 이미지 : "+count);
                     String UID = dataSnapshot.child("UID_dash").getValue().toString();
                     UserFind(UID);
-                    Initializeform(subject,category,text,cost,count_party+"/"+max_count,today,deadline,add_detail,express,count,state);
+                    Initializeform(subject,category,text,cost,count_party+"/"+max_count,today,deadline,address,addr_detail,express,count,state);
                     StorageReference pathReference = firebaseStorage.getReference(image);
 
 
                     FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
-                    /*
-                    pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            if (activity.isFinishing()) return;
-                            Glide.with(mainImage.getContext())
-                                    .load(uri)
-                                    .into(mainImage);
 
-                        }
-                    });
-                    */
                 }
             }
 
@@ -418,7 +401,7 @@ public class FormdetailActivity extends Activity {
 
     private void Initializeform
             (String subject,String category,String text,String cost,String max_count,
-             String today,String deadline,String add_detail, String express,Integer count,String state)
+             String today,String deadline,String address,String addr_detail, String express,Integer count,String state)
     {
         TextView subject_text   = (TextView) findViewById(R.id.detail_subject);
         TextView category_text  = (TextView) findViewById(R.id.detail_category);
@@ -430,7 +413,8 @@ public class FormdetailActivity extends Activity {
         TextView express_text   = (TextView) findViewById(R.id.detail_express);
         TextView count_text     = (TextView) findViewById(R.id.detail_counttext);
         TextView state_text     = (TextView) findViewById(R.id.detail_state);
-        TextView address        = (TextView) findViewById(R.id.detail_address);
+        TextView address_text       = (TextView) findViewById(R.id.address);
+        TextView addr_detail_text    = (TextView) findViewById(R.id.detail_address);
 
         switch(state){
             case "0":
@@ -455,7 +439,8 @@ public class FormdetailActivity extends Activity {
         max_count_text.setText(max_count);
         express_text.setText(express);
         count_text.setText("조회 "+count);
-        address.setText(add_detail);
+        address_text.setText(address);
+        addr_detail_text.setText(addr_detail);
 
     }
 }

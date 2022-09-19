@@ -263,7 +263,9 @@
                             android:layout_alignParentBottom="true"
                             android:gravity="bottom"
                             android:text="거래 장소"
-                            android:textSize="17sp"/>
+                            android:textSize="17sp"
+                            android:id="@+id/address"
+                            />
                         <TextView
                             android:id="@+id/detail_address"
                             android:layout_width="wrap_content"
