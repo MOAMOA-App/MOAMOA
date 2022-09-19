@@ -30,6 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /*
@@ -118,7 +119,8 @@ public class CustomListView extends BaseAdapter {
         //mainImage.listViewData.get(position).photo);
         title.setText(listViewData.get(position).subject);
         name.setText(listViewData.get(position).address);
-        charge.setText(listViewData.get(position).cost+"원");
+        DecimalFormat myFormatter = new DecimalFormat("###,###");
+        charge.setText(myFormatter.format(listViewData.get(position).cost)+"원");
         state.setText("["+state_temp+"]");
         mans.setText(listViewData.get(position).parti_num+"/"+listViewData.get(position).max_count);
 
