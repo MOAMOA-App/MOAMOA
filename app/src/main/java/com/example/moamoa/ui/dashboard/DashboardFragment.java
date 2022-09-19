@@ -31,10 +31,8 @@ import com.example.moamoa.databinding.FragmentDashboardBinding;
 import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.category.CategoryActivity;
 import com.example.moamoa.ui.mypage.PageViewModel;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -51,9 +49,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class DashboardFragment extends Fragment {
-     /**
-      *공동구매 글 작성
-      * **/
+    /**
+     *공동구매 글 작성
+     * **/
     private FragmentDashboardBinding binding;
     long mNow;
     Date mDate;
@@ -79,10 +77,9 @@ public class DashboardFragment extends Fragment {
     int i = 1;
     String point;
     ClipData clipData;
-    String address_s;
-    String address_d;
-    EditText address;
-    String add_detail;
+    String addr_co;
+    String addr_detail;
+
     Button btn_getImage;
 
     private static final String TAG = "MultiImageActivity";
@@ -103,20 +100,6 @@ public class DashboardFragment extends Fragment {
 
         return mFormat1.format(mDate);
     }
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
-//        if (getArguments() != null) {
-//            address_s = getArguments().getString("address");
-//            address_d  = getArguments().getString("address_d");
-//
-//
-//        }
-
-
-    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel =
@@ -128,8 +111,8 @@ public class DashboardFragment extends Fragment {
         EditText subject    = (EditText) root.findViewById(R.id.subject);               //제목
         TextView today      = (TextView) root.findViewById(R.id.text_dashboardstart);   //게시글 생성 날짜
         EditText text       = (EditText) root.findViewById(R.id.text);                  //내용
-        address             = (EditText) root.findViewById(R.id.address);               //주소
-        EditText address_detail    = (EditText) root.findViewById(R.id.address_detail);       //상세주소
+        EditText address_edit = (EditText) root.findViewById(R.id.address);               //주소
+        EditText addr_detail_edit    = (EditText) root.findViewById(R.id.address_detail);       //상세주소
         EditText cost       = (EditText) root.findViewById(R.id.cost);                  //금액
         EditText max_count  = (EditText) root.findViewById(R.id.max_count);             //마감 최대 인원 수
         Button button       = (Button) root.findViewById(R.id.button_dashboard);        //
@@ -138,7 +121,7 @@ public class DashboardFragment extends Fragment {
         CheckBox checkBox   = (CheckBox) root.findViewById(R.id.checkBox);              //인원제한유무
         RadioGroup radioGroup   = (RadioGroup) root.findViewById(R.id.radioGroup);      //거래 방식
         Spinner category_text   = (Spinner) root.findViewById(R.id.spinner);            //카테고리
-//        address.setText(address_d);
+
         today.setText(getTime1().substring(0,4)+"/"+getTime1().substring(4,6)+"/"+getTime1().substring(6,8));
         cost.addTextChangedListener(new CustomTextWatcher(cost));
         photo = (ImageView) root.findViewById(R.id.imageView);
@@ -178,12 +161,9 @@ public class DashboardFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try {
 
-                    address_s = snapshot.child("경위도").getValue().toString();
-                    address_d = snapshot.child("주소").getValue().toString();
+                    addr_co = snapshot.child("경위도").getValue().toString();
+                    address_edit.setText( snapshot.child("주소").getValue().toString());
 
-                    Log.d("확인", "message1 : " + address_s);
-                    Log.d("확인", "message1 : " + snapshot.getValue().toString());
-                    address.setText(address_d);
                     FirebaseDatabase.getInstance().getReference("Map").child(user.getUid()).child("경위도").setValue(null);
                     FirebaseDatabase.getInstance().getReference("Map").child(user.getUid()).child("주소").setValue(null);
 
@@ -194,7 +174,6 @@ public class DashboardFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -214,24 +193,24 @@ public class DashboardFragment extends Fragment {
         });
 
         checkBox.setOnClickListener(new View.OnClickListener() {
-                                      @Override
-                                      public void onClick(View view) {
-                                          if (checkBox.isChecked()) {
-                                              max_count.setClickable(false);
-                                              max_count.setFocusable(false);
-                                              max= 100;
-                                              max_count.setVisibility(View.GONE);
+            @Override
+            public void onClick(View view) {
+                if (checkBox.isChecked()) {
+                    max_count.setClickable(false);
+                    max_count.setFocusable(false);
+                    max= 100;
+                    max_count.setVisibility(View.GONE);
 
-                                          } else {
-                                              max=0;
-                                              max_count.setVisibility(View.VISIBLE);
-                                              max_count.setFocusableInTouchMode(true);
-                                              max_count.setFocusable(true);
-                                          }
-                                      }
+                } else {
+                    max=0;
+                    max_count.setVisibility(View.VISIBLE);
+                    max_count.setFocusableInTouchMode(true);
+                    max_count.setFocusable(true);
+                }
+            }
 
- });
-        address.setOnClickListener(new View.OnClickListener() {
+        });
+        address_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), MapActivity.class);
@@ -244,34 +223,6 @@ public class DashboardFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), MapActivity.class);
                 startActivity(intent);
-
-//                FirebaseDatabase.getInstance().getReference("map").child(user.getUid()).child("경위도").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-//                        if (!task.isSuccessful()) {
-//                            Log.e("firebase", "Error getting data", task.getException());
-//                        }
-//                        else {
-//                            DataSnapshot result = task.getResult();
-//                            if(result!=null){
-//
-//                                try {
-//
-//
-//                                    for (DataSnapshot fileSnapshot : result.getChildren() ) {
-//                                        address_s = result.getValue().toString();
-//                                        address.setText(address_s);
-//                                        Log.i("num",address_s);
-//                                    }
-//                                }
-//                                catch (NullPointerException e){
-//
-//                                }
-//                            }
-//                        }
-//
-//                    }
-//                });
 
             }
         });
@@ -294,9 +245,9 @@ public class DashboardFragment extends Fragment {
                     text.requestFocus();
                     return;
                 }
-                if (address.getText().toString().length()==0){
+                if (address_edit.getText().toString().length()==0){
                     Toast.makeText(getContext(),"주소를 입력하세요",Toast.LENGTH_SHORT).show();
-                    address.requestFocus();
+                    address_edit.requestFocus();
                     return;
                 }
                 if (cost.getText().toString().length()==0){
@@ -321,12 +272,22 @@ public class DashboardFragment extends Fragment {
 
                 }
 
-                    add_detail=address_d+address_detail.getText();
 
 
                 FID=user.getUid()+num_a;
 //if (!(subject.equals("") && text.equals("") &&address.equals("")&&cost.equals("")&&max_count.equals("")&&deadline.equals(""))) {
-                max=Integer.parseInt(max_count.getText().toString());
+
+                if(max_count.getText().toString().equals("")){
+                    max=1000;
+                }
+                else{
+
+                    max=Integer.parseInt(max_count.getText().toString());
+                }
+                if(addr_detail_edit.getText().toString().equals("")){
+                    addr_detail_edit.setText("-");
+                }
+
                 String dead = (deadline.getText().toString().substring(0,4))+deadline.getText().toString().substring(5,7)+deadline.getText().toString().substring(8,10).toString();
                 Form form = new Form(
                         FID,
@@ -335,8 +296,9 @@ public class DashboardFragment extends Fragment {
                         photo_num,
                         subject.getText().toString(),
                         text.getText().toString(),
-                        address_s,
-                        add_detail,
+                        address_edit.getText().toString(),
+                        addr_co,
+                        addr_detail_edit.getText().toString(),
                         1,
                         Integer.parseInt(cost.getText().toString().replace(",","")),
                         max,
@@ -358,8 +320,8 @@ public class DashboardFragment extends Fragment {
                 DatabaseReference reference = database.getReference("users");
 
 
-               // childUpdates.put(user.getUid(), postValues);
-               // reference.updateChildren(childUpdates)
+                // childUpdates.put(user.getUid(), postValues);
+                // reference.updateChildren(childUpdates)
 
                 storageRef = storage.getReference();
                 for(int i = 0; i < clipData.getItemCount(); i++) {
@@ -417,11 +379,11 @@ public class DashboardFragment extends Fragment {
                 photo_num=1;
                 adapter = new MultiImageAdapter(uriList, getContext());
                 recyclerView.setAdapter(adapter);
-               // recyclerView.setItemAnimator(null);
+                // recyclerView.setItemAnimator(null);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, true));
             }
             else{      // 이미지를 여러장 선택한 경우
-               clipData = data.getClipData();
+                clipData = data.getClipData();
                 Log.e("clipData", String.valueOf(clipData.getItemCount()));
 
                 if(clipData.getItemCount() > 10){   // 선택한 이미지가 11장 이상인 경우
