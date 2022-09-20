@@ -292,7 +292,6 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
         this.naverMap = naverMap;
         geocoder = new Geocoder(this);
         String[] PointArray=addr_co.split(",");
-        Log.d("확인","message상세 이미지 : "+addr_co);
         String latitude = PointArray[0]; // 경도
         String longitude = PointArray[1]; // 경도
         LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));

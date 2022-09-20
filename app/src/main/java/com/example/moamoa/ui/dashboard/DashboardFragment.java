@@ -48,6 +48,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+
+
 public class DashboardFragment extends Fragment {
     /**
      *공동구매 글 작성
@@ -88,18 +90,16 @@ public class DashboardFragment extends Fragment {
     RecyclerView recyclerView;  // 이미지를 보여줄 리사이클러뷰
     MultiImageAdapter adapter;  // 리사이클러뷰에 적용시킬 어댑터
 
-    private String getTime(){
-        mNow = System.currentTimeMillis();
-        mDate = new Date(mNow);
-
-        return mFormat.format(mDate);
-    }
-    private String getTime1(){
-        mNow = System.currentTimeMillis();
-        mDate = new Date(mNow);
+    private String GetTimeStart(){
+        SimpleDateFormat mFormat1 = new SimpleDateFormat("yyyyMMddhhmmss");
+        long mNow = System.currentTimeMillis();
+        Date mDate = new Date(mNow);
 
         return mFormat1.format(mDate);
     }
+
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel =
@@ -122,7 +122,7 @@ public class DashboardFragment extends Fragment {
         RadioGroup radioGroup   = (RadioGroup) root.findViewById(R.id.radioGroup);      //거래 방식
         Spinner category_text   = (Spinner) root.findViewById(R.id.spinner);            //카테고리
 
-        today.setText(getTime1().substring(0,4)+"/"+getTime1().substring(4,6)+"/"+getTime1().substring(6,8));
+        today.setText(GetTimeStart().substring(0,4)+"/"+GetTimeStart().substring(4,6)+"/"+GetTimeStart().substring(6,8));
         cost.addTextChangedListener(new CustomTextWatcher(cost));
         photo = (ImageView) root.findViewById(R.id.imageView);
         storage = FirebaseStorage.getInstance();
@@ -303,7 +303,7 @@ public class DashboardFragment extends Fragment {
                         Integer.parseInt(cost.getText().toString().replace(",","")),
                         max,
                         Integer.parseInt(dead),
-                        getTime1(),
+                        GetTimeStart(),
                         0,
                         express,
                         point,
