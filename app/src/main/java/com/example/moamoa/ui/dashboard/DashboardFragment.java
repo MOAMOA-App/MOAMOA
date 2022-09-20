@@ -53,11 +53,7 @@ public class DashboardFragment extends Fragment {
      *공동구매 글 작성
      * **/
     private FragmentDashboardBinding binding;
-    long mNow;
-    Date mDate;
     boolean on = false;
-    SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMdd");
-    SimpleDateFormat mFormat1 = new SimpleDateFormat("yyyyMMddhhmmss");
     StorageReference storageRef;
     StorageReference riversRef;
     FirebaseDatabase firebaseDatabase;
@@ -88,15 +84,11 @@ public class DashboardFragment extends Fragment {
     RecyclerView recyclerView;  // 이미지를 보여줄 리사이클러뷰
     MultiImageAdapter adapter;  // 리사이클러뷰에 적용시킬 어댑터
 
-    private String getTime(){
-        mNow = System.currentTimeMillis();
-        mDate = new Date(mNow);
-
-        return mFormat.format(mDate);
-    }
     private String getTime1(){
-        mNow = System.currentTimeMillis();
-        mDate = new Date(mNow);
+        SimpleDateFormat mFormat1 = new SimpleDateFormat("yyyyMMddhhmmss");
+
+        long mNow = System.currentTimeMillis();
+        Date mDate = new Date(mNow);
 
         return mFormat1.format(mDate);
     }
