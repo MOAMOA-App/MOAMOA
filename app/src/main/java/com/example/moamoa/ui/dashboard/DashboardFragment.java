@@ -156,7 +156,7 @@ public class DashboardFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-        FirebaseDatabase.getInstance().getReference("Map").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("map").child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try {
@@ -164,8 +164,8 @@ public class DashboardFragment extends Fragment {
                     addr_co = snapshot.child("경위도").getValue().toString();
                     address_edit.setText( snapshot.child("주소").getValue().toString());
 
-                    FirebaseDatabase.getInstance().getReference("Map").child(user.getUid()).child("경위도").setValue(null);
-                    FirebaseDatabase.getInstance().getReference("Map").child(user.getUid()).child("주소").setValue(null);
+                    FirebaseDatabase.getInstance().getReference("map").child(user.getUid()).child("경위도").setValue(null);
+                    FirebaseDatabase.getInstance().getReference("map").child(user.getUid()).child("주소").setValue(null);
 
                 }catch (NullPointerException e){}
             }

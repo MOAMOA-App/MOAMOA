@@ -110,8 +110,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             public void onClick(View view) {
 
 
-                FirebaseDatabase.getInstance().getReference("Map").child(user.getUid()).child("경위도").setValue(address_s);
-                FirebaseDatabase.getInstance().getReference("Map").child(user.getUid()).child("주소").setValue(str);
+                FirebaseDatabase.getInstance().getReference("map").child(user.getUid()).child("경위도").setValue(address_s);
+                FirebaseDatabase.getInstance().getReference("map").child(user.getUid()).child("주소").setValue(str);
 
 //                DashboardFragment myFragment = new DashboardFragment();
 //                FragmentManager manager=getSupportFragmentManager();
