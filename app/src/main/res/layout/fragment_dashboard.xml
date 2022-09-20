@@ -8,7 +8,7 @@
     tools:context=".ui.dashboard.DashboardFragment"
     android:orientation="vertical"
     android:background="@color/white"
-    android:id="@+id/dashboard"><!--좀 되라-->
+    android:id="@+id/dashboard">
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/dashboardtoolbar"
         android:layout_width="match_parent"
