@@ -10,7 +10,7 @@ public class Form  {
     public int photo_num;       //이미지 갯수
     public String address;      //주소
     public String addr_co;      //경위도
-    public String add_detail;      //주소
+    public String addr_detail;      //주소
     public int category_text;   //카테고리
     public int cost;            //가격
     public int max_count;    //마감인원
@@ -30,7 +30,7 @@ public class Form  {
 
     public Form(){ };
     public Form( String FID, String UID_dash,String image,int photo_num, String subject, String text,
-                 String address,String addr_co,String add_detail,int category_text, int cost, int max_count,int deadline,
+                 String address,String addr_co,String addr_detail,int category_text, int cost, int max_count,int deadline,
                  String today,int count,String express, String point, int active){
         this.FID = FID;
 
@@ -41,7 +41,7 @@ public class Form  {
         this.text       = text;
         this.address    = address;
         this.addr_co = addr_co;
-        this.add_detail    = add_detail;
+        this.addr_detail    = addr_detail;
         this.category_text = category_text;
         this.cost       = cost;
         this.max_count  = max_count;
