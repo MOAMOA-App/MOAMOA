@@ -48,8 +48,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-
-
 public class DashboardFragment extends Fragment {
     /**
      *공동구매 글 작성
@@ -98,8 +96,6 @@ public class DashboardFragment extends Fragment {
         return mFormat1.format(mDate);
     }
 
-
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel =
@@ -122,7 +118,7 @@ public class DashboardFragment extends Fragment {
         RadioGroup radioGroup   = (RadioGroup) root.findViewById(R.id.radioGroup);      //거래 방식
         Spinner category_text   = (Spinner) root.findViewById(R.id.spinner);            //카테고리
 
-        today.setText(GetTimeStart().substring(0,4)+"/"+GetTimeStart().substring(4,6)+"/"+GetTimeStart().substring(6,8));
+        today.setText(getTime1().substring(0,4)+"/"+getTime1().substring(4,6)+"/"+getTime1().substring(6,8));
         cost.addTextChangedListener(new CustomTextWatcher(cost));
         photo = (ImageView) root.findViewById(R.id.imageView);
         storage = FirebaseStorage.getInstance();
