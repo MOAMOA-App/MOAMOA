@@ -6,6 +6,7 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -37,10 +38,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
 import java.util.TreeMap;
 
 public class ChatListFragment extends Fragment {
@@ -52,6 +57,8 @@ public class ChatListFragment extends Fragment {
     private String USERID, destinationUID;
     private String FORMID;
     private String CHATROOM_NAME, CHATROOM_FID;
+
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy.MM.dd HH:mm");
 
     private FragmentChatlistBinding binding;
 
@@ -170,6 +177,17 @@ public class ChatListFragment extends Fragment {
                 commentMap.putAll(chatModels.get(position).comments);
                 String lastMessageKey = (String) commentMap.keySet().toArray()[0];
                 customViewHolder.recentMessage.setText(chatModels.get(position).comments.get(lastMessageKey).message);
+                Log.e("TEST", "lastMessageKey: "+ lastMessageKey);
+
+                //customViewHolder.lastSendtime.setText((Integer) chatModels.get(position).comments.get(lastMessageKey).timestamp);
+
+                Object unixTime = chatModels.get(position).comments.get(lastMessageKey).timestamp;
+                long lastMessageTime =  Long.parseLong(unixTime.toString());
+                Date date = new Date(lastMessageTime);
+                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+                String time = simpleDateFormat.format(date);
+                customViewHolder.lastSendtime.setText(time);
+
 
                 // 누르면 채팅방으로 넘어감(클릭 이벤트)
                 customViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -192,7 +210,7 @@ public class ChatListFragment extends Fragment {
 
         private class CustomViewHolder extends RecyclerView.ViewHolder {
             public ImageView imageView;
-            public TextView userName, recentMessage;
+            public TextView userName, recentMessage, lastSendtime;
 
             public CustomViewHolder(View view) {
                 super(view);
@@ -200,6 +218,7 @@ public class ChatListFragment extends Fragment {
                 imageView = (ImageView) view.findViewById(R.id.chatlist_Image);
                 userName = (TextView) view.findViewById(R.id.chat_username);
                 recentMessage = (TextView) view.findViewById(R.id.chat_recent);
+                lastSendtime = (TextView) view.findViewById(R.id.chat_lastsendtime);
 
             }
         }
