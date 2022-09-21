@@ -38,12 +38,12 @@
 
             <Button
                 android:id="@+id/searchBtn"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:backgroundTint="@color/main_orange"
-
-                android:text="검색" />
+                android:background="@drawable/ic_outline_search_24"
+                android:layout_gravity="center_vertical"
+                />
 
         </LinearLayout>
 
