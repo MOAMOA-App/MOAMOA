@@ -6,39 +6,39 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
+8-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="31" />
-9-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
+9-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERACT" />
-11-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:6:5-8:40
-11-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:7:9-51
+11-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:6:5-8:40
+11-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:7:9-51
 12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-12-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:9:5-81
-12-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:9:22-78
+12-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:9:5-81
+12-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:9:22-78
 13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-13-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:10:5-80
-13-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:10:22-77
+13-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:10:5-80
+13-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:10:22-77
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:11:5-67
-14-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:11:22-64
+14-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:11:5-67
+14-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:11:22-64
 15    <uses-permission android:name="android.permission.CAMERA" />
-15-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:12:5-64
-15-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:12:22-62
+15-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:12:5-64
+15-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:12:22-62
 16
 17    <uses-feature
-17-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:13:5-83
+17-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:13:5-83
 18        android:name="android.hardware.camera"
-18-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:13:19-57
+18-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:13:19-57
 19        android:required="true" />
-19-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:13:58-81
+19-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:13:58-81
 20
 21    <uses-permission android:name="android.permission.INTERNET" />
-21-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:11:5-67
-21-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:11:22-64
+21-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:11:5-67
+21-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:11:22-64
 22    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-22-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:16:5-79
-22-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:16:22-76
+22-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:16:5-79
+22-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:16:22-76
 23
 24    <queries>
 24-->[com.navercorp.nid:oauth:5.1.0] C:\Users\user\.gradle\caches\transforms-3\65155cd0174ff1aec78b5963e3fefcfe\transformed\jetified-oauth-5.1.0\AndroidManifest.xml:13:5-23:15
@@ -94,21 +94,21 @@
 48    </queries>
 49
 50    <uses-feature
-50-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:9:5-11:35
+50-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:9:5-11:35
 51        android:glEsVersion="0x00020000"
-51-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:10:9-41
+51-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:10:9-41
 52        android:required="true" />
-52-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:11:9-32
+52-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:11:9-32
 53    <uses-feature
-53-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:12:5-14:36
+53-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:12:5-14:36
 54        android:name="android.hardware.wifi"
-54-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:13:9-45
+54-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:13:9-45
 55        android:required="false" />
-55-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:14:9-33
+55-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:14:9-33
 56
 57    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-57-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:18:5-76
-57-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:18:22-73
+57-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:18:5-76
+57-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:18:22-73
 58    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
 58-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\user\.gradle\caches\transforms-3\5f8b376af9f13086e2fe2496b84fa4e9\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:26:5-68
 58-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\user\.gradle\caches\transforms-3\5f8b376af9f13086e2fe2496b84fa4e9\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:26:22-65
@@ -123,228 +123,228 @@
 61-->[com.google.android.gms:play-services-measurement:21.0.0] C:\Users\user\.gradle\caches\transforms-3\d920b8a0d7bff93f0acb90b76c7e963d\transformed\jetified-play-services-measurement-21.0.0\AndroidManifest.xml:26:22-107
 62
 63    <application
-63-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:18:5-141:19
+63-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:18:5-141:19
 64        android:name="com.example.moamoa.GlobalApplication"
-64-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:19:9-42
+64-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:19:9-42
 65        android:allowBackup="true"
-65-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:20:9-35
+65-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:20:9-35
 66        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 66-->[androidx.core:core:1.7.0] C:\Users\user\.gradle\caches\transforms-3\21237793a43bb8ef7845d7769f91c3cc\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 67        android:debuggable="true"
 68        android:icon="@mipmap/ic_main"
-68-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:21:9-39
+68-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:21:9-39
 69        android:label="@string/app_name"
-69-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:22:9-41
+69-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:22:9-41
 70        android:roundIcon="@mipmap/ic_main"
-70-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:23:9-44
+70-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:23:9-44
 71        android:supportsRtl="true"
-71-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:24:9-35
+71-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:24:9-35
 72        android:testOnly="true"
 73        android:theme="@style/Theme.MOAMOA"
-73-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:25:9-44
+73-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:25:9-44
 74        android:usesCleartextTraffic="true" >
 74-->[com.kakao.sdk:v2-friend:2.10.0] C:\Users\user\.gradle\caches\transforms-3\933d76313cabe217a4c78b01a724f4f1\transformed\jetified-v2-friend-2.10.0\AndroidManifest.xml:11:9-44
 75        <meta-data
-75-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:27:9-29:72
+75-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:27:9-29:72
 76            android:name="xjdzzwh9wk"
-76-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:28:13-38
+76-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:28:13-38
 77            android:value="qQ7H0N5M4ZQLzBYyIdCtzzmIVPqQjpb6TsIUxHix" />
-77-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:29:13-69
+77-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:29:13-69
 78        <meta-data
-78-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:30:9-32:53
+78-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:30:9-32:53
 79            android:name="com.kakao.sdk.AppKey"
-79-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:31:13-48
+79-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:31:13-48
 80            android:value="@string/kakao_app_key" />
-80-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:32:13-50
+80-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:32:13-50
 81        <meta-data
-81-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:34:9-36:70
+81-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:34:9-36:70
 82            android:name="com.google.firebase.messaging.default_notification_channel_id"
-82-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:35:13-89
+82-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:35:13-89
 83            android:value="@string/default_notification_channel_id" />
-83-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:36:13-68
+83-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:36:13-68
 84
 85        <activity
-85-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:38:9-41:38
+85-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:38:9-41:38
 86            android:name="com.example.moamoa.MainActivity"
-86-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:39:13-41
+86-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:39:13-41
 87            android:configChanges="orientation|screenSize"
-87-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:40:13-59
+87-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:40:13-59
 88            android:exported="true" />
-88-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:41:13-36
+88-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:41:13-36
 89        <activity
-89-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:43:9-45:15
+89-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:43:9-45:15
 90            android:name="com.example.moamoa.ui.formdetail.FormChangeActivity"
-90-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:43:19-67
+90-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:43:19-67
 91            android:label="게시글 수정" />
-91-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:44:13-35
+91-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:44:13-35
 92        <activity
-92-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:46:9-49:37
+92-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:46:9-49:37
 93            android:name="com.example.moamoa.ui.search.SearchActivity"
-93-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:47:13-53
+93-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:47:13-53
 94            android:exported="false"
-94-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:48:13-37
+94-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:48:13-37
 95            android:label="게시글 검색" />
-95-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:49:13-35
+95-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:49:13-35
 96        <activity
-96-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:51:9-54:36
+96-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:51:9-54:36
 97            android:name="com.example.moamoa.ui.chatlist.ChatListActivity"
-97-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:52:13-57
+97-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:52:13-57
 98            android:exported="false"
-98-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:53:13-37
+98-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:53:13-37
 99            android:label="채팅 이력" />
-99-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:54:13-34
+99-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:54:13-34
 100        <activity
-100-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:56:9-59:34
+100-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:56:9-59:34
 101            android:name="com.example.moamoa.ui.chats.ChatsActivity"
-101-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:57:13-51
+101-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:57:13-51
 102            android:exported="false"
-102-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:58:13-37
+102-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:58:13-37
 103            android:label="채팅" />
-103-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:59:13-31
+103-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:59:13-31
 104        <activity
-104-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:61:9-63:34
+104-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:61:9-63:34
 105            android:name="com.example.moamoa.ui.notifications.NotificationsActivity"
-105-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:62:13-67
+105-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:62:13-67
 106            android:label="알림" />
-106-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:63:13-31
+106-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:63:13-31
 107        <activity
-107-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:65:9-67:39
+107-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:65:9-67:39
 108            android:name="com.example.moamoa.ui.formdetail.DetailCreaterSideActivity"
-108-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:66:13-68
+108-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:66:13-68
 109            android:label="판매자 페이지" />
-109-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:67:13-36
+109-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:67:13-36
 110        <activity
-110-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:69:9-79:20
+110-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:69:9-79:20
 111            android:name="com.example.moamoa.LoginActivity"
-111-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:70:13-42
+111-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:70:13-42
 112            android:configChanges="orientation|screenSize"
-112-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:71:13-59
+112-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:71:13-59
 113            android:exported="true"
-113-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:72:13-36
+113-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:72:13-36
 114            android:label="@string/app_name" >
-114-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:73:13-45
+114-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:73:13-45
 115            <intent-filter>
-115-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:74:13-78:29
+115-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:74:13-78:29
 116                <action android:name="android.intent.action.MAIN" />
-116-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:75:17-69
-116-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:75:25-66
+116-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:75:17-69
+116-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:75:25-66
 117
 118                <category android:name="android.intent.category.LAUNCHER" />
-118-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:77:17-77
-118-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:77:27-74
+118-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:77:17-77
+118-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:77:27-74
 119            </intent-filter>
 120        </activity>
 121        <activity android:name="com.example.moamoa.ui.account.RegisterActivity" />
-121-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:81:9-65
-121-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:81:19-62
+121-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:81:9-65
+121-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:81:19-62
 122        <activity
-122-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:83:9-85:74
+122-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:83:9-85:74
 123            android:name="com.example.moamoa.LoadingActivity"
-123-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:84:13-44
+123-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:84:13-44
 124            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-124-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:85:13-71
+124-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:85:13-71
 125        <activity
-125-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:86:9-88:36
+125-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:86:9-88:36
 126            android:name="com.example.moamoa.ui.category.CategoryActivity"
-126-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:87:13-57
+126-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:87:13-57
 127            android:label="카테고리" />
-127-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:88:13-33
+127-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:88:13-33
 128        <activity
-128-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:89:9-91:36
+128-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:89:9-91:36
 129            android:name="com.example.moamoa.ui.dashboard.MapActivity"
-129-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:90:13-53
+129-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:90:13-53
 130            android:label="카테고리" />
-130-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:91:13-33
+130-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:91:13-33
 131        <activity android:name="com.example.moamoa.ui.formdetail.FormdetailActivity" />
-131-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:92:9-70
-131-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:92:19-67
+131-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:92:9-70
+131-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:92:19-67
 132        <activity
-132-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:93:9-95:40
+132-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:93:9-95:40
 133            android:name="com.example.moamoa.ui.mypage.EditMyinfo"
-133-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:94:13-49
+133-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:94:13-49
 134            android:label="계정 정보 수정" />
-134-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:95:13-37
+134-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:95:13-37
 135        <activity
-135-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:96:9-98:38
+135-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:96:9-98:38
 136            android:name="com.example.moamoa.ui.account.PhoneActivity"
-136-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:97:13-53
+136-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:97:13-53
 137            android:label="휴대폰 인증" />
-137-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:98:13-35
+137-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:98:13-35
 138        <activity
-138-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:99:9-101:38
+138-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:99:9-101:40
 139            android:name="com.example.moamoa.ui.mypage.CreatedForms"
-139-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:100:13-51
-140            android:label="만든 게시글" />
-140-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:101:13-35
+139-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:100:13-51
+140            android:label="생성한 공동구매" />
+140-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:101:13-37
 141        <activity
-141-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:102:9-104:39
+141-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:102:9-104:40
 142            android:name="com.example.moamoa.ui.mypage.ParticipatedForms"
-142-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:103:13-56
-143            android:label="참여한 게시글" />
-143-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:104:13-36
+142-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:103:13-56
+143            android:label="참여한 공동구매" />
+143-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:104:13-37
 144        <activity
-144-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:105:9-107:38
+144-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:105:9-107:39
 145            android:name="com.example.moamoa.ui.mypage.HeartForms"
-145-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:106:13-49
-146            android:label="관심 게시글" />
-146-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:107:13-35
+145-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:106:13-49
+146            android:label="관심 공동구매" />
+146-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:107:13-36
 147        <activity
-147-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:108:9-110:37
+147-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:108:9-110:37
 148            android:name="com.example.moamoa.ui.mypage.AreaSetting"
-148-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:109:13-50
+148-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:109:13-50
 149            android:label="지역 설정" />
-149-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:110:13-34
+149-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:110:13-34
 150        <activity
-150-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:111:9-113:37
+150-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:111:9-113:37
 151            android:name="com.example.moamoa.ui.mypage.AlarmSetting"
-151-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:112:13-51
+151-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:112:13-51
 152            android:label="알림 설정" />
-152-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:113:13-34
+152-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:113:13-34
 153        <activity
-153-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:114:9-116:36
+153-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:114:9-116:36
 154            android:name="com.example.moamoa.ui.mypage.Setting"
-154-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:115:13-46
+154-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:115:13-46
 155            android:label="환경설정" />
-155-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:116:13-33
+155-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:116:13-33
 156        <activity
-156-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:117:9-119:40
+156-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:117:9-119:40
 157            android:name="com.example.moamoa.ui.mypage.CheckLogin"
-157-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:118:13-49
+157-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:118:13-49
 158            android:label="계정 정보 수정" />
-158-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:119:13-37
+158-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:119:13-37
 159        <activity
-159-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:120:9-122:37
+159-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:120:9-122:37
 160            android:name="com.example.moamoa.ui.mypage.CheckMyinfo"
-160-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:121:13-50
+160-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:121:13-50
 161            android:label="계정 정보" />
-161-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:122:13-34
+161-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:122:13-34
 162        <activity
-162-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:123:9-125:59
+162-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:123:9-125:59
 163            android:name="com.example.moamoa.ui.mypage.CustomDialog"
-163-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:124:13-51
+163-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:124:13-51
 164            android:theme="@android:style/Theme.Dialog" />
-164-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:125:13-56
+164-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:125:13-56
 165        <!-- crop activity -->
 166        <activity
-166-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:127:9-130:66
+166-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:127:9-130:66
 167            android:name="com.soundcloud.android.crop.CropImageActivity"
-167-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:128:13-73
+167-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:128:13-73
 168            android:screenOrientation="portrait"
-168-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:129:13-49
+168-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:129:13-49
 169            android:theme="@style/Theme.AppCompat.NoActionBar" />
-169-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:130:13-63
+169-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:130:13-63
 170
 171        <service
-171-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:132:9-138:19
+171-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:132:9-138:19
 172            android:name="com.example.moamoa.ui.notifications.MyFirebaseMessagingService"
-172-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:133:13-72
+172-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:133:13-72
 173            android:exported="true" >
-173-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:134:13-36
+173-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:134:13-36
 174            <intent-filter>
-174-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:135:13-137:29
+174-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:135:13-137:29
 175                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-175-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:136:17-77
-175-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:136:25-75
+175-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:136:17-77
+175-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:136:25-75
 176            </intent-filter>
 177        </service>
 178
@@ -444,35 +444,35 @@
 228            android:theme="@style/TransparentCompat" />
 228-->[com.kakao.sdk:v2-auth:2.10.0] C:\Users\user\.gradle\caches\transforms-3\6b9b2ddf46383a65e9be9fad8da2f996\transformed\jetified-v2-auth-2.10.0\AndroidManifest.xml:18:13-53
 229        <activity
-229-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:21:9-25:51
+229-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:21:9-25:51
 230            android:name="com.naver.maps.map.app.LegendActivity"
-230-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:22:13-65
+230-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:22:13-65
 231            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-231-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:23:13-91
+231-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:23:13-91
 232            android:label="@string/navermap_legend"
-232-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:24:13-52
+232-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:24:13-52
 233            android:theme="@style/navermap_app" />
-233-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:25:13-48
+233-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:25:13-48
 234        <activity
-234-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:26:9-30:51
+234-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:26:9-30:51
 235            android:name="com.naver.maps.map.app.LegalNoticeActivity"
-235-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:27:13-70
+235-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:27:13-70
 236            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-236-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:28:13-91
+236-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:28:13-91
 237            android:label="@string/navermap_legal_notice"
-237-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:29:13-58
+237-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:29:13-58
 238            android:theme="@style/navermap_app" />
-238-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:30:13-48
+238-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:30:13-48
 239        <activity
-239-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:31:9-35:51
+239-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:31:9-35:51
 240            android:name="com.naver.maps.map.app.OpenSourceLicenseActivity"
-240-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:32:13-76
+240-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:32:13-76
 241            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-241-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:33:13-91
+241-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:33:13-91
 242            android:label="@string/navermap_open_source_license"
-242-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:34:13-65
+242-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:34:13-65
 243            android:theme="@style/navermap_app" />
-243-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:35:13-48
+243-->[com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:35:13-48
 244
 245        <service
 245-->[com.google.firebase:firebase-auth-ktx:21.0.5] C:\Users\user\.gradle\caches\transforms-3\3c7cd2d5dcb066635c86dd8acafee565\transformed\jetified-firebase-auth-ktx-21.0.5\AndroidManifest.xml:8:9-14:19
@@ -667,10 +667,10 @@
 347            android:exported="false" >
 347-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\user\.gradle\caches\transforms-3\5f8b376af9f13086e2fe2496b84fa4e9\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:47:13-37
 348            <intent-filter android:priority="-500" >
-348-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:135:13-137:29
+348-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:135:13-137:29
 349                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-349-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:136:17-77
-349-->C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:136:25-75
+349-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:136:17-77
+349-->C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:136:25-75
 350            </intent-filter>
 351        </service>
 352        <service

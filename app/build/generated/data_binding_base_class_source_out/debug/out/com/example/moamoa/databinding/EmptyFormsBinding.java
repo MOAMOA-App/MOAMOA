@@ -24,6 +24,9 @@ public final class EmptyFormsBinding implements ViewBinding {
   public final ListView listview;
 
   @NonNull
+  public final LinearLayout searchOption;
+
+  @NonNull
   public final Button sortDead;
 
   @NonNull
@@ -33,9 +36,11 @@ public final class EmptyFormsBinding implements ViewBinding {
   public final Button sortNew;
 
   private EmptyFormsBinding(@NonNull LinearLayout rootView, @NonNull ListView listview,
-      @NonNull Button sortDead, @NonNull Button sortHot, @NonNull Button sortNew) {
+      @NonNull LinearLayout searchOption, @NonNull Button sortDead, @NonNull Button sortHot,
+      @NonNull Button sortNew) {
     this.rootView = rootView;
     this.listview = listview;
+    this.searchOption = searchOption;
     this.sortDead = sortDead;
     this.sortHot = sortHot;
     this.sortNew = sortNew;
@@ -74,6 +79,12 @@ public final class EmptyFormsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.search_option;
+      LinearLayout searchOption = ViewBindings.findChildViewById(rootView, id);
+      if (searchOption == null) {
+        break missingId;
+      }
+
       id = R.id.sort_dead;
       Button sortDead = ViewBindings.findChildViewById(rootView, id);
       if (sortDead == null) {
@@ -92,7 +103,8 @@ public final class EmptyFormsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new EmptyFormsBinding((LinearLayout) rootView, listview, sortDead, sortHot, sortNew);
+      return new EmptyFormsBinding((LinearLayout) rootView, listview, searchOption, sortDead,
+          sortHot, sortNew);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

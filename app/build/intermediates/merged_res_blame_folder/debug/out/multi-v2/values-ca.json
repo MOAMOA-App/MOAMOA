@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ca\\values-ca.xml",
+            "outputFile": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ca\\values-ca.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\529db72935c53b4da4fe671e46d9332a\\transformed\\jetified-play-services-base-18.0.1\\res\\values-ca\\values.xml",
@@ -18,23 +18,6 @@
                         "startOffsets": "3450,3555,3707,3834,3943,4093,4220,4343,4586,4757,4866,5025,5156,5320,5478,5543,5611",
                         "endColumns": "104,151,126,108,149,126,122,107,170,108,158,130,163,157,64,67,86",
                         "endOffsets": "3550,3702,3829,3938,4088,4215,4338,4446,4752,4861,5020,5151,5315,5473,5538,5606,5693"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\262a896f5899a380113a69d434e3eb02\\transformed\\jetified-android-crop-1.0.1\\res\\values-ca\\values-ca.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "215,291,339,413,471",
-                        "endColumns": "75,47,73,57,57",
-                        "endOffsets": "286,334,408,466,524"
-                    },
-                    "to": {
-                        "startLines": "56,57,58,59,60",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "5811,5887,5935,6009,6067",
-                        "endColumns": "75,47,73,57,57",
-                        "endOffsets": "5882,5930,6004,6062,6120"
                     }
                 },
                 {
@@ -139,6 +122,23 @@
                         "endLines": "5,33,34,35,36,61,62,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,115",
                         "endColumns": "12,87,100,127,83,64,96,79,64,94,71,61,75,62,56,120,57,60,56,79,136,86,83,108,77,78,88,66,65,77,80,87,77,76,73,78,89,91,91,100,73,81,100,49,65,91,86,61,63,62,122,102,103,105,85",
                         "endOffsets": "319,3132,3233,3361,3445,6185,6282,6685,6750,6845,6917,6979,7055,7118,7175,7296,7354,7415,7472,7552,7689,7776,7860,7969,8047,8126,8215,8282,8348,8426,8507,8595,8673,8750,8824,8903,8993,9085,9177,9278,9352,9434,9535,9585,9651,9743,9830,9892,9956,10019,10142,10245,10349,10455,10774"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\aac80a51f8a516974ce8183a57a9485b\\transformed\\jetified-android-crop-1.0.1\\res\\values-ca\\values-ca.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "215,291,339,413,471",
+                        "endColumns": "75,47,73,57,57",
+                        "endOffsets": "286,334,408,466,524"
+                    },
+                    "to": {
+                        "startLines": "56,57,58,59,60",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "5811,5887,5935,6009,6067",
+                        "endColumns": "75,47,73,57,57",
+                        "endOffsets": "5882,5930,6004,6062,6120"
                     }
                 }
             ]

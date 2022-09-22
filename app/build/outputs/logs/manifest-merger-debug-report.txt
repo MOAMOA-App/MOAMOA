@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
-INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
-INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
-INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
+INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
+INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
+INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
 MERGED from [com.navercorp.nid:oauth:5.1.0] C:\Users\user\.gradle\caches\transforms-3\65155cd0174ff1aec78b5963e3fefcfe\transformed\jetified-oauth-5.1.0\AndroidManifest.xml:2:1-64:12
 MERGED from [com.kakao.sdk:v2-friend:2.10.0] C:\Users\user\.gradle\caches\transforms-3\933d76313cabe217a4c78b01a724f4f1\transformed\jetified-v2-friend-2.10.0\AndroidManifest.xml:2:1-22:12
 MERGED from [androidx.databinding:viewbinding:7.1.3] C:\Users\user\.gradle\caches\transforms-3\fd01d3d9c811764a2721f5abe7a17e69\transformed\jetified-viewbinding-7.1.3\AndroidManifest.xml:17:1-24:12
@@ -14,7 +14,7 @@ MERGED from [com.kakao.sdk:v2-story:2.10.0] C:\Users\user\.gradle\caches\transfo
 MERGED from [com.kakao.sdk:v2-user:2.10.0] C:\Users\user\.gradle\caches\transforms-3\f17f828c720b0580a68875077e8baa94\transformed\jetified-v2-user-2.10.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.kakao.sdk:v2-auth:2.10.0] C:\Users\user\.gradle\caches\transforms-3\6b9b2ddf46383a65e9be9fad8da2f996\transformed\jetified-v2-auth-2.10.0\AndroidManifest.xml:2:1-21:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\user\.gradle\caches\transforms-3\17153d62ba76655e0664880fc94405bc\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
-MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:2:1-38:12
+MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:2:1-38:12
 MERGED from [com.airbnb.android:lottie:3.1.0] C:\Users\user\.gradle\caches\transforms-3\37c69def92cbfcb7ddf8e56ae99bf634\transformed\jetified-lottie-3.1.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\user\.gradle\caches\transforms-3\454e2615e0c13d450256cf212f4307f0\transformed\appcompat-1.4.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.4.1] C:\Users\user\.gradle\caches\transforms-3\5d53dfd2731cb9d100c857057fc2a194\transformed\jetified-lifecycle-livedata-ktx-2.4.1\AndroidManifest.xml:17:1-24:12
@@ -41,7 +41,7 @@ MERGED from [com.kakao.sdk:v2-network:2.10.0] C:\Users\user\.gradle\caches\trans
 MERGED from [com.kakao.sdk:v2-template:2.10.0] C:\Users\user\.gradle\caches\transforms-3\fa9818e5cb2a1e010f8142caaf68e643\transformed\jetified-v2-template-2.10.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.kakao.sdk:v2-common:2.10.0] C:\Users\user\.gradle\caches\transforms-3\ce4b51dcd921f7df60b0bfd5e6402794\transformed\jetified-v2-common-2.10.0\AndroidManifest.xml:2:1-24:12
 MERGED from [io.grpc:grpc-android:1.44.1] C:\Users\user\.gradle\caches\transforms-3\fd28559edcb6a5097aa5075c3669c4aa\transformed\jetified-grpc-android-1.44.1\AndroidManifest.xml:2:1-11:12
-MERGED from [com.soundcloud.android:android-crop:1.0.1] C:\Users\user\.gradle\caches\transforms-3\262a896f5899a380113a69d434e3eb02\transformed\jetified-android-crop-1.0.1\AndroidManifest.xml:2:1-10:12
+MERGED from [com.soundcloud.android:android-crop:1.0.1] C:\Users\user\.gradle\caches\transforms-3\aac80a51f8a516974ce8183a57a9485b\transformed\jetified-android-crop-1.0.1\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\user\.gradle\caches\transforms-3\5f8b376af9f13086e2fe2496b84fa4e9\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:17:1-61:12
 MERGED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\user\.gradle\caches\transforms-3\ed0ae89f31ca2381a2ba9011f204951c\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:15:1-34:12
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\user\.gradle\caches\transforms-3\9fc383b3eae93652d7d86cbb85c8ed7b\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:15:1-38:12
@@ -113,7 +113,7 @@ MERGED from [androidx.exifinterface:exifinterface:1.2.0] C:\Users\user\.gradle\c
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\user\.gradle\caches\transforms-3\cf6560cf5929fc70744b430c171e7359\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:17:1-37:12
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\user\.gradle\caches\transforms-3\7a20bd5be6aad98a7de4e011d84cbac3\transformed\jetified-startup-runtime-1.0.0\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\user\.gradle\caches\transforms-3\56f6afe55502bbc0599ad462e25b0d17\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [com.naver.maps:geometry:1.2.0] C:\Users\user\.gradle\caches\transforms-3\bd0a0da9d3a3cb0b258e1c28d577436e\transformed\jetified-geometry-1.2.0\AndroidManifest.xml:2:1-11:12
+MERGED from [com.naver.maps:geometry:1.2.0] C:\Users\user\.gradle\caches\transforms-3\47244a57a0e73fe428020700736ca87e\transformed\jetified-geometry-1.2.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.datatransport:transport-api:3.0.0] C:\Users\user\.gradle\caches\transforms-3\54c9b056a485bcd5d21906b596fc22e9\transformed\jetified-transport-api-3.0.0\AndroidManifest.xml:15:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\user\.gradle\caches\transforms-3\be187a29eeec23cb284d305d2f68a1bd\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.4.1] C:\Users\user\.gradle\caches\transforms-3\e8efbf5c0f0df7ec4e58b1afbbc03258\transformed\lifecycle-livedata-2.4.1\AndroidManifest.xml:17:1-24:12
@@ -131,45 +131,45 @@ MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\user\.g
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\user\.gradle\caches\transforms-3\e2c3bd67ae1c3481695f17568eba6ac5\transformed\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.4] C:\Users\user\.gradle\caches\transforms-3\75e57bdec4854ca1a5930c4f8480386a\transformed\jetified-relinker-1.4.4\AndroidManifest.xml:2:1-7:12
 MERGED from [com.kakao.sdk:util:1.27.0] C:\Users\user\.gradle\caches\transforms-3\c09490109461cdc0008489698594d98e\transformed\jetified-util-1.27.0\AndroidManifest.xml:2:1-11:12
-INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
-INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
-INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
+INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
+INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
+INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
 	package
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:4:5-33
-		INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:4:5-33
+		INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
-		INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
+		INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:3:5-51
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
-		INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:1-143:12
+		INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERACT
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:6:5-8:40
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:6:5-8:40
 	tools:ignore
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:8:9-37
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:8:9-37
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:7:9-51
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:7:9-51
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:9:5-81
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:9:5-81
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:9:22-78
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:9:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:10:5-80
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:10:5-80
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:10:22-77
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:10:22-77
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:11:5-67
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:11:5-67
 MERGED from [com.navercorp.nid:oauth:5.1.0] C:\Users\user\.gradle\caches\transforms-3\65155cd0174ff1aec78b5963e3fefcfe\transformed\jetified-oauth-5.1.0\AndroidManifest.xml:11:5-67
 MERGED from [com.navercorp.nid:oauth:5.1.0] C:\Users\user\.gradle\caches\transforms-3\65155cd0174ff1aec78b5963e3fefcfe\transformed\jetified-oauth-5.1.0\AndroidManifest.xml:11:5-67
-MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:16:5-67
-MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:16:5-67
+MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:16:5-67
+MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:16:5-67
 MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\user\.gradle\caches\transforms-3\b39c82b385ce85b5a4d80e3df1072ff8\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\user\.gradle\caches\transforms-3\b39c82b385ce85b5a4d80e3df1072ff8\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\user\.gradle\caches\transforms-3\cf8fcddccfc4ca4f14649e2dc5990607\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:14:5-67
@@ -193,23 +193,23 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:21.0.0] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.0.0] C:\Users\user\.gradle\caches\transforms-3\35d9cd29741ef2bda546077acc88c331\transformed\jetified-play-services-measurement-sdk-api-21.0.0\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.0.0] C:\Users\user\.gradle\caches\transforms-3\35d9cd29741ef2bda546077acc88c331\transformed\jetified-play-services-measurement-sdk-api-21.0.0\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:11:22-64
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:11:22-64
 uses-permission#android.permission.CAMERA
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:12:5-64
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:12:5-64
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:12:22-62
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:12:22-62
 uses-feature#android.hardware.camera
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:13:5-83
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:13:5-83
 	android:required
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:13:58-81
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:13:58-81
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:13:19-57
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:13:19-57
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:16:5-79
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:16:5-79
 MERGED from [com.navercorp.nid:oauth:5.1.0] C:\Users\user\.gradle\caches\transforms-3\65155cd0174ff1aec78b5963e3fefcfe\transformed\jetified-oauth-5.1.0\AndroidManifest.xml:10:5-79
 MERGED from [com.navercorp.nid:oauth:5.1.0] C:\Users\user\.gradle\caches\transforms-3\65155cd0174ff1aec78b5963e3fefcfe\transformed\jetified-oauth-5.1.0\AndroidManifest.xml:10:5-79
-MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:17:5-79
-MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:17:5-79
+MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:17:5-79
+MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:17:5-79
 MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\user\.gradle\caches\transforms-3\b39c82b385ce85b5a4d80e3df1072ff8\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:24:5-79
 MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\user\.gradle\caches\transforms-3\b39c82b385ce85b5a4d80e3df1072ff8\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:24:5-79
 MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\user\.gradle\caches\transforms-3\cf8fcddccfc4ca4f14649e2dc5990607\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:13:5-79
@@ -239,9 +239,9 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:21.0.0] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.0.0] C:\Users\user\.gradle\caches\transforms-3\35d9cd29741ef2bda546077acc88c331\transformed\jetified-play-services-measurement-sdk-api-21.0.0\AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.0.0] C:\Users\user\.gradle\caches\transforms-3\35d9cd29741ef2bda546077acc88c331\transformed\jetified-play-services-measurement-sdk-api-21.0.0\AndroidManifest.xml:24:5-79
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:16:22-76
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:16:22-76
 application
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:18:5-141:19
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:18:5-141:19
 MERGED from [com.navercorp.nid:oauth:5.1.0] C:\Users\user\.gradle\caches\transforms-3\65155cd0174ff1aec78b5963e3fefcfe\transformed\jetified-oauth-5.1.0\AndroidManifest.xml:25:5-62:19
 MERGED from [com.navercorp.nid:oauth:5.1.0] C:\Users\user\.gradle\caches\transforms-3\65155cd0174ff1aec78b5963e3fefcfe\transformed\jetified-oauth-5.1.0\AndroidManifest.xml:25:5-62:19
 MERGED from [com.kakao.sdk:v2-friend:2.10.0] C:\Users\user\.gradle\caches\transforms-3\933d76313cabe217a4c78b01a724f4f1\transformed\jetified-v2-friend-2.10.0\AndroidManifest.xml:10:5-20:19
@@ -252,8 +252,8 @@ MERGED from [com.kakao.sdk:v2-auth:2.10.0] C:\Users\user\.gradle\caches\transfor
 MERGED from [com.kakao.sdk:v2-auth:2.10.0] C:\Users\user\.gradle\caches\transforms-3\6b9b2ddf46383a65e9be9fad8da2f996\transformed\jetified-v2-auth-2.10.0\AndroidManifest.xml:9:5-19:19
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\user\.gradle\caches\transforms-3\17153d62ba76655e0664880fc94405bc\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\user\.gradle\caches\transforms-3\17153d62ba76655e0664880fc94405bc\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
-MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:20:5-36:19
-MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:20:5-36:19
+MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:20:5-36:19
+MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:20:5-36:19
 MERGED from [com.airbnb.android:lottie:3.1.0] C:\Users\user\.gradle\caches\transforms-3\37c69def92cbfcb7ddf8e56ae99bf634\transformed\jetified-lottie-3.1.0\AndroidManifest.xml:9:5-20
 MERGED from [com.airbnb.android:lottie:3.1.0] C:\Users\user\.gradle\caches\transforms-3\37c69def92cbfcb7ddf8e56ae99bf634\transformed\jetified-lottie-3.1.0\AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-auth-ktx:21.0.5] C:\Users\user\.gradle\caches\transforms-3\3c7cd2d5dcb066635c86dd8acafee565\transformed\jetified-firebase-auth-ktx-21.0.5\AndroidManifest.xml:7:5-15:19
@@ -339,229 +339,229 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\us
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.7.0] C:\Users\user\.gradle\caches\transforms-3\21237793a43bb8ef7845d7769f91c3cc\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:24:9-35
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:24:9-35
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:22:9-41
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:22:9-41
 	tools:ignore
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:26:9-33
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:26:9-33
 	android:roundIcon
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:23:9-44
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:23:9-44
 	tools:targetApi
 		ADDED from [com.kakao.sdk:v2-friend:2.10.0] C:\Users\user\.gradle\caches\transforms-3\933d76313cabe217a4c78b01a724f4f1\transformed\jetified-v2-friend-2.10.0\AndroidManifest.xml:12:9-28
 	android:icon
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:21:9-39
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:21:9-39
 	android:allowBackup
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:20:9-35
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:20:9-35
 	android:theme
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:25:9-44
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:25:9-44
 	android:usesCleartextTraffic
 		ADDED from [com.kakao.sdk:v2-friend:2.10.0] C:\Users\user\.gradle\caches\transforms-3\933d76313cabe217a4c78b01a724f4f1\transformed\jetified-v2-friend-2.10.0\AndroidManifest.xml:11:9-44
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:19:9-42
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:19:9-42
 meta-data#xjdzzwh9wk
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:27:9-29:72
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:27:9-29:72
 	android:value
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:29:13-69
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:29:13-69
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:28:13-38
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:28:13-38
 meta-data#com.kakao.sdk.AppKey
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:30:9-32:53
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:30:9-32:53
 	android:value
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:32:13-50
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:32:13-50
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:31:13-48
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:31:13-48
 meta-data#com.google.firebase.messaging.default_notification_channel_id
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:34:9-36:70
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:34:9-36:70
 	android:value
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:36:13-68
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:36:13-68
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:35:13-89
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:35:13-89
 activity#com.example.moamoa.MainActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:38:9-41:38
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:38:9-41:38
 	android:exported
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:41:13-36
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:41:13-36
 	android:configChanges
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:40:13-59
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:40:13-59
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:39:13-41
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:39:13-41
 activity#com.example.moamoa.ui.formdetail.FormChangeActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:43:9-45:15
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:43:9-45:15
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:44:13-35
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:44:13-35
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:43:19-67
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:43:19-67
 activity#com.example.moamoa.ui.search.SearchActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:46:9-49:37
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:46:9-49:37
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:49:13-35
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:49:13-35
 	android:exported
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:48:13-37
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:48:13-37
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:47:13-53
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:47:13-53
 activity#com.example.moamoa.ui.chatlist.ChatListActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:51:9-54:36
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:51:9-54:36
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:54:13-34
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:54:13-34
 	android:exported
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:53:13-37
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:53:13-37
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:52:13-57
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:52:13-57
 activity#com.example.moamoa.ui.chats.ChatsActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:56:9-59:34
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:56:9-59:34
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:59:13-31
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:59:13-31
 	android:exported
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:58:13-37
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:58:13-37
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:57:13-51
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:57:13-51
 activity#com.example.moamoa.ui.notifications.NotificationsActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:61:9-63:34
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:61:9-63:34
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:63:13-31
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:63:13-31
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:62:13-67
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:62:13-67
 activity#com.example.moamoa.ui.formdetail.DetailCreaterSideActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:65:9-67:39
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:65:9-67:39
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:67:13-36
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:67:13-36
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:66:13-68
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:66:13-68
 activity#com.example.moamoa.LoginActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:69:9-79:20
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:69:9-79:20
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:73:13-45
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:73:13-45
 	android:exported
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:72:13-36
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:72:13-36
 	android:configChanges
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:71:13-59
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:71:13-59
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:70:13-42
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:70:13-42
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:74:13-78:29
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:74:13-78:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:75:17-69
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:75:17-69
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:75:25-66
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:75:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:77:17-77
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:77:17-77
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:77:27-74
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:77:27-74
 activity#com.example.moamoa.ui.account.RegisterActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:81:9-65
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:81:9-65
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:81:19-62
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:81:19-62
 activity#com.example.moamoa.LoadingActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:83:9-85:74
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:83:9-85:74
 	android:theme
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:85:13-71
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:85:13-71
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:84:13-44
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:84:13-44
 activity#com.example.moamoa.ui.category.CategoryActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:86:9-88:36
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:86:9-88:36
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:88:13-33
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:88:13-33
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:87:13-57
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:87:13-57
 activity#com.example.moamoa.ui.dashboard.MapActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:89:9-91:36
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:89:9-91:36
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:91:13-33
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:91:13-33
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:90:13-53
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:90:13-53
 activity#com.example.moamoa.ui.formdetail.FormdetailActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:92:9-70
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:92:9-70
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:92:19-67
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:92:19-67
 activity#com.example.moamoa.ui.mypage.EditMyinfo
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:93:9-95:40
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:93:9-95:40
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:95:13-37
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:95:13-37
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:94:13-49
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:94:13-49
 activity#com.example.moamoa.ui.account.PhoneActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:96:9-98:38
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:96:9-98:38
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:98:13-35
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:98:13-35
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:97:13-53
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:97:13-53
 activity#com.example.moamoa.ui.mypage.CreatedForms
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:99:9-101:38
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:99:9-101:40
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:101:13-35
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:101:13-37
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:100:13-51
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:100:13-51
 activity#com.example.moamoa.ui.mypage.ParticipatedForms
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:102:9-104:39
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:102:9-104:40
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:104:13-36
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:104:13-37
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:103:13-56
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:103:13-56
 activity#com.example.moamoa.ui.mypage.HeartForms
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:105:9-107:38
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:105:9-107:39
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:107:13-35
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:107:13-36
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:106:13-49
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:106:13-49
 activity#com.example.moamoa.ui.mypage.AreaSetting
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:108:9-110:37
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:108:9-110:37
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:110:13-34
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:110:13-34
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:109:13-50
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:109:13-50
 activity#com.example.moamoa.ui.mypage.AlarmSetting
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:111:9-113:37
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:111:9-113:37
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:113:13-34
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:113:13-34
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:112:13-51
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:112:13-51
 activity#com.example.moamoa.ui.mypage.Setting
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:114:9-116:36
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:114:9-116:36
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:116:13-33
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:116:13-33
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:115:13-46
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:115:13-46
 activity#com.example.moamoa.ui.mypage.CheckLogin
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:117:9-119:40
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:117:9-119:40
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:119:13-37
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:119:13-37
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:118:13-49
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:118:13-49
 activity#com.example.moamoa.ui.mypage.CheckMyinfo
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:120:9-122:37
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:120:9-122:37
 	android:label
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:122:13-34
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:122:13-34
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:121:13-50
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:121:13-50
 activity#com.example.moamoa.ui.mypage.CustomDialog
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:123:9-125:59
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:123:9-125:59
 	android:theme
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:125:13-56
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:125:13-56
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:124:13-51
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:124:13-51
 activity#com.soundcloud.android.crop.CropImageActivity
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:127:9-130:66
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:127:9-130:66
 	android:screenOrientation
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:129:13-49
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:129:13-49
 	android:theme
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:130:13-63
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:130:13-63
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:128:13-73
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:128:13-73
 service#com.example.moamoa.ui.notifications.MyFirebaseMessagingService
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:132:9-138:19
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:132:9-138:19
 	android:exported
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:134:13-36
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:134:13-36
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:133:13-72
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:133:13-72
 intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:135:13-137:29
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:135:13-137:29
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:136:17-77
+ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:136:17-77
 	android:name
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml:136:25-75
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml:136:25-75
 uses-sdk
-INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
 MERGED from [com.navercorp.nid:oauth:5.1.0] C:\Users\user\.gradle\caches\transforms-3\65155cd0174ff1aec78b5963e3fefcfe\transformed\jetified-oauth-5.1.0\AndroidManifest.xml:6:5-8:41
 MERGED from [com.navercorp.nid:oauth:5.1.0] C:\Users\user\.gradle\caches\transforms-3\65155cd0174ff1aec78b5963e3fefcfe\transformed\jetified-oauth-5.1.0\AndroidManifest.xml:6:5-8:41
 MERGED from [com.kakao.sdk:v2-friend:2.10.0] C:\Users\user\.gradle\caches\transforms-3\933d76313cabe217a4c78b01a724f4f1\transformed\jetified-v2-friend-2.10.0\AndroidManifest.xml:6:5-8:41
@@ -582,8 +582,8 @@ MERGED from [com.kakao.sdk:v2-auth:2.10.0] C:\Users\user\.gradle\caches\transfor
 MERGED from [com.kakao.sdk:v2-auth:2.10.0] C:\Users\user\.gradle\caches\transforms-3\6b9b2ddf46383a65e9be9fad8da2f996\transformed\jetified-v2-auth-2.10.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\user\.gradle\caches\transforms-3\17153d62ba76655e0664880fc94405bc\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\user\.gradle\caches\transforms-3\17153d62ba76655e0664880fc94405bc\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
-MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.airbnb.android:lottie:3.1.0] C:\Users\user\.gradle\caches\transforms-3\37c69def92cbfcb7ddf8e56ae99bf634\transformed\jetified-lottie-3.1.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.airbnb.android:lottie:3.1.0] C:\Users\user\.gradle\caches\transforms-3\37c69def92cbfcb7ddf8e56ae99bf634\transformed\jetified-lottie-3.1.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\user\.gradle\caches\transforms-3\454e2615e0c13d450256cf212f4307f0\transformed\appcompat-1.4.2\AndroidManifest.xml:20:5-22:41
@@ -636,8 +636,8 @@ MERGED from [com.kakao.sdk:v2-common:2.10.0] C:\Users\user\.gradle\caches\transf
 MERGED from [com.kakao.sdk:v2-common:2.10.0] C:\Users\user\.gradle\caches\transforms-3\ce4b51dcd921f7df60b0bfd5e6402794\transformed\jetified-v2-common-2.10.0\AndroidManifest.xml:5:5-7:41
 MERGED from [io.grpc:grpc-android:1.44.1] C:\Users\user\.gradle\caches\transforms-3\fd28559edcb6a5097aa5075c3669c4aa\transformed\jetified-grpc-android-1.44.1\AndroidManifest.xml:5:5-7:41
 MERGED from [io.grpc:grpc-android:1.44.1] C:\Users\user\.gradle\caches\transforms-3\fd28559edcb6a5097aa5075c3669c4aa\transformed\jetified-grpc-android-1.44.1\AndroidManifest.xml:5:5-7:41
-MERGED from [com.soundcloud.android:android-crop:1.0.1] C:\Users\user\.gradle\caches\transforms-3\262a896f5899a380113a69d434e3eb02\transformed\jetified-android-crop-1.0.1\AndroidManifest.xml:6:5-8:41
-MERGED from [com.soundcloud.android:android-crop:1.0.1] C:\Users\user\.gradle\caches\transforms-3\262a896f5899a380113a69d434e3eb02\transformed\jetified-android-crop-1.0.1\AndroidManifest.xml:6:5-8:41
+MERGED from [com.soundcloud.android:android-crop:1.0.1] C:\Users\user\.gradle\caches\transforms-3\aac80a51f8a516974ce8183a57a9485b\transformed\jetified-android-crop-1.0.1\AndroidManifest.xml:6:5-8:41
+MERGED from [com.soundcloud.android:android-crop:1.0.1] C:\Users\user\.gradle\caches\transforms-3\aac80a51f8a516974ce8183a57a9485b\transformed\jetified-android-crop-1.0.1\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\user\.gradle\caches\transforms-3\5f8b376af9f13086e2fe2496b84fa4e9\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:21:5-23:41
 MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\user\.gradle\caches\transforms-3\5f8b376af9f13086e2fe2496b84fa4e9\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:21:5-23:41
 MERGED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\user\.gradle\caches\transforms-3\ed0ae89f31ca2381a2ba9011f204951c\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:19:5-21:41
@@ -780,8 +780,8 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\user\.gradle\cache
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\user\.gradle\caches\transforms-3\7a20bd5be6aad98a7de4e011d84cbac3\transformed\jetified-startup-runtime-1.0.0\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\user\.gradle\caches\transforms-3\56f6afe55502bbc0599ad462e25b0d17\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\user\.gradle\caches\transforms-3\56f6afe55502bbc0599ad462e25b0d17\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [com.naver.maps:geometry:1.2.0] C:\Users\user\.gradle\caches\transforms-3\bd0a0da9d3a3cb0b258e1c28d577436e\transformed\jetified-geometry-1.2.0\AndroidManifest.xml:7:5-9:41
-MERGED from [com.naver.maps:geometry:1.2.0] C:\Users\user\.gradle\caches\transforms-3\bd0a0da9d3a3cb0b258e1c28d577436e\transformed\jetified-geometry-1.2.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.naver.maps:geometry:1.2.0] C:\Users\user\.gradle\caches\transforms-3\47244a57a0e73fe428020700736ca87e\transformed\jetified-geometry-1.2.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.naver.maps:geometry:1.2.0] C:\Users\user\.gradle\caches\transforms-3\47244a57a0e73fe428020700736ca87e\transformed\jetified-geometry-1.2.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.datatransport:transport-api:3.0.0] C:\Users\user\.gradle\caches\transforms-3\54c9b056a485bcd5d21906b596fc22e9\transformed\jetified-transport-api-3.0.0\AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.android.datatransport:transport-api:3.0.0] C:\Users\user\.gradle\caches\transforms-3\54c9b056a485bcd5d21906b596fc22e9\transformed\jetified-transport-api-3.0.0\AndroidManifest.xml:18:5-20:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\user\.gradle\caches\transforms-3\be187a29eeec23cb284d305d2f68a1bd\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
@@ -816,16 +816,16 @@ MERGED from [com.getkeepsafe.relinker:relinker:1.4.4] C:\Users\user\.gradle\cach
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.4] C:\Users\user\.gradle\caches\transforms-3\75e57bdec4854ca1a5930c4f8480386a\transformed\jetified-relinker-1.4.4\AndroidManifest.xml:5:5-43
 MERGED from [com.kakao.sdk:util:1.27.0] C:\Users\user\.gradle\caches\transforms-3\c09490109461cdc0008489698594d98e\transformed\jetified-util-1.27.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.kakao.sdk:util:1.27.0] C:\Users\user\.gradle\caches\transforms-3\c09490109461cdc0008489698594d98e\transformed\jetified-util-1.27.0\AndroidManifest.xml:7:5-9:41
-INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\MOAMOA\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\user\AndroidStudioProjects\MOAMOA\app\src\main\AndroidManifest.xml
 queries
 ADDED from [com.navercorp.nid:oauth:5.1.0] C:\Users\user\.gradle\caches\transforms-3\65155cd0174ff1aec78b5963e3fefcfe\transformed\jetified-oauth-5.1.0\AndroidManifest.xml:13:5-23:15
 MERGED from [com.kakao.sdk:v2-navi:2.10.0] C:\Users\user\.gradle\caches\transforms-3\9d25e7ca77d929aa43a3783094be0d19\transformed\jetified-v2-navi-2.10.0\AndroidManifest.xml:9:5-12:15
@@ -937,51 +937,51 @@ ADDED from [com.kakao.sdk:v2-auth:2.10.0] C:\Users\user\.gradle\caches\transform
 	android:name
 		ADDED from [com.kakao.sdk:v2-auth:2.10.0] C:\Users\user\.gradle\caches\transforms-3\6b9b2ddf46383a65e9be9fad8da2f996\transformed\jetified-v2-auth-2.10.0\AndroidManifest.xml:16:13-70
 uses-feature#0x00020000
-ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:9:5-11:35
+ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:9:5-11:35
 	android:glEsVersion
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:10:9-41
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:10:9-41
 	android:required
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:11:9-32
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:11:9-32
 uses-feature#android.hardware.wifi
-ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:12:5-14:36
+ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:12:5-14:36
 	android:required
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:14:9-33
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:14:9-33
 	android:name
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:13:9-45
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:13:9-45
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:18:5-76
+ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:18:5-76
 	android:name
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:18:22-73
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:18:22-73
 activity#com.naver.maps.map.app.LegendActivity
-ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:21:9-25:51
+ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:21:9-25:51
 	android:label
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:24:13-52
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:24:13-52
 	android:configChanges
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:23:13-91
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:23:13-91
 	android:theme
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:25:13-48
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:25:13-48
 	android:name
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:22:13-65
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:22:13-65
 activity#com.naver.maps.map.app.LegalNoticeActivity
-ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:26:9-30:51
+ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:26:9-30:51
 	android:label
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:29:13-58
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:29:13-58
 	android:configChanges
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:28:13-91
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:28:13-91
 	android:theme
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:30:13-48
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:30:13-48
 	android:name
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:27:13-70
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:27:13-70
 activity#com.naver.maps.map.app.OpenSourceLicenseActivity
-ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:31:9-35:51
+ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:31:9-35:51
 	android:label
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:34:13-65
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:34:13-65
 	android:configChanges
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:33:13-91
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:33:13-91
 	android:theme
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:35:13-48
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:35:13-48
 	android:name
-		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\31efc0f6c10c31bb3443bba294aa64f8\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:32:13-76
+		ADDED from [com.naver.maps:map-sdk:3.16.0] C:\Users\user\.gradle\caches\transforms-3\0dfef64ff4c6fd44935467e885bd6482\transformed\jetified-map-sdk-3.16.0\AndroidManifest.xml:32:13-76
 service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [com.google.firebase:firebase-auth-ktx:21.0.5] C:\Users\user\.gradle\caches\transforms-3\3c7cd2d5dcb066635c86dd8acafee565\transformed\jetified-firebase-auth-ktx-21.0.5\AndroidManifest.xml:8:9-14:19
 MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\user\.gradle\caches\transforms-3\b39c82b385ce85b5a4d80e3df1072ff8\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:64:9-70:19

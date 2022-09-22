@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sv\\values-sv.xml",
+            "outputFile": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sv\\values-sv.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\454e2615e0c13d450256cf212f4307f0\\transformed\\appcompat-1.4.2\\res\\values-sv\\values-sv.xml",
@@ -18,6 +18,23 @@
                         "startOffsets": "316,419,522,633,717,819,932,1009,1084,1177,1272,1367,1461,1563,1658,1755,1853,1949,2042,2122,2228,2327,2423,2528,2631,2733,2887,10388",
                         "endColumns": "102,102,110,83,101,112,76,74,92,94,94,93,101,94,96,97,95,92,79,105,98,95,104,102,101,153,101,79",
                         "endOffsets": "414,517,628,712,814,927,1004,1079,1172,1267,1362,1456,1558,1653,1750,1848,1944,2037,2117,2223,2322,2418,2523,2626,2728,2882,2984,10463"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\aac80a51f8a516974ce8183a57a9485b\\transformed\\jetified-android-crop-1.0.1\\res\\values-sv\\values-sv.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "215,287,331,405,459",
+                        "endColumns": "71,43,73,53,53",
+                        "endOffsets": "282,326,400,454,508"
+                    },
+                    "to": {
+                        "startLines": "56,57,58,59,60",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "5675,5747,5791,5865,5919",
+                        "endColumns": "71,43,73,53,53",
+                        "endOffsets": "5742,5786,5860,5914,5968"
                     }
                 },
                 {
@@ -86,23 +103,6 @@
                         "startOffsets": "3369,3476,3633,3760,3870,4011,4136,4259,4511,4659,4767,4929,5057,5211,5367,5433,5496",
                         "endColumns": "106,156,126,109,140,124,122,103,147,107,161,127,153,155,65,62,78",
                         "endOffsets": "3471,3628,3755,3865,4006,4131,4254,4358,4654,4762,4924,5052,5206,5362,5428,5491,5570"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\262a896f5899a380113a69d434e3eb02\\transformed\\jetified-android-crop-1.0.1\\res\\values-sv\\values-sv.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "215,287,331,405,459",
-                        "endColumns": "71,43,73,53,53",
-                        "endOffsets": "282,326,400,454,508"
-                    },
-                    "to": {
-                        "startLines": "56,57,58,59,60",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "5675,5747,5791,5865,5919",
-                        "endColumns": "71,43,73,53,53",
-                        "endOffsets": "5742,5786,5860,5914,5968"
                     }
                 },
                 {

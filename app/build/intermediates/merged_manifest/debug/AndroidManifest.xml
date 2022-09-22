@@ -137,13 +137,13 @@
             android:label="휴대폰 인증" />
         <activity
             android:name="com.example.moamoa.ui.mypage.CreatedForms"
-            android:label="만든 게시글" />
+            android:label="생성한 공동구매" />
         <activity
             android:name="com.example.moamoa.ui.mypage.ParticipatedForms"
-            android:label="참여한 게시글" />
+            android:label="참여한 공동구매" />
         <activity
             android:name="com.example.moamoa.ui.mypage.HeartForms"
-            android:label="관심 게시글" />
+            android:label="관심 공동구매" />
         <activity
             android:name="com.example.moamoa.ui.mypage.AreaSetting"
             android:label="지역 설정" />

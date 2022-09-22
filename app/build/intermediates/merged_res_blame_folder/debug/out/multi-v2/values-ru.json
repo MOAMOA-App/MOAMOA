@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ru\\values-ru.xml",
+            "outputFile": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ru\\values-ru.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\c175c874080a32a9943939bc5d86e40f\\transformed\\jetified-play-services-basement-18.0.0\\res\\values-ru\\values.xml",
@@ -40,23 +40,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\262a896f5899a380113a69d434e3eb02\\transformed\\jetified-android-crop-1.0.1\\res\\values-ru\\values-ru.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "215,287,333,404,470",
-                        "endColumns": "71,45,70,65,61",
-                        "endOffsets": "282,328,399,465,527"
-                    },
-                    "to": {
-                        "startLines": "58,59,60,61,62",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "5939,6011,6057,6128,6194",
-                        "endColumns": "71,45,70,65,61",
-                        "endOffsets": "6006,6052,6123,6189,6251"
-                    }
-                },
-                {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\21237793a43bb8ef7845d7769f91c3cc\\transformed\\core-1.7.0\\res\\values-ru\\values-ru.xml",
                     "from": {
                         "startLines": "2",
@@ -71,6 +54,23 @@
                         "startOffsets": "10889",
                         "endColumns": "100",
                         "endOffsets": "10985"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\aac80a51f8a516974ce8183a57a9485b\\transformed\\jetified-android-crop-1.0.1\\res\\values-ru\\values-ru.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "215,287,333,404,470",
+                        "endColumns": "71,45,70,65,61",
+                        "endOffsets": "282,328,399,465,527"
+                    },
+                    "to": {
+                        "startLines": "58,59,60,61,62",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "5939,6011,6057,6128,6194",
+                        "endColumns": "71,45,70,65,61",
+                        "endOffsets": "6006,6052,6123,6189,6251"
                     }
                 },
                 {

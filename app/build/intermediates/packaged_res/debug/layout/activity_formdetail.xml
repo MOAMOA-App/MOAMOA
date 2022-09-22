@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-                <androidx.recyclerview.widget.RecyclerView
+                <ImageView
                     android:id="@+id/mainImage"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -219,14 +219,15 @@
                             android:gravity="bottom"
                             android:text="참여 기간"
                             android:textSize="17sp" />
+
                         <TextView
 
                             android:id="@+id/detail_startdate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="22년 03월 12일"
                             android:layout_alignBottom="@+id/detail_date_bar"
                             android:layout_toLeftOf="@+id/detail_date_bar"
+                            android:text="22년 03월 12일"
                             android:textColor="#000000"
                             android:textSize="17sp" />
                         <TextView
@@ -293,11 +294,12 @@
             </LinearLayout>
 
     </ScrollView>
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@drawable/formdetail_top_border"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
@@ -322,7 +324,7 @@
                 android:textOn="" />
         </LinearLayout>
         <Button
-            android:id="@+id/detail_party_btn"
+            android:id="@+id/detail_party_btn_0"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:text="참여하기"
@@ -333,17 +335,33 @@
             android:layout_centerVertical="true"
             android:elevation="0dp"
             android:layout_toEndOf="@+id/heart_layout"/>
+        <Button
+            android:id="@+id/detail_party_btn_1"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="참여취소"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:background="@drawable/formdetail_button_style"
+            android:layout_centerVertical="true"
+            android:elevation="0dp"
+            android:layout_toEndOf="@+id/heart_layout"
+            android:visibility="gone"/>
         <TextView
             android:id="@+id/detail_party_num"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@+id/detail_party_btn"
             android:gravity="center"
             android:padding="10dp"
             android:text="0/14"
             android:textStyle="bold"
             android:textColor="@color/main_green"
             android:textSize="20sp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
         <Button
             android:id="@+id/detail_chat_btn"
             android:layout_width="wrap_content"
@@ -356,5 +374,5 @@
             android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"/>
-    </RelativeLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
