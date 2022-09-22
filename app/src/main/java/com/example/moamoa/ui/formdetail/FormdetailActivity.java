@@ -314,7 +314,7 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
 
         String[] PointArray=addr_co.split(",");
         String latitude = PointArray[0]; // 경도
-        String longitude = PointArray[1]; // 경도
+        String longitude = PointArray[1]; // 위도
         LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
         marker.setPosition(point1);
         marker.setMap(naverMap);
