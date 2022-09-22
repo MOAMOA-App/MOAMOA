@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Contacts;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -175,12 +176,13 @@ public class PlaceholderFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 String FID = listViewData.get(position).FID;
+                Log.e("e",listViewData.get(position).UID_dash+"");
                 String title = listViewData.get(position).subject;
-
                 //인텐트 선언 및 정의
                 Intent intent = new Intent(getContext(), FormdetailActivity.class);
                 //입력한 input값을 intent로 전달한다.
                 intent.putExtra("FID", FID);
+                intent.putExtra("UID_dash",listViewData.get(position).UID_dash);
                 //액티비티 이동
                 startActivity(intent);
                 //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();

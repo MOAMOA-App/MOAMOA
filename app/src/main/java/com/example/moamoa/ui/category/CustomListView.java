@@ -77,9 +77,11 @@ public class CustomListView extends BaseAdapter {
             }
             convertView = layoutInflater.inflate(R.layout.fragment_main, parent, false);
         }
+
+        String image=listViewData.get(position).image.replace(".png","_1.png");
         ImageView mainImage = convertView.findViewById(R.id.mainImage);
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-        StorageReference pathReference = firebaseStorage.getReference(listViewData.get(position).image);
+        StorageReference pathReference = firebaseStorage.getReference(image);
 
 
         pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
