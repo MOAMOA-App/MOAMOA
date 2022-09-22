@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -36,6 +37,7 @@ import java.util.ArrayList;
 /**
  * A placeholder fragment containing a simple view.
  */
+//참여한 공동구매
 public class PlaceholderFragment2 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
@@ -74,12 +76,16 @@ public class PlaceholderFragment2 extends Fragment {
         binding = EmptyFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        //empty_forms의 인기순, 최신순..등등 감춤
+        LinearLayout layout = root.findViewById(R.id.search_option);
+        layout.setVisibility(View.GONE); // 해당 뷰를 안 보여줌(공간마저 감춤)
+
         //추가
         ListView listView;
         listView = root.findViewById(R.id.listview);
         ArrayList<Form> listViewData = new ArrayList<>();
 
-        FirebaseDatabase.getInstance().getReference().child("users").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("party").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot2) {
                 listViewData.clear();
@@ -93,21 +99,19 @@ public class PlaceholderFragment2 extends Fragment {
 
                             listData = snapshot.getValue(Form.class);
 
-
-                            if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue()!=null) {
+                            if (dataSnapshot2.child(listData.FID).child(user.getUid()).getValue()!=null) {
                                 Log.d("확인","루트 : "+dataSnapshot2.child(user.getUid()).child(listData.FID).getKey().toString());
 
-
-                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("parti") && listData.getstate() == 0 && pos == 1) {
-
-                                    listViewData.add(listData);
-                                }
-                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("parti") && listData.getstate() == 1 && pos == 1) {
+                                if (listData.getstate() == 0 && pos == 1) {
 
                                     listViewData.add(listData);
                                 }
+                                if (listData.getstate() == 1 && pos == 1) {
 
-                                if (dataSnapshot2.child(user.getUid()).child(listData.FID).getValue().toString().equals("parti")&& listData.getstate() == 2 && pos == 2) {
+                                    listViewData.add(listData);
+                                }
+
+                                if (listData.getstate() == 2 && pos == 2) {
 
                                     listViewData.add(listData);
                                 }

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -36,6 +37,7 @@ import java.util.ArrayList;
 /**
  * A placeholder fragment containing a simple view.
  */
+//관심 공동구매
 public class PlaceholderFragment3 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
@@ -73,6 +75,10 @@ public class PlaceholderFragment3 extends Fragment {
 //        binding = FragmentMainBinding.inflate(inflater, container, false);
         binding = EmptyFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        //empty_forms의 인기순, 최신순..등등 감춤
+        LinearLayout layout = root.findViewById(R.id.search_option);
+        layout.setVisibility(View.GONE); // 해당 뷰를 안 보여줌(공간마저 감춤)
 
         //추가
         ListView listView;
@@ -157,5 +163,4 @@ public class PlaceholderFragment3 extends Fragment {
         binding = null;
     }
 }
-////
 
