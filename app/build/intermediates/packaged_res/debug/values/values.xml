@@ -908,17 +908,17 @@
 
     </style>
     <style name="Theme.MOAMOA" parent="Theme.AppCompat.Light">
-        <!-- Primary brand color. -->
+        
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryVariant">@color/main_orange</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
+        
         <item name="colorSecondary">@color/white</item>
         <item name="colorSecondaryVariant">@color/white</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
+        
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        
 
         <item name="android:textColor">@color/black</item>
 

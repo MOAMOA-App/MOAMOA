@@ -1,694 +1,702 @@
 [
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_listview.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\listview.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_spinner_style.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\spinner_style.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_exit_to_app_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_exit_to_app_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_10.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_10.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_c_6.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\c_6.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_main.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_main.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_setting.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\setting.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_google_login.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-mdpi\\ic_google_login.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_fragment_chats.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\fragment_chats.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_mypage_bottom_border.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\mypage_bottom_border.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_notifications.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_notifications.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_formlist.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_formlist.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_outline_arrow_back_ios_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_outline_arrow_back_ios_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_supervisor_account_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_supervisor_account_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_edit_border.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\edit_border.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_listup.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_listup.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_fragment_login.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\fragment_login.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\menu_detailcreatorside_menu.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\menu\\detailcreatorside_menu.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_account_circle_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_account_circle_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_main_foreground.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_main_foreground.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-hdpi_ic_main_round.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-hdpi\\ic_main_round.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_date_picker.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_date_picker.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_check_myinfo.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\check_myinfo.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_korea.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\korea.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_homelistview_image_border.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\homelistview_image_border.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_1.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_1.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_heart.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\heart.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_multi_image_item.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\multi_image_item.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_formdetail_button_style.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\formdetail_button_style.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_chats.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_chats.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_fragment_my_page.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\fragment_my_page.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_recyclerview_chatlist.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\recyclerview_chatlist.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_textsms_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_textsms_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_filter_alt_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_filter_alt_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_create_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_create_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_switch_thumb.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\switch_thumb.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_area.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\area.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_8.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_8.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_areasetting.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\areasetting.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_google_login.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xhdpi\\ic_google_login.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_photo.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_photo.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_menu_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_menu_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_formdetail_tag_style.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\formdetail_tag_style.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_outline_spellcheck_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_outline_spellcheck_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_naver_example.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\naver_example.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_category_edit_style.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\category_edit_style.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_nav_header_chats.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\nav_header_chats.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_dashboard_black_24dp.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_dashboard_black_24dp.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_notifications_gray_24dp.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_notifications_gray_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_balloon_chat.9.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\balloon_chat.9.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\menu\\bottom_nav_menu.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_formdetail_top_border.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\formdetail_top_border.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_mypage_bottom_border.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\mypage_bottom_border.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_baseline_square_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\baseline_square_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_category_style.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\category_style.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_homelistview.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\homelistview.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_loop_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_loop_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_formdetail_button_style.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\formdetail_button_style.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_korea.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\korea.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_naver_square_icon.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\naver_square_icon.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_empty_heart.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\empty_heart.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_notifications.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_notifications.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_supervisor_account_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_supervisor_account_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_profileimage.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\profileimage.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_c_7.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\c_7.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_add_to_photos_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_add_to_photos_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\navigation_mobile_navigation.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\navigation\\mobile_navigation.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_category.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_category.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xxhdpi_ic_main.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xxhdpi\\ic_main.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_setting.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\setting.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xxxhdpi_ic_main_round.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xxxhdpi\\ic_main_round.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_0.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_0.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_loading.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_loading.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_addressapi.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\addressapi.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_fragment_listup.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\fragment_listup.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_main_round.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_main_round.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_formdetail.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_formdetail.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_formlist.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_formlist.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_google_login_background.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_google_login_background.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_favorite_border_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_favorite_border_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-anydpi-v26_ic_google_login.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-anydpi-v26\\ic_google_login.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_7.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_7.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_dashboard_black_24dp.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_dashboard_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_google_login.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_google_login.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-mdpi_ic_main_round.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-mdpi\\ic_main_round.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_google_login_foreground.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-mdpi\\ic_google_login_foreground.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-hdpi_ic_main.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-hdpi\\ic_main.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_google_login_round.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_google_login_round.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_fragment_chatlist.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\fragment_chatlist.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_home.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_home.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_fragment_search.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\fragment_search.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_access_alarm_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_access_alarm_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_login_btn_style.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\login_btn_style.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_outline_dehaze_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_outline_dehaze_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_homelistview.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\homelistview.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_created_forms.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\created_forms.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_border.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\border.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_empty_forms.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\empty_forms.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_person_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_person_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_formchange.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_formchange.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_edit_myinfo.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\edit_myinfo.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_photo.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_photo.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_category.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_category.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_edit_myinfo.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\edit_myinfo.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xxxhdpi_ic_main_foreground.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xxxhdpi\\ic_main_foreground.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_main_foreground.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_main_foreground.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_naver_square_icon.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\naver_square_icon.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_recyclerview_chats.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\recyclerview_chats.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xxxhdpi_ic_main.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xxxhdpi\\ic_main.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_dashboard.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_dashboard.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_register.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_register.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_google_login_foreground.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_google_login_foreground.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_empty_forms.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\empty_forms.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_formdetail_tag_style.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\formdetail_tag_style.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xxhdpi_ic_main_foreground.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xxhdpi\\ic_main_foreground.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_apps_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_apps_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_fragment_main.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\fragment_main.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_chevron_right_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_chevron_right_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_formdetail_profile_bottomline.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\formdetail_profile_bottomline.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-anydpi-v26_ic_main.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-anydpi-v26\\ic_main.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_account_circle_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_account_circle_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_profileimage.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\profileimage.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_search.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_search.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_nickname.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\nickname.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_border.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\border.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_c_0.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\c_0.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_11.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_11.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_location_on_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_location_on_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_google_login_foreground.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_google_login_foreground.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_notifications_black_24dp.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_notifications_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_main_foreground.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-mdpi\\ic_main_foreground.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_send_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_send_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_outline_search_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_outline_search_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_listup.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\listup.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_chat_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_chat_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_fragment_category.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\fragment_category.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_spinner_style.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\spinner_style.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_main_background.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_main_background.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_homelistview_image_border.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\homelistview_image_border.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xhdpi_ic_main.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xhdpi\\ic_main.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_state_1.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\state_1.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_outline_search_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_outline_search_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_main_background.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_main_background.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_fragment_dashboard.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\fragment_dashboard.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_notifications_black_24dp.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_notifications_black_24dp.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_chat_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_chat_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_area.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\area.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_formchange.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_formchange.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_formdetail.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_formdetail.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_favorite_border_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_favorite_border_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_listup.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_listup.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_alarmsetting_list.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\alarmsetting_list.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_heart.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\heart.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_check_login.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\check_login.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_google_login_round.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xhdpi\\ic_google_login_round.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_c_3.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\c_3.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_check_login.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\check_login.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_outline_dehaze_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_outline_dehaze_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_2.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_2.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_switch_selector.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\switch_selector.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_round_border_style.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\round_border_style.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_fragment_date_picker.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\fragment_date_picker.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\menu_bottom_nav_menu.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\menu\\bottom_nav_menu.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xhdpi_ic_google_login_foreground.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xhdpi\\ic_google_login_foreground.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_nav_selector_color.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\nav_selector_color.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_chatlist.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_chatlist.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_phone.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_phone.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_category_mybtn_design.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\category_mybtn_design.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_google_login_round.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-mdpi\\ic_google_login_round.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_round_border_style.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\round_border_style.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_mypage_top_border.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\mypage_top_border.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_mypage_list.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\mypage_list.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_state_2.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\state_2.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_outline_photo_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_outline_photo_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_person_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_person_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_c_9.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\c_9.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_main.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_main.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-hdpi_ic_google_login.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-hdpi\\ic_google_login.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_google_login_round.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_google_login_round.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xxhdpi_ic_google_login_round.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xxhdpi\\ic_google_login_round.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_recyclerview_notifications.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\recyclerview_notifications.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_formdetail_top_border.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\formdetail_top_border.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_5.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_5.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_state_1.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\state_1.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_main_foreground.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_main_foreground.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_access_alarm_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_access_alarm_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_mypage_list.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\mypage_list.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xhdpi_ic_google_login.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xhdpi\\ic_google_login.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_chats.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_chats.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_c_11.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\c_11.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_outline_edit_note_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_outline_edit_note_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_settings_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_settings_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_recyclerview_chatlist.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\recyclerview_chatlist.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_main_round.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-mdpi\\ic_main_round.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_chats.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_chats.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_clear_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_clear_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\menu_category_actionbar.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\menu\\category_actionbar.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_outline_arrow_back_ios_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_outline_arrow_back_ios_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_outline_edit_note_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_outline_edit_note_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_textsms_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_textsms_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_arrow_drop_down_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_arrow_drop_down_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_google_login.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_google_login.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_c_2.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\c_2.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_google_login.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_google_login.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-anydpi-v26_ic_main_round.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-anydpi-v26\\ic_main_round.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_4.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_4.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_state_2.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\state_2.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_main.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_main.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_favorite_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_favorite_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_nav_header_chats.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\nav_header_chats.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-mdpi_ic_main_foreground.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-mdpi\\ic_main_foreground.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_alarm_setting.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\alarm_setting.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_add_to_photos_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_add_to_photos_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_chatlist.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_chatlist.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xhdpi_ic_google_login_round.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xhdpi\\ic_google_login_round.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_main.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xhdpi\\ic_main.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xxxhdpi_ic_google_login_round.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xxxhdpi\\ic_google_login_round.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_translate_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_translate_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_phone.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_phone.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_nickname.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\nickname.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_settings_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_settings_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_favorite_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_favorite_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_search.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_search.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_login_btn_style.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\login_btn_style.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_clear_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_clear_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_main_round.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_main_round.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_listview.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\listview.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_home_black_24dp.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_home_black_24dp.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_c_10.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\c_10.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_loading.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_loading.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_category_edit_style.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\category_edit_style.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_main.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_main.png"
+        "merged": "com.example.moamoa.app-merged_res-57:/layout_activity_detailcreaterside.xml.flat",
+        "source": "com.example.moamoa.app-main-59:/layout/activity_detailcreaterside.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\navigation_mobile_navigation.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_edit_border.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\edit_border.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xhdpi_ic_main_round.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xhdpi\\ic_main_round.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_map.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_map.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xxhdpi_ic_google_login_foreground.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xxhdpi\\ic_google_login_foreground.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_category_style.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\category_style.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_full_heart.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\full_heart.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_loop_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_loop_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_c_1.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\c_1.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_empty_heart.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\empty_heart.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_button_selector.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\button_selector.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_alarmsetting_list.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\alarmsetting_list.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_recyclerview_chats.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\recyclerview_chats.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_google_login_background.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_google_login_background.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_alarm_setting.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\alarm_setting.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_mypage_right_border.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\mypage_right_border.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_fragment_formlist.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\fragment_formlist.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_naver_example.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\naver_example.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_outline_spellcheck_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_outline_spellcheck_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\menu_category_actionbar.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\menu\\category_actionbar.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_balloon_chat.9.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\balloon_chat.9.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_3.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_3.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\fragment_home.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_switch_selector.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\switch_selector.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_map.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_map.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_categorymy_style.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\categorymy_style.xml"
+        "merged": "com.example.moamoa.app-merged_res-57:/layout_activity_formdetail.xml.flat",
+        "source": "com.example.moamoa.app-main-59:/layout/activity_formdetail.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_main.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-mdpi\\ic_main.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_chevron_right_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_chevron_right_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_recyclerview_chats_userinfo.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\recyclerview_chats_userinfo.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_listup.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_listup.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_full_heart.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\full_heart.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_check_myinfo.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\check_myinfo.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-mdpi_ic_google_login_round.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-mdpi\\ic_google_login_round.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_exit_to_app_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_exit_to_app_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_filter_alt_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_filter_alt_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_listup.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\listup.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_mypage_right_border.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\mypage_right_border.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_outline_photo_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_outline_photo_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_c_4.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\c_4.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_google_login.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_google_login.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_formdetail_heart_layer.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\formdetail_heart_layer.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_notifications_gray_24dp.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_notifications_gray_24dp.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\menu_detailcreatorside_menu.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\menu\\detailcreatorside_menu.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_main.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_main.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_fragment_notifications.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\fragment_notifications.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_google_login_round.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_google_login_round.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_c_8.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\c_8.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_state_0.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\state_0.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\menu_chatdrawer.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\menu\\chatdrawer.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_category_btn_design.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\category_btn_design.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-anydpi-v26_ic_google_login_round.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-anydpi-v26\\ic_google_login_round.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_formdetail_heart_layer.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\formdetail_heart_layer.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-hdpi_ic_google_login_foreground.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-hdpi\\ic_google_login_foreground.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_areasetting.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\areasetting.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_multi_image_item.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\multi_image_item.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_google_login_foreground.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xhdpi\\ic_google_login_foreground.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_nav_selector_color.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\nav_selector_color.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_google_login_foreground.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_google_login_foreground.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_switch_thumb.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\switch_thumb.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_location_on_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_location_on_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_state_0.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\state_0.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_search.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_search.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_recyclerview_notifications.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\recyclerview_notifications.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\menu_chatdrawer.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\menu\\chatdrawer.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xxhdpi_ic_main_round.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xxhdpi\\ic_main_round.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_6.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_6.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-hdpi_ic_main_foreground.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-hdpi\\ic_main_foreground.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_category.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_category.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_category_btn_design.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\category_btn_design.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_button_selector.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\button_selector.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_created_forms.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\created_forms.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_detailcreaterside.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_detailcreaterside.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xxhdpi_ic_google_login.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xxhdpi\\ic_google_login.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_login.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_login.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_c_5.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\c_5.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_send_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_send_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_baseline_square_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\baseline_square_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_chatlist.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_chatlist.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_apps_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_apps_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_main_round.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xhdpi\\ic_main_round.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_home_black_24dp.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_home_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_formdetail_profile_bottomline.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\formdetail_profile_bottomline.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-hdpi_ic_google_login_round.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-hdpi\\ic_google_login_round.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_create_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_create_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_menu_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_menu_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_notifications.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_notifications.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_ic_baseline_translate_24.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\ic_baseline_translate_24.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_login.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_addressapi.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\addressapi.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_main_foreground.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xhdpi\\ic_main_foreground.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xxxhdpi_ic_google_login.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xxxhdpi\\ic_google_login.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_my_page.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_my_page.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_formlist.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_formlist.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_main_round.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_main_round.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_activity_detailcreaterside.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\activity_detailcreaterside.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_main_round.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_main_round.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-mdpi_ic_google_login_foreground.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-mdpi\\ic_google_login_foreground.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_arrow_drop_down_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_arrow_drop_down_24.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\layout_recyclerview_chats_userinfo.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\layout\\recyclerview_chats_userinfo.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_google_login_round.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_google_login_round.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-mdpi_ic_main.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-mdpi\\ic_main.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_category_mybtn_design.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\category_mybtn_design.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_categorymy_style.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\categorymy_style.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_9.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_9.png"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xxxhdpi_ic_google_login_foreground.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xxxhdpi\\ic_google_login_foreground.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_register.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_register.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\drawable_mypage_top_border.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\drawable\\mypage_top_border.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-mdpi_ic_google_login.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-mdpi\\ic_google_login.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-merged_res-57:\\mipmap-xhdpi_ic_main_foreground.png.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.4\\com.example.moamoa.app-main-59:\\mipmap-xhdpi\\ic_main_foreground.png"
     }
 ]

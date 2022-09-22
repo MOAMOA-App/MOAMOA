@@ -311,7 +311,7 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
         geocoder = new Geocoder(this);
-        /*
+
         String[] PointArray=addr_co.split(",");
         String latitude = PointArray[0]; // 경도
         String longitude = PointArray[1]; // 경도
@@ -323,7 +323,7 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
 
         naverMap.setCameraPosition(cameraPosition);
 
-         */
+
     }
 
 

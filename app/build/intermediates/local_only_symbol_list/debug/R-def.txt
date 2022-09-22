@@ -278,7 +278,8 @@ id detail_deadline
 id detail_express
 id detail_local
 id detail_nick
-id detail_party_btn
+id detail_party_btn_0
+id detail_party_btn_1
 id detail_party_num
 id detail_profile
 id detail_startdate
@@ -421,6 +422,7 @@ id searchWord
 id search_btn
 id search_icon
 id search_listview
+id search_option
 id search_sortbtn
 id searchspinner
 id select_category
