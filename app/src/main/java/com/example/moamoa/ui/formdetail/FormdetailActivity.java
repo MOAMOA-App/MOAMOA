@@ -72,8 +72,6 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
     private static NaverMap naverMap;
     private LatLng myLatLng = new LatLng(37.3399, 126.733);
     Marker marker = new Marker();
-    private Geocoder geocoder;
-    String addr_co;
 
     private FirebaseStorage firebaseStorage;
     private FirebaseUser user;
@@ -310,20 +308,23 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
     }
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
-        geocoder = new Geocoder(this);
-
-        String[] PointArray=addr_co.split(",");
-        String latitude = PointArray[0]; // 경도
-        String longitude = PointArray[1]; // 위도
-        LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
-        marker.setPosition(point1);
-        marker.setMap(naverMap);
+        Geocoder geocoder = new Geocoder(this);
+        mDatabase.child("form").child(FID).child("addr_co").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                String addr_co=task.getResult().getValue().toString();
+                String[] PointArray=addr_co.split(",");
+                String latitude = PointArray[0]; // 경도
+                String longitude = PointArray[1]; // 위도
+                LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
+                marker.setPosition(point1);
+                marker.setMap(naverMap);
                 // 해당 좌표로 화면 줌
-        CameraPosition cameraPosition = new CameraPosition(point1, 16);
+                CameraPosition cameraPosition = new CameraPosition(point1, 16);
 
-        naverMap.setCameraPosition(cameraPosition);
-
-
+                naverMap.setCameraPosition(cameraPosition);
+            }
+        });
     }
 
 
@@ -347,8 +348,6 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
                     String address   = dataSnapshot.child("address").getValue().toString();
                     String addr_detail   = dataSnapshot.child("addr_detail").getValue().toString();
 
-
-                    addr_co      = dataSnapshot.child("addr_co").getValue().toString();
                     count_party= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
 
                     Resources res = getResources();
