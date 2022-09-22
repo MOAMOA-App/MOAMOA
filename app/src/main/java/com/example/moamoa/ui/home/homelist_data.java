@@ -5,12 +5,13 @@ import java.time.format.SignStyle;
 public class homelist_data {
     private String mainImage;
     private String title;
-    private String nick;
+    private String cost;
     private String mans;
     private String FID;
     private String UID;
     private String category;
     private String state;
+    private String location;
     /*
     public homelist_data(String mainImage, String title, String name, String mans, String FID){
         this.mainImage  = mainImage;
@@ -28,7 +29,7 @@ public class homelist_data {
         return this.title;
     }
 
-    public String getNick(){ return this.nick; }
+    public String getCost(){ return this.cost; }
 
     public String getMans(){ return this.mans; }
 
@@ -38,13 +39,15 @@ public class homelist_data {
 
     public String getCategory() {return this.category;}
 
-    public String getState(){return this.state;};
+    public String getState(){return this.state;}
+
+    public String getLocation(){return this.location;}
 
     public void setImgName(String MainImage){this.mainImage = MainImage; }
 
     public void setTitle(String title){this.title = title; }
 
-    public void setNick(String nick){this.nick = nick; }
+    public void setCost(String cost){this.cost = cost; }
 
     public void setMans(String mans){this.mans = mans; }
 
@@ -55,5 +58,7 @@ public class homelist_data {
     public void setCategory(String category){this.category = category; }
 
     public void setState(String state){this.state = state; }
+
+    public void setLocation(String location){this.location = location; }
 
 }

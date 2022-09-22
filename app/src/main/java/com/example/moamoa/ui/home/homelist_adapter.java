@@ -45,12 +45,12 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView img_main;
         TextView txt_title;
-        TextView txt_name;
+        TextView txt_cost;
         TextView txt_mans;
         TextView txt_FID;
         TextView txt_UID;
         TextView txt_cateog;
-        TextView txt_state;
+        TextView txt_location;
 
         public ViewHolder(View view) {
             super(view);
@@ -58,12 +58,12 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
             // Define click listener for the ViewHolder's View
             img_main    = (ImageView)view.findViewById(R.id.homelist_mainImage);
             txt_title   = (TextView) view.findViewById(R.id.homelist_title);
-            txt_name    = (TextView) view.findViewById(R.id.homelist_name);
+            txt_cost    = (TextView) view.findViewById(R.id.homelist_cost);
             txt_mans    = (TextView) view.findViewById(R.id.homelist_mans);
             txt_FID     = (TextView) view.findViewById(R.id.homelist_FID);
             txt_UID     = (TextView) view.findViewById(R.id.homelist_UID);
             txt_cateog  = (TextView) view.findViewById(R.id.homelist_category);
-            txt_state   = (TextView) view.findViewById(R.id.homelist_state);
+            txt_location= (TextView) view.findViewById(R.id.homelist_location);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -104,6 +104,7 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
         StorageReference pathReference = firebaseStorage.getReference(item.getImgName());
         Activity context = (Activity) viewHolder.img_main.getContext();
+        /*
         pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -113,42 +114,18 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
                         .into(viewHolder.img_main);
             }
         });
-
+        */
         //viewHolder.img_main.setImageResource();
         DatabaseReference mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
 
-        mDatabase.child(item.getNick()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                viewHolder.txt_name.setText((task.getResult().child("nick").getValue().toString()));
-            }
-        });
         viewHolder.txt_cateog.setText(item.getCategory());
         viewHolder.txt_title.setText(item.getTitle());
         viewHolder.txt_UID.setText(item.getUID());
         viewHolder.txt_mans.setText(item.getMans());
         viewHolder.txt_FID.setText(item.getFID());
-
-        switch(item.getState()){
-            case "0":
-                viewHolder.txt_state.setText("참여모집");
-                viewHolder.txt_state.setTextColor(Color.parseColor("#F1A94E"));
-                viewHolder.txt_mans.setTextColor(Color.parseColor("#F1A94E"));
-                break;
-            case "1":
-                viewHolder.txt_state.setText("거래진행");
-                viewHolder.txt_state.setTextColor(Color.parseColor("#274E13"));
-                viewHolder.txt_mans.setTextColor(Color.parseColor("#274E13"));
-                break;
-            case "2":
-                viewHolder.txt_state.setText("거래완료");
-                viewHolder.txt_state.setTextColor(Color.parseColor("#4C4C4C"));
-                viewHolder.txt_mans.setTextColor(Color.parseColor("#4C4C4C"));
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + item.getState());
-        }
+        viewHolder.txt_location.setText(item.getLocation());
+        viewHolder.txt_cost.setText(item.getCost()+"원");
 
     }
 

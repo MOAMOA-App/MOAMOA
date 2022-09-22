@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:layout_marginLeft="10dp"
     android:background="@color/white">
-
     <ImageView
         android:id="@+id/homelist_mainImage"
         android:layout_width="140dp"
@@ -34,7 +33,7 @@
             android:paddingHorizontal="5dp"
             android:textColor="@color/cardview_dark_background"/>
         <TextView
-            android:id="@+id/homelist_name"
+            android:id="@+id/homelist_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="닉네임"
@@ -55,13 +54,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/homelist_mans"
+            android:id="@+id/homelist_cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="5dp"
-            android:text="9/10"
-            android:textColor="@color/main_orange"
+            android:text="50,000원"
             android:textSize="15sp"
+            android:layout_gravity="right"
             android:textStyle="bold"/>
         <View
             android:layout_width="0dp"
@@ -69,15 +68,15 @@
             android:layout_weight="1">
 
         </View>
+
         <TextView
-            android:id="@+id/homelist_state"
+            android:id="@+id/homelist_mans"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="5dp"
-            android:text="참여모집"
+            android:text="9/10"
             android:textColor="@color/main_orange"
             android:textSize="15sp"
-            android:layout_gravity="right"
             android:textStyle="bold"/>
     </LinearLayout>
 

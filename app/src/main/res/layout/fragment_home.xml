@@ -112,13 +112,14 @@
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"/>
                 </RelativeLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/listview0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
                     android:scrollbars="horizontal"
-                    app:layoutManager="LinearLayoutManager"
-                    android:paddingTop="5dp" />
+                    app:layoutManager="LinearLayoutManager" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -157,13 +158,13 @@
                     android:stretchMode="none"
                     android:layout_marginLeft="10dp"
                     android:paddingBottom="5dp"/>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/listview3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scrollbars="horizontal"
-                    app:layoutManager="LinearLayoutManager"
-                    />
+                    app:layoutManager="LinearLayoutManager" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
