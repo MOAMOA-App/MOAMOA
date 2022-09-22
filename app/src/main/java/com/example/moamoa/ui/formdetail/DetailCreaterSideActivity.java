@@ -44,7 +44,6 @@ import java.text.DecimalFormat;
 public class DetailCreaterSideActivity extends Activity {
 
     private DatabaseReference mDatabase;
-    private RecyclerView mainImage;
     private FirebaseStorage firebaseStorage;
     private FirebaseUser user;
 
@@ -58,7 +57,6 @@ public class DetailCreaterSideActivity extends Activity {
         setContentView(R.layout.activity_detailcreaterside);
 
         user        = FirebaseAuth.getInstance().getCurrentUser();
-        mainImage   = (RecyclerView) findViewById(R.id.mainImage);  //상세이미지
         firebaseStorage = FirebaseStorage.getInstance();
         Intent intent = getIntent();
         temp = intent.getStringExtra("FID");
@@ -183,8 +181,8 @@ public class DetailCreaterSideActivity extends Activity {
                 StorageReference pathReference = firebaseStorage.getReference(image);
 
 
+                ImageView mainImage   = (ImageView) findViewById(R.id.mainImage);  //상세이미지
                 DetailCreaterSideActivity activity = (DetailCreaterSideActivity) mainImage.getContext();
-                /*
                 pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
@@ -195,7 +193,6 @@ public class DetailCreaterSideActivity extends Activity {
 
                     }
                 });
-                */
             }
 
             @Override

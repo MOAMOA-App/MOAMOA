@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -55,36 +56,37 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FormdetailActivity extends AppCompatActivity implements OnMapReadyCallback {
     private DatabaseReference mDatabase;
     String image;
     String k;
     int count;
-    String temp;
     String FID;
+    String FUID;
 
     int count_party;
     // 지도
     private MapView mapView;
     private static NaverMap naverMap;
-    private LatLng myLatLng = new LatLng( 37.3399, 126.733);
+    private LatLng myLatLng = new LatLng(37.3399, 126.733);
     Marker marker = new Marker();
     private Geocoder geocoder;
     String addr_co;
 
-    private RecyclerView mainImage;
     private FirebaseStorage firebaseStorage;
     private FirebaseUser user;
+
     @Override
     protected void onStart() {
         super.onStart();
         Intent intent = getIntent();
-        temp = intent.getStringExtra("UID_dash");
-        if(user.getUid().equals(temp)){
+        FUID = intent.getStringExtra("UID_dash");
+        if (user.getUid().equals(FUID)) {
             Intent intent1 = new Intent(this, DetailCreaterSideActivity.class);
             intent1.putExtra("FID", intent.getStringExtra("FID"));
-            intent1.putExtra(("UID_dash"),temp);
+            intent1.putExtra(("UID_dash"), FUID);
             startActivity(intent1);
             finish();
         }
@@ -94,20 +96,31 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formdetail);
 
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
-        mainImage = (RecyclerView) findViewById(R.id.mainImage);
         firebaseStorage = FirebaseStorage.getInstance();
         Intent intent = getIntent();
-        FID= intent.getStringExtra("FID");
+        FID = intent.getStringExtra("FID");
+        Button chat_btn = (Button) findViewById(R.id.detail_chat_btn);   //채팅하기 버튼
+        Button party_btn_0 = (Button) findViewById(R.id.detail_party_btn_0); //참여하기 버튼
+        Button party_btn_1 = (Button) findViewById(R.id.detail_party_btn_1); //참여취소 버튼
 
-        Button chat_btn = (Button)findViewById(R.id.detail_chat_btn);   //채팅하기 버튼
-        Button party_btn = (Button)findViewById(R.id.detail_party_btn); //참여하기 버튼
+        FirebaseDatabase.getInstance().getReference("party").child(FID).child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.getResult().exists()) {   //이미 참여중인 게시글인 경우
+                    party_btn_0.setVisibility(View.GONE);
+                    party_btn_1.setVisibility(View.VISIBLE);
+                }
+            }
+        });
         //ImageButton heart_btn = (ImageButton) findViewById(R.id.detail_heart_btn);
         //
         printpage();
         NaverMapSdk.getInstance(this).setClient(
                 new NaverMapSdk.NaverCloudPlatformClient("xjdzzwh9wk"));
-        mapView = (MapView)findViewById(R.id.mv);
+        mapView = (MapView) findViewById(R.id.mv);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
@@ -116,14 +129,11 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
             @Override
             public void onClick(View view) {
                 Intent intent = getIntent();
-                temp = intent.getStringExtra("UID_dash");
-
-                DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("form");
-                database.child(temp).addValueEventListener(new ValueEventListener() {
+                mDatabase.child("form").child(FUID).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         // USER 정보 불러옴 (ChatsFragment에서 destinationUID로 사용)
-                        String UID = temp;
+                        String UID = FUID;
                         // dataSnapshot.child("UID_dash").getValue().toString();
 
                         // 밑에꺼... 무슨코드인지모르겠음
@@ -136,7 +146,7 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
                         */
 
 
-                        database.child(UID).addValueEventListener(new ValueEventListener() {
+                        mDatabase.child("form").child(UID).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 // USER 닉네임 불러옴 (ChatsFragment에서 destinationNAME으로 사용
@@ -145,7 +155,7 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
                                 if (user.getUid().equals(UID)) {
                                     // 본인의 폼에서는 채팅하기 누를 수 없음
                                     Toast.makeText(getApplicationContext(), "내 게시글입니다.", Toast.LENGTH_SHORT).show();
-                                } else{
+                                } else {
                                     // ChatActivity로 UID 넘김 (destinationUID)
                                     Intent intent = new Intent(FormdetailActivity.this, ChatsActivity.class);
                                     intent.putExtra("destinationUID", UID);
@@ -180,49 +190,70 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
             }
         });
 
-
-        //참가 버튼
-        party_btn.setOnClickListener(new View.OnClickListener() {
+        party_btn_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView state_text = (TextView) findViewById(R.id.detail_state);
-                String state = (String) state_text.getText();
-                if(state=="[참여모집]"){
-                    FirebaseDatabase.getInstance().getReference("party").child(FID).child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            if(!task.getResult().child(user.getUid()).exists()){
-                                FirebaseDatabase.getInstance().getReference("form").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                        int max = Integer.parseInt(String.valueOf(task.getResult().child("max_count").getValue()));
-                                        int now = Integer.parseInt(String.valueOf(task.getResult().child("parti_num").getValue()));
-                                        if(max>now){
-                                            HashMap<String,Object> childUpdates = new HashMap<>();
-                                            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("party");
-                                            childUpdates.put(user.getUid(),getToday());
-                                            reference.child(FID).updateChildren(childUpdates);
-                                            FirebaseDatabase.getInstance().getReference("form").child(FID).child("parti_num").setValue(count_party+1);
-                                            Toast.makeText(getApplicationContext(), "참여되었습니다", Toast.LENGTH_SHORT).show();
+                mDatabase.child("form").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        int state = Integer.parseInt(task.getResult().child("state").getValue().toString());
+                        int temp =  Integer.parseInt(task.getResult().child("parti_num").getValue().toString())-1;
+                        if (state == 0) {
+                            mDatabase.child("form").child(FID).child("parti_num").setValue(temp).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    mDatabase.child("party").child(FID).child(user.getUid()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
                                             printpage();
-                                        }else{
-                                            Toast.makeText(getApplicationContext(), "참여 인원이 꽉 찼습니다.", Toast.LENGTH_SHORT).show();
+                                            party_btn_0.setVisibility(View.VISIBLE);
+                                            party_btn_1.setVisibility(View.GONE);
+                                            Toast.makeText(getApplicationContext(), "참여 취소 되었습니다.", Toast.LENGTH_SHORT).show();
                                         }
-                                    }
-                                });
-                            }else{
-                                Toast.makeText(getApplicationContext(), "이미 참여한 게시글 입니다.", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }else{
-                    Toast.makeText(getApplicationContext(), "이미 거래가 진행 중인 게시글 입니다.", Toast.LENGTH_SHORT).show();
-                }
-            }
+                                    });
+                                }
+                            });
 
+                        }else {
+                            Toast.makeText(getApplicationContext(), "거래 진행 중에는 취소하실 수 없습니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
+        //참가 버튼
+        party_btn_0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDatabase.child("form").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        int state = Integer.parseInt(task.getResult().child("state").getValue().toString());
+                        if (state == 0) {
+                            int max = Integer.parseInt(String.valueOf(task.getResult().child("max_count").getValue()));
+                            int now = Integer.parseInt(String.valueOf(task.getResult().child("parti_num").getValue()));
+                            if (max > now) {
+                                HashMap<String, Object> childUpdates = new HashMap<>();
+                                childUpdates.put(user.getUid(), getToday());
+                                mDatabase.child("party").child(FID).updateChildren(childUpdates);
+                                mDatabase.child("form").child(FID).child("parti_num").setValue(count_party + 1);
+                                Toast.makeText(getApplicationContext(), "참여되었습니다", Toast.LENGTH_SHORT).show();
+                                party_btn_0.setVisibility(View.GONE);
+                                party_btn_1.setVisibility(View.VISIBLE);
+                                printpage();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "참여 인원이 꽉 찼습니다.", Toast.LENGTH_SHORT).show();
+                            }
+                        }else {
+                            Toast.makeText(getApplicationContext(), "이미 거래가 진행 중인 게시글 입니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+            }
         });
         ToggleButton button = findViewById(R.id.heart);
-        FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(FID).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("heart").child(user.getUid()).child(FID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -248,27 +279,16 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(FID).addValueEventListener(new ValueEventListener() {
+                mDatabase.child("heart").child(user.getUid()).child(FID).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         //v= String.valueOf(dataSnapshot.getValue());
                     }
-
                     @Override
-                    public void onCancelled(DatabaseError databaseError)
-                    {    }
+                    public void onCancelled(DatabaseError databaseError) {    }
                 });
-
-                if (button.isChecked()) {
-
-                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(FID).setValue("true");
-                }
-                else if( !button.isChecked())
-                {
-
-                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(FID).setValue("false");
-                }
-
+                if (button.isChecked()){mDatabase.child("heart").child(user.getUid()).child(FID).setValue("true");}
+                else if( !button.isChecked()){mDatabase.child("heart").child(user.getUid()).child(FID).setValue("false");}
             }
 ;
         });
@@ -276,7 +296,7 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
     }
     @Override
     public void onBackPressed() {
-        FirebaseDatabase.getInstance().getReference("form").child(FID).child("count").setValue(count+1);
+        mDatabase.child("form").child(FID).child("count").setValue(count+1);
 
         Log.d("확인","message상세 이미지 : "+count+1);
         finish();
@@ -291,6 +311,7 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
         geocoder = new Geocoder(this);
+        /*
         String[] PointArray=addr_co.split(",");
         String latitude = PointArray[0]; // 경도
         String longitude = PointArray[1]; // 경도
@@ -301,12 +322,13 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
         CameraPosition cameraPosition = new CameraPosition(point1, 16);
 
         naverMap.setCameraPosition(cameraPosition);
+
+         */
     }
 
 
     private void printpage(){
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("form");
-        mDatabase.child(FID).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("form").child(FID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
@@ -326,29 +348,32 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
                     String addr_detail   = dataSnapshot.child("addr_detail").getValue().toString();
 
 
-
                     addr_co      = dataSnapshot.child("addr_co").getValue().toString();
-
-
                     count_party= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
 
                     Resources res = getResources();
                     String[] cat = res.getStringArray(R.array.category);
                     category=cat[Integer.parseInt(category)];
 
-                    image=dataSnapshot.child("image").getValue().toString() ;
+                    image=dataSnapshot.child("image").getValue().toString().replace(".png","_1.png");
                     count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
 
-
-                    Log.d("확인","message상세 이미지 : "+count);
-                    String UID = dataSnapshot.child("UID_dash").getValue().toString();
-                    UserFind(UID);
+                    UserFind(FUID);
                     Initializeform(subject,category,text,cost,count_party+"/"+max_count,today,deadline,address,addr_detail,express,count,state);
                     StorageReference pathReference = firebaseStorage.getReference(image);
 
 
+                    ImageView mainImage = (ImageView) findViewById(R.id.mainImage);
                     FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
-
+                    pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            if (activity.isFinishing()) return;
+                            Glide.with(mainImage)
+                                    .load(uri)
+                                    .into(mainImage);
+                        }
+                    });
                 }
             }
 
@@ -362,22 +387,18 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
 
     }
 
-    private void UserFind(String UID){
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
-        mDatabase.child(UID).addValueEventListener(new ValueEventListener() {
+    private void UserFind(String FUID){
+        mDatabase.child("users").child(FUID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String name;
-                String profil_text;
-                TextView name_tv = (TextView) findViewById(R.id.detail_nick);
-                ImageView profile = (ImageView) findViewById(R.id.detail_profile);
-                profil_text = dataSnapshot.child("image").getValue().toString();
-                name = dataSnapshot.child("nick").getValue().toString();
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                TextView name_tv    = (TextView) findViewById(R.id.detail_nick);
+                ImageView profile   = (ImageView) findViewById(R.id.detail_profile);
+                String profile_text = task.getResult().child("image").getValue().toString();
+                String name         = task.getResult().child("nick").getValue().toString();
                 name_tv.setText(name);
                 FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-                StorageReference pathReference = firebaseStorage.getReference(profil_text);
-
-                FormdetailActivity activity1 = (FormdetailActivity) profile.getContext() ;
+                StorageReference pathReference  = firebaseStorage.getReference(profile_text);
+                FormdetailActivity activity1    = (FormdetailActivity) profile.getContext() ;
                 pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
@@ -387,13 +408,6 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
                                 .into(profile);
                     }
                 });
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w("", "loadPost:onCancelled", databaseError.toException());
-                // ...
             }
         });
     }
@@ -433,13 +447,12 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
         category_text.setText(category);
         text_text.setText(text);
         cost_text.setText(cost);
-        start.setText(today.toString().substring(0,4)+"년"+today.toString().substring(4,6)+"월"+today.toString().substring(6,8)+"일");
-        deadlines.setText(deadline.toString().substring(0,4)+"년"+deadline.toString().substring(4,6)+"월"+deadline.toString().substring(6,8)+"일");
+        start.setText(today.substring(0,4)+"년"+today.substring(4,6)+"월"+today.substring(6,8)+"일");
+        deadlines.setText(deadline.substring(0,4)+"년"+deadline.substring(4,6)+"월"+deadline.substring(6,8)+"일");
         max_count_text.setText(max_count);
         express_text.setText(express);
         count_text.setText("조회 "+count);
         address_text.setText(address);
         addr_detail_text.setText(addr_detail);
-
     }
 }
