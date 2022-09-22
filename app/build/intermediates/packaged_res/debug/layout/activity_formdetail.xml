@@ -22,13 +22,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-                <ImageView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/mainImage"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:scaleType="center"
                     android:background="@color/light_gray"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:src="@drawable/ic_launcher_background"
+                    />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -38,8 +45,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+
+                        android:layout_marginBottom="10dp"
                         android:background="@drawable/formdetail_profile_bottomline"
                         android:gravity="center">
                         <de.hdodenhof.circleimageview.CircleImageView
@@ -49,7 +58,7 @@
                             android:layout_margin="5dp"
                             android:src="@drawable/ic_launcher_background"/>
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:padding="5dp">
@@ -65,37 +74,71 @@
                                 android:id="@+id/detail_local"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="3dp"
-                                android:text="지역"
-                                android:visibility="invisible"
-                                android:textSize="11sp" />
+                                android:text="빈 칸"
+                                android:textSize="11sp"/>
                         </LinearLayout>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <!--ImageButton
+                            android:layout_width="41dp"
+                            android:layout_height="41dp"
+                            android:background="@color/white"
+                            android:src="@drawable/ic_baseline_menu_24"/-->
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:minHeight="200dp"
                         android:background="@drawable/mypage_bottom_border"
+                        android:minHeight="250dp"
                         android:orientation="vertical">
-
-
-                        <TextView
-                            android:id="@+id/detail_subject"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:padding="3dp"
-                            android:text="제목"
-                            android:textStyle="bold"
-                            android:textColor="#000000"
-                            android:textSize="20sp" />
-                        <TextView
-                            android:id="@+id/detail_category"
-                            android:layout_width="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/detail_state"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:padding="3dp"
+                                android:text="참여모집"
+                                android:gravity="center"
+                                android:textColor="#000000"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/detail_subject"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:padding="3dp"
+                                android:text="제목"
+                                android:textColor="#000000"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/formdetail_tag_style"
-                            android:text="카테고리"
-                            android:textSize="14sp" />
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/detail_category"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/formdetail_tag_style"
+                                android:text="카테고리"
+                                android:layout_marginRight="5dp"
+                                android:textSize="14sp"/>
+                            <TextView
+                                android:id="@+id/detail_express"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/formdetail_tag_style"
+                                android:text="직거래"
+                                android:textSize="14sp"/>
+                        </LinearLayout>
                         <TextView
                             android:id="@+id/detail_textarea"
                             android:layout_width="match_parent"
@@ -104,7 +147,22 @@
                             android:text="내용"
                             android:textColor="#000000"
                             android:textSize="17sp" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+                        <TextView
+                            android:id="@+id/detail_counttext"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="3dp"
+                            android:text="조회 0"
+                            android:layout_gravity="bottom"
+                            android:textColor="@color/gray"
+                            android:textSize="13sp"
+                            android:layout_marginBottom="5dp"/>
                     </LinearLayout>
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
@@ -151,6 +209,7 @@
                         android:layout_height="35dp"
                         android:paddingBottom="5dp"
                         android:gravity="bottom"
+                        android:layout_marginBottom="15dp"
                         android:background="@drawable/mypage_bottom_border">
 
                         <TextView
@@ -192,7 +251,39 @@
                     </RelativeLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="500dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="5dp"
+                        android:gravity="bottom"
+                        android:layout_marginBottom="15dp"
+                        android:background="@drawable/mypage_bottom_border">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:gravity="bottom"
+                            android:text="거래 장소"
+                            android:textSize="17sp"
+                            android:id="@+id/address"
+                            />
+                        <TextView
+                            android:id="@+id/detail_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:text="상세 주소"
+                            android:textSize="17sp"/>
+                    </LinearLayout>
+                    <com.naver.maps.map.MapView
+                        android:id="@+id/mv"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="3dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="match_parent"

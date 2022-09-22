@@ -36,6 +36,10 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_search.xml"
     },
     {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_formchange.xml",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_formchange.xml"
+    },
+    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\alarmsetting_list.xml",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\alarmsetting_list.xml"
     },
@@ -80,12 +84,12 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\area.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_category.xml",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_category.xml"
-    },
-    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\edit_myinfo.xml",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\edit_myinfo.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_category.xml",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_category.xml"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\recyclerview_notifications.xml",
@@ -162,6 +166,14 @@
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_chats.xml",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_chats.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\recyclerview_chats_userinfo.xml",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\recyclerview_chats_userinfo.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_map.xml",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_map.xml"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\profileimage.xml",

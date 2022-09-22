@@ -25,6 +25,9 @@ public final class FragmentChatsBinding implements ViewBinding {
   public final Button ButtonSend;
 
   @NonNull
+  public final Button ButtonSendImg;
+
+  @NonNull
   public final TextInputEditText EditTextChat;
 
   @NonNull
@@ -34,10 +37,11 @@ public final class FragmentChatsBinding implements ViewBinding {
   public final LinearLayout fragmentChatsView;
 
   private FragmentChatsBinding(@NonNull LinearLayout rootView, @NonNull Button ButtonSend,
-      @NonNull TextInputEditText EditTextChat, @NonNull RecyclerView chatsRecyclerview,
-      @NonNull LinearLayout fragmentChatsView) {
+      @NonNull Button ButtonSendImg, @NonNull TextInputEditText EditTextChat,
+      @NonNull RecyclerView chatsRecyclerview, @NonNull LinearLayout fragmentChatsView) {
     this.rootView = rootView;
     this.ButtonSend = ButtonSend;
+    this.ButtonSendImg = ButtonSendImg;
     this.EditTextChat = EditTextChat;
     this.chatsRecyclerview = chatsRecyclerview;
     this.fragmentChatsView = fragmentChatsView;
@@ -76,6 +80,12 @@ public final class FragmentChatsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.Button_sendImg;
+      Button ButtonSendImg = ViewBindings.findChildViewById(rootView, id);
+      if (ButtonSendImg == null) {
+        break missingId;
+      }
+
       id = R.id.EditText_chat;
       TextInputEditText EditTextChat = ViewBindings.findChildViewById(rootView, id);
       if (EditTextChat == null) {
@@ -90,8 +100,8 @@ public final class FragmentChatsBinding implements ViewBinding {
 
       LinearLayout fragmentChatsView = (LinearLayout) rootView;
 
-      return new FragmentChatsBinding((LinearLayout) rootView, ButtonSend, EditTextChat,
-          chatsRecyclerview, fragmentChatsView);
+      return new FragmentChatsBinding((LinearLayout) rootView, ButtonSend, ButtonSendImg,
+          EditTextChat, chatsRecyclerview, fragmentChatsView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

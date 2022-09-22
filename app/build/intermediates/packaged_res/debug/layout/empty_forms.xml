@@ -13,41 +13,46 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        >
+        android:padding="4dp">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="최신순"
             android:id="@+id/sort_new"
-            android:textColor="@color/white"
-            android:backgroundTint= "@drawable/button_selector"
-            />
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="마감순"
+            android:text="최신순"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="15dp"
+            android:layout_marginHorizontal="4dp"
+            android:textColor="@color/white"/>
+
+        <Button
             android:id="@+id/sort_dead"
-            android:textColor="@color/white"
-            android:backgroundTint= "@drawable/button_selector"/>
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="인기순"
+            android:text="마감순"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="15dp"
+            android:layout_marginHorizontal="4dp"
+            android:textColor="@color/white"/>
+
+
+        <Button
             android:id="@+id/sort_hot"
-            android:textColor="@color/white"
-            android:backgroundTint= "@drawable/button_selector"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="인기순"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="15dp"
+            android:layout_marginHorizontal="4dp"
+            android:textColor="@color/white"/>
+
     </LinearLayout>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

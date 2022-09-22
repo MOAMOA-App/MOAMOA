@@ -37,9 +37,6 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final TextView btnCtgy3;
 
   @NonNull
-  public final TextView btnCtgy4;
-
-  @NonNull
   public final GridView homeMyCategory;
 
   @NonNull
@@ -64,9 +61,6 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final RecyclerView listview3;
 
   @NonNull
-  public final RecyclerView listview4;
-
-  @NonNull
   public final FrameLayout notificationBtn;
 
   @NonNull
@@ -84,24 +78,19 @@ public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
   public final TextView textHome3;
 
-  @NonNull
-  public final TextView textHome4;
-
   private FragmentHomeBinding(@NonNull LinearLayout rootView, @NonNull TextView btnCtgy0,
       @NonNull TextView btnCtgy1, @NonNull TextView btnCtgy2, @NonNull TextView btnCtgy3,
-      @NonNull TextView btnCtgy4, @NonNull GridView homeMyCategory, @NonNull Toolbar homeToolbar,
-      @NonNull TextView homebarname, @NonNull AppBarLayout hometoolbar,
-      @NonNull RecyclerView listview0, @NonNull RecyclerView listview1,
-      @NonNull RecyclerView listview2, @NonNull RecyclerView listview3,
-      @NonNull RecyclerView listview4, @NonNull FrameLayout notificationBtn,
+      @NonNull GridView homeMyCategory, @NonNull Toolbar homeToolbar, @NonNull TextView homebarname,
+      @NonNull AppBarLayout hometoolbar, @NonNull RecyclerView listview0,
+      @NonNull RecyclerView listview1, @NonNull RecyclerView listview2,
+      @NonNull RecyclerView listview3, @NonNull FrameLayout notificationBtn,
       @NonNull FrameLayout searchBtn, @NonNull TextView textHome0, @NonNull TextView textHome1,
-      @NonNull TextView textHome2, @NonNull TextView textHome3, @NonNull TextView textHome4) {
+      @NonNull TextView textHome2, @NonNull TextView textHome3) {
     this.rootView = rootView;
     this.btnCtgy0 = btnCtgy0;
     this.btnCtgy1 = btnCtgy1;
     this.btnCtgy2 = btnCtgy2;
     this.btnCtgy3 = btnCtgy3;
-    this.btnCtgy4 = btnCtgy4;
     this.homeMyCategory = homeMyCategory;
     this.homeToolbar = homeToolbar;
     this.homebarname = homebarname;
@@ -110,14 +99,12 @@ public final class FragmentHomeBinding implements ViewBinding {
     this.listview1 = listview1;
     this.listview2 = listview2;
     this.listview3 = listview3;
-    this.listview4 = listview4;
     this.notificationBtn = notificationBtn;
     this.searchBtn = searchBtn;
     this.textHome0 = textHome0;
     this.textHome1 = textHome1;
     this.textHome2 = textHome2;
     this.textHome3 = textHome3;
-    this.textHome4 = textHome4;
   }
 
   @Override
@@ -171,12 +158,6 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btn_ctgy4;
-      TextView btnCtgy4 = ViewBindings.findChildViewById(rootView, id);
-      if (btnCtgy4 == null) {
-        break missingId;
-      }
-
       id = R.id.home_my_category;
       GridView homeMyCategory = ViewBindings.findChildViewById(rootView, id);
       if (homeMyCategory == null) {
@@ -225,12 +206,6 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.listview4;
-      RecyclerView listview4 = ViewBindings.findChildViewById(rootView, id);
-      if (listview4 == null) {
-        break missingId;
-      }
-
       id = R.id.notification_btn;
       FrameLayout notificationBtn = ViewBindings.findChildViewById(rootView, id);
       if (notificationBtn == null) {
@@ -267,16 +242,10 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.text_home4;
-      TextView textHome4 = ViewBindings.findChildViewById(rootView, id);
-      if (textHome4 == null) {
-        break missingId;
-      }
-
       return new FragmentHomeBinding((LinearLayout) rootView, btnCtgy0, btnCtgy1, btnCtgy2,
-          btnCtgy3, btnCtgy4, homeMyCategory, homeToolbar, homebarname, hometoolbar, listview0,
-          listview1, listview2, listview3, listview4, notificationBtn, searchBtn, textHome0,
-          textHome1, textHome2, textHome3, textHome4);
+          btnCtgy3, homeMyCategory, homeToolbar, homebarname, hometoolbar, listview0, listview1,
+          listview2, listview3, notificationBtn, searchBtn, textHome0, textHome1, textHome2,
+          textHome3);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

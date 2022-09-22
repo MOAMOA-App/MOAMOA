@@ -8,6 +8,10 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_10.png.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_10.png"
+    },
+    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_main.png.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_main.png"
     },
@@ -32,6 +36,10 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_listup.xml"
     },
     {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\menu_detailcreatorside_menu.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\menu\\detailcreatorside_menu.xml"
+    },
+    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_main_foreground.png.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_main_foreground.png"
     },
@@ -42,6 +50,10 @@
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_korea.png.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\korea.png"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_1.png.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_1.png"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_multi_image_item.xml.flat",
@@ -56,12 +68,28 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\recyclerview_chatlist.xml"
     },
     {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_filter_alt_24.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_filter_alt_24.xml"
+    },
+    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_switch_thumb.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\switch_thumb.xml"
     },
     {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_8.png.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_8.png"
+    },
+    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_google_login.png.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xhdpi\\ic_google_login.png"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_menu_24.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_menu_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_outline_spellcheck_24.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_outline_spellcheck_24.xml"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_category_edit_style.xml.flat",
@@ -88,24 +116,24 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\homelistview.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_notifications.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_notifications.xml"
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_formdetail_button_style.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\formdetail_button_style.xml"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_naver_square_icon.png.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\naver_square_icon.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_formdetail_button_style.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\formdetail_button_style.xml"
-    },
-    {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_add_to_photos_24.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_add_to_photos_24.xml"
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_notifications.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_notifications.xml"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_profileimage.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\profileimage.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_add_to_photos_24.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_add_to_photos_24.xml"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_category.xml.flat",
@@ -114,6 +142,10 @@
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_setting.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\setting.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_0.png.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_0.png"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_addressapi.xml.flat",
@@ -130,6 +162,10 @@
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_favorite_border_24.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_favorite_border_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_7.png.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_7.png"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_google_login.png.flat",
@@ -162,6 +198,10 @@
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_empty_forms.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\empty_forms.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_formchange.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_formchange.xml"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_photo.xml.flat",
@@ -214,6 +254,10 @@
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_border.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\border.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_11.png.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_11.png"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_google_login_foreground.png.flat",
@@ -276,6 +320,14 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\check_login.xml"
     },
     {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_2.png.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_2.png"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_round_border_style.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\round_border_style.xml"
+    },
+    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\menu_bottom_nav_menu.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\menu\\bottom_nav_menu.xml"
     },
@@ -284,12 +336,12 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\nav_selector_color.xml"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_google_login_round.png.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-mdpi\\ic_google_login_round.png"
-    },
-    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_phone.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_phone.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_google_login_round.png.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-mdpi\\ic_google_login_round.png"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_mypage_top_border.xml.flat",
@@ -314,6 +366,10 @@
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_recyclerview_notifications.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\recyclerview_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_5.png.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_5.png"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_main_foreground.png.flat",
@@ -360,6 +416,10 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_google_login.png"
     },
     {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_4.png.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_4.png"
+    },
+    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_main.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_main.xml"
     },
@@ -378,6 +438,10 @@
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_main.png.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-xhdpi\\ic_main.png"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_translate_24.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_translate_24.xml"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_nickname.xml.flat",
@@ -416,6 +480,10 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\edit_border.xml"
     },
     {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_map.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\activity_map.xml"
+    },
+    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_category_style.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\category_style.xml"
     },
@@ -448,6 +516,10 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\menu\\category_actionbar.xml"
     },
     {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_3.png.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_3.png"
+    },
+    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_switch_selector.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\switch_selector.xml"
     },
@@ -460,6 +532,10 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-mdpi\\ic_main.png"
     },
     {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_recyclerview_chats_userinfo.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\recyclerview_chats_userinfo.xml"
+    },
+    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_full_heart.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\full_heart.xml"
     },
@@ -468,8 +544,16 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\check_myinfo.xml"
     },
     {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_exit_to_app_24.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_exit_to_app_24.xml"
+    },
+    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_listup.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\listup.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_outline_photo_24.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_outline_photo_24.xml"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_google_login.xml.flat",
@@ -488,12 +572,12 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\mipmap-hdpi\\ic_google_login_round.png"
     },
     {
-        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_category_btn_design.xml.flat",
-        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\category_btn_design.xml"
-    },
-    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_state_0.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\state_0.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_category_btn_design.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\category_btn_design.xml"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_formdetail_heart_layer.xml.flat",
@@ -524,6 +608,10 @@
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\menu\\chatdrawer.xml"
     },
     {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_6.png.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_6.png"
+    },
+    {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_category.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_category.xml"
     },
@@ -538,6 +626,10 @@
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_login.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_send_24.xml.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\ic_baseline_send_24.xml"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_chatlist.xml.flat",
@@ -590,6 +682,10 @@
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_category_mybtn_design.xml.flat",
         "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\layout\\category_mybtn_design.xml"
+    },
+    {
+        "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\drawable_c_9.png.flat",
+        "source": "C:\\Users\\MOAMOA\\app\\src\\main\\res\\drawable\\c_9.png"
     },
     {
         "merged": "C:\\Users\\MOAMOA\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_register.xml.flat",

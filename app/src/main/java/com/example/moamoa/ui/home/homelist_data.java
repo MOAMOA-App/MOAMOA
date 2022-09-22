@@ -49,7 +49,7 @@ public class homelist_data {
 
     public void setCost(String cost){this.cost = cost; }
 
-    public void setMans(String mans){this.mans = mans; }
+    public void setMans(String mans){this.mans = mans; };
 
     public void setFID(String FID){this.FID = FID; }
 

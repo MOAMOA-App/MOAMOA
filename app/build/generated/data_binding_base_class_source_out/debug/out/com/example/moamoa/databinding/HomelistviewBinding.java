@@ -21,33 +21,43 @@ public final class HomelistviewBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final TextView FID;
+  public final TextView homelistCategory;
 
   @NonNull
-  public final TextView UID;
+  public final TextView homelistCost;
 
   @NonNull
-  public final ImageView mainImage;
+  public final TextView homelistFID;
 
   @NonNull
-  public final TextView mans;
+  public final TextView homelistLocation;
 
   @NonNull
-  public final TextView name;
+  public final ImageView homelistMainImage;
 
   @NonNull
-  public final TextView title;
+  public final TextView homelistMans;
 
-  private HomelistviewBinding(@NonNull LinearLayout rootView, @NonNull TextView FID,
-      @NonNull TextView UID, @NonNull ImageView mainImage, @NonNull TextView mans,
-      @NonNull TextView name, @NonNull TextView title) {
+  @NonNull
+  public final TextView homelistTitle;
+
+  @NonNull
+  public final TextView homelistUID;
+
+  private HomelistviewBinding(@NonNull LinearLayout rootView, @NonNull TextView homelistCategory,
+      @NonNull TextView homelistCost, @NonNull TextView homelistFID,
+      @NonNull TextView homelistLocation, @NonNull ImageView homelistMainImage,
+      @NonNull TextView homelistMans, @NonNull TextView homelistTitle,
+      @NonNull TextView homelistUID) {
     this.rootView = rootView;
-    this.FID = FID;
-    this.UID = UID;
-    this.mainImage = mainImage;
-    this.mans = mans;
-    this.name = name;
-    this.title = title;
+    this.homelistCategory = homelistCategory;
+    this.homelistCost = homelistCost;
+    this.homelistFID = homelistFID;
+    this.homelistLocation = homelistLocation;
+    this.homelistMainImage = homelistMainImage;
+    this.homelistMans = homelistMans;
+    this.homelistTitle = homelistTitle;
+    this.homelistUID = homelistUID;
   }
 
   @Override
@@ -77,44 +87,57 @@ public final class HomelistviewBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.FID;
-      TextView FID = ViewBindings.findChildViewById(rootView, id);
-      if (FID == null) {
+      id = R.id.homelist_category;
+      TextView homelistCategory = ViewBindings.findChildViewById(rootView, id);
+      if (homelistCategory == null) {
         break missingId;
       }
 
-      id = R.id.UID;
-      TextView UID = ViewBindings.findChildViewById(rootView, id);
-      if (UID == null) {
+      id = R.id.homelist_cost;
+      TextView homelistCost = ViewBindings.findChildViewById(rootView, id);
+      if (homelistCost == null) {
         break missingId;
       }
 
-      id = R.id.mainImage;
-      ImageView mainImage = ViewBindings.findChildViewById(rootView, id);
-      if (mainImage == null) {
+      id = R.id.homelist_FID;
+      TextView homelistFID = ViewBindings.findChildViewById(rootView, id);
+      if (homelistFID == null) {
         break missingId;
       }
 
-      id = R.id.mans;
-      TextView mans = ViewBindings.findChildViewById(rootView, id);
-      if (mans == null) {
+      id = R.id.homelist_location;
+      TextView homelistLocation = ViewBindings.findChildViewById(rootView, id);
+      if (homelistLocation == null) {
         break missingId;
       }
 
-      id = R.id.name;
-      TextView name = ViewBindings.findChildViewById(rootView, id);
-      if (name == null) {
+      id = R.id.homelist_mainImage;
+      ImageView homelistMainImage = ViewBindings.findChildViewById(rootView, id);
+      if (homelistMainImage == null) {
         break missingId;
       }
 
-      id = R.id.title;
-      TextView title = ViewBindings.findChildViewById(rootView, id);
-      if (title == null) {
+      id = R.id.homelist_mans;
+      TextView homelistMans = ViewBindings.findChildViewById(rootView, id);
+      if (homelistMans == null) {
         break missingId;
       }
 
-      return new HomelistviewBinding((LinearLayout) rootView, FID, UID, mainImage, mans, name,
-          title);
+      id = R.id.homelist_title;
+      TextView homelistTitle = ViewBindings.findChildViewById(rootView, id);
+      if (homelistTitle == null) {
+        break missingId;
+      }
+
+      id = R.id.homelist_UID;
+      TextView homelistUID = ViewBindings.findChildViewById(rootView, id);
+      if (homelistUID == null) {
+        break missingId;
+      }
+
+      return new HomelistviewBinding((LinearLayout) rootView, homelistCategory, homelistCost,
+          homelistFID, homelistLocation, homelistMainImage, homelistMans, homelistTitle,
+          homelistUID);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

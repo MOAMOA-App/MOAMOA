@@ -34,10 +34,13 @@ public final class FragmentDashboardBinding implements ViewBinding {
   public final EditText address;
 
   @NonNull
-  public final Button buttonDashboard;
+  public final EditText addressDetail;
 
   @NonNull
-  public final Button buttonImg;
+  public final Button buttonAddr;
+
+  @NonNull
+  public final Button buttonDashboard;
 
   @NonNull
   public final Button buttonImgs;
@@ -47,6 +50,9 @@ public final class FragmentDashboardBinding implements ViewBinding {
 
   @NonNull
   public final EditText cost;
+
+  @NonNull
+  public final LinearLayout dashboard;
 
   @NonNull
   public final TextView dashboardbarname;
@@ -100,8 +106,9 @@ public final class FragmentDashboardBinding implements ViewBinding {
   public final Toolbar toolbar;
 
   private FragmentDashboardBinding(@NonNull LinearLayout rootView, @NonNull EditText address,
-      @NonNull Button buttonDashboard, @NonNull Button buttonImg, @NonNull Button buttonImgs,
-      @NonNull CheckBox checkBox, @NonNull EditText cost, @NonNull TextView dashboardbarname,
+      @NonNull EditText addressDetail, @NonNull Button buttonAddr, @NonNull Button buttonDashboard,
+      @NonNull Button buttonImgs, @NonNull CheckBox checkBox, @NonNull EditText cost,
+      @NonNull LinearLayout dashboard, @NonNull TextView dashboardbarname,
       @NonNull AppBarLayout dashboardtoolbar, @NonNull ImageView imageView,
       @NonNull EditText maxCount, @NonNull TextView numForm, @NonNull GridView photoDash,
       @NonNull RadioButton radioButton1, @NonNull RadioButton radioButton2,
@@ -111,11 +118,13 @@ public final class FragmentDashboardBinding implements ViewBinding {
       @NonNull TextView textDashboardstart, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.address = address;
+    this.addressDetail = addressDetail;
+    this.buttonAddr = buttonAddr;
     this.buttonDashboard = buttonDashboard;
-    this.buttonImg = buttonImg;
     this.buttonImgs = buttonImgs;
     this.checkBox = checkBox;
     this.cost = cost;
+    this.dashboard = dashboard;
     this.dashboardbarname = dashboardbarname;
     this.dashboardtoolbar = dashboardtoolbar;
     this.imageView = imageView;
@@ -168,15 +177,21 @@ public final class FragmentDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.button_dashboard;
-      Button buttonDashboard = ViewBindings.findChildViewById(rootView, id);
-      if (buttonDashboard == null) {
+      id = R.id.address_detail;
+      EditText addressDetail = ViewBindings.findChildViewById(rootView, id);
+      if (addressDetail == null) {
         break missingId;
       }
 
-      id = R.id.button_img;
-      Button buttonImg = ViewBindings.findChildViewById(rootView, id);
-      if (buttonImg == null) {
+      id = R.id.button_addr;
+      Button buttonAddr = ViewBindings.findChildViewById(rootView, id);
+      if (buttonAddr == null) {
+        break missingId;
+      }
+
+      id = R.id.button_dashboard;
+      Button buttonDashboard = ViewBindings.findChildViewById(rootView, id);
+      if (buttonDashboard == null) {
         break missingId;
       }
 
@@ -197,6 +212,8 @@ public final class FragmentDashboardBinding implements ViewBinding {
       if (cost == null) {
         break missingId;
       }
+
+      LinearLayout dashboard = (LinearLayout) rootView;
 
       id = R.id.dashboardbarname;
       TextView dashboardbarname = ViewBindings.findChildViewById(rootView, id);
@@ -300,10 +317,11 @@ public final class FragmentDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentDashboardBinding((LinearLayout) rootView, address, buttonDashboard,
-          buttonImg, buttonImgs, checkBox, cost, dashboardbarname, dashboardtoolbar, imageView,
-          maxCount, numForm, photoDash, radioButton1, radioButton2, radioButton3, radioGroup,
-          recyclerView, spinner, subject, text, textDashboardend, textDashboardstart, toolbar);
+      return new FragmentDashboardBinding((LinearLayout) rootView, address, addressDetail,
+          buttonAddr, buttonDashboard, buttonImgs, checkBox, cost, dashboard, dashboardbarname,
+          dashboardtoolbar, imageView, maxCount, numForm, photoDash, radioButton1, radioButton2,
+          radioButton3, radioGroup, recyclerView, spinner, subject, text, textDashboardend,
+          textDashboardstart, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

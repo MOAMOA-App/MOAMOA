@@ -251,7 +251,7 @@ public class HomeFragment extends Fragment {
                                     String cost      = fileSnapshot.child("cost").getValue().toString();
                                     InitializeFormData(i,Key,image,subject,UID,parti_num+"/"+max_count,category, location, cost);
                                     count++;
-                                }
+                                };
                             }
                         }
                     }

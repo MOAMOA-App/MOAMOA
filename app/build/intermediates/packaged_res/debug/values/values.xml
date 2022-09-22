@@ -14,10 +14,32 @@
         <item>기타</item>
         <item>해외</item>
     </string-array>
+    <string-array name="category_dash">
+        <item>식품</item>
+        <item>생활</item>
+        <item>의류</item>
+        <item>가전</item>
+        <item>취미</item>
+        <item>운동</item>
+        <item>굿즈</item>
+        <item>동물</item>
+        <item>기타</item>
+        <item>해외</item>
+    </string-array>
     <string-array name="searchoption">
         <item>제목</item>
         <item>제목+내용</item>
-        <item>사용자 이름</item>
+        <item>작성자 이름</item>
+    </string-array>
+    <string-array name="selectlanguage">
+        <item>한국어</item>
+        <item>영어</item>
+        <item>중국어</item>
+    </string-array>
+    <string-array name="sortstd">
+        <item>최신순</item>
+        <item>인기순</item>
+        <item>마감순</item>
     </string-array>
     <string-array name="spinner_region">
         <item>서울특별시</item>
@@ -819,14 +841,13 @@
         <item>울주군</item>
         <item>중구</item>
     </string-array>
-    <string-array name="test">
-        <item>식품</item>
-        <item>의류</item>
-        <item>생활용품</item>
-        <item>취미</item>
-        <item>기타</item>
+    <string-array name="state">
+        <item>모집중</item>
+        <item>진행중</item>
+        <item>거래 완료</item>
     </string-array>
     <color name="black">#000000</color>
+    <color name="dark_gray">#4C4C4C</color>
     <color name="gray">#8c8c8c</color>
     <color name="kakao">#FEE500</color>
     <color name="light_gray">#EAEAEA</color>
@@ -837,7 +858,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-    <string name="app_name">MOAMOA</string>
+    <string name="app_name">모아모아</string>
+    <string name="default_notification_channel_id">Channel ID</string>
     <string name="default_web_client_id" translatable="false">170210186260-4ge1o7dh207etiubbhubk002h10mpats.apps.googleusercontent.com</string>
     <string name="exitchats">채팅방 나가기</string>
     <string name="firebase_database_url" translatable="false">https://moamoa-e391d-default-rtdb.firebaseio.com</string>
@@ -849,6 +871,9 @@
     <string name="kakao_app_key">1ffe313e2b6c001fbbd0f795eedfc0be</string>
     <string name="participants">참여자</string>
     <string name="project_id" translatable="false">moamoa-e391d</string>
+    <string name="search_selectcat">카테고리</string>
+    <string name="search_selectstate">진행 상태</string>
+    <string name="search_sortstd">정렬 기준</string>
     <string name="selectlanguage">언어 선택</string>
     <string name="server_ip">54.183.248.140:8080</string>
     <string name="tab_text1_1">전체</string>
@@ -859,6 +884,7 @@
     <string name="tab_text1_6">취미</string>
     <string name="tab_text1_7">기타</string>
     <string name="tab_text_1">참가 중</string>
+    <string name="tab_text_1_new">거래 진행 중</string>
     <string name="tab_text_2">진행 중</string>
     <string name="tab_text_3">거래 완료</string>
     <string name="tab_text_4">모집 중</string>
@@ -867,7 +893,7 @@
     <string name="title_activity_listup">ListupActivity</string>
     <string name="title_category">카테고리</string>
     <string name="title_category1">카테고리</string>
-    <string name="title_chatlist">채팅이력</string>
+    <string name="title_chatlist">대화 목록</string>
     <string name="title_chats">채팅</string>
     <string name="title_dashboard">글쓰기</string>
     <string name="title_formdetail">폼 상세</string>
@@ -875,6 +901,12 @@
     <string name="title_home">홈</string>
     <string name="title_my_page">마이페이지</string>
     <string name="title_notifications">알람</string>
+    <style name="AlertDialog">
+
+    </style>
+    <style name="PopupMenu">
+
+    </style>
     <style name="Theme.MOAMOA" parent="Theme.AppCompat.Light">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/white</item>

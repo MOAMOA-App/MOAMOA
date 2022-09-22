@@ -32,8 +32,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
 
-                android:text="내 정보"
-                android:textSize="20sp"/>
+                android:text="마이페이지"
+                android:textSize="20sp" />
         </RelativeLayout>
 
     </com.google.android.material.appbar.AppBarLayout>

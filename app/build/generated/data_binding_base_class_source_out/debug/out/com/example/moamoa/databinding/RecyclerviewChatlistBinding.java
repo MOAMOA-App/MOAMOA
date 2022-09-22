@@ -21,6 +21,9 @@ public final class RecyclerviewChatlistBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final TextView chatLastsendtime;
+
+  @NonNull
   public final TextView chatRecent;
 
   @NonNull
@@ -35,10 +38,12 @@ public final class RecyclerviewChatlistBinding implements ViewBinding {
   @NonNull
   public final LinearLayout chatlistunit;
 
-  private RecyclerviewChatlistBinding(@NonNull LinearLayout rootView, @NonNull TextView chatRecent,
+  private RecyclerviewChatlistBinding(@NonNull LinearLayout rootView,
+      @NonNull TextView chatLastsendtime, @NonNull TextView chatRecent,
       @NonNull TextView chatUsername, @NonNull ImageView chatlistImage,
       @NonNull TextView chatlistnum, @NonNull LinearLayout chatlistunit) {
     this.rootView = rootView;
+    this.chatLastsendtime = chatLastsendtime;
     this.chatRecent = chatRecent;
     this.chatUsername = chatUsername;
     this.chatlistImage = chatlistImage;
@@ -73,6 +78,12 @@ public final class RecyclerviewChatlistBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.chat_lastsendtime;
+      TextView chatLastsendtime = ViewBindings.findChildViewById(rootView, id);
+      if (chatLastsendtime == null) {
+        break missingId;
+      }
+
       id = R.id.chat_recent;
       TextView chatRecent = ViewBindings.findChildViewById(rootView, id);
       if (chatRecent == null) {
@@ -103,8 +114,8 @@ public final class RecyclerviewChatlistBinding implements ViewBinding {
         break missingId;
       }
 
-      return new RecyclerviewChatlistBinding((LinearLayout) rootView, chatRecent, chatUsername,
-          chatlistImage, chatlistnum, chatlistunit);
+      return new RecyclerviewChatlistBinding((LinearLayout) rootView, chatLastsendtime, chatRecent,
+          chatUsername, chatlistImage, chatlistnum, chatlistunit);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -4,7 +4,6 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -13,6 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
+import de.hdodenhof.circleimageview.CircleImageView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -40,7 +40,7 @@ public final class RecyclerviewChatsBinding implements ViewBinding {
   public final LinearLayout messageLine;
 
   @NonNull
-  public final ImageView profileImage;
+  public final CircleImageView profileImage;
 
   @NonNull
   public final TextView sendedTime;
@@ -49,7 +49,7 @@ public final class RecyclerviewChatsBinding implements ViewBinding {
       @NonNull LinearLayout LinearChatmsg, @NonNull CardView chatCardview,
       @NonNull TextView chatMsg, @NonNull TextView chatNickname,
       @NonNull LinearLayout chattingLayout, @NonNull LinearLayout messageLine,
-      @NonNull ImageView profileImage, @NonNull TextView sendedTime) {
+      @NonNull CircleImageView profileImage, @NonNull TextView sendedTime) {
     this.rootView = rootView;
     this.LinearChatmsg = LinearChatmsg;
     this.chatCardview = chatCardview;
@@ -121,7 +121,7 @@ public final class RecyclerviewChatsBinding implements ViewBinding {
       }
 
       id = R.id.profile_image;
-      ImageView profileImage = ViewBindings.findChildViewById(rootView, id);
+      CircleImageView profileImage = ViewBindings.findChildViewById(rootView, id);
       if (profileImage == null) {
         break missingId;
       }

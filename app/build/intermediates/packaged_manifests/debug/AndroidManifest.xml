@@ -12,6 +12,13 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <queries>
@@ -40,7 +47,16 @@
         </intent>
     </queries>
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 
@@ -50,20 +66,29 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/ic_main"
-        android:label="모아모아"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_main"
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.MOAMOA"
         android:usesCleartextTraffic="true" >
         <meta-data
+            android:name="xjdzzwh9wk"
+            android:value="qQ7H0N5M4ZQLzBYyIdCtzzmIVPqQjpb6TsIUxHix" />
+        <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
 
         <activity
             android:name="com.example.moamoa.MainActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true" />
+        <activity
+            android:name="com.example.moamoa.ui.formdetail.FormChangeActivity"
+            android:label="게시글 수정" />
         <activity
             android:name="com.example.moamoa.ui.search.SearchActivity"
             android:exported="false"
@@ -100,6 +125,9 @@
         <activity
             android:name="com.example.moamoa.ui.category.CategoryActivity"
             android:label="카테고리" />
+        <activity
+            android:name="com.example.moamoa.ui.dashboard.MapActivity"
+            android:label="카테고리" />
         <activity android:name="com.example.moamoa.ui.formdetail.FormdetailActivity" />
         <activity
             android:name="com.example.moamoa.ui.mypage.EditMyinfo"
@@ -134,6 +162,20 @@
         <activity
             android:name="com.example.moamoa.ui.mypage.CustomDialog"
             android:theme="@android:style/Theme.Dialog" />
+        <!-- crop activity -->
+        <activity
+            android:name="com.soundcloud.android.crop.CropImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <service
+            android:name="com.example.moamoa.ui.notifications.MyFirebaseMessagingService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
         <!-- <activity -->
         <!-- android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity" -->
         <!-- android:configChanges="orientation|screenSize" -->
@@ -184,6 +226,21 @@
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:launchMode="singleTask"
             android:theme="@style/TransparentCompat" />
+        <activity
+            android:name="com.naver.maps.map.app.LegendActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:label="@string/navermap_legend"
+            android:theme="@style/navermap_app" />
+        <activity
+            android:name="com.naver.maps.map.app.LegalNoticeActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:label="@string/navermap_legal_notice"
+            android:theme="@style/navermap_app" />
+        <activity
+            android:name="com.naver.maps.map.app.OpenSourceLicenseActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:label="@string/navermap_open_source_license"
+            android:theme="@style/navermap_app" />
 
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"
@@ -203,6 +260,12 @@
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar"
@@ -265,6 +328,43 @@
             android:exported="true"
             android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
             android:visibleToInstantApps="true" />
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
+        <!--
+             FirebaseMessagingService performs security checks at runtime,
+             but set to not exported to explicitly avoid allowing another app to call it.
+        -->
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:directBootAware="true"
+            android:exported="false" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+            android:exported="false" >
+            <meta-data
+                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+                android:value="cct" />
+        </service>
+        <service
+            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" >
+        </service>
+
+        <receiver
+            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+            android:exported="false" />
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"

@@ -31,6 +31,9 @@ public final class FragmentMainBinding implements ViewBinding {
   public final ToggleButton heart;
 
   @NonNull
+  public final TextView listState;
+
+  @NonNull
   public final ImageView mainImage;
 
   @NonNull
@@ -40,23 +43,20 @@ public final class FragmentMainBinding implements ViewBinding {
   public final TextView name;
 
   @NonNull
-  public final TextView state;
-
-  @NonNull
   public final TextView title;
 
   private FragmentMainBinding(@NonNull LinearLayout rootView, @NonNull TextView FID,
-      @NonNull TextView charge, @NonNull ToggleButton heart, @NonNull ImageView mainImage,
-      @NonNull TextView mans, @NonNull TextView name, @NonNull TextView state,
+      @NonNull TextView charge, @NonNull ToggleButton heart, @NonNull TextView listState,
+      @NonNull ImageView mainImage, @NonNull TextView mans, @NonNull TextView name,
       @NonNull TextView title) {
     this.rootView = rootView;
     this.FID = FID;
     this.charge = charge;
     this.heart = heart;
+    this.listState = listState;
     this.mainImage = mainImage;
     this.mans = mans;
     this.name = name;
-    this.state = state;
     this.title = title;
   }
 
@@ -105,6 +105,12 @@ public final class FragmentMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.list_state;
+      TextView listState = ViewBindings.findChildViewById(rootView, id);
+      if (listState == null) {
+        break missingId;
+      }
+
       id = R.id.mainImage;
       ImageView mainImage = ViewBindings.findChildViewById(rootView, id);
       if (mainImage == null) {
@@ -123,20 +129,14 @@ public final class FragmentMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.state;
-      TextView state = ViewBindings.findChildViewById(rootView, id);
-      if (state == null) {
-        break missingId;
-      }
-
       id = R.id.title;
       TextView title = ViewBindings.findChildViewById(rootView, id);
       if (title == null) {
         break missingId;
       }
 
-      return new FragmentMainBinding((LinearLayout) rootView, FID, charge, heart, mainImage, mans,
-          name, state, title);
+      return new FragmentMainBinding((LinearLayout) rootView, FID, charge, heart, listState,
+          mainImage, mans, name, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

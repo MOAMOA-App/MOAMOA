@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="|"
-            android:paddingHorizontal="5dp"
+            android:paddingHorizontal="4dp"
             android:textColor="@color/cardview_dark_background"/>
         <TextView
             android:id="@+id/homelist_location"

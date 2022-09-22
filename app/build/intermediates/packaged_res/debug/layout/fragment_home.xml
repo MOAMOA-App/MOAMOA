@@ -93,8 +93,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="10dp"
-                    android:paddingLeft="10dp">
-
+                    android:paddingLeft="10dp"
+                    android:paddingBottom="5dp">
                     <TextView
                         android:id="@+id/text_home0"
                         android:layout_width="match_parent"
@@ -112,13 +112,14 @@
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"/>
                 </RelativeLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/listview0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
                     android:scrollbars="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:paddingTop="5dp" />
+                    app:layoutManager="LinearLayoutManager" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -130,7 +131,6 @@
                     android:layout_height="wrap_content"
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp">
-
                     <TextView
                         android:id="@+id/text_home3"
                         android:layout_width="match_parent"
@@ -154,16 +154,17 @@
                     android:orientation="horizontal"
                     android:numColumns="6"
                     android:columnWidth="50dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="2dp"
                     android:stretchMode="none"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="10dp"
+                    android:paddingBottom="5dp"/>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/listview3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scrollbars="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:paddingTop="5dp"/>
+                    app:layoutManager="LinearLayoutManager" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -174,8 +175,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="10dp"
-                    android:paddingLeft="10dp">
-
+                    android:paddingLeft="10dp"
+                    android:paddingBottom="5dp">
                     <TextView
                         android:id="@+id/text_home1"
                         android:layout_width="match_parent"
@@ -197,6 +198,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scrollbars="horizontal"
+                    app:stackFromEnd="true"
+                    app:reverseLayout="true"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:paddingTop="10dp"/>
             </LinearLayout>
@@ -210,8 +213,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="10dp"
-                    android:paddingLeft="10dp">
-
+                    android:paddingLeft="10dp"
+                    android:paddingBottom="5dp">
                     <TextView
                         android:id="@+id/text_home2"
                         android:layout_width="match_parent"
@@ -231,13 +234,15 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/listview2"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
                     android:scrollbars="horizontal"
+                    app:stackFromEnd="true"
+                    app:reverseLayout="true"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:paddingTop="5dp"/>
+                    android:paddingTop="10dp"/>
             </LinearLayout>
 
-            <LinearLayout
+            <!--LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -246,8 +251,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="10dp"
-                    android:paddingLeft="10dp">
-
+                    android:paddingLeft="10dp"
+                    android:paddingBottom="5dp">
                     <TextView
                         android:id="@+id/text_home4"
                         android:layout_width="match_parent"
@@ -271,7 +276,7 @@
                     android:scrollbars="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:paddingTop="5dp"/>
-            </LinearLayout>
+            </LinearLayout-->
         </LinearLayout>
 
     </ScrollView>

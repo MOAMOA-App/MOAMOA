@@ -15,7 +15,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginRight="10dp"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/round_border_style"/>
 
         <TextView
             android:id="@+id/FIDD"
@@ -51,7 +51,6 @@
                     android:layout_height="wrap_content"
                     android:padding="3dp"
                     android:text="관심"
-
                     android:textColor="#000000"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -59,7 +58,6 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="33dp">
-
                 <TextView
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
@@ -81,11 +79,10 @@
 
                 <TextView
                     android:id="@+id/mans"
-                    android:layout_width="91dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:padding="3dp"
                     android:text="01/10"
                     android:textAlignment="textEnd"
                     android:textColor="#000000"
