@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.moamoa.app-mergeDebugResources-55:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\f74f7ec9f344462a180f89410cfeec80\\transformed\\appcompat-1.4.2\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\454e2615e0c13d450256cf212f4307f0\\transformed\\appcompat-1.4.2\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\b64e8a9f6b0b237ad6cca1e3a9bc4c84\\transformed\\jetified-play-services-auth-20.2.0\\res\\values-watch-v20\\values.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\b1f1fbeaaf66773e3809c1c0a0834e2d\\transformed\\jetified-play-services-auth-20.2.0\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",
