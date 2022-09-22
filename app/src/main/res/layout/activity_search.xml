@@ -20,7 +20,8 @@
                 android:id="@+id/searchspinner"
                 android:layout_width="95dp"
                 android:layout_height="match_parent"
-                android:entries="@array/searchoption" />
+                android:entries="@array/searchoption"
+                android:textSize="14sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -31,7 +32,7 @@
                     android:id="@+id/searchWord"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
+                    android:textSize="15sp"
                     android:hint="검색어를 입력해주세요."
                     android:inputType="text" />
             </LinearLayout>
@@ -43,6 +44,7 @@
                 android:backgroundTint="@color/main_orange"
                 android:background="@drawable/ic_outline_search_24"
                 android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp"
                 />
 
         </LinearLayout>

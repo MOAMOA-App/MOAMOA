@@ -104,7 +104,6 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
         StorageReference pathReference = firebaseStorage.getReference(item.getImgName());
         Activity context = (Activity) viewHolder.img_main.getContext();
-        /*
         pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -114,7 +113,6 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
                         .into(viewHolder.img_main);
             }
         });
-        */
         //viewHolder.img_main.setImageResource();
         DatabaseReference mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
@@ -125,7 +123,7 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
         viewHolder.txt_mans.setText(item.getMans());
         viewHolder.txt_FID.setText(item.getFID());
         viewHolder.txt_location.setText(item.getLocation());
-        viewHolder.txt_cost.setText(item.getCost()+"원");;
+        viewHolder.txt_cost.setText(item.getCost()+"원");
 
     }
 

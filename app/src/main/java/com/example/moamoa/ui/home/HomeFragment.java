@@ -174,13 +174,12 @@ public class HomeFragment extends Fragment {
                     for (DataSnapshot fileSnapshot : result.getChildren() ) {
                         if(count<10 && fileSnapshot.child("active").getValue().toString().equals("0")
                                     && fileSnapshot.child("state").getValue().toString().equals("0")) {
-                            Log.e(""+i,fileSnapshot.child("active").getValue().toString());
                             String Key = fileSnapshot.getKey();
                             String subject = fileSnapshot.child("subject").getValue().toString();
                             String max_count = fileSnapshot.child("max_count").getValue().toString();
                             String UID = fileSnapshot.child("UID_dash").getValue().toString();
                             String parti_num = fileSnapshot.child("parti_num").getValue().toString();
-                            String image = fileSnapshot.child("image").getValue().toString();
+                            String image     = fileSnapshot.child("image").getValue().toString().replace(".png","_1.png");
                             String category = fileSnapshot.child("category_text").getValue().toString();
                             String location = fileSnapshot.child("address").getValue().toString();
                             String cost = fileSnapshot.child("cost").getValue().toString();
@@ -226,7 +225,7 @@ public class HomeFragment extends Fragment {
                                 String max_count = fileSnapshot.child("max_count").getValue().toString();
                                 String UID       = fileSnapshot.child("UID_dash").getValue().toString();
                                 String parti_num = fileSnapshot.child("parti_num").getValue().toString();
-                                String image     = fileSnapshot.child("image").getValue().toString();
+                                String image     = fileSnapshot.child("image").getValue().toString().replace(".png","_1.png");
                                 String category  = fileSnapshot.child("category_text").getValue().toString();
                                 String location  = fileSnapshot.child("address").getValue().toString();
                                 String cost      = fileSnapshot.child("cost").getValue().toString();
@@ -246,7 +245,7 @@ public class HomeFragment extends Fragment {
                                     String max_count = fileSnapshot.child("max_count").getValue().toString();
                                     String UID       = fileSnapshot.child("UID_dash").getValue().toString();
                                     String parti_num = fileSnapshot.child("parti_num").getValue().toString();
-                                    String image     = fileSnapshot.child("image").getValue().toString();
+                                    String image     = fileSnapshot.child("image").getValue().toString().replace(".png","_1.png");
                                     String location  = fileSnapshot.child("address").getValue().toString();
                                     String cost      = fileSnapshot.child("cost").getValue().toString();
                                     InitializeFormData(i,Key,image,subject,UID,parti_num+"/"+max_count,category, location, cost);

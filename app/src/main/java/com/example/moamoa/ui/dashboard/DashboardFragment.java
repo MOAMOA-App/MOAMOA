@@ -294,7 +294,7 @@ public class DashboardFragment extends Fragment {
                         address_edit.getText().toString(),
                         addr_co,
                         addr_detail_edit.getText().toString(),
-                        1,
+                        (Integer) category_text.getSelectedItem()+2,
                         Integer.parseInt(cost.getText().toString().replace(",","")),
                         max,
                         Integer.parseInt(dead),
