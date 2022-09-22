@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.moamoa.app-mergeDebugResources-55:/values-large-v4/values-large-v4.xml",
+            "outputFile": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\41d443433c94cf5215c401452d393fac\\transformed\\jetified-android-crop-1.0.1\\res\\values-large\\values-large.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\aac80a51f8a516974ce8183a57a9485b\\transformed\\jetified-android-crop-1.0.1\\res\\values-large\\values-large.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "4",
@@ -21,24 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\f74f7ec9f344462a180f89410cfeec80\\transformed\\appcompat-1.4.2\\res\\values-large-v4\\values-large-v4.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,114,185,256,326,396,464,532,636",
-                        "endColumns": "58,70,70,69,69,67,67,103,115",
-                        "endOffsets": "109,180,251,321,391,459,527,631,747"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,10,11",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,114,185,256,326,396,464,580,684",
-                        "endColumns": "58,70,70,69,69,67,67,103,115",
-                        "endOffsets": "109,180,251,321,391,459,527,679,795"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\3c5e7a650286e41e387a81a21e6291f4\\transformed\\material-1.6.1\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\c4ddcfbdbeda472b4394188a222f9ec6\\transformed\\material-1.6.1\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,10",
                         "startColumns": "4,4,4,4",
@@ -54,6 +37,23 @@
                         "endLines": "12,13,19,25",
                         "endColumns": "121,133,10,10",
                         "endOffsets": "917,1051,1492,1935"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\454e2615e0c13d450256cf212f4307f0\\transformed\\appcompat-1.4.2\\res\\values-large-v4\\values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,185,256,326,396,464,532,636",
+                        "endColumns": "58,70,70,69,69,67,67,103,115",
+                        "endOffsets": "109,180,251,321,391,459,527,631,747"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,10,11",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,185,256,326,396,464,580,684",
+                        "endColumns": "58,70,70,69,69,67,67,103,115",
+                        "endOffsets": "109,180,251,321,391,459,527,679,795"
                     }
                 }
             ]

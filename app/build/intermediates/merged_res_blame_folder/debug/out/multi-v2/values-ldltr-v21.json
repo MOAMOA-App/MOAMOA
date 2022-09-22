@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.moamoa.app-mergeDebugResources-55:/values-ldltr-v21/values-ldltr-v21.xml",
+            "outputFile": "C:\\Users\\user\\AndroidStudioProjects\\MOAMOA\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\f74f7ec9f344462a180f89410cfeec80\\transformed\\appcompat-1.4.2\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\454e2615e0c13d450256cf212f4307f0\\transformed\\appcompat-1.4.2\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
