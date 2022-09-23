@@ -214,6 +214,7 @@ public class HomeFragment extends Fragment {
             if(my_list[x]) list.add(x);
         }
         Query reference = mDatabase.getReference().child("form").orderByChild("active").endAt(0);
+
         reference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -225,21 +226,7 @@ public class HomeFragment extends Fragment {
                     DataSnapshot result = task.getResult();
                     int count=0;
                     if(list.isEmpty()){
-                        for (DataSnapshot fileSnapshot : result.getChildren() ) {
-                            if(count<10 && fileSnapshot.child("state").getValue().toString().equals("0")){
-                                String Key = fileSnapshot.getKey();
-                                String subject = fileSnapshot.child("subject").getValue().toString();
-                                String max_count = fileSnapshot.child("max_count").getValue().toString();
-                                String UID = fileSnapshot.child("UID_dash").getValue().toString();
-                                String parti_num = fileSnapshot.child("parti_num").getValue().toString();
-                                String image     = fileSnapshot.child("image").getValue().toString().replace(".png","_1.png");
-                                String category = fileSnapshot.child("category_text").getValue().toString();
-                                String location = fileSnapshot.child("address").getValue().toString();
-                                int dead = Integer.parseInt(fileSnapshot.child("deadline").getValue().toString())-GetTimeStart();
-                                InitializeFormData(i, Key, image, subject, UID, parti_num , max_count, category, location, dead);
-                                count++;
-                            }
-                        }
+                        GetOrderByreference(reference,3);
                     }else{
                         for (DataSnapshot fileSnapshot : result.getChildren() ) {
                             String category = fileSnapshot.child("category_text").getValue().toString();
@@ -258,6 +245,9 @@ public class HomeFragment extends Fragment {
                                     count++;
                                 };
                             }
+                        }
+                        if(count==0){
+                            GetOrderByreference(reference,3);
                         }
                     }
                 }

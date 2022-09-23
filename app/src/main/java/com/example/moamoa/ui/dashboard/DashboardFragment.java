@@ -302,7 +302,7 @@ public class DashboardFragment extends Fragment {
                         address_edit.getText().toString(),
                         addr_co,
                         addr_detail_edit.getText().toString(),
-                        category_int+2,
+                        category_int,
                         Integer.parseInt(cost.getText().toString().replace(",","")),
                         max,
                         Integer.parseInt(dead),
