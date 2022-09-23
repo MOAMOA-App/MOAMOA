@@ -124,13 +124,13 @@ public class CustomListView extends BaseAdapter {
         DecimalFormat myFormatter = new DecimalFormat("###,###");
         charge.setText(myFormatter.format(listViewData.get(position).cost)+"원");
         state.setText("["+state_temp+"]");
-        mans.setText(listViewData.get(position).parti_num+"/"+listViewData.get(position).max_count);
-
-        // String x = listViewData.get(position).deadline.substring(0,4)+"/"+listViewData.get(position).deadline.substring(4,6)+"/"+listViewData.get(position).deadline.substring(6,8);
-        //mans.setText(x);
+        if((listViewData.get(position).max_count + "").equals("1000")){
+            mans.setText("∞");
+        }else{
+            mans.setText(listViewData.get(position).parti_num+"/"+listViewData.get(position).max_count);
+        }
 
         //listview와 버튼 클릭 다르게 주기
-
         ToggleButton button = convertView.findViewById(R.id.heart);
         FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).addValueEventListener(new ValueEventListener() {
             @Override

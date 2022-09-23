@@ -3,6 +3,7 @@ package com.example.moamoa.ui.home;
 import android.app.Activity;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -98,6 +100,7 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
 
     // Replace the contents of a view (invoked by the layout manager)
     // position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         homelist_data item = arrayList.get(position);
@@ -126,14 +129,15 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
         switch(item.getDead()){
             case 0:
                 viewHolder.txt_dead.setText("마감임박");
+                viewHolder.txt_dead.setTextAppearance(R.style.DEADLINE_boldText);
                 break;
             case 1:
             case 2:
             case 3:
-                viewHolder.txt_dead.setText(item.getDead()+"일 뒤");
+                viewHolder.txt_dead.setText(item.getDead()+"일 뒤 마감");
                 break;
             default:
-                viewHolder.txt_dead.setText("D-"+item.getDead());
+                viewHolder.txt_dead.setText(item.getDead()+"일 뒤 마감");
                 viewHolder.txt_dead.setTextColor(Color.parseColor("#000000"));
                 break;
         }
