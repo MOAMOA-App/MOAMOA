@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /*
 * 지도*/
@@ -73,9 +74,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v){
                 str=adr.getText().toString();
-                List<Address> addressList = null;
-                Log.e("str",str);
-                if(str == ""){
+                List addressList = null;
+                if(Objects.equals(str, "")){
                     Toast.makeText(getApplicationContext(), "검색어를 입력해주세요", Toast.LENGTH_SHORT).show();
                 }else{
                     try {
@@ -85,7 +85,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     catch (IOException e) {
                         e.printStackTrace();
                     }
-                    if(addressList==null){
+                    Log.e("address",addressList+"");
+                    if(addressList.isEmpty()){
                         Toast.makeText(getApplicationContext(), "검색 결과를 찾을 수 없습니다.", Toast.LENGTH_SHORT).show();
                     }else{
                         // 콤마를 기준으로 split

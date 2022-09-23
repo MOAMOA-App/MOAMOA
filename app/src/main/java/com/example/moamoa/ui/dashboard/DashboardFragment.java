@@ -284,6 +284,14 @@ public class DashboardFragment extends Fragment {
                 }
 
                 String dead = (deadline.getText().toString().substring(0,4))+deadline.getText().toString().substring(5,7)+deadline.getText().toString().substring(8,10).toString();
+
+                String[] cat = getResources().getStringArray(R.array.category);
+                String temp = (String) category_text.getSelectedItem();
+                int category_int = 0;
+                for (i=0;i<cat.length;i++) {
+                    if(cat[i].equals(temp)) category_int=i;
+                }
+
                 Form form = new Form(
                         FID,
                         user.getUid(),
@@ -294,7 +302,7 @@ public class DashboardFragment extends Fragment {
                         address_edit.getText().toString(),
                         addr_co,
                         addr_detail_edit.getText().toString(),
-                        (Integer) category_text.getSelectedItem()+2,
+                        category_int+2,
                         Integer.parseInt(cost.getText().toString().replace(",","")),
                         max,
                         Integer.parseInt(dead),

@@ -164,7 +164,6 @@ public class HomeFragment extends Fragment {
         tmp.setCategory(category);
         tmp.setLocation(location);
         tmp.setDead(dead);
-        Log.e("dead",dead+"");
         homelist[i].add(tmp);
 
     }

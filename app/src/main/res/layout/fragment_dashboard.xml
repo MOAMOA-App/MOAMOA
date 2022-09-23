@@ -208,9 +208,10 @@
                 android:id="@+id/address"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:minWidth="250dp"
                 android:hint="거래 장소"
                 android:textSize="16dp"
-                android:gravity="center"
+                android:gravity="left|center"
                 android:background="@null"/>
             <View
                 android:layout_width="0dp"
