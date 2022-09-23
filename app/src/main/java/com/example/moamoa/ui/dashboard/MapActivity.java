@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -73,36 +74,45 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             public void onClick(View v){
                 str=adr.getText().toString();
                 List<Address> addressList = null;
-                try {
-                    // editText에 입력한 텍스트(주소, 지역, 장소 등)을 지오 코딩을 이용해 변환
-                    addressList = geocoder.getFromLocationName(
-                            str, // 주소
-                            10); // 최대 검색 결과 개수
+                Log.e("str",str);
+                if(str == ""){
+                    Toast.makeText(getApplicationContext(), "검색어를 입력해주세요", Toast.LENGTH_SHORT).show();
+                }else{
+                    try {
+                        // editText에 입력한 텍스트(주소, 지역, 장소 등)을 지오 코딩을 이용해 변환
+                        addressList = geocoder.getFromLocationName(
+                                str, // 주소
+                                10); // 최대 검색 결과 개수
+                    }
+                    catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    if(addressList==null){
+                        Toast.makeText(getApplicationContext(), "검색 결과를 찾을 수 없습니다.", Toast.LENGTH_SHORT).show();
+                    }else{
+                        // 콤마를 기준으로 split
+                        String []splitStr = addressList.get(0).toString().split(",");
+                        address = splitStr[0].substring(splitStr[0].indexOf("\"") + 1,splitStr[0].length() - 2); // 주소
+                        System.out.println(address);
+
+                        String latitude = splitStr[splitStr.length-6].substring(splitStr[splitStr.length-6].indexOf("=") + 1); // 위도
+                        String longitude = splitStr[splitStr.length-4].substring(splitStr[splitStr.length-4].indexOf("=") + 1); // 경도
+
+                        Log.d("MainActivity", "vv: " + latitude);
+                        Log.d("MainActivity", "vv: " + longitude);
+                        address_s=latitude+","+longitude;
+                        // 좌표(위도, 경도) 생성
+                        LatLng point = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
+                        // 마커 생성
+                        marker.setPosition(point);
+                        marker.setMap(naverMap);
+                        // 해당 좌표로 화면 줌
+                        CameraPosition cameraPosition = new CameraPosition(point, 16);
+                        naverMap.setCameraPosition(cameraPosition);
+                    }
+
                 }
-                catch (IOException e) {
-                    e.printStackTrace();
-                }
 
-                System.out.println(addressList.get(0).toString());
-                // 콤마를 기준으로 split
-                String []splitStr = addressList.get(0).toString().split(",");
-                address = splitStr[0].substring(splitStr[0].indexOf("\"") + 1,splitStr[0].length() - 2); // 주소
-                System.out.println(address);
-
-                String latitude = splitStr[splitStr.length-6].substring(splitStr[splitStr.length-6].indexOf("=") + 1); // 위도
-                String longitude = splitStr[splitStr.length-4].substring(splitStr[splitStr.length-4].indexOf("=") + 1); // 경도
-
-                Log.d("MainActivity", "vv: " + latitude);
-                Log.d("MainActivity", "vv: " + longitude);
-                address_s=latitude+","+longitude;
-            // 좌표(위도, 경도) 생성
-                LatLng point = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
-                // 마커 생성
-                marker.setPosition(point);
-                marker.setMap(naverMap);
-                // 해당 좌표로 화면 줌
-                CameraPosition cameraPosition = new CameraPosition(point, 16);
-                naverMap.setCameraPosition(cameraPosition);
             }
         });
 

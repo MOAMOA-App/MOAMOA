@@ -123,7 +123,6 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
         viewHolder.txt_mans.setText(item.getMans());
         viewHolder.txt_FID.setText(item.getFID());
         viewHolder.txt_location.setText(item.getLocation());
-        Log.e("dead",item.getDead()+"");
         switch(item.getDead()){
             case 0:
                 viewHolder.txt_dead.setText("마감임박");
