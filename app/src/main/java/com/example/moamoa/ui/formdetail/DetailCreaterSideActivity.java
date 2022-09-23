@@ -25,7 +25,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -48,8 +50,9 @@ public class DetailCreaterSideActivity extends Activity {
     private FirebaseUser user;
 
     private String image;
-    private String temp;
     private int count;
+    String FID;
+    String FUID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -59,10 +62,16 @@ public class DetailCreaterSideActivity extends Activity {
         user        = FirebaseAuth.getInstance().getCurrentUser();
         firebaseStorage = FirebaseStorage.getInstance();
         Intent intent = getIntent();
-        temp = intent.getStringExtra("FID");
+        FID = intent.getStringExtra("FID");
 
-        //게시글 내용 채우기 함수
-        printpage();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("form").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+           @Override
+           public void onComplete(@NonNull Task<DataSnapshot> task) {
+               FUID = task.getResult().child("UID_dash").getValue().toString();
+               printpage();
+           }
+       });
         //버튼 선언
         Button notice_btn    = (Button)findViewById(R.id.creator_notice);       //채팅하기 버튼
         Button showparty_btn = (Button)findViewById(R.id.creator_showparty); //참여하기 버튼
@@ -88,7 +97,7 @@ public class DetailCreaterSideActivity extends Activity {
                                 Log.e("popup","수정하기");
                                 Intent intent1 = new Intent(DetailCreaterSideActivity.this, FormChangeActivity.class);
                                 intent1.putExtra("FID", intent.getStringExtra("FID"));
-                                intent1.putExtra(("UID_dash"),temp);
+                                intent1.putExtra(("UID_dash"),FID);
                                 startActivity(intent1);
                                 finish();
                                 /*
@@ -147,52 +156,53 @@ public class DetailCreaterSideActivity extends Activity {
         finish();
     }
 
+
     private void printpage(){
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("form");
-        mDatabase.child(temp).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("form").child(FID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
 
-                DecimalFormat myFormatter = new DecimalFormat("###,###");
-                String cost         = myFormatter.format(dataSnapshot.child("cost").getValue());
-                String subject      = dataSnapshot.child("subject").getValue().toString();
-                String text         = dataSnapshot.child("text").getValue().toString();
-                String category     = dataSnapshot.child("category_text").getValue().toString();
-                String max_count    = dataSnapshot.child("max_count").getValue().toString();
-                String today        = dataSnapshot.child("today").getValue().toString();
-                String deadline     = dataSnapshot.child("deadline").getValue().toString();
-                String num_k        = dataSnapshot.child("parti_num").getValue().toString() ;
-                String express      = dataSnapshot.child("express").getValue().toString();
-                String state        = dataSnapshot.child("state").getValue().toString();
+                    String subject = dataSnapshot.child("subject").getValue().toString();
+                    String text = dataSnapshot.child("text").getValue().toString();
 
-                Resources res = getResources();
-                String[] cat = res.getStringArray(R.array.category);
-                category=cat[Integer.parseInt(category)];
+                    DecimalFormat myFormatter = new DecimalFormat("###,###");
+                    String cost         = myFormatter.format(dataSnapshot.child("cost").getValue());
+                    String category     = dataSnapshot.child("category_text").getValue().toString();
+                    String max_count    = dataSnapshot.child("max_count").getValue().toString();
+                    String today        = dataSnapshot.child("today").getValue().toString();
+                    String deadline     = dataSnapshot.child("deadline").getValue().toString();
+                    String state        = dataSnapshot.child("state").getValue().toString();
+                    String express      = dataSnapshot.child("express").getValue().toString();
+                    String address   = dataSnapshot.child("address").getValue().toString();
+                    String addr_detail   = dataSnapshot.child("addr_detail").getValue().toString();
+
+                    int count_party= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
+
+                    Resources res = getResources();
+                    String[] cat = res.getStringArray(R.array.category);
+                    category=cat[Integer.parseInt(category)];
+
+                    image=dataSnapshot.child("image").getValue().toString().replace(".png","_1.png");
+                    count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
+
+                    UserFind(FUID);
+                    Initializeform(subject,category,text,cost,count_party+"/"+max_count,today,deadline,address,addr_detail,express,count,state);
+                    StorageReference pathReference = firebaseStorage.getReference(image);
 
 
-                image=dataSnapshot.child("image").getValue().toString().replace(".png","_1.png");
-
-                count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
-
-                Log.d("확인","message상세 이미지 : "+count);
-                String UID = dataSnapshot.child("UID_dash").getValue().toString();
-                UserFind(UID);
-                Initializeform(subject,category,text,cost,num_k+"/"+max_count,today,deadline,express,count,state);
-                StorageReference pathReference = firebaseStorage.getReference(image);
-
-
-                ImageView mainImage   = (ImageView) findViewById(R.id.mainImage);  //상세이미지
-                DetailCreaterSideActivity activity = (DetailCreaterSideActivity) mainImage.getContext();
-                pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        if (activity.isFinishing()) return;
-                        Glide.with(mainImage.getContext())
-                                .load(uri)
-                                .into(mainImage);
-
-                    }
-                });
+                    ImageView mainImage = (ImageView) findViewById(R.id.mainImage);
+                    DetailCreaterSideActivity activity = (DetailCreaterSideActivity) mainImage.getContext();
+                    pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            if (activity.isFinishing()) return;
+                            Glide.with(mainImage)
+                                    .load(uri)
+                                    .into(mainImage);
+                        }
+                    });
+                }
             }
 
             @Override
@@ -204,24 +214,22 @@ public class DetailCreaterSideActivity extends Activity {
         });
 
     }
-
-    private void UserFind(String UID){
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
-        mDatabase.child(UID).addValueEventListener(new ValueEventListener() {
+    private void UserFind(String UID) {
+        mDatabase.child("users").child(UID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
                 String name;
                 String profil_text;
-
                 TextView name_tv = (TextView) findViewById(R.id.detail_nick);
                 ImageView profile = (ImageView) findViewById(R.id.detail_profile);
-                profil_text = dataSnapshot.child("image").getValue().toString();
-                name = dataSnapshot.child("nick").getValue().toString();
+
+                profil_text = task.getResult().child("image").getValue().toString();
+                name = task.getResult().child("nick").getValue().toString();
                 name_tv.setText(name);
                 FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
                 StorageReference pathReference = firebaseStorage.getReference(profil_text);
 
-                DetailCreaterSideActivity activity1 = (DetailCreaterSideActivity) profile.getContext() ;
+                DetailCreaterSideActivity activity1 = (DetailCreaterSideActivity) profile.getContext();
                 pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
@@ -232,30 +240,25 @@ public class DetailCreaterSideActivity extends Activity {
                     }
                 });
             }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w("", "loadPost:onCancelled", databaseError.toException());
-                // ...
-            }
         });
     }
 
     private void Initializeform
             (String subject,String category,String text,String cost,String max_count,
-             String today,String deadline,String express,Integer count,String state)
+             String today,String deadline,String address,String addr_detail, String express,Integer count,String state)
     {
-        TextView subject_text = (TextView) findViewById(R.id.detail_subject);
-        TextView category_text = (TextView) findViewById(R.id.detail_category);
-        TextView text_text = (TextView) findViewById(R.id.detail_textarea);
-        TextView cost_text = (TextView) findViewById(R.id.detail_cost);
+        TextView subject_text   = (TextView) findViewById(R.id.detail_subject);
+        TextView category_text  = (TextView) findViewById(R.id.detail_category);
+        TextView text_text      = (TextView) findViewById(R.id.detail_textarea);
+        TextView cost_text      = (TextView) findViewById(R.id.detail_cost);
         TextView max_count_text = (TextView) findViewById(R.id.detail_party_num);
-        TextView start = (TextView) findViewById(R.id.detail_startdate);
-        TextView deadlines = (TextView) findViewById(R.id.detail_deadline);
-        TextView express_text = (TextView) findViewById(R.id.detail_express);
-        TextView count_text = (TextView) findViewById(R.id.detail_counttext);
-        TextView state_text = (TextView) findViewById(R.id.detail_state);
+        TextView start          = (TextView) findViewById(R.id.detail_startdate);
+        TextView deadlines      = (TextView) findViewById(R.id.detail_deadline);
+        TextView express_text   = (TextView) findViewById(R.id.detail_express);
+        TextView count_text     = (TextView) findViewById(R.id.detail_counttext);
+        TextView state_text     = (TextView) findViewById(R.id.detail_state);
+        TextView address_text       = (TextView) findViewById(R.id.address);
+        TextView addr_detail_text   = (TextView) findViewById(R.id.detail_address);
 
         subject_text.setText(subject);
         category_text.setText(category);
@@ -266,6 +269,8 @@ public class DetailCreaterSideActivity extends Activity {
         max_count_text.setText(max_count);
         express_text.setText(express);
         count_text.setText("조회 "+count);
+        address_text.setText(address);
+        addr_detail_text.setText(addr_detail);
 
         switch(state){
             case "0":
