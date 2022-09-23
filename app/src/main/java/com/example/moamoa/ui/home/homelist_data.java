@@ -12,6 +12,7 @@ public class homelist_data {
     private String category;
     private String state;
     private String location;
+    private int dead;
     /*
     public homelist_data(String mainImage, String title, String name, String mans, String FID){
         this.mainImage  = mainImage;
@@ -43,6 +44,8 @@ public class homelist_data {
 
     public String getLocation(){return this.location;}
 
+    public int getDead(){return this.dead;}
+
     public void setImgName(String MainImage){this.mainImage = MainImage; }
 
     public void setTitle(String title){this.title = title; }
@@ -60,5 +63,7 @@ public class homelist_data {
     public void setState(String state){this.state = state; }
 
     public void setLocation(String location){this.location = location; }
+
+    public void setDead(int dead){this.dead = dead;}
 
 }

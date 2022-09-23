@@ -53,9 +53,6 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
         mDatabase = FirebaseDatabase.getInstance();
         Query reference[] = new Query[5];
-        SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMdd");
-        long mNow = System.currentTimeMillis();
-        Date mDate = new Date(mNow);
         categoryAdapter_my = new CategoryAdapter_my();
         gridViews = (GridView) root.findViewById(R.id.home_my_category);
         initmylist();
@@ -70,7 +67,7 @@ public class HomeFragment extends Fragment {
         //recyclerView[4] = (RecyclerView) root.findViewById(R.id.listview4);
 
 
-        reference[0] = mDatabase.getReference().child("form").orderByChild("deadline").startAt(Integer.parseInt(mFormat.format(mDate)));
+        reference[0] = mDatabase.getReference().child("form").orderByChild("deadline").startAt(GetTimeStart());
         reference[1] = mDatabase.getReference().child("form").orderByChild("count");
         reference[2] = mDatabase.getReference().child("form").orderByChild("today");
 
@@ -138,9 +135,17 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
+    private int GetTimeStart(){
+        SimpleDateFormat mFormat1 = new SimpleDateFormat("yyyyMMdd");
+        long mNow = System.currentTimeMillis();
+        Date mDate = new Date(mNow);
+
+        return Integer.parseInt(mFormat1.format(mDate));
+    }
+
     /* Adapter에 넣을 Data 입력 */
     public void InitializeFormData(int i, String FID, String img, String title, String UID,
-                                   String mans, String category,String location, String cost)
+                                   String partynum, String maxnum, String category,String location, int dead)
     {
         homelist_data tmp = new homelist_data();
 
@@ -149,13 +154,17 @@ public class HomeFragment extends Fragment {
         category=cat[Integer.parseInt(category)];
         tmp.setImgName(img);
         tmp.setTitle(title);
-        tmp.setCost(cost);
-        tmp.setMans(mans);
+        if(maxnum.equals("1000")){
+            tmp.setMans("∞");
+        }else{
+            tmp.setMans(partynum+"/"+maxnum);
+        }
         tmp.setFID(FID);
         tmp.setUID(UID);
         tmp.setCategory(category);
         tmp.setLocation(location);
-        tmp.setCost(cost);
+        tmp.setDead(dead);
+        Log.e("dead",dead+"");
         homelist[i].add(tmp);
 
     }
@@ -182,8 +191,8 @@ public class HomeFragment extends Fragment {
                             String image     = fileSnapshot.child("image").getValue().toString().replace(".png","_1.png");
                             String category = fileSnapshot.child("category_text").getValue().toString();
                             String location = fileSnapshot.child("address").getValue().toString();
-                            String cost = fileSnapshot.child("cost").getValue().toString();
-                            InitializeFormData(i, Key, image, subject, UID, parti_num + "/" + max_count, category, location, cost);
+                            int dead = Integer.parseInt(fileSnapshot.child("deadline").getValue().toString())-GetTimeStart();
+                            InitializeFormData(i, Key, image, subject, UID, parti_num, max_count, category, location, dead);
                             count++;
                         }
                     }
@@ -220,16 +229,16 @@ public class HomeFragment extends Fragment {
                     if(list.isEmpty()){
                         for (DataSnapshot fileSnapshot : result.getChildren() ) {
                             if(count<10 && fileSnapshot.child("state").getValue().toString().equals("0")){
-                                String Key       = fileSnapshot.getKey();
-                                String subject   = fileSnapshot.child("subject").getValue().toString();
+                                String Key = fileSnapshot.getKey();
+                                String subject = fileSnapshot.child("subject").getValue().toString();
                                 String max_count = fileSnapshot.child("max_count").getValue().toString();
-                                String UID       = fileSnapshot.child("UID_dash").getValue().toString();
+                                String UID = fileSnapshot.child("UID_dash").getValue().toString();
                                 String parti_num = fileSnapshot.child("parti_num").getValue().toString();
                                 String image     = fileSnapshot.child("image").getValue().toString().replace(".png","_1.png");
-                                String category  = fileSnapshot.child("category_text").getValue().toString();
-                                String location  = fileSnapshot.child("address").getValue().toString();
-                                String cost      = fileSnapshot.child("cost").getValue().toString();
-                                InitializeFormData(i,Key,image,subject,UID,parti_num+"/"+max_count,category, location, cost);
+                                String category = fileSnapshot.child("category_text").getValue().toString();
+                                String location = fileSnapshot.child("address").getValue().toString();
+                                int dead = Integer.parseInt(fileSnapshot.child("deadline").getValue().toString())-GetTimeStart();
+                                InitializeFormData(i, Key, image, subject, UID, parti_num , max_count, category, location, dead);
                                 count++;
                             }
                         }
@@ -247,8 +256,8 @@ public class HomeFragment extends Fragment {
                                     String parti_num = fileSnapshot.child("parti_num").getValue().toString();
                                     String image     = fileSnapshot.child("image").getValue().toString().replace(".png","_1.png");
                                     String location  = fileSnapshot.child("address").getValue().toString();
-                                    String cost      = fileSnapshot.child("cost").getValue().toString();
-                                    InitializeFormData(i,Key,image,subject,UID,parti_num+"/"+max_count,category, location, cost);
+                                    int dead = Integer.parseInt(fileSnapshot.child("deadline").getValue().toString())-GetTimeStart();
+                                    InitializeFormData(i, Key, image, subject, UID, parti_num , max_count, category, location, dead);
                                     count++;
                                 };
                             }

@@ -87,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginBottom="86dp"
+                android:layout_marginBottom="36dp"
                 android:background="@color/white">
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -121,11 +121,17 @@
                     android:scrollbars="horizontal"
                     app:layoutManager="LinearLayoutManager" />
             </LinearLayout>
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginHorizontal="15dp"
+                android:background="@drawable/categorymy_style"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginBottom="86dp">
+                android:layout_marginBottom="76dp">
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -170,7 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginBottom="86dp">
+                android:layout_marginBottom="76dp">
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
