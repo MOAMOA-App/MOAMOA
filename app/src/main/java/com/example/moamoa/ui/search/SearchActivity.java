@@ -353,6 +353,7 @@ public class SearchActivity extends AppCompatActivity {
                 // 액티비티 이동 + 값 전달
                 Intent intent = new Intent(SearchActivity.this, FormdetailActivity.class);
                 intent.putExtra("FID", FID);    //input값 intent로 전달
+                intent.putExtra("UID_dash",arrayList.get(position).UID_dash);
                 startActivity(intent);
             }
         });

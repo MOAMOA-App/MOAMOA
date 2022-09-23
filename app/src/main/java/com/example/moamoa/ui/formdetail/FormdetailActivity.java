@@ -446,8 +446,8 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
         category_text.setText(category);
         text_text.setText(text);
         cost_text.setText(cost);
-        start.setText(today.substring(0,4)+"년"+today.substring(4,6)+"월"+today.substring(6,8)+"일");
-        deadlines.setText(deadline.substring(0,4)+"년"+deadline.substring(4,6)+"월"+deadline.substring(6,8)+"일");
+        start.setText(today.substring(2,4)+"년 "+today.substring(4,6)+"월 "+today.substring(6,8)+"일");
+        deadlines.setText(deadline.substring(2,4)+"년 "+deadline.substring(4,6)+"월 "+deadline.substring(6,8)+"일");
         max_count_text.setText(max_count);
         express_text.setText(express);
         count_text.setText("조회 "+count);
@@ -455,3 +455,4 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
         addr_detail_text.setText(addr_detail);
     }
 }
+

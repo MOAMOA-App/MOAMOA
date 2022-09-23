@@ -213,7 +213,6 @@ public class HomeFragment extends Fragment {
         for(int x=2;x<my_list.length;x++){
             if(my_list[x]) list.add(x);
         }
-        Log.e("my_List",list.size()+" "+list);
         Query reference = mDatabase.getReference().child("form").orderByChild("active").endAt(0);
         reference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -243,7 +242,6 @@ public class HomeFragment extends Fragment {
                         }
                     }else{
                         for (DataSnapshot fileSnapshot : result.getChildren() ) {
-
                             String category = fileSnapshot.child("category_text").getValue().toString();
                             int temp = Integer.parseInt(category);
                             if(list.contains(temp)){
