@@ -102,53 +102,49 @@ public class ChatsFragment extends Fragment {
                 chatModel.users.put(USERID.toString(),true);
                 chatModel.users.put(destinationUID.toString(), true);
 
+                ChatModel.Comment comments = new ChatModel.Comment();
+                comments.UID = USERID;
+                comments.message = EditText_chat.getText().toString();
+                comments.timestamp = ServerValue.TIMESTAMP;
                 // 방 중복 방지
                 if (CHATROOM_FID == null){
-                    ChatModel.Comment comments = new ChatModel.Comment();
-                    comments.UID = USERID;
-                    comments.message = EditText_chat.getText().toString();
-                    comments.timestamp = ServerValue.TIMESTAMP;
                     if (!comments.message.equals("")){
                         sendbtn.setEnabled(false);
                         FirebaseDatabase.getInstance().getReference().child("chatrooms")
                                 .push().setValue(chatModel).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID)
-                                        .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        for (DataSnapshot item : snapshot.getChildren()){
-                                            ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
-                                            // 방 id 가져오기
-                                            if (chatModel.users.containsKey(destinationUID)){   //destinationUID 있는지 체크
-                                                CHATROOM_FID = item.getKey();   //방 아이디 가져옴
-                                                sendbtn.setEnabled(true);
+                                    public void onSuccess(Void unused) {
+                                        FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID)
+                                                .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                        for (DataSnapshot item : snapshot.getChildren()){
+                                                            ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
+                                                            // 방 id 가져오기
+                                                            if (chatModel.users.containsKey(destinationUID)){   //destinationUID 있는지 체크
+                                                                CHATROOM_FID = item.getKey();   //방 아이디 가져옴
+                                                                sendbtn.setEnabled(true);
 
-                                                recyclerView.setLayoutManager(linearLayoutManager);
-                                                recyclerView.setAdapter(new RecyclerViewAdapter());
-                                                FirebaseDatabase.getInstance().getReference().child("chatrooms").child(CHATROOM_FID)
-                                                        .child("comments").push().setValue(comments);
-                                            }
-                                        }
-                                    }
+                                                                recyclerView.setLayoutManager(linearLayoutManager);
+                                                                recyclerView.setAdapter(new RecyclerViewAdapter());
+                                                                FirebaseDatabase.getInstance().getReference().child("chatrooms").child(CHATROOM_FID)
+                                                                        .child("comments").push().setValue(comments);
+                                                            }
+                                                        }
+                                                    }
 
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                                    }
+                                                });
 
                                     }
                                 });
-
-                            }
-                        });
                     }
 
 
                 } else{
-                    ChatModel.Comment comments = new ChatModel.Comment();
-                    comments.UID = USERID;
-                    comments.message = EditText_chat.getText().toString();
-                    comments.timestamp = ServerValue.TIMESTAMP;
                     if (!comments.message.equals("")){
                         recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(new RecyclerViewAdapter());
@@ -182,25 +178,25 @@ public class ChatsFragment extends Fragment {
     void checkChatRoom(){
         FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID)
                 .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot item : snapshot.getChildren()){
-                    ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
-                    // 방 id 가져오기
-                    if (chatModel.users.containsKey(destinationUID)){   //destinationUID 있는지 체크
-                        CHATROOM_FID = item.getKey();   //방 아이디 가져옴
-                        sendbtn.setEnabled(true);
-                        recyclerView.setLayoutManager(linearLayoutManager);
-                        recyclerView.setAdapter(new RecyclerViewAdapter());
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot item : snapshot.getChildren()){
+                            ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
+                            // 방 id 가져오기
+                            if (chatModel.users.containsKey(destinationUID)){   //destinationUID 있는지 체크
+                                CHATROOM_FID = item.getKey();   //방 아이디 가져옴
+                                sendbtn.setEnabled(true);
+                                recyclerView.setLayoutManager(linearLayoutManager);
+                                recyclerView.setAdapter(new RecyclerViewAdapter());
+                            }
+                        }
                     }
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+                    }
+                });
     }
 
     // 여기서부터 어댑터
@@ -299,13 +295,13 @@ public class ChatsFragment extends Fragment {
                                 String destinationprofil_text = snapshot.child("image").getValue().toString();
                                 FirebaseStorage.getInstance().getReference(destinationprofil_text)
                                         .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                    @Override
-                                    public void onSuccess(Uri uri) {
-                                        Glide.with(messageViewHolder.profile_image)
-                                                .load(uri)
-                                                .into(messageViewHolder.profile_image);
-                                    }
-                                });
+                                            @Override
+                                            public void onSuccess(Uri uri) {
+                                                Glide.with(messageViewHolder.profile_image)
+                                                        .load(uri)
+                                                        .into(messageViewHolder.profile_image);
+                                            }
+                                        });
 
                             }
 
