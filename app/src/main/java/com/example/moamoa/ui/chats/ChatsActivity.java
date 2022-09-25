@@ -94,6 +94,7 @@ public class ChatsActivity extends AppCompatActivity {
 
     TextView TextView_mynick, TextView_mynation;
     TextView chatbar, TextView_destinationnick, TextView_destinationsnation;
+    TextView TextView_currentlang;
     ImageView myPfImage, destinationPfImage;
 
     private final HashMap<Integer, String> langHashmap = new HashMap<>();
@@ -157,6 +158,10 @@ public class ChatsActivity extends AppCompatActivity {
         TextView_destinationsnation = (TextView) findViewById(R.id.chats_theirnationality);
         destinationPfImage = (ImageView) findViewById(R.id.chats_theirprofile_image);
         getuserprofile(destinationuid);
+
+        // 현재 언어
+        TextView_currentlang = (TextView) findViewById(R.id.chats_TextView_currentlang);
+        TextView_currentlang.setText("한국어");
 
         /* 채팅방 이름 세팅
          * 그러니까 여기서 뭘해야되냐면... 일단 거기서도 채팅이 되고 채팅 리스트가 따로 있는 한 넘겨받아서 할순없음
@@ -222,15 +227,15 @@ public class ChatsActivity extends AppCompatActivity {
                     String myprofil_text = snapshot.child("image").getValue().toString();
                     FirebaseStorage.getInstance().getReference(myprofil_text)
                             .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            Activity context = (Activity) myPfImage.getContext();
-                            if(context.isFinishing()) return;
-                            Glide.with(myPfImage)
-                                    .load(uri)
-                                    .into(myPfImage);
-                        }
-                    });
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Activity context = (Activity) myPfImage.getContext();
+                                    if(context.isFinishing()) return;
+                                    Glide.with(myPfImage)
+                                            .load(uri)
+                                            .into(myPfImage);
+                                }
+                            });
                 } else {
                     // 채팅방 이름 설정
                     chatbar.setText(user.nick);
@@ -242,15 +247,15 @@ public class ChatsActivity extends AppCompatActivity {
                     String destinationprofil_text = snapshot.child("image").getValue().toString();
                     FirebaseStorage.getInstance().getReference(destinationprofil_text)
                             .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            Activity context = (Activity) destinationPfImage.getContext();
-                            if(context.isFinishing()) return;
-                            Glide.with(destinationPfImage)
-                                    .load(uri)
-                                    .into(destinationPfImage);
-                        }
-                    });
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Activity context = (Activity) destinationPfImage.getContext();
+                                    if(context.isFinishing()) return;
+                                    Glide.with(destinationPfImage)
+                                            .load(uri)
+                                            .into(destinationPfImage);
+                                }
+                            });
                 }
             }
 
@@ -299,7 +304,9 @@ public class ChatsActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(ChatsActivity.this, lang[which], Toast.LENGTH_SHORT).show();
                         select_lang = Arrays.asList(lang).indexOf(lang[which]);
+
                         getuserprofile(UID);
+                        TextView_currentlang.setText(lang[which]);
 
                         dialog.dismiss(); // 누르면 바로 닫히는 형태
                     }
