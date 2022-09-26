@@ -353,6 +353,7 @@ public class SearchActivity extends AppCompatActivity {
                 // 액티비티 이동 + 값 전달
                 Intent intent = new Intent(SearchActivity.this, FormdetailActivity.class);
                 intent.putExtra("FID", FID);    //input값 intent로 전달
+                intent.putExtra("UID_dash",arrayList.get(position).UID_dash);
                 startActivity(intent);
             }
         });
@@ -433,8 +434,8 @@ public class SearchActivity extends AppCompatActivity {
                         = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
 
                 // 제목 설정
-                builder1.setTitle("카테고리")
-                        .setCancelable(false);
+                builder1.setTitle("카테고리");
+                //        .setCancelable(false);
 
                 // 바뀐 것 적용
                 builder1.setMultiChoiceItems(items, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
@@ -466,8 +467,8 @@ public class SearchActivity extends AppCompatActivity {
                         = new androidx.appcompat.app.AlertDialog.Builder(SearchActivity.this);
 
                 // 제목 설정
-                builder2.setTitle("게시글 진행 상태")
-                        .setCancelable(false);
+                builder2.setTitle("게시글 진행 상태");
+                //        .setCancelable(false);
 
                 // 바뀐 것 적용
                 builder2.setMultiChoiceItems(states, checked_state, new DialogInterface.OnMultiChoiceClickListener() {
@@ -506,7 +507,7 @@ public class SearchActivity extends AppCompatActivity {
                         dialog.dismiss(); // 누르면 바로 닫히는 형태
                         search(search_std);
                     }
-                }).setCancelable(false);
+                });
 
                 return builder3.create();
         }

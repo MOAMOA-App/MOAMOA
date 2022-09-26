@@ -2,7 +2,7 @@
 <resources>
     <string-array name="selectlanguage">
         <item>한국어</item>
-        <item>영어</item>
-        <item>중국어</item>
+        <item>English</item>
+        <item>中国话</item>
     </string-array>
 </resources>

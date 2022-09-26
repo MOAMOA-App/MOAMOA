@@ -81,20 +81,21 @@ public class ChatsActivity extends AppCompatActivity {
 
     private String Chatroomname, Formid;
 
-    private String UID, destinationuid;
-    private String myNICK, destinationNICK;
-
     private ChatsFragment chatsFragment = new ChatsFragment();
 
-    private FirebaseDatabase mDatabase;
-    private FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+    private DatabaseReference mDatabase;
+    private final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
     private ArrayList<ChatsUserData> arrayList = new ArrayList<>();
     private ChatUserAdapter chatUserAdapter;
     private RecyclerView recyclerView;
 
+    private String UID, destinationuid;
     TextView TextView_mynick, TextView_mynation;
     TextView chatbar, TextView_destinationnick, TextView_destinationsnation;
+    TextView TextView_currentlang;
     ImageView myPfImage, destinationPfImage;
+
+    String userlang = null;
 
     private final HashMap<Integer, String> langHashmap = new HashMap<>();
     static int select_lang = 0;
@@ -118,7 +119,6 @@ public class ChatsActivity extends AppCompatActivity {
         Intent getIntent = getIntent();
         destinationuid = getIntent.getStringExtra("destinationUID");
 
-
         // 받은 값 ChatsFragment에 넘겨줌
         Bundle bundle = new Bundle();
         bundle.putString("destinationUID", destinationuid);
@@ -132,8 +132,8 @@ public class ChatsActivity extends AppCompatActivity {
         // 프래그먼트 매니저로 chatscontainer에 chatsFragment 연결해줌
         getSupportFragmentManager().beginTransaction().replace(R.id.chatscontainer, chatsFragment).commit();
 
-
-        mDatabase = FirebaseDatabase.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        //mDatabase = FirebaseDatabase.getInstance();
         //recyclerView = findViewById(R.id.chats_recyclerview_userinfo);
 
         //getUserList();
@@ -157,6 +157,10 @@ public class ChatsActivity extends AppCompatActivity {
         TextView_destinationsnation = (TextView) findViewById(R.id.chats_theirnationality);
         destinationPfImage = (ImageView) findViewById(R.id.chats_theirprofile_image);
         getuserprofile(destinationuid);
+
+        // 현재 언어
+        TextView_currentlang = (TextView) findViewById(R.id.chats_TextView_currentlang);
+        TextView_currentlang.setText("한국어");
 
         /* 채팅방 이름 세팅
          * 그러니까 여기서 뭘해야되냐면... 일단 거기서도 채팅이 되고 채팅 리스트가 따로 있는 한 넘겨받아서 할순없음
@@ -208,49 +212,87 @@ public class ChatsActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * 메뉴에서 유저 정보 설정
+     * @param string UID 정보
+     */
     private void getuserprofile(String string){
-        FirebaseDatabase.getInstance().getReference().child("users").child(string).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("users").child(string).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
                 if (string.equals(UID)){
                     // 헤더에서 내 닉네임 보여줌
                     TextView_mynick.setText(user.nick);
-                    TextView_mynation.setText(langHashmap.get(select_lang));
+                    //TextView_mynation.setText(getUserLangInfo(string));
+                    getUserLangInfo(string);
 
                     // 헤더에서 내 프사 보여줌
                     String myprofil_text = snapshot.child("image").getValue().toString();
                     FirebaseStorage.getInstance().getReference(myprofil_text)
                             .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            Activity context = (Activity) myPfImage.getContext();
-                            if(context.isFinishing()) return;
-                            Glide.with(myPfImage)
-                                    .load(uri)
-                                    .into(myPfImage);
-                        }
-                    });
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Activity context = (Activity) myPfImage.getContext();
+                                    if(context.isFinishing()) return;
+                                    Glide.with(myPfImage)
+                                            .load(uri)
+                                            .into(myPfImage);
+                                }
+                            });
                 } else {
                     // 채팅방 이름 설정
                     chatbar.setText(user.nick);
 
                     // 헤더에서 상대방 닉네임 보여줌
                     TextView_destinationnick.setText(user.nick);
+                    getUserLangInfo(string);
 
                     // 헤더에서 상대방 프사 보여줌
                     String destinationprofil_text = snapshot.child("image").getValue().toString();
                     FirebaseStorage.getInstance().getReference(destinationprofil_text)
                             .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            Activity context = (Activity) destinationPfImage.getContext();
-                            if(context.isFinishing()) return;
-                            Glide.with(destinationPfImage)
-                                    .load(uri)
-                                    .into(destinationPfImage);
-                        }
-                    });
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Activity context = (Activity) destinationPfImage.getContext();
+                                    if(context.isFinishing()) return;
+                                    Glide.with(destinationPfImage)
+                                            .load(uri)
+                                            .into(destinationPfImage);
+                                }
+                            });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    /**
+     * 유저 사용언어 정보 받아옴, 없을 시 기본값 설정(한국어)
+     * @param string UID
+     * @return string userlang 유저 언어 정보
+     */
+    private void getUserLangInfo(String string){
+        mDatabase.child("users").child(string).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.hasChild("language")){
+                    String userlang = snapshot.child("language").getValue().toString();
+                    if (string.equals(UID))
+                        TextView_mynation.setText(userlang);
+                    else
+                        TextView_destinationsnation.setText(userlang);
+                }else{
+                    mDatabase.child("users").child(string).child("language").setValue("KOR");
+
+                    if (string.equals(UID))
+                        TextView_mynation.setText(userlang);
+                    else
+                        TextView_destinationsnation.setText(userlang);
                 }
             }
 
@@ -299,7 +341,12 @@ public class ChatsActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(ChatsActivity.this, lang[which], Toast.LENGTH_SHORT).show();
                         select_lang = Arrays.asList(lang).indexOf(lang[which]);
-                        getuserprofile(UID);
+
+                        TextView_mynation.setText(langHashmap.get(select_lang));
+                        TextView_currentlang.setText(lang[which]);
+
+                        // 선택한 언어 정보 파이어베이스에 업뎃함
+                        mDatabase.child("users").child(UID).child("language").setValue(langHashmap.get(select_lang));
 
                         dialog.dismiss(); // 누르면 바로 닫히는 형태
                     }
@@ -321,7 +368,7 @@ public class ChatsActivity extends AppCompatActivity {
     }
 
     public void getUserList(){
-        FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+UID)
+        mDatabase.child("chatrooms").orderByChild("users/"+UID)
                 .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
             // 여기서 equalTo는 true까지의 방만 검색한다. (내가 소속된 방만 검색)
             @Override

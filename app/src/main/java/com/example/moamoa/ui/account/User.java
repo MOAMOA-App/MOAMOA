@@ -14,6 +14,7 @@ public class User {
     String area;
     int num;
     String type;
+    String lang;
 
 
     public User(){ };
@@ -88,6 +89,13 @@ public class User {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getLang() {
+        return lang;
+    }
+    public void setLang(String lang) {
+        this.lang = lang;
     }
 
 }

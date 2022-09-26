@@ -112,9 +112,11 @@ public class SearchFragment extends Fragment {
                 String FID = arrayList.get(position).FID;
                 String title = arrayList.get(position).subject;
 
+                Log.e("e",arrayList.get(position)+"");
                 // 액티비티 이동 + 값 전달
                 Intent intent = new Intent(getContext(), FormdetailActivity.class);
                 intent.putExtra("FID", FID);    //input값 intent로 전달
+                intent.putExtra("UID_dash",arrayList.get(position).UID_dash);
                 startActivity(intent);
             }
         });

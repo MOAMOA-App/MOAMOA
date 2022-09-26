@@ -66,7 +66,6 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
     String FID;
     String FUID;
 
-    int count_party;
     // 지도
     private MapView mapView;
     private static NaverMap naverMap;
@@ -80,11 +79,12 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
     protected void onStart() {
         super.onStart();
         Intent intent = getIntent();
+        FID = intent.getStringExtra("FID");
         FUID = intent.getStringExtra("UID_dash");
         if (user.getUid().equals(FUID)) {
             Intent intent1 = new Intent(this, DetailCreaterSideActivity.class);
-            intent1.putExtra("FID", intent.getStringExtra("FID"));
-            intent1.putExtra(("UID_dash"), FUID);
+            intent1.putExtra("FID", FID);
+            intent1.putExtra("FUID", FUID);
             startActivity(intent1);
             finish();
         }
@@ -234,7 +234,7 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
                                 HashMap<String, Object> childUpdates = new HashMap<>();
                                 childUpdates.put(user.getUid(), getToday());
                                 mDatabase.child("party").child(FID).updateChildren(childUpdates);
-                                mDatabase.child("form").child(FID).child("parti_num").setValue(count_party + 1);
+                                mDatabase.child("form").child(FID).child("parti_num").setValue(now + 1);
                                 Toast.makeText(getApplicationContext(), "참여되었습니다", Toast.LENGTH_SHORT).show();
                                 party_btn_0.setVisibility(View.GONE);
                                 party_btn_1.setVisibility(View.VISIBLE);
@@ -348,7 +348,7 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
                     String address   = dataSnapshot.child("address").getValue().toString();
                     String addr_detail   = dataSnapshot.child("addr_detail").getValue().toString();
 
-                    count_party= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
+                    int count_party= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
 
                     Resources res = getResources();
                     String[] cat = res.getStringArray(R.array.category);
@@ -426,7 +426,7 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
         TextView count_text     = (TextView) findViewById(R.id.detail_counttext);
         TextView state_text     = (TextView) findViewById(R.id.detail_state);
         TextView address_text       = (TextView) findViewById(R.id.address);
-        TextView addr_detail_text    = (TextView) findViewById(R.id.detail_address);
+        TextView addr_detail_text   = (TextView) findViewById(R.id.detail_address);
 
         switch(state){
             case "0":
@@ -446,8 +446,8 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
         category_text.setText(category);
         text_text.setText(text);
         cost_text.setText(cost);
-        start.setText(today.substring(0,4)+"년"+today.substring(4,6)+"월"+today.substring(6,8)+"일");
-        deadlines.setText(deadline.substring(0,4)+"년"+deadline.substring(4,6)+"월"+deadline.substring(6,8)+"일");
+        start.setText(today.substring(2,4)+"년 "+today.substring(4,6)+"월 "+today.substring(6,8)+"일");
+        deadlines.setText(deadline.substring(2,4)+"년 "+deadline.substring(4,6)+"월 "+deadline.substring(6,8)+"일");
         max_count_text.setText(max_count);
         express_text.setText(express);
         count_text.setText("조회 "+count);
@@ -455,3 +455,4 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
         addr_detail_text.setText(addr_detail);
     }
 }
+

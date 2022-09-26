@@ -107,7 +107,7 @@ public class DashboardFragment extends Fragment {
         EditText subject    = (EditText) root.findViewById(R.id.subject);               //제목
         TextView today      = (TextView) root.findViewById(R.id.text_dashboardstart);   //게시글 생성 날짜
         EditText text       = (EditText) root.findViewById(R.id.text);                  //내용
-        EditText address_edit = (EditText) root.findViewById(R.id.address);               //주소
+        TextView address_edit = (TextView) root.findViewById(R.id.address);               //주소
         EditText addr_detail_edit    = (EditText) root.findViewById(R.id.address_detail);       //상세주소
         EditText cost       = (EditText) root.findViewById(R.id.cost);                  //금액
         EditText max_count  = (EditText) root.findViewById(R.id.max_count);             //마감 최대 인원 수
@@ -284,6 +284,14 @@ public class DashboardFragment extends Fragment {
                 }
 
                 String dead = (deadline.getText().toString().substring(0,4))+deadline.getText().toString().substring(5,7)+deadline.getText().toString().substring(8,10).toString();
+
+                String[] cat = getResources().getStringArray(R.array.category);
+                String temp = (String) category_text.getSelectedItem();
+                int category_int = 0;
+                for (i=0;i<cat.length;i++) {
+                    if(cat[i].equals(temp)) category_int=i;
+                }
+
                 Form form = new Form(
                         FID,
                         user.getUid(),
@@ -294,7 +302,7 @@ public class DashboardFragment extends Fragment {
                         address_edit.getText().toString(),
                         addr_co,
                         addr_detail_edit.getText().toString(),
-                        (Integer) category_text.getSelectedItem()+2,
+                        category_int,
                         Integer.parseInt(cost.getText().toString().replace(",","")),
                         max,
                         Integer.parseInt(dead),
