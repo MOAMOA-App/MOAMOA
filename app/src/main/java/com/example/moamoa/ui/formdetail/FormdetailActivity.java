@@ -60,7 +60,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FormdetailActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class FormdetailActivity extends Activity implements OnMapReadyCallback {
     private DatabaseReference mDatabase;
     String image;
     String k;
