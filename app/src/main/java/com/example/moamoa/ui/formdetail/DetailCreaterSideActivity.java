@@ -106,13 +106,19 @@ public class DetailCreaterSideActivity extends Activity {
                                 break;
                             case(R.id.Detail_Creator_Delete):
                                 Log.e("popup","삭제하기");
-                                AlertDialog.Builder delete_alert = new AlertDialog.Builder(DetailCreaterSideActivity.this, R.style.AlertDialog);
-
+                                //AlertDialog.Builder delete_alert = new AlertDialog.Builder(DetailCreaterSideActivity.this, R.style.AlertDialog);
+                                AlertDialog.Builder delete_alert = new AlertDialog.Builder(DetailCreaterSideActivity.this);
+                                AlertDialog.Builder alert = new AlertDialog.Builder(DetailCreaterSideActivity.this);
                                 delete_alert.setMessage("정말로 삭제하시겠습니까?")
                                             .setPositiveButton("네", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialogInterface, int i) {
-
+                                                    mDatabase.child("form").child(FID).child("active").setValue(1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            onBackPressed();
+                                                        }
+                                                    });
                                                 }
                                             })
                                             .setNegativeButton("아니오", new DialogInterface.OnClickListener() {

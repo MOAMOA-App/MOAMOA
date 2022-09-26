@@ -82,7 +82,7 @@ public class SearchFragment extends Fragment {
 
         // 리스트 모두 가져오기
         arrayList = new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("form").orderByChild("active").endAt(0).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 arrayList.clear();

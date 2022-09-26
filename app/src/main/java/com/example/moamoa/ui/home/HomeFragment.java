@@ -46,13 +46,18 @@ public class HomeFragment extends Fragment {
     private TextView[] btn_c = new TextView[5];
     private CategoryAdapter_my categoryAdapter_my;
     private GridView gridViews;
+    Query reference[] = new Query[5];
     boolean[] my_list = new boolean[15];
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         mDatabase = FirebaseDatabase.getInstance();
-        Query reference[] = new Query[5];
         categoryAdapter_my = new CategoryAdapter_my();
         gridViews = (GridView) root.findViewById(R.id.home_my_category);
         initmylist();
@@ -104,6 +109,7 @@ public class HomeFragment extends Fragment {
         GetOrderByreference(reference[1],1);
         GetOrderByreference(reference[2],2);
         GetMyReference(3);
+
         /* 전체보기 버튼 클릭 시 CategoryActivity 이동 설정 */
         for(int i=0;i<4;i++){
             btn_c[i].setOnClickListener(new View.OnClickListener() {

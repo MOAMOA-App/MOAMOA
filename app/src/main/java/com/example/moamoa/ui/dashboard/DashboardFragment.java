@@ -270,7 +270,6 @@ public class DashboardFragment extends Fragment {
 
 
                 FID=user.getUid()+num_a;
-//if (!(subject.equals("") && text.equals("") &&address.equals("")&&cost.equals("")&&max_count.equals("")&&deadline.equals(""))) {
 
                 if(max_count.getText().toString().equals("")){
                     max=1000;

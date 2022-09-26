@@ -60,12 +60,10 @@ import java.util.Comparator;
 
 public class PlaceholderFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
-    private DatabaseReference mDatabase;
     private PageViewModel pageViewModel;
     private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
     int[] ca_num;
     ArrayList<Form> listViewData = new ArrayList<>();
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     Form  listData;
 
     public static PlaceholderFragment newInstance(int index) {
@@ -140,7 +138,7 @@ public class PlaceholderFragment extends Fragment {
             }
         });
 
-        FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("form").orderByChild("active").endAt(0).addValueEventListener(new ValueEventListener() {
             @SuppressLint("RestrictedApi")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
