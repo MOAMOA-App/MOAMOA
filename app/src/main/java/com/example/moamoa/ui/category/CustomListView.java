@@ -31,7 +31,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /*
 * 데이터를 listview안에 넣는
@@ -87,8 +89,6 @@ public class CustomListView extends BaseAdapter {
         pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                //CategoryActivity context = (CategoryActivity) mainImage.getContext();
-                //if (context.isFinishing()) return;
                 Activity context = (Activity) mainImage.getContext();
                 if(context.isFinishing()) return;
                 Glide.with(mainImage.getContext())
@@ -102,6 +102,7 @@ public class CustomListView extends BaseAdapter {
         TextView charge = convertView.findViewById(R.id.charge);
         TextView mans   = convertView.findViewById(R.id.mans);
         TextView state  = convertView.findViewById(R.id.list_state);
+        TextView dead   = convertView.findViewById(R.id.deadline);
 
         String state_temp="";
         switch(listViewData.get(position).state){
@@ -121,9 +122,20 @@ public class CustomListView extends BaseAdapter {
         //mainImage.listViewData.get(position).photo);
         title.setText(listViewData.get(position).subject);
         name.setText(listViewData.get(position).address);
+
+
+        int t1 = GetTimeStart();
+        int t2 = listViewData.get(position).deadline;
+        if(t2-t1>=0 && t2-t1<6){
+            dead.setText("D-"+(t2-t1));
+        }else{
+            dead.setText("");
+        }
         DecimalFormat myFormatter = new DecimalFormat("###,###");
         charge.setText(myFormatter.format(listViewData.get(position).cost)+"원");
+
         state.setText("["+state_temp+"]");
+
         if((listViewData.get(position).max_count + "").equals("1000")){
             mans.setText("∞");
         }else{
@@ -207,7 +219,13 @@ public class CustomListView extends BaseAdapter {
         return convertView;
     } // getView
 
+    private int GetTimeStart(){
+        SimpleDateFormat mFormat1 = new SimpleDateFormat("yyyyMMdd");
+        long mNow = System.currentTimeMillis();
+        Date mDate = new Date(mNow);
 
+        return Integer.parseInt(mFormat1.format(mDate));
+    }
 
 }
 

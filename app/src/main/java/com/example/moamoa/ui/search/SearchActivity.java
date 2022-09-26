@@ -137,7 +137,6 @@ public class SearchActivity extends AppCompatActivity {
                 .orderByChild(Objects.requireNonNull(sortStdHashmap.get(sort_std)));
 
         // 리스트뷰 정의
-        // ListView listView = findViewById(R.id.search_listview);
         listView = findViewById(R.id.search_listview);
 
         // 입력 텍스트
@@ -175,6 +174,7 @@ public class SearchActivity extends AppCompatActivity {
                 listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                 break;
             case 2: // 마감순
+
                 customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                 listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                 break;

@@ -137,8 +137,13 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
                 viewHolder.txt_dead.setText(item.getDead()+"일 뒤 마감");
                 break;
             default:
-                viewHolder.txt_dead.setText(item.getDead()+"일 뒤 마감");
-                viewHolder.txt_dead.setTextColor(Color.parseColor("#000000"));
+                if(item.getDead()<0){
+                    viewHolder.txt_dead.setText("기한 종료");
+                    viewHolder.txt_dead.setTextColor(Color.parseColor("#4C4C4C"));
+                }else{
+                    viewHolder.txt_dead.setText(item.getDead()+"일 뒤 마감");
+                    viewHolder.txt_dead.setTextColor(Color.parseColor("#000000"));
+                }
                 break;
         }
 
