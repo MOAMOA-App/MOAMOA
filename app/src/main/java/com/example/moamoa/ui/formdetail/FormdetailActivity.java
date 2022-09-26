@@ -246,7 +246,9 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
                             int now = Integer.parseInt(String.valueOf(task.getResult().child("parti_num").getValue()));
                             if (max > now) {
                                 AlertDialog.Builder AddParty_alert = new AlertDialog.Builder(FormdetailActivity.this);
-                                AddParty_alert.setMessage("참여하시겠습니까")
+                                AddParty_alert.setTitle("거래에 참여하시겠습니까?")
+                                        .setMessage("참여인원이 마감되거나 마감기간이 종료되면 거래가 진행됩니다.\n" +
+                                                "거래진행으로 상태가 변경될 시 참여를 취소할 수 없습니다.\n")
                                         .setPositiveButton("네", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialogInterface, int i) {
