@@ -1,7 +1,9 @@
 package com.example.moamoa.ui.mypage;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.Form;
@@ -25,8 +28,13 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/*
+ * 데이터를 listview안에 넣는
+ * 클릭하면 상세폼으로 이동 찜버튼 누르기
+ * */
 public class CustomListView extends BaseAdapter {
     LayoutInflater layoutInflater = null;
     private ArrayList<Form> listViewData = null;
@@ -57,6 +65,7 @@ public class CustomListView extends BaseAdapter {
         return 0;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
@@ -66,62 +75,60 @@ public class CustomListView extends BaseAdapter {
             }
             convertView = layoutInflater.inflate(R.layout.fragment_main, parent, false);
         }
-        TextView state=convertView.findViewById(R.id.list_state);
-        TextView name = convertView.findViewById(R.id.charge);
+
+        String image=listViewData.get(position).image.replace(".png","_1.png");
         ImageView mainImage = convertView.findViewById(R.id.mainImage);
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-        StorageReference pathReference = firebaseStorage.getReference(listViewData.get(position).image);
-        String uid=listViewData.get(position).UID_dash;
+        StorageReference pathReference = firebaseStorage.getReference(image);
 
-        FirebaseDatabase.getInstance().getReference().child("users").child(uid).child("nick").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                name.setText(dataSnapshot.getValue().toString());
 
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w("", "loadPost:onCancelled", databaseError.toException());
-                // ...
-            }
-
-        });
-
-        Activity context = (Activity) mainImage.getContext();
         pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                if (context.isFinishing()) return;
+                //CategoryActivity context = (CategoryActivity) mainImage.getContext();
+                //if (context.isFinishing()) return;
+                Activity context = (Activity) mainImage.getContext();
+                if(context.isFinishing()) return;
                 Glide.with(mainImage.getContext())
                         .load(uri)
                         .into(mainImage);
             }
         });
-        state.setVisibility(View.VISIBLE);
-        if(listViewData.get(position).state==0){
-            state.setBackgroundResource(R.drawable.state_0);
-        }
-        else if(listViewData.get(position).state==1){
-            state.setBackgroundResource(R.drawable.state_1);
-        }
-        else if(listViewData.get(position).state==2){
-            state.setBackgroundResource(R.drawable.state_2);
-        }
-        TextView title = convertView.findViewById(R.id.title);
 
-        TextView charge = convertView.findViewById(R.id.name);
-        TextView mans = convertView.findViewById(R.id.mans);
+        TextView title  = convertView.findViewById(R.id.title);
+        TextView name   = convertView.findViewById(R.id.name);
+        TextView charge = convertView.findViewById(R.id.charge);
+        TextView mans   = convertView.findViewById(R.id.mans);
+        TextView state  = convertView.findViewById(R.id.list_state);
 
+        String state_temp="";
+        switch(listViewData.get(position).state){
+            case 0:
+                state_temp = "참여모집";
+                state.setTextColor(Color.parseColor("#F1A94E"));
+                break;
+            case 1:
+                state_temp = "거래진행";
+                state.setTextColor(Color.parseColor("#274E13"));
+                break;
+            case 2:
+                state_temp = "거래종료";
+                state.setTextColor(Color.parseColor("#4C4C4C"));
+                break;
+        }
         //mainImage.listViewData.get(position).photo);
         title.setText(listViewData.get(position).subject);
-
-
-        charge.setText(listViewData.get(position).address);
-        mans.setText(listViewData.get(position).parti_num+"/"+listViewData.get(position).max_count);
+        name.setText(listViewData.get(position).address);
+        DecimalFormat myFormatter = new DecimalFormat("###,###");
+        charge.setText(myFormatter.format(listViewData.get(position).cost)+"원");
+        state.setText("["+state_temp+"]");
+        if((listViewData.get(position).max_count + "").equals("1000")){
+            mans.setText("∞");
+        }else{
+            mans.setText(listViewData.get(position).parti_num+"/"+listViewData.get(position).max_count);
+        }
 
         //listview와 버튼 클릭 다르게 주기
-
         ToggleButton button = convertView.findViewById(R.id.heart);
         FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).addValueEventListener(new ValueEventListener() {
             @Override
@@ -140,7 +147,9 @@ public class CustomListView extends BaseAdapter {
                     }
                 }
 
+                Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getKey());
 
+                Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getValue());
             }
 
             @Override
@@ -163,6 +172,8 @@ public class CustomListView extends BaseAdapter {
                     {    }
                 });
 
+
+                Log.d("MainActivity", "vv: " + v);
 
                 if (button.isChecked()) {
 
@@ -189,17 +200,6 @@ public class CustomListView extends BaseAdapter {
 
 
             }
-
-
-
-
-
-            //
-            //String clickName = listViewData.get(position).subject;
-            //Log.d("확인","message : "+clickName);
-
-
-
         });
 
         return convertView;
@@ -208,5 +208,4 @@ public class CustomListView extends BaseAdapter {
 
 
 }
-
 
