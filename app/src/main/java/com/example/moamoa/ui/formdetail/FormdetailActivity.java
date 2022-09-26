@@ -1,7 +1,9 @@
 package com.example.moamoa.ui.formdetail;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -203,10 +205,22 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
                                     mDatabase.child("party").child(FID).child(user.getUid()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
-                                            printpage();
-                                            party_btn_0.setVisibility(View.VISIBLE);
-                                            party_btn_1.setVisibility(View.GONE);
-                                            Toast.makeText(getApplicationContext(), "참여 취소 되었습니다.", Toast.LENGTH_SHORT).show();
+                                            AlertDialog.Builder AddParty_alert = new AlertDialog.Builder(FormdetailActivity.this);
+                                            AddParty_alert.setMessage("정말 참여를 취소하시겠습니까?")
+                                                    .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                                            printpage();
+                                                            party_btn_0.setVisibility(View.VISIBLE);
+                                                            party_btn_1.setVisibility(View.GONE);
+                                                            Toast.makeText(getApplicationContext(), "참여 취소 되었습니다.", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    })
+                                                    .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                                        }
+                                                    }).show();
                                         }
                                     });
                                 }
@@ -231,14 +245,26 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
                             int max = Integer.parseInt(String.valueOf(task.getResult().child("max_count").getValue()));
                             int now = Integer.parseInt(String.valueOf(task.getResult().child("parti_num").getValue()));
                             if (max > now) {
-                                HashMap<String, Object> childUpdates = new HashMap<>();
-                                childUpdates.put(user.getUid(), getToday());
-                                mDatabase.child("party").child(FID).updateChildren(childUpdates);
-                                mDatabase.child("form").child(FID).child("parti_num").setValue(now + 1);
-                                Toast.makeText(getApplicationContext(), "참여되었습니다", Toast.LENGTH_SHORT).show();
-                                party_btn_0.setVisibility(View.GONE);
-                                party_btn_1.setVisibility(View.VISIBLE);
-                                printpage();
+                                AlertDialog.Builder AddParty_alert = new AlertDialog.Builder(FormdetailActivity.this);
+                                AddParty_alert.setMessage("참여하시겠습니까")
+                                        .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                HashMap<String, Object> childUpdates = new HashMap<>();
+                                                childUpdates.put(user.getUid(), getToday());
+                                                mDatabase.child("party").child(FID).updateChildren(childUpdates);
+                                                mDatabase.child("form").child(FID).child("parti_num").setValue(now + 1);
+                                                Toast.makeText(getApplicationContext(), "참여되었습니다", Toast.LENGTH_SHORT).show();
+                                                party_btn_0.setVisibility(View.GONE);
+                                                party_btn_1.setVisibility(View.VISIBLE);
+                                                printpage();
+                                            }
+                                        })
+                                        .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                            }
+                                        }).show();
                             } else {
                                 Toast.makeText(getApplicationContext(), "참여 인원이 꽉 찼습니다.", Toast.LENGTH_SHORT).show();
                             }
@@ -273,7 +299,7 @@ public class FormdetailActivity extends AppCompatActivity implements OnMapReadyC
             {    }
         });
 
-
+        //뭔 버튼인데 이거
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
