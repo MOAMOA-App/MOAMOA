@@ -153,12 +153,12 @@
             android:background="@drawable/formdetail_profile_bottomline">
 
                 <CheckBox
-                    android:id="@+id/radioButton1"
+                    android:id="@+id/check_offline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="직거래"/>
                 <CheckBox
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/check_online"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="택배/비대면"
@@ -171,23 +171,43 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:background="@drawable/formdetail_profile_bottomline">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                 android:textSize="16dp"
+                android:paddingTop="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+
+                android:text="인원"
+                android:minWidth="50dp"
+                android:background="@null" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:hint="인원"
                 android:textSize="16dp"
+                android:paddingLeft="20dp"
                 android:minWidth="100dp"
                 android:id="@+id/max_count"
                 android:background="@null"
                 android:inputType="number" />
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="16dp"
+                android:paddingTop="20dp"
+                android:paddingLeft="20dp"
+
+                android:text="명"
+                android:minWidth="50dp"
+                android:background="@null" />
             <CheckBox
                 android:id="@+id/checkBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
                 android:text="인원제한 없음" />
         </LinearLayout>
         <LinearLayout
@@ -195,7 +215,19 @@
             android:layout_height="60dp"
             android:orientation="horizontal"
             android:layout_gravity="center"
-            android:background="@drawable/formdetail_profile_bottomline">
+            android:background="@drawable/formdetail_profile_bottomline"
+            android:id="@+id/container_addr">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="16dp"
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+
+                android:text="거래장소"
+                android:minWidth="50dp"
+                android:background="@null" />
             <TextView
                 android:id="@+id/address"
                 android:layout_width="wrap_content"
@@ -205,10 +237,7 @@
                 android:textSize="16dp"
                 android:gravity="left|center"
                 android:background="@null"/>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
+
             <Button
                 android:id="@+id/button_addr"
                 android:layout_gravity="center"
@@ -216,15 +245,33 @@
                 android:layout_height="wrap_content"
                 android:text="수정" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:background="@drawable/formdetail_profile_bottomline">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="16dp"
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+
+                android:text="상세주소"
+                android:minWidth="50dp"
+                android:background="@null" />
             <EditText
                 android:id="@+id/address_detail"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:maxLength="20"
                 android:layout_weight="2"
-                android:hint="상세정보(선택)"
+                android:hint="상세주소(선택)"
                 android:textSize="16dp"
                 android:background="@drawable/formdetail_profile_bottomline"/>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

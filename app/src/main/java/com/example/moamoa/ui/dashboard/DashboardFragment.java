@@ -78,7 +78,8 @@ public class DashboardFragment extends Fragment {
     String point;
     ClipData clipData;
     String addr_co;
-    String addr_detail;
+    String addr_edit="-";
+    String addr_de_edit="-";
 
     Button btn_getImage;
 
@@ -115,12 +116,21 @@ public class DashboardFragment extends Fragment {
         Button btn_addr     = (Button) root.findViewById(R.id.button_addr);             //
         TextView deadline   = (TextView) root.findViewById(R.id.text_dashboardend);     //마감일자
         CheckBox checkBox   = (CheckBox) root.findViewById(R.id.checkBox);              //인원제한유무
-        RadioGroup radioGroup   = (RadioGroup) root.findViewById(R.id.radioGroup);      //거래 방식
+        CheckBox check_offline   = (CheckBox) root.findViewById(R.id.check_offline);      //거래 방식
+        CheckBox check_online   = (CheckBox) root.findViewById(R.id.check_online);      //거래 방식
+
         Spinner category_text   = (Spinner) root.findViewById(R.id.spinner);            //카테고리
         today.setText(GetTimeStart().substring(0,4)+"/"+GetTimeStart().substring(4,6)+"/"+GetTimeStart().substring(6,8));
         cost.addTextChangedListener(new CustomTextWatcher(cost));
         photo = (ImageView) root.findViewById(R.id.imageView);
         storage = FirebaseStorage.getInstance();
+        address_edit.setClickable(false);
+        address_edit.setFocusable(false);
+        addr_detail_edit.setClickable(false);
+        addr_detail_edit.setFocusable(false);
+        btn_addr.setClickable(false);
+        btn_addr.setFocusable(false);
+
 
         btn_getImage = root.findViewById(R.id.button_imgs);
         btn_getImage.setOnClickListener(new View.OnClickListener() {
@@ -133,18 +143,15 @@ public class DashboardFragment extends Fragment {
                 startActivityForResult(intent, 2222);
             }
         });
-        Log.d("확인","message : "+checkBox.isChecked());
+
         recyclerView = root.findViewById(R.id.recyclerView);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 User user1= snapshot.getValue(User.class);
                 num_a=user1.getnum()+1;
-                Log.d("확인","message : "+num_a);
-
             }
 
             @Override
@@ -170,23 +177,6 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId){
-                    case R.id.radioButton1:
-                        express= "직거래";
-                        break;
-                    case R.id.radioButton2:
-                        express= "택배";
-                        break;
-                    case R.id.radioButton3:
-                        express= "둘다가능";
-                        break;
-                }
-            }
-        });
-
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -194,11 +184,9 @@ public class DashboardFragment extends Fragment {
                     max_count.setClickable(false);
                     max_count.setFocusable(false);
                     max= 100;
-                    max_count.setVisibility(View.GONE);
-
                 } else {
-                    max=0;
-                    max_count.setVisibility(View.VISIBLE);
+                    max_count.setText("");
+
                     max_count.setFocusableInTouchMode(true);
                     max_count.setFocusable(true);
                 }
@@ -210,7 +198,6 @@ public class DashboardFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), MapActivity.class);
                 startActivity(intent);
-
             }
         });
         btn_addr.setOnClickListener(new View.OnClickListener() {
@@ -220,6 +207,81 @@ public class DashboardFragment extends Fragment {
                 startActivity(intent);
 
             }
+        });
+        check_online.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (check_offline.isChecked() & !check_online.isChecked()) {
+                    express = check_offline.toString();
+                    address_edit.setClickable(true);
+                    address_edit.setFocusable(true);
+                    addr_detail_edit.setFocusableInTouchMode(true);
+                    addr_detail_edit.setFocusable(true);
+                    btn_addr.setClickable(true);
+                    btn_addr.setFocusable(true);
+                } else if (check_offline.isChecked() & check_online.isChecked()) {
+                    express = "all";
+                    address_edit.setClickable(true);
+                    address_edit.setFocusable(true);
+                    addr_detail_edit.setFocusableInTouchMode(true);
+                    addr_detail_edit.setFocusable(true);
+                    btn_addr.setClickable(true);
+                    btn_addr.setFocusable(true);
+
+                } else if (!check_offline.isChecked() & check_online.isChecked()) {
+                    express = check_online.toString();
+                    address_edit.setText("");
+                    addr_detail_edit.setText("");
+                    address_edit.setClickable(false);
+                    address_edit.setFocusable(false);
+                    addr_detail_edit.setClickable(false);
+                    addr_detail_edit.setFocusable(false);
+                    btn_addr.setClickable(false);
+                    btn_addr.setFocusable(false);
+                }
+            }
+        });
+        check_offline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (check_offline.isChecked() & !check_online.isChecked()) {
+                    express = check_offline.toString();
+                    address_edit.setClickable(true);
+                    address_edit.setFocusable(true);
+                    addr_detail_edit.setFocusableInTouchMode(true);
+                    addr_detail_edit.setFocusable(true);
+                    btn_addr.setClickable(true);
+                    btn_addr.setFocusable(true);
+                } else if (check_offline.isChecked() & check_online.isChecked()) {
+                    express = "all";
+                    address_edit.setClickable(true);
+                    address_edit.setFocusable(true);
+                    addr_detail_edit.setFocusableInTouchMode(true);
+                    addr_detail_edit.setFocusable(true);
+                    btn_addr.setClickable(true);
+                    btn_addr.setFocusable(true);
+
+                } else if (!check_offline.isChecked() & check_online.isChecked()) {
+                    address_edit.setText("");
+                    addr_detail_edit.setText("");
+                    express = check_online.toString();
+                    address_edit.setClickable(false);
+                    address_edit.setFocusable(false);
+                    addr_detail_edit.setClickable(false);
+                    addr_detail_edit.setFocusable(false);
+                    btn_addr.setClickable(false);
+                    btn_addr.setFocusable(false);
+                }else{
+
+                    address_edit.setClickable(true);
+                    address_edit.setFocusable(true);
+                    addr_detail_edit.setFocusableInTouchMode(true);
+                    addr_detail_edit.setFocusable(true);
+                    btn_addr.setClickable(true);
+                    btn_addr.setFocusable(true);
+                }
+           }
+
         });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -240,7 +302,7 @@ public class DashboardFragment extends Fragment {
                     text.requestFocus();
                     return;
                 }
-                if (address_edit.getText().toString().length()==0){
+                if (address_edit.getText().toString().length()==0 & check_offline.isChecked() & !check_online.isChecked()){
                     Toast.makeText(getContext(),"주소를 입력하세요",Toast.LENGTH_SHORT).show();
                     address_edit.requestFocus();
                     return;
@@ -250,8 +312,9 @@ public class DashboardFragment extends Fragment {
                     cost.requestFocus();
                     return;
                 }
-                if (express.length()==0){
-                    Toast.makeText(getContext(),"배송 여부를 선택하세요요",Toast.LENGTH_SHORT).show();
+                if (!check_offline.isChecked() & !check_online.isChecked()){
+                    Toast.makeText(getContext(),"배송 여부를 선택하세요",Toast.LENGTH_SHORT).show();
+                    check_offline.requestFocus();
                     return;
                 }
                 if (max_count.getText().toString().length()==0 && !checkBox.isChecked() ){
@@ -278,8 +341,14 @@ public class DashboardFragment extends Fragment {
 
                     max=Integer.parseInt(max_count.getText().toString());
                 }
+
+
+                if(address_edit.getText().toString().equals("")){
+                    addr_co="-";
+                    addr_edit="-";
+                }
                 if(addr_detail_edit.getText().toString().equals("")){
-                    addr_detail_edit.setText("-");
+                    addr_de_edit="-";
                 }
 
                 String dead = (deadline.getText().toString().substring(0,4))+deadline.getText().toString().substring(5,7)+deadline.getText().toString().substring(8,10).toString();
@@ -298,9 +367,9 @@ public class DashboardFragment extends Fragment {
                         photo_num,
                         subject.getText().toString(),
                         text.getText().toString(),
-                        address_edit.getText().toString(),
+                        addr_edit,
                         addr_co,
-                        addr_detail_edit.getText().toString(),
+                        addr_de_edit,
                         category_int,
                         Integer.parseInt(cost.getText().toString().replace(",","")),
                         max,
