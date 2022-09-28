@@ -56,7 +56,6 @@ public class homelist_adapter extends RecyclerView.Adapter<homelist_adapter.View
 
         public ViewHolder(View view) {
             super(view);
-            Log.i("view",view+"");
             // Define click listener for the ViewHolder's View
             img_main    = (ImageView)view.findViewById(R.id.homelist_mainImage);
             txt_title   = (TextView) view.findViewById(R.id.homelist_title);

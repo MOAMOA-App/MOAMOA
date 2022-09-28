@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AlertDialog">
-
-    </style>
     <style name="PopupMenu">
 
+    </style>
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="borderRound">16dp</item>
     </style>
     <style name="DEADLINE_boldText">
         <item name="android:textStyle">bold</item>

@@ -40,6 +40,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.L;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.moamoa.Form;
@@ -79,7 +80,7 @@ public class ChatsActivity extends AppCompatActivity {
     private List<ChatModel> chatModels = new ArrayList<>();
     private ArrayList<String> destinationUsers = new ArrayList<>();
 
-    private String Chatroomname, Formid;
+    private String FID;
 
     private ChatsFragment chatsFragment = new ChatsFragment();
 
@@ -118,10 +119,14 @@ public class ChatsActivity extends AppCompatActivity {
         // FormdetailActivity와 ChatListFragment에서 값 받음
         Intent getIntent = getIntent();
         destinationuid = getIntent.getStringExtra("destinationUID");
+        FID = getIntent.getStringExtra("FID");
+        Log.e("TEST444", "FID: "+FID);
 
         // 받은 값 ChatsFragment에 넘겨줌
         Bundle bundle = new Bundle();
         bundle.putString("destinationUID", destinationuid);
+        if (FID!=null)
+            bundle.putString("FID", FID);
         chatsFragment.setArguments(bundle);
         /*
          * ChatsFragment로 값이 안넘어갔던 이유: xml에 fragmentcontainerview 있음

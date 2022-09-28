@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:id="@+id/partylist_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="참여자 목록"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:background="@color/main_green"
+            android:layout_gravity="center"
+            android:gravity="center|left"
+            android:paddingHorizontal="10dp" />
+        <ListView
+            android:id="@+id/partylist_view"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:background="@drawable/round_border_style"
+            android:backgroundTint="@color/main_green"
+            android:textColor="@color/white"
+            android:layout_gravity="right"
+            android:layout_margin="10dp"
+            android:text="닫기"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
