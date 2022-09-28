@@ -19,17 +19,15 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,6 +37,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 /**
  * 판매자용 게시글 상세보기 페이지
@@ -47,10 +46,6 @@ public class DetailCreaterSideActivity extends Activity {
 
     private DatabaseReference mDatabase;
     private FirebaseStorage firebaseStorage;
-    private FirebaseUser user;
-
-    private String image;
-    private int count;
     String FID;
     String FUID;
 
@@ -59,7 +54,6 @@ public class DetailCreaterSideActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailcreaterside);
 
-        user        = FirebaseAuth.getInstance().getCurrentUser();
         firebaseStorage = FirebaseStorage.getInstance();
         Intent intent = getIntent();
         FID = intent.getStringExtra("FID");
@@ -73,16 +67,33 @@ public class DetailCreaterSideActivity extends Activity {
            }
        });
         //버튼 선언
-        Button notice_btn    = (Button)findViewById(R.id.creator_notice);       //채팅하기 버튼
-        Button showparty_btn = (Button)findViewById(R.id.creator_showparty); //참여하기 버튼
+        Button notice_btn    = (Button)findViewById(R.id.creator_notice);    //공지하기 버튼
+        Button showparty_btn = (Button)findViewById(R.id.creator_showparty); //참여자목록 버튼
         ImageButton menu_btn = (ImageButton)findViewById(R.id.creator_menu); //메뉴보기 버튼
 
-        showparty_btn.setOnClickListener(new View.OnClickListener() {
+        notice_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                Toast.makeText(getApplicationContext(), "공지 버튼", Toast.LENGTH_SHORT).show();
             }
         });
+        showparty_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArrayList<PartyListData> homelist = new ArrayList();
+                homelist = InitializePartiform();
+                PartyListAdapter adapter = new PartyListAdapter(getApplicationContext(), homelist);
+                final View popupView = getLayoutInflater().inflate(R.layout.partylist, null);
+                final AlertDialog.Builder builder = new AlertDialog
+                        .Builder(DetailCreaterSideActivity.this).setView(popupView);
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                Toast.makeText(getApplicationContext(), "참가자목록버튼 버튼", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //메뉴버튼[수정/삭제]
         menu_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,26 +145,40 @@ public class DetailCreaterSideActivity extends Activity {
                 popupMenu.show();
             }
         });
+    }//onCreate();
+
+    public ArrayList<PartyListData> InitializePartiform()
+    {
+        ArrayList<PartyListData> partylist=new ArrayList();
+        PartyListData listdata = new PartyListData();
+        mDatabase.child("party").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                for(DataSnapshot dataSnapshot : task.getResult().getChildren()){
+                    String uid = dataSnapshot.getKey()+"";
+                    String date = dataSnapshot.getValue()+"";
+                    mDatabase.child("users").child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            //listdata.set(task.getResult().child())
+                            listdata.setUID(uid);
+                            listdata.setNickname(task.getResult().child("nick").getValue()+"");
+                            listdata.setParti_date(date);
+                            listdata.setProfile(task.getResult().child("image").getValue()+"");
+                            listdata.setLastchat("마지막 채팅이면 좋겠는데 빡세네");
+                            partylist.add(listdata);
+                        }
+                    });
+                }
+            }
+        });
+        return partylist;
     }
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         getMenuInflater().inflate(R.menu.detailcreatorside_menu,menu);
-    }
-
-    @Override
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
-        super.onContextItemSelected(item);
-        switch(item.getItemId()){
-            case R.id.Detail_Creator_Change:
-                count = 0;
-                break;
-            case R.id.Detail_Creator_Delete:
-                count = 1;
-                break;
-        }
-        return true;
     }
 
     @Override
@@ -168,7 +193,6 @@ public class DetailCreaterSideActivity extends Activity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-
                     String subject = dataSnapshot.child("subject").getValue().toString();
                     String text = dataSnapshot.child("text").getValue().toString();
 
@@ -189,8 +213,8 @@ public class DetailCreaterSideActivity extends Activity {
                     String[] cat = res.getStringArray(R.array.category);
                     category=cat[Integer.parseInt(category)];
 
-                    image=dataSnapshot.child("image").getValue().toString().replace(".png","_1.png");
-                    count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
+                    String image=dataSnapshot.child("image").getValue().toString().replace(".png","_1.png");
+                    int count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
 
                     UserFind(FUID);
                     Initializeform(subject,category,text,cost,count_party+"/"+max_count,today,deadline,address,addr_detail,express,count,state);

@@ -15,15 +15,13 @@
         android:id="@+id/change_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="#ffffff"
-                app:titleTextColor="@color/black" />
+                app:titleTextColor="@color/black">
+
             <TextView
                 android:id="@+id/change_bar_txt"
                 android:layout_width="wrap_content"
@@ -31,8 +29,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
                 android:text="폼 이름"
-                android:textSize="20sp" />
-        </RelativeLayout>
+                android:textSize="20dp"/>
+            </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView
