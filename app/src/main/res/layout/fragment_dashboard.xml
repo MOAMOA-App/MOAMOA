@@ -134,45 +134,37 @@
                     android:background="@null"
                     android:inputType="number" />
             </LinearLayout>
+
             <EditText
                 android:id="@+id/text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/formdetail_profile_bottomline"
                 android:gravity="top"
                 android:hint="내용"
-                android:textSize="16dp"
                 android:minHeight="200dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/formdetail_profile_bottomline"/>
+                android:textSize="16dp" />
 
-        <LinearLayout
+            <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:background="@drawable/formdetail_profile_bottomline">
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:id="@+id/radioGroup">
-                <RadioButton
+
+                <CheckBox
                     android:id="@+id/radioButton1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="직거래만"/>
-                <RadioButton
+                    android:text="직거래"/>
+                <CheckBox
                     android:id="@+id/radioButton2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="택배/비대면"
                     android:layout_marginHorizontal="5dp"/>
-                <RadioButton
-                    android:id="@+id/radioButton3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="둘 다 가능" />
-            </RadioGroup>
+
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
