@@ -301,19 +301,37 @@
                 android:background="@color/light_gray"
                 android:gravity="center_vertical"
 
-                android:text="   폼 목록" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/chats_formlist"
+                android:text="   관련 폼 목록" />
+            <LinearLayout
+                android:id="@+id/chats_LL_form"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
 
+                android:orientation="vertical"
+                android:gravity="center_vertical"
                 android:layout_below="@+id/chats_TextView_formlist"
-                >
 
-            </androidx.recyclerview.widget.RecyclerView>
+                android:clickable="true"
+                android:focusable="true"
+                >
+                <TextView
+                    android:id="@+id/chat_formlist_formname1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="폼 이름"
+                    />
+                <TextView
+                    android:id="@+id/chat_formlist_usernick1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="닉네임"
+                    android:textSize="11sp"
+                    />
+
+            </LinearLayout>
 
             <RelativeLayout
                 android:id="@+id/RL_bottommenu"

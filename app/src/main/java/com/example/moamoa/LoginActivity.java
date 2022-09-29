@@ -217,6 +217,8 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
+
+                Log.d(TAG, "firebaseAuthWithGoogle:" + account.getIdToken());
                 postValues.put("type","google");
                 postValues.put("id",account.getId());
                 postValues.put("name",account.getGivenName());
@@ -224,9 +226,7 @@ public class LoginActivity extends AppCompatActivity {
                 random_nicks.setNickname();
                 postValues.put("nick",random_nicks.getNickname());
                 postValues.put("image","profile/"+random_nicks.getImage()+".png");
-                Log.d(TAG, "firebaseAuthWithGoogle:" + account.getIdToken());
                 firebaseAuthWithGoogle(account.getIdToken());
-
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
