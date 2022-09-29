@@ -75,13 +75,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/image_recyler" />
 
             <EditText
+                android:id="@+id/subject"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:hint="제목"
-                android:textSize="16dp"
-                android:maxLength="20"
                 android:background="@drawable/formdetail_profile_bottomline"
-                android:id="@+id/subject"/>
+                android:hint="제목"
+                android:maxLength="20"
+                android:textSize="16dp" />
+
             <Spinner
                 android:id="@+id/category"
                 android:layout_width="match_parent"
@@ -148,38 +149,35 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:background="@drawable/formdetail_profile_bottomline">
-
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
-                 android:textSize="16dp"
-                android:paddingTop="20dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-
                 android:text="인원"
+                android:gravity="center"
                 android:minWidth="50dp"
+                android:textSize="16dp"
                 android:background="@null" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:hint="인원"
-                android:textSize="16dp"
-                android:paddingLeft="20dp"
                 android:minWidth="100dp"
                 android:id="@+id/max_people"
                 android:background="@null"
+                android:textSize="16dp"
                 android:inputType="number" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textSize="16dp"
-                android:paddingTop="20dp"
-                android:paddingLeft="20dp"
-
                 android:text="명"
+                android:gravity="center"
+                android:textSize="16dp"
                 android:minWidth="50dp"
                 android:background="@null" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
             <CheckBox
                 android:id="@+id/check_people"
                 android:layout_width="wrap_content"
@@ -195,13 +193,10 @@
             android:background="@drawable/formdetail_profile_bottomline"
             android:id="@+id/container_addr">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:textSize="16dp"
-                android:paddingTop="20dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-
+                android:gravity="center"
                 android:text="거래장소"
                 android:minWidth="50dp"
                 android:background="@null" />
@@ -217,10 +212,13 @@
 
             <Button
                 android:id="@+id/btn_addr"
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="수정" />
+                android:layout_gravity="center"
+                android:background="@drawable/round_border_style"
+                android:backgroundTint="@color/main_orange"
+                android:text="수정"
+                android:textColor="@color/white" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -229,26 +227,22 @@
             android:layout_gravity="center"
             android:background="@drawable/formdetail_profile_bottomline">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:textSize="16dp"
-                android:paddingTop="20dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-
                 android:text="상세주소"
-                android:minWidth="50dp"
+                android:gravity="center"
+                android:textSize="16dp"
                 android:background="@null" />
+
             <EditText
                 android:id="@+id/addr_detail"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:maxLength="20"
                 android:layout_weight="2"
+                android:background="@drawable/formdetail_profile_bottomline"
                 android:hint="상세주소(선택)"
-                android:textSize="16dp"
-                android:background="@drawable/formdetail_profile_bottomline"/>
-            </LinearLayout>
+                android:maxLength="20" />
+        </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -256,15 +250,17 @@
                 android:background="@drawable/formdetail_profile_bottomline"
                 android:gravity="center">
                 <TextView
-                    android:layout_width="72dp"
+                    android:layout_width="70dp"
                     android:layout_height="40dp"
                     android:text="시작일자"
+                    android:textSize="16dp"
                     android:gravity="center"/>
                 <TextView
                     android:id="@+id/today"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="시작일자"
+                    android:textSize="16dp"
                     android:inputType="date" />
             </LinearLayout>
             <LinearLayout
@@ -274,15 +270,17 @@
                 android:background="@drawable/formdetail_profile_bottomline"
                 android:layout_marginBottom="10dp">
                 <TextView
-                    android:layout_width="72dp"
+                    android:layout_width="70dp"
                     android:layout_height="40dp"
                     android:text="마감일자"
+                    android:textSize="16dp"
                     android:gravity="center"/>
                 <TextView
                     android:id="@+id/deadline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="마감일자"
+                    android:textSize="16dp"
                     android:onClick="showDatePicker"
                     android:inputType="date" />
             </LinearLayout>
