@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,6 +38,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.naver.maps.geometry.LatLng;
+import com.naver.maps.map.CameraPosition;
+import com.naver.maps.map.MapView;
+import com.naver.maps.map.NaverMap;
+import com.naver.maps.map.NaverMapSdk;
+import com.naver.maps.map.OnMapReadyCallback;
+import com.naver.maps.map.overlay.Marker;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -44,12 +52,16 @@ import java.util.ArrayList;
 /**
  * 판매자용 게시글 상세보기 페이지
  */
-public class DetailCreaterSideActivity extends AppCompatActivity {
+public class DetailCreaterSideActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private DatabaseReference mDatabase;
     private FirebaseStorage firebaseStorage;
     String FID;
     String FUID;
+    // 지도
+    private MapView mapView;
+    private static NaverMap naverMap;
+    Marker marker = new Marker();
 
 
     ArrayList<PartyListData> partylist=new ArrayList();
@@ -68,8 +80,15 @@ public class DetailCreaterSideActivity extends AppCompatActivity {
            public void onComplete(@NonNull Task<DataSnapshot> task) {
                FUID = task.getResult().child("UID_dash").getValue().toString();
                printpage();
+
            }
        });
+        NaverMapSdk.getInstance(this).setClient(
+                new NaverMapSdk.NaverCloudPlatformClient("xjdzzwh9wk"));
+        mapView = (MapView) findViewById(R.id.mv);
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
+
         //버튼 선언
         Button notice_btn    = (Button)findViewById(R.id.creator_notice);    //공지하기 버튼
         Button showparty_btn = (Button)findViewById(R.id.creator_showparty); //참여자목록 버튼
@@ -161,8 +180,26 @@ public class DetailCreaterSideActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
     }
+    public void onMapReady(@NonNull NaverMap naverMap) {
+        this.naverMap = naverMap;
+        Geocoder geocoder = new Geocoder(this);
+        mDatabase.child("form").child(FID).child("addr_co").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                String addr_co = task.getResult().getValue().toString();
+                String[] PointArray = addr_co.split(",");
+                String latitude = PointArray[0]; // 경도
+                String longitude = PointArray[1]; // 위도
+                LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
+                marker.setPosition(point1);
+                marker.setMap(naverMap);
+                // 해당 좌표로 화면 줌
+                CameraPosition cameraPosition = new CameraPosition(point1, 16);
 
-
+                naverMap.setCameraPosition(cameraPosition);
+            }
+        });
+    }
     private void printpage(){
         mDatabase.child("form").child(FID).addValueEventListener(new ValueEventListener() {
             @Override

@@ -62,17 +62,17 @@ public class DashboardFragment extends Fragment {
     int num_a;
     int max;
     String express;
+    String temp;
     int photo_num;
     ImageView photo;
     private FirebaseStorage storage;
     private final int GALLERY_CODE = 10;
     private FirebaseAuth firebaseAuth;
     int i = 1;
-    String point;
     ClipData clipData;
-    String addr_co="-";
-    String addr_edit="-";
-    String addr_de_edit="-";
+    String addr_co="";
+    String addr_edit="";
+    String addr_de_edit="";
     RecyclerView recyclerView;
     Button btn_image;
 
@@ -106,8 +106,8 @@ public class DashboardFragment extends Fragment {
         EditText addr_detail    = (EditText) root.findViewById(R.id.addr_detail);       //상세주소
         EditText cost           = (EditText) root.findViewById(R.id.cost);              //금액
         EditText max_people     = (EditText) root.findViewById(R.id.max_people);        //마감 최대 인원 수
-        Button btn_dashboard    = (Button) root.findViewById(R.id.btn_dashboard);       //
-        Button btn_addr         = (Button) root.findViewById(R.id.btn_addr);            //
+        Button btn_dashboard    = (Button) root.findViewById(R.id.btn_dashboard);       //글쓰기버튼
+//        Button btn_addr         = (Button) root.findViewById(R.id.btn_addr);            //주소검색버튼
         TextView deadline       = (TextView) root.findViewById(R.id.deadline);          //마감일자
         CheckBox check_people   = (CheckBox) root.findViewById(R.id.check_people);      //인원제한유무
         CheckBox check_offline  = (CheckBox) root.findViewById(R.id.check_offline);     //거래 방식
@@ -120,12 +120,12 @@ public class DashboardFragment extends Fragment {
         photo = (ImageView) root.findViewById(R.id.imageView);
         storage = FirebaseStorage.getInstance();
 
-        addr_search.setClickable(false);
-        addr_search.setFocusable(false);
-        addr_detail.setClickable(false);
-        addr_detail.setFocusable(false);
-        btn_addr.setClickable(false);
-        btn_addr.setFocusable(false);
+        addr_search.setClickable(true);
+        addr_search.setFocusable(true);
+        addr_detail.setFocusableInTouchMode(true);
+        addr_detail.setFocusable(true);
+//        btn_addr.setClickable(true);
+//        btn_addr.setFocusable(true);
 
         btn_image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -193,44 +193,42 @@ public class DashboardFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        btn_addr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), MapActivity.class);
-                startActivity(intent);
-
-            }
-        });
+//        btn_addr.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), MapActivity.class);
+//                startActivity(intent);
+//
+//            }
+//        });
         check_online.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (check_offline.isChecked() & !check_online.isChecked()) {
-                    express = check_offline.toString();
+
                     addr_search.setClickable(true);
                     addr_search.setFocusable(true);
                     addr_detail.setFocusableInTouchMode(true);
                     addr_detail.setFocusable(true);
-                    btn_addr.setClickable(true);
-                    btn_addr.setFocusable(true);
+//                    btn_addr.setClickable(true);
+//                    btn_addr.setFocusable(true);
                 } else if (check_offline.isChecked() & check_online.isChecked()) {
-                    express = "all";
+
                     addr_search.setClickable(true);
                     addr_search.setFocusable(true);
                     addr_detail.setFocusableInTouchMode(true);
                     addr_detail.setFocusable(true);
-                    btn_addr.setClickable(true);
-                    btn_addr.setFocusable(true);
+
 
                 } else if (!check_offline.isChecked() & check_online.isChecked()) {
-                    express = check_online.toString();
+
                     addr_search.setText("");
                     addr_detail.setText("");
                     addr_search.setClickable(false);
                     addr_search.setFocusable(false);
                     addr_detail.setClickable(false);
                     addr_detail.setFocusable(false);
-                    btn_addr.setClickable(false);
-                    btn_addr.setFocusable(false);
+
                 }
             }
         });
@@ -238,40 +236,33 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (check_offline.isChecked() & !check_online.isChecked()) {
-                    express = check_offline.toString();
                     addr_search.setClickable(true);
                     addr_search.setFocusable(true);
                     addr_detail.setFocusableInTouchMode(true);
                     addr_detail.setFocusable(true);
-                    btn_addr.setClickable(true);
-                    btn_addr.setFocusable(true);
+
                 } else if (check_offline.isChecked() & check_online.isChecked()) {
-                    express = "all";
                     addr_search.setClickable(true);
                     addr_search.setFocusable(true);
                     addr_detail.setFocusableInTouchMode(true);
                     addr_detail.setFocusable(true);
-                    btn_addr.setClickable(true);
-                    btn_addr.setFocusable(true);
+
 
                 } else if (!check_offline.isChecked() & check_online.isChecked()) {
                     addr_search.setText("");
                     addr_detail.setText("");
-                    express = check_online.toString();
                     addr_search.setClickable(false);
                     addr_search.setFocusable(false);
                     addr_detail.setClickable(false);
                     addr_detail.setFocusable(false);
-                    btn_addr.setClickable(false);
-                    btn_addr.setFocusable(false);
+
                 }else{
 
                     addr_search.setClickable(true);
                     addr_search.setFocusable(true);
                     addr_detail.setFocusableInTouchMode(true);
                     addr_detail.setFocusable(true);
-                    btn_addr.setClickable(true);
-                    btn_addr.setFocusable(true);
+
                 }
            }
 
@@ -281,6 +272,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 if (on == false){
                     Toast.makeText(getContext(),"사진을 추가하세요",Toast.LENGTH_SHORT).show();
+                    //Log.i("num",temp);
                     return;
                 }
                 if (subject.getText().toString().length()==0){
@@ -346,7 +338,8 @@ public class DashboardFragment extends Fragment {
                 String dead = (deadline.getText().toString().substring(0,4))+deadline.getText().toString().substring(5,7)+deadline.getText().toString().substring(8,10);
 
                 String[] cat = getResources().getStringArray(R.array.category);
-                String temp = (String) category.getSelectedItem();
+                temp = (String) category.getSelectedItem();
+
                 int category_int = 0;
                 for (i=0;i<cat.length;i++) {
                     if(cat[i].equals(temp)) category_int=i;
@@ -370,22 +363,21 @@ public class DashboardFragment extends Fragment {
                         photo_num,                       //이미지 개수
                         subject.getText().toString(),    //제목
                         text.getText().toString(),       //내용
-                        addr_edit,
-                        addr_co,
-                        addr_de_edit,
+                        addr_search.getText().toString(),//주소
+                        addr_co,//위경도
+                        addr_de_edit,//상세주소
                         category_int,                    //카테고리 번호
                         Integer.parseInt(cost.getText().toString().replace(",","")),    //가격
                         max,                             //최대인원수
                         Integer.parseInt(dead),          //마감일자
                         GetTimeStart(),                  //시작일자
-                        0,                         //뭐야 이거
-                        check_text,
-                        point,
+                        0,                         //조회수
+                        check_text,                 //대면비대면
                         0                          //활성화 상태
                 );
 
 
-                Log.i("num",num_a+"");
+
                 FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child("num").setValue(num_a);
                 FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child(FID).setValue("host");
 

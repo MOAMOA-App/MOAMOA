@@ -28,6 +28,9 @@ public final class FragmentMainBinding implements ViewBinding {
   public final TextView charge;
 
   @NonNull
+  public final TextView deadline;
+
+  @NonNull
   public final ToggleButton heart;
 
   @NonNull
@@ -46,12 +49,13 @@ public final class FragmentMainBinding implements ViewBinding {
   public final TextView title;
 
   private FragmentMainBinding(@NonNull LinearLayout rootView, @NonNull TextView FID,
-      @NonNull TextView charge, @NonNull ToggleButton heart, @NonNull TextView listState,
-      @NonNull ImageView mainImage, @NonNull TextView mans, @NonNull TextView name,
-      @NonNull TextView title) {
+      @NonNull TextView charge, @NonNull TextView deadline, @NonNull ToggleButton heart,
+      @NonNull TextView listState, @NonNull ImageView mainImage, @NonNull TextView mans,
+      @NonNull TextView name, @NonNull TextView title) {
     this.rootView = rootView;
     this.FID = FID;
     this.charge = charge;
+    this.deadline = deadline;
     this.heart = heart;
     this.listState = listState;
     this.mainImage = mainImage;
@@ -99,6 +103,12 @@ public final class FragmentMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.deadline;
+      TextView deadline = ViewBindings.findChildViewById(rootView, id);
+      if (deadline == null) {
+        break missingId;
+      }
+
       id = R.id.heart;
       ToggleButton heart = ViewBindings.findChildViewById(rootView, id);
       if (heart == null) {
@@ -135,8 +145,8 @@ public final class FragmentMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentMainBinding((LinearLayout) rootView, FID, charge, heart, listState,
-          mainImage, mans, name, title);
+      return new FragmentMainBinding((LinearLayout) rootView, FID, charge, deadline, heart,
+          listState, mainImage, mans, name, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

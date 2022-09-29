@@ -78,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         // [START config_signin]
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -223,8 +224,9 @@ public class LoginActivity extends AppCompatActivity {
                 random_nicks.setNickname();
                 postValues.put("nick",random_nicks.getNickname());
                 postValues.put("image","profile/"+random_nicks.getImage()+".png");
+                Log.d(TAG, "firebaseAuthWithGoogle:" + account.getIdToken());
                 firebaseAuthWithGoogle(account.getIdToken());
-                Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
+
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);

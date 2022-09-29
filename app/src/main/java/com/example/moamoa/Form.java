@@ -21,7 +21,6 @@ public class Form  {
     public int parti_num;       //참여수
     public int state;           //상태
     public int count;           //조회수
-    public String point;        //위도,경도
     public int s_case;          //지역 상태
     public String express;      //배송종류
     public int active;          //활성화
@@ -31,7 +30,7 @@ public class Form  {
     public Form(){ };
     public Form( String FID, String UID_dash,String image,int photo_num, String subject, String text,
                  String address,String addr_co,String addr_detail,int category_text, int cost, int max_count,int deadline,
-                 String today,int count,String express, String point, int active){
+                 String today,int count,String express, int active){
         this.FID = FID;
 
         this.UID_dash   = UID_dash;
@@ -49,7 +48,6 @@ public class Form  {
         this.today      = today;
         this.count      = count;
         this.express    = express;
-        this.point      = point;
         this.active     = active;
 
     }
@@ -93,8 +91,6 @@ public class Form  {
     public void setCount(int count) {this.count = count;}
     public String getExpress(){ return express; }
     public void setExpress(String express) {this.express = express;}
-    public String getPoint(){ return point; }
-    public void setPoint(String point) {this.point = point;}
     public int getPhoto_num(){ return photo_num; }
     public void setPhoto_num(int photo_num) {this.photo_num = photo_num;}
     public int getActive(){ return active; }
