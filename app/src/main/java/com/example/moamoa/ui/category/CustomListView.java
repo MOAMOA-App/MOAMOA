@@ -121,7 +121,7 @@ public class CustomListView extends BaseAdapter {
         }
         //mainImage.listViewData.get(position).photo);
         title.setText(listViewData.get(position).subject);
-        name.setText(listViewData.get(position).addr_search);
+        name.setText(listViewData.get(position).address);
 
 
         int t1 = GetTimeStart();
@@ -136,10 +136,10 @@ public class CustomListView extends BaseAdapter {
 
         state.setText("["+state_temp+"]");
 
-        if((listViewData.get(position).max_people + "").equals("1000")){
+        if((listViewData.get(position).max_count + "").equals("1000")){
             mans.setText("∞");
         }else{
-            mans.setText(listViewData.get(position).parti_num+"/"+listViewData.get(position).max_people);
+            mans.setText(listViewData.get(position).parti_num+"/"+listViewData.get(position).max_count);
         }
 
         //listview와 버튼 클릭 다르게 주기
