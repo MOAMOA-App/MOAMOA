@@ -22,6 +22,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
@@ -42,13 +44,15 @@ import java.util.ArrayList;
 /**
  * 판매자용 게시글 상세보기 페이지
  */
-public class DetailCreaterSideActivity extends Activity {
+public class DetailCreaterSideActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private FirebaseStorage firebaseStorage;
     String FID;
     String FUID;
 
+
+    ArrayList<PartyListData> partylist=new ArrayList();
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -71,6 +75,7 @@ public class DetailCreaterSideActivity extends Activity {
         Button showparty_btn = (Button)findViewById(R.id.creator_showparty); //참여자목록 버튼
         ImageButton menu_btn = (ImageButton)findViewById(R.id.creator_menu); //메뉴보기 버튼
 
+
         notice_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,15 +86,12 @@ public class DetailCreaterSideActivity extends Activity {
         showparty_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<PartyListData> homelist = new ArrayList();
-                homelist = InitializePartiform();
-                PartyListAdapter adapter = new PartyListAdapter(getApplicationContext(), homelist);
-                final View popupView = getLayoutInflater().inflate(R.layout.partylist, null);
-                final AlertDialog.Builder builder = new AlertDialog
-                        .Builder(DetailCreaterSideActivity.this).setView(popupView);
-                final AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-                Toast.makeText(getApplicationContext(), "참가자목록버튼 버튼", Toast.LENGTH_SHORT).show();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                PartyDialog partyDialog = new PartyDialog();
+                Bundle args = new Bundle();
+                args.putString("FID", FID);
+                partyDialog.setArguments(args);
+                partyDialog.show(fragmentManager, "MYTAG");
             }
         });
 
@@ -147,33 +149,6 @@ public class DetailCreaterSideActivity extends Activity {
         });
     }//onCreate();
 
-    public ArrayList<PartyListData> InitializePartiform()
-    {
-        ArrayList<PartyListData> partylist=new ArrayList();
-        PartyListData listdata = new PartyListData();
-        mDatabase.child("party").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                for(DataSnapshot dataSnapshot : task.getResult().getChildren()){
-                    String uid = dataSnapshot.getKey()+"";
-                    String date = dataSnapshot.getValue()+"";
-                    mDatabase.child("users").child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            //listdata.set(task.getResult().child())
-                            listdata.setUID(uid);
-                            listdata.setNickname(task.getResult().child("nick").getValue()+"");
-                            listdata.setParti_date(date);
-                            listdata.setProfile(task.getResult().child("image").getValue()+"");
-                            listdata.setLastchat("마지막 채팅이면 좋겠는데 빡세네");
-                            partylist.add(listdata);
-                        }
-                    });
-                }
-            }
-        });
-        return partylist;
-    }
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
