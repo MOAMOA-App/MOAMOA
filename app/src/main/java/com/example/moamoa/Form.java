@@ -10,10 +10,10 @@ public class Form  {
     public int photo_num;       //이미지 갯수
     public String address;      //주소
     public String addr_co;      //경위도
-    public String addr_detail;      //주소
+    public String addr_detail;  //주소
     public int category_text;   //카테고리
     public int cost;            //가격
-    public int max_count;    //마감인원
+    public int max_count;       //마감인원
     public int deadline;        //마감기간
     public String today;        //작성일
     public String UID_dash;     //UID

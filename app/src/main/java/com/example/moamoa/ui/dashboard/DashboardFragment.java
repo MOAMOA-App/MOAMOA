@@ -1,5 +1,6 @@
 package com.example.moamoa.ui.dashboard;
 
+import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.Intent;
 import android.net.Uri;
@@ -53,24 +54,16 @@ public class DashboardFragment extends Fragment {
      *공동구매 글 작성
      * **/
     private FragmentDashboardBinding binding;
-    long mNow;
-    Date mDate;
     boolean on = false;
-    SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMdd");
-    SimpleDateFormat mFormat1 = new SimpleDateFormat("yyyyMMddhhmmss");
     StorageReference storageRef;
     StorageReference riversRef;
-    FirebaseDatabase firebaseDatabase;
     UploadTask uploadTask;
-    Uri file;
     String FID;
     int num_a;
     int max;
     String express;
     int photo_num;
     ImageView photo;
-    String imageUrl;
-    Button button_img;
     private FirebaseStorage storage;
     private final int GALLERY_CODE = 10;
     private FirebaseAuth firebaseAuth;
@@ -97,6 +90,7 @@ public class DashboardFragment extends Fragment {
         return mFormat1.format(mDate);
     }
 
+    @SuppressLint("SetTextI18n")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel =
@@ -106,21 +100,21 @@ public class DashboardFragment extends Fragment {
         View root = binding.getRoot();
 
         EditText subject    = (EditText) root.findViewById(R.id.subject);               //제목
-        TextView today      = (TextView) root.findViewById(R.id.today);   //게시글 생성 날짜
+        TextView today      = (TextView) root.findViewById(R.id.today);                 //게시글 생성 날짜
         EditText text       = (EditText) root.findViewById(R.id.text);                  //내용
-        TextView addr_search = (TextView) root.findViewById(R.id.addr_search);               //주소
+        TextView addr_search    = (TextView) root.findViewById(R.id.addr_search);       //주소
         EditText addr_detail    = (EditText) root.findViewById(R.id.addr_detail);       //상세주소
-        EditText cost       = (EditText) root.findViewById(R.id.cost);                  //금액
-        EditText max_people  = (EditText) root.findViewById(R.id.max_people);             //마감 최대 인원 수
-        Button btn_dashboard       = (Button) root.findViewById(R.id.btn_dashboard);        //
-        Button btn_addr     = (Button) root.findViewById(R.id.btn_addr);             //
-        TextView deadline   = (TextView) root.findViewById(R.id.deadline);     //마감일자
-        CheckBox check_people   = (CheckBox) root.findViewById(R.id.check_people);              //인원제한유무
-        CheckBox check_offline   = (CheckBox) root.findViewById(R.id.check_offline);      //거래 방식
+        EditText cost           = (EditText) root.findViewById(R.id.cost);              //금액
+        EditText max_people     = (EditText) root.findViewById(R.id.max_people);        //마감 최대 인원 수
+        Button btn_dashboard    = (Button) root.findViewById(R.id.btn_dashboard);       //
+        Button btn_addr         = (Button) root.findViewById(R.id.btn_addr);            //
+        TextView deadline       = (TextView) root.findViewById(R.id.deadline);          //마감일자
+        CheckBox check_people   = (CheckBox) root.findViewById(R.id.check_people);      //인원제한유무
+        CheckBox check_offline  = (CheckBox) root.findViewById(R.id.check_offline);     //거래 방식
         CheckBox check_online   = (CheckBox) root.findViewById(R.id.check_online);      //거래 방식
         btn_image = root.findViewById(R.id.btn_image);
-        recyclerView =  root.findViewById(R.id.recyclerView);  // 이미지를 보여줄 리사이클러뷰
-        Spinner category   = (Spinner) root.findViewById(R.id.category);            //카테고리
+        recyclerView =  root.findViewById(R.id.recyclerView);                           // 이미지를 보여줄 리사이클러뷰
+        Spinner category   = (Spinner) root.findViewById(R.id.category);                //카테고리
         today.setText(GetTimeStart().substring(0,4)+"/"+GetTimeStart().substring(4,6)+"/"+GetTimeStart().substring(6,8));
         cost.addTextChangedListener(new CustomTextWatcher(cost));
         photo = (ImageView) root.findViewById(R.id.imageView);
@@ -285,7 +279,6 @@ public class DashboardFragment extends Fragment {
         btn_dashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if (on == false){
                     Toast.makeText(getContext(),"사진을 추가하세요",Toast.LENGTH_SHORT).show();
                     return;
@@ -350,7 +343,7 @@ public class DashboardFragment extends Fragment {
 //                    addr_de_edit="-";
 //                }
 
-                String dead = (deadline.getText().toString().substring(0,4))+deadline.getText().toString().substring(5,7)+deadline.getText().toString().substring(8,10).toString();
+                String dead = (deadline.getText().toString().substring(0,4))+deadline.getText().toString().substring(5,7)+deadline.getText().toString().substring(8,10);
 
                 String[] cat = getResources().getStringArray(R.array.category);
                 String temp = (String) category.getSelectedItem();
@@ -358,26 +351,37 @@ public class DashboardFragment extends Fragment {
                 for (i=0;i<cat.length;i++) {
                     if(cat[i].equals(temp)) category_int=i;
                 }
-
+                String check_text = "";
+                if(check_offline.isChecked()){
+                    if(check_online.isChecked()){
+                        check_text = "직거래/대면";
+                    }else{
+                        check_text = "직거래/택배";
+                    }
+                }else{
+                    if(check_online.isChecked()){
+                        check_text = "택배/비대면";
+                    }
+                }
                 Form form = new Form(
-                        FID,
-                        user.getUid(),
-                        "photo/"+FID+".png",
-                        photo_num,
-                        subject.getText().toString(),
-                        text.getText().toString(),
+                        FID,            //FID
+                        user.getUid(),  //FUID
+                        "photo/"+FID+".png",       //이미지
+                        photo_num,                       //이미지 개수
+                        subject.getText().toString(),    //제목
+                        text.getText().toString(),       //내용
                         addr_edit,
                         addr_co,
                         addr_de_edit,
-                        category_int,
-                        Integer.parseInt(cost.getText().toString().replace(",","")),
-                        max,
-                        Integer.parseInt(dead),
-                        GetTimeStart(),
-                        0,
-                        express,
+                        category_int,                    //카테고리 번호
+                        Integer.parseInt(cost.getText().toString().replace(",","")),    //가격
+                        max,                             //최대인원수
+                        Integer.parseInt(dead),          //마감일자
+                        GetTimeStart(),                  //시작일자
+                        0,                         //뭐야 이거
+                        check_text,
                         point,
-                        0
+                        0                          //활성화 상태
                 );
 
 
@@ -426,7 +430,6 @@ public class DashboardFragment extends Fragment {
                                 Toast.makeText(getContext(), "글쓰기 실패", Toast.LENGTH_SHORT).show();
                             }
                         });
-
 
             }
         });
