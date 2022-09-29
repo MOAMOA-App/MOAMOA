@@ -53,6 +53,8 @@ public class ChatsFragment extends Fragment {
 
     LinearLayoutManager linearLayoutManager;
 
+    DatabaseReference mdatabase;
+
     private RecyclerView recyclerView;
     private ChatsAdapter adapter;
     private ArrayList<ChatsData> list = new ArrayList<>();
@@ -75,6 +77,8 @@ public class ChatsFragment extends Fragment {
         binding = FragmentChatsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        mdatabase = FirebaseDatabase.getInstance().getReference();
+
         // USERID firebase에서 받아옴
         USERID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -82,7 +86,9 @@ public class ChatsFragment extends Fragment {
         Bundle bundle = getArguments();
         assert bundle != null;
         destinationUID = bundle.getString("destinationUID");    // 상대 UID
-
+        if (bundle.getString("FID") != null)
+            FORMID = bundle.getString("FID");
+        Log.e("TEST444", "FORMID: "+FORMID);
 
 
         //리사이클러뷰 정의
@@ -106,16 +112,26 @@ public class ChatsFragment extends Fragment {
                 comments.UID = USERID;
                 comments.message = EditText_chat.getText().toString();
                 comments.timestamp = ServerValue.TIMESTAMP;
+
+                // 만약 방 아래 같은 FID가 존재하지 않는다면 put
+                if (FORMID!=null)
+                {
+                    Log.e("TEST444", "FORMID: "+FORMID);
+                    if (!chatModel.fids.containsKey(FORMID))
+                        chatModel.fids.put(FORMID.toString(), true);
+                }
+
+
                 // 방 중복 방지
                 if (CHATROOM_FID == null){
                     if (!comments.message.equals("")){
                         sendbtn.setEnabled(false);
-                        FirebaseDatabase.getInstance().getReference().child("chatrooms")
-                                .push().setValue(chatModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        mdatabase.child("chatrooms").push().setValue(chatModel)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
-                                        FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID)
-                                                .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
+                                        mdatabase.child("chatrooms").orderByChild("users/"+USERID).equalTo(true)
+                                                .addListenerForSingleValueEvent(new ValueEventListener() {
                                                     @Override
                                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                                         for (DataSnapshot item : snapshot.getChildren()){
@@ -127,8 +143,8 @@ public class ChatsFragment extends Fragment {
 
                                                                 recyclerView.setLayoutManager(linearLayoutManager);
                                                                 recyclerView.setAdapter(new RecyclerViewAdapter());
-                                                                FirebaseDatabase.getInstance().getReference().child("chatrooms").child(CHATROOM_FID)
-                                                                        .child("comments").push().setValue(comments);
+                                                                mdatabase.child("chatrooms").child(CHATROOM_FID).child("comments")
+                                                                        .push().setValue(comments);
                                                             }
                                                         }
                                                     }
@@ -164,20 +180,10 @@ public class ChatsFragment extends Fragment {
         return root;
     }
 
-    // 채팅 보낸 시간 불러옴
-    private String ChatTime() {
-        Calendar calendar = Calendar.getInstance();
-        @SuppressLint("DefaultLocale")
-        String TIME = String.format("%d/%d %d:%d", calendar.get(Calendar.MONTH)+1, calendar.get(Calendar.DAY_OF_MONTH),
-                calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE));
-
-        return TIME;
-    }
-
     // 채팅방 중복체크
     void checkChatRoom(){
-        FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+USERID)
-                .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
+        mdatabase.child("chatrooms").orderByChild("users/"+USERID).equalTo(true)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot item : snapshot.getChildren()){
@@ -185,9 +191,14 @@ public class ChatsFragment extends Fragment {
                             // 방 id 가져오기
                             if (chatModel.users.containsKey(destinationUID)){   //destinationUID 있는지 체크
                                 CHATROOM_FID = item.getKey();   //방 아이디 가져옴
+
+                                //String formid = item.child("formid").getValue().toString();
+
                                 sendbtn.setEnabled(true);
                                 recyclerView.setLayoutManager(linearLayoutManager);
                                 recyclerView.setAdapter(new RecyclerViewAdapter());
+
+
                             }
                         }
                     }
@@ -208,7 +219,7 @@ public class ChatsFragment extends Fragment {
         public RecyclerViewAdapter(){
             comments = new ArrayList<>();
 
-            FirebaseDatabase.getInstance().getReference().child("users").child(destinationUID).addListenerForSingleValueEvent(new ValueEventListener() {
+            mdatabase.child("users").child(destinationUID).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     user = dataSnapshot.getValue(User.class);
@@ -224,7 +235,7 @@ public class ChatsFragment extends Fragment {
         }
 
         void getMessageList() {
-            FirebaseDatabase.getInstance().getReference().child("chatrooms").child(CHATROOM_FID).child("comments").addValueEventListener(new ValueEventListener() {
+            mdatabase.child("chatrooms").child(CHATROOM_FID).child("comments").addValueEventListener(new ValueEventListener() {
                 @SuppressLint("NotifyDataSetChanged")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -260,19 +271,18 @@ public class ChatsFragment extends Fragment {
                 // 내가 보낸 메시지일시 오른쪽에서 출력:왼쪽 이미지
                 //messageViewHolder.nickName.setVisibility(View.INVISIBLE);
                 messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
-                FirebaseDatabase.getInstance().getReference().child("users").child(USERID)
-                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                USERNAME = snapshot.child("nick").getValue().toString();
-                                messageViewHolder.nickName.setText(USERNAME);
-                            }
+                mdatabase.child("users").child(USERID).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        USERNAME = snapshot.child("nick").getValue().toString();
+                        messageViewHolder.nickName.setText(USERNAME);
+                    }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
+                    }
+                });
 
                 messageViewHolder.Message.setText(comments.get(position).message);
                 //messageViewHolder.Message.setBackground(requireContext().getResources()

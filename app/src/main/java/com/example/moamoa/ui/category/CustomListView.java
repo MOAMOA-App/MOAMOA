@@ -45,8 +45,8 @@ public class CustomListView extends BaseAdapter {
     private int count = 0;
     String FID;
     int heart_num;
-    String k="";
-    String v="";
+
+    String heart="";
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     public CustomListView(ArrayList<Form> listData) {
         listViewData = listData;
@@ -105,7 +105,7 @@ public class CustomListView extends BaseAdapter {
         TextView dead   = convertView.findViewById(R.id.deadline);
 
         String state_temp="";
-        switch(listViewData.get(position).state){
+        switch(listViewData.get(position).active){
             case 0:
                 state_temp = "참여모집";
                 state.setTextColor(Color.parseColor("#F1A94E"));
@@ -149,7 +149,6 @@ public class CustomListView extends BaseAdapter {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.getValue() != null) {
-                    k=dataSnapshot.getKey();
 
                     if (dataSnapshot.getValue().equals("true")) {
 
@@ -161,9 +160,6 @@ public class CustomListView extends BaseAdapter {
                     }
                 }
 
-                    Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getKey());
-
-                    Log.d("MainActivity", "ValueEventListener : " + dataSnapshot.getValue());
             }
 
             @Override
@@ -178,7 +174,7 @@ public class CustomListView extends BaseAdapter {
                 FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        v= String.valueOf(dataSnapshot.getValue());
+                        heart= String.valueOf(dataSnapshot.getValue());
                     }
 
                     @Override
@@ -187,27 +183,15 @@ public class CustomListView extends BaseAdapter {
                 });
 
 
-                Log.d("MainActivity", "vv: " + v);
 
                 if (button.isChecked()) {
-
-                    //button.setBackgroundResource(R.drawable.full_heart);
-                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("true");
+                  FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("true");
                 }
                 else if( !button.isChecked())
                 {
 
-                   // button.setBackgroundResource(R.drawable.empty_heart);
-                    //FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a-1);
-                    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("false");
+                 FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("false");
                 }
-                //{
-                //    button.setBackgroundResource(R.drawable.full_heart);
-                //    FirebaseDatabase.getInstance().getReference("form").child(listViewData.get(position).FID).child("heart_num").setValue(num_a+1);
-                //    FirebaseDatabase.getInstance().getReference("heart").child(user.getUid()).child(listViewData.get(position).FID).setValue("true");
-
-                //}
-                //if (isChecked ){
 
 
 

@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         String dateMessage = (year_string  +month_string + day_string  );
-        TextView tv = findViewById(R.id.text_dashboardend);
+        TextView tv = findViewById(R.id.deadline);
         tv.setText(year_string  +"/"+month_string +"/"+ day_string);
 
     }
