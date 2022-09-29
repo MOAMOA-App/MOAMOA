@@ -34,6 +34,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -54,6 +55,8 @@ public class ChatListFragment extends Fragment {
     private ChatListAdapter adapter;
     private ArrayList<ChatListData> list = new ArrayList<>();
 
+    private DatabaseReference mDatabase;
+
     private String USERID, destinationUID;
     private String FORMID;
     private String CHATROOM_NAME, CHATROOM_FID;
@@ -68,6 +71,8 @@ public class ChatListFragment extends Fragment {
 
         binding = FragmentChatlistBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         // USERID firebase에서 받아옴
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -99,23 +104,23 @@ public class ChatListFragment extends Fragment {
 
             FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+UID)
                     .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
-                // 여기서 equalTo는 true까지의 방만 검색한다. (내가 소속된 방만 띄움)
-                @SuppressLint("NotifyDataSetChanged")
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    // 데이터 받아오기 세팅
-                    chatModels.clear();
-                    for (DataSnapshot item : snapshot.getChildren()){
-                        chatModels.add(item.getValue(ChatModel.class));
-                    }
-                    notifyDataSetChanged();
-                }
+                        // 여기서 equalTo는 true까지의 방만 검색한다. (내가 소속된 방만 띄움)
+                        @SuppressLint("NotifyDataSetChanged")
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            // 데이터 받아오기 세팅
+                            chatModels.clear();
+                            for (DataSnapshot item : snapshot.getChildren()){
+                                chatModels.add(item.getValue(ChatModel.class));
+                            }
+                            notifyDataSetChanged();
+                        }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                }
-            });
+                        }
+                    });
         }
 
         @NonNull
@@ -155,15 +160,15 @@ public class ChatListFragment extends Fragment {
                                 String destinationprofil_text = snapshot.child("image").getValue().toString();
                                 FirebaseStorage.getInstance().getReference(destinationprofil_text)
                                         .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                    @Override
-                                    public void onSuccess(Uri uri) {
-                                        Activity context = (Activity) customViewHolder.imageView.getContext();
-                                        if(context.isFinishing()) return;
-                                        Glide.with(customViewHolder.imageView)
-                                                .load(uri)
-                                                .into(customViewHolder.imageView);
-                                    }
-                                });
+                                            @Override
+                                            public void onSuccess(Uri uri) {
+                                                Activity context = (Activity) customViewHolder.imageView.getContext();
+                                                if(context.isFinishing()) return;
+                                                Glide.with(customViewHolder.imageView)
+                                                        .load(uri)
+                                                        .into(customViewHolder.imageView);
+                                            }
+                                        });
                             }
 
                             @Override
@@ -188,6 +193,21 @@ public class ChatListFragment extends Fragment {
                 String time = simpleDateFormat.format(date);
                 customViewHolder.lastSendtime.setText(time);
 
+                FORMID = chatModels.get(position).fids;
+                mDatabase.child("form").child(FORMID).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Form form = snapshot.getValue(Form.class);
+                        assert form != null;
+                        customViewHolder.formName.setText(form.subject);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
 
                 // 누르면 채팅방으로 넘어감(클릭 이벤트)
                 customViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -195,6 +215,7 @@ public class ChatListFragment extends Fragment {
                     public void onClick(View v) {
                         Intent intent = new Intent(v.getContext(), ChatsActivity.class);
                         intent.putExtra("destinationUID", destinationUsers.get(position));
+                        intent.putExtra("FID", FORMID);
 
                         startActivity(intent);
                     }
@@ -211,6 +232,7 @@ public class ChatListFragment extends Fragment {
         private class CustomViewHolder extends RecyclerView.ViewHolder {
             public ImageView imageView;
             public TextView userName, recentMessage, lastSendtime;
+            public TextView formName;
 
             public CustomViewHolder(View view) {
                 super(view);
@@ -220,6 +242,7 @@ public class ChatListFragment extends Fragment {
                 recentMessage = (TextView) view.findViewById(R.id.chat_recent);
                 lastSendtime = (TextView) view.findViewById(R.id.chat_lastsendtime);
 
+                formName = (TextView) view.findViewById(R.id.chatlist_TextView_formname);
             }
         }
     }

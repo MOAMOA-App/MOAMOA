@@ -1,6 +1,7 @@
 package com.example.moamoa.ui.chats;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +14,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,14 +23,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentChatsBinding;
 import com.example.moamoa.ui.account.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,10 +38,8 @@ import com.google.firebase.storage.FirebaseStorage;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 import java.util.TimeZone;
 
 public class ChatsFragment extends Fragment {
@@ -117,8 +112,9 @@ public class ChatsFragment extends Fragment {
                 if (FORMID!=null)
                 {
                     Log.e("TEST444", "FORMID: "+FORMID);
-                    if (!chatModel.fids.containsKey(FORMID))
-                        chatModel.fids.put(FORMID.toString(), true);
+                    if (!chatModel.fids.equals(FORMID))
+                        chatModel.fids = FORMID;
+                    //.put(FORMID.toString());
                 }
 
 
@@ -140,6 +136,14 @@ public class ChatsFragment extends Fragment {
                                                             if (chatModel.users.containsKey(destinationUID)){   //destinationUID 있는지 체크
                                                                 CHATROOM_FID = item.getKey();   //방 아이디 가져옴
                                                                 sendbtn.setEnabled(true);
+
+                                                                Intent intent = new Intent(getContext(), ChatsActivity.class);
+                                                                intent.putExtra("destinationUID", destinationUID);
+                                                                intent.putExtra("FID", FORMID);
+                                                                intent.putExtra("CHATROOM_FID", CHATROOM_FID);
+
+                                                                getActivity().finish();
+                                                                startActivity(intent);
 
                                                                 recyclerView.setLayoutManager(linearLayoutManager);
                                                                 recyclerView.setAdapter(new RecyclerViewAdapter());
