@@ -2,34 +2,27 @@ package com.example.moamoa.ui.formdetail;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.location.Address;
 import android.location.Geocoder;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
 import com.example.moamoa.ui.chats.ChatsActivity;
-import com.example.moamoa.ui.dashboard.CustomTextWatcher;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -50,15 +43,11 @@ import com.naver.maps.map.NaverMapSdk;
 import com.naver.maps.map.OnMapReadyCallback;
 import com.naver.maps.map.overlay.Marker;
 
-import org.w3c.dom.Text;
-
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class FormdetailActivity extends Activity implements OnMapReadyCallback {
     private DatabaseReference mDatabase;
@@ -95,7 +84,6 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formdetail);
 
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
         firebaseStorage = FirebaseStorage.getInstance();
@@ -105,7 +93,7 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
         Button party_btn_0 = (Button) findViewById(R.id.detail_party_btn_0); //참여하기 버튼
         Button party_btn_1 = (Button) findViewById(R.id.detail_party_btn_1); //참여취소 버튼
 
-        FirebaseDatabase.getInstance().getReference("party").child(FID).child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        mDatabase.child("party").child(FID).child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.getResult().exists()) {   //이미 참여중인 게시글인 경우
@@ -116,6 +104,12 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
         });
 
         printpage();
+        printnotice();
+
+
+
+
+
         NaverMapSdk.getInstance(this).setClient(
                 new NaverMapSdk.NaverCloudPlatformClient("xjdzzwh9wk"));
         mapView = (MapView) findViewById(R.id.mv);
@@ -286,6 +280,38 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
         });
         return;
     }
+
+    public void printnotice(){
+        ArrayList<NoticeData> noticeData = new ArrayList();
+        mDatabase.child("form").child(FID).child("notice").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.getResult().exists()) {
+                    int count = (int) task.getResult().getChildrenCount();
+                    int x = 0;
+                    Log.e("asdf",count+"");
+                    for(DataSnapshot dataSnapshot : task.getResult().getChildren()){
+                        NoticeData listdata = new NoticeData();
+                        listdata.setSubject((String) dataSnapshot.child("n_subject").getValue());
+                        listdata.setText((String) dataSnapshot.child("n_text").getValue());
+                        listdata.setDate((String) dataSnapshot.child("n_date").getValue());
+                        noticeData.add(listdata);
+
+                        Log.e("asdf",listdata.getDate()+"");
+                        x++;
+                        if(x==count){
+                            ListView listView = (ListView) FormdetailActivity.this.findViewById(R.id.detail_notion) ;
+                            NoticeAdapter myAdapter = new NoticeAdapter(FormdetailActivity.this,noticeData);
+                            listView.setAdapter(myAdapter);
+                        }
+                    }
+                }else{
+                    TextView no = (TextView)  FormdetailActivity.this.findViewById(R.id.no_notice_text);
+                    no.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+    }
     @Override
     public void onBackPressed() {
         mDatabase.child("form").child(FID).child("count").setValue(count+1);
@@ -302,21 +328,26 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
         Geocoder geocoder = new Geocoder(this);
+
+
         mDatabase.child("form").child(FID).child("addr_co").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-                String addr_co=task.getResult().getValue().toString();
-                String[] PointArray=addr_co.split(",");
-                String latitude = PointArray[0]; // 경도
-                String longitude = PointArray[1]; // 위도
-                LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
-                marker.setPosition(point1);
-                marker.setMap(naverMap);
-                // 해당 좌표로 화면 줌
-                CameraPosition cameraPosition = new CameraPosition(point1, 16);
+                if(task.getResult().getValue().toString().length()!=0){
+                    String addr_co = task.getResult().getValue().toString();
+                    String[] PointArray = addr_co.split(",");
+                    String latitude = PointArray[0]; // 경도
+                    String longitude = PointArray[1]; // 위도
+                    LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
+                    marker.setPosition(point1);
+                    marker.setMap(naverMap);
+                    // 해당 좌표로 화면 줌
+                    CameraPosition cameraPosition = new CameraPosition(point1, 16);
 
-                naverMap.setCameraPosition(cameraPosition);
-            }
+                    naverMap.setCameraPosition(cameraPosition);
+                }else{
+
+                }}
         });
     }
 
@@ -338,7 +369,7 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
                     String deadline     = dataSnapshot.child("deadline").getValue().toString();
                     String state        = dataSnapshot.child("state").getValue().toString();
                     String express      = dataSnapshot.child("express").getValue().toString();
-                    String address   = dataSnapshot.child("address").getValue().toString();
+                    String address      = dataSnapshot.child("address").getValue().toString();
                     String addr_detail   = dataSnapshot.child("addr_detail").getValue().toString();
 
                     int count_party= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
@@ -351,7 +382,13 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
                     count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
 
                     UserFind(FUID);
-                    Initializeform(subject,category,text,cost,count_party+"/"+max_count,today,deadline,address,addr_detail,express,count,state);
+                    String numb ="";
+                    if(max_count.equals("1000")){
+                        numb="∞";
+                    }else{
+                        numb = count_party+"/"+max_count;
+                    }
+                    Initializeform(subject,category,text,cost,numb,today,deadline,address,addr_detail,express,count,state);
                     StorageReference pathReference = firebaseStorage.getReference(image);
 
 
@@ -405,7 +442,7 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
     }
 
     private void Initializeform
-            (String subject,String category,String text,String cost,String max_count,
+            (String subject,String category,String text,String cost,String numb,
              String today,String deadline,String address,String addr_detail, String express,Integer count,String state)
     {
         TextView subject_text   = (TextView) findViewById(R.id.detail_subject);
@@ -435,13 +472,18 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
                 state_text.setTextColor(Color.parseColor("#4C4C4C"));
                 break;
         }
+
+        if(numb.equals("∞")){
+            numb="인원제한없음";
+            max_count_text.setTextSize(15);
+        }
         subject_text.setText(subject);
         category_text.setText(category);
         text_text.setText(text);
         cost_text.setText(cost);
         start.setText(today.substring(2,4)+"년 "+today.substring(4,6)+"월 "+today.substring(6,8)+"일");
         deadlines.setText(deadline.substring(2,4)+"년 "+deadline.substring(4,6)+"월 "+deadline.substring(6,8)+"일");
-        max_count_text.setText(max_count);
+        max_count_text.setText(numb);
         express_text.setText(express);
         count_text.setText("조회 "+count);
         address_text.setText(address);

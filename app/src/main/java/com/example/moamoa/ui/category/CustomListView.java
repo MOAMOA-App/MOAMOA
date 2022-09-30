@@ -31,6 +31,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -124,10 +125,21 @@ public class CustomListView extends BaseAdapter {
         name.setText(listViewData.get(position).address);
 
 
-        int t1 = GetTimeStart();
-        int t2 = listViewData.get(position).deadline;
-        if(t2-t1>=0 && t2-t1<6){
-            dead.setText("D-"+(t2-t1));
+        String dateStr1 = String.valueOf(listViewData.get(position).deadline);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+        Date date = null;
+        try {
+            date = formatter.parse(dateStr1);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Date mDate = new Date(System.currentTimeMillis());
+        Log.e("date", date+" "+mDate);
+        long calDate = date.getTime()-mDate.getTime();
+        long calDateDays=calDate/(24*60*60*1000);
+        calDateDays=Math.abs(calDateDays);
+        if(calDateDays>=0 && calDateDays<6){
+            dead.setText("D-"+(calDateDays));
         }else{
             dead.setText("");
         }

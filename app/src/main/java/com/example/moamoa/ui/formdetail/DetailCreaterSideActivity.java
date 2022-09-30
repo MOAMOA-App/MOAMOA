@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -94,7 +95,7 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
         Button showparty_btn = (Button)findViewById(R.id.creator_showparty); //참여자목록 버튼
         ImageButton menu_btn = (ImageButton)findViewById(R.id.creator_menu); //메뉴보기 버튼
 
-
+        printnotice();
         notice_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -172,7 +173,37 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
         });
     }//onCreate();
 
+    public void printnotice(){
+        ArrayList<NoticeData> noticeData = new ArrayList();
+        mDatabase.child("form").child(FID).child("notice").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.getResult().exists()) {
+                    int count = (int) task.getResult().getChildrenCount();
+                    int x = 0;
+                    Log.e("asdf",count+"");
+                    for(DataSnapshot dataSnapshot : task.getResult().getChildren()){
+                        NoticeData listdata = new NoticeData();
+                        listdata.setSubject((String) dataSnapshot.child("n_subject").getValue());
+                        listdata.setText((String) dataSnapshot.child("n_text").getValue());
+                        listdata.setDate((String) dataSnapshot.child("n_date").getValue());
+                        noticeData.add(listdata);
 
+                        Log.e("asdf",listdata.getDate()+"");
+                        x++;
+                        if(x==count){
+                            ListView listView = (ListView) DetailCreaterSideActivity.this.findViewById(R.id.Decreator_notice) ;
+                            NoticeAdapter myAdapter = new NoticeAdapter(DetailCreaterSideActivity.this,noticeData);
+                            listView.setAdapter(myAdapter);
+                        }
+                    }
+                }else{
+                    TextView no = (TextView)  DetailCreaterSideActivity.this.findViewById(R.id.no_notice_text);
+                    no.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+    }
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -190,17 +221,23 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
         mDatabase.child("form").child(FID).child("addr_co").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-                String addr_co = task.getResult().getValue().toString();
-                String[] PointArray = addr_co.split(",");
-                String latitude = PointArray[0]; // 경도
-                String longitude = PointArray[1]; // 위도
-                LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
-                marker.setPosition(point1);
-                marker.setMap(naverMap);
-                // 해당 좌표로 화면 줌
-                CameraPosition cameraPosition = new CameraPosition(point1, 16);
 
-                naverMap.setCameraPosition(cameraPosition);
+                if(task.getResult().getValue().toString().length()!=0){
+                    String addr_co = task.getResult().getValue().toString();
+                    String[] PointArray = addr_co.split(",");
+                    String latitude = PointArray[0]; // 경도
+                    String longitude = PointArray[1]; // 위도
+                    LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
+                    marker.setPosition(point1);
+                    marker.setMap(naverMap);
+                    // 해당 좌표로 화면 줌
+                    CameraPosition cameraPosition = new CameraPosition(point1, 16);
+
+                    naverMap.setCameraPosition(cameraPosition);
+                }else{
+
+                }
+
             }
         });
     }
@@ -233,7 +270,14 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
                     int count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
 
                     UserFind(FUID);
-                    Initializeform(subject,category,text,cost,count_party+"/"+max_count,today,deadline,address,addr_detail,express,count,state);
+                    String numb ="";
+                    if(max_count.equals("1000")){
+                        numb="∞";
+                    }else{
+                        numb = count_party+"/"+max_count;
+                    }
+
+                    Initializeform(subject,category,text,cost,numb,today,deadline,address,addr_detail,express,count,state);
                     StorageReference pathReference = firebaseStorage.getReference(image);
 
 
@@ -290,7 +334,7 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
     }
 
     private void Initializeform
-            (String subject,String category,String text,String cost,String max_count,
+            (String subject,String category,String text,String cost,String numb,
              String today,String deadline,String address,String addr_detail, String express,Integer count,String state)
     {
         TextView subject_text   = (TextView) findViewById(R.id.detail_subject);
@@ -306,13 +350,17 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
         TextView address_text       = (TextView) findViewById(R.id.address);
         TextView addr_detail_text   = (TextView) findViewById(R.id.detail_address);
 
+        if(numb.equals("∞")){
+            numb="인원제한없음";
+            max_count_text.setTextSize(15);
+        }
         subject_text.setText(subject);
         category_text.setText(category);
         text_text.setText(text);
         cost_text.setText(cost);
         start.setText(today.substring(2,4)+"년 "+today.substring(4,6)+"월 "+today.substring(6,8)+"일");
         deadlines.setText(deadline.substring(2,4)+"년 "+deadline.substring(4,6)+"월 "+deadline.substring(6,8)+"일");
-        max_count_text.setText(max_count);
+        max_count_text.setText(numb);
         express_text.setText(express);
         count_text.setText("조회 "+count);
         address_text.setText(address);
