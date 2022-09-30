@@ -2,34 +2,27 @@ package com.example.moamoa.ui.formdetail;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.location.Address;
 import android.location.Geocoder;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
 import com.example.moamoa.ui.chats.ChatsActivity;
-import com.example.moamoa.ui.dashboard.CustomTextWatcher;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -50,15 +43,11 @@ import com.naver.maps.map.NaverMapSdk;
 import com.naver.maps.map.OnMapReadyCallback;
 import com.naver.maps.map.overlay.Marker;
 
-import org.w3c.dom.Text;
-
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class FormdetailActivity extends Activity implements OnMapReadyCallback {
     private DatabaseReference mDatabase;
@@ -95,7 +84,6 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formdetail);
 
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
         firebaseStorage = FirebaseStorage.getInstance();
@@ -105,7 +93,7 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
         Button party_btn_0 = (Button) findViewById(R.id.detail_party_btn_0); //참여하기 버튼
         Button party_btn_1 = (Button) findViewById(R.id.detail_party_btn_1); //참여취소 버튼
 
-        FirebaseDatabase.getInstance().getReference("party").child(FID).child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        mDatabase.child("party").child(FID).child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.getResult().exists()) {   //이미 참여중인 게시글인 경우
@@ -116,6 +104,12 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
         });
 
         printpage();
+        printnotice();
+
+
+
+
+
         NaverMapSdk.getInstance(this).setClient(
                 new NaverMapSdk.NaverCloudPlatformClient("xjdzzwh9wk"));
         mapView = (MapView) findViewById(R.id.mv);
@@ -285,6 +279,35 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
 ;
         });
         return;
+    }
+
+    public void printnotice(){
+        ArrayList<NoticeData> noticeData = new ArrayList();
+        mDatabase.child("form").child(FID).child("notice").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.getResult().exists()) {
+                    int count = (int) task.getResult().getChildrenCount();
+                    int x = 0;
+                    Log.e("asdf",count+"");
+                    for(DataSnapshot dataSnapshot : task.getResult().getChildren()){
+                        NoticeData listdata = new NoticeData();
+                        listdata.setSubject((String) dataSnapshot.child("n_subject").getValue());
+                        listdata.setText((String) dataSnapshot.child("n_text").getValue());
+                        listdata.setDate((String) dataSnapshot.child("n_date").getValue());
+                        noticeData.add(listdata);
+
+                        Log.e("asdf",listdata.getDate()+"");
+                        x++;
+                        if(x==count){
+                            ListView listView = (ListView) FormdetailActivity.this.findViewById(R.id.detail_notion) ;
+                            NoticeAdapter myAdapter = new NoticeAdapter(FormdetailActivity.this,noticeData);
+                            listView.setAdapter(myAdapter);
+                        }
+                    }
+                }
+            }
+        });
     }
     @Override
     public void onBackPressed() {
