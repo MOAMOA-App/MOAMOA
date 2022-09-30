@@ -214,7 +214,6 @@ public class HomeFragment extends Fragment {
                             long calDateDays=calDate/(24*60*60*1000);
                             calDateDays=Math.abs(calDateDays);
 
-                            int dead = Integer.parseInt(fileSnapshot.child("deadline").getValue().toString())-GetTimeStart();
                             InitializeFormData(i, Key, image, subject, UID, parti_num, max_count, category, location, (int)calDateDays);
                             count++;
                         }
