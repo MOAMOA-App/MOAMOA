@@ -209,9 +209,10 @@ public class SearchActivity extends AppCompatActivity {
                             assert form != null;
                             int cat = form.category_text;
                             int sta = form.state;
+                            int act = form.active;
 
                             // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
-                            if (my_category.contains(cat) && my_state.contains(sta)){
+                            if (my_category.contains(cat) && my_state.contains(sta) && act==0){
                                 arrayList.add(form);
                             }
                         }
@@ -239,10 +240,11 @@ public class SearchActivity extends AppCompatActivity {
                                     assert form != null;
                                     int cat = form.category_text;
                                     int sta = form.state;
+                                    int act = form.active;
 
                                     // 키워드가 제목에 있으면 add
                                     // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
-                                    if (my_category.contains(cat) && my_state.contains(sta)
+                                    if (my_category.contains(cat) && my_state.contains(sta) && act==0
                                             && form.subject.contains(search_input)) {
                                         arrayList.add(form);
                                     }
@@ -272,11 +274,12 @@ public class SearchActivity extends AppCompatActivity {
                                     assert form != null;
                                     int cat = form.category_text;
                                     int sta = form.state;
+                                    int act = form.active;
 
                                     // 키워드가 제목에 있으면 add
                                     // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
                                     if ((form.subject.contains(search_input) || form.text.contains(search_input))
-                                            && my_category.contains(cat) && my_state.contains(sta)) {
+                                            && my_category.contains(cat) && my_state.contains(sta) && act==0) {
                                         arrayList.add(form);
                                     }
                                 }
@@ -305,6 +308,7 @@ public class SearchActivity extends AppCompatActivity {
                                     assert form != null;
                                     int cat = form.category_text;
                                     int sta = form.state;
+                                    int act = form.active;
 
                                     // UID_dash로 닉네임 검색 위해 users 불러옴
                                     FirebaseDatabase.getInstance().getReference().child("users")
@@ -321,7 +325,7 @@ public class SearchActivity extends AppCompatActivity {
 
                                                         // 닉네임이 맞을 시 add
                                                         // 선택한 카테고리 리스트에 해당 글 카테고리 숫자가 포함될 경우 출력
-                                                        if (my_category.contains(cat) && my_state.contains(sta)) {
+                                                        if (my_category.contains(cat) && my_state.contains(sta) && act==0) {
                                                             assert user != null;
                                                             if (user.nick.equals(search_input)) {
                                                                 arrayList.add(form);
