@@ -32,6 +32,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -191,16 +192,30 @@ public class HomeFragment extends Fragment {
                             String Key = fileSnapshot.getKey();
                             String subject = fileSnapshot.child("subject").getValue().toString();
                             String max_count = fileSnapshot.child("max_count").getValue().toString();
-                            String UID = fileSnapshot.child("UID_dash").getValue().toString();
+                            String UID       = fileSnapshot.child("UID_dash").getValue().toString();
                             String parti_num = fileSnapshot.child("parti_num").getValue().toString();
                             String image     = fileSnapshot.child("image").getValue().toString().replace(".png","_1.png");
-                            String category = fileSnapshot.child("category_text").getValue().toString();
-                            String location = fileSnapshot.child("address").getValue().toString();
+                            String category  = fileSnapshot.child("category_text").getValue().toString();
+                            String location  = fileSnapshot.child("address").getValue().toString();
                             if(location.equals("")){
                                 location = "택배";
                             }
+                            String dateStr1 = fileSnapshot.child("deadline").getValue().toString();
+                            SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+                            Date date = null;
+                            try {
+                                date = formatter.parse(dateStr1);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            Date mDate = new Date(System.currentTimeMillis());
+                            Log.e("date", date+" "+mDate);
+                            long calDate = date.getTime()-mDate.getTime();
+                            long calDateDays=calDate/(24*60*60*1000);
+                            calDateDays=Math.abs(calDateDays);
+
                             int dead = Integer.parseInt(fileSnapshot.child("deadline").getValue().toString())-GetTimeStart();
-                            InitializeFormData(i, Key, image, subject, UID, parti_num, max_count, category, location, dead);
+                            InitializeFormData(i, Key, image, subject, UID, parti_num, max_count, category, location, (int)calDateDays);
                             count++;
                         }
                     }
