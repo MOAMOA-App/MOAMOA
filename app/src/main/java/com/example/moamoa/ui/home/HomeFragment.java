@@ -196,6 +196,9 @@ public class HomeFragment extends Fragment {
                             String image     = fileSnapshot.child("image").getValue().toString().replace(".png","_1.png");
                             String category = fileSnapshot.child("category_text").getValue().toString();
                             String location = fileSnapshot.child("address").getValue().toString();
+                            if(location.equals("")){
+                                location = "택배";
+                            }
                             int dead = Integer.parseInt(fileSnapshot.child("deadline").getValue().toString())-GetTimeStart();
                             InitializeFormData(i, Key, image, subject, UID, parti_num, max_count, category, location, dead);
                             count++;

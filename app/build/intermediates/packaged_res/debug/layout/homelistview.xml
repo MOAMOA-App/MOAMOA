@@ -48,6 +48,8 @@
         android:text="제목"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textColor="@color/black" />
     <LinearLayout
         android:layout_width="match_parent"

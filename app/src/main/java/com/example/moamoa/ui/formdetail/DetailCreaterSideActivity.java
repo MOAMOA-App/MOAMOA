@@ -197,6 +197,9 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
                             listView.setAdapter(myAdapter);
                         }
                     }
+                }else{
+                    TextView no = (TextView)  DetailCreaterSideActivity.this.findViewById(R.id.no_notice_text);
+                    no.setVisibility(View.VISIBLE);
                 }
             }
         });

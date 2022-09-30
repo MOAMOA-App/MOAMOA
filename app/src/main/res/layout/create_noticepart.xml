@@ -34,11 +34,9 @@
         <TextView
             android:id="@+id/notice_part_text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="내용"
             android:textSize="13sp"
-            android:maxLines="1"
-            android:ellipsize="end"
             android:gravity="bottom"
             android:layout_marginRight="20dp" />
     </LinearLayout>

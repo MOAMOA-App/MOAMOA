@@ -305,6 +305,9 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
                             listView.setAdapter(myAdapter);
                         }
                     }
+                }else{
+                    TextView no = (TextView)  FormdetailActivity.this.findViewById(R.id.no_notice_text);
+                    no.setVisibility(View.VISIBLE);
                 }
             }
         });
