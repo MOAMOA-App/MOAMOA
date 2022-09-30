@@ -1,6 +1,7 @@
 package com.example.moamoa.ui.chats;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -307,10 +308,13 @@ public class ChatsFragment extends Fragment {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 String destinationprofil_text = snapshot.child("image").getValue().toString();
+
+                                Activity context2 = (Activity) messageViewHolder.profile_image.getContext();
                                 FirebaseStorage.getInstance().getReference(destinationprofil_text)
                                         .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                             @Override
                                             public void onSuccess(Uri uri) {
+                                                if (context2.isFinishing()) return;
                                                 Glide.with(messageViewHolder.profile_image)
                                                         .load(uri)
                                                         .into(messageViewHolder.profile_image);
