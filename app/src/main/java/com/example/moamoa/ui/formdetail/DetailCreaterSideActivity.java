@@ -98,8 +98,12 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
         notice_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(), "공지 버튼", Toast.LENGTH_SHORT).show();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                CreatorNotice creatorNotice = new CreatorNotice();
+                Bundle args = new Bundle();
+                args.putString("FID", FID);
+                creatorNotice.setArguments(args);
+                creatorNotice.show(fragmentManager, "MYTAG");
             }
         });
         showparty_btn.setOnClickListener(new View.OnClickListener() {

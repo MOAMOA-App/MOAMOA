@@ -54,6 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="350dp"/>
         <Button
+            android:id="@+id/partylist_closebtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="0dp"

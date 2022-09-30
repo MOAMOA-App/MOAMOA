@@ -4,10 +4,15 @@ import android.app.Dialog;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -47,44 +52,54 @@ public class PartyDialog extends DialogFragment {
             DialogFragment dialogFragment = (DialogFragment) fragment;
             dialogFragment.dismiss();
         }
-
-
         InitializePartiform();
-
+        Button close_btn = (Button) view.findViewById(R.id.partylist_closebtn);
+        close_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PartyDialog.this.dismiss();
+            }
+        });
         return view;
     }
 
-    public void printPartyNumber(){
-    }
     public void InitializePartiform()
     {
-        ArrayList<PartyListData> partylist=new ArrayList();
-        PartyListData listdata = new PartyListData();
+
         TextView partynumber = (TextView) view.findViewById(R.id.partylist_number);
+        ListView listView = (ListView)view.findViewById(R.id.partylist_view) ;
         mDatabase.child("party").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-                partynumber.setText(task.getResult().getChildrenCount()+"");
+                int count = (int) task.getResult().getChildrenCount();
+                final int[] x = {0};
+                partynumber.setText(count+"");
                 for(DataSnapshot dataSnapshot : task.getResult().getChildren()){
                     String uid = dataSnapshot.getKey()+"";
                     String date = dataSnapshot.getValue()+"";
                     mDatabase.child("users").child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            //listdata.set(task.getResult().child())
-                            Log.e("party_task",task.getResult()+"");
+                            Log.e("party_task"+x[0],task.getResult()+"");
+                            PartyListData listdata = new PartyListData();
                             listdata.setUID(uid);
                             listdata.setNickname(task.getResult().child("nick").getValue()+"");
-                            listdata.setParti_date(date);
+                            listdata.setParti_date(date.substring(4,6)+"/"+date.substring(6,8)+" "+date.substring(8,10)+":"+date.substring(10,12));
                             listdata.setProfile(task.getResult().child("image").getValue()+"");
-                            listdata.setLastchat("마지막 채팅이면 좋겠는데 빡세네");
+                            listdata.setLastchat("");
                             partylist.add(listdata);
+                            x[0]++;
+                            if(x[0] ==count){
+                                partynumber.setText(count+"");
+                                PartyListAdapter myAdapter = new PartyListAdapter(getContext(),partylist);
+                                listView.setAdapter(myAdapter);
+                            }
                         }
                     });
+
                 }
+
             }
         });
-    }
-    public void FragmentDialog() {
     }
 }

@@ -17,8 +17,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/party_profileimage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_margin="5dp"
             android:src="@drawable/ic_launcher_background" />
 
@@ -38,26 +38,28 @@
                     android:layout_height="wrap_content"
                     android:text="작성자"
                     android:layout_marginRight="5dp"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
                 <TextView
                     android:id="@+id/party_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="9월 12일 03:15"
-                    android:textSize="12sp"
+                    android:textSize="11sp"
+                    android:textColor="@color/dark_gray"
                     android:layout_marginRight="5dp" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="참가"
-                    android:textSize="12sp" />
+                    android:textColor="@color/dark_gray"
+                    android:textSize="11sp" />
             </LinearLayout>
             <TextView
                 android:id="@+id/party_lastchat"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="마지막 채팅 내용이 들어가면 괜찮지 않을까라는 생각을 해본다"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:gravity="bottom"
