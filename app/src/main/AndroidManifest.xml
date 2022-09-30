@@ -87,7 +87,7 @@
             android:label="카테고리" />
         <activity
             android:name=".ui.dashboard.MapActivity"
-            android:label="카테고리" />
+            android:label="주소 검색" />
         <activity android:name=".ui.formdetail.FormdetailActivity" />
         <activity
             android:name=".ui.mypage.EditMyinfo"
