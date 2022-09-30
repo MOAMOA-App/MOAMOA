@@ -144,7 +144,6 @@
             </RelativeLayout>
 
             <View
-                android:id="@+id/chats_line"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_below="@+id/RL_myaccount_profile"
@@ -155,9 +154,11 @@
                 android:id="@+id/TextView_theiraccount"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_below="@+id/chats_line"
+                android:layout_below="@+id/RL_myaccount_profile"
                 android:background="@color/light_gray"
                 android:gravity="center_vertical"
+
+                android:layout_marginTop="10dp"
 
                 android:text="   상대" />
 
@@ -229,6 +230,91 @@
             </androidx.recyclerview.widget.RecyclerView>
             -->
 
+            <!--
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/RL_myaccount_profile"
+                android:layout_marginTop="10dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/RL_theiraccount_profile"
+                android:layout_marginTop="10dp"
+                android:background="#aaa" />
+                -->
+
+            <TextView
+                android:id="@+id/chats_TextView_selectlanguage"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/RL_theiraccount_profile"
+                android:background="@color/light_gray"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+
+                android:text="   언어 선택" />
+
+            <RelativeLayout
+                android:id="@+id/chats_RL_selectlanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:layout_below="@+id/chats_TextView_selectlanguage"
+                >
+                <TextView
+                    android:id="@+id/chats_TextView_langinfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="   현재 언어: "
+
+                    android:layout_centerVertical="true"
+                    />
+                <TextView
+                    android:id="@+id/chats_TextView_currentlang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="한국어"
+
+                    android:layout_toEndOf="@+id/chats_TextView_langinfo"
+                    android:layout_centerVertical="true"
+                    />
+                <Button
+                    android:id="@+id/chats_btn_selectlanguage"
+                    android:layout_width="40dp"
+                    android:layout_height="43dp"
+                    android:layout_marginEnd="10dp"
+                    android:drawableTop="@drawable/ic_outline_change_circle_24"
+                    android:backgroundTint="@color/main_orange"
+                    android:layout_alignParentEnd="true"
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/chats_TextView_formlist"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/chats_RL_selectlanguage"
+                android:background="@color/light_gray"
+                android:gravity="center_vertical"
+
+                android:text="   폼 목록" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/chats_formlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+
+                android:layout_below="@+id/chats_TextView_formlist"
+                >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
             <RelativeLayout
                 android:id="@+id/RL_bottommenu"
                 android:layout_width="match_parent"
@@ -257,6 +343,7 @@
 
                 </FrameLayout>
 
+                <!--
                 <FrameLayout
                     android:id="@+id/chats_btn_selectlanguage"
                     android:layout_width="50dp"
@@ -273,6 +360,7 @@
                         android:contentDescription="@string/selectlanguage" />
 
                 </FrameLayout>
+                -->
 
             </RelativeLayout>
         </RelativeLayout>

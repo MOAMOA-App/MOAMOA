@@ -71,7 +71,6 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
     // 지도
     private MapView mapView;
     private static NaverMap naverMap;
-    private LatLng myLatLng = new LatLng(37.3399, 126.733);
     Marker marker = new Marker();
 
     private FirebaseStorage firebaseStorage;
@@ -115,8 +114,7 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
                 }
             }
         });
-        //ImageButton heart_btn = (ImageButton) findViewById(R.id.detail_heart_btn);
-        //
+
         printpage();
         NaverMapSdk.getInstance(this).setClient(
                 new NaverMapSdk.NaverCloudPlatformClient("xjdzzwh9wk"));
@@ -247,7 +245,7 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
 
             }
         });
-        ToggleButton button = findViewById(R.id.heart);
+        ToggleButton btn_heart = findViewById(R.id.heart);
         mDatabase.child("heart").child(user.getUid()).child(FID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -257,9 +255,9 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
 
                     if (dataSnapshot.getValue().equals("true")) {
 
-                        button.setBackgroundResource(R.drawable.full_heart);
+                        btn_heart.setBackgroundResource(R.drawable.full_heart);
                     } else {
-                        button.setBackgroundResource(R.drawable.empty_heart);
+                        btn_heart.setBackgroundResource(R.drawable.empty_heart);
                     }
                 }
 
@@ -270,20 +268,19 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
             {    }
         });
 
-        //뭔 버튼인데 이거
-        button.setOnClickListener(new View.OnClickListener() {
+        //찜하기버튼
+        btn_heart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mDatabase.child("heart").child(user.getUid()).child(FID).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        //v= String.valueOf(dataSnapshot.getValue());
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {    }
                 });
-                if (button.isChecked()){mDatabase.child("heart").child(user.getUid()).child(FID).setValue("true");}
-                else if( !button.isChecked()){mDatabase.child("heart").child(user.getUid()).child(FID).setValue("false");}
+                if ( btn_heart.isChecked()){mDatabase.child("heart").child(user.getUid()).child(FID).setValue("true");}
+                else if( ! btn_heart.isChecked()){mDatabase.child("heart").child(user.getUid()).child(FID).setValue("false");}
             }
 ;
         });
@@ -293,7 +290,6 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
     public void onBackPressed() {
         mDatabase.child("form").child(FID).child("count").setValue(count+1);
 
-        Log.d("확인","message상세 이미지 : "+count+1);
         finish();
     }
     private String getToday(){

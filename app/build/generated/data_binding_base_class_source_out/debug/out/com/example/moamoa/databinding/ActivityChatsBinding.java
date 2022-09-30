@@ -4,6 +4,7 @@ package com.example.moamoa.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.moamoa.R;
@@ -47,10 +49,10 @@ public final class ActivityChatsBinding implements ViewBinding {
   public final FrameLayout chatsBtnGetoutofroom;
 
   @NonNull
-  public final FrameLayout chatsBtnSelectlanguage;
+  public final Button chatsBtnSelectlanguage;
 
   @NonNull
-  public final View chatsLine;
+  public final RecyclerView chatsFormlist;
 
   @NonNull
   public final TextView chatsMynationality;
@@ -59,13 +61,28 @@ public final class ActivityChatsBinding implements ViewBinding {
   public final CircleImageView chatsMyprofileImage;
 
   @NonNull
+  public final RelativeLayout chatsRLSelectlanguage;
+
+  @NonNull
   public final TextView chatsRecyclerviewUserinfoDestinationUID;
 
   @NonNull
   public final TextView chatsRecyclerviewUserinfoUID;
 
   @NonNull
+  public final TextView chatsTextViewCurrentlang;
+
+  @NonNull
+  public final TextView chatsTextViewFormlist;
+
+  @NonNull
+  public final TextView chatsTextViewLanginfo;
+
+  @NonNull
   public final TextView chatsTextViewMynickname;
+
+  @NonNull
+  public final TextView chatsTextViewSelectlanguage;
 
   @NonNull
   public final TextView chatsTextViewTheirnickname;
@@ -101,11 +118,13 @@ public final class ActivityChatsBinding implements ViewBinding {
       @NonNull RelativeLayout RLBottommenu, @NonNull RelativeLayout RLMyaccountProfile,
       @NonNull RelativeLayout RLTheiraccountProfile, @NonNull TextView TextViewMyaccount,
       @NonNull TextView TextViewTheiraccount, @NonNull TextView chatbarname,
-      @NonNull FrameLayout chatsBtnGetoutofroom, @NonNull FrameLayout chatsBtnSelectlanguage,
-      @NonNull View chatsLine, @NonNull TextView chatsMynationality,
-      @NonNull CircleImageView chatsMyprofileImage,
+      @NonNull FrameLayout chatsBtnGetoutofroom, @NonNull Button chatsBtnSelectlanguage,
+      @NonNull RecyclerView chatsFormlist, @NonNull TextView chatsMynationality,
+      @NonNull CircleImageView chatsMyprofileImage, @NonNull RelativeLayout chatsRLSelectlanguage,
       @NonNull TextView chatsRecyclerviewUserinfoDestinationUID,
-      @NonNull TextView chatsRecyclerviewUserinfoUID, @NonNull TextView chatsTextViewMynickname,
+      @NonNull TextView chatsRecyclerviewUserinfoUID, @NonNull TextView chatsTextViewCurrentlang,
+      @NonNull TextView chatsTextViewFormlist, @NonNull TextView chatsTextViewLanginfo,
+      @NonNull TextView chatsTextViewMynickname, @NonNull TextView chatsTextViewSelectlanguage,
       @NonNull TextView chatsTextViewTheirnickname, @NonNull TextView chatsTheirnationality,
       @NonNull CircleImageView chatsTheirprofileImage, @NonNull FrameLayout chatscontainer,
       @NonNull AppBarLayout chatstoolbar, @NonNull ConstraintLayout container,
@@ -120,12 +139,17 @@ public final class ActivityChatsBinding implements ViewBinding {
     this.chatbarname = chatbarname;
     this.chatsBtnGetoutofroom = chatsBtnGetoutofroom;
     this.chatsBtnSelectlanguage = chatsBtnSelectlanguage;
-    this.chatsLine = chatsLine;
+    this.chatsFormlist = chatsFormlist;
     this.chatsMynationality = chatsMynationality;
     this.chatsMyprofileImage = chatsMyprofileImage;
+    this.chatsRLSelectlanguage = chatsRLSelectlanguage;
     this.chatsRecyclerviewUserinfoDestinationUID = chatsRecyclerviewUserinfoDestinationUID;
     this.chatsRecyclerviewUserinfoUID = chatsRecyclerviewUserinfoUID;
+    this.chatsTextViewCurrentlang = chatsTextViewCurrentlang;
+    this.chatsTextViewFormlist = chatsTextViewFormlist;
+    this.chatsTextViewLanginfo = chatsTextViewLanginfo;
     this.chatsTextViewMynickname = chatsTextViewMynickname;
+    this.chatsTextViewSelectlanguage = chatsTextViewSelectlanguage;
     this.chatsTextViewTheirnickname = chatsTextViewTheirnickname;
     this.chatsTheirnationality = chatsTheirnationality;
     this.chatsTheirprofileImage = chatsTheirprofileImage;
@@ -208,14 +232,14 @@ public final class ActivityChatsBinding implements ViewBinding {
       }
 
       id = R.id.chats_btn_selectlanguage;
-      FrameLayout chatsBtnSelectlanguage = ViewBindings.findChildViewById(rootView, id);
+      Button chatsBtnSelectlanguage = ViewBindings.findChildViewById(rootView, id);
       if (chatsBtnSelectlanguage == null) {
         break missingId;
       }
 
-      id = R.id.chats_line;
-      View chatsLine = ViewBindings.findChildViewById(rootView, id);
-      if (chatsLine == null) {
+      id = R.id.chats_formlist;
+      RecyclerView chatsFormlist = ViewBindings.findChildViewById(rootView, id);
+      if (chatsFormlist == null) {
         break missingId;
       }
 
@@ -231,6 +255,12 @@ public final class ActivityChatsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.chats_RL_selectlanguage;
+      RelativeLayout chatsRLSelectlanguage = ViewBindings.findChildViewById(rootView, id);
+      if (chatsRLSelectlanguage == null) {
+        break missingId;
+      }
+
       id = R.id.chats_recyclerview_userinfo_destinationUID;
       TextView chatsRecyclerviewUserinfoDestinationUID = ViewBindings.findChildViewById(rootView, id);
       if (chatsRecyclerviewUserinfoDestinationUID == null) {
@@ -243,9 +273,33 @@ public final class ActivityChatsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.chats_TextView_currentlang;
+      TextView chatsTextViewCurrentlang = ViewBindings.findChildViewById(rootView, id);
+      if (chatsTextViewCurrentlang == null) {
+        break missingId;
+      }
+
+      id = R.id.chats_TextView_formlist;
+      TextView chatsTextViewFormlist = ViewBindings.findChildViewById(rootView, id);
+      if (chatsTextViewFormlist == null) {
+        break missingId;
+      }
+
+      id = R.id.chats_TextView_langinfo;
+      TextView chatsTextViewLanginfo = ViewBindings.findChildViewById(rootView, id);
+      if (chatsTextViewLanginfo == null) {
+        break missingId;
+      }
+
       id = R.id.chats_TextView_mynickname;
       TextView chatsTextViewMynickname = ViewBindings.findChildViewById(rootView, id);
       if (chatsTextViewMynickname == null) {
+        break missingId;
+      }
+
+      id = R.id.chats_TextView_selectlanguage;
+      TextView chatsTextViewSelectlanguage = ViewBindings.findChildViewById(rootView, id);
+      if (chatsTextViewSelectlanguage == null) {
         break missingId;
       }
 
@@ -307,11 +361,12 @@ public final class ActivityChatsBinding implements ViewBinding {
 
       return new ActivityChatsBinding((ConstraintLayout) rootView, RLBottommenu, RLMyaccountProfile,
           RLTheiraccountProfile, TextViewMyaccount, TextViewTheiraccount, chatbarname,
-          chatsBtnGetoutofroom, chatsBtnSelectlanguage, chatsLine, chatsMynationality,
-          chatsMyprofileImage, chatsRecyclerviewUserinfoDestinationUID,
-          chatsRecyclerviewUserinfoUID, chatsTextViewMynickname, chatsTextViewTheirnickname,
-          chatsTheirnationality, chatsTheirprofileImage, chatscontainer, chatstoolbar, container,
-          drawerButton, drawerLayout, layoutChatUserinfo, toolbar);
+          chatsBtnGetoutofroom, chatsBtnSelectlanguage, chatsFormlist, chatsMynationality,
+          chatsMyprofileImage, chatsRLSelectlanguage, chatsRecyclerviewUserinfoDestinationUID,
+          chatsRecyclerviewUserinfoUID, chatsTextViewCurrentlang, chatsTextViewFormlist,
+          chatsTextViewLanginfo, chatsTextViewMynickname, chatsTextViewSelectlanguage,
+          chatsTextViewTheirnickname, chatsTheirnationality, chatsTheirprofileImage, chatscontainer,
+          chatstoolbar, container, drawerButton, drawerLayout, layoutChatUserinfo, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

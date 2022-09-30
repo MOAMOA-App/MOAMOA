@@ -24,7 +24,7 @@ public final class HomelistviewBinding implements ViewBinding {
   public final TextView homelistCategory;
 
   @NonNull
-  public final TextView homelistCost;
+  public final TextView homelistDeadline;
 
   @NonNull
   public final TextView homelistFID;
@@ -45,13 +45,13 @@ public final class HomelistviewBinding implements ViewBinding {
   public final TextView homelistUID;
 
   private HomelistviewBinding(@NonNull LinearLayout rootView, @NonNull TextView homelistCategory,
-      @NonNull TextView homelistCost, @NonNull TextView homelistFID,
+      @NonNull TextView homelistDeadline, @NonNull TextView homelistFID,
       @NonNull TextView homelistLocation, @NonNull ImageView homelistMainImage,
       @NonNull TextView homelistMans, @NonNull TextView homelistTitle,
       @NonNull TextView homelistUID) {
     this.rootView = rootView;
     this.homelistCategory = homelistCategory;
-    this.homelistCost = homelistCost;
+    this.homelistDeadline = homelistDeadline;
     this.homelistFID = homelistFID;
     this.homelistLocation = homelistLocation;
     this.homelistMainImage = homelistMainImage;
@@ -93,9 +93,9 @@ public final class HomelistviewBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.homelist_cost;
-      TextView homelistCost = ViewBindings.findChildViewById(rootView, id);
-      if (homelistCost == null) {
+      id = R.id.homelist_deadline;
+      TextView homelistDeadline = ViewBindings.findChildViewById(rootView, id);
+      if (homelistDeadline == null) {
         break missingId;
       }
 
@@ -135,7 +135,7 @@ public final class HomelistviewBinding implements ViewBinding {
         break missingId;
       }
 
-      return new HomelistviewBinding((LinearLayout) rootView, homelistCategory, homelistCost,
+      return new HomelistviewBinding((LinearLayout) rootView, homelistCategory, homelistDeadline,
           homelistFID, homelistLocation, homelistMainImage, homelistMans, homelistTitle,
           homelistUID);
     }

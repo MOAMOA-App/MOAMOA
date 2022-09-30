@@ -67,40 +67,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        /*
-        int today= Integer.parseInt(getTime());
-        FirebaseDatabase.getInstance().getReference("form").addValueEventListener(new ValueEventListener() {
-            @SuppressLint("RestrictedApi")
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-
-                    Form listData = snapshot.getValue(Form.class);
-
-                    if (Integer.parseInt(listData.deadline.substring(0,8)) < today){
-                        FirebaseDatabase.getInstance().getReference("form").child(listData.FID).child("state").setValue(2);
-                    }
-                    else if (Integer.parseInt(listData.getMax_count())-listData.getparti_num()<=2 && Integer.parseInt(listData.deadline) == today){
-                        FirebaseDatabase.getInstance().getReference("form").child(listData.FID).child("state").setValue(1);
-                    }
-                    else if(Integer.parseInt(listData.getMax_count())-listData.getparti_num()==0){
-                        FirebaseDatabase.getInstance().getReference("form").child(listData.FID).child("state").setValue(1);
-                    }
-                    else if (Integer.parseInt(listData.getMax_count())-listData.getparti_num()>2 && Integer.parseInt(listData.deadline) >= today)
-                    {
-                        FirebaseDatabase.getInstance().getReference("form").child(listData.FID).child("state").setValue(0);
-                    }
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-       */
     }
 //캘린더
 
@@ -116,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         if (day<10){
            day_string = "0" + Integer.toString(day);
         }
-        if (month<10){
+        if (month<9){
             month_string = "0" + Integer.toString(month+1);
         }
 
