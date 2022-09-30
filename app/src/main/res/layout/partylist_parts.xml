@@ -13,7 +13,8 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/party_profileimage"

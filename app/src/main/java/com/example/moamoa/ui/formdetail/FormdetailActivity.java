@@ -366,7 +366,7 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
                     String deadline     = dataSnapshot.child("deadline").getValue().toString();
                     String state        = dataSnapshot.child("state").getValue().toString();
                     String express      = dataSnapshot.child("express").getValue().toString();
-                    String address   = dataSnapshot.child("address").getValue().toString();
+                    String address      = dataSnapshot.child("address").getValue().toString();
                     String addr_detail   = dataSnapshot.child("addr_detail").getValue().toString();
 
                     int count_party= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
@@ -379,7 +379,13 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
                     count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
 
                     UserFind(FUID);
-                    Initializeform(subject,category,text,cost,count_party+"/"+max_count,today,deadline,address,addr_detail,express,count,state);
+                    String numb ="";
+                    if(max_count.equals("1000")){
+                        numb="∞";
+                    }else{
+                        numb = count_party+"/"+max_count;
+                    }
+                    Initializeform(subject,category,text,cost,numb,today,deadline,address,addr_detail,express,count,state);
                     StorageReference pathReference = firebaseStorage.getReference(image);
 
 
@@ -433,7 +439,7 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
     }
 
     private void Initializeform
-            (String subject,String category,String text,String cost,String max_count,
+            (String subject,String category,String text,String cost,String numb,
              String today,String deadline,String address,String addr_detail, String express,Integer count,String state)
     {
         TextView subject_text   = (TextView) findViewById(R.id.detail_subject);
@@ -463,13 +469,18 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
                 state_text.setTextColor(Color.parseColor("#4C4C4C"));
                 break;
         }
+
+        if(numb.equals("∞")){
+            numb="인원제한없음";
+            max_count_text.setTextSize(15);
+        }
         subject_text.setText(subject);
         category_text.setText(category);
         text_text.setText(text);
         cost_text.setText(cost);
         start.setText(today.substring(2,4)+"년 "+today.substring(4,6)+"월 "+today.substring(6,8)+"일");
         deadlines.setText(deadline.substring(2,4)+"년 "+deadline.substring(4,6)+"월 "+deadline.substring(6,8)+"일");
-        max_count_text.setText(max_count);
+        max_count_text.setText(numb);
         express_text.setText(express);
         count_text.setText("조회 "+count);
         address_text.setText(address);
