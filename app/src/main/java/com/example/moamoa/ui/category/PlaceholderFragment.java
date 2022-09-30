@@ -33,6 +33,8 @@ import com.example.moamoa.databinding.CreatedFormsBinding;
 import com.example.moamoa.databinding.EmptyFormsBinding;
 import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -49,6 +51,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Objects;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -65,6 +68,15 @@ public class PlaceholderFragment extends Fragment {
     int[] ca_num;
     ArrayList<Form> listViewData = new ArrayList<>();
     Form  listData;
+
+    // 리스트 함수로 넣으려고 뺌
+    ListView listView;
+    int pos;
+
+    private ArrayList<String> btnstatestring;   // 버튼 스위치문에 넣으면... 깔끔할거같애서
+    private String[] sortstring;                // 정렬 위한 배열
+    private int sortstd_cat;                    // 배열 인덱스
+    private Query sortedQuery;                  // 데이터 정렬한 쿼리 넣을 예정
 
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
@@ -89,17 +101,31 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public View onCreateView( @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //상세 카테고리 탭 번호
-        int pos = getArguments().getInt(ARG_SECTION_NUMBER);
+        pos = getArguments().getInt(ARG_SECTION_NUMBER);
 
         binding = EmptyFormsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         ca_num = new int[8];
         //추가
-        ListView listView;
+
+        // 정렬 기준 설정
+        sortstring = new String[]{"today", "parti_num", "deadline"};
+
+        // 데이터 정렬한 쿼리
+        sortedQuery = FirebaseDatabase.getInstance().getReference("form")
+                .orderByChild(sortstring[sortstd_cat]);
+
         listView = root.findViewById(R.id.listview);
         Button button_dead  = (Button) root.findViewById(R.id.sort_dead);   //마감순
         Button button_hot   = (Button) root.findViewById(R.id.sort_hot);    //인기순
         Button button_new   = (Button) root.findViewById(R.id.sort_new);    //최신순
+
+        // 기본 상태 설정
+        button_dead.setSelected(false);
+        button_hot.setSelected(false);
+        button_new.setSelected(true);
+        sortstd_cat = 0;
+        printcatlist(sortstd_cat);
 
         button_dead.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,12 +133,16 @@ public class PlaceholderFragment extends Fragment {
                 button_dead.setSelected(true);
                 button_hot.setSelected(false);
                 button_new.setSelected(false);
+                /*
                 listData.s_case = 1;
                 listViewData.add(listData);
 
                 ListAdapter oAdapter = new CustomListView(listViewData);
                 listView.setAdapter(oAdapter);
 
+                 */
+                sortstd_cat = 2;
+                printcatlist(sortstd_cat);
             }
         });
         button_hot.setOnClickListener(new View.OnClickListener() {
@@ -121,11 +151,16 @@ public class PlaceholderFragment extends Fragment {
                 button_dead.setSelected(false);
                 button_hot.setSelected(true);
                 button_new.setSelected(false);
+                /*
                 listData.s_case = 0;
                 listViewData.add(listData);
 
                 ListAdapter oAdapter = new CustomListView(listViewData);
                 listView.setAdapter(oAdapter);
+
+                 */
+                sortstd_cat = 1;
+                printcatlist(sortstd_cat);
             }
         });
         button_new.setOnClickListener(new View.OnClickListener() {
@@ -135,40 +170,87 @@ public class PlaceholderFragment extends Fragment {
                 button_hot.setSelected(false);
                 button_new.setSelected(true);
 
+                sortstd_cat = 0;
+                printcatlist(sortstd_cat);
             }
         });
 
-        FirebaseDatabase.getInstance().getReference("form").orderByChild("active").endAt(0).addValueEventListener(new ValueEventListener() {
-            @SuppressLint("RestrictedApi")
+        return root;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+
+    private void printcatlist(int sortstd_cat){
+        sortedQuery.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                listViewData.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    listData = snapshot.getValue(Form.class);
-                    Log.d("MainActivity", "ChildEventListener -  : " + listData);
-                    switch(pos){
-                        case 1:
-                            listViewData.add(listData);
-                            break;
-                        case 2:
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                } else{
+                    listViewData.clear();
+                    DataSnapshot dataSnapshot = task.getResult();
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        listData = snapshot.getValue(Form.class);
+
+                        assert listData != null;
+                        int act = listData.active;
+
+                        Log.d("MainActivity", "ChildEventListener -  : " + listData);
+                        switch(pos){
+                            case 1:
+                                if (act == 0)
+                                    listViewData.add(listData);
+                                break;
+                            case 2:
+                                if (act == 0)
+                                    listViewData.add(listData);
+                            /*
                             for (int i = 0; i < 2; i++) {
-                                listViewData.add(listData);
+                                if (act == 0)
+                                    listViewData.add(listData);
                             }
-                            break;
-                        default:
-                            if(listData.category_text==pos-1 && listData.getstate()==0){
-                                listViewData.add(listData);
-                            }
-                    }
+
+                             */
+                                break;
+                            default:
+                                if(listData.category_text==pos-1 && listData.getstate()==0 && act == 0){
+                                    listViewData.add(listData);
+                                }
+                        }
+                    /*
                     ListAdapter oAdapter = new CustomListView(listViewData);
                     listView.setAdapter(oAdapter);
+
+                     */
+                        ListAdapter oAdapter;
+                        switch (sortstd_cat){
+                            case 0: // 최신순
+                                Collections.reverse(listViewData);              // 내림차순
+                                oAdapter = new CustomListView(listViewData);    // 어댑터 지정 (각 리스트들의 정보들 관리)
+                                listView.setAdapter(oAdapter);                  // 리스트뷰의 어댑터 지정
+                                break;
+                            case 1: // 인기순
+                                Collections.reverse(listViewData);              // 내림차순
+                                oAdapter = new CustomListView(listViewData);    // 어댑터 지정 (각 리스트들의 정보들 관리)
+                                listView.setAdapter(oAdapter);                  // 리스트뷰의 어댑터 지정
+                                break;
+                            case 2: // 마감순
+                                // 오름차순
+                                oAdapter = new CustomListView(listViewData);    // 어댑터 지정 (각 리스트들의 정보들 관리)
+                                listView.setAdapter(oAdapter);                  // 리스트뷰의 어댑터 지정
+                                break;
+                        }
+                    }
                 }
             }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
         });
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -186,13 +268,5 @@ public class PlaceholderFragment extends Fragment {
                 //Toast.makeText (getContext(), "FID : "+FID, Toast.LENGTH_SHORT).show ();
             }
         });
-
-        return root;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
     }
 }

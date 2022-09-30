@@ -164,17 +164,17 @@ public class SearchActivity extends AppCompatActivity {
     private void printlistview(int sort_std){
         switch (sort_std){
             case 0: // 최신순
-                Collections.reverse(arrayList);
+                Collections.reverse(arrayList);                 // 내림차순
                 customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                 listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                 break;
             case 1: // 인기순
-                Collections.reverse(arrayList);
+                Collections.reverse(arrayList);                 // 내림차순
                 customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                 listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                 break;
             case 2: // 마감순
-
+                                                                // 오름차순
                 customListView = new CustomListView(arrayList); // 어댑터 지정 (각 리스트들의 정보들 관리)
                 listView.setAdapter(customListView);            // 리스트뷰의 어댑터 지정
                 break;
