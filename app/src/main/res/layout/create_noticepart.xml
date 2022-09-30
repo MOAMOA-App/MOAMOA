@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/formdetail_profile_bottomline"
+        android:gravity="left"
+        android:orientation="vertical"
+        android:padding="10dp"
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/notice_part_subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="제목"
+                android:layout_marginRight="5dp"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/notice_part_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="9월 12일 03:15"
+                android:textSize="11sp"
+                android:textColor="@color/dark_gray"
+                android:layout_marginRight="5dp" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/notice_part_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="내용"
+            android:textSize="13sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:gravity="bottom"
+            android:layout_marginRight="20dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

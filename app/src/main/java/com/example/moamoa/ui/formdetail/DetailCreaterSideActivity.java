@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -75,6 +76,7 @@ public class DetailCreaterSideActivity extends AppCompatActivity {
         Button showparty_btn = (Button)findViewById(R.id.creator_showparty); //참여자목록 버튼
         ImageButton menu_btn = (ImageButton)findViewById(R.id.creator_menu); //메뉴보기 버튼
 
+        printnotice();
 
         notice_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,7 +168,34 @@ public class DetailCreaterSideActivity extends AppCompatActivity {
         finish();
     }
 
+    public void printnotice(){
+        ArrayList<NoticeData> noticeData = new ArrayList();
+        mDatabase.child("form").child(FID).child("notice").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.getResult().exists()) {
+                    int count = (int) task.getResult().getChildrenCount();
+                    int x = 0;
+                    Log.e("asdf",count+"");
+                    for(DataSnapshot dataSnapshot : task.getResult().getChildren()){
+                        NoticeData listdata = new NoticeData();
+                        listdata.setSubject((String) dataSnapshot.child("n_subject").getValue());
+                        listdata.setText((String) dataSnapshot.child("n_text").getValue());
+                        listdata.setDate((String) dataSnapshot.child("n_date").getValue());
+                        noticeData.add(listdata);
 
+                        Log.e("asdf",listdata.getDate()+"");
+                        x++;
+                        if(x==count){
+                            ListView listView = (ListView) DetailCreaterSideActivity.this.findViewById(R.id.Decreator_notice) ;
+                            NoticeAdapter myAdapter = new NoticeAdapter(DetailCreaterSideActivity.this,noticeData);
+                            listView.setAdapter(myAdapter);
+                        }
+                    }
+                }
+            }
+        });
+    }
     private void printpage(){
         mDatabase.child("form").child(FID).addValueEventListener(new ValueEventListener() {
             @Override
