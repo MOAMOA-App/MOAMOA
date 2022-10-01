@@ -472,6 +472,7 @@ public class DashboardFragment extends Fragment {
         }
         else{   // 이미지를 하나라도 선택한 경우
             if(data.getClipData() == null){     // 이미지를 하나만 선택한 경우
+                uriList.clear();
                 Log.e("single choice: ", String.valueOf(data.getData()));
                 Uri imageUri = data.getData();
 
@@ -485,7 +486,7 @@ public class DashboardFragment extends Fragment {
             else{      // 이미지를 여러장 선택한 경우
                 clipData = data.getClipData();
                 Log.e("clipData", String.valueOf(clipData.getItemCount()));
-
+                uriList.clear();
                 if(clipData.getItemCount() > 10){   // 선택한 이미지가 11장 이상인 경우
                     Toast.makeText(getContext(), "사진은 10장까지 선택 가능합니다.", Toast.LENGTH_LONG).show();
                 }
