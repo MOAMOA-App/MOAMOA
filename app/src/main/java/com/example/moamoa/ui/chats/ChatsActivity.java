@@ -90,9 +90,6 @@ public class ChatsActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-    private ArrayList<ChatsUserData> arrayList = new ArrayList<>();
-    private ChatUserAdapter chatUserAdapter;
-    private RecyclerView recyclerView;
 
     private String UID, destinationuid;
     TextView TextView_mynick, TextView_mynation;
@@ -209,18 +206,6 @@ public class ChatsActivity extends AppCompatActivity {
          * 그 외 문의채팅--> 폼 중요X 사람 정보만 있으면 됨
          * 그럼 폼 제목에 사람 이름 넣는걸로 하면 될듯 굿굿
          * */
-
-        // CHATROOM_FID 존재시 폼이름 메뉴에 추가
-        /*
-        if (CHATROOM_FID!= null){
-            //recyclerView = (RecyclerView) root.findViewById(R.id.chats_formlist);
-            recyclerView.setHasFixedSize(true);
-
-            recyclerView.setAdapter(new ChatsFormAdapter());
-            recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        }
-
-         */
 
         // 채팅창 메뉴
         findViewById(R.id.drawer_button).setOnClickListener(new View.OnClickListener() {
