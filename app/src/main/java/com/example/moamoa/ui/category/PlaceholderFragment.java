@@ -73,9 +73,8 @@ public class PlaceholderFragment extends Fragment {
     ListView listView;
     int pos;
 
-    private ArrayList<String> btnstatestring;   // 버튼 스위치문에 넣으면... 깔끔할거같애서
     private String[] sortstring;                // 정렬 위한 배열
-    private int sortstd_cat;                    // 배열 인덱스
+    private static int sortstd_cat = 0;         // 배열 인덱스: 상태 저장 위해 여기서 static으로 값 줌
     private Query sortedQuery;                  // 데이터 정렬한 쿼리 넣을 예정
 
     public static PlaceholderFragment newInstance(int index) {
@@ -109,22 +108,22 @@ public class PlaceholderFragment extends Fragment {
         //추가
 
         // 정렬 기준 설정
-        sortstring = new String[]{"today", "parti_num", "deadline"};
+        sortstring = new String[]{"today", "parti_num", "deadline"};    // 최신순 - 인기순 - 마감순
 
         // 데이터 정렬한 쿼리
         sortedQuery = FirebaseDatabase.getInstance().getReference("form")
                 .orderByChild(sortstring[sortstd_cat]);
 
+        // 리스트뷰 연결
         listView = root.findViewById(R.id.listview);
         Button button_dead  = (Button) root.findViewById(R.id.sort_dead);   //마감순
         Button button_hot   = (Button) root.findViewById(R.id.sort_hot);    //인기순
         Button button_new   = (Button) root.findViewById(R.id.sort_new);    //최신순
 
-        // 기본 상태 설정
+        // 기본 상태 설정: 최초에는 최신순으로 정렬
         button_dead.setSelected(false);
         button_hot.setSelected(false);
         button_new.setSelected(true);
-        sortstd_cat = 0;
         printcatlist(sortstd_cat);
 
         button_dead.setOnClickListener(new View.OnClickListener() {
@@ -133,14 +132,7 @@ public class PlaceholderFragment extends Fragment {
                 button_dead.setSelected(true);
                 button_hot.setSelected(false);
                 button_new.setSelected(false);
-                /*
-                listData.s_case = 1;
-                listViewData.add(listData);
 
-                ListAdapter oAdapter = new CustomListView(listViewData);
-                listView.setAdapter(oAdapter);
-
-                 */
                 sortstd_cat = 2;
                 printcatlist(sortstd_cat);
             }
@@ -151,14 +143,7 @@ public class PlaceholderFragment extends Fragment {
                 button_dead.setSelected(false);
                 button_hot.setSelected(true);
                 button_new.setSelected(false);
-                /*
-                listData.s_case = 0;
-                listViewData.add(listData);
 
-                ListAdapter oAdapter = new CustomListView(listViewData);
-                listView.setAdapter(oAdapter);
-
-                 */
                 sortstd_cat = 1;
                 printcatlist(sortstd_cat);
             }
@@ -184,6 +169,10 @@ public class PlaceholderFragment extends Fragment {
         binding = null;
     }
 
+    /**
+     * 카테고리 리스트 출력
+     * @param sortstd_cat 정렬 기준 - 0일시 최신순, 1일시 인기순, 2일시 마감순
+     */
     private void printcatlist(int sortstd_cat){
         sortedQuery.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -207,30 +196,22 @@ public class PlaceholderFragment extends Fragment {
                                 if (act == 0)
                                     listViewData.add(listData);
                                 break;
+
                             case 2:
                                 if (act == 0)
                                     listViewData.add(listData);
-                            /*
-                            for (int i = 0; i < 2; i++) {
-                                if (act == 0)
-                                    listViewData.add(listData);
-                            }
-
-                             */
                                 break;
+
                             default:
                                 if(listData.category_text==pos-1 && listData.getstate()==0 && act == 0){
                                     listViewData.add(listData);
                                 }
                         }
-                    /*
-                    ListAdapter oAdapter = new CustomListView(listViewData);
-                    listView.setAdapter(oAdapter);
 
-                     */
+                        // 기준에 따라 리스트 어댑터에 부착
                         ListAdapter oAdapter;
                         switch (sortstd_cat){
-                            case 0: // 최신순
+                            case 0 : // 최신순
                                 Collections.reverse(listViewData);              // 내림차순
                                 oAdapter = new CustomListView(listViewData);    // 어댑터 지정 (각 리스트들의 정보들 관리)
                                 listView.setAdapter(oAdapter);                  // 리스트뷰의 어댑터 지정
@@ -241,7 +222,7 @@ public class PlaceholderFragment extends Fragment {
                                 listView.setAdapter(oAdapter);                  // 리스트뷰의 어댑터 지정
                                 break;
                             case 2: // 마감순
-                                // 오름차순
+                                                                                // 오름차순
                                 oAdapter = new CustomListView(listViewData);    // 어댑터 지정 (각 리스트들의 정보들 관리)
                                 listView.setAdapter(oAdapter);                  // 리스트뷰의 어댑터 지정
                                 break;
