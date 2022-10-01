@@ -77,6 +77,8 @@ public class PlaceholderFragment extends Fragment {
     private static int sortstd_cat = 0;         // 배열 인덱스: 상태 저장 위해 여기서 static으로 값 줌
     private Query sortedQuery;                  // 데이터 정렬한 쿼리 넣을 예정
 
+    private boolean selected = false;           // 버튼 선택된 상태
+
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle bundle = new Bundle();
