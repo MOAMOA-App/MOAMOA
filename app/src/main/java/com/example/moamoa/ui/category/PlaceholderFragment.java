@@ -27,6 +27,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.airbnb.lottie.L;
 import com.example.moamoa.Form;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.CreatedFormsBinding;
@@ -76,8 +77,7 @@ public class PlaceholderFragment extends Fragment {
     private String[] sortstring;                // 정렬 위한 배열
     private static int sortstd_cat = 0;         // 배열 인덱스: 상태 저장 위해 여기서 static으로 값 줌
     private Query sortedQuery;                  // 데이터 정렬한 쿼리 넣을 예정
-
-    private boolean selected = false;           // 버튼 선택된 상태
+    private ArrayList<Integer> mycategory;      // 관심카테고리 리스트
 
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
@@ -121,6 +121,10 @@ public class PlaceholderFragment extends Fragment {
         Button button_dead  = (Button) root.findViewById(R.id.sort_dead);   //마감순
         Button button_hot   = (Button) root.findViewById(R.id.sort_hot);    //인기순
         Button button_new   = (Button) root.findViewById(R.id.sort_new);    //최신순
+
+        // 관심카테고리 불러옴
+        mycategory = new ArrayList<>();
+        getmycategory();
 
         // 기본 상태 설정: 최초에는 최신순으로 정렬
         button_dead.setSelected(false);
@@ -172,6 +176,30 @@ public class PlaceholderFragment extends Fragment {
     }
 
     /**
+     * 관심카테고리 mycategory에 저장
+     */
+    private void getmycategory(){
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseDatabase.getInstance().getReference().child("users").child(uid)
+                .child("mycategory").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                } else{
+                    DataSnapshot result = task.getResult();
+                    for (DataSnapshot dataSnapshot : result.getChildren()){
+                        int mycat =Integer.parseInt(dataSnapshot.getValue().toString());
+                        mycategory.add(mycat);
+                    }
+                    Log.e("TEST5", "mycategory: "+mycategory);
+                }
+            }
+        });
+
+    }
+
+    /**
      * 카테고리 리스트 출력
      * @param sortstd_cat 정렬 기준 - 0일시 최신순, 1일시 인기순, 2일시 마감순
      */
@@ -200,7 +228,7 @@ public class PlaceholderFragment extends Fragment {
                                 break;
 
                             case 2:
-                                if (act == 0)
+                                if (mycategory.contains(listData.category_text) && act == 0)
                                     listViewData.add(listData);
                                 break;
 
