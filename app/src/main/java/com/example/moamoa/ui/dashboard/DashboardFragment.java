@@ -22,16 +22,28 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moamoa.Form;
+import com.example.moamoa.MainActivity;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentDashboardBinding;
 import com.example.moamoa.ui.account.User;
 import com.example.moamoa.ui.category.CategoryActivity;
+import com.example.moamoa.ui.formdetail.FormdetailActivity;
+import com.example.moamoa.ui.home.HomeFragment;
+import com.example.moamoa.ui.mypage.Nickname;
 import com.example.moamoa.ui.mypage.PageViewModel;
+import com.example.moamoa.ui.mypage.PlaceholderFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -411,9 +423,32 @@ public class DashboardFragment extends Fragment {
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(getContext(), "글쓰기 성공", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getActivity(), CategoryActivity.class);
-                                startActivity(intent);
+//                                Toast.makeText(getContext(), "글쓰기 성공", Toast.LENGTH_SHORT).show();
+
+                                Popup popup;
+                                popup = new Popup(getContext(),FID,user.getUid());
+                                popup.show();
+
+                                //내용 삭제
+                                subject.setText(null);
+                                category.setAdapter(null);
+                                text.setText(null);
+                                cost.setText(null);
+                                check_offline.setChecked(false);
+                                check_online.setChecked(false);
+                                max_people.setText(null);
+                                check_people.setChecked(false);
+                                addr_detail.setText(null);
+
+                                //fragment replace(내용은 사라지지 않음/왜?)
+//                                HomeFragment homeFragment = new HomeFragment();
+                                FragmentManager manager = getFragmentManager();
+                                FragmentTransaction trans = manager.beginTransaction();
+//                                trans.add(R.id.nav_host,homeFragment).addToBackStack(null).commitAllowingStateLoss();
+//                                trans.replace(R.id.navigation_dashboard, ).addToBackStack(null).commitAllowingStateLoss();
+//                                NavHostFragment.findNavController(HomeFragment);
+//                                NavController navController = Navigation.findNavController(navigation_home, R.id.nav_host);
+//
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -481,8 +516,5 @@ public class DashboardFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
-
-
 
 }
