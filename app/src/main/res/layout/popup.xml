@@ -45,7 +45,7 @@
             <TextView
                 android:id="@+id/textnotice"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="글쓰기가 성공적으로 완료되었습니다."
