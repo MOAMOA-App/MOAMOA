@@ -81,6 +81,7 @@
                 android:layout_height="60dp"
                 android:background="@drawable/formdetail_profile_bottomline"
                 android:hint="제목"
+                android:textStyle="bold"
                 android:maxLength="20"
                 android:textSize="16dp" />
 
@@ -90,7 +91,7 @@
                 android:layout_height="60dp"
                 android:entries="@array/category_dash"
                 android:textSize="16dp"
-                android:background="@drawable/formdetail_profile_bottomline"/>
+               />
 
 
             <LinearLayout
