@@ -359,9 +359,9 @@ public class DashboardFragment extends Fragment {
                 String check_text = "";
                 if(check_offline.isChecked()){
                     if(check_online.isChecked()){
-                        check_text = "직거래/대면";
-                    }else{
                         check_text = "직거래/택배";
+                    }else{
+                        check_text = "직거래/대면";
                     }
                 }else{
                     if(check_online.isChecked()){
