@@ -25,13 +25,13 @@
                 app:titleTextColor="@color/black" />
 
             <!-- 툴바 이름 설정 -->
-            <ImageView
+            <!--ImageView
                 android:id="@+id/imageView9"
                 android:layout_width="34dp"
                 android:layout_height="27dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="13dp"
-                android:src="@mipmap/ic_main_round" />
+                android:src="@mipmap/ic_main_round" /-->
 
             <TextView
                 android:id="@+id/homebarname"
@@ -82,7 +82,6 @@
 
         </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -91,21 +90,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingTop="15dp"
-            android:paddingBottom="50dp"
+            android:paddingTop="30dp"
+            android:paddingBottom="20dp"
             android:background="@color/white">
-            <ImageView
+            <!--ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:src="@drawable/banner"
                 android:background="@drawable/round_border_style"
-                android:layout_marginBottom="36dp"/>
+                android:layout_marginBottom="36dp"/-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginBottom="76dp"
+                android:layout_marginBottom="46dp"
                 android:background="@color/white">
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -140,7 +139,16 @@
                     android:scrollbars="horizontal"
                     app:layoutManager="LinearLayoutManager" />
             </LinearLayout>
-
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:background="@drawable/round_border_style"
+                android:src="@drawable/banner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="40dp"
+                app:riv_corner_radius="20dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -175,10 +183,10 @@
                     android:orientation="horizontal"
                     android:numColumns="6"
                     android:columnWidth="50dp"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="5dp"
                     android:stretchMode="none"
                     android:layout_marginLeft="10dp"
-                    android:paddingBottom="5dp"/>
+                    android:paddingBottom="10dp"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/listview3"
