@@ -31,7 +31,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
 
-                android:text="공동구매 글쓰기"
+                android:text="공동구매 시작하기"
                 android:textSize="20sp" />
         </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
