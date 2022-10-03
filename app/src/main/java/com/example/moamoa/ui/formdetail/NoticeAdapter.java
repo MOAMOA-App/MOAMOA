@@ -55,21 +55,6 @@ public class NoticeAdapter extends BaseAdapter {
         String temp = list.get(pos).getDate();
         temp = temp.substring(2,4)+"/"+temp.substring(4,6)+"/"+temp.substring(6,8)+" "+temp.substring(8,10)+":"+temp.substring(10,12);
         date.setText(temp);
-        /*
-        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-        StorageReference pathReference = firebaseStorage.getReference(list.get(pos).getProfile());
-        Activity context2 = (Activity) profile_img.getContext();
-        pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                if (context2.isFinishing()) return;
-                Glide.with(profile_img.getContext())
-                        .load(uri)
-                        .into(profile_img);
-            }
-        });
-
-         */
         return view;
     }
 }

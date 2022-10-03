@@ -323,11 +323,11 @@
                         android:textColor="@color/dark_gray"
                         android:visibility="gone"/>
 
-                    <ListView
-                        android:id="@+id/Decreator_notice"
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        android:minHeight="200dp" />
+                        <ListView
+                            android:id="@+id/Decreator_notice"
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"/>
+
                 </LinearLayout>
             </LinearLayout>
 

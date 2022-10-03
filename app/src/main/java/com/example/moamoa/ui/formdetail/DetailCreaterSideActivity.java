@@ -95,7 +95,46 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
         Button showparty_btn = (Button)findViewById(R.id.creator_showparty); //참여자목록 버튼
         ImageButton menu_btn = (ImageButton)findViewById(R.id.creator_menu); //메뉴보기 버튼
 
-        printnotice();
+
+        ArrayList<NoticeData> noticeData = new ArrayList();
+        ListView listView = (ListView) DetailCreaterSideActivity.this.findViewById(R.id.Decreator_notice);
+        NoticeAdapter myAdapter = new NoticeAdapter(DetailCreaterSideActivity.this,noticeData);
+        TextView no = (TextView)  DetailCreaterSideActivity.this.findViewById(R.id.no_notice_text);
+        mDatabase.child("form").child(FID).child("notice").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    noticeData.clear();
+                    listView.setVisibility(View.VISIBLE);
+                    no.setVisibility(View.GONE);
+                    int count = (int) snapshot.getChildrenCount();
+                    int x = 0;
+                    for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                        NoticeData listdata = new NoticeData();
+                        listdata.setSubject((String) dataSnapshot.child("n_subject").getValue());
+                        listdata.setText((String) dataSnapshot.child("n_text").getValue());
+                        listdata.setDate((String) dataSnapshot.child("n_date").getValue());
+                        noticeData.add(listdata);
+
+                        Log.e("asdf",listdata.getDate()+"");
+                        x++;
+                        if(x==count){
+
+                            listView.setAdapter(myAdapter);
+                        }
+                    }
+                }else{
+                    listView.setVisibility(View.GONE);
+                    no.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         notice_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,36 +212,6 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
         });
     }//onCreate();
 
-    public void printnotice(){
-        ArrayList<NoticeData> noticeData = new ArrayList();
-        mDatabase.child("form").child(FID).child("notice").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (task.getResult().exists()) {
-                    int count = (int) task.getResult().getChildrenCount();
-                    int x = 0;
-                    for(DataSnapshot dataSnapshot : task.getResult().getChildren()){
-                        NoticeData listdata = new NoticeData();
-                        listdata.setSubject((String) dataSnapshot.child("n_subject").getValue());
-                        listdata.setText((String) dataSnapshot.child("n_text").getValue());
-                        listdata.setDate((String) dataSnapshot.child("n_date").getValue());
-                        noticeData.add(listdata);
-
-                        Log.e("asdf",listdata.getDate()+"");
-                        x++;
-                        if(x==count){
-                            ListView listView = (ListView) DetailCreaterSideActivity.this.findViewById(R.id.Decreator_notice) ;
-                            NoticeAdapter myAdapter = new NoticeAdapter(DetailCreaterSideActivity.this,noticeData);
-                            listView.setAdapter(myAdapter);
-                        }
-                    }
-                }else{
-                    TextView no = (TextView)  DetailCreaterSideActivity.this.findViewById(R.id.no_notice_text);
-                    no.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-    }
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -214,6 +223,7 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
         super.onBackPressed();
         finish();
     }
+
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
         Geocoder geocoder = new Geocoder(this);
