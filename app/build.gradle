@@ -81,4 +81,5 @@ dependencies {
     implementation 'com.naver.maps:map-sdk:3.16.0'
     //message push
     implementation 'com.google.firebase:firebase-messaging:17.3.3'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 }
