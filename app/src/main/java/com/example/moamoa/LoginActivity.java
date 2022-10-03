@@ -228,10 +228,6 @@ public class LoginActivity extends AppCompatActivity {
                 postValues.put("image","profile/"+random_nicks.getImage()+".png");
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.getIdToken());
                 firebaseAuthWithGoogle(account.getIdToken());
-<<<<<<<<< Temporary merge branch 1
-
-=========
->>>>>>>>> Temporary merge branch 2
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);

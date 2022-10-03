@@ -26,7 +26,6 @@ public class NoticeData {
     }
 
     public void setDate(String date) {
-        date = date.substring(2,4)+"/"+date.substring(4,6)+"/"+date.substring(6,8)+" "+date.substring(8,10)+":"+date.substring(10,12);
         this.date = date;
     }
 

@@ -181,7 +181,6 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
                 if (task.getResult().exists()) {
                     int count = (int) task.getResult().getChildrenCount();
                     int x = 0;
-                    Log.e("asdf",count+"");
                     for(DataSnapshot dataSnapshot : task.getResult().getChildren()){
                         NoticeData listdata = new NoticeData();
                         listdata.setSubject((String) dataSnapshot.child("n_subject").getValue());

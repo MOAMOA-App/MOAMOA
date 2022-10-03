@@ -184,6 +184,7 @@ public class HomeFragment extends Fragment {
                     Log.e("firebase", "Error getting data", task.getException());
                 }
                 else{
+
                     homelist[i].clear();
                     int count = 0;
                     for (DataSnapshot fileSnapshot : result.getChildren() ) {
@@ -209,7 +210,6 @@ public class HomeFragment extends Fragment {
                                 e.printStackTrace();
                             }
                             Date mDate = new Date(System.currentTimeMillis());
-                            Log.e("date", date+" "+mDate);
                             long calDate = date.getTime()-mDate.getTime();
                             long calDateDays=calDate/(24*60*60*1000);
                             calDateDays=Math.abs(calDateDays);

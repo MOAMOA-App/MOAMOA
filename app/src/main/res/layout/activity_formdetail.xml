@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingBottom="150dp">
+            android:paddingBottom="100dp">
             <ImageView
                 android:id="@+id/mainImage"
                 android:orientation="horizontal"
@@ -315,7 +315,7 @@
                 <ListView
                     android:id="@+id/detail_notion"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="300dp"/>
             </LinearLayout>
         </LinearLayout>
         </LinearLayout>

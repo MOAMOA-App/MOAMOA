@@ -80,7 +80,6 @@ public class PartyDialog extends DialogFragment {
                     mDatabase.child("users").child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            Log.e("party_task"+x[0],task.getResult()+"");
                             PartyListData listdata = new PartyListData();
                             listdata.setUID(uid);
                             listdata.setNickname(task.getResult().child("nick").getValue()+"");

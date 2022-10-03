@@ -76,9 +76,7 @@ public class CreatorNotice extends DialogFragment {
                                     @Override
                                     public void onComplete(@NonNull Task<DataSnapshot> task) {
                                         String count = String.valueOf(task.getResult().getChildrenCount());
-                                        if(!count.equals("0")){
-                                            count=String.valueOf(Integer.parseInt(count)+1);
-                                        }
+                                        count=String.valueOf(task.getResult().getChildrenCount());
                                         mDatabase.child("form").child(FID).child("notice").child(count).child("n_subject").setValue(subject);
                                         mDatabase.child("form").child(FID).child("notice").child(count).child("n_text").setValue(text);
                                         mDatabase.child("form").child(FID).child("notice").child(count).child("n_date").setValue(today);
