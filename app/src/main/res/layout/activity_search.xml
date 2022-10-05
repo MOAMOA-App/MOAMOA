@@ -16,7 +16,7 @@
 
             <Spinner
                 android:id="@+id/searchspinner"
-                android:layout_width="95dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:entries="@array/searchoption"
                 android:textSize="14sp" />

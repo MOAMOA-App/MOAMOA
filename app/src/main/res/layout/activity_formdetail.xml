@@ -291,7 +291,7 @@
                         android:id="@+id/detail_local"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="빈 칸"
+                        android:text="서울시 동작구"
                         android:textSize="11sp"/>
                 </LinearLayout>
             </LinearLayout>
