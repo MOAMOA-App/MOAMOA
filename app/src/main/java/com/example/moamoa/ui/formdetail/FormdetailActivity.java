@@ -334,20 +334,28 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if(task.getResult().getValue().toString().length()!=0){
-                    String addr_co = task.getResult().getValue().toString();
-                    String[] PointArray = addr_co.split(",");
-                    String latitude = PointArray[0]; // 경도
-                    String longitude = PointArray[1]; // 위도
-                    LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
-                    marker.setPosition(point1);
-                    marker.setMap(naverMap);
-                    // 해당 좌표로 화면 줌
-                    CameraPosition cameraPosition = new CameraPosition(point1, 16);
 
-                    naverMap.setCameraPosition(cameraPosition);
+
+                        String addr_co = task.getResult().getValue().toString();
+                        String[] PointArray = addr_co.split(",");
+                        String latitude = PointArray[0]; // 경도
+                        String longitude = PointArray[1]; // 위도
+                        LatLng point1 = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
+                        marker.setPosition(point1);
+                        marker.setMap(naverMap);
+                        // 해당 좌표로 화면 줌
+                        CameraPosition cameraPosition = new CameraPosition(point1, 16);
+
+                        naverMap.setCameraPosition(cameraPosition);
+
+
+
                 }else{
 
-                }}
+                    mapView.setVisibility(View.GONE);
+                }
+
+            }
         });
     }
 
