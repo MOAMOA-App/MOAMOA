@@ -3,9 +3,12 @@ package com.example.moamoa.ui.dashboard;
 import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -139,6 +142,26 @@ public class DashboardFragment extends Fragment {
 //        btn_addr.setClickable(true);
 //        btn_addr.setFocusable(true);
 
+        TextView cost_won = (TextView) root.findViewById(R.id.cost_won_text);
+        cost.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2){
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(charSequence.length()>0){
+                    Toast.makeText(getContext(),cost_won.getTextSize()+"",Toast.LENGTH_SHORT).show();
+                    cost_won.setTextColor(Color.parseColor("#000000"));
+                }else{
+
+                    Toast.makeText(getContext(),"0",Toast.LENGTH_SHORT).show();
+                    cost_won.setTextColor(Color.parseColor("#8c8c8c"));
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
         btn_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
