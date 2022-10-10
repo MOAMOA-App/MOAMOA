@@ -430,8 +430,14 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 TextView name_tv    = (TextView) findViewById(R.id.detail_nick);
                 ImageView profile   = (ImageView) findViewById(R.id.detail_profile);
+                TextView local_detail_text   = (TextView) findViewById(R.id.detail_local);
                 String profile_text = task.getResult().child("image").getValue().toString();
                 String name         = task.getResult().child("nick").getValue().toString();
+
+                if(task.getResult().child("area").exists()){
+                String local_detail = task.getResult().child("area").getValue().toString();
+                local_detail_text.setText(local_detail);
+                }
                 name_tv.setText(name);
                 FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
                 StorageReference pathReference  = firebaseStorage.getReference(profile_text);
@@ -496,6 +502,8 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
         count_text.setText("조회 "+count);
         address_text.setText(address);
         addr_detail_text.setText(addr_detail);
+
+
     }
 }
 
