@@ -104,7 +104,45 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
         });
 
         printpage();
-        printnotice();
+        ArrayList<NoticeData> noticeData = new ArrayList();
+        ListView listView = (ListView) FormdetailActivity.this.findViewById(R.id.detail_notion);
+        NoticeAdapter myAdapter = new NoticeAdapter(FormdetailActivity.this,noticeData);
+        TextView no = (TextView)  FormdetailActivity.this.findViewById(R.id.no_notice_text);
+        mDatabase.child("form").child(FID).child("notice").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    noticeData.clear();
+                    listView.setVisibility(View.VISIBLE);
+                    no.setVisibility(View.GONE);
+                    int count = (int) snapshot.getChildrenCount();
+                    int x = 0;
+                    for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                        NoticeData listdata = new NoticeData();
+                        listdata.setSubject((String) dataSnapshot.child("n_subject").getValue());
+                        listdata.setText((String) dataSnapshot.child("n_text").getValue());
+                        listdata.setDate((String) dataSnapshot.child("n_date").getValue());
+                        noticeData.add(listdata);
+
+                        Log.e("asdf",listdata.getDate()+"");
+                        x++;
+                        if(x==count){
+
+                            listView.setAdapter(myAdapter);
+                        }
+                    }
+                }else{
+                    listView.setVisibility(View.GONE);
+                    no.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
 
 
