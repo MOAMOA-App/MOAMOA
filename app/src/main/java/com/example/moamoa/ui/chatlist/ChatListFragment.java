@@ -103,24 +103,24 @@ public class ChatListFragment extends Fragment {
             UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
             FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+UID)
-                    .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
-                        // 여기서 equalTo는 true까지의 방만 검색한다. (내가 소속된 방만 띄움)
-                        @SuppressLint("NotifyDataSetChanged")
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            // 데이터 받아오기 세팅
-                            chatModels.clear();
-                            for (DataSnapshot item : snapshot.getChildren()){
-                                chatModels.add(item.getValue(ChatModel.class));
-                            }
-                            notifyDataSetChanged();
+                .equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
+                    // 여기서 equalTo는 true까지의 방만 검색한다. (내가 소속된 방만 띄움)
+                    @SuppressLint("NotifyDataSetChanged")
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        // 데이터 받아오기 세팅
+                        chatModels.clear();
+                        for (DataSnapshot item : snapshot.getChildren()){
+                            chatModels.add(item.getValue(ChatModel.class));
                         }
+                        notifyDataSetChanged();
+                    }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                        }
-                    });
+                    }
+            });
         }
 
         @NonNull
@@ -155,8 +155,10 @@ public class ChatListFragment extends Fragment {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 User user = snapshot.getValue(User.class);
+                                // 닉네임 연결
                                 customViewHolder.userName.setText(user.nick);
 
+                                // 프사 연결
                                 String destinationprofil_text = snapshot.child("image").getValue().toString();
                                 FirebaseStorage.getInstance().getReference(destinationprofil_text)
                                         .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -186,6 +188,7 @@ public class ChatListFragment extends Fragment {
 
                 //customViewHolder.lastSendtime.setText((Integer) chatModels.get(position).comments.get(lastMessageKey).timestamp);
 
+                // 메시지 마지막으로 보낸 시간 출력
                 Object unixTime = chatModels.get(position).comments.get(lastMessageKey).timestamp;
                 long lastMessageTime =  Long.parseLong(unixTime.toString());
                 Date date = new Date(lastMessageTime);
@@ -193,6 +196,7 @@ public class ChatListFragment extends Fragment {
                 String time = simpleDateFormat.format(date);
                 customViewHolder.lastSendtime.setText(time);
 
+                // FORMID 불러옴
                 FORMID = chatModels.get(position).fids;
                 mDatabase.child("form").child(FORMID).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
