@@ -73,6 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:minHeight="150dp"
+                android:gravity="top"
                 android:background="@drawable/category_edit_style"
                 android:textSize="13sp"/>
         </LinearLayout>
