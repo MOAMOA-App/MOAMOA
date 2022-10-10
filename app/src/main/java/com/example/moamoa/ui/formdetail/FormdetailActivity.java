@@ -319,37 +319,6 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
         return;
     }
 
-    public void printnotice(){
-        ArrayList<NoticeData> noticeData = new ArrayList();
-        mDatabase.child("form").child(FID).child("notice").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (task.getResult().exists()) {
-                    int count = (int) task.getResult().getChildrenCount();
-                    int x = 0;
-                    Log.e("asdf",count+"");
-                    for(DataSnapshot dataSnapshot : task.getResult().getChildren()){
-                        NoticeData listdata = new NoticeData();
-                        listdata.setSubject((String) dataSnapshot.child("n_subject").getValue());
-                        listdata.setText((String) dataSnapshot.child("n_text").getValue());
-                        listdata.setDate((String) dataSnapshot.child("n_date").getValue());
-                        noticeData.add(listdata);
-
-                        Log.e("asdf",listdata.getDate()+"");
-                        x++;
-                        if(x==count){
-                            ListView listView = (ListView) FormdetailActivity.this.findViewById(R.id.detail_notion) ;
-                            NoticeAdapter myAdapter = new NoticeAdapter(FormdetailActivity.this,noticeData);
-                            listView.setAdapter(myAdapter);
-                        }
-                    }
-                }else{
-                    TextView no = (TextView)  FormdetailActivity.this.findViewById(R.id.no_notice_text);
-                    no.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-    }
     @Override
     public void onBackPressed() {
         mDatabase.child("form").child(FID).child("count").setValue(count+1);
