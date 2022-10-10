@@ -150,11 +150,8 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(charSequence.length()>0){
-                    Toast.makeText(getContext(),cost_won.getTextSize()+"",Toast.LENGTH_SHORT).show();
                     cost_won.setTextColor(Color.parseColor("#000000"));
                 }else{
-
-                    Toast.makeText(getContext(),"0",Toast.LENGTH_SHORT).show();
                     cost_won.setTextColor(Color.parseColor("#8c8c8c"));
                 }
             }
