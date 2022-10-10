@@ -74,8 +74,8 @@ public class HomeFragment extends Fragment {
 
 
         reference[0] = mDatabase.getReference().child("form").orderByChild("deadline").startAt(GetTimeStart());
-        reference[1] = mDatabase.getReference().child("form").orderByChild("count");
-        reference[2] = mDatabase.getReference().child("form").orderByChild("today");
+        reference[1] = mDatabase.getReference().child("form").orderByChild("count").limitToLast(15);
+        reference[2] = mDatabase.getReference().child("form").orderByChild("today").limitToLast(15);
 
         /* 전체보기 버튼 */
         btn_c[0] = (TextView) root.findViewById(R.id.btn_ctgy0);

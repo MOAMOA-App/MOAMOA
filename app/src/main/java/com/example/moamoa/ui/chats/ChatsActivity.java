@@ -109,6 +109,8 @@ public class ChatsActivity extends AppCompatActivity {
     final int DIALOG_EXITROOM = 1;
     final int DIALOG_SELECTLANG = 2;
 
+    private static String formuserid = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -184,13 +186,15 @@ public class ChatsActivity extends AppCompatActivity {
         TextView_nickname = (TextView) findViewById(R.id.chat_formlist_usernick1);
         checkRoomID();  // FID 불러옴
         setforminfo();
+        getformuserid(FID);
         linearLayout_form.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 액티비티 이동 + 값 전달
                 Intent intent = new Intent(ChatsActivity.this, FormdetailActivity.class);
                 intent.putExtra("FID", FID);
-                intent.putExtra("UID_dash", destinationuid);
+
+                intent.putExtra("UID_dash", formuserid);
                 startActivity(intent);
             }
         });
@@ -243,22 +247,51 @@ public class ChatsActivity extends AppCompatActivity {
         actionBar.hide();
     }
 
+    private void getformuserid(String FID){
+        mDatabase.child("form").child(FID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Form form = snapshot.getValue(Form.class);
+                assert form != null;
+                formuserid = form.UID_dash;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
     private void setforminfo() {
         mDatabase.child("form").child(FID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Form form = snapshot.getValue(Form.class);
                 assert form != null;
-                Log.e("TEST", "form.subject: "+form.subject);
                 TextView_formname.setText(form.subject);
 
                 mDatabase.child("users").child(form.UID_dash).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         User user = snapshot.getValue(User.class);
                         assert user != null;
                         TextView_nickname.setText(user.nick);
-                        Log.e("TEST", "user.nick: "+user.nick);
+
+                        mDatabase.child("users").child(destinationuid).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                                User user1 = datasnapshot.getValue(User.class);
+                                assert user1 != null;
+                                chatbar.setText(user1.nick+"  -  "+form.subject);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                     }
 
                     @Override

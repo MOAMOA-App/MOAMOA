@@ -148,7 +148,7 @@
 
                 android:adjustViewBounds="true"
                 android:background="@drawable/round_border_style"
-                android:src="@drawable/banner"
+                android:src="@drawable/banner_"
                 />
 
             <LinearLayout
