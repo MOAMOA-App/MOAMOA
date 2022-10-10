@@ -98,6 +98,7 @@ public class ChatListFragment extends Fragment {
         private List<ChatModel> chatModels = new ArrayList<>();
         private String UID;
         private ArrayList<String> destinationUsers = new ArrayList<>();
+        private ArrayList<String> FIDS = new ArrayList<>();
 
         public ChatRecyclerViewAdapter(){
             UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -141,6 +142,7 @@ public class ChatListFragment extends Fragment {
                 if (!user.equals(UID)){ // 있는 유저 중 내가 아닌 사람 뽑아옴
                     destinationUID = user;
                     destinationUsers.add(destinationUID);
+                    FIDS.add(chatModels.get(position).fids);
                 }
             }
 
@@ -198,12 +200,15 @@ public class ChatListFragment extends Fragment {
 
                 // FORMID 불러옴
                 FORMID = chatModels.get(position).fids;
+                Log.e("TEST2", "FORMID1: "+FORMID);
                 mDatabase.child("form").child(FORMID).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         Form form = snapshot.getValue(Form.class);
                         assert form != null;
                         customViewHolder.formName.setText(form.subject);
+
+
                     }
 
                     @Override
@@ -212,18 +217,20 @@ public class ChatListFragment extends Fragment {
                     }
                 });
 
-
                 // 누르면 채팅방으로 넘어감(클릭 이벤트)
                 customViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(v.getContext(), ChatsActivity.class);
                         intent.putExtra("destinationUID", destinationUsers.get(position));
-                        intent.putExtra("FID", FORMID);
+                        intent.putExtra("FID", FIDS.get(position));
+                        Log.e("TEST2", "FORMID2: "+FORMID);
 
                         startActivity(intent);
                     }
                 });
+
+
             }
 
         }
