@@ -244,7 +244,7 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
 
                     naverMap.setCameraPosition(cameraPosition);
                 }else{
-
+                    mapView.setVisibility(View.GONE);
                 }
 
             }
@@ -324,6 +324,14 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
 
                 profil_text = task.getResult().child("image").getValue().toString();
                 name = task.getResult().child("nick").getValue().toString();
+
+                TextView local_detail_text   = (TextView) findViewById(R.id.detail_local);
+
+                if(task.getResult().child("area").exists()){
+                    String local_detail = task.getResult().child("area").getValue().toString();
+                    local_detail_text.setText(local_detail);
+                }
+
                 name_tv.setText(name);
                 FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
                 StorageReference pathReference = firebaseStorage.getReference(profil_text);
