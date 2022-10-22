@@ -1,5 +1,6 @@
 package com.example.moamoa.ui.formdetail;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,12 +15,14 @@ import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextThemeWrapper;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -66,6 +69,7 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
 
 
     ArrayList<PartyListData> partylist=new ArrayList();
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -97,43 +101,52 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
 
 
         ArrayList<NoticeData> noticeData = new ArrayList();
+        ScrollView scrollView = (ScrollView) DetailCreaterSideActivity.this.findViewById(R.id.decreate_scroll);
         ListView listView = (ListView) DetailCreaterSideActivity.this.findViewById(R.id.Decreator_notice);
         NoticeAdapter myAdapter = new NoticeAdapter(DetailCreaterSideActivity.this,noticeData);
         TextView no = (TextView)  DetailCreaterSideActivity.this.findViewById(R.id.no_notice_text);
-        mDatabase.child("form").child(FID).child("notice").addValueEventListener(new ValueEventListener() {
+        listView.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    noticeData.clear();
-                    listView.setVisibility(View.VISIBLE);
-                    no.setVisibility(View.GONE);
-                    int count = (int) snapshot.getChildrenCount();
-                    int x = 0;
-                    for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                        NoticeData listdata = new NoticeData();
-                        listdata.setSubject((String) dataSnapshot.child("n_subject").getValue());
-                        listdata.setText((String) dataSnapshot.child("n_text").getValue());
-                        listdata.setDate((String) dataSnapshot.child("n_date").getValue());
-                        noticeData.add(listdata);
-
-                        Log.e("asdf",listdata.getDate()+"");
-                        x++;
-                        if(x==count){
-
-                            listView.setAdapter(myAdapter);
-                        }
-                    }
-                }else{
-                    listView.setVisibility(View.GONE);
-                    no.setVisibility(View.VISIBLE);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                scrollView.requestDisallowInterceptTouchEvent(true);
+                return false;
             }
         });
+
+                mDatabase.child("form").child(FID).child("notice").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            noticeData.clear();
+                            listView.setVisibility(View.VISIBLE);
+                            no.setVisibility(View.GONE);
+                            int count = (int) snapshot.getChildrenCount();
+                            int x = 0;
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                NoticeData listdata = new NoticeData();
+                                listdata.setSubject((String) dataSnapshot.child("n_subject").getValue());
+                                listdata.setText((String) dataSnapshot.child("n_text").getValue());
+                                listdata.setDate((String) dataSnapshot.child("n_date").getValue());
+                                noticeData.add(listdata);
+
+                                Log.e("asdf", listdata.getDate() + "");
+                                x++;
+                                if (x == count) {
+
+                                    listView.setAdapter(myAdapter);
+                                }
+                            }
+                        } else {
+                            listView.setVisibility(View.GONE);
+                            no.setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
         notice_btn.setOnClickListener(new View.OnClickListener() {
             @Override

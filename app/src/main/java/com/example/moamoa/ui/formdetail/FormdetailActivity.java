@@ -1,5 +1,6 @@
 package com.example.moamoa.ui.formdetail;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -10,10 +11,12 @@ import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -80,6 +83,7 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formdetail);
@@ -106,8 +110,16 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
         printpage();
         ArrayList<NoticeData> noticeData = new ArrayList();
         ListView listView = (ListView) FormdetailActivity.this.findViewById(R.id.detail_notion);
+        ScrollView scrollView = (ScrollView) FormdetailActivity.this.findViewById(R.id.detail_scroll);
         NoticeAdapter myAdapter = new NoticeAdapter(FormdetailActivity.this,noticeData);
         TextView no = (TextView)  FormdetailActivity.this.findViewById(R.id.no_notice_text);
+        listView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                scrollView.requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
         mDatabase.child("form").child(FID).child("notice").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

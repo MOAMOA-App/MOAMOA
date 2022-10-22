@@ -13,6 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
     <ScrollView
+        android:id="@+id/decreate_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -22,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingBottom="100dp">
+            android:paddingBottom="50dp">
             <ImageView
                 android:id="@+id/mainImage"
                 android:orientation="horizontal"
@@ -308,12 +309,13 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="공지"
+                        android:layout_marginBottom="5dp"
                         android:textSize="17sp" />
                     <TextView
                         android:id="@+id/no_notice_text"
@@ -326,8 +328,11 @@
                     <ListView
                         android:id="@+id/Decreator_notice"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"/>
-
+                        android:padding="5dp"
+                        android:layout_marginBottom="30dp"
+                        android:layout_height="210dp"
+                        android:background="@drawable/category_style"
+                        android:scrollbars="horizontal"/>
                 </LinearLayout>
             </LinearLayout>
 
