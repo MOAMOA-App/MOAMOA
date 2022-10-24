@@ -29,12 +29,11 @@
 
         >
         <Button
-            android:id="@+id/Button_sendImg"
+            android:id="@+id/Button_translatemsg"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="#F1A94E"
-            android:background="@drawable/ic_outline_photo_24"
+            android:background="@drawable/button_selector"
             />
 
         <!--입력 창-->

@@ -56,13 +56,12 @@ public class ChatsFragment extends Fragment {
     private ArrayList<ChatsData> list = new ArrayList<>();
     private RecyclerView.LayoutManager mLayoutManager;
 
-    private String USERNAME, USERID;
-    private String destinationNAME, destinationUID;
-    private String FORMID;
-    String CHATROOM_FID;
+    private String USERNAME, USERID, destinationUID, FORMID;
+    private String CHATROOM_FID;
+    private static String myLang, destinationLang;
 
     private EditText EditText_chat;
-    private Button sendbtn;
+    private Button sendbtn, translatebtn;
 
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy.MM.dd HH:mm");
 
@@ -93,6 +92,9 @@ public class ChatsFragment extends Fragment {
         linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setStackFromEnd(true);
 
+        // 언어 코드 설정
+        settingLangInfo();
+
         // 전송버튼 눌렀을 때의 동작
         sendbtn = (Button) root.findViewById(R.id.Button_send);
         EditText_chat = (EditText) root.findViewById(R.id.EditText_chat);
@@ -118,50 +120,49 @@ public class ChatsFragment extends Fragment {
                     //.put(FORMID.toString());
                 }
 
-
                 // 방 중복 방지
                 if (CHATROOM_FID == null){
                     if (!comments.message.equals("")){
                         sendbtn.setEnabled(false);
                         mdatabase.child("chatrooms").push().setValue(chatModel)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                mdatabase.child("chatrooms").orderByChild("users/"+USERID).equalTo(true)
+                                            .addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
-                                    public void onSuccess(Void unused) {
-                                        mdatabase.child("chatrooms").orderByChild("users/"+USERID).equalTo(true)
-                                                .addListenerForSingleValueEvent(new ValueEventListener() {
-                                                    @Override
-                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                        for (DataSnapshot item : snapshot.getChildren()){
-                                                            ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
-                                                            // 방 id 가져오기
-                                                            if (chatModel.users.containsKey(destinationUID)){   //destinationUID 있는지 체크
-                                                                CHATROOM_FID = item.getKey();   //방 아이디 가져옴
-                                                                sendbtn.setEnabled(true);
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot item : snapshot.getChildren()){
+                                            ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
+                                            // 방 id 가져오기
+                                            if (chatModel.users.containsKey(destinationUID)){   //destinationUID 있는지 체크
+                                                CHATROOM_FID = item.getKey();   //방 아이디 가져옴
+                                                sendbtn.setEnabled(true);
 
-                                                                Intent intent = new Intent(getContext(), ChatsActivity.class);
-                                                                intent.putExtra("destinationUID", destinationUID);
-                                                                intent.putExtra("FID", FORMID);
-                                                                intent.putExtra("CHATROOM_FID", CHATROOM_FID);
+                                                Intent intent = new Intent(getContext(), ChatsActivity.class);
+                                                intent.putExtra("destinationUID", destinationUID);
+                                                intent.putExtra("FID", FORMID);
+                                                intent.putExtra("CHATROOM_FID", CHATROOM_FID);
 
-                                                                getActivity().finish();
-                                                                startActivity(intent);
+                                                getActivity().finish();
+                                                startActivity(intent);
 
-                                                                recyclerView.setLayoutManager(linearLayoutManager);
-                                                                recyclerView.setAdapter(new RecyclerViewAdapter());
-                                                                mdatabase.child("chatrooms").child(CHATROOM_FID).child("comments")
-                                                                        .push().setValue(comments);
-                                                            }
-                                                        }
-                                                    }
+                                                recyclerView.setLayoutManager(linearLayoutManager);
+                                                recyclerView.setAdapter(new RecyclerViewAdapter());
+                                                mdatabase.child("chatrooms").child(CHATROOM_FID).child("comments")
+                                                            .push().setValue(comments);
+                                            }
+                                        }
+                                    }
 
-                                                    @Override
-                                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                                    }
-                                                });
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
 
                                     }
                                 });
+
+                            }
+                        });
                     }
 
 
@@ -181,6 +182,19 @@ public class ChatsFragment extends Fragment {
             }
         });
         checkChatRoom();
+
+        translatebtn = (Button) root.findViewById(R.id.Button_translatemsg);
+        translatebtn.setSelected(false);
+        translatebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 선택한 언어 불러옴 + 설정
+                Log.e("TEST", "myLang: "+myLang);
+                Log.e("TEST", "destinationLang: "+destinationLang);
+                translatebtn.setSelected(!translatebtn.isSelected());
+                checkChatRoom();
+            }
+        });
 
         return root;
     }
@@ -213,6 +227,53 @@ public class ChatsFragment extends Fragment {
 
                     }
                 });
+    }
+
+    private void settingLangInfo(){
+        mdatabase.child("users").child(USERID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String string = snapshot.child("language").getValue().toString();
+                Log.e("TEST", "string: "+string);
+                myLang = langcode(string);
+                Log.e("TEST", "myLang: "+myLang);
+
+                mdatabase.child("users").child(destinationUID).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String string = snapshot.child("language").getValue().toString();
+                        Log.e("TEST", "string: "+string);
+                        destinationLang = langcode(string);
+                        Log.e("TEST", "destinationLang: "+destinationLang);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private String langcode(String string){
+        switch (string){
+            case "KOR":
+                return "ko";
+            case "ENG":
+                return "en";
+            case "CHI(CN)":
+                return "zh-CN";
+            case "CHI(TW)":
+                return "zh-TW";
+            default:
+                return "";
+        }
     }
 
     // 여기서부터 어댑터
@@ -333,7 +394,12 @@ public class ChatsFragment extends Fragment {
                 messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                 //messageViewHolder.Message.setBackground(requireContext().getResources()
                 //        .getDrawable(R.drawable.speechbubbletest));
+
+
                 messageViewHolder.Message.setText(comments.get(position).message);
+
+                // 여기서 comments.get(position).message를 건드려야될듯? 얘를 파파고 돌려서 setText하면 될거같은데
+
                 messageViewHolder.profile_image.setVisibility(View.VISIBLE); //프사 보이게
                 messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                 messageViewHolder.cv.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
