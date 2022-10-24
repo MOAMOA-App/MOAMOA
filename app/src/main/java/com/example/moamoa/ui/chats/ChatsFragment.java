@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -276,6 +278,17 @@ public class ChatsFragment extends Fragment {
         }
     }
 
+    @SuppressLint("HandlerLeak")
+    Handler papago_handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            Bundle bundle = msg.getData();
+            String resultWord = bundle.getString("resultWord");
+            //changedTextTV.setText(resultWord);
+            //((RecyclerViewAdapter.MessageViewHolder)holder).Message.setText(comments.get(position).message);
+        }
+    };
+
     // 여기서부터 어댑터
     class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
@@ -330,7 +343,7 @@ public class ChatsFragment extends Fragment {
 
         @SuppressLint("UseCompatLoadingForDrawables")
         @Override
-        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
             MessageViewHolder messageViewHolder = (MessageViewHolder)holder;
 
             if (comments.get(position).UID.equals(USERID)){
@@ -350,7 +363,30 @@ public class ChatsFragment extends Fragment {
                     }
                 });
 
-                messageViewHolder.Message.setText(comments.get(position).message);
+                if (!translatebtn.isSelected()){
+                    ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
+                } else {
+                    new Thread(){
+                        @Override
+                        public void run() {
+                            String word = comments.get(position).message;
+                            // Papago는 3번에서 만든 자바 코드이다.
+                            Papago papago = new Papago();
+                            String resultWord;
+
+                            resultWord= papago.getTranslation(word, destinationLang, myLang); // 상대의 메시지를 내가 사용하는 언어로 번역
+                            //((MessageViewHolder)holder).Message.setText(comments.get(position).message);
+
+                            Bundle papagoBundle = new Bundle();
+                            papagoBundle.putString("resultWord",resultWord);
+
+                            Message msg = papago_handler.obtainMessage();
+                            msg.setData(papagoBundle);
+                            papago_handler.sendMessage(msg);
+                        }
+                    }.start();
+                }
+
                 //messageViewHolder.Message.setBackground(requireContext().getResources()
                 //        .getDrawable(R.drawable.speechbubbletest));
                 messageViewHolder.profile_image.setVisibility(View.INVISIBLE); //프사 안보이게
@@ -396,9 +432,16 @@ public class ChatsFragment extends Fragment {
                 //        .getDrawable(R.drawable.speechbubbletest));
 
 
-                messageViewHolder.Message.setText(comments.get(position).message);
+
 
                 // 여기서 comments.get(position).message를 건드려야될듯? 얘를 파파고 돌려서 setText하면 될거같은데
+                // 버튼이 눌려있으면 번역해서 내보내고 안눌려있으면 그냥 setText하면 됨
+                if (!translatebtn.isSelected()){
+                    Log.e("TEST", "translatebtn.isSelected(): "+translatebtn.isSelected());
+                    messageViewHolder.Message.setText(comments.get(position).message);
+                } else {
+                    Log.e("TEST", "translatebtn.isSelected(): "+translatebtn.isSelected());
+                }
 
                 messageViewHolder.profile_image.setVisibility(View.VISIBLE); //프사 보이게
                 messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
@@ -407,7 +450,11 @@ public class ChatsFragment extends Fragment {
                 messageViewHolder.chatLayout.setGravity(Gravity.START);
             }
 
-            ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
+            if (!translatebtn.isSelected()){
+                ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
+            } else {
+
+            }
 
             long unixTime = (long) comments.get(position).timestamp;
             Date date = new Date(unixTime);
