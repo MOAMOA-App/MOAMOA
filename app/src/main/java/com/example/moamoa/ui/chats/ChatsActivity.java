@@ -99,7 +99,6 @@ public class ChatsActivity extends AppCompatActivity {
 
     LinearLayout linearLayout_form;
     TextView TextView_formname, TextView_nickname;
-    private String formname, username;
 
     String userlang = null;
 
@@ -159,7 +158,8 @@ public class ChatsActivity extends AppCompatActivity {
         // 해시맵에 사용언어 설정을 위한 string값 넣어줌
         langHashmap.put(0, "KOR");
         langHashmap.put(1, "ENG");
-        langHashmap.put(2, "CHI");
+        langHashmap.put(2, "CHI(CN)");
+        langHashmap.put(3, "CHI(TW)");
 
         // 채팅방 이름 설정
         chatbar = findViewById(R.id.chatbarname);
