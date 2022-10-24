@@ -2,14 +2,14 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:state_pressed="true"
-        android:drawable="@color/main_green"
+        android:drawable="@drawable/ic_baseline_translate_24_green"
         />
     <item
         android:state_selected="true"
-        android:drawable="@color/main_green"/>
+        android:drawable="@drawable/ic_baseline_translate_24_green"/>
 
     <item
-        android:drawable="@color/main_orange"
+        android:drawable="@drawable/ic_baseline_translate_24"
         />
 
 </selector>
