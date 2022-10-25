@@ -38,6 +38,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -279,17 +281,6 @@ public class ChatsFragment extends Fragment {
         }
     }
 
-    @SuppressLint("HandlerLeak")
-    Handler papago_handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            RecyclerViewAdapter.MessageViewHolder messageViewHolder;
-            Bundle bundle = msg.getData();
-            String resultWord = bundle.getString("resultWord");
-            //changedTextTV.setText(resultWord);
-        }
-    };
-
     // 여기서부터 어댑터
     class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
@@ -441,15 +432,34 @@ public class ChatsFragment extends Fragment {
                         @Override
                         public void run() {
                             String word = comments.get(position).message;
+
                             // Papago는 3번에서 만든 자바 코드이다.
                             Papago papago = new Papago();
                             String resultWord;
 
                             resultWord= papago.getTranslation(word, destinationLang, myLang); // 상대의 메시지를 내가 사용하는 언어로 번역
+
+
+
+
                             requireActivity().runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    ((MessageViewHolder)holder).Message.setText(resultWord);
+                                    JsonParser jsonParser = new JsonParser();
+
+                                    JsonElement jsonElement = jsonParser.parse(resultWord);
+                                    String finalresult = null;
+                                    if (jsonElement.getAsJsonObject().get("errorMessage") != null) {
+
+                                    } else if (jsonElement.getAsJsonObject().get("message") != null) {
+                                        finalresult = jsonElement.getAsJsonObject().get("message")
+                                                .getAsJsonObject().get("result")
+                                                .getAsJsonObject().get("translatedText")
+                                                .getAsString();
+                                        Log.e("TEST7", "finalresult: "+finalresult);
+                                    }
+                                    ((MessageViewHolder) holder).Message.setText(finalresult);
+
                                 }
                             });
                         }
