@@ -369,7 +369,21 @@ public class ChatsFragment extends Fragment {
                             requireActivity().runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    ((MessageViewHolder)holder).Message.setText(resultWord);
+                                    JsonParser jsonParser = new JsonParser();
+
+                                    JsonElement jsonElement = jsonParser.parse(resultWord);
+                                    String finalresult = null;
+                                    if (jsonElement.getAsJsonObject().get("errorMessage") != null) {
+
+                                    } else if (jsonElement.getAsJsonObject().get("message") != null) {
+                                        finalresult = jsonElement.getAsJsonObject().get("message")
+                                                .getAsJsonObject().get("result")
+                                                .getAsJsonObject().get("translatedText")
+                                                .getAsString();
+                                        Log.e("TEST7", "finalresult: "+finalresult);
+                                    }
+                                    ((MessageViewHolder) holder).Message.setText(finalresult);
+
                                 }
                             });
                         }
@@ -472,6 +486,7 @@ public class ChatsFragment extends Fragment {
                 messageViewHolder.cv.setForegroundGravity(Gravity.START);
                 messageViewHolder.chatLayout.setGravity(Gravity.START);
             }
+            /*
 
             if (!translatebtn.isSelected()){
                 ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
@@ -488,12 +503,14 @@ public class ChatsFragment extends Fragment {
                         requireActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                ((MessageViewHolder)holder).Message.setText(resultWord);
+                                //((MessageViewHolder)holder).Message.setText(resultWord);
                             }
                         });
                     }
                 }.start();
             }
+
+             */
 
             long unixTime = (long) comments.get(position).timestamp;
             Date date = new Date(unixTime);
