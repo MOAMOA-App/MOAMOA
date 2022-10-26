@@ -357,37 +357,46 @@ public class ChatsFragment extends Fragment {
                 if (!translatebtn.isSelected()){
                     ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
                 } else {
-                    new Thread(){
-                        @Override
-                        public void run() {
-                            String word = comments.get(position).message;
-                            // Papago는 3번에서 만든 자바 코드이다.
-                            Papago papago = new Papago();
-                            String resultWord;
+                    if (Objects.equals(myLang, destinationLang))
+                        ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
+                    else{
+                        new Thread(){
+                            @Override
+                            public void run() {
+                                String word = comments.get(position).message;
 
-                            resultWord= papago.getTranslation(word, destinationLang, myLang); // 상대의 메시지를 내가 사용하는 언어로 번역
-                            requireActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    JsonParser jsonParser = new JsonParser();
+                                // Papago는 3번에서 만든 자바 코드이다.
+                                Papago papago = new Papago();
+                                String resultWord;
 
-                                    JsonElement jsonElement = jsonParser.parse(resultWord);
-                                    String finalresult = null;
-                                    if (jsonElement.getAsJsonObject().get("errorMessage") != null) {
+                                resultWord= papago.getTranslation(word, destinationLang, myLang); // 상대의 메시지를 내가 사용하는 언어로 번역
 
-                                    } else if (jsonElement.getAsJsonObject().get("message") != null) {
-                                        finalresult = jsonElement.getAsJsonObject().get("message")
-                                                .getAsJsonObject().get("result")
-                                                .getAsJsonObject().get("translatedText")
-                                                .getAsString();
-                                        Log.e("TEST7", "finalresult: "+finalresult);
+
+
+
+                                requireActivity().runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        JsonParser jsonParser = new JsonParser();
+
+                                        JsonElement jsonElement = jsonParser.parse(resultWord);
+                                        String finalresult = null;
+                                        if (jsonElement.getAsJsonObject().get("errorMessage") != null) {
+
+                                        } else if (jsonElement.getAsJsonObject().get("message") != null) {
+                                            finalresult = jsonElement.getAsJsonObject().get("message")
+                                                    .getAsJsonObject().get("result")
+                                                    .getAsJsonObject().get("translatedText")
+                                                    .getAsString();
+                                            Log.e("TEST7", "finalresult: "+finalresult);
+                                        }
+                                        ((MessageViewHolder) holder).Message.setText(finalresult);
+
                                     }
-                                    ((MessageViewHolder) holder).Message.setText(finalresult);
-
-                                }
-                            });
-                        }
-                    }.start();
+                                });
+                            }
+                        }.start();
+                    }
                 }
 
                 //messageViewHolder.Message.setBackground(requireContext().getResources()
@@ -442,42 +451,46 @@ public class ChatsFragment extends Fragment {
                 if (!translatebtn.isSelected()){
                     ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
                 } else {
-                    new Thread(){
-                        @Override
-                        public void run() {
-                            String word = comments.get(position).message;
+                    if (Objects.equals(myLang, destinationLang))
+                        ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
+                    else{
+                        new Thread(){
+                            @Override
+                            public void run() {
+                                String word = comments.get(position).message;
 
-                            // Papago는 3번에서 만든 자바 코드이다.
-                            Papago papago = new Papago();
-                            String resultWord;
+                                // Papago는 3번에서 만든 자바 코드이다.
+                                Papago papago = new Papago();
+                                String resultWord;
 
-                            resultWord= papago.getTranslation(word, destinationLang, myLang); // 상대의 메시지를 내가 사용하는 언어로 번역
-
-
+                                resultWord= papago.getTranslation(word, destinationLang, myLang); // 상대의 메시지를 내가 사용하는 언어로 번역
 
 
-                            requireActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    JsonParser jsonParser = new JsonParser();
 
-                                    JsonElement jsonElement = jsonParser.parse(resultWord);
-                                    String finalresult = null;
-                                    if (jsonElement.getAsJsonObject().get("errorMessage") != null) {
 
-                                    } else if (jsonElement.getAsJsonObject().get("message") != null) {
-                                        finalresult = jsonElement.getAsJsonObject().get("message")
-                                                .getAsJsonObject().get("result")
-                                                .getAsJsonObject().get("translatedText")
-                                                .getAsString();
-                                        Log.e("TEST7", "finalresult: "+finalresult);
+                                requireActivity().runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        JsonParser jsonParser = new JsonParser();
+
+                                        JsonElement jsonElement = jsonParser.parse(resultWord);
+                                        String finalresult = null;
+                                        if (jsonElement.getAsJsonObject().get("errorMessage") != null) {
+
+                                        } else if (jsonElement.getAsJsonObject().get("message") != null) {
+                                            finalresult = jsonElement.getAsJsonObject().get("message")
+                                                    .getAsJsonObject().get("result")
+                                                    .getAsJsonObject().get("translatedText")
+                                                    .getAsString();
+                                            Log.e("TEST7", "finalresult: "+finalresult);
+                                        }
+                                        ((MessageViewHolder) holder).Message.setText(finalresult);
+
                                     }
-                                    ((MessageViewHolder) holder).Message.setText(finalresult);
-
-                                }
-                            });
-                        }
-                    }.start();
+                                });
+                            }
+                        }.start();
+                    }
                 }
 
                 messageViewHolder.profile_image.setVisibility(View.VISIBLE); //프사 보이게
