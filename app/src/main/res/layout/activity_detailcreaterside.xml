@@ -46,7 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/mypage_bottom_border"
-                    android:minHeight="200dp"
+                    android:minHeight="300dp"
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -116,6 +116,58 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:paddingVertical="5dp"
+                        android:paddingHorizontal="20dp"
+                        tools:ignore="MissingConstraints">
+                        <TextView
+                            android:id="@+id/formstate_0"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:padding="5dp"
+                            android:gravity="center"
+                            android:text="참여\n모집"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/shape_circle"
+                            android:backgroundTint="@color/main_orange"/>
+                        <View
+                            android:id="@+id/formstate_line1"
+                            android:layout_width="0dp"
+                            android:layout_height="2dp"
+                            android:layout_weight="1"
+                            android:background="@color/gray"/>
+                        <TextView
+                            android:id="@+id/formstate_1"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:padding="5dp"
+                            android:gravity="center"
+                            android:text="거래\n진행"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/shape_circle"/>
+                        <View
+                            android:id="@+id/formstate_line2"
+                            android:layout_width="0dp"
+                            android:layout_height="2dp"
+                            android:layout_weight="1"
+                            android:background="@color/gray"/>
+                        <TextView
+                            android:id="@+id/formstate_2"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:padding="5dp"
+                            android:gravity="center"
+                            android:text="거래\n완료"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/shape_circle" />
+                    </LinearLayout>
                     <TextView
                         android:id="@+id/detail_counttext"
                         android:layout_width="match_parent"

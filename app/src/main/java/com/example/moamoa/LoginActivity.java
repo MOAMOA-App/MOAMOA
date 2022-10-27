@@ -138,13 +138,12 @@ public class LoginActivity extends AppCompatActivity {
         Kakao_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
+                    //로그인
                 if(UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)){
                     UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this,callback);
-                }else{
+                }else{  //회원가입
                     UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this,callback);
                 }
-                */
                 Toast.makeText(LoginActivity.this, "카카오 로그인", Toast.LENGTH_SHORT).show();
             }
         });
@@ -161,21 +160,27 @@ public class LoginActivity extends AppCompatActivity {
         UserApiClient.getInstance().me(new Function2<com.kakao.sdk.user.model.User, Throwable, Unit>() {
             @Override
             public Unit invoke(com.kakao.sdk.user.model.User user, Throwable throwable) {
-                if (user != null) {
-                    HashMap<String,Object> childUpdates = new HashMap<>();
-                    postValues.put("type","kakao");
-                    random_nicks = new Random_nick();
-                    random_nicks.setNickname();
-                    postValues.put("nick",random_nicks.getNickname());
-                    // 유저의 어카운트정보에 이메일
-                    postValues.put("email",user.getKakaoAccount().getEmail());
-                    // 유저의 아이디
-                    Log.d(TAG,"invoke: id" + user.getId());
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference reference = database.getReference("users");
-                    childUpdates.put(String.valueOf(user.getId()), postValues);
-                    reference.updateChildren(childUpdates);
-                }else{
+                if (user != null) { //처음 접속하는 사용자
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(String.valueOf(user.getId()),"kakaologin")
+                            .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            HashMap<String,Object> childUpdates = new HashMap<>();
+                            postValues.put("type","kakao");
+                            random_nicks = new Random_nick();
+                            random_nicks.setNickname();
+                            postValues.put("nick",random_nicks.getNickname());
+                            // 유저의 어카운트정보에 이메일
+                            postValues.put("email",user.getKakaoAccount().getEmail());
+                            // 유저의 아이디
+                            Log.d(TAG,"invoke: id" + user.getId());
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference reference = database.getReference("users");
+                            childUpdates.put(String.valueOf(user.getId()), postValues);
+                            reference.updateChildren(childUpdates);
+                        }
+                    });
+                }else{  //기존에 이미 존재하던 사용자
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }

@@ -2,6 +2,7 @@
 <resources>
     <color name="main_green">#274E13</color>
     <color name="main_orange">#F1A94E</color>
+    <color name="main_red">#DF4D4D</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="gray">#8c8c8c</color>
@@ -10,4 +11,5 @@
     <color name="light_gray">#EAEAEA</color>
     <color name="dark_gray">#4C4C4C</color>
     <color name="red">#ED0000</color>
+    <color name="second_green">#7DAB12</color>
 </resources>

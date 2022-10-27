@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.location.Geocoder;
@@ -18,6 +19,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -94,11 +96,30 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
+        TextView state1 = (TextView)findViewById(R.id.formstate_1);
+        TextView state2 = (TextView)findViewById(R.id.formstate_2);
+        View line1 = (View)findViewById(R.id.formstate_line1);
+        View line2 = (View)findViewById(R.id.formstate_line2);
+        mDatabase.child("form").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                int state = Integer.parseInt(task.getResult().child("state").getValue().toString());
+                Log.e("asdf",task.getResult().child("state").getValue().toString());
+                if(state>=1) {
+                    state1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.second_green)));
+                    line1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.main_orange)));
+                    if (state == 2) {
+                        state2.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.main_green)));
+                        line2.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.second_green)));
+                    }
+                }
+            }
+        });
+
         //버튼 선언
         Button notice_btn    = (Button)findViewById(R.id.creator_notice);    //공지하기 버튼
         Button showparty_btn = (Button)findViewById(R.id.creator_showparty); //참여자목록 버튼
         ImageButton menu_btn = (ImageButton)findViewById(R.id.creator_menu); //메뉴보기 버튼
-
 
         ArrayList<NoticeData> noticeData = new ArrayList();
         ScrollView scrollView = (ScrollView) DetailCreaterSideActivity.this.findViewById(R.id.decreate_scroll);

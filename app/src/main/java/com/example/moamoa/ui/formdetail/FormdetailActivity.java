@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.location.Geocoder;
@@ -103,6 +104,26 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
                 if (task.getResult().exists()) {   //이미 참여중인 게시글인 경우
                     party_btn_0.setVisibility(View.GONE);
                     party_btn_1.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        TextView state1 = (TextView)findViewById(R.id.formstate_1);
+        TextView state2 = (TextView)findViewById(R.id.formstate_2);
+        View line1 = (View)findViewById(R.id.formstate_line1);
+        View line2 = (View)findViewById(R.id.formstate_line2);
+        mDatabase.child("form").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                int state = Integer.parseInt(task.getResult().child("state").getValue().toString());
+                Log.e("asdf",task.getResult().child("state").getValue().toString());
+                if(state>=1) {
+                    state1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.second_green)));
+                    line1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.main_orange)));
+                    if (state == 2) {
+                        state2.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.main_green)));
+                        line2.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.second_green)));
+                    }
                 }
             }
         });
