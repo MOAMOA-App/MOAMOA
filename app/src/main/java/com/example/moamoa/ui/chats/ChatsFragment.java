@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -36,11 +38,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.TimeZone;
 
 public class ChatsFragment extends Fragment {
@@ -290,7 +295,6 @@ public class ChatsFragment extends Fragment {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     user = dataSnapshot.getValue(User.class);
                     getMessageList();
-
                 }
 
                 @Override
@@ -330,7 +334,7 @@ public class ChatsFragment extends Fragment {
 
         @SuppressLint("UseCompatLoadingForDrawables")
         @Override
-        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
             MessageViewHolder messageViewHolder = (MessageViewHolder)holder;
 
             if (comments.get(position).UID.equals(USERID)){
@@ -350,7 +354,51 @@ public class ChatsFragment extends Fragment {
                     }
                 });
 
-                messageViewHolder.Message.setText(comments.get(position).message);
+                if (!translatebtn.isSelected()){
+                    ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
+                } else {
+                    if (Objects.equals(myLang, destinationLang))
+                        ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
+                    else{
+                        new Thread(){
+                            @Override
+                            public void run() {
+                                String word = comments.get(position).message;
+
+                                // Papago는 3번에서 만든 자바 코드이다.
+                                Papago papago = new Papago();
+                                String resultWord;
+
+                                resultWord= papago.getTranslation(word, destinationLang, myLang); // 상대의 메시지를 내가 사용하는 언어로 번역
+
+
+
+
+                                requireActivity().runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        JsonParser jsonParser = new JsonParser();
+
+                                        JsonElement jsonElement = jsonParser.parse(resultWord);
+                                        String finalresult = null;
+                                        if (jsonElement.getAsJsonObject().get("errorMessage") != null) {
+
+                                        } else if (jsonElement.getAsJsonObject().get("message") != null) {
+                                            finalresult = jsonElement.getAsJsonObject().get("message")
+                                                    .getAsJsonObject().get("result")
+                                                    .getAsJsonObject().get("translatedText")
+                                                    .getAsString();
+                                            Log.e("TEST7", "finalresult: "+finalresult);
+                                        }
+                                        ((MessageViewHolder) holder).Message.setText(finalresult);
+
+                                    }
+                                });
+                            }
+                        }.start();
+                    }
+                }
+
                 //messageViewHolder.Message.setBackground(requireContext().getResources()
                 //        .getDrawable(R.drawable.speechbubbletest));
                 messageViewHolder.profile_image.setVisibility(View.INVISIBLE); //프사 안보이게
@@ -396,9 +444,54 @@ public class ChatsFragment extends Fragment {
                 //        .getDrawable(R.drawable.speechbubbletest));
 
 
-                messageViewHolder.Message.setText(comments.get(position).message);
+
 
                 // 여기서 comments.get(position).message를 건드려야될듯? 얘를 파파고 돌려서 setText하면 될거같은데
+                // 버튼이 눌려있으면 번역해서 내보내고 안눌려있으면 그냥 setText하면 됨
+                if (!translatebtn.isSelected()){
+                    ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
+                } else {
+                    if (Objects.equals(myLang, destinationLang))
+                        ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
+                    else{
+                        new Thread(){
+                            @Override
+                            public void run() {
+                                String word = comments.get(position).message;
+
+                                // Papago는 3번에서 만든 자바 코드이다.
+                                Papago papago = new Papago();
+                                String resultWord;
+
+                                resultWord= papago.getTranslation(word, destinationLang, myLang); // 상대의 메시지를 내가 사용하는 언어로 번역
+
+
+
+
+                                requireActivity().runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        JsonParser jsonParser = new JsonParser();
+
+                                        JsonElement jsonElement = jsonParser.parse(resultWord);
+                                        String finalresult = null;
+                                        if (jsonElement.getAsJsonObject().get("errorMessage") != null) {
+
+                                        } else if (jsonElement.getAsJsonObject().get("message") != null) {
+                                            finalresult = jsonElement.getAsJsonObject().get("message")
+                                                    .getAsJsonObject().get("result")
+                                                    .getAsJsonObject().get("translatedText")
+                                                    .getAsString();
+                                            Log.e("TEST7", "finalresult: "+finalresult);
+                                        }
+                                        ((MessageViewHolder) holder).Message.setText(finalresult);
+
+                                    }
+                                });
+                            }
+                        }.start();
+                    }
+                }
 
                 messageViewHolder.profile_image.setVisibility(View.VISIBLE); //프사 보이게
                 messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
@@ -406,14 +499,38 @@ public class ChatsFragment extends Fragment {
                 messageViewHolder.cv.setForegroundGravity(Gravity.START);
                 messageViewHolder.chatLayout.setGravity(Gravity.START);
             }
+            /*
 
-            ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
+            if (!translatebtn.isSelected()){
+                ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
+            } else {
+                new Thread(){
+                    @Override
+                    public void run() {
+                        String word = comments.get(position).message;
+                        // Papago는 3번에서 만든 자바 코드이다.
+                        Papago papago = new Papago();
+                        String resultWord;
+
+                        resultWord= papago.getTranslation(word, destinationLang, myLang); // 상대의 메시지를 내가 사용하는 언어로 번역
+                        requireActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                //((MessageViewHolder)holder).Message.setText(resultWord);
+                            }
+                        });
+                    }
+                }.start();
+            }
+
+             */
 
             long unixTime = (long) comments.get(position).timestamp;
             Date date = new Date(unixTime);
             simpleDateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
             String time = simpleDateFormat.format(date);
             messageViewHolder.sendedTime.setText(time);
+
         }
 
         @Override
