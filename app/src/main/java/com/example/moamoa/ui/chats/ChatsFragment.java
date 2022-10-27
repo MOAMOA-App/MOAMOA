@@ -31,6 +31,7 @@ import com.example.moamoa.databinding.FragmentChatsBinding;
 import com.example.moamoa.ui.account.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -55,6 +56,7 @@ public class ChatsFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
 
     DatabaseReference mdatabase;
+    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
     private RecyclerView recyclerView;
     private ChatsAdapter adapter;
@@ -88,7 +90,6 @@ public class ChatsFragment extends Fragment {
         destinationUID = bundle.getString("destinationUID");    // 상대 UID
         if (bundle.getString("FID") != null)
             FORMID = bundle.getString("FID");
-        Log.e("TEST444", "FORMID: "+FORMID);
 
 
         //리사이클러뷰 정의
@@ -98,7 +99,8 @@ public class ChatsFragment extends Fragment {
         linearLayoutManager.setStackFromEnd(true);
 
         // 언어 코드 설정
-        settingLangInfo();
+        settingLangInfo(USERID);
+        settingLangInfo(destinationUID);
 
         // 전송버튼 눌렀을 때의 동작
         sendbtn = (Button) root.findViewById(R.id.Button_send);
@@ -117,9 +119,7 @@ public class ChatsFragment extends Fragment {
                 comments.timestamp = ServerValue.TIMESTAMP;
 
                 // 만약 방 아래 같은 FID가 존재하지 않는다면 put
-                if (FORMID!=null)
-                {
-                    Log.e("TEST444", "FORMID: "+FORMID);
+                if (FORMID!=null) {
                     if (!chatModel.fids.equals(FORMID))
                         chatModel.fids = FORMID;
                     //.put(FORMID.toString());
@@ -194,8 +194,6 @@ public class ChatsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // 선택한 언어 불러옴 + 설정
-                Log.e("TEST", "myLang: "+myLang);
-                Log.e("TEST", "destinationLang: "+destinationLang);
                 translatebtn.setSelected(!translatebtn.isSelected());
                 checkChatRoom();
             }
@@ -204,7 +202,9 @@ public class ChatsFragment extends Fragment {
         return root;
     }
 
-    // 채팅방 중복체크
+    /**
+     * 채팅방 중복체크, 방 아이디 있을시 메시지 목록 불러옴
+     */
     void checkChatRoom(){
         mdatabase.child("chatrooms").orderByChild("users/"+USERID).equalTo(true)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -221,8 +221,6 @@ public class ChatsFragment extends Fragment {
                                 sendbtn.setEnabled(true);
                                 recyclerView.setLayoutManager(linearLayoutManager);
                                 recyclerView.setAdapter(new RecyclerViewAdapter());
-
-
                             }
                         }
                     }
@@ -234,29 +232,21 @@ public class ChatsFragment extends Fragment {
                 });
     }
 
-    private void settingLangInfo(){
-        mdatabase.child("users").child(USERID).addListenerForSingleValueEvent(new ValueEventListener() {
+    /**
+     * 유저 언어코드 정보 설정
+     * @param uid 언어코드 설정할 UID
+     */
+    void settingLangInfo(String uid){
+        mdatabase.child("users").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String string = snapshot.child("language").getValue().toString();
-                Log.e("TEST", "string: "+string);
-                myLang = langcode(string);
-                Log.e("TEST", "myLang: "+myLang);
+                String lang = snapshot.child("language").getValue().toString();
+                if (currentUser.getUid().equals(uid)) {
+                    myLang = langcode(lang);
 
-                mdatabase.child("users").child(destinationUID).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String string = snapshot.child("language").getValue().toString();
-                        Log.e("TEST", "string: "+string);
-                        destinationLang = langcode(string);
-                        Log.e("TEST", "destinationLang: "+destinationLang);
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+                } else {
+                    destinationLang = langcode(lang);
+                }
             }
 
             @Override
@@ -266,16 +256,21 @@ public class ChatsFragment extends Fragment {
         });
     }
 
-    private String langcode(String string){
+    /**
+     * 언어 정보 바탕으로 언어코드 설정해줌
+     * @param string 유저 언어 정보
+     *
+     */
+    String langcode(String string){
         switch (string){
             case "KOR":
                 return "ko";
             case "ENG":
                 return "en";
             case "CHI(CN)":
-                return "zh-CN";
+                return "zh-CN"; // 중국어 간체
             case "CHI(TW)":
-                return "zh-TW";
+                return "zh-TW"; // 중국어 번체
             default:
                 return "";
         }
@@ -365,15 +360,14 @@ public class ChatsFragment extends Fragment {
                             public void run() {
                                 String word = comments.get(position).message;
 
-                                // Papago는 3번에서 만든 자바 코드이다.
                                 Papago papago = new Papago();
                                 String resultWord;
 
-                                resultWord= papago.getTranslation(word, destinationLang, myLang); // 상대의 메시지를 내가 사용하는 언어로 번역
+                                // 상대의 메시지를 내가 사용하는 언어로 번역
+                                resultWord= papago.getTranslation(word, destinationLang, myLang);
 
-
-
-
+                                // 핸들러 사용하지 않고 runOnUiThread 사용해 스레드 밑에서 실행
+                                // 파파고에서 불러온 resultWord에서 번역된 문장만 뽑아줌
                                 requireActivity().runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
@@ -382,13 +376,12 @@ public class ChatsFragment extends Fragment {
                                         JsonElement jsonElement = jsonParser.parse(resultWord);
                                         String finalresult = null;
                                         if (jsonElement.getAsJsonObject().get("errorMessage") != null) {
-
+                                            Log.e("papago", "N2MT05: source and target must be different");
                                         } else if (jsonElement.getAsJsonObject().get("message") != null) {
                                             finalresult = jsonElement.getAsJsonObject().get("message")
                                                     .getAsJsonObject().get("result")
                                                     .getAsJsonObject().get("translatedText")
                                                     .getAsString();
-                                            Log.e("TEST7", "finalresult: "+finalresult);
                                         }
                                         ((MessageViewHolder) holder).Message.setText(finalresult);
 
@@ -443,11 +436,6 @@ public class ChatsFragment extends Fragment {
                 //messageViewHolder.Message.setBackground(requireContext().getResources()
                 //        .getDrawable(R.drawable.speechbubbletest));
 
-
-
-
-                // 여기서 comments.get(position).message를 건드려야될듯? 얘를 파파고 돌려서 setText하면 될거같은데
-                // 버튼이 눌려있으면 번역해서 내보내고 안눌려있으면 그냥 setText하면 됨
                 if (!translatebtn.isSelected()){
                     ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
                 } else {
@@ -459,15 +447,14 @@ public class ChatsFragment extends Fragment {
                             public void run() {
                                 String word = comments.get(position).message;
 
-                                // Papago는 3번에서 만든 자바 코드이다.
                                 Papago papago = new Papago();
                                 String resultWord;
 
-                                resultWord= papago.getTranslation(word, destinationLang, myLang); // 상대의 메시지를 내가 사용하는 언어로 번역
+                                // 상대의 메시지를 내가 사용하는 언어로 번역
+                                resultWord= papago.getTranslation(word, destinationLang, myLang);
 
-
-
-
+                                // 핸들러 사용하지 않고 runOnUiThread 사용해 스레드 밑에서 실행
+                                // 파파고에서 불러온 resultWord에서 번역된 문장만 뽑아줌
                                 requireActivity().runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
@@ -476,54 +463,26 @@ public class ChatsFragment extends Fragment {
                                         JsonElement jsonElement = jsonParser.parse(resultWord);
                                         String finalresult = null;
                                         if (jsonElement.getAsJsonObject().get("errorMessage") != null) {
-
+                                            Log.e("papago", "N2MT05: source and target must be different");
                                         } else if (jsonElement.getAsJsonObject().get("message") != null) {
                                             finalresult = jsonElement.getAsJsonObject().get("message")
                                                     .getAsJsonObject().get("result")
                                                     .getAsJsonObject().get("translatedText")
                                                     .getAsString();
-                                            Log.e("TEST7", "finalresult: "+finalresult);
                                         }
                                         ((MessageViewHolder) holder).Message.setText(finalresult);
-
                                     }
                                 });
                             }
                         }.start();
                     }
                 }
-
                 messageViewHolder.profile_image.setVisibility(View.VISIBLE); //프사 보이게
                 messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                 messageViewHolder.cv.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                 messageViewHolder.cv.setForegroundGravity(Gravity.START);
                 messageViewHolder.chatLayout.setGravity(Gravity.START);
             }
-            /*
-
-            if (!translatebtn.isSelected()){
-                ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
-            } else {
-                new Thread(){
-                    @Override
-                    public void run() {
-                        String word = comments.get(position).message;
-                        // Papago는 3번에서 만든 자바 코드이다.
-                        Papago papago = new Papago();
-                        String resultWord;
-
-                        resultWord= papago.getTranslation(word, destinationLang, myLang); // 상대의 메시지를 내가 사용하는 언어로 번역
-                        requireActivity().runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                //((MessageViewHolder)holder).Message.setText(resultWord);
-                            }
-                        });
-                    }
-                }.start();
-            }
-
-             */
 
             long unixTime = (long) comments.get(position).timestamp;
             Date date = new Date(unixTime);

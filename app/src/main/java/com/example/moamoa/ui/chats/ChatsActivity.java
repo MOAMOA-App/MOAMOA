@@ -84,7 +84,6 @@ public class ChatsActivity extends AppCompatActivity {
 
     private String FID;
     String CHATROOM_FID;
-    private String FORMNAME, USERUID, USERNAME;
 
     private ChatsFragment chatsFragment = new ChatsFragment();
 
@@ -130,9 +129,7 @@ public class ChatsActivity extends AppCompatActivity {
 
         if (getIntent.getStringExtra("CHATROOM_FID") != null){
             CHATROOM_FID = getIntent.getStringExtra("CHATROOM_FID");
-            Log.e("TEST246", "CHATROOM_FID: "+CHATROOM_FID);
         }
-        Log.e("TEST444", "FID: "+FID);
 
         // 받은 값 ChatsFragment에 넘겨줌
         Bundle bundle = new Bundle();
@@ -308,6 +305,9 @@ public class ChatsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 채팅방 아이디 / FID 가져옴
+     */
     void checkRoomID(){
         mDatabase.child("chatrooms").orderByChild("users/"+UID).equalTo(true)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -477,6 +477,8 @@ public class ChatsActivity extends AppCompatActivity {
 
                         // 선택한 언어 정보 파이어베이스에 업뎃함
                         mDatabase.child("users").child(UID).child("language").setValue(langHashmap.get(select_lang));
+
+                        chatsFragment.settingLangInfo(UID);
 
                         dialog.dismiss(); // 누르면 바로 닫히는 형태
                     }
