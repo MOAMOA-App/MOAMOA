@@ -3,6 +3,7 @@ package com.example.moamoa.ui.formdetail;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -23,10 +24,13 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.moamoa.R;
 import com.example.moamoa.ui.chats.ChatsActivity;
+import com.example.moamoa.ui.dashboard.MultiImageAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -60,6 +64,10 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
     int count;
     String FID;
     String FUID;
+    RecyclerView recyclerView;
+    private static final String TAG = "MultiImageActivity";
+    ArrayList<String> uriList = new ArrayList<>();     // 이미지의 uri를 담을 ArrayList 객체
+    MultiImageAdapter1 adapter;  // 리사이클러뷰에 적용시킬 어댑터
 
     // 지도
     private MapView mapView;
@@ -97,7 +105,7 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
         Button chat_btn = (Button) findViewById(R.id.detail_chat_btn);   //채팅하기 버튼
         Button party_btn_0 = (Button) findViewById(R.id.detail_party_btn_0); //참여하기 버튼
         Button party_btn_1 = (Button) findViewById(R.id.detail_party_btn_1); //참여취소 버튼
-
+        recyclerView =  (RecyclerView)findViewById(R.id.recyclerView_form);                           // 이미지를 보여줄 리사이클러뷰
         mDatabase.child("party").child(FID).child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -129,6 +137,7 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
         });
 
         printpage();
+
         ArrayList<NoticeData> noticeData = new ArrayList();
         ListView listView = (ListView) FormdetailActivity.this.findViewById(R.id.detail_notion);
         ScrollView scrollView = (ScrollView) FormdetailActivity.this.findViewById(R.id.detail_scroll);
@@ -365,6 +374,28 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
 
         return mFormat1.format(mDate);
     }
+
+    public void getImage(int photo_num){
+
+
+
+        uriList.clear();
+        for (int i = 0; i < photo_num; i++){
+            String imageUri = "photo/"+FID+"_"+(i+1)+".png";  // 선택한 이미지들의 uri를 가져온다.
+
+            try {
+                uriList.add(imageUri);  //uri를 list에 담는다.
+
+            } catch (Exception e) {
+                Log.e(TAG, "File select error", e);
+            }
+        }
+
+        adapter = new MultiImageAdapter1(uriList, this);
+        recyclerView.setAdapter(adapter);   // 리사이클러뷰에 어댑터 세팅
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));     // 리사이클러뷰 수평 스크롤 적용
+
+    }
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
         Geocoder geocoder = new Geocoder(this);
@@ -419,6 +450,7 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
                     String express      = dataSnapshot.child("express").getValue().toString();
                     String address      = dataSnapshot.child("address").getValue().toString();
                     String addr_detail   = dataSnapshot.child("addr_detail").getValue().toString();
+                    int photo_num   = Integer.parseInt(dataSnapshot.child("photo_num").getValue().toString());
 
                     int count_party= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
 
@@ -426,7 +458,7 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
                     String[] cat = res.getStringArray(R.array.category);
                     category=cat[Integer.parseInt(category)];
 
-                    image=dataSnapshot.child("image").getValue().toString().replace(".png","_1.png");
+//                    image=dataSnapshot.child("image").getValue().toString().replace(".png","_1.png");
                     count=Integer.parseInt(dataSnapshot.child("count").getValue().toString());
 
                     UserFind(FUID);
@@ -437,20 +469,21 @@ public class FormdetailActivity extends Activity implements OnMapReadyCallback {
                         numb = count_party+"/"+max_count;
                     }
                     Initializeform(subject,category,text,cost,numb,today,deadline,address,addr_detail,express,count,state);
-                    StorageReference pathReference = firebaseStorage.getReference(image);
-
-
-                    ImageView mainImage = (ImageView) findViewById(R.id.mainImage);
-                    FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
-                    pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            if (activity.isFinishing()) return;
-                            Glide.with(mainImage)
-                                    .load(uri)
-                                    .into(mainImage);
-                        }
-                    });
+                    getImage(photo_num);
+                    //                    StorageReference pathReference = firebaseStorage.getReference(image);
+//
+//
+//                    ImageView mainImage = (ImageView) findViewById(R.id.mainImage);
+//                    FormdetailActivity activity = (FormdetailActivity) mainImage.getContext();
+//                    pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//                        @Override
+//                        public void onSuccess(Uri uri) {
+//                            if (activity.isFinishing()) return;
+//                            Glide.with(mainImage)
+//                                    .load(uri)
+//                                    .into(mainImage);
+//                        }
+//                    });
                 }
             }
 
