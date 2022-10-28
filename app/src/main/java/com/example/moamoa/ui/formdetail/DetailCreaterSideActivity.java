@@ -67,6 +67,7 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
     // 지도
     private MapView mapView;
     private static NaverMap naverMap;
+    private int state;
     Marker marker = new Marker();
 
 
@@ -96,25 +97,8 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
-        final int[] state = {0};
-        TextView state1 = (TextView)findViewById(R.id.formstate_1);
-        TextView state2 = (TextView)findViewById(R.id.formstate_2);
-        View line1 = (View)findViewById(R.id.formstate_line1);
-        View line2 = (View)findViewById(R.id.formstate_line2);
-        mDatabase.child("form").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                state[0] = Integer.parseInt(task.getResult().child("state").getValue().toString());
-                if(state[0] >=1) {
-                    state1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.second_green)));
-                    line1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.main_orange)));
-                    if (state[0] == 2) {
-                        state2.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.main_green)));
-                        line2.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.second_green)));
-                    }
-                }
-            }
-        });
+        stateChange();
+
 
         //버튼 선언
         Button notice_btn    = (Button)findViewById(R.id.creator_notice);    //공지하기 버튼
@@ -205,7 +189,7 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
                         switch (menuItem.getItemId()){
                             case(R.id.Detail_Creator_State):
                                 AlertDialog.Builder state_alert = new AlertDialog.Builder(DetailCreaterSideActivity.this);
-                                if(state[0]==0){
+                                if(state==0){
                                     state_alert.setTitle("거래를 진행하시겠습니까?")
                                         .setMessage("아직 참여인원이 충족되지 않았습니다." +
                                                 "거래 진행을 시작하면 더 이상 참가 인원을 받을 수 없습니다.")
@@ -215,7 +199,7 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
                                                 mDatabase.child("form").child(FID).child("state").setValue(1).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                     @Override
                                                     public void onComplete(@NonNull Task<Void> task) {
-
+                                                        stateChange();
                                                     }
                                                 });
                                             }
@@ -225,7 +209,7 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
                                             public void onClick(DialogInterface dialogInterface, int i) {
                                             }
                                         }).show();
-                                }else if(state[0]==1){
+                                }else if(state==1){
                                     state_alert.setTitle("거래를 완료하시겠습니까?")
                                             .setMessage("거래 진행을 종료합니다.")
                                             .setPositiveButton("네", new DialogInterface.OnClickListener() {
@@ -234,12 +218,20 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
                                                     mDatabase.child("form").child(FID).child("state").setValue(2).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Void> task) {
-                                                            onBackPressed();
+                                                            stateChange();
                                                         }
                                                     });
                                                 }
                                             })
                                             .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                }
+                                            }).show();
+                                }else{
+                                    state_alert.setTitle("이미 완료된 거래입니다.")
+                                            .setMessage("거래 상태를 변경할 수 없습니다.")
+                                            .setPositiveButton("네", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialogInterface, int i) {
                                                 }
@@ -285,6 +277,27 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
             }
         });
     }//onCreate();
+
+    private void stateChange() {
+        TextView state1 = (TextView)findViewById(R.id.formstate_1);
+        TextView state2 = (TextView)findViewById(R.id.formstate_2);
+        View line1 = (View)findViewById(R.id.formstate_line1);
+        View line2 = (View)findViewById(R.id.formstate_line2);
+        mDatabase.child("form").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                state= Integer.parseInt(task.getResult().child("state").getValue().toString());
+                if(state>=1) {
+                    state1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.second_green)));
+                    line1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.main_orange)));
+                    if (state == 2) {
+                        state2.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.main_green)));
+                        line2.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.second_green)));
+                    }
+                }
+            }
+        });
+    }
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
