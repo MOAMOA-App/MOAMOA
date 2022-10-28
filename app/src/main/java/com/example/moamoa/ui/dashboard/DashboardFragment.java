@@ -515,8 +515,6 @@ public class DashboardFragment extends Fragment {
 
                     for (int i = 0; i < clipData.getItemCount(); i++){
                         Uri imageUri = clipData.getItemAt(i).getUri();  // 선택한 이미지들의 uri를 가져온다.
-
-
                         try {
                             uriList.add(imageUri);  //uri를 list에 담는다.
                             on=true;
@@ -529,9 +527,7 @@ public class DashboardFragment extends Fragment {
 
                     adapter = new MultiImageAdapter(uriList, getContext());
                     recyclerView.setAdapter(adapter);   // 리사이클러뷰에 어댑터 세팅
-
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-                   // recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, true));     // 리사이클러뷰 수평 스크롤 적용
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, true));     // 리사이클러뷰 수평 스크롤 적용
                 }
             }
         }
