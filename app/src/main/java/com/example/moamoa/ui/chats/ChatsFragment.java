@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -65,7 +66,8 @@ public class ChatsFragment extends Fragment {
 
     private String USERNAME, USERID, destinationUID, FORMID;
     private String CHATROOM_FID;
-    private static String myLang, destinationLang;
+    private static String myLang, myLangCode;
+    private static String destinationLang, destinationLangCode;
 
     private EditText EditText_chat;
     private Button sendbtn, translatebtn;
@@ -195,6 +197,10 @@ public class ChatsFragment extends Fragment {
             public void onClick(View v) {
                 // 선택한 언어 불러옴 + 설정
                 translatebtn.setSelected(!translatebtn.isSelected());
+                if (translatebtn.isSelected())
+                    Toast.makeText(getContext(), destinationLang+" -> "+myLang, Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getContext(), "번역 취소", Toast.LENGTH_SHORT).show();
                 checkChatRoom();
             }
         });
@@ -242,10 +248,12 @@ public class ChatsFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String lang = snapshot.child("language").getValue().toString();
                 if (currentUser.getUid().equals(uid)) {
-                    myLang = langcode(lang);
+                    myLang = lang;
+                    myLangCode = langcode(lang);
 
                 } else {
-                    destinationLang = langcode(lang);
+                    destinationLang = lang;
+                    destinationLangCode = langcode(lang);
                 }
             }
 
@@ -352,7 +360,7 @@ public class ChatsFragment extends Fragment {
                 if (!translatebtn.isSelected()){
                     ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
                 } else {
-                    if (Objects.equals(myLang, destinationLang))
+                    if (Objects.equals(myLangCode, destinationLangCode))
                         ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
                     else{
                         new Thread(){
@@ -364,7 +372,7 @@ public class ChatsFragment extends Fragment {
                                 String resultWord;
 
                                 // 상대의 메시지를 내가 사용하는 언어로 번역
-                                resultWord= papago.getTranslation(word, destinationLang, myLang);
+                                resultWord= papago.getTranslation(word, destinationLangCode, myLangCode);
 
                                 // 핸들러 사용하지 않고 runOnUiThread 사용해 스레드 밑에서 실행
                                 // 파파고에서 불러온 resultWord에서 번역된 문장만 뽑아줌
@@ -439,7 +447,7 @@ public class ChatsFragment extends Fragment {
                 if (!translatebtn.isSelected()){
                     ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
                 } else {
-                    if (Objects.equals(myLang, destinationLang))
+                    if (Objects.equals(myLangCode, destinationLangCode))
                         ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
                     else{
                         new Thread(){
@@ -451,7 +459,7 @@ public class ChatsFragment extends Fragment {
                                 String resultWord;
 
                                 // 상대의 메시지를 내가 사용하는 언어로 번역
-                                resultWord= papago.getTranslation(word, destinationLang, myLang);
+                                resultWord= papago.getTranslation(word, destinationLangCode, myLangCode);
 
                                 // 핸들러 사용하지 않고 runOnUiThread 사용해 스레드 밑에서 실행
                                 // 파파고에서 불러온 resultWord에서 번역된 문장만 뽑아줌

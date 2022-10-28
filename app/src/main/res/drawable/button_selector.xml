@@ -2,11 +2,11 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:state_pressed="true"
-        android:drawable="@drawable/ic_baseline_translate_24_green"
+        android:drawable="@drawable/ic_baseline_translate_24_orange"
         />
     <item
         android:state_selected="true"
-        android:drawable="@drawable/ic_baseline_translate_24_green"/>
+        android:drawable="@drawable/ic_baseline_translate_24_orange"/>
 
     <item
         android:drawable="@drawable/ic_baseline_translate_24"

@@ -132,7 +132,6 @@ public class DashboardFragment extends Fragment {
         Spinner category   = (Spinner) root.findViewById(R.id.category);                //카테고리
         today.setText(GetTimeStart().substring(0,4)+"/"+GetTimeStart().substring(4,6)+"/"+GetTimeStart().substring(6,8));
         cost.addTextChangedListener(new CustomTextWatcher(cost));
-        photo = (ImageView) root.findViewById(R.id.recyclerView);
         storage = FirebaseStorage.getInstance();
 
         addr_search.setClickable(true);
