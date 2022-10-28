@@ -2,7 +2,10 @@ package com.example.moamoa.ui.dashboard;
 
 import android.annotation.SuppressLint;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,7 +20,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,25 +30,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moamoa.Form;
-import com.example.moamoa.MainActivity;
 import com.example.moamoa.R;
 import com.example.moamoa.databinding.FragmentDashboardBinding;
 import com.example.moamoa.ui.account.User;
-import com.example.moamoa.ui.category.CategoryActivity;
-import com.example.moamoa.ui.formdetail.FormdetailActivity;
-import com.example.moamoa.ui.home.HomeFragment;
-import com.example.moamoa.ui.mypage.Nickname;
-import com.example.moamoa.ui.mypage.PageViewModel;
-import com.example.moamoa.ui.mypage.PlaceholderFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -60,6 +50,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -93,6 +86,7 @@ public class DashboardFragment extends Fragment {
 
     private static final String TAG = "MultiImageActivity";
     ArrayList<Uri> uriList = new ArrayList<>();     // 이미지의 uri를 담을 ArrayList 객체
+    ArrayList<Bitmap> bitmapList = new ArrayList<Bitmap>();     // bitmap 이미지를 담을 ArrayList 객체
 
 
     MultiImageAdapter adapter;  // 리사이클러뷰에 적용시킬 어댑터
@@ -132,7 +126,6 @@ public class DashboardFragment extends Fragment {
         Spinner category   = (Spinner) root.findViewById(R.id.category);                //카테고리
         today.setText(GetTimeStart().substring(0,4)+"/"+GetTimeStart().substring(4,6)+"/"+GetTimeStart().substring(6,8));
         cost.addTextChangedListener(new CustomTextWatcher(cost));
-        photo = (ImageView) root.findViewById(R.id.recyclerView);
         storage = FirebaseStorage.getInstance();
 
         addr_search.setClickable(true);
@@ -424,8 +417,23 @@ public class DashboardFragment extends Fragment {
                 storageRef = storage.getReference();
                 for(int i = 0; i < clipData.getItemCount(); i++) {
                     riversRef = storageRef.child("photo/" + user.getUid() + num_a + "_"+(i+1)+".png");
+                    
+                    //uri 비트맵으로 변경
+                    Bitmap bm = null;
+                    try {
+                        bm = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), uriList.get(i));
+                    } catch (FileNotFoundException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
 
-                    uploadTask = riversRef.putFile(uriList.get(i));
+                    //압축하고 다시 uri로 변경
+                    Uri uri = getImageUri(getContext(),bm);
+
+                    uploadTask = riversRef.putFile(uri);
                     uploadTask.addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
@@ -439,6 +447,7 @@ public class DashboardFragment extends Fragment {
                         }
                     });
                 }
+
                 FirebaseDatabase.getInstance().getReference("form").child(FID).setValue(form)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
@@ -482,6 +491,23 @@ public class DashboardFragment extends Fragment {
         });
         return root;
     }
+
+    //Bitmap -> Uri로 변경 (bitmap 압축 코드 포함)
+    private Uri getImageUri(Context context, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        //Bitmap 압축 함수
+        //compress() 의 두번째 파라메터로 60 을 넘기고있는데 이건 60%로 압축한다는 의미입니다.
+        inImage.compress(Bitmap.CompressFormat.JPEG, 60, bytes);
+
+        //없으면 바이트가 줄지 않음
+        byte[] byteArray = bytes.toByteArray();
+        Bitmap compressedBitmap = BitmapFactory.decodeByteArray(byteArray,0,byteArray.length);
+
+        String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), compressedBitmap, "Title", null);
+        return Uri.parse(path);
+    }
+
+
     // 앨범에서 액티비티로 돌아온 후 실행되는 메서드
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
