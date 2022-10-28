@@ -74,6 +74,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ChatsActivity extends AppCompatActivity {
     //
@@ -84,7 +85,6 @@ public class ChatsActivity extends AppCompatActivity {
 
     private String FID;
     String CHATROOM_FID;
-    private String FORMNAME, USERUID, USERNAME;
 
     private ChatsFragment chatsFragment = new ChatsFragment();
 
@@ -130,9 +130,7 @@ public class ChatsActivity extends AppCompatActivity {
 
         if (getIntent.getStringExtra("CHATROOM_FID") != null){
             CHATROOM_FID = getIntent.getStringExtra("CHATROOM_FID");
-            Log.e("TEST246", "CHATROOM_FID: "+CHATROOM_FID);
         }
-        Log.e("TEST444", "FID: "+FID);
 
         // 받은 값 ChatsFragment에 넘겨줌
         Bundle bundle = new Bundle();
@@ -176,9 +174,31 @@ public class ChatsActivity extends AppCompatActivity {
         destinationPfImage = (ImageView) findViewById(R.id.chats_theirprofile_image);
         getuserprofile(destinationuid);
 
-        // 현재 언어
+        // 현재 언어. 유저 정보 없을 시 한국어, 있을 시 해당 언어로 나오게
+        final String[] language = getResources().getStringArray(R.array.selectlanguage);
         TextView_currentlang = (TextView) findViewById(R.id.chats_TextView_currentlang);
-        TextView_currentlang.setText("한국어");
+        mDatabase.child("users").child(UID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.hasChild("language")){
+                    String userlang = snapshot.child("language").getValue().toString();
+                    for(Map.Entry<Integer, String> entry : langHashmap.entrySet()){
+                        // 동일한 값 있으면 반복문 종료
+                        if(entry.getValue().equals(userlang)) { // 값이 null이면 NullPointerException 예외 발생
+                            Integer key = entry.getKey();
+                            TextView_currentlang.setText(language[key]);
+                            break;
+                        }
+                    }
+                } else
+                    TextView_currentlang.setText("한국어");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         // 관련 폼 목록
         linearLayout_form = (LinearLayout) findViewById(R.id.chats_LL_form);
@@ -308,6 +328,9 @@ public class ChatsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 채팅방 아이디 / FID 가져옴
+     */
     void checkRoomID(){
         mDatabase.child("chatrooms").orderByChild("users/"+UID).equalTo(true)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -477,6 +500,9 @@ public class ChatsActivity extends AppCompatActivity {
 
                         // 선택한 언어 정보 파이어베이스에 업뎃함
                         mDatabase.child("users").child(UID).child("language").setValue(langHashmap.get(select_lang));
+
+                        // 바뀐 정보 프래그먼트에 전달해줌 (settingLangInfo: ChatFragment의 유저 언어코드 설정 함수)
+                        chatsFragment.settingLangInfo(UID);
 
                         dialog.dismiss(); // 누르면 바로 닫히는 형태
                     }

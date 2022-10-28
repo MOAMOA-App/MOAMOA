@@ -109,7 +109,6 @@ public class HomeFragment extends Fragment {
         GetOrderByreference(reference[0],0);
         GetOrderByreference(reference[1],1);
         GetOrderByreference(reference[2],2);
-        GetMyReference(3);
 
         /* 전체보기 버튼 클릭 시 CategoryActivity 이동 설정 */
         for(int i=0;i<4;i++){

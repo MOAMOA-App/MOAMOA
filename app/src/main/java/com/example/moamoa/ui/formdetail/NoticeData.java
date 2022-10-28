@@ -4,6 +4,9 @@ public class NoticeData {
     private String subject;
     private String text;
     private String date;
+    private int side;
+    private String fid;
+    private int numb;
 
     public String getSubject() {
         return subject;
@@ -15,6 +18,18 @@ public class NoticeData {
 
     public String getDate() {
         return date;
+    }
+
+    public int getSide() {
+        return side;
+    }
+
+    public String getFid() {
+        return fid;
+    }
+
+    public int getNumb() {
+        return numb;
     }
 
     public void setSubject(String subject) {
@@ -29,5 +44,15 @@ public class NoticeData {
         this.date = date;
     }
 
+    public void setSide(int side) {
+        this.side = side;
+    }
 
+    public void setFid(String fid) {
+        this.fid = fid;
+    }
+
+    public void setNumb(int numb) {
+        this.numb = numb;
+    }
 }

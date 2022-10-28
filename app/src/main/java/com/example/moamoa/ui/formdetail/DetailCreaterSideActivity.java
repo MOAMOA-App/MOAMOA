@@ -67,6 +67,7 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
     // 지도
     private MapView mapView;
     private static NaverMap naverMap;
+    private int state;
     Marker marker = new Marker();
 
 
@@ -96,25 +97,8 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
-        TextView state1 = (TextView)findViewById(R.id.formstate_1);
-        TextView state2 = (TextView)findViewById(R.id.formstate_2);
-        View line1 = (View)findViewById(R.id.formstate_line1);
-        View line2 = (View)findViewById(R.id.formstate_line2);
-        mDatabase.child("form").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                int state = Integer.parseInt(task.getResult().child("state").getValue().toString());
-                Log.e("asdf",task.getResult().child("state").getValue().toString());
-                if(state>=1) {
-                    state1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.second_green)));
-                    line1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.main_orange)));
-                    if (state == 2) {
-                        state2.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.main_green)));
-                        line2.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.second_green)));
-                    }
-                }
-            }
-        });
+        stateChange();
+
 
         //버튼 선언
         Button notice_btn    = (Button)findViewById(R.id.creator_notice);    //공지하기 버튼
@@ -148,9 +132,10 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
                                 listdata.setSubject((String) dataSnapshot.child("n_subject").getValue());
                                 listdata.setText((String) dataSnapshot.child("n_text").getValue());
                                 listdata.setDate((String) dataSnapshot.child("n_date").getValue());
+                                listdata.setSide(0);
+                                listdata.setFid(FID);
+                                listdata.setNumb(Integer.parseInt(dataSnapshot.getKey().toString()));
                                 noticeData.add(listdata);
-
-                                Log.e("asdf", listdata.getDate() + "");
                                 x++;
                                 if (x == count) {
 
@@ -203,30 +188,38 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()){
-                            case(R.id.Detail_Creator_Change):
-                                Log.e("popup","수정하기");
-                                Intent intent1 = new Intent(DetailCreaterSideActivity.this, FormChangeActivity.class);
-                                intent1.putExtra("FID", intent.getStringExtra("FID"));
-                                intent1.putExtra(("UID_dash"),FID);
-                                startActivity(intent1);
-                                finish();
-                                /*
-                                    게시글 수정 어디까지 허용할 것인가.
-                                 */
-                                break;
-                            case(R.id.Detail_Creator_Delete):
-                                Log.e("popup","삭제하기");
-                                //AlertDialog.Builder delete_alert = new AlertDialog.Builder(DetailCreaterSideActivity.this, R.style.AlertDialog);
-                                AlertDialog.Builder delete_alert = new AlertDialog.Builder(DetailCreaterSideActivity.this);
-                                AlertDialog.Builder alert = new AlertDialog.Builder(DetailCreaterSideActivity.this);
-                                delete_alert.setMessage("정말로 삭제하시겠습니까?")
+                            case(R.id.Detail_Creator_State):
+                                AlertDialog.Builder state_alert = new AlertDialog.Builder(DetailCreaterSideActivity.this);
+                                if(state==0){
+                                    state_alert.setTitle("거래를 진행하시겠습니까?")
+                                        .setMessage("아직 참여인원이 충족되지 않았습니다." +
+                                                "거래 진행을 시작하면 더 이상 참가 인원을 받을 수 없습니다.")
+                                        .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                mDatabase.child("form").child(FID).child("state").setValue(1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        stateChange();
+                                                    }
+                                                });
+                                            }
+                                        })
+                                        .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                            }
+                                        }).show();
+                                }else if(state==1){
+                                    state_alert.setTitle("거래를 완료하시겠습니까?")
+                                            .setMessage("거래 진행을 종료합니다.")
                                             .setPositiveButton("네", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                                    mDatabase.child("form").child(FID).child("active").setValue(1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    mDatabase.child("form").child(FID).child("state").setValue(2).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Void> task) {
-                                                            onBackPressed();
+                                                            stateChange();
                                                         }
                                                     });
                                                 }
@@ -236,6 +229,46 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
                                                 public void onClick(DialogInterface dialogInterface, int i) {
                                                 }
                                             }).show();
+                                }else{
+                                    state_alert.setTitle("이미 완료된 거래입니다.")
+                                            .setMessage("거래 상태를 변경할 수 없습니다.")
+                                            .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                }
+                                            }).show();
+                                }
+
+                                break;
+                            case(R.id.Detail_Creator_Change):
+                                Intent intent1 = new Intent(DetailCreaterSideActivity.this, FormChangeActivity.class);
+                                intent1.putExtra("FID", FID);
+                                intent1.putExtra(("UID_dash"),FUID);
+                                startActivity(intent1);
+                                finish();
+                                /*
+                                    게시글 수정 어디까지 허용할 것인가.
+                                 */
+                                break;
+                            case(R.id.Detail_Creator_Delete):
+                                AlertDialog.Builder delete_alert = new AlertDialog.Builder(DetailCreaterSideActivity.this);
+                                delete_alert.setMessage("정말로 삭제하시겠습니까?")
+                                    .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            mDatabase.child("form").child(FID).child("active").setValue(1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    onBackPressed();
+                                                }
+                                            });
+                                        }
+                                    })
+                                    .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                        }
+                                    }).show();
                                 break;
                         }
                         return true;
@@ -245,6 +278,27 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
             }
         });
     }//onCreate();
+
+    private void stateChange() {
+        TextView state1 = (TextView)findViewById(R.id.formstate_1);
+        TextView state2 = (TextView)findViewById(R.id.formstate_2);
+        View line1 = (View)findViewById(R.id.formstate_line1);
+        View line2 = (View)findViewById(R.id.formstate_line2);
+        mDatabase.child("form").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                state= Integer.parseInt(task.getResult().child("state").getValue().toString());
+                if(state>=1) {
+                    state1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.second_green)));
+                    line1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.main_orange)));
+                    if (state == 2) {
+                        state2.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.main_green)));
+                        line2.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.second_green)));
+                    }
+                }
+            }
+        });
+    }
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -300,8 +354,8 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
                     String deadline     = dataSnapshot.child("deadline").getValue().toString();
                     String state        = dataSnapshot.child("state").getValue().toString();
                     String express      = dataSnapshot.child("express").getValue().toString();
-                    String address   = dataSnapshot.child("address").getValue().toString();
-                    String addr_detail   = dataSnapshot.child("addr_detail").getValue().toString();
+                    String address      = dataSnapshot.child("address").getValue().toString();
+                    String addr_detail  = dataSnapshot.child("addr_detail").getValue().toString();
 
                     int count_party= Integer.parseInt(dataSnapshot.child("parti_num").getValue().toString()) ;
 

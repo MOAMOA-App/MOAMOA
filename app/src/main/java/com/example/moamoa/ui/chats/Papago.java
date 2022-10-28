@@ -54,15 +54,6 @@ public class Papago {
             }
             br.close();
             return response.toString();
-            //System.out.println(response.toString());
-            /*
-            String s = response.toString();
-            Log.e("TEST6", "s: "+s);
-            s = s.split("\"")[27];
-            Log.e("TEST6", "s: "+s);
-            return s;
-
-             */
         } catch (Exception e) {
             e.printStackTrace();
         }

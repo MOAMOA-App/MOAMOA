@@ -22,8 +22,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.moamoa.Form;
 import com.example.moamoa.R;
-import com.example.moamoa.databinding.CreatedFormsBinding;
-import com.example.moamoa.databinding.EmptyFormsBinding;
+import com.example.moamoa.databinding.ListviewCateogorylistBinding;
 import com.example.moamoa.ui.category.CustomListView;
 import com.example.moamoa.ui.formdetail.FormdetailActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,7 +44,7 @@ public class PlaceholderFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
-    private EmptyFormsBinding binding;  //empty_forms를 viewpager에 binding
+    private ListviewCateogorylistBinding binding;  //empty_forms를 viewpager에 binding
 
 
     public static PlaceholderFragment newInstance(int index) {
@@ -74,8 +73,7 @@ public class PlaceholderFragment extends Fragment {
             Bundle savedInstanceState) {
         int pos = getArguments().getInt(ARG_SECTION_NUMBER);
 
-//        binding = FragmentMainBinding.inflate(inflater, container, false);
-        binding = EmptyFormsBinding.inflate(inflater, container, false);
+        binding = ListviewCateogorylistBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         //empty_forms의 인기순, 최신순..등등 감춤

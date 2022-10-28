@@ -2,22 +2,18 @@
 
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:orientation="vertical"
-        android:weightSum="10"
-    tools:context=".ui.mypage.EmptyForms">
-
+        android:weightSum="10">
     <LinearLayout
         android:id="@+id/search_option"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:background="@color/white"
         android:padding="4dp">
-
         <Button
             android:id="@+id/sort_new"
             android:layout_width="wrap_content"
@@ -25,9 +21,12 @@
             android:text="최신순"
             android:minHeight="0dp"
             android:minWidth="0dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:paddingHorizontal="15dp"
             android:layout_marginHorizontal="4dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:background="@drawable/category_btnselector_pressed" />
 
         <Button
             android:id="@+id/sort_dead"
@@ -36,9 +35,12 @@
             android:text="마감순"
             android:minHeight="0dp"
             android:minWidth="0dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:paddingHorizontal="15dp"
             android:layout_marginHorizontal="4dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:background="@drawable/category_btnselector_pressed" />
 
 
         <Button
@@ -48,18 +50,17 @@
             android:text="인기순"
             android:minHeight="0dp"
             android:minWidth="0dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:paddingHorizontal="15dp"
             android:layout_marginHorizontal="4dp"
-            android:textColor="@color/white"/>
-
+            android:textColor="@color/white"
+            android:background="@drawable/category_btnselector_pressed" />
     </LinearLayout>
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp"
-        android:id="@+id/listview"
-        ></ListView>
-
+        android:id="@+id/listview"/>
 </LinearLayout>

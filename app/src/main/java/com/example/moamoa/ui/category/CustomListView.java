@@ -106,7 +106,7 @@ public class CustomListView extends BaseAdapter {
         TextView dead   = convertView.findViewById(R.id.deadline);
 
         String state_temp="";
-        switch(listViewData.get(position).active){
+        switch(listViewData.get(position).state){
             case 0:
                 state_temp = "참여모집";
                 state.setTextColor(Color.parseColor("#F1A94E"));
@@ -120,7 +120,6 @@ public class CustomListView extends BaseAdapter {
                 state.setTextColor(Color.parseColor("#4C4C4C"));
                 break;
         }
-        //mainImage.listViewData.get(position).photo);
         title.setText(listViewData.get(position).subject);
         name.setText(listViewData.get(position).address);
 

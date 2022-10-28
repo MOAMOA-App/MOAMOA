@@ -52,7 +52,7 @@ public class EditMyinfo extends AppCompatActivity {
             // Name, email address, and profile photo Url
             //프로필 정보
             TextView name = findViewById(R.id.name);
-            TextView Email = findViewById(R.id.editEmailAddress);
+            TextView Email = findViewById(R.id.mail);
 
             //nikname은 auth(계정 정보)에 들어가지 않으므로 database getReference()를 이용
             //닉네임 뜨는데 딜레이가 있음

@@ -47,25 +47,6 @@ public class FormStageFragment extends Fragment {
         TextView state2 = (TextView)root.findViewById(R.id.formstate_2);
         View line1 = (View)root.findViewById(R.id.formstate_line1);
         View line2 = (View)root.findViewById(R.id.formstate_line2);
-
-        /*
-        mDatabase.child("form").child(FID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                Log.e("task",task.getResult().getValue().toString());
-                /*
-                int state = (int) task.getResult().child("state").getValue();
-                if(state==1){
-                    state1.setBackgroundColor(getResources().getColor(R.color.second_green));
-                    line1.setBackgroundColor(getResources().getColor(R.color.second_green));
-                }else if(state==2){
-                    state2.setBackgroundColor(getResources().getColor(R.color.main_orange));
-                    line2.setBackgroundColor(getResources().getColor(R.color.main_orange));
-                }
-
-            }
-        });
-        */
         return root;
     }
 }
