@@ -104,7 +104,6 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 int state = Integer.parseInt(task.getResult().child("state").getValue().toString());
-                Log.e("asdf",task.getResult().child("state").getValue().toString());
                 if(state>=1) {
                     state1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.second_green)));
                     line1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.main_orange)));
@@ -204,10 +203,9 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()){
                             case(R.id.Detail_Creator_Change):
-                                Log.e("popup","수정하기");
                                 Intent intent1 = new Intent(DetailCreaterSideActivity.this, FormChangeActivity.class);
-                                intent1.putExtra("FID", intent.getStringExtra("FID"));
-                                intent1.putExtra(("UID_dash"),FID);
+                                intent1.putExtra("FID", FID);
+                                intent1.putExtra(("UID_dash"),FUID);
                                 startActivity(intent1);
                                 finish();
                                 /*
@@ -215,8 +213,6 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
                                  */
                                 break;
                             case(R.id.Detail_Creator_Delete):
-                                Log.e("popup","삭제하기");
-                                //AlertDialog.Builder delete_alert = new AlertDialog.Builder(DetailCreaterSideActivity.this, R.style.AlertDialog);
                                 AlertDialog.Builder delete_alert = new AlertDialog.Builder(DetailCreaterSideActivity.this);
                                 AlertDialog.Builder alert = new AlertDialog.Builder(DetailCreaterSideActivity.this);
                                 delete_alert.setMessage("정말로 삭제하시겠습니까?")

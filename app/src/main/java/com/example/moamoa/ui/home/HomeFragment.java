@@ -247,7 +247,6 @@ public class HomeFragment extends Fragment {
                     homelist[i].clear();
                     DataSnapshot result = task.getResult();
                     int count=0;
-                    Log.e("empty",list.toString());
                     if(list.isEmpty()){
                         GetOrderByreference(reference,3);
                     }else{

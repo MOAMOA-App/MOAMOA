@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
-                android:text="폼 이름"
+                android:text="수정하기"
                 android:textSize="20dp" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
@@ -48,7 +48,8 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/change_img_btn"
+                    android:id="@+id/change_form_imageadd"
+                    android:layout_marginTop="10dp"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:drawableTop="@drawable/ic_baseline_photo"
@@ -56,28 +57,13 @@
                     android:onClick="onClick"
                     android:textAlignment="center"
                     />
-                <TextView
-                    android:id="@+id/change_img_count"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"  />
+
 
             </LinearLayout>
 
-            <GridView
-                android:id="@+id/photo_dash"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:columnWidth="50dp"
-                android:numColumns="10"
-                android:orientation="horizontal"
-                android:stretchMode="none"
-                android:visibility="gone" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+                android:id="@+id/change_imgview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -85,31 +71,25 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="182dp"
-                android:src="@android:mipmap/sym_def_app_icon"
-                android:visibility="gone" />
-
+                app:layout_constraintTop_toBottomOf="@+id/image_recyler" />
 
             <EditText
+                android:id="@+id/change_subject"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:hint="제목"
-                android:textSize="16dp"
-                android:maxLength="20"
                 android:background="@drawable/formdetail_profile_bottomline"
-                android:id="@+id/change_subject"/>
+                android:hint="제목"
+                android:textStyle="bold"
+                android:maxLength="20"
+                android:textSize="16dp" />
+
             <Spinner
-                android:id="@+id/change_category_spin"
+                android:id="@+id/change_category"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:entries="@array/category_dash"
                 android:textSize="16dp"
-                android:background="@drawable/formdetail_profile_bottomline"/>
+                />
 
 
             <LinearLayout
@@ -117,10 +97,12 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/formdetail_profile_bottomline">
                 <TextView
+                    android:id="@+id/change_cost_won_text"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="16dp"
                     android:text="￦"
+                    android:layout_marginRight="5dp"
                     android:gravity="center"
                     android:textColor="@color/gray"/>
                 <EditText
@@ -132,102 +114,128 @@
                     android:background="@null"
                     android:inputType="number" />
             </LinearLayout>
+
             <EditText
-                android:id="@+id/change_txt"
+                android:id="@+id/change_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/formdetail_profile_bottomline"
                 android:gravity="top"
                 android:hint="내용"
-                android:textSize="16dp"
                 android:minHeight="200dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/formdetail_profile_bottomline"/>
+                android:textSize="16dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:background="@drawable/formdetail_profile_bottomline">
-                <RadioGroup
-                    android:id="@+id/change_express"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <RadioButton
-                        android:id="@+id/radioButton1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="직거래만"/>
-                    <RadioButton
-                        android:id="@+id/radioButton2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="택배/비대면"
-                        android:layout_marginHorizontal="5dp"/>
-                    <RadioButton
-                        android:id="@+id/radioButton3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="둘 다 가능" />
-                </RadioGroup>
+
+                <CheckBox
+                    android:id="@+id/change_check_offline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="직거래/대면"/>
+                <CheckBox
+                    android:id="@+id/change_check_online"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="택배/비대면"
+                    android:layout_marginHorizontal="5dp"/>
+
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@drawable/formdetail_profile_bottomline">
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:text="인원"
+                    android:gravity="center"
+                    android:minWidth="50dp"
+                    android:textSize="16dp"
+                    android:background="@null" />
                 <EditText
-                    android:id="@+id/change_max_count"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:hint="인원"
-                    android:textSize="16dp"
                     android:minWidth="100dp"
+                    android:id="@+id/change_max_people"
                     android:background="@null"
+                    android:textSize="16dp"
                     android:inputType="number" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="명"
+                    android:gravity="center"
+                    android:textSize="16dp"
+                    android:minWidth="50dp"
+                    android:background="@null" />
                 <View
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_weight="1"/>
                 <CheckBox
-                    android:id="@+id/checkBox"
+                    android:id="@+id/change_check_people"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
                     android:text="인원제한 없음" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:orientation="horizontal"
-                android:background="@drawable/formdetail_profile_bottomline">
-                <EditText
-                    android:id="@+id/change_address_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    android:layout_weight="2"
+                android:layout_gravity="center"
+                android:background="@drawable/formdetail_profile_bottomline"
+                android:id="@+id/change_container_addr">
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:textSize="16dp"
+                    android:gravity="center"
+                    android:text="거래장소"
+                    android:minWidth="50dp"
+                    android:background="@null" />
+                <TextView
+                    android:id="@+id/change_addr_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
                     android:hint="거래 장소"
                     android:textSize="16dp"
+                    android:gravity="left|center"
                     android:background="@null"/>
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"/>
-                <Button
-                    android:id="@+id/change_address_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="수정" />
+
             </LinearLayout>
-            <EditText
-                android:id="@+id/change_address_detail"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:maxLength="20"
-                android:layout_weight="2"
-                android:hint="상세정보(선택)"
-                android:textSize="16dp"
-                android:background="@drawable/formdetail_profile_bottomline"/>
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:background="@drawable/formdetail_profile_bottomline">
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:text="상세주소"
+                    android:gravity="center"
+                    android:textSize="16dp"
+                    android:background="@null" />
+
+                <EditText
+                    android:id="@+id/change_addr_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:textSize="16dp"
+                    android:background="@drawable/formdetail_profile_bottomline"
+                    android:hint="상세주소(선택)"
+                    android:maxLength="20" />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -235,15 +243,17 @@
                 android:background="@drawable/formdetail_profile_bottomline"
                 android:gravity="center">
                 <TextView
-                    android:layout_width="72dp"
+                    android:layout_width="70dp"
                     android:layout_height="40dp"
                     android:text="시작일자"
+                    android:textSize="16dp"
                     android:gravity="center"/>
                 <TextView
-                    android:id="@+id/change_startdate_txt"
+                    android:id="@+id/change_today"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="시작일자"
+                    android:textSize="16dp"
                     android:inputType="date" />
             </LinearLayout>
             <LinearLayout
@@ -253,27 +263,29 @@
                 android:background="@drawable/formdetail_profile_bottomline"
                 android:layout_marginBottom="10dp">
                 <TextView
-                    android:layout_width="72dp"
+                    android:layout_width="70dp"
                     android:layout_height="40dp"
                     android:text="마감일자"
+                    android:textSize="16dp"
                     android:gravity="center"/>
                 <TextView
-                    android:id="@+id/change_deadline_txt"
+                    android:id="@+id/change_deadline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="마감일자"
+                    android:textSize="16dp"
                     android:onClick="showDatePicker"
                     android:inputType="date" />
             </LinearLayout>
             <Button
-                android:id="@+id/change_done_btn"
+                android:id="@+id/change_btn_dashboard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
                 android:background="@color/main_orange"
                 android:textSize="20sp"
                 android:textColor="@color/white"
-                android:text="글 올리기" />
+                android:text="수정 하기" />
 
         </LinearLayout>
 
