@@ -132,9 +132,10 @@ public class DetailCreaterSideActivity extends AppCompatActivity implements OnMa
                                 listdata.setSubject((String) dataSnapshot.child("n_subject").getValue());
                                 listdata.setText((String) dataSnapshot.child("n_text").getValue());
                                 listdata.setDate((String) dataSnapshot.child("n_date").getValue());
+                                listdata.setSide(0);
+                                listdata.setFid(FID);
+                                listdata.setNumb(Integer.parseInt(dataSnapshot.getKey().toString()));
                                 noticeData.add(listdata);
-
-                                Log.e("asdf", listdata.getDate() + "");
                                 x++;
                                 if (x == count) {
 
