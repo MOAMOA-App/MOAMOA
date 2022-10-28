@@ -14,12 +14,7 @@ package com.example.moamoa.ui.mypage;
         import androidx.lifecycle.ViewModelProvider;
         import androidx.viewpager.widget.ViewPager;
 
-        import com.example.moamoa.R;
-        import com.example.moamoa.databinding.ActivityMainBinding;
         import com.example.moamoa.databinding.CreatedFormsBinding;
-        import com.example.moamoa.databinding.EmptyFormsBinding;
-        import com.google.android.material.floatingactionbutton.FloatingActionButton;
-        import com.google.android.material.snackbar.Snackbar;
         import com.google.android.material.tabs.TabLayout;
 
         import java.util.ArrayList;
