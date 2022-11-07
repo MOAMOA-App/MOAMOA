@@ -357,47 +357,47 @@ public class ChatsFragment extends Fragment {
                     }
                 });
 
-                if (!translatebtn.isSelected()){
+                if (!translatebtn.isSelected() || Objects.equals(myLangCode, destinationLangCode)){
                     ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
-                } else {
-                    if (Objects.equals(myLangCode, destinationLangCode))
-                        ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
-                    else{
-                        new Thread(){
-                            @Override
-                            public void run() {
-                                String word = comments.get(position).message;
+                    ((MessageViewHolder)holder).cv_trans.setVisibility(View.GONE);
+                    ((MessageViewHolder)holder).Message_trans.setVisibility(View.GONE);
+                } else{
+                    new Thread(){
+                        @Override
+                        public void run() {
+                            String word = comments.get(position).message;
 
-                                Papago papago = new Papago();
-                                String resultWord;
+                            Papago papago = new Papago();
+                            String resultWord;
 
-                                // 상대의 메시지를 내가 사용하는 언어로 번역
-                                resultWord= papago.getTranslation(word, destinationLangCode, myLangCode);
+                            // 상대의 메시지를 내가 사용하는 언어로 번역
+                            resultWord= papago.getTranslation(word, destinationLangCode, myLangCode);
 
-                                // 핸들러 사용하지 않고 runOnUiThread 사용해 스레드 밑에서 실행
-                                // 파파고에서 불러온 resultWord에서 번역된 문장만 뽑아줌
-                                requireActivity().runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        JsonParser jsonParser = new JsonParser();
+                            // 핸들러 사용하지 않고 runOnUiThread 사용해 스레드 밑에서 실행
+                            // 파파고에서 불러온 resultWord에서 번역된 문장만 뽑아줌
+                            requireActivity().runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    JsonParser jsonParser = new JsonParser();
 
-                                        JsonElement jsonElement = jsonParser.parse(resultWord);
-                                        String finalresult = null;
-                                        if (jsonElement.getAsJsonObject().get("errorMessage") != null) {
-                                            Log.e("papago", "N2MT05: source and target must be different");
-                                        } else if (jsonElement.getAsJsonObject().get("message") != null) {
-                                            finalresult = jsonElement.getAsJsonObject().get("message")
-                                                    .getAsJsonObject().get("result")
-                                                    .getAsJsonObject().get("translatedText")
-                                                    .getAsString();
-                                        }
-                                        ((MessageViewHolder) holder).Message.setText(finalresult);
-
+                                    JsonElement jsonElement = jsonParser.parse(resultWord);
+                                    String finalresult = null;
+                                    if (jsonElement.getAsJsonObject().get("errorMessage") != null) {
+                                        Log.e("papago", "N2MT05: source and target must be different");
+                                    } else if (jsonElement.getAsJsonObject().get("message") != null) {
+                                        finalresult = jsonElement.getAsJsonObject().get("message")
+                                                .getAsJsonObject().get("result")
+                                                .getAsJsonObject().get("translatedText")
+                                                .getAsString();
                                     }
-                                });
-                            }
-                        }.start();
-                    }
+                                    ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
+                                    ((MessageViewHolder) holder).cv_trans.setVisibility(View.VISIBLE);
+                                    ((MessageViewHolder) holder).Message_trans.setVisibility(View.VISIBLE);
+                                    ((MessageViewHolder) holder).Message_trans.setText(finalresult);
+                                    }
+                            });
+                        }
+                    }.start();
                 }
 
                 //messageViewHolder.Message.setBackground(requireContext().getResources()
@@ -444,47 +444,49 @@ public class ChatsFragment extends Fragment {
                 //messageViewHolder.Message.setBackground(requireContext().getResources()
                 //        .getDrawable(R.drawable.speechbubbletest));
 
-                if (!translatebtn.isSelected()){
+                if (!translatebtn.isSelected() || Objects.equals(myLangCode, destinationLangCode)){
                     ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
-                } else {
-                    if (Objects.equals(myLangCode, destinationLangCode))
-                        ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
-                    else{
-                        new Thread(){
-                            @Override
-                            public void run() {
-                                String word = comments.get(position).message;
+                    ((MessageViewHolder)holder).cv_trans.setVisibility(View.GONE);
+                    ((MessageViewHolder)holder).Message_trans.setVisibility(View.GONE);
+                } else{
+                    new Thread(){
+                        @Override
+                        public void run() {
+                            String word = comments.get(position).message;
 
-                                Papago papago = new Papago();
-                                String resultWord;
+                            Papago papago = new Papago();
+                            String resultWord;
 
-                                // 상대의 메시지를 내가 사용하는 언어로 번역
-                                resultWord= papago.getTranslation(word, destinationLangCode, myLangCode);
+                            // 상대의 메시지를 내가 사용하는 언어로 번역
+                            resultWord= papago.getTranslation(word, destinationLangCode, myLangCode);
 
-                                // 핸들러 사용하지 않고 runOnUiThread 사용해 스레드 밑에서 실행
-                                // 파파고에서 불러온 resultWord에서 번역된 문장만 뽑아줌
-                                requireActivity().runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        JsonParser jsonParser = new JsonParser();
+                            // 핸들러 사용하지 않고 runOnUiThread 사용해 스레드 밑에서 실행
+                            // 파파고에서 불러온 resultWord에서 번역된 문장만 뽑아줌
+                            requireActivity().runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    JsonParser jsonParser = new JsonParser();
 
-                                        JsonElement jsonElement = jsonParser.parse(resultWord);
-                                        String finalresult = null;
-                                        if (jsonElement.getAsJsonObject().get("errorMessage") != null) {
-                                            Log.e("papago", "N2MT05: source and target must be different");
-                                        } else if (jsonElement.getAsJsonObject().get("message") != null) {
-                                            finalresult = jsonElement.getAsJsonObject().get("message")
-                                                    .getAsJsonObject().get("result")
-                                                    .getAsJsonObject().get("translatedText")
-                                                    .getAsString();
-                                        }
-                                        ((MessageViewHolder) holder).Message.setText(finalresult);
+                                    JsonElement jsonElement = jsonParser.parse(resultWord);
+                                    String finalresult = null;
+                                    if (jsonElement.getAsJsonObject().get("errorMessage") != null) {
+                                        Log.e("papago", "N2MT05: source and target must be different");
+                                    } else if (jsonElement.getAsJsonObject().get("message") != null) {
+                                        finalresult = jsonElement.getAsJsonObject().get("message")
+                                                .getAsJsonObject().get("result")
+                                                .getAsJsonObject().get("translatedText")
+                                                .getAsString();
                                     }
-                                });
-                            }
-                        }.start();
-                    }
+                                    ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
+                                    ((MessageViewHolder) holder).cv_trans.setVisibility(View.VISIBLE);
+                                    ((MessageViewHolder) holder).Message_trans.setVisibility(View.VISIBLE);
+                                    ((MessageViewHolder) holder).Message_trans.setText(finalresult);
+                                }
+                            });
+                        }
+                    }.start();
                 }
+
                 messageViewHolder.profile_image.setVisibility(View.VISIBLE); //프사 보이게
                 messageViewHolder.nickName.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                 messageViewHolder.cv.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
@@ -506,9 +508,10 @@ public class ChatsFragment extends Fragment {
         }
 
         private class MessageViewHolder extends RecyclerView.ViewHolder{
-            public TextView nickName, Message, sendedTime;
+            TextView nickName, Message, sendedTime;
+            TextView Message_trans;
             ImageView profile_image;
-            CardView cv;
+            CardView cv, cv_trans;
 
             LinearLayout chatLayout, LinearChatMsg;
 
@@ -519,6 +522,9 @@ public class ChatsFragment extends Fragment {
                 Message = (TextView) view.findViewById(R.id.chat_msg);
                 cv = (CardView) view.findViewById(R.id.chat_cardview);
                 sendedTime = (TextView) view.findViewById(R.id.sended_time);
+
+                cv_trans = (CardView) view.findViewById(R.id.chat_cardview_trans);
+                Message_trans = (TextView) view.findViewById(R.id.chat_msg_trans);
 
                 chatLayout = (LinearLayout) view.findViewById(R.id.chatting_layout);
                 LinearChatMsg = (LinearLayout) view.findViewById(R.id.Linear_chatmsg);
