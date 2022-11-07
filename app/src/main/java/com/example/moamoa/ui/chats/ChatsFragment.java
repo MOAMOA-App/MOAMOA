@@ -133,43 +133,43 @@ public class ChatsFragment extends Fragment {
                         sendbtn.setEnabled(false);
                         mdatabase.child("chatrooms").push().setValue(chatModel)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                mdatabase.child("chatrooms").orderByChild("users/"+USERID).equalTo(true)
-                                            .addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        for (DataSnapshot item : snapshot.getChildren()){
-                                            ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
-                                            // 방 id 가져오기
-                                            if (chatModel.users.containsKey(destinationUID)){   //destinationUID 있는지 체크
-                                                CHATROOM_FID = item.getKey();   //방 아이디 가져옴
-                                                sendbtn.setEnabled(true);
+                                    public void onSuccess(Void unused) {
+                                        mdatabase.child("chatrooms").orderByChild("users/"+USERID).equalTo(true)
+                                                .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                        for (DataSnapshot item : snapshot.getChildren()){
+                                                            ChatModel chatModel = item.getValue(ChatModel.class); //채팅방 아래 데이터 가져옴
+                                                            // 방 id 가져오기
+                                                            if (chatModel.users.containsKey(destinationUID)){   //destinationUID 있는지 체크
+                                                                CHATROOM_FID = item.getKey();   //방 아이디 가져옴
+                                                                sendbtn.setEnabled(true);
 
-                                                Intent intent = new Intent(getContext(), ChatsActivity.class);
-                                                intent.putExtra("destinationUID", destinationUID);
-                                                intent.putExtra("FID", FORMID);
-                                                intent.putExtra("CHATROOM_FID", CHATROOM_FID);
+                                                                Intent intent = new Intent(getContext(), ChatsActivity.class);
+                                                                intent.putExtra("destinationUID", destinationUID);
+                                                                intent.putExtra("FID", FORMID);
+                                                                intent.putExtra("CHATROOM_FID", CHATROOM_FID);
 
-                                                getActivity().finish();
-                                                startActivity(intent);
+                                                                getActivity().finish();
+                                                                startActivity(intent);
 
-                                                recyclerView.setLayoutManager(linearLayoutManager);
-                                                recyclerView.setAdapter(new RecyclerViewAdapter());
-                                                mdatabase.child("chatrooms").child(CHATROOM_FID).child("comments")
-                                                            .push().setValue(comments);
-                                            }
-                                        }
-                                    }
+                                                                recyclerView.setLayoutManager(linearLayoutManager);
+                                                                recyclerView.setAdapter(new RecyclerViewAdapter());
+                                                                mdatabase.child("chatrooms").child(CHATROOM_FID).child("comments")
+                                                                        .push().setValue(comments);
+                                                            }
+                                                        }
+                                                    }
 
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                                    }
+                                                });
 
                                     }
                                 });
-
-                            }
-                        });
                     }
 
 
@@ -359,7 +359,6 @@ public class ChatsFragment extends Fragment {
 
                 if (!translatebtn.isSelected() || Objects.equals(myLangCode, destinationLangCode)){
                     ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
-                    ((MessageViewHolder)holder).cv_trans.setVisibility(View.GONE);
                     ((MessageViewHolder)holder).Message_trans.setVisibility(View.GONE);
                 } else{
                     new Thread(){
@@ -391,10 +390,9 @@ public class ChatsFragment extends Fragment {
                                                 .getAsString();
                                     }
                                     ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
-                                    ((MessageViewHolder) holder).cv_trans.setVisibility(View.VISIBLE);
                                     ((MessageViewHolder) holder).Message_trans.setVisibility(View.VISIBLE);
                                     ((MessageViewHolder) holder).Message_trans.setText(finalresult);
-                                    }
+                                }
                             });
                         }
                     }.start();
@@ -446,7 +444,6 @@ public class ChatsFragment extends Fragment {
 
                 if (!translatebtn.isSelected() || Objects.equals(myLangCode, destinationLangCode)){
                     ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
-                    ((MessageViewHolder)holder).cv_trans.setVisibility(View.GONE);
                     ((MessageViewHolder)holder).Message_trans.setVisibility(View.GONE);
                 } else{
                     new Thread(){
@@ -477,8 +474,7 @@ public class ChatsFragment extends Fragment {
                                                 .getAsJsonObject().get("translatedText")
                                                 .getAsString();
                                     }
-                                    ((MessageViewHolder)holder).Message.setText(comments.get(position).message);
-                                    ((MessageViewHolder) holder).cv_trans.setVisibility(View.VISIBLE);
+                                    ((MessageViewHolder) holder).Message.setText(comments.get(position).message);
                                     ((MessageViewHolder) holder).Message_trans.setVisibility(View.VISIBLE);
                                     ((MessageViewHolder) holder).Message_trans.setText(finalresult);
                                 }
@@ -511,7 +507,7 @@ public class ChatsFragment extends Fragment {
             TextView nickName, Message, sendedTime;
             TextView Message_trans;
             ImageView profile_image;
-            CardView cv, cv_trans;
+            CardView cv;
 
             LinearLayout chatLayout, LinearChatMsg;
 
@@ -523,7 +519,6 @@ public class ChatsFragment extends Fragment {
                 cv = (CardView) view.findViewById(R.id.chat_cardview);
                 sendedTime = (TextView) view.findViewById(R.id.sended_time);
 
-                cv_trans = (CardView) view.findViewById(R.id.chat_cardview_trans);
                 Message_trans = (TextView) view.findViewById(R.id.chat_msg_trans);
 
                 chatLayout = (LinearLayout) view.findViewById(R.id.chatting_layout);
