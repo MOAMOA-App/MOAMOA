@@ -16,10 +16,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.moamoa.databinding.ActivityLoginBinding;
 import com.example.moamoa.ui.account.Random_nick;
 import com.example.moamoa.ui.account.RegisterActivity;
-import com.google.android.gms.auth.api.identity.SignInCredential;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -27,6 +32,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.TaskCompletionSource;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,12 +42,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.user.UserApiClient;
+import com.kakao.sdk.user.model.User;
+import com.kakao.util.helper.Utility;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
@@ -109,15 +120,18 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
                 // 이때 토큰이 전달이 되면 로그인이 성공한 것이고 토큰이 전달되지 않았다면 로그인 실패
-                if(oAuthToken != null) {
-
-                }
                 if (throwable != null) {
+                    Log.e(TAG, "로그인 실패", throwable);
+                }
+                else if (oAuthToken != null) {
+                    UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
+                        @Override
+                        public Unit invoke(User user, Throwable throwable) {
+                            return null;
+                        }
+                    });
 
                 }
-                updateKakaoLoginUi();
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
                 return null;
             }
         };
@@ -138,13 +152,17 @@ public class LoginActivity extends AppCompatActivity {
         Kakao_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(LoginActivity.this, "카카오 로그인", Toast.LENGTH_SHORT).show();
+                /*
+                String asdf = Utility.getKeyHash(getApplicationContext());
                     //로그인
                 if(UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)){
-                    UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this,callback);
+                    UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this, callback);
                 }else{  //회원가입
                     UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this,callback);
                 }
-                Toast.makeText(LoginActivity.this, "카카오 로그인", Toast.LENGTH_SHORT).show();
+
+                 */
             }
         });
         Register.setOnClickListener(new View.OnClickListener() {
@@ -156,11 +174,56 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    private Task<String> getFirebaseJwt(final String kakaoAccessToken) {
+        final TaskCompletionSource<String> source = new TaskCompletionSource<>();
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = getResources().getString(R.string.validation_server_domain) + "/verifyToken";
+        HashMap<String, String> validationObject = new HashMap<>();
+        validationObject.put("token", kakaoAccessToken);
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(validationObject), new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    String firebaseToken = response.getString("firebase_token");
+                    source.setResult(firebaseToken);
+                } catch (Exception e) {
+                    source.setException(e);
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, error.toString());
+                source.setException(error);
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("token", kakaoAccessToken);
+                return params;
+            }
+        };
+
+        queue.add(request);
+        return source.getTask();
+    }
     private void updateKakaoLoginUi() {
+        UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
+            @Override
+            public Unit invoke(User user, Throwable throwable) {
+                Toast.makeText(LoginActivity.this, user.getId()+"", Toast.LENGTH_SHORT).show();
+                return null;
+            }
+        });/*
         UserApiClient.getInstance().me(new Function2<com.kakao.sdk.user.model.User, Throwable, Unit>() {
             @Override
             public Unit invoke(com.kakao.sdk.user.model.User user, Throwable throwable) {
                 if (user != null) { //처음 접속하는 사용자
+                    /*
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(String.valueOf(user.getId()),"kakaologin")
                             .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -179,17 +242,19 @@ public class LoginActivity extends AppCompatActivity {
                             childUpdates.put(String.valueOf(user.getId()), postValues);
                             reference.updateChildren(childUpdates);
                         }
+
+
                     });
                 }else{  //기존에 이미 존재하던 사용자
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
-                }
-                if (throwable != null) {
-                    Log.w(TAG, "invoke: " + throwable.getLocalizedMessage());
+
                 }
                 return null;
             }
+
         });
+    */
     }
 
     public static String getKeyHash(final Context context) {
@@ -222,8 +287,6 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-
-                Log.d(TAG, "firebaseAuthWithGoogle:" + account.getIdToken());
                 postValues.put("type","google");
                 postValues.put("id",account.getId());
                 postValues.put("name",account.getGivenName());
@@ -231,7 +294,6 @@ public class LoginActivity extends AppCompatActivity {
                 random_nicks.setNickname();
                 postValues.put("nick",random_nicks.getNickname());
                 postValues.put("image","profile/"+random_nicks.getImage()+".png");
-                Log.d(TAG, "firebaseAuthWithGoogle:" + account.getIdToken());
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
