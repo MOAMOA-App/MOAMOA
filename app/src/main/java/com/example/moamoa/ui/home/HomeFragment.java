@@ -106,9 +106,9 @@ public class HomeFragment extends Fragment {
         }
 
         /* 각 레퍼런스 데이터 불러오기 */
-        GetOrderByreference(reference[0],0);
-        GetOrderByreference(reference[1],1);
-        GetOrderByreference(reference[2],2);
+        GetOrderByreference(reference[0],0); //마감순
+        GetOrderByreference(reference[1],1); //인기순
+        GetOrderByreference(reference[2],2); //신규순
 
         /* 전체보기 버튼 클릭 시 CategoryActivity 이동 설정 */
         for(int i=0;i<4;i++){
@@ -221,7 +221,7 @@ public class HomeFragment extends Fragment {
                 recyclerView[i].setAdapter(homelistAdapter[i]);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
                 linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
-                if(i>0){
+                if(i>0 & i<2){
                     linearLayoutManager.setReverseLayout(true);
                     linearLayoutManager.setStackFromEnd(true);
                 }
